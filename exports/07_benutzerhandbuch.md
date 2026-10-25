@@ -52,7 +52,7 @@
 | Komponente | Einsatz | Wichtige Eigenschaften |
 |---|---|---|
 | **Card Featured** | grosse Karte mit Grafik (Leitthema) | Kicker, Titel, Text, Grafik, Grafik-Alt, Button-Text, Link |
-| **Card Feature** | Themen- und Werkzeugkarten | Kicker, Titel, Text, Link-Text, Link. Varianten «Hell», «Dunkel», «Hell · kompakt» (auf dem Handy ohne Text) |
+| **Card Feature** | Themen- und Werkzeugkarten | Kicker, Titel, Text, Link-Text, Link, **Grafik anzeigen** und **Grafik** (Punktfigur unten rechts, auf dem Handy ausgeblendet). Varianten «Hell», «Dunkel», «Hell · kompakt» (auf dem Handy ohne Text) |
 | **Card Teaser** | Bildkarten (Wege, Blog) | Bild, Tag, Meta, Titel, Auszug, Link, **Video URL (Hover)** |
 
 ### 2.5 Hover-Video einer Karte setzen
@@ -60,12 +60,14 @@
 2. Den Link der Datei kopieren (Asset anklicken › Link kopieren).
 3. Card Teaser anklicken › Properties › **Video URL (Hover)** › Link einfügen.
 
-Leer lassen bedeutet: kein Video. Das Video spielt nur, wenn die Maus über der Karte ist, auf Handys nie. Sichtbar ist es erst auf der veröffentlichten Seite.
+Leer lassen bedeutet: kein Video. Das Video spielt nur, wenn die Maus über der Karte ist, auf Handys nie. Sichtbar ist es erst auf der veröffentlichten Seite (gesteuert vom Skript «ROWAPA Grafik»).
 
 ### 2.6 Kundenlogo ergänzen (Laufband)
 1. Logo (PNG oder SVG, transparent) in «06 Kundenlogos» hochladen.
 2. In der Section Kundenlogos unter `logos_track` liegen zwei Listen `logos_list`. Ein bestehendes Logo **in beiden Listen** duplizieren und das Bild tauschen. Die zweite Liste sorgt für die nahtlose Schleife.
 3. Den Alt-Text nur in der ersten Liste setzen (Firmenname). In der zweiten Liste bleibt er leer.
+
+Der Titel über dem Laufband («Unter anderem vertrauen uns …») ist nur für Screenreader da (Klasse `logos_label`) und auf der Seite unsichtbar.
 
 Ab Stufe 3 kommen die Logos aus dem CMS; dann genügt ein Eintrag.
 
@@ -84,12 +86,30 @@ Variables › «Footer-Wortmarke Deckkraft» (aktuell 12 %).
 
 ### 2.11 Animationen
 - **Logo-Laufband:** Interactions › «Logo-Laufband». Dauer 45 s pro Durchlauf, hält beim Darüberfahren an. Bei «Bewegung reduzieren» steht es still.
-- **Punkte-Grafiken:** Sie sind vorerst Standbilder. Das Grafik-Modul folgt nach der Design-Freigabe.
+- **Hero-Titelzeilen:** Interactions › «Hero-Titelzeilen» (in der Komponente Section Hero Home, Variante A). Die drei Zeilen werden im Wechsel hell und rot unterstrichen, je 5 s. Tempo im Interactions-Panel änderbar (Positionen 0 / 5 / 10 s).
+- **Punkte-Grafiken:** Punktemeer (Header, Footer) und Punktfiguren (Lösungen) bewegt das Skript «ROWAPA Grafik». Im Designer sieht man die Standbilder; die Bewegung gibt es nur auf der veröffentlichten Seite. Einstellungen über Custom Attributes, siehe 2.13.
 
 ### 2.12 Favicon und Webclip
 Site settings › General › Favicon (`rowapa-favicon-32.png`) und Webclip (`rowapa-webclip-256.png`) hochladen. Die Dateien liegen in Assets › «01 Marke (CI)» und im Repository unter `exports/ci-logos/offiziell/`.
 
-### 2.13 Veröffentlichen
+### 2.13 Punkte-Grafiken einstellen und Figuren tauschen
+- **Figur tauschen:** Neues PNG mit transparentem Hintergrund in «02 Grafiken» hochladen, Karte auswählen › Properties › **Grafik** › Bild wählen. Die Animation entsteht von selbst aus dem Bild. JPG-Bilder bleiben ohne Animation stehen.
+- **Figur ausblenden:** Properties › **Grafik anzeigen** auf «Nein».
+- **Feineinstellung:** Element mit dem Attribut `data-grafik` auswählen (z. B. `hero_grafik`, `card_grafik`) › Zahnrad › Custom attributes:
+  - `data-tempo` (0.5 halb so schnell, 2 doppelt), `data-dichte` (weniger/mehr Punkte), `data-hoehe` (Wellenhöhe), `data-kraeuseln` = `aus`, `data-verzoegerung` (Sekunden).
+- **Farben:** Das Punktemeer nimmt die Variablen Great Serpent, White und Plum Perfect. Der Verlauf hinter der Treppe bei Vertriebsperformance ist die Klasse `card_featured_grafik`.
+- Technische Details: `tools/grafik/LIESMICH.md` im Repository.
+
+### 2.14 Kundenstimmen-Slider (Unsere Erfolge)
+- **Stimme ändern:** Im Navigator den Slider öffnen › Slide auswählen › Texte und Bild direkt ändern.
+- **Stimme ergänzen:** Slider auswählen › Zahnrad › «Add slide», danach den Inhalt einer bestehenden Slide (Block `quote_featured`) kopieren und einfügen.
+- **Automatischer Wechsel (optional):** Slider auswählen › Zahnrad › Animation «Cross Fade», Auto-play ein, Delay 8 s. Heute wechselt man von Hand mit Pfeilen und Punkten.
+- Ab Stufe 3 kommen die Kundenstimmen aus dem CMS; der Slider bleibt für die Startseite.
+
+### 2.15 Video «Wer wir sind»
+Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Lightbox Settings** › Media › «+» › Vimeo-Link einfügen (heute: `https://vimeo.com/738627796`). Der Film öffnet sich in einer Ebene über der Seite und lädt erst beim Klick.
+
+### 2.16 Veröffentlichen
 - **Staging (Test):** `rowapa-website-2027-automation.webflow.io`. Hier wird getestet.
 - **Domain (live):** erst nach Freigabe aller Stufen und Einrichtung der Weiterleitungen (`exports/02_redirect_mapping.xlsx`).
 - Vor jedem Veröffentlichen: Vorschau (Auge-Symbol) prüfen, auch auf Tablet und Handy.
@@ -142,4 +162,4 @@ Ausführlich in `exports/04_redaktionsleitfaden.md`.
 
 - **Etwas sieht falsch aus:** zuerst prüfen, ob die richtige Theme-Klasse auf der Section liegt.
 - **Etwas kaputt gemacht:** Site settings › **Backups** › einen früheren Stand wiederherstellen.
-- **Custom Code:** Unter Site settings › Custom code liegt nur das Skript «ROWAPAHoverVideo». Bitte nicht ändern.
+- **Custom Code:** Es gibt nur ein Skript: «ROWAPA Grafik» (Punkte-Grafiken und Hover-Videos), über die Webflow-Schnittstelle site-weit eingebunden. Site settings › Custom code bleibt leer. Bitte nicht ändern; neue Fassungen registriert Claude.

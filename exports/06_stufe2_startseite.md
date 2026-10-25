@@ -155,3 +155,56 @@ Nach Ihrem Feedback zu Rev. 2 (insbesondere Werkzeuge «Karten» oder «Liste»)
 | Pull Request | beobachten | Claude reagiert auf Kommentare in PR #2 |
 | Backup | jetzt | 4-Datei-Backup erstellt; am selben Abend in laufend gepflegte Dokumente überführt (`00_start_hier.md`, `00_entscheide.md`, `07_benutzerhandbuch.md`) |
 
+
+---
+
+## 11. Feedback-Runde 3: Muster (25.10.2026, abends)
+
+Vorgehen nach Entscheid ROWAPA: zuerst ein **Muster** (Header-Punktemeer, Lösungen mit fünf Punktfiguren, alle Teile ohne Code), danach der Rest im gleichen Stil. Leitlinie: Jede Grafik baut sich einmal auf und ruht dann; dauerhaft bewegt sind nur Punktemeer (Header, Footer) und später der Orbit. Das Kräuseln unter der Maus bleibt (Entscheid ROWAPA).
+
+### 11.1 Umgesetzt
+
+| Thema | Umsetzung | Technik |
+|---|---|---|
+| Header | Punktemeer bewegt sich in ruhigen Wellen, Kräuseln unter der Maus; liegt als Band unten im Header, oben weich ausgeblendet | Skript «ROWAPA Grafik» (WebGL) über dem Standbild |
+| Titelzeilen | Die drei Zeilen werden im Wechsel hell und rot unterstrichen (alle 5 s, 15-s-Schleife) | Webflow-Interaction «Hero-Titelzeilen» (IX3), nur Variante A; bei «Bewegung reduzieren» bleibt Zeile 3 unterstrichen |
+| Scroll-Hinweis | ausgeblendet (`hero_scroll` Display none), bleibt im Designer | – |
+| Kundenlogos | Titel nur noch für Screenreader (`logos_label`) | ohne Code |
+| Vertriebsperformance | Treppe als transparentes PNG im Stil der ersten Fassung; baut sich von unten auf, Pfeil zuletzt; Verlauf als Gestaltung der Klasse `card_featured_grafik` | Skript |
+| Themenkarten 02–05 | je eine Punktfigur (Person mit Spirale, Führungsperson mit Team, Trichter mit Ring, Bildschirm mit Bausteinen), gestaffelter Aufbau, beim Darüberfahren leichtes Zusammenziehen; auf dem Handy ausgeblendet | Card Feature: neue Eigenschaften «Grafik anzeigen» und «Grafik»; Skript |
+| Erfolge | Slider mit 5 echten Kundenstimmen im grossen Zitat (Lienhard, Simon J., Kranz, Antonio M., Suter), Pfeile unten rechts, Punkte unten links; die drei Karten bleiben | Webflow-Slider (nativ) |
+| Team | Knopf «▶ Wer wir sind · Video» neben «Team kennenlernen» | Webflow-Lightbox (nativ) |
+| Footer | Punktemeer bewegt sich langsam hinter der Wortmarke, mit Kräuseln | Skript |
+| Hover-Video | unverändert, jetzt Teil des Grafik-Skripts | Skript |
+
+### 11.2 Technik
+
+- **Ein Skript** `tools/grafik` (Version 1.1.0): 10,8 KB, komprimiert 5,2 KB, ohne Bibliotheken. Quellcode lesbar im Repository, Doku in `tools/grafik/LIESMICH.md`.
+- **Einbindung:** über die Webflow-Schnittstelle registriert als «ROWAPAGrafik», site-weit im Footer, geladen von jsDelivr mit fester Commit-Kennung und SRI-Prüfsumme. Das frühere Inline-Skript «ROWAPAHoverVideo» ist nicht mehr eingebunden (bleibt registriert).
+- **Figuren:** Das Standbild (PNG mit transparentem Hintergrund) ist die Vorlage. Die Figur setzt sich aus Ausschnitten genau dieses Bildes zusammen; das Bild wird dafür weder ein zweites Mal geladen noch ausgelesen. Eine neue Figur ist ein neues PNG.
+- **Einstellungen ohne Code:** Custom Attributes `data-tempo`, `data-dichte`, `data-hoehe`, `data-kraeuseln="aus"`, `data-verzoegerung`, Farben über die Webflow-Variablen.
+- **Rückfall:** Ohne Skript, ohne WebGL oder bei «Bewegung reduzieren» stehen die Standbilder (geprüft).
+
+### 11.3 Messung (Staging, Chromium, Mittelwert mehrerer Läufe)
+
+| | vorher | nachher | Bemerkung |
+|---|---|---|---|
+| Desktop 1440: grösstes Element sichtbar (LCP) | 640 ms | 652 ms | unverändert |
+| Desktop: Seite geladen | 626 ms | 703 ms | vier neue Figurenbilder |
+| Desktop: Datenmenge | 858 KB | 955 KB | +13 KB Skript, Rest neue Bilder (Figuren) |
+| Handy 390: LCP | 716 ms | 660 ms | unverändert |
+| Handy: Datenmenge | 396 KB | 435 KB | Figuren auf dem Handy ausgeblendet, werden nicht geladen |
+| Skripte | 143 KB | 156 KB | erste Fassung: 209 KB |
+
+Hinweis: Die Testumgebung hat keine Grafikkarte; das bewegte Punktemeer wird dort per Software gezeichnet und erscheint als Rechenlast (Long Tasks). Ohne WebGL liegt die Rechenlast bei rund 80 ms (vorher 62 ms). Auf echten Geräten zeichnet die Grafikkarte; die erste Fassung kam in derselben Umgebung auf rund 4 000 ms.
+
+### 11.4 Handgriffe in Webflow (von Hand, die Schnittstelle kann sie nicht setzen)
+
+1. **Video einsetzen:** Knopf «Wer wir sind · Video» auswählen › Zahnrad › Lightbox Settings › Media › «+» › `https://vimeo.com/738627796` einfügen. Bis dahin öffnet der Knopf nichts.
+2. **Slider (optional):** Slider auswählen › Zahnrad › Animation «Cross Fade», Auto-play ein, Delay 8 s. Heute: manuell mit Pfeilen und Punkten.
+
+### 11.5 Nächste Schritte (nach Freigabe des Musters)
+
+Zähler bei «Was uns antreibt», Treppe bei «Unser Vorgehen», Kugel und Orbit bei ROWAPA Digital (ohne Fluss, stille Verbindung beim Darüberfahren), Insights-Reihe mit Pfeiltasten, danach Prüfung auf allen Bildschirmgrössen und Messwerte.
+
+Screens: `exports/stufe2-screens/runde3/`.

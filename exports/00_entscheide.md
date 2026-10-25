@@ -94,16 +94,25 @@ Commit b2000a2.
 | 50 | ROWAPA Digital: Animation | lieber **eigenständig laufend, ohne Scroll-Abhängigkeit**; ob «Fluss in die Karten» dazukommt, schlägt Claude vor (Massstab: ruhiges, editoriales Gesamtbild) | Vorschlag von Claude ausstehend |
 | 51 | Insights und alles Weitere | passend zum editorialen Auftritt, nichts Verspieltes; Claude entscheidet im Zweifel zugunsten von Ruhe | – |
 | 52 | Technik | präzise, über Webflow beeinflussbar, gute Qualität, keine längeren Ladezeiten | Technikvorschlag von Claude vor dem Bau |
+| 53 | Vorschlag Digital (Kugel und Orbit ohne Fluss, stille Verbindung beim Darüberfahren), Ruhe-Leitlinie, Technik, Muster zuerst | **freigegeben** | Muster gebaut, siehe `06_stufe2_startseite.md` Kap. 11 |
+| 54 | Kräuseln unter der Maus im Punktemeer | **bleibt** (Header und Footer) | umgesetzt |
+| 55 | Muster | Header-Punktemeer, Titelzeilen, Lösungen mit fünf Punktfiguren, Logo-Titel weg, Erfolge-Slider, Video-Knopf, Footer-Punktemeer | auf Staging veröffentlicht (Webflow-Subdomain) |
+| 56 | Figuren als PNG | Claude: alle Punktfiguren als transparente PNG, Animation aus Bildausschnitten (kein zweiter Download); Treppe Vertriebsperformance neu gerendert, Verlauf als Gestaltung | umgesetzt, Skript 1.1.0 |
+| 57 | Scroll-Hinweis im Header | Claude: ausgeblendet, über dem bewegten Punktemeer nicht lesbar | bleibt im Designer, jederzeit wieder einblendbar |
 
 ---
 
 ## Offene Punkte
 
-1. Freigabe des Technik- und Gestaltungsvorschlags zur Feedback-Runde 3 (Grafik-Skript, Digital, Insights).
-2. Favicon und Webclip in Webflow hochladen (von Hand).
-3. Stehendes Logo als SVG (falls vorhanden).
-4. Ungenutzte, nachgebaute Logo-Assets in Webflow löschen (nur mit OK).
-5. Weitere Kennzahlen, die gezeigt werden dürfen.
-6. Hilfs-Collection «Organisationen» in Stufe 3 nach der Begriffsregel benennen. Vorschlag: «Unternehmen & Partner».
-7. Option Mobile: Wische-Reihen für Wege, Insights und Werkzeuge (nochmals rund 3 000 px kürzer).
-8. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
+1. Feedback zum Muster auf Staging (Bewegung, Tempo, Wirkung), danach Rest im gleichen Stil (Zähler, Treppe, Digital, Insights).
+2. Video-Link in der Lightbox einsetzen (von Hand, 30 Sekunden; siehe Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
+3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).
+4. Namen «Simon J.» und «Antonio M.» (abgekürzt wie in der ersten Fassung) freigeben. [ROWAPA bestätigen]
+5. Favicon und Webclip in Webflow hochladen (von Hand).
+6. Stehendes Logo als SVG (falls vorhanden).
+7. Ungenutzte Assets in Webflow löschen (nur mit OK): nachgebaute Logos (3), alte Vertriebsperformance-Grafiken (JPG `6ade2961405d5ecd5757d4d5`, PNG `6ade63eb6561c3d017194ca8`).
+8. Weitere Kennzahlen, die gezeigt werden dürfen.
+9. Hilfs-Collection «Organisationen» in Stufe 3 nach der Begriffsregel benennen. Vorschlag: «Unternehmen & Partner».
+10. Option Mobile: Wische-Reihen für Wege, Insights und Werkzeuge (nochmals rund 3 000 px kürzer).
+11. Themen-URLs in Stufe 4 an die neuen Titel anpassen (mit Weiterleitung); ebenso `/fuer-organisationen`.
+12. Nächste Stufe nach Freigabe: Stufe 3 (CMS).

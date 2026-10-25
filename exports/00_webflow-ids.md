@@ -70,4 +70,13 @@ RUNDE2: STYLES kicker 841c2e95 kicker_line 0dc7e047 logos_marquee cf8f8270 logos
 RUNDE2: hero scroll link f346b2c0-c7a7-05c9-2627-c2c9a8b4e4da; hero kicker wrap 605e9773-2e15-4b63-4bd3-68077ca76ce1; footer_grafik a0509127-e643-58ab-cca6-6842025b1ed7 img d777c917-7b81-48a7-b890-54daf8c331a6
 RUNDE2: marquee 8233b604-64ea-7349-4ec2-0b824c185273 list1 ...526f list2 ...5270; FIX padding-global xxl theme mode removed
 LOGOS offiziell: dunkler-hg 6ade488d9e0675b53c59df77 (Navbar+Footer) heller-hg 6ade488dfa31e4846a53737a claim-hell 6ade488dfa31e4846a537392 claim-dunkel 6ade488d2d5fe349f62b84dd name-hell 6ade488e16c1dee2604fe6a5 name-dunkel 6ade488e1fd9e94a0464d9f2 claim 6ade488e34c2eb4e300b60c8 favicon.svg 6ade488e4f41302393cdb572 avatar 6ade488e62d86a35deeac319 favicon32 6ade488ee38d313f97d5c89c webclip 6ade488ee38d313f97d5c8b4
+RUNDE3: ASSETS Themenfiguren (02 Grafiken): potenzial 6ade5e122d5fe349f62fec8a fuehrung 6ade5e1279c9c77cf1c5edd8 recruiting 6ade5e1279c9c77cf1c5edf0 digital 6ade5e12430253c82a27b459
+RUNDE3: ASSET Vertriebsperformance PNG aktiv 6ade64f386d35a5971cc689d (ungenutzt: PNG 6ade63eb6561c3d017194ca8, JPG 6ade2961405d5ecd5757d4d5)
+RUNDE3: COMP Card Feature props: Grafik anzeigen 09360b33-d888-6409-1b29-4532a9221407, Grafik 33867427-621e-12ca-c9a4-506dfd02d5f4; el card_grafik 7f1075f1-1004-ee06-a972-5e226bb84395 img 0fd068e1-aa4d-1dad-0b18-780003e02886
+RUNDE3: COMP Card Featured prop Grafik c2255c03-07c4-4c85-3dcc-d84dcaaadad4; img 736a546a-2e6d-cedd-3318-8912b3d23e2f
+RUNDE3: HERO bars 7cd3f712-f0d9-bf6e-4f79-a35e127855d4 / 0ff77049-1e86-7d47-da9e-32e6e64ce741 / aaec2255-50b4-b624-2e0f-e337e1ba9515; IX3 Hero-Titelzeilen i-bafa3f3b (timeline t-392628ba)
+RUNDE3: SLIDER Erfolge 200f6910-a8b4-aa2f-c841-ed0dec081865 (mask ...866), Slides ...867 / ...868 / 1cdd5c36-55c7-a9b4-2bc9-47ad9acefb09 / f1f0ce58-9d2d-aa30-42ce-6832ee5d6520 / 28ad9b50-6de3-19bb-cf98-cf4e05d0ef78
+RUNDE3: LIGHTBOX Team-Video 367ee6ef-e6c1-e47b-095a-2a20a0ccccb1 (Vimeo 738627796, Medien von Hand), button-group d67363f0-754f-a507-e285-60e22081665b
+RUNDE3: SCRIPT rowapagrafik 1.1.0 (jsDelivr @0add7402349954c4d5bd3a472e94e9ddbe8c0fcc), 1.0.0 (@52923bf…)
+RUNDE3: STYLES card_grafik, card_grafik-image, hero_bar (+ is-aktiv), erfolge_slider, erfolge_slider-arrow (+ is-prev / is-next), erfolge_slider-nav; logos_label = nur Screenreader; hero_scroll display none
 ```

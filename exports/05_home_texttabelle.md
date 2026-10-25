@@ -152,6 +152,25 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 
 ---
 
+## Rev. 3 · Muster (25.10.2026, abends)
+
+| Section | Element | Original | Vorschlag | Begründung |
+|---|---|---|---|---|
+| Hero | Kicker | Beratung · Training · Digitale Werkzeuge | Beratung · Training · Digitale Lösungen | von ROWAPA in Webflow gesetzt |
+| Hero | Scroll-Hinweis | Lösungen entdecken | ausgeblendet (bleibt im Designer) | über dem bewegten Punktemeer nicht lesbar; die nächste Section ist sichtbar |
+| Kundenlogos | Titel | Unter anderem vertrauen uns diese Finanzunternehmen | nur noch für Screenreader | Entscheid ROWAPA: Laufband ohne Titel, wie in der ersten Fassung |
+| Lösungen | Kartentitel 02–04 | Mensch & Potenzial · Leadership & Team · Recruiting & Retention | Mitarbeiterperformance & Potenzial · Führung & Teams · Recruiting & Mitarbeiterbindung | von ROWAPA in Webflow gesetzt |
+| Lösungen | Linktext 04 | Mehr zu Recruiting & Retention | Mehr zu Recruiting & Mitarbeiterbindung | an den neuen Titel angeglichen |
+| Erfolge | Slider, Stimme 2 | (Baseline, CMS Kundenstimmen) | **Im ersten Jahr auf Platz 1.** «Dank Eurem echt genialen Beratungsansatz habe ich es tatsächlich geschafft. Im ersten Jahr auf der Rangliste auf Platz 1 im Bereich Vorsorge!» Simon J., Teilnehmer, die Mobiliar | wörtlich übernommen (Zitat, keine Änderung) |
+| Erfolge | Slider, Stimme 3 | (Baseline) | **Drei Impulse erwartet, neun erhalten.** «Meine Erwartung an diesen Tag war, dass ich mindestens drei Aspekte mitnehmen wollte. Es wurden nun neun.» Heinz-W. Kranz, Vertriebsdirektor Immobilien, Sparkasse Mainz | wörtlich übernommen |
+| Erfolge | Slider, Stimme 4 | (Baseline) | **Acht Lebensversicherungen an einem Termin.** «Heute konnte ich bei einem Termin 8 Leben abschliessen, und die Kunden waren sehr zufrieden mit meiner Beratung.» Antonio M., Teilnehmer, die Mobiliar Kreuzlingen | wörtlich übernommen |
+| Erfolge | Slider, Stimme 5 | (Baseline) | **Mehr Motivation, höhere Umsetzung.** «Durch die erzielten Erfolge steigt die Motivation bei unseren Versicherungsberatern und damit verbunden die Umsetzungsquote.» Max Suter, Generalagent, die Mobiliar Bülach | wörtlich übernommen |
+| Team | Video-Link | «Wer wir sind · Video» (Pfeil, erste Fassung) | ▶ Wer wir sind · Video (Lightbox, Vimeo) | wie in der ersten Fassung; öffnet in einer Ebene über der Seite |
+
+Offene Frage zu Rev. 3: Sind die Namen «Simon J.» und «Antonio M.» so freigegeben (abgekürzt wie in der ersten Fassung)? [ROWAPA bestätigen]
+
+---
+
 ## Offene Fragen an ROWAPA
 
 1. ~~Kennzahl «100»~~: bestätigt
