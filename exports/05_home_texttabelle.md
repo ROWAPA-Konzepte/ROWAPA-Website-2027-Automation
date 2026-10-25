@@ -167,7 +167,23 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 | Erfolge | Slider, Stimme 5 | (Baseline) | **Mehr Motivation, höhere Umsetzung.** «Durch die erzielten Erfolge steigt die Motivation bei unseren Versicherungsberatern und damit verbunden die Umsetzungsquote.» Max Suter, Generalagent, die Mobiliar Bülach | wörtlich übernommen |
 | Team | Video-Link | «Wer wir sind · Video» (Pfeil, erste Fassung) | ▶ Wer wir sind · Video (Lightbox, Vimeo) | wie in der ersten Fassung; öffnet in einer Ebene über der Seite |
 
-Offene Frage zu Rev. 3: Sind die Namen «Simon J.» und «Antonio M.» so freigegeben (abgekürzt wie in der ersten Fassung)? [ROWAPA bestätigen]
+~~Offene Frage zu Rev. 3: Namen «Simon J.» und «Antonio M.»~~: von ROWAPA freigegeben (25.10.2026).
+
+## Rev. 3 · Rest (25.10.2026, später Abend)
+
+Prüfung gegen den Redaktionsleitfaden: Jede Section beantwortet weiterhin «Was ist es? Für wen? Welcher Nutzen? Welcher nächste Schritt?». Neu sind nur Bewegung, Bedienelemente und drei weitere Beiträge; die Kernaussagen bleiben unverändert.
+
+| Section | Element | Original | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Was uns antreibt | Kennzahlen | 20 · 100 % · 150 | unverändert, zählen beim ersten Sichtbarwerden hoch | Bewegung macht die Zahl zum Blickfang; der Text bleibt der aus Webflow | – |
+| Unser Vorgehen | Phasen 01–04 | alle Nummern in Plum | Nummer mit Rahmen; die aktive Phase in Plum, synchron zur Treppe | eine Hervorhebung statt vier: zeigt, wo man im Ablauf steht | – |
+| ROWAPA Digital | Kacheln | Namen im Bild (Standbild) | Anker · Kompass · Lotse · Segel · Logbuch als Text (grösser), Symbole grösser | lesbar, übersetzbar, in Webflow pflegbar | – |
+| ROWAPA Digital | Beschriftung Kugel | WISSENSPLATTFORM (im Bild, klein) | WISSENSPLATTFORM (Text, grösser) | Wunsch ROWAPA: grösser | – |
+| Insights | Bedienung | Button «Alle Inhalte» | «Alle Inhalte» + Pfeile (Screenreader: «Vorherige Beiträge», «Weitere Beiträge») | sprechende Beschriftung für Pfeile ohne Text | – |
+| Insights | Karte 4 | Erfahrungsbericht: CAS Professional Leadership for Finance (25.08.2025, Leadership) | Titel «Erfahrungsbericht CAS»; Auszug «Wie der CAS Professional Leadership for Finance in der Praxis erlebt wird.» | Kurztitel vor dem Doppelpunkt wäre nur «Erfahrungsbericht» und zu unbestimmt | Auszug aus dem Titel abgeleitet [ROWAPA bestätigen] |
+| Insights | Karte 5 | Selbstführung als Lösung: So stoppst Du die Fluktuation im Team (22.08.2025, Leadership) | Titel «Selbstführung als Lösung»; Auszug «Wie Selbstführung hilft, die Fluktuation im Team zu senken.» | Kurztitel vor dem Doppelpunkt; keine Du-Anrede auf der Startseite | Auszug aus dem Titel abgeleitet [ROWAPA bestätigen] |
+| Insights | Karte 6 | Generationsmanagement in der Finanzbranche (07.08.2025, Leadership) | Titel unverändert; Auszug «Worauf es ankommt, wenn mehrere Generationen im Team zusammenarbeiten.» | Titel ist bereits kurz | Auszug aus dem Titel abgeleitet [ROWAPA bestätigen] |
+| Insights | Alt-Texte neue Bilder | – | «Referentin vor Teilnehmenden in einem Seminarraum» · «Lächelnde Frau mit Smartphone unterwegs in der Stadt» · «Team aus mehreren Generationen im Besprechungsraum» | Barrierefreiheit; beschreibt, was zu sehen ist | – |
 
 ---
 
@@ -175,5 +191,5 @@ Offene Frage zu Rev. 3: Sind die Namen «Simon J.» und «Antonio M.» so freige
 
 1. ~~Kennzahl «100»~~: bestätigt
 2. ~~Schreibweise «die Mobiliar Ausserrhoden»~~: bestätigt
-3. Blog-Auszüge: aus dem Artikel übernehmen (Stufe 3, CMS)
+3. Blog-Auszüge: aus dem Artikel übernehmen (Stufe 3, CMS); bis dahin die drei neuen Auszüge bestätigen (Rev. 3 · Rest)
 4. Weitere Kennzahlen, die wir zeigen dürfen (z. B. Anzahl begleiteter Unternehmen oder Teilnehmende pro Jahr)?

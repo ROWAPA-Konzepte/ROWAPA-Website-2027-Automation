@@ -100,19 +100,33 @@ Commit b2000a2.
 | 56 | Figuren als PNG | Claude: alle Punktfiguren als transparente PNG, Animation aus Bildausschnitten (kein zweiter Download); Treppe Vertriebsperformance neu gerendert, Verlauf als Gestaltung | umgesetzt, Skript 1.1.0 |
 | 57 | Scroll-Hinweis im Header | Claude: ausgeblendet, über dem bewegten Punktemeer nicht lesbar | bleibt im Designer, jederzeit wieder einblendbar |
 
+## 8. Rest der Feedback-Runde 3
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 58 | Muster auf Staging | **«passt alles so»** | Rest im gleichen Stil gebaut (Entscheide 63–66) |
+| 59 | Namen «Simon J.» und «Antonio M.» | **freigegeben** | bleiben so |
+| 60 | Ungenutzte Assets | **Löschen freigegeben** | 5 Assets gelöscht: nachgebaute Logos `6ade12d2c8e942edb5039875`, `6ade12d28e540fa263969738`, `6ade12d2c1ea8d82f92a0b3d`; alte Vertriebsperformance-Grafiken `6ade2961405d5ecd5757d4d5`, `6ade63eb6561c3d017194ca8` |
+| 61 | Startbildschirm: Unterkante des Logo-Bands = Unterkante des Fensters, auf jedem Format | **ja**, der Header darf dafür höher werden | Hülle `startscreen_wrapper` (Höhe Fenster minus Navigation), Hero füllt den Rest. Geprüft auf 9 Formaten von 375×667 bis 2560×1440: Abstand 0 |
+| 62 | Video «Wer wir sind» | Link `https://vimeo.com/738627796` | ROWAPA setzt ihn von Hand in der Lightbox (Benutzerhandbuch 2.15) |
+| 63 | Zähler «Was uns antreibt» | Claude: zählt einmal beim ersten Sichtbarwerden in 1,6 s bis zum Wert aus Webflow | Skript 1.2.0 |
+| 64 | Treppe «Unser Vorgehen» | Claude: Stufen bauen sich nacheinander auf, die Phase in der Liste leuchtet dazu in Plum; danach steht Phase 01. Darüberfahren oder Klick auf eine Phase (oder eine Stufe) hebt deren Stufe hervor. Phasennummern neu mit Rahmen, nur die aktive Phase in Plum | Skript 1.2.0, Bild als transparentes PNG neu gerendert |
+| 65 | ROWAPA Digital | Claude: Kugel dreht sich langsam (eine Umdrehung in 70 s), die fünf Kacheln ziehen ruhig auf der Bahn (150 s) und halten beim Darüberfahren. Karte und Kachel sind verbunden (Kachel in Plum, feine Linie zur Kugel). Auf dem Handy stehen die Kacheln. Kacheln, Bahn und «Wissensplattform» sind native Webflow-Elemente; Symbole und Schrift grösser | Skript 1.2.0 |
+| 66 | Insights | Claude: editoriale Reihe mit 6 Beiträgen, 3 sichtbar (Tablet 2, Handy 1 mit Anschnitt), Pfeile und feine Fortschrittslinie; wischen und scrollen gehen auch ohne Skript. 3 Beiträge aus der ersten Fassung ergänzt (Erfahrungsbericht CAS, Selbstführung als Lösung, Generationsmanagement); Auszüge aus dem Titel abgeleitet | Aufbau entspricht der späteren CMS-Liste (Stufe 3). Auszüge [ROWAPA bestätigen] |
+| 67 | Ladezeit nach dem Rest | Messung (Chromium, Mittel aus 3 Läufen) | Desktop 916 KB (vorher 955 KB), LCP 620 ms; Handy 441 KB, LCP 604 ms. Kugel rund 30 Bilder pro Sekunde, keine langen Aufgaben |
+
 ---
 
 ## Offene Punkte
 
-1. Feedback zum Muster auf Staging (Bewegung, Tempo, Wirkung), danach Rest im gleichen Stil (Zähler, Treppe, Digital, Insights).
-2. Video-Link in der Lightbox einsetzen (von Hand, 30 Sekunden; siehe Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
+1. Feedback zum Rest auf Staging (Zähler, Treppe, ROWAPA Digital, Insights-Reihe); danach Freigabe Stufe 2.
+2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).
-4. Namen «Simon J.» und «Antonio M.» (abgekürzt wie in der ersten Fassung) freigeben. [ROWAPA bestätigen]
+4. Auszüge der drei neuen Insights-Karten bestätigen (aus dem Titel abgeleitet, die Originalbeiträge waren aus der Cloud-Umgebung nicht erreichbar). In Stufe 3 kommen die Auszüge aus dem CMS. [ROWAPA bestätigen]
 5. Favicon und Webclip in Webflow hochladen (von Hand).
 6. Stehendes Logo als SVG (falls vorhanden).
-7. Ungenutzte Assets in Webflow löschen (nur mit OK): nachgebaute Logos (3), alte Vertriebsperformance-Grafiken (JPG `6ade2961405d5ecd5757d4d5`, PNG `6ade63eb6561c3d017194ca8`).
-8. Weitere Kennzahlen, die gezeigt werden dürfen.
-9. Hilfs-Collection «Organisationen» in Stufe 3 nach der Begriffsregel benennen. Vorschlag: «Unternehmen & Partner».
-10. Option Mobile: Wische-Reihen für Wege, Insights und Werkzeuge (nochmals rund 3 000 px kürzer).
-11. Themen-URLs in Stufe 4 an die neuen Titel anpassen (mit Weiterleitung); ebenso `/fuer-organisationen`.
-12. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
+7. Weitere Kennzahlen, die gezeigt werden dürfen.
+8. Hilfs-Collection «Organisationen» in Stufe 3 nach der Begriffsregel benennen. Vorschlag: «Unternehmen & Partner».
+9. Option Mobile: Wische-Reihen auch für Wege und Werkzeuge (Insights ist umgesetzt).
+10. Themen-URLs in Stufe 4 an die neuen Titel anpassen (mit Weiterleitung); ebenso `/fuer-organisationen`.
+11. Nächste Stufe nach Freigabe: Stufe 3 (CMS).

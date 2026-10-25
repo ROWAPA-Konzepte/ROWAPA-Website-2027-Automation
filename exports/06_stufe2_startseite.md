@@ -208,3 +208,39 @@ Hinweis: Die Testumgebung hat keine Grafikkarte; das bewegte Punktemeer wird dor
 Zähler bei «Was uns antreibt», Treppe bei «Unser Vorgehen», Kugel und Orbit bei ROWAPA Digital (ohne Fluss, stille Verbindung beim Darüberfahren), Insights-Reihe mit Pfeiltasten, danach Prüfung auf allen Bildschirmgrössen und Messwerte.
 
 Screens: `exports/stufe2-screens/runde3/`.
+
+## 12. Feedback-Runde 3: Rest (25.10.2026, später Abend)
+
+Freigabe des Musters durch ROWAPA («passt alles so»). Im gleichen Stil gebaut, auf Staging veröffentlicht (nur Webflow-Subdomain).
+
+### 12.1 Umgesetzt
+
+| Thema | Umsetzung | Technik |
+|---|---|---|
+| Startbildschirm | Das Logo-Band schliesst auf jedem Format mit der Fensterunterkante ab; der Header wird dafür so hoch wie nötig | Hülle `startscreen_wrapper` (Höhe Fenster minus Navigation), Hero füllt den Rest; geprüft auf 9 Formaten (375×667 bis 2560×1440) |
+| Was uns antreibt | Die drei Kennzahlen zählen beim ersten Sichtbarwerden einmal hoch (1,6 s) | Attribut `data-grafik="zaehler"`; die Zahl bleibt der Text aus Webflow |
+| Unser Vorgehen | Die vier Stufen bauen sich nacheinander auf; die Phase in der Liste leuchtet in Plum mit, eine Linie markiert die Stufe; danach steht Phase 01. Darüberfahren, Klick oder Tastatur auf eine Phase (oder Klick auf eine Stufe) hebt deren Stufe hervor (Plum füllt sie von unten) | Treppe als transparentes PNG neu gerendert (Stufen im Ruhezustand); Hervorhebung entsteht daraus. Klassen `step_item.is-aktiv`, `step_number.is-aktiv` |
+| ROWAPA Digital | Kugel dreht sich langsam (70 s je Umdrehung), die fünf Kacheln ziehen ruhig auf der Bahn (150 s) und halten beim Darüberfahren. Karte ↔ Kachel: Kachel in Plum, feine Punktlinie mit Impuls zur Kugel. Handy: Kacheln stehen, Kugel dreht | Kacheln, Bahn, «Wissensplattform» als native Webflow-Elemente (Komponente Section Digital); Kugel als Canvas über einem Standbild, das mit derselben Zeichnung erzeugt ist |
+| Insights | Editoriale Reihe mit 6 Beiträgen: Desktop 3, Tablet 2, Handy 1 mit Anschnitt. Pfeile neben «Alle Inhalte», feine Fortschrittslinie; wischen und scrollen gehen nativ | Klassen `insights_reihe` (Scroll-Snap), `reihe_item`, `reihe_fortschritt`; Skriptteil «reihe» nur für Pfeile und Linie, auch bei «Bewegung reduzieren» aktiv |
+
+### 12.2 Technik
+
+- **Skript «ROWAPA Grafik» 1.2.0:** 22,4 KB, komprimiert 9,9 KB, weiterhin ohne Bibliotheken. Neue Teile: `zaehler`, `treppe`, `orbit` (mit `kugel`), `reihe`. Registriert mit fester Commit-Kennung und SRI-Prüfsumme.
+- **Bilder:** Treppe 80 KB (vorher JPG 122 KB), Kugel 53 KB (ersetzt das Orbit-JPG mit 2160 px), fünf Symbole als SVG.
+- **Ruhe-Leitlinie eingehalten:** Dauerhaft bewegt sind nur Punktemeer (Header, Footer) und die Kugel mit Kacheln, nie gleichzeitig im Bild, alle langsam. Alles andere baut sich einmal auf und ruht.
+- **Rückfall:** Ohne Skript oder bei «Bewegung reduzieren» stehen Treppe (Phase 01 hervorgehoben), Kugel und Kacheln (auf ihren Startplätzen) und die Kennzahlen; die Insights-Pfeile funktionieren trotzdem (geprüft).
+
+### 12.3 Prüfung (Staging, live mit Skript 1.2.0)
+
+- Desktop 1440, Tablet 820, Handy 390, «Bewegung reduzieren»: alle Teile wie beschrieben, keine Fehler in der Konsole.
+- Messung (Chromium, Mittel aus 3 Läufen): Desktop LCP 620 ms, geladen 656 ms, 916 KB (vorher 955 KB); Handy LCP 604 ms, 441 KB (vorher 435 KB).
+- Rechenlast der drehenden Kugel: rund 30 Bilder pro Sekunde, keine langen Aufgaben (auch ohne Grafikkarte). Werkzeug: `tools/grafik/pruefung/rechenlast.js`.
+- Screens: `exports/stufe2-screens/runde3/rest_*`.
+
+### 12.4 Handgriffe in Webflow (offen, von Hand)
+
+Wie 11.4: Video-Link in der Lightbox, Slider-Einstellungen (optional).
+
+### 12.5 Nächster Schritt
+
+Feedback von ROWAPA zum Rest, danach Freigabe Stufe 2 und Beginn Stufe 3 (CMS).

@@ -1,7 +1,7 @@
 # ROWAPA Grafik
 
-Ein einziges Skript für alle Punkte-Grafiken der ROWAPA-Website. Es kommt ohne Bibliotheken aus (rund 12 KB, komprimiert rund 5 KB).
-Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL kann, bleiben überall die Standbilder stehen.
+Ein einziges Skript für alle Punkte-Grafiken und kleinen Bewegungen der ROWAPA-Website. Es kommt ohne Bibliotheken aus (rund 22 KB, komprimiert rund 10 KB).
+Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL kann, bleiben überall die Standbilder stehen. Die Pfeile der Insights-Reihe funktionieren auch bei «Bewegung reduzieren».
 
 ## Was es heute kann
 
@@ -10,10 +10,12 @@ Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL ka
 | `punktemeer` | Header (`hero_grafik`) | welliges Punktfeld (WebGL), Kräuseln unter der Maus, ruhig |
 | `punktemeer-footer` | Footer (`footer_grafik`) | dasselbe Feld, flacher, hinter der Wortmarke |
 | `punktfigur…` (z. B. `punktfigur`, `punktfigur-vertrieb`) | Themenkarten, Karte Vertriebsperformance | die Figur baut sich einmal aus dem Standbild auf und ruht dann; beim Darüberfahren zieht sie sich leicht zusammen |
+| `zaehler` | Kennzahlen (`stat_number`) | zählt einmal von 0 bis zum Wert, sobald die Zahl ins Bild kommt; Vorsatz und Zusatz («%», «CHF») bleiben |
+| `treppe` | Unser Vorgehen (`vorgehen_media`) | die vier Stufen bauen sich nacheinander auf, die Phase in der Liste (`.step_item`) leuchtet mit; danach Phase 01. Darüberfahren/Klick auf eine Phase oder Klick auf eine Stufe hebt sie hervor (Klasse `is-aktiv` auf `step_item` und `step_number`) |
+| `orbit` | ROWAPA Digital (`digital_visual`) | Kugel (`.orbit_kugel`) dreht sich langsam, Kacheln (`.orbit_tile`) ziehen auf der Bahn (`.orbit_bahn`) und halten beim Darüberfahren; Karte im `.tools_grid` ↔ Kachel gleicher Position: Kachel `is-aktiv`, feine Linie zur Kugel. Handy: Kacheln stehen |
+| `reihe` | Insights (`insights_reihe`) | Pfeile `[data-reihe="zurueck"]` / `[data-reihe="weiter"]` blättern um eine Karte, `[data-reihe="balken"]` zeigt den Stand; wischen und scrollen gehen ohne Skript |
 
 Zusätzlich: Hover-Videos der Karten (`<video data-hover-video>`), früher eigenes Skript «ROWAPAHoverVideo».
-
-Geplant (nächster Schritt): `treppe` (Unser Vorgehen), `orbit` (ROWAPA Digital), Zähler bei «Was uns antreibt», Insights-Reihe.
 
 ## Einstellungen ohne Code
 
@@ -28,8 +30,11 @@ In Webflow: Element auswählen › Zahnrad (Settings) › **Custom attributes**.
 | `data-verzoegerung` | Sekunden bis zum Aufbau einer Figur | automatisch gestaffelt |
 | `data-farbe-1`, `data-farbe-2`, `data-farbe-3` | Farben des Punktemeers als Hex (z. B. `#486EA3`) | CI-Variablen |
 | `data-hintergrund` | `aus` lässt beim Header-Punktemeer den Verlauf weg | an |
+| `data-spalten` | Treppe: drei Spaltengrenzen als Anteile der Bildbreite, z. B. `0.26,0.5,0.75` (nur bei einem anderen Bild nötig) | passend zum mitgelieferten Bild |
 
 **Figuren tauschen:** Das Standbild ist die Vorlage. Neues PNG mit transparentem Hintergrund hochladen und im Bildfeld der Karte («Grafik») auswählen; die Animation entsteht daraus von selbst: Die Figur setzt sich aus kleinen Ausschnitten genau dieses Bildes zusammen. Das Bild wird dafür weder ein zweites Mal geladen noch ausgelesen. JPG-Bilder bleiben als Standbild stehen (keine Animation).
+
+**Treppe und Kugel tauschen:** Die Vorlagen entstehen mit `figuren/treppe.js` und `figuren/kugel.mjs` (siehe `figuren/LIESMICH.md`). Die Treppe ist ein PNG mit den Stufen im Ruhezustand; die Plum-Hervorhebung färbt das Skript selbst ein. Das Kugel-Standbild ist mit genau der Zeichnung des Skripts erzeugt, damit der Übergang nahtlos ist.
 
 **Farben:** Das Punktemeer nimmt die Webflow-Variablen der Sammlung «Farben» (Great Serpent, White, Plum Perfect). Die Figuren nehmen die Farben aus ihrem Standbild. Der Verlauf hinter der Treppe bei Vertriebsperformance ist eine Gestaltung der Klasse `card_featured_grafik` (Style-Panel), nicht Teil des Bildes.
 
@@ -47,8 +52,10 @@ npm run build          # schreibt dist/rowapa-grafik.min.js und dist/sri.txt
 
 Danach committen und pushen, in Webflow die neue Commit-Kennung und Prüfsumme als neue Skript-Version registrieren und anwenden.
 
+Prüfwerkzeuge: `pruefung/messen.js` (Ladezeit, Datenmenge), `pruefung/rechenlast.js` (Bilder pro Sekunde der Kugel).
+
 ## Leitlinien
 
-- Jede Grafik baut sich einmal auf und ruht dann. Dauerhaft bewegt sind nur das Punktemeer (Header, Footer) und später der Orbit, alle langsam und nie gleichzeitig im Bild.
+- Jede Grafik baut sich einmal auf und ruht dann. Dauerhaft bewegt sind nur das Punktemeer (Header, Footer) und die Kugel mit den Kacheln, alle langsam und nie gleichzeitig im Bild.
 - Kein Scroll-Halt, kein Farbfluss, kein Smooth Scrolling.
 - Start erst nach dem Laden der Seite; jede Grafik rechnet nur, solange sie sichtbar ist.

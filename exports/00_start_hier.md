@@ -40,7 +40,7 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 |---|---|---|
 | Phase 1+2 | Analyse, CMS-Architektur, URL-Plan | erledigt |
 | Stufe 1 | Design-System | freigegeben |
-| Stufe 2 | Startseite `/home-v2` | Rev. 2 + Muster der Feedback-Runde 3 auf Staging; Rest (Zähler, Treppe, Digital, Insights) nach Feedback zum Muster |
+| Stufe 2 | Startseite `/home-v2` | Feedback-Runde 3 vollständig auf Staging (Muster freigegeben, Rest gebaut); wartet auf Feedback und Freigabe |
 | Stufe 3 | CMS-Collections, Draft-Einträge (Logos, Partner, Team, Referenzen, Blog) | nach Freigabe Stufe 2 |
 | Stufe 4 | Templates und Unikat-Seiten | danach |
 | Go-live | Domain, Weiterleitungen, Favicon, SEO | zum Schluss, nur mit Freigabe |
@@ -69,10 +69,12 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 
 ## 6. Technische Merkposten
 
-- **Nur ein Custom Code:** das Skript «ROWAPAGrafik» (site-weit, Footer, Version 1.1.0), Quelle `tools/grafik`, geladen von jsDelivr mit fester Commit-Kennung und SRI-Prüfsumme, registriert über die Webflow-Schnittstelle. Enthält Punktemeer, Punktfiguren und Hover-Videos. Das frühere «ROWAPAHoverVideo» ist registriert, aber nicht mehr eingebunden.
+- **Nur ein Custom Code:** das Skript «ROWAPAGrafik» (site-weit, Footer, Version 1.2.0), Quelle `tools/grafik`, geladen von jsDelivr mit fester Commit-Kennung und SRI-Prüfsumme, registriert über die Webflow-Schnittstelle. Enthält Punktemeer, Punktfiguren, Zähler, Treppe, Kugel mit Kacheln (Orbit), Insights-Reihe und Hover-Videos. Frühere Fassungen (1.0.0, 1.1.0) bleiben registriert; das alte «ROWAPAHoverVideo» ist nicht mehr eingebunden.
 - **Neue Skript-Fassung:** `npm run build` in `tools/grafik`, committen, pushen, neue Commit-Kennung und `dist/sri.txt` als neue Version registrieren und anwenden, Staging veröffentlichen.
 - **Interaction «Hero-Titelzeilen»:** IX3, Komponente Section Hero Home (Variante A), 15-s-Schleife; bei «Bewegung reduzieren» Ruhezustand (Zeile 3 unterstrichen).
 - **Grenzen der Schnittstelle:** Lightbox-Medien und Slider-Einstellungen (Animation, Auto-play) lassen sich nur im Designer setzen; das Attribut `crossorigin` ist in Webflow nicht erlaubt.
+- **Startbildschirm:** Hülle `startscreen_wrapper` um Hero und Logo-Band; Mindesthöhe = Fenster minus Navigation, damit das Logo-Band immer mit der Fensterunterkante abschliesst.
+- **Grafik-Vorlagen neu erzeugen:** `tools/grafik/figuren/` (Themenfiguren `render.js`, Treppe `treppe.js`, Kugel `kugel.mjs`, Symbole `icons/`), Anleitung in `figuren/LIESMICH.md`.
 - **Interaction «Logo-Laufband»:** IX3, Endlosschleife, Pause bei Mausberührung, ruht bei «Bewegung reduzieren». Live geprüft am 25.10.2026.
 - **Theme-System:** Sammlung «Theme» mit Modi Hell (Basis), Soft, Sea, Kontrast, Tiefsee; gesetzt über die Klassen `theme-*`. Andere Klassen dürfen keinen Theme-Modus setzen (Fehler bei `padding-global` am 25.10. behoben).
 - **Uploads lokaler Dateien:** über die Asset-Schnittstelle (Datei-Eintrag anlegen, danach Upload per signiertem Formular). Bilder mit öffentlicher Adresse auch per «Upload by URL».
