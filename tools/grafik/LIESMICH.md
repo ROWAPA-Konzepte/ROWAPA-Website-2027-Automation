@@ -1,6 +1,6 @@
 # ROWAPA Grafik
 
-Ein einziges Skript für alle Punkte-Grafiken der ROWAPA-Website. Es kommt ohne Bibliotheken aus (rund 12 KB, komprimiert rund 6 KB).
+Ein einziges Skript für alle Punkte-Grafiken der ROWAPA-Website. Es kommt ohne Bibliotheken aus (rund 12 KB, komprimiert rund 5 KB).
 Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL kann, bleiben überall die Standbilder stehen.
 
 ## Was es heute kann
@@ -29,9 +29,9 @@ In Webflow: Element auswählen › Zahnrad (Settings) › **Custom attributes**.
 | `data-farbe-1`, `data-farbe-2`, `data-farbe-3` | Farben des Punktemeers als Hex (z. B. `#486EA3`) | CI-Variablen |
 | `data-hintergrund` | `aus` lässt beim Header-Punktemeer den Verlauf weg | an |
 
-**Figuren tauschen:** Das Standbild ist die Vorlage. Neues PNG mit transparentem Hintergrund hochladen und im Bildfeld der Karte («Grafik») auswählen; die Animation entsteht daraus von selbst. Bei JPG wird der Hintergrund zeilenweise nachgebildet.
+**Figuren tauschen:** Das Standbild ist die Vorlage. Neues PNG mit transparentem Hintergrund hochladen und im Bildfeld der Karte («Grafik») auswählen; die Animation entsteht daraus von selbst: Die Figur setzt sich aus kleinen Ausschnitten genau dieses Bildes zusammen. Das Bild wird dafür weder ein zweites Mal geladen noch ausgelesen. JPG-Bilder bleiben als Standbild stehen (keine Animation).
 
-**Farben:** Das Punktemeer nimmt die Webflow-Variablen der Sammlung «Farben» (Great Serpent, White, Plum Perfect). Die Figuren nehmen die Farben aus ihrem Standbild.
+**Farben:** Das Punktemeer nimmt die Webflow-Variablen der Sammlung «Farben» (Great Serpent, White, Plum Perfect). Die Figuren nehmen die Farben aus ihrem Standbild. Der Verlauf hinter der Treppe bei Vertriebsperformance ist eine Gestaltung der Klasse `card_featured_grafik` (Style-Panel), nicht Teil des Bildes.
 
 ## Einbindung
 
