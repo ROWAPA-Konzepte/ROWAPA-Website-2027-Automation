@@ -120,12 +120,14 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ### 2.18 Unser Vorgehen (Treppe und Phasen)
 - **Texte der Phasen:** direkt in der Liste ändern. Die Nummern (01–04) sind normaler Text.
+- **Ablauf (seit Runde 5):** Die Grafik steht mittig neben der Phasenliste, baut sich einmal auf, sobald sie in der Bildmitte ist, und bleibt beim Scrollen mittig im Fenster. Gewechselt wird nur beim Darüberfahren oder Klick auf eine Phase (Attribut `data-modus="ruhig"` an `vorgehen_media`; `folge` = alter Ablauf mit automatischem Durchlauf).
 - **Hervorhebung:** Die aktive Phase trägt die Zusatzklasse `is-aktiv` (auf `step_item` und `step_number`). Im Designer ist Phase 01 hervorgehoben; auf der Seite wandert die Hervorhebung mit der Treppe.
 - **Bild der Treppe:** `grafik-vorgehen-treppe.png` (Stufen im Ruhezustand, transparenter Hintergrund). Die Plum-Hervorhebung erzeugt das Skript aus diesem Bild. Wird ein anderes Bild mit anderer Aufteilung eingesetzt, am Bildrahmen (`vorgehen_media`) das Attribut `data-spalten` mit den drei Spaltengrenzen setzen (Anteile der Bildbreite, z. B. `0.26,0.5,0.75`).
 
 ### 2.19 ROWAPA Digital (Kugel und Kacheln)
 - **Kachel ändern:** Im Navigator `digital_visual` › `orbit_kacheln` › Kachel öffnen. Name direkt ändern, Symbol im Bildfeld tauschen (SVG in «02 Grafiken», z. B. `icon-anker.svg`), Link im Zahnrad.
 - **Reihenfolge:** Die Kacheln gehören der Reihe nach zu den Karten darunter (1. Kachel = 1. Karte usw.). Wer eine Karte verschiebt, verschiebt die Kachel mit.
+- **Abstände:** Die Kacheln stehen in gleichen Abständen entlang der Bahn; die letzte Kachel (Logbuch) startet oben.
 - **Lage:** Die Bahn ist das Element `orbit_bahn` (gepunktete Ellipse). Grösse und Lage im Style-Panel ändern; die Kacheln folgen auf der Seite der Bahn. Die Startplätze im Designer setzen die Zusatzklassen `is-anker`, `is-kompass`, `is-lotse`, `is-segel`, `is-logbuch`.
 - **Kugel:** Bild `grafik-wissensplattform-kugel.png` mit der Klasse `orbit_kugel` (Grösse über die Höhe in Prozent). Die drehende Kugel zeichnet das Skript genau an dieser Stelle.
 - **Beschriftung «Wissensplattform»:** Element `orbit_label`, Text direkt ändern.
@@ -154,6 +156,15 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ### 2.25 Variantenseite (intern)
 - `/varianten` zeigt die Vorschläge der Runde 4 nebeneinander; oben die Leiste zum Umschalten (A, B, C je Thema). Sie ist nicht verlinkt und wird nach dem Entscheid gelöscht.
+
+### 2.26 Megamenü mit Vorschau
+- Komponente «Navbar» › Dropdown «Was wir tun» › `navbar_vorschau`: neun Vorschaukarten (Bild, Titel, Satz), direkt im Designer änderbar.
+- Verbindung: Der Link trägt `data-vorschau="name"`, die Karte `data-vorschau-karte="name"` (Zahnrad › Custom attributes). Mehrere Links dürfen dieselbe Karte zeigen (z. B. alle Links unter «Meine Entwicklung»). Neuer Link: Attribut setzen; neue Karte: eine Karte duplizieren und Name anpassen.
+- Sichtbar ist zuerst die Karte mit der Zusatzklasse `is-aktiv` (heute Vertriebsperformance).
+
+### 2.27 Mauszeiger
+- Eingeschaltet über das Attribut `data-grafik="zeiger"` an der Navigation (Komponente «Navbar», oberstes Element). Attribut löschen = normaler Mauszeiger auf der ganzen Website.
+- Der Ring richtet sich nach dem Grund (dunkel auf hell, hell auf dunkel und auf Fotos). Auf Handy und Tablet und in Formularfeldern gibt es ihn nicht.
 
 ---
 

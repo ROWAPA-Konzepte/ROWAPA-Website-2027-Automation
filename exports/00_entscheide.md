@@ -136,11 +136,21 @@ Commit b2000a2.
 | 82 | Im Blickpunkt prominenter | Claude: drei Varianten (A Bildband mit Ribbon, B Eckdaten, C schmales Band weiter oben) | Testseite |
 | 83 | Fehler Variantenumschalter | Claude: Die Kombiklasse `is-aktiv` wurde beim Veröffentlichen global ausgegeben und färbte aktive Elemente vollflächig Plum. Umschalter nutzt jetzt die eigene Klasse `var_wahl-an` | Skript 1.3.1; geprüft: keine globale Regel `.is-aktiv` mehr |
 
+## 10. Feedback-Runde 5 (25./26.10.2026, Nacht)
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 84 | Unser Vorgehen | **Variante A (ruhig)**, Grafik baut sich in der Mitte auf und läuft mit dem Scroll mit, Startposition mittig zwischen oberer und unterer Linie | Überschrift über das Raster gehoben, Hinweis darunter; Grafik `align-self: center`, klebt mittig im Fenster (`top: calc(50vh - 12.5rem)`); Aufbau startet, wenn die Grafik in der Bildmitte steht; `data-modus="ruhig"`. Gemessen: Mitte Grafik = Mitte Phasenliste (0 px) |
+| 85 | Kacheln Digital | **Variante A**, gleiche Abstände zwischen den Symbolen | Kacheln stehen nach gleicher Weglänge auf der Bahn statt nach gleichem Winkel, auch während der Drehung; Startplätze im Designer angepasst. Abstände vorher 34–47 (±17 %), jetzt 252–290 px (±7 %, Rest durch die Tiefenwirkung) |
+| 86 | Megamenü | **Variante A** | in die echte Navigation übernommen: vierte Spalte mit Vorschau (Bild, Titel, Satz), wechselt beim Darüberfahren; neun Vorschaukarten als native Elemente |
+| 87 | Mauszeiger | Ring passt sich dem Grund an (dunkel auf hell, hell auf dunkel), Punkt immer Plum | Skript 1.4.0 liest die Hintergrundfarbe unter dem Zeiger; auf Fotos heller Ring mit feiner Kontur. Site-weit eingeschaltet über das Attribut an der Navigation; nur mit Maus |
+| 88 | Im Blickpunkt | heutigen Aufbau behalten, Titel auf einer Linie, Foto nur im mittleren Bereich, «gerne noch ein paar Varianten» | Varianten D (Fotoband in der Mitte), E (heutiger Aufbau, Foto füllt die rechte Hälfte), F (breites Mittelband mit Eckdaten) auf `/varianten` |
+
 ---
 
 ## Offene Punkte
 
-1. Varianten wählen (je Thema ein Buchstabe): Mauszeiger, Megamenü, Kacheln Digital, Im Blickpunkt, Unser Vorgehen. Danach Umsetzung auf `/home-v2` und Freigabe Stufe 2.
+1. Im Blickpunkt: Variante D, E oder F wählen (`/varianten`). Danach Umsetzung auf `/home-v2` und Freigabe Stufe 2. Mauszeiger, Megamenü, Kacheln und Unser Vorgehen sind umgesetzt (Runde 5).
 1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).

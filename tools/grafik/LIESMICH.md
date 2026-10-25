@@ -1,6 +1,6 @@
 # ROWAPA Grafik
 
-Ein einziges Skript für alle Punkte-Grafiken und kleinen Bewegungen der ROWAPA-Website. Es kommt ohne Bibliotheken aus (rund 27 KB, komprimiert rund 11 KB).
+Ein einziges Skript für alle Punkte-Grafiken und kleinen Bewegungen der ROWAPA-Website. Es kommt ohne Bibliotheken aus (rund 27 KB, komprimiert rund 12 KB).
 Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL kann, bleiben überall die Standbilder stehen. Die Pfeile der Insights-Reihe funktionieren auch bei «Bewegung reduzieren».
 
 ## Was es heute kann
@@ -14,11 +14,11 @@ Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL ka
 | `treppe` | Unser Vorgehen (`vorgehen_media`) | die vier Stufen bauen sich nacheinander auf, die Phase in der Liste (`.step_item`) leuchtet mit; danach Phase 01. Darüberfahren/Klick auf eine Phase oder Klick auf eine Stufe hebt sie hervor (Klasse `is-aktiv` auf `step_item` und `step_number`) |
 | `orbit` | ROWAPA Digital (`digital_visual`) | Kugel (`.orbit_kugel`) dreht sich langsam, Kacheln (`.orbit_tile`) ziehen auf der Bahn (`.orbit_bahn`) und halten beim Darüberfahren; Karte im `.tools_grid` ↔ Kachel gleicher Position: Kachel `is-aktiv`, feine Linie zur Kugel. Handy: Kacheln stehen |
 | `reihe` | Insights (`insights_reihe`), Team (`team_grid`) | Pfeile `[data-reihe="zurueck"]` / `[data-reihe="weiter"]` blättern um eine Karte, `[data-reihe="balken"]` zeigt den Stand; wischen und scrollen gehen ohne Skript |
-| `zeiger` | ein beliebiges (verstecktes) Element der Seite | Mauszeiger als Punkt (Plum) mit feinem Ring; `data-zeiger="a"` schlicht, `"b"` Ring wächst auf Links und Karten (Text aus `data-zeiger-text`, sonst «Öffnen»), `"c"` passt sich dunklem Grund an. Nur mit Maus; in Formularfeldern normaler Cursor |
+| `zeiger` | ein beliebiges (verstecktes) Element der Seite | Mauszeiger als Punkt (Plum) mit feinem Ring, der Ring steht immer im Kontrast zum Grund (dunkel auf hell, hell auf dunkel und auf Fotos); `data-zeiger="a"` (Standard) schlicht, `"b"` Ring wächst zusätzlich auf Links und Karten (Text aus `data-zeiger-text`, sonst «Öffnen»). Heute an der Navigation gesetzt. Nur mit Maus; in Formularfeldern normaler Cursor |
 | `vorschau` | Megamenü | Links `[data-vorschau="x"]` zeigen beim Darüberfahren die Karte `[data-vorschau-karte="x"]` (Klasse `is-aktiv`) |
 | `varianten` | Variantenleiste (intern) | Knöpfe `[data-wahl="gruppe:wert"]` zeigen `[data-variante="gruppe:wert"]` und blenden die übrigen der Gruppe aus; aktiver Knopf Klasse `var_wahl-an` |
 
-Die Treppe kennt `data-modus`: `folge` (Standard: Stufen bauen nacheinander auf, Phasen leuchten mit), `ruhig` (baut einmal auf, wechselt nur bei Darüberfahren oder Klick) und `tabs` (Reiter `[data-phase-tab]` schalten Tafeln `[data-phase]`).
+Die Kacheln im Orbit stehen in gleichen Abständen entlang der Bahn (gleiche Weglänge); die letzte Kachel startet oben. Die Treppe baut sich auf, sobald sie in der Bildmitte steht. Sie kennt `data-modus`: `folge` (Standard: Stufen bauen nacheinander auf, Phasen leuchten mit), `ruhig` (baut einmal auf, wechselt nur bei Darüberfahren oder Klick) und `tabs` (Reiter `[data-phase-tab]` schalten Tafeln `[data-phase]`).
 
 `zeiger`, `vorschau`, `varianten` und `reihe` sind Bedienung und laufen auch bei «Bewegung reduzieren».
 

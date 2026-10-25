@@ -94,4 +94,9 @@ RUNDE4: TEAM reihe_maske 8e1483a5 (data-grafik="reihe"), Schlusskarte team_mehr 
 RUNDE4: COMP Section Digital Props: Kicker, Titel, Einleitung, Hinweis Titel, Hinweis Text, Button 1 Text/Link, Button 2 Text/Link, Beschriftung Kugel
 RUNDE4: PAGE Varianten Runde 4 (intern) 6ade7d426411b7fa1d35c036 /varianten; main 83da0709-4ac8-167f-c5a8-96e466eaa1c4; Menü A 8e29dfa3, B b93ba78a, C 2d033a51; Kacheln e5c9d953; Blick A 3aac4d02, B fb304185, C 8136d184; Vorgehen A 2e2b45d6, B d1e1d61a
 RUNDE4: SCRIPT rowapagrafik 1.3.0 (@6e222aced6cf216965feb9cd983bc504cb57a22e), 1.3.1 (@e21fcbe59b45c1ceed462b1f48a2f0612292998f, aktiv)
+RUNDE5: NAVBAR (COMP 874bfcfa-09e8-3cb6-8a7d-8bca4c1bbbdb) data-grafik="zeiger" am Wurzelelement; Panel …bbe8 data-grafik="vorschau"; Grid …bbe9 + is-vorschau 346be034; Spalte navbar_vorschau 81d32c29-93cc-6261-f3c6-17169f9e48eb (9 Karten, Klassen navbar_vorschau-karte (+ is-aktiv 6341f3d2), -bild, -titel, -text)
+RUNDE5: VORGEHEN section-head …1032fa vor vorgehen_layout …10332a, steps_note …103327 danach; vorgehen_media …103329 data-modus="ruhig", Stil align-self center, top calc(50vh - 12.5rem)
+RUNDE5: KACHELN Startplätze is-anker 87.1/36.55 (Handy 87.64/39.85), is-kompass 70.75/80.78 (72.08/75.02), is-lotse 29.25/80.78 (27.92/75.02), is-segel 12.9/36.55 (12.36/39.85), is-logbuch 50/14
+RUNDE5: VARIANTEN Blick D 074d1042-e3e9-867d-9560-3bd771a1ebf5, E c3a4951d-bd4b-bbdd-505b-1d57920cf7ef, F 5204fc6e-553f-9937-ce32-37c8f8f153bc; Klassen var_bx-*, var_bd-*, var_be-*, var_bf-*
+RUNDE5: SCRIPT rowapagrafik 1.4.0 (@f870ba05b03e2666cc40b9e411726d276546cb53, aktiv)
 ```

@@ -285,3 +285,17 @@ Feedback zuerst als Einschätzung, dann nach Antwort von ROWAPA umgesetzt. Direk
 ### 13.5 Nächster Schritt
 
 ROWAPA wählt je Thema einen Buchstaben. Danach Umsetzung auf `/home-v2`, Variantenseite löschen (mit Freigabe), Freigabe Stufe 2.
+
+## 14. Feedback-Runde 5 (25./26.10.2026, Nacht)
+
+Entscheide von ROWAPA: Vorgehen A, Kacheln A, Megamenü A, Mauszeiger mit Kontrast-Ring; Im Blickpunkt neue Varianten.
+
+| Thema | Umsetzung | Prüfung (live, Skript 1.4.0) |
+|---|---|---|
+| Unser Vorgehen | Überschrift über dem Raster, Hinweis darunter; Grafik mittig zur Phasenliste, klebt in der Fenstermitte, Aufbau in der Bildmitte, ruhiger Modus | Mitte Grafik = Mitte Liste (0 px); läuft mit bis zum Ende der Liste; Handy: steht unter der Liste |
+| Kacheln Digital | gleiche Weglänge auf der Bahn statt gleicher Winkel; Startplätze neu | Abstände ±7 % statt ±17 % |
+| Megamenü | Spalte Vorschau mit neun Karten in der Navigation | Darüberfahren wechselt die Karte; Titel stimmen mit den Links überein |
+| Mauszeiger | Ring dunkel auf hellem, hell auf dunklem Grund und auf Fotos; site-weit an der Navigation | Ring geprüft über Liste (dunkel), Digital (hell), Foto (hell); Handy ohne Zeiger |
+| Im Blickpunkt | Varianten D, E, F auf `/varianten`, alle mit Titel auf einer Linie | Desktop und Handy |
+
+Screens: `exports/stufe2-screens/runde5/`. Keine Fehler in der Konsole.

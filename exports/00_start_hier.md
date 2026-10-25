@@ -40,7 +40,7 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 |---|---|---|
 | Phase 1+2 | Analyse, CMS-Architektur, URL-Plan | erledigt |
 | Stufe 1 | Design-System | freigegeben |
-| Stufe 2 | Startseite `/home-v2` | Feedback-Runde 4 auf Staging; Varianten unter `/varianten` warten auf Auswahl, danach Freigabe |
+| Stufe 2 | Startseite `/home-v2` | Feedback-Runde 5 auf Staging; offen nur noch «Im Blickpunkt» (Varianten D–F unter `/varianten`), danach Freigabe |
 | Stufe 3 | CMS-Collections, Draft-Einträge (Logos, Partner, Team, Referenzen, Blog) | nach Freigabe Stufe 2 |
 | Stufe 4 | Templates und Unikat-Seiten | danach |
 | Go-live | Domain, Weiterleitungen, Favicon, SEO | zum Schluss, nur mit Freigabe |
@@ -69,7 +69,7 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 
 ## 6. Technische Merkposten
 
-- **Nur ein Custom Code:** das Skript «ROWAPAGrafik» (site-weit, Footer, Version 1.3.1), Quelle `tools/grafik`, geladen von jsDelivr mit fester Commit-Kennung und SRI-Prüfsumme, registriert über die Webflow-Schnittstelle. Enthält Punktemeer, Punktfiguren, Zähler, Treppe, Kugel mit Kacheln (Orbit), Reihen (Insights, Team), Mauszeiger, Menü-Vorschau, Variantenumschalter und Hover-Videos. Frühere Fassungen (1.0.0, 1.1.0) bleiben registriert; das alte «ROWAPAHoverVideo» ist nicht mehr eingebunden.
+- **Nur ein Custom Code:** das Skript «ROWAPAGrafik» (site-weit, Footer, Version 1.4.0), Quelle `tools/grafik`, geladen von jsDelivr mit fester Commit-Kennung und SRI-Prüfsumme, registriert über die Webflow-Schnittstelle. Enthält Punktemeer, Punktfiguren, Zähler, Treppe, Kugel mit Kacheln (Orbit), Reihen (Insights, Team), Mauszeiger, Menü-Vorschau, Variantenumschalter und Hover-Videos. Frühere Fassungen (1.0.0, 1.1.0) bleiben registriert; das alte «ROWAPAHoverVideo» ist nicht mehr eingebunden.
 - **Neue Skript-Fassung:** `npm run build` in `tools/grafik`, committen, pushen, neue Commit-Kennung und `dist/sri.txt` als neue Version registrieren und anwenden, Staging veröffentlichen.
 - **Kombiklassen nie über HTML-Import anlegen:** Ein Selektor wie `.var_wahl.is-aktiv` im HTML-Import wurde als globale Klasse `.is-aktiv` veröffentlicht. Kombiklassen nur über das Style-Panel bzw. die Style-Schnittstelle mit Elternklasse anlegen.
 - **Variantenseite:** `/varianten` (Seite «Varianten Runde 4 (intern)»), Klassen mit Vorsatz `var_`. Nach dem Entscheid löschen (mit Freigabe).

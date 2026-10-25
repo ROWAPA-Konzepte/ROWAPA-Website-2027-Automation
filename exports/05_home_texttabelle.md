@@ -202,6 +202,14 @@ Prüfung gegen den Redaktionsleitfaden: Die Section Digital sagt jetzt klar, was
 | Team | Schlusskarte | – | **Weitere Teammitglieder** · Ganzes Team kennenlernen → | zeigt, dass es mehr Menschen gibt, ohne Zahl (Wunsch ROWAPA) | – |
 | Team | Pfeile | – | Screenreader: «Vorherige Teammitglieder», «Weitere Teammitglieder» | sprechende Beschriftung | – |
 
+## Rev. 5 (25./26.10.2026, Nacht)
+
+| Section | Element | Original | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Navigation | Vorschaukarten Megamenü | – (erste Fassung: Bild ohne Text) | Titel wie der Link (z. B. «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention») und ein Satz zum Nutzen | Titel identisch mit dem Link, damit klar ist, wohin er führt; der Satz beantwortet «welcher Nutzen?» | Sätze aus der ersten Fassung und den Themenseiten übernommen [ROWAPA bestätigen] |
+| Unser Vorgehen | Hinweis «Die Messung ist zugleich …» | in der linken Spalte unter Phase 04 | unter dem Raster (Text unverändert) | Grafik steht so genau mittig zwischen der oberen und unteren Linie | – |
+| Im Blickpunkt | Titel | zweizeilig | «CAS Professional Leadership for Finance» auf einer Linie (Varianten D–F) | Wunsch ROWAPA | Auswahl D/E/F |
+
 ---
 
 ## Offene Fragen an ROWAPA
