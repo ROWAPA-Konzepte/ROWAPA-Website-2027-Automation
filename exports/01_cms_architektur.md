@@ -2,7 +2,7 @@
 
 **Projekt:** ROWAPA Website Transformation (68 Seiten)
 **Webflow-Zielprojekt:** „ROWAPA Website 2027 Automation“ (Site-ID `6addf1532819c0aacc74a496`, aktuell leer: 1 Seite „Home“, 0 Collections)
-**Phase:** 1 (Analyse) + 2 (Architektur) · Stand 25.10.2026 · Status: **Entwurf zur Freigabe**
+**Phase:** 1 (Analyse) + 2 (Architektur) · Stand 25.10.2026, Rev. 2 (mit Live-Sichtung der Baseline) · Status: **Entwurf zur Freigabe**
 **Wichtig:** Es wurden **keine** schreibenden Webflow-API-Aufrufe ausgeführt. Alle Aussagen über die Baseline beruhen auf reinen Lesezugriffen.
 
 ---
@@ -15,18 +15,77 @@
 | `ROWAPA-Website-v11.html` | 69 `div.page`-Container (68 Seiten + interne Seiten-Übersicht), Section-Inventar je Seite, Inhaltsfelder, Navigation (Mega-Menü, DE/EN/FR/IT), Footer |
 | `Style Guide ROWAPA_2026-komprimiert.pdf` | Farbpalette, Typo-Hierarchie (in % der Canvas-Höhe), Zeilenhöhe 120–140 %, 12-Spalten-Raster, Logo-Regeln, Grafikelemente |
 | `ROWAPA_Visual Guidelines_compressed.pdf` | Bildsprache, Diagonal-System (max. 2 Elemente pro Bild, nie zentriert, 60–80 % Deckkraft), **Kategorie-Farblogik** (Leadership = Great Serpent, Sales = Plum Perfect, HR/Performance = Sea Cliff, Corporate = Manganese Black), Unterschied Blog- vs. Produktseiten |
-| Baseline `rowapa-2027.webflow.io` | **Die Live-URL ist aus der Ausführungsumgebung nicht erreichbar** (die Netzwerk-Policy blockiert den Host `rowapa-2027.webflow.io`). Ersatzweise wurde die Site „ROWAPA 2027“ (`6ad52d817d06d44129cd8bc9`) **nur lesend** über die Webflow-API ausgewertet: Seiten, Collections, Variablen, Fonts. Eine visuelle Sichtung des gerenderten Frontends steht noch aus. |
+| Baseline `rowapa-2027.webflow.io` | **Live gesichtet am 25.10.2026** (Kapitel 0.2): HTML, berechnete Styles und Screenshots Desktop 1440 × 900 und Mobile 390 × 844. Zusätzlich hat die Webflow-API der Site „ROWAPA 2027“ (`6ad52d817d06d44129cd8bc9`) **nur lesend** Seiten, Collections, Variablen und Fonts geliefert. |
+| Repo `ROWAPA-Konzepte/rowapa-website` (Commit `8b8e5eb`, der live eingebunden ist) | Quelle des Custom Codes der Baseline (`dist/rowapa.css`, `dist/rowapa.js`, Schriften, Fotos, Partner-Logos). Nur gelesen |
 
-### 0.1 Erkenntnisse aus der Baseline (nur lesend)
+### 0.1 Erkenntnisse aus der Baseline (Webflow-API, nur lesend)
 
 - **Inhalt:** 1 statische Seite (Home) + 10 Collections (Kunden, Partner, Werkzeuge, Kundenstimmen, FAQ, Wissen, Aktuelles, Team, Insights, Blickpunkt).
-- **Farb-Variablen** entsprechen der CI. Dazu kommt eine **zusätzliche Farbe „Tiefsee“ `#111D2C`**, die in keinem Styleguide steht. → Entscheiden, ob sie als Dark-Tone (z. B. für den Footer) offiziell übernommen oder gestrichen wird.
+- **Farb-Variablen** entsprechen der CI. Dazu kommt **„Tiefsee“ `#111D2C`**. Laut Repo-README ist das kein eigener CI-Ton, sondern *Manganese Black 60 % gemischt mit Schwarz*, verwendet für die dunklen Flächen (ROWAPA Digital, Kontakt, Footer). → Im Neubau wird daraus der abgeleitete Token `manganese-deep`, keine neue Markenfarbe.
 - **Abstände** in der Baseline: 48 / 70 / 30 / 44 px, also **nicht** im 8px-Raster. Im Clean Slate werden sie normalisiert (48 / 64 / 32 / 48).
 - **Max. Seitenbreite:** Baseline 1360 px, Prototyp 1160 px. → Vorschlag: `container-large` = 1280 px (8 × 160), `container-medium` = 1024 px, `container-small` = 768 px.
-- **Scroll-Effekte** (Sticky-Sections mit Höhenangaben in `svh`, Zitat-Rotation) → im Neubau mit nativen IX2-Scroll-Interactions umsetzen, nicht mit Custom Code.
-- **Fonts:** In der Baseline sind keine eigenen Fonts hochgeladen. TASA Orbiter und TASA Explorer sollen nativ über die Google-Fonts-Integration von Webflow eingebunden werden (Verfügbarkeit vor dem Build prüfen).
-- **Gute Praxis, die wir übernehmen:** Hilfetexte an jedem Feld, ein Zahlenfeld „Reihenfolge“, ein Schalter „Platzhalter“ für nicht freigegebene Inhalte (entspricht den `*`-Markierungen im Prototyp).
-- **Anti-Pattern, das wir vermeiden:** In der Collection „Wissen“ stehen Inhaltstyp und Icon-Name als Freitext (z. B. „book-open“). Im Neubau gibt es dafür Option- und Referenzfelder sowie getrennte Collections pro Format.
+- **Gute Praxis, die wir übernehmen:** Hilfetexte an jedem Feld, ein Zahlenfeld „Reihenfolge“, ein Schalter „Platzhalter“ für nicht freigegebene Inhalte (entspricht den `*`-Markierungen im Prototyp), ein Feld „Logo-Skalierung“ für optisch gleich grosse Logos.
+- **Anti-Pattern, das wir vermeiden:** In der Collection „Wissen“ stehen Inhaltstyp und Icon-Name als Freitext (z. B. „book-open“), in „Insights“ Datum und Kategorie als Freitext. Im Neubau gibt es dafür DateTime-, Option- und Referenzfelder sowie getrennte Collections pro Format.
+
+### 0.2 Visuelle Baseline-Analyse (Live-Sichtung 25.10.2026)
+
+**Vorgehen:** Die Seite wurde im Headless-Chromium gerendert. Einige Assets liegen auf CDNs, die in dieser Umgebung gesperrt sind (`cdn.jsdelivr.net`, `cdnjs.cloudflare.com`, `d3e54v103j8qbb.cloudfront.net`). Diese wurden 1:1 aus denselben Quellen lokal eingespielt: Repo-Commit `8b8e5eb` sowie three.js r128, jQuery 3.5.1 und Lenis 1.1.13 aus npm. Nicht geladen wurden nur das Webflow-Badge und Cloudflare Turnstile (Spam-Schutz des Formulars); beides spielt für die Gestaltung keine Rolle.
+**Screenshots (Kontaktbögen):** `exports/baseline/home-desktop-0…2.jpg`, `exports/baseline/home-mobile-0…2.jpg`
+
+**a) Aufbau der Startseite (Header, 14 Inhaltsblöcke, Footer · Reihenfolge wie live)**
+
+| # | Kapitel (live) | Gestaltung | Neubau: Komponente |
+|---|---|---|---|
+| 1 | Header | Logo links, Mega-Menü (5 Bereiche), Button „KONTAKT“ in Plum, Sprachumschalter DE/EN/FR/IT. Mobile: Burger-Menü | `Global / Navbar` |
+| 2 | Hero | Dunkelblauer Grund mit animiertem **Punktemeer** (WebGL), dreizeilige H1 mit wechselnder Hervorhebung, Plum-Unterstreichung, kurzer Lead | `Section / Hero` · Variante „Claim dunkel“ + Grafik-Modul (siehe d) |
+| 3 | Lösungen für Unternehmen | **Bento-Raster**: grosse dunkle Featured-Karte (Vertriebsperformance mit 3D-Punktfigur) in der Mitte, 4 helle Karten mit Pfeil-Button. Kapitel-Akzent: kurzer Plum-Strich über der H2 | **neu:** `Section / Bento Grid` + `Card / Feature` (Variante „Featured dunkel“) |
+| 4 | Kundenlogos | Laufband (u. a. AXA, CSS, ERGO, Visana, die Mobiliar, Raiffeisen) | **neu:** `Section / Logo Marquee` (IX2-Loop, nativ) |
+| 5 | Was uns antreibt | Leitsatz baut sich Wort für Wort mit dem Scroll auf, Zähler „20 Jahre“ in Plum | **neu:** `Section / Statement` + `Card / Stat` |
+| 6 | Unser Vorgehen | Sticky-Kapitel, **4 Phasen** (Analysieren · Verstehen · Handeln · Messen), nummerierte Plum-Badges | `Global / So arbeiten wir` (jetzt 4 Phasen, siehe Korrektur in 5.2) |
+| 7 | ROWAPA Digital | Tiefsee-Grund, Punktkugel „Wissensplattform“ mit 5 Werkzeugen im Orbit, 5 Karten (Anker, Kompass, Lotse, Segel, Logbuch), Box „Das Fundament“ | `Card Grid` (Collection List Lösungswelten) + `Note Box` + Grafik-Modul |
+| 8 | Unsere Erfolge | Stimmen-Slider (1/8): Foto 4:3 links, grosse Kernaussage, Zitat, Name, Funktion | **neu:** `Section / Quote Slider` (CMS Stimmen) |
+| 9 | Die Menschen hinter ROWAPA | Team-Leiste mit 5 Porträts (4:5, dunkler Hintergrund), Links „Wer wir sind · Video“ und „Team kennenlernen“ | `Section / Team Grid` (Variante „Leiste“) |
+| 10 | Partner und Zertifizierungen | Logo-Raster 7 × 2 auf Sea-Cliff-Fläche | `Section / Logo Row` (Variante „Raster“) |
+| 11 | Deine persönliche Entwicklung | 3 Wege-Karten mit Foto, Tag (Privatpersonen · Broker Excellence · Female Empowerment) und Pfeil-Link | `Card Grid` + `Card / Teaser` (Variante „Bild oben + Tag“) |
+| 12 | Im Blickpunkt | CAS-Teaser auf Great-Serpent-Fläche mit Gruppenfoto, Eckdaten-Chips, Plum-Button und Zweitlink (Zoom-Infosession) | `Global / Spotlight CAS` |
+| 13 | Neueste Insights | Blog-Karten (Datum · Typ, Titel, Kategorie), Links „Live-Webinare“ und „ROWAPA TV“, darunter Newsletter-Box | `Section / Content Feed` + `Section / Newsletter` |
+| 14 | Häufige Fragen | Accordion mit Nummern 01–06 und quadratischen Plus-Buttons | `Section / FAQ` |
+| 15 | Kontakt + Footer | Ansprechpartnerin im runden Porträt mit umlaufendem Wertering („Souverän · Inspirierend · Klar“), Telefon und E-Mail; Footer auf Tiefsee mit 3 Linkspalten, Newsletter und grossem „ROWAPA“-Schriftzug | **neu:** `Section / Contact Person` · `Global / Footer` |
+
+**b) Gemessene Design-Werte vs. CI**
+
+| Merkmal | Baseline (gemessen) | CI / Styleguide | Konsequenz für den Neubau |
+|---|---|---|---|
+| Schrift Headlines/Body | **TASA Orbiter Display** 400/500/600/700, selbst gehostet (OFL-Lizenz, Dateien im Repo) | TASA Bold / Semibold / Regular | Woff2-Dateien aus dem Repo als **native Webflow Custom Fonts** hochladen. Kein Code, OFL erlaubt das |
+| Schrift Akzente | **TASA Explorer 800** (Google Fonts), Versalien, Laufweite +0,14 em, 13,8 px | TASA Explorer Extrabold, Versalien, mehr Laufweite | übernehmen (native Google-Fonts-Integration) |
+| H1 | 74,9 px, Zeilenhöhe 1.04 | 5,5–6 % Canvas-Höhe (≈ 50–54 px bei 900 px), Zeilenhöhe 120–140 % | Die Baseline liegt deutlich über der CI. **Entscheidung E11** |
+| H2 | 63,4 px, Laufweite −0,02 em | 3,5–4 % (≈ 32–36 px) | ebenfalls E11 |
+| H3 Karten | 22,3 px (gross 34,6 px) | 2,5–3 % (≈ 22–27 px) | im Rahmen |
+| Body | 17 px, Zeilenhöhe 1.55, Farbe `#22354D` | 1,6–2 % (≈ 14–18 px) | auf **16 / 18 px** normalisieren (8px-System). Textfarbe = Manganese |
+| Seitengrund | `#F6F7F8` (zwischen Weiss und Snowbank) | White / Pastel Snowbank | Flächen nur aus CI-Tönen: White, Snowbank, Sea-Cliff-Tint, Manganese, Manganese-Deep |
+| Kapitel-Farben | Farbfluss: Kapitel wechseln weich zwischen White, Snow, Sea Cliff, Serpent, Manganese, Tiefsee | – | als **Theme-Varianten** der Sections (Variable Modes) umsetzen, ohne Scroll-Überblendung |
+| Kapitel-Akzent | kurzer Plum-Strich über jeder H2 | Plum für Akzente | `Section Head` bekommt den Akzentstrich (nativ) |
+| Buttons | Primär Plum mit Pfeil, Sekundär Outline; quadratische Pfeil-Icons (Manganese/Plum) vor Textlinks | Plum für CTAs | übernehmen: `Element / Button` + Variante „Icon-Link“ |
+| Diagonal-Ribbon | **nicht sichtbar**, ersetzt durch Punkt-Grafiken und Plum-Unterstreichung | Diagonal Ribbon als wiederkehrendes Element (CLAUDE.md) | **Entscheidung E12** |
+
+**c) Technische Umsetzung der Baseline**
+
+- **Custom Code ≈ 200 KB:** `rowapa.css` 108 KB und `rowapa.js` 95 KB, eingebunden über jsDelivr aus dem Repo. Dazu kommen **three.js** (WebGL, 6 Canvas-Flächen), **Lenis** (Smooth Scroll) und jQuery.
+- Die JS-Module laut Repo: Punktemeer im Header, Zoom in die Themenlinien, 3D-Punktfiguren, Farbfluss zwischen den Kapiteln, Orbit „ROWAPA Digital“, Wort-für-Wort-Leitsatz, Sticky-Halte-Strecken, Logo-Laufband, Zitat-Wechsel, Wertering, Footer-Schriftzug und Icon-Sprite (Lucide).
+- Das Menü verlinkt bisher nur Anker auf der Startseite (`#themen`, `#pfade` …). Die Baseline ist eine **Einseiten-Vorschau**; die übrigen 67 Seiten existieren noch nicht.
+- **Gefunden: alte URL-Struktur von rowapa.ch.** Blog-Artikel liegen unter `rowapa.ch/blog/{slug}/` (z. B. `/blog/zeitmanagement-im-vertrieb/`), die Blog-Übersicht unter `/blog-news/`, das CAS unter `/cas-professional-leadership-for-finance/`. → Behalten wir den Collection-Slug `blog`, bleiben **alle Blog-URLs 1:1 erhalten** (siehe E4).
+
+**d) Bewertung gegen CLAUDE.md**
+
+Die Baseline erfüllt die Vorgabe „Custom Code streng limitiert“ **nicht**: Auch Layout, Farben und Abstände hängen teilweise am externen CSS, und die Pflege setzt Klassen voraus, die nicht umbenannt werden dürfen. Der Neubau übernimmt deshalb **Look & Feel, nicht die Technik**:
+
+| Effekt | Neubau |
+|---|---|
+| Layout, Farben, Typo, Abstände, Kapitel-Themes, Buttons, Karten | **100 % nativ** (Variablen, Client-First-Klassen, Komponenten) |
+| Sticky-Kapitel, Einblendungen, Logo-Laufband, Accordion, Wertering-Rotation | **nativ** mit IX2 (Wertering als SVG-Bild, das sich dreht) |
+| Wort-für-Wort-Leitsatz, Zahlen-Zähler | vereinfachen (zeilenweise IX2-Einblendung, Zahl statisch) oder ins Grafik-Modul |
+| Farbfluss zwischen Kapiteln, Smooth Scroll (Lenis) | **streichen** (feste Kapitel-Themes; natives Scrollen ist barrierefreier) |
+| Punktemeer, 3D-Punktfiguren, Orbit | **erlaubte Ausnahme** („komplexe Grafiken, die Webflow nativ nicht bietet“): ein gekapseltes Grafik-Modul, das sich an eine Komponente mit Fallback-Bild hängt. Fällt es aus oder ist „reduzierte Bewegung“ aktiv, erscheint das Bild → **Entscheidung E10** |
 
 ---
 
@@ -531,7 +590,8 @@ Einträge: Managing Partner · Education Partner · Trainer Academy
 | Slug | `slug` | PlainText | Ja | |
 | Typ | `typ` | Option | Ja | Kunde · Akademischer Partner · Zertifizierung/Verband · Tool-Lizenz · Technologie-Partner |
 | Branche | `branche` | Option | Nein | wie Referenzen |
-| Logo | `logo` | Image | Nein | SVG, einfarbig in Manganese Black oder Weiss |
+| Logo | `logo` | Image | Nein | SVG oder PNG transparent, einfarbig in Manganese Black oder Weiss |
+| Logo-Skalierung | `skalierung` | Number | Nein | Leer oder 1 = normal; wirkt ein Logo zu klein, z. B. 1.2 (aus der Baseline übernommen, wird per Inline-Style auf die Logo-Höhe gebunden) |
 | Kurzbeschreibung | `beschreibung` | PlainText | Nein | |
 | Website | `website` | Link | Nein | |
 | Im Vertrauensband | `vertrauensband` | Switch | Nein | Logo erscheint in „Verankert in der Branche“ |
@@ -640,9 +700,10 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 | `Global / Navbar` | Mega-Menü (6 Bereiche laut Prototyp), Sprachumschalter (native Localization), CTA „Kontakt“ | alle Seiten |
 | `Global / Footer` | Spaltenlinks, Newsletter-Formular (nativ), Adresse, Legal-Links | alle Seiten |
 | `Global / Breadcrumb` | bis 4 Ebenen: Text- und Link-Props je Ebene, leere Ebenen ausgeblendet | Unikat-Seiten (statisch), Templates (CMS-gebunden) |
-| `Global / So arbeiten wir` | Variante Hell/Kontrast. Inhalt zentral gepflegt (3 Phasen: Analysieren · Erkennen & Verstehen · Handeln) | Themenlinien, So arbeiten wir, Für Organisationen |
-| `Global / Spotlight CAS` | Variante Bild links/rechts | Home, Für Organisationen, Persönliche Entwicklung, Fit for Leadership |
+| `Global / So arbeiten wir` | Variante Hell/Kontrast. Inhalt zentral gepflegt. **4 Phasen wie in der Baseline:** Analysieren · Verstehen · Handeln · Messen (der Prototyp v11 hatte noch 3) | Home, Themenlinien, So arbeiten wir, Für Organisationen |
+| `Global / Spotlight CAS` | Variante Bild links/rechts, Eckdaten-Chips, Zweitlink (z. B. Infosession) | Home, Für Organisationen, Persönliche Entwicklung, Fit for Leadership |
 | `Global / Vertrauensband` | Collection List Organisationen (Vertrauensband = an), Kontrast | Home, Für Organisationen, Broker Excellence |
+| `Global / Ansprechperson` | Person (Referenz-Auswahl), runder Porträt-Rahmen mit Wertering (SVG, IX2-Rotation), Telefon, E-Mail, Button | Home, Kontakt, Abschluss wichtiger Seiten |
 
 **02 Sections**
 
@@ -667,6 +728,12 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 | `Section / Booking Embed` | Titel, Kalender-URL (Drittanbieter-Embed) | – | Persönliche Beratung |
 | `Section / Check Teaser` | Titel, Meta, Beispielfrage, Button | – | Fit for Sales, Standortbestimmung |
 | `Section / Conversion` | Titel, Text, CTA 1/2 | Hell · Kontrast | 67 × (Abschluss jeder Seite) |
+| `Section / Bento Grid` *(Baseline)* | Titel, Untertitel, **Slot „Featured“** (1 grosse Karte), **Slot „Karten“** (bis 4) | Featured mittig · Featured links | Home „Lösungen für Unternehmen“, Für Organisationen |
+| `Section / Logo Marquee` *(Baseline)* | Filter-Prop „Typ“, Tempo | Hell · Kontrast | Home, Unsere Kunden |
+| `Section / Statement` *(Baseline)* | Kicker, Leitsatz (H2-Grösse), Slot „Kennzahlen“ (`Card / Stat`) | Hell · Soft | Home „Was uns antreibt“, Über uns |
+| `Section / Quote Slider` *(Baseline)* | Titel, Filter-Prop „Kontext“, Anzahl | Hell · Soft | Home „Unsere Erfolge“, Unsere Kunden |
+| `Section / Newsletter` *(Baseline)* | Titel, Text, natives Formular | Box · Band | Home, Wissen-Übersichten, Footer |
+| `Section / Contact Person` *(Baseline)* | siehe `Global / Ansprechperson` | Tiefsee | Home, Kontakt |
 
 **03 Cards** (für die Slots von Card Grid, Two Column, Pricing)
 
@@ -689,7 +756,7 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 
 | Bereich | Seite | Section-Stack |
 |---|---|---|
-| Home | **Home** | Hero (Bild rechts) · Card Grid 3 „Fünf Themenlinien“ (Collection List Themenlinien) · Card Grid 3 „Deine Entwicklung“ · Two Column „Vom Bauchgefühl zur Gewissheit“ · Content Feed (Featured) · Card Grid „ROWAPA digital“ (Lösungswelten) + Note Box · Vertrauensband · Spotlight CAS · Testimonials · Conversion |
+| Home | **Home** *(Reihenfolge der Live-Baseline, nicht v11)* | Hero (Claim dunkel + Grafik-Modul) · Bento Grid „Lösungen für Unternehmen“ (Themenlinien) · Logo Marquee (Kunden) · Statement „Was uns antreibt“ · *Global:* So arbeiten wir (4 Phasen) · Card Grid „ROWAPA Digital“ (Lösungswelten, Tiefsee) + Note Box „Das Fundament“ · Quote Slider „Unsere Erfolge“ · Team Grid „Die Menschen hinter ROWAPA“ (Leiste) · Logo Row „Partner und Zertifizierungen“ (Raster) · Card Grid „Deine persönliche Entwicklung“ (3 Wege) · Spotlight CAS „Im Blickpunkt“ · Content Feed „Neueste Insights“ + Newsletter · FAQ · Ansprechperson |
 | Was wir tun | **Für Organisationen** | Hero · Card Grid „Fünf Themenlinien“ · Spotlight CAS · Vertrauensband · Testimonials · Conversion |
 | | **Meine persönliche Entwicklung** | Hero · Card Grid „Welcher Weg passt“ · Spotlight CAS · Two Column „Bibliotheken“ · Card Grid 4 „Warum ROWAPA“ (Kontrast) · Testimonials · Conversion |
 | Fokusprogramme | **Broker Excellence (Hub)** | Hero · Two Column „Zwei Wege“ · Card Grid „Drei Programme“ (Angebots-Cards) · Logo Row „Anerkannt“ (Kontrast) · Conversion |
@@ -735,9 +802,9 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 
 | Token-Gruppe | Werte |
 |---|---|
-| **Farben** | `manganese` #1D3149 · `serpent` #486EA3 · `seacliff` #A0C4DF · `plum` #AA1351 · `snowbank` #E8E9E9 · `white` #FFFFFF. Abgeleitet für Flächen: `seacliff-tint` #EAF2F9 · `plum-tint` #FBEEF3 (aus dem Prototyp, Freigabe nötig) |
+| **Farben** | `manganese` #1D3149 · `serpent` #486EA3 · `seacliff` #A0C4DF · `plum` #AA1351 · `snowbank` #E8E9E9 · `white` #FFFFFF. Abgeleitet: `manganese-deep` #111D2C (Baseline „Tiefsee“ = Manganese 60 % + Schwarz, für dunkle Kapitel und Footer) · `seacliff-tint` #EAF2F9 · `plum-tint` #FBEEF3 (aus dem Prototyp, Freigabe nötig) |
 | **Spacing (8px-Raster)** | `space-1` 8 · `space-2` 16 · `space-3` 24 · `space-4` 32 · `space-6` 48 · `space-8` 64. Section-Padding: small 48 / medium 64 / large 64 + 64 (zwei Units gestapelt, nie Zwischenwerte) |
-| **Typografie** | Abgeleitet aus % Canvas-Höhe, Referenz 900 px Viewport-Höhe: H1 ≈ 56 px (TASA Orbiter Bold) · H2 ≈ 32–36 px (Semibold) · H3 ≈ 24 px (Semibold) · Body 16–18 px (Regular) · Caption/Kicker 12–14 px (TASA Explorer Extrabold, Versalien). Zeilenhöhe 1.2 (Headlines) bis 1.4 (Body). Responsiv mit `clamp()` in den Typo-Variablen |
+| **Typografie** | Schriften: TASA Orbiter Display (Custom Font Upload aus dem Repo, 400/500/600/700) · TASA Explorer 800 (Google Fonts). Grössen **Variante CI** (aus % Canvas-Höhe, Referenz 900 px): H1 ≈ 56 px (Bold) · H2 ≈ 32–36 px (Semibold) · H3 ≈ 24 px (Semibold) · Body 16–18 px (Regular) · Caption/Kicker 12–14 px (TASA Explorer Extrabold, Versalien, +0,14 em). **Variante Baseline:** H1 72 px · H2 64 px · Zeilenhöhe 1.05 (siehe E11). Responsiv mit `clamp()` in den Typo-Variablen |
 | **Raster** | 12 Spalten, Container 1280 / 1024 / 768 px |
 | **Effekte** | keine starken Schatten (CI: „flat, modern, orderly“), Radius 8 px, Rahmen = Manganese 14 % |
 
@@ -749,6 +816,11 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 |---|---|---|---|
 | Diagonal-Ribbon | Div + Transform rotate(45°) + Plum, Komponente `Element / Ribbon` | – | **nativ** |
 | Sticky-/Scroll-Effekte der Baseline | IX2 Scroll-Interactions | – | **nativ** |
+| Punktemeer, 3D-Punktfiguren, Orbit (Baseline, WebGL/three.js) | Fallback-Bild in der Komponente | gekapseltes Grafik-Modul (eine Datei, versioniert), lädt nur auf Seiten mit `data-grafik` | E10 |
+| Farbfluss zwischen Kapiteln, Smooth Scroll (Lenis) | feste Kapitel-Themes, natives Scrollen | – | **streichen** |
+| Logo-Laufband | IX2-Loop (Move X, endlos) | – | **nativ** |
+| Stimmen-Slider aus dem CMS | Collection List als horizontale Leiste mit Overflow-Scroll; der native Slider kann kein CMS | alternativ Finsweet „CMS Slider“ | nativ, Finsweet nur bei Bedarf |
+| Wertering um das Porträt | SVG-Bild mit Text auf Kreisbahn, IX2-Rotation | – | **nativ** |
 | Accordion (FAQ) | IX2-Interaction am FAQ-Item | – | **nativ** |
 | Mehrstufiges Bewerbungsformular mit Upload | Natives Formular + Tabs-Element als Schritte, Datei-Upload-Feld | – | **nativ** (Upload abhängig vom Site-Plan) |
 | Filter-Chips (Blog, TV, Kurse) | Kategorie-Archivseiten als Links (E5) | Alternativ Finsweet Attributes (List Filter) | E5 |
@@ -767,18 +839,21 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 | **E1** | Programme (6) und Mentorings (3) zu einer Collection „Angebote“ zusammenlegen? | **Ja**: identisches Schema, 1 Template weniger, Reserve bei den Collections |
 | **E2** | Site-Plan: CMS (20 Collections) oder Business (40)? | **Business**: Reserve, Formular-Uploads, mehr Submissions |
 | **E3** | Die 5 Hilfs-Collections (Kategorien, FAQ, Stimmen, Organisationen, Werkzeuge) freigeben? | **Ja**: Voraussetzung für „eine Information, ein Ort“ |
-| **E4** | URL-Schema (Abschnitt 2.1) und Umgang mit den alten Blog-URLs von rowapa.ch (301-Liste)? | Schema wie vorgeschlagen. Alte URL-Struktur bitte liefern oder Zugriff auf die alte Site freigeben |
+| **E4** | URL-Schema (Abschnitt 2.1) und Umgang mit den alten URLs von rowapa.ch? | **Teilweise geklärt:** Blog-Artikel liegen heute unter `/blog/{slug}/`. Mit dem Collection-Slug `blog` bleiben sie 1:1 erhalten, ohne Redirects. Für alle anderen alten Seiten (z. B. `/blog-news/`, `/cas-professional-leadership-for-finance/`) braucht es eine 301-Liste. Dafür fehlt noch die vollständige Seitenliste von rowapa.ch (Host `rowapa.ch` freigeben oder Sitemap-Export liefern) |
 | **E5** | Filter auf Übersichten: native Kategorie-Archivseiten oder Finsweet-Filter-Skript? | **Native Archivseiten** (No-Code, SEO). Finsweet nur bei Bedarf an Mehrfachfiltern (Kurse) |
 | **E6** | Mini-Sales-Check: externes Tool oder eigenes Mini-Skript? | **Externes Formular-Tool** (vom Kunden selbst pflegbar) |
 | **E7** | Mehrsprachigkeit DE/EN/FR/IT (Prototyp-Navigation): zum Start oder später? | Architektur ist lokalisierungsfähig (Labels über Referenzen). **Start DE**, weitere Sprachen als eigene Phase mit Webflow Localization |
-| **E8** | Farbe „Tiefsee“ `#111D2C` aus der Baseline offiziell aufnehmen? | Nur als Footer- oder Dark-Tone, sonst streichen |
-| **E9** | Baseline visuell sichten: Host `rowapa-2027.webflow.io` in der Umgebung freigeben oder Screenshots liefern? | Freigabe, damit Phase 3 pixelgenau gegen die Baseline geprüft werden kann |
+| **E8** | Farbe „Tiefsee“ `#111D2C` aus der Baseline offiziell aufnehmen? | **Ja, als abgeleiteter Token** `manganese-deep` (laut Repo = Manganese 60 % + Schwarz) für dunkle Kapitel und Footer, nicht als neue Markenfarbe |
+| **E9** | ~~Baseline visuell sichten~~ | **Erledigt** am 25.10.2026 (Kapitel 0.2) |
+| **E10** | Punktemeer, 3D-Punktfiguren und Orbit der Baseline (WebGL) übernehmen? | **Ja, aber reduziert:** als *ein* gekapseltes Grafik-Modul nur für Hero, Themenlinien-Featured-Karte und ROWAPA Digital, mit Fallback-Bild und Rücksicht auf „reduzierte Bewegung“. Alles andere aus dem Baseline-Code entfällt oder wird nativ nachgebaut (Kapitel 0.2 d) |
+| **E11** | Headline-Grössen: Baseline (H1 ≈ 75 px, H2 ≈ 63 px, Zeilenhöhe 1.04) oder Styleguide (H1 ≈ 54 px, H2 ≈ 32–36 px, Zeilenhöhe 1.2–1.4)? | **Mittelweg:** H1 64 px · H2 48 px · H3 24 px · Zeilenhöhe 1.1 (Headlines) und 1.5 (Body), alles im 8px-Raster. Die editoriale Wirkung der Baseline bleibt, Lesbarkeit auf Unterseiten steigt |
+| **E12** | Diagonal-Ribbon (CLAUDE.md, Visual Guidelines) fehlt in der Baseline; dort übernehmen Punkt-Grafiken und Plum-Unterstreichung diese Rolle. Wie soll es weitergehen? | **Beides, klar getrennt:** Punkt-Grafik nur auf Startseite und Hubs; Ribbon als dezentes Element auf Unterseiten und in Bildern (Ecke, 60–80 %, max. 2 pro Bild) |
 
 ---
 
 ## 8. Vorschau Phase 3 (nach Ihrem Go, noch nicht ausgeführt)
 
-1. Variablen-Collections anlegen: Farben, Spacing, Typo, Theme-Modi (Hell/Soft/Kontrast).
+1. Schriften einbinden (TASA Orbiter Display als Custom Font aus dem Repo, TASA Explorer über Google Fonts). Variablen-Collections anlegen: Farben, Spacing, Typo, Theme-Modi (Hell/Soft/Kontrast/Tiefsee).
 2. Client-First-Basisklassen und Typo-Styles.
 3. Elemente und Cards, dann Section-Komponenten mit Props, Varianten und Slots.
 4. Collections in Abhängigkeitsreihenfolge anlegen (zuerst Hilfs-Collections, dann Seitentypen, dann offene Collections), inklusive Feldgruppen und Hilfetexten.
