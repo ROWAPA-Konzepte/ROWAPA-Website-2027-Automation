@@ -4,18 +4,27 @@
 import { reduziert } from './util.js';
 import { punktemeer } from './punktemeer.js';
 import { figur } from './figur.js';
+import { zaehler } from './zaehler.js';
+import { treppe } from './treppe.js';
+import { orbit } from './orbit.js';
+import { reihe } from './reihe.js';
 import { hoverVideos } from './hovervideo.js';
 
 const VERSION = '__VERSION__';
 
+/* Bedienung (immer) und Bewegung (nur ohne «Bewegung reduzieren») */
+const BEDIENUNG = { reihe };
+const BEWEGUNG = { punktemeer, punktfigur: figur, zaehler, treppe, orbit };
+
 function start() {
   hoverVideos();
-  if (reduziert()) return;
+  const ruhig = reduziert();
   document.querySelectorAll('[data-grafik]').forEach(el => {
     const art = (el.getAttribute('data-grafik') || '').trim().toLowerCase();
+    const name = art.split('-')[0];
+    const f = BEDIENUNG[name] || (!ruhig && BEWEGUNG[name]);
     try {
-      if (art.startsWith('punktemeer')) punktemeer(el, art);
-      else if (art.startsWith('punktfigur')) figur(el);
+      if (f) f(el, art);
     } catch (e) {
       /* Fehler in einer Grafik lässt deren Standbild stehen */
     }
