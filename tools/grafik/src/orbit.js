@@ -44,6 +44,9 @@ export function orbit(box) {
       pos[k][0] = x; pos[k][1] = y;
       el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) translate(-50%,-50%) scale(${(0.93 + 0.035 * (tiefe + 1)).toFixed(3)})`;
       el.style.zIndex = tiefe > 0 ? '3' : '2';
+      /* Namen immer aussen an der Bahn: obere Hälfte über der Kachel, untere darunter */
+      const name = el.querySelector('.orbit_tile-name');
+      if (name) name.classList.toggle('is-oben', tiefe < 0);
     });
   }
 
@@ -55,6 +58,7 @@ export function orbit(box) {
   function setAktiv(k) {
     aktiv = k;
     kacheln.forEach((el, i) => el.classList.toggle('is-aktiv', i === k));
+    karten.forEach((el, i) => el.classList.toggle('is-verbunden', i === k));
     los();
   }
   const paare = [kacheln, karten];
@@ -109,8 +113,8 @@ export function orbit(box) {
     takt(now => {
       if (!im) { laeuft = false; return false; }
       const dt = Math.min(0.05, (now - tLetzt) / 1000); tLetzt = now;
-      dreh += dt * (TAU / 70) * tempo;
-      if (!pause && !handy) weiter += dt * (TAU / 150) * tempo;
+      dreh += dt * (TAU / 40) * tempo;
+      if (!pause && !handy) weiter += dt * (TAU / 90) * tempo;
       if (aktiv >= 0) zuletzt = aktiv;
       linie = clamp(linie + (aktiv >= 0 ? dt / 0.3 : -dt / 0.4), 0, 1);
       /* rund 30 Bilder pro Sekunde reichen für diese ruhige Bewegung */

@@ -1,5 +1,7 @@
 /* Treppe «Unser Vorgehen»: Die vier Stufen bauen sich nacheinander aus dem Standbild auf, die Phasen in der Liste
-   leuchten dazu der Reihe nach auf; danach steht wieder Phase 01. Ein Klick auf eine Phase (oder auf eine Stufe)
+   leuchten dazu der Reihe nach auf; danach steht wieder Phase 01 (data-modus="folge", Standard).
+   data-modus="ruhig": Aufbau ohne Farbwechsel, danach Phase 01; gewechselt wird nur auf Wunsch.
+   data-modus="tabs": wie «ruhig», dazu Reiter [data-phase-tab] und Texttafeln [data-phase] (Klasse is-aktiv). Ein Klick auf eine Phase (oder auf eine Stufe)
    hebt deren Stufe hervor: Plum füllt sie von unten, eine Linie markiert sie.
    Vorlage ist das PNG im Bildfeld (Stufen im Ruhezustand); die Hervorhebung entsteht daraus, ohne zweiten Download. */
 import { clamp, easeOut, easeInOut, lerp, zahl, sobaldNahe, takt, ciFarbe } from './util.js';
@@ -13,7 +15,10 @@ export function treppe(box) {
   const img = box.querySelector('img');
   if (!img || !/\.png(\?|\s|$)/i.test(img.getAttribute('src') || '')) return;
   const sec = box.closest('section') || document.body;
-  const schritte = [...sec.querySelectorAll('.step_item')];
+  const modus = (box.getAttribute('data-modus') || 'folge').trim().toLowerCase();
+  const folge = modus === 'folge';
+  const schritte = [...sec.querySelectorAll('.step_item, [data-phase-tab]')];
+  const tafeln = [...sec.querySelectorAll('[data-phase]')];
   const r0 = box.getBoundingClientRect();
   if (r0.top < innerHeight && r0.bottom > 0) return;
 
@@ -39,6 +44,7 @@ export function treppe(box) {
       if (n) n.classList.toggle('is-aktiv', an);
       if (an) s.setAttribute('aria-current', 'step'); else s.removeAttribute('aria-current');
     });
+    tafeln.forEach((t, i) => t.classList.toggle('is-aktiv', i === k));
   }
 
   function setAktiv(k, neu) {
@@ -57,7 +63,7 @@ export function treppe(box) {
     s.setAttribute('role', 'button');
     s.style.cursor = 'pointer';
     const waehle = neu => { manuell = true; setAktiv(k, neu); };
-    if (matchMedia('(hover: hover)').matches) s.addEventListener('mouseenter', () => waehle(false));
+    if (s.matches('.step_item') && matchMedia('(hover: hover)').matches) s.addEventListener('mouseenter', () => waehle(false));
     s.addEventListener('click', () => waehle(true));
     s.addEventListener('focus', () => waehle(false));
     s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); waehle(true); } });
@@ -152,8 +158,8 @@ export function treppe(box) {
       const t = (now - t0) / 1000;
       if (teile) {
         /* Phasen der Reihe nach, solange niemand selbst wählt */
-        if (!manuell) for (let k = N - 1; k >= 0; k--) if (t >= start(k) + 0.15) { if (aktiv !== k || !ziel[k]) setAktiv(k, true); break; }
-        if (t >= ende()) { fertigBauen(); zurueck = manuell ? 0 : now + 1500; }
+        if (!manuell && folge) for (let k = N - 1; k >= 0; k--) if (t >= start(k) + 0.15) { if (aktiv !== k || !ziel[k]) setAktiv(k, true); break; }
+        if (t >= ende()) { fertigBauen(); zurueck = manuell ? 0 : now + (folge ? 1500 : 200); }
       }
       if (zurueck && now >= zurueck) { zurueck = 0; if (!manuell) setAktiv(0, true); }
       let ruhig = !teile && !zurueck;

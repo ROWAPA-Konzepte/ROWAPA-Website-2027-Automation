@@ -8,12 +8,15 @@ import { zaehler } from './zaehler.js';
 import { treppe } from './treppe.js';
 import { orbit } from './orbit.js';
 import { reihe } from './reihe.js';
+import { zeiger } from './zeiger.js';
+import { vorschau } from './vorschau.js';
+import { varianten } from './varianten.js';
 import { hoverVideos } from './hovervideo.js';
 
 const VERSION = '__VERSION__';
 
 /* Bedienung (immer) und Bewegung (nur ohne «Bewegung reduzieren») */
-const BEDIENUNG = { reihe };
+const BEDIENUNG = { varianten, reihe, zeiger, vorschau };
 const BEWEGUNG = { punktemeer, punktfigur: figur, zaehler, treppe, orbit };
 
 function start() {

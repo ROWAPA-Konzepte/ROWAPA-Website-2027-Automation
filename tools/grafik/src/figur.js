@@ -32,7 +32,7 @@ export function figur(box) {
   if (r0.top < innerHeight && r0.bottom > 0) return;
 
   const tempo = clamp(zahl(box, 'data-tempo', 1), 0.2, 3);
-  const verz = zahl(box, 'data-verzoegerung', index * 0.22);
+  const verz = zahl(box, 'data-verzoegerung', index * 0.12);
   const gross = box.clientWidth * box.clientHeight > 120000;
   const ziel = Math.round((gross ? 2400 : 900) * clamp(zahl(box, 'data-dichte', 1), 0.3, 2) * (istHandy() ? 0.6 : 1));
   let cv, ctx, teile, fertig = false;
@@ -92,7 +92,7 @@ export function figur(box) {
   }
 
   function zeichne(t) {
-    const spread = (gross ? 0.95 : 0.65) / tempo, dauer = (gross ? 1.15 : 0.9) / tempo;
+    const spread = (gross ? 0.55 : 0.4) / tempo, dauer = (gross ? 0.7 : 0.55) / tempo;
     ctx.clearRect(0, 0, teile.bw, teile.bh);
     for (let i = 0; i < teile.length; i++) {
       const p = teile[i];
