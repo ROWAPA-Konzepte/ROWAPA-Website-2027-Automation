@@ -892,9 +892,35 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 | **E13** | Alte Slugs übernehmen, wo der Inhalt gleich bleibt? Konkret: Collection `experten` statt `team`, Webinar-Details unter `/webinar/…`, Übersichten `/blog-news`, `/webinare`, `/rowapa-tv`, `/referenzen` | **Ja**: 82 URLs bleiben ohne Redirect erhalten. Die Menü-Bezeichnungen (z. B. „Unsere Kunden“) sind davon unabhängig |
 | **E14** | Diese Alt-Angebote fehlen in Sitemap v4: **CAS Professional Sales for Finance**, HRV-Messung, Outsourcing, Booster, Lead Generator, Speaker, 4 Online-Kurse („Wie wirst du …“). Laufen sie weiter? | Bei jedem Angebot, das weiterläuft, eine Zielseite festlegen (bei CAS Sales eher eine eigene Unikat-Seite, analog CAS Leadership). Bis dahin zeigen die Redirects auf die naheliegende Übersicht (siehe Excel) |
 
+### 7.1 Entscheide ROWAPA (25.10.2026) · verbindlich für Phase 3
+
+| # | Entscheid | Umsetzung |
+|---|---|---|
+| E1 | **Zusammenlegen** | Eine Collection „Angebote“ mit Option „Angebotsart“ (Programm · Mentoring). Damit 19 Collections, 14 Master-Templates |
+| E2 | **Business-Plan** | 40 Collections, Formular-Uploads möglich |
+| E3 | **Ja** | 5 Hilfs-Collections werden angelegt |
+| E4 | **Alt-URLs:** Nr. 3, 6, 10, 15, 27, 33, 34, 105, 112–115, 117, 118, 156 entfallen (Seminare/Themen gibt es nicht mehr). Nr. 120–133 (Experten) → 301 auf `/team` | in `02_redirect_mapping.xlsx` eingetragen. Offen nur noch Nr. 155 (siehe Rückfrage) |
+| E5 | **Native Kategorie-Archivseiten** | Collection „Kategorien“ mit öffentlichem Template |
+| E6 | **Typeform** | Mini-Sales-Check als Typeform-Embed bzw. Link |
+| E7 | **Start DE**, Mehrsprachigkeit wichtig | Alle sichtbaren Labels über Referenzen/Komponenten-Props, keine fest eingebauten Texte in Klassen oder Option-Feldern |
+| E8 | **Ja** | Token `manganese-deep` #111D2C |
+| E10 | **Zum Start wie empfohlen:** ein gekapseltes Grafik-Modul nur für Hero, Themenlinien-Featured-Karte und ROWAPA Digital. Weitere Baseline-Effekte müssen später machbar bleiben | Jede Komponente mit Grafik bekommt einen Grafik-Bereich (`data-grafik`-Attribut + Fallback-Bild). Das Modul hängt sich dort ein; weitere Effekte lassen sich später ohne Umbau ergänzen. In Stufe 1/2 zuerst mit Fallback-Bildern, das Modul folgt nach der Design-Abnahme |
+| E11 | **Ja** | H1 64 · H2 48 · H3 24 px, Zeilenhöhe 1.1 / 1.5 |
+| E12 | **Ribbon als Vorschlag, jederzeit komplett entfernbar** | `Element / Ribbon` als eigene Komponente mit Boolean-Prop „Ribbon anzeigen“ in Hero und Bild-Komponenten. Global abschaltbar über die Variable `ribbon-opacity` (0 = aus) |
+| E13 | **Ja** | Alte Slugs bleiben. Weil Experten jetzt auf `/team` umgeleitet werden, wird der Slug der Personen-Collection in Stufe 3 neu festgelegt, damit er nicht mit den Redirects kollidiert |
+| E14 | **Laufen alle nicht weiter**, später kommen evtl. neue dazu | Redirects entfallen (siehe E4). Neue Angebote später über die Collection „Angebote“ |
+
+### 7.2 Responsivitäts-Regeln (verbindlich ab Stufe 1)
+
+1. **Ultra-Wide:** Breakpoints 1280, 1440 und 1920 px sind aktiv. Container und Grids wachsen mit: mehr Spalten, breitere Container, grössere Abstände. Der Inhalt bleibt nicht starr in der Mitte stehen.
+2. **Mobile als eigene Ansicht:** Tablet, Mobile Landscape und Mobile Portrait werden gezielt gestaltet. Komplexe Sektionen erhalten mobile Alternativen; zu viel Inhalt wird mit nativer Sichtbarkeit (`display: none`) gekürzt.
+3. **Fluidität:** Innerhalb eines Breakpoints skalieren Typo und Abstände fliessend (`clamp()`, `%`, `vw`). Keine festen Pixelbreiten für Layout-Container.
+
 ---
 
-## 8. Vorschau Phase 3 (nach Ihrem Go, noch nicht ausgeführt)
+## 8. Vorschau Phase 3 (Go erteilt am 25.10.2026, Ausführung in 4 Stufen)
+
+> **Stand 25.10.2026:** Stufe 1 (Variablen, Klassen, Navbar, Footer, Ribbon, Karten, Styleguide-Seite) ist in Webflow umgesetzt und wartet auf visuelles Feedback. Details: `exports/03_stufe1_designsystem.md`.
 
 1. Schriften einbinden (TASA Orbiter Display als Custom Font aus dem Repo, TASA Explorer über Google Fonts). Variablen-Collections anlegen: Farben, Spacing, Typo, Theme-Modi (Hell/Soft/Kontrast/Tiefsee).
 2. Client-First-Basisklassen und Typo-Styles.
