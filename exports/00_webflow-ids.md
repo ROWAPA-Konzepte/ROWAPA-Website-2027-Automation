@@ -1,4 +1,4 @@
-# Webflow-IDs (Arbeitsnotiz, Stand 25.10.2026)
+# Webflow-IDs (laufend gepflegt, zuletzt 25.10.2026)
 
 Technische Referenz für die Wiederaufnahme. Keine Zugangsdaten. IDs sind nur zusammen mit einem berechtigten Webflow-Zugang nutzbar.
 

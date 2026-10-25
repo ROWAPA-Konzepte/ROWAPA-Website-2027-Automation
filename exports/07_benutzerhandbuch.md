@@ -1,7 +1,8 @@
 # ROWAPA Website 2027 · Benutzerhandbuch
 
 **Für:** das ROWAPA-Team, das die Website in Webflow selbst pflegt
-**Stand:** 25.10.2026 · Stufe 2 (Startseite) · Webflow-Projekt «ROWAPA Website 2027 Automation»
+**Laufend gepflegt** · zuletzt 25.10.2026 · Stufe 2 (Startseite) · Webflow-Projekt «ROWAPA Website 2027 Automation»
+**Wächst mit jeder Stufe:** Mit Stufe 3 kommt die CMS-Pflege dazu.
 
 ---
 

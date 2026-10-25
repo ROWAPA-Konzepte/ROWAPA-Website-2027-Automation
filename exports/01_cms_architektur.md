@@ -254,7 +254,7 @@ Damit alle Seitentyp-Collections gleich funktionieren, verwenden sie dieselben B
 
 ### 3.1 Themenlinien (5) · `/themen/{slug}`
 
-Einträge: Vertriebsperformance · Mensch & Potenzial · Leadership & Team · Recruiting & Retention · Digitale Lösungen
+Einträge: Vertriebsperformance · Mitarbeiterperformance & Potenzial · Führung & Teams · Recruiting & Mitarbeiterbindung · Digitale Lösungen (Titel nach ROWAPA, 25.10.2026)
 
 | Feld | Slug | Typ | Pflicht | Hinweis |
 |---|---|---|---|---|

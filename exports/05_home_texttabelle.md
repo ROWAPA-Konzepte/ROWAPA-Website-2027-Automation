@@ -25,7 +25,7 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 
 | Element | Original | Vorschlag (eingebaut) | Begründung |
 |---|---|---|---|
-| Kicker | – | Beratung · Training · Digitale Werkzeuge | **K** sagt in drei Begriffen, was ROWAPA ist (Rev. 2: gekürzt) |
+| Kicker | – | Beratung · Training · Digitale Lösungen | **K** sagt in drei Begriffen, was ROWAPA ist (Rev. 2: gekürzt; «Digitale Lösungen» von ROWAPA am 25.10. in Webflow gesetzt) |
 | H1 | Mehr Vertriebsleistung. Stärkere Führung. Weniger Fluktuation. | unverändert | stärkstes Element der Seite |
 | Lead | Wir entwickeln Finanzorganisationen, datenbasiert, praxiserprobt, nachhaltig. | Wir entwickeln Finanzunternehmen: datenbasiert, praxiserprobt, nachhaltig. | **S** Originaltext bleibt, nur «Unternehmen» (Rev. 2) |
 | Buttons | – | keine (Rev. 2); Scroll-Hinweis «Lösungen entdecken» | **S** ruhiger Auftritt, «Erstgespräch vereinbaren» steht immer in der Navigation |
@@ -45,9 +45,9 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 | Kicker | – | Was wir tun | **K** ordnet ein, ohne den Titel zu wiederholen (Rev. 2) |
 | Unterzeile | Fünf Themenlinien. Ein System. | Fünf Themen, ein abgestimmtes System: Wir stärken Vertrieb, Führung und Personal so, dass sie zusammenwirken. | **K** «Themenlinie» ist ein interner Begriff |
 | 01 Vertriebsperformance | Verkaufsleistung entlang von vier Hebeln entwickeln, von der Diagnostik bis zur Begleitung im Kundenkontakt. | Verkaufsleistung messbar steigern: von der Diagnostik über das Training bis zur Begleitung im Kundengespräch. | **K** «vier Hebel» war unerklärt |
-| 02 Mensch & Potenzial | Diagnostik, Coaching und Resilienz: Potenzial sichtbar machen und gezielt entwickeln. | Potenziale sichtbar machen und gezielt entwickeln: mit Diagnostik, Coaching und Resilienz-Training. | **K** Nutzen zuerst |
-| 03 Leadership & Team | Führung wirksam gestalten, vom Führungs-Profiling bis zur Team-Entwicklung. | Führung wirksam gestalten: vom Führungsprofil bis zur Teamentwicklung. | **K** Anglizismus reduziert |
-| 04 Recruiting & Retention | Talente gewinnen, integrieren und binden, vom Assessment bis zur Arbeitgeber-Attraktivität. | Talente gewinnen, gut integrieren und langfristig binden: vom Assessment bis zur attraktiven Arbeitgebermarke. | **K** |
+| 02 Mitarbeiterperformance & Potenzial (Titel von ROWAPA am 25.10. in Webflow gesetzt, vorher «Mensch & Potenzial») | Diagnostik, Coaching und Resilienz: Potenzial sichtbar machen und gezielt entwickeln. | Potenziale sichtbar machen und gezielt entwickeln: mit Diagnostik, Coaching und Resilienz-Training. | **K** Nutzen zuerst |
+| 03 Führung & Teams (Titel von ROWAPA am 25.10. gesetzt, vorher «Leadership & Team») | Führung wirksam gestalten, vom Führungs-Profiling bis zur Team-Entwicklung. | Führung wirksam gestalten: vom Führungsprofil bis zur Teamentwicklung. | **K** Anglizismus reduziert |
+| 04 Recruiting & Mitarbeiterbindung (Titel von ROWAPA am 25.10. gesetzt, vorher «Recruiting & Retention»; Linktext noch anzugleichen) | Talente gewinnen, integrieren und binden, vom Assessment bis zur Arbeitgeber-Attraktivität. | Talente gewinnen, gut integrieren und langfristig binden: vom Assessment bis zur attraktiven Arbeitgebermarke. | **K** |
 | 05 Digitale Lösungen | E-Learning, hybride Lernarchitekturen und digitale Beratungserlebnisse. | E-Learning, hybride Lernformate und digitale Werkzeuge, die Training und Beratung in den Alltag verlängern. | **K** Fachjargon ersetzt, Nutzen ergänzt |
 | Links | → (Pfeil ohne Text) | «Mehr zu …» je Thema | **K** sprechende Linktexte (Barrierefreiheit) |
 

@@ -1,8 +1,8 @@
-# ROWAPA Website 2027 · Gesprächsprotokoll
+# ROWAPA Website 2027 · Entscheide
 
-**Zeitraum:** 25.10.2026 · Arbeitssitzung mit Claude (Claude Code, Cloud-Sitzung)
+**Laufend gepflegt** · Beginn 25.10.2026 · Arbeitssitzungen mit Claude (Claude Code, Cloud-Sitzung)
 **Teilnehmende:** ROWAPA (Auftraggeber), Claude (Umsetzung in Webflow und Dokumentation)
-**Lesart:** chronologisch; je Eintrag Anliegen → Entscheid → Ergebnis. Commits verweisen auf das Repository `ROWAPA-Konzepte/ROWAPA-Website-2027-Automation`.
+**Lesart:** chronologisch; je Eintrag Anliegen → Entscheid → Ergebnis. Neue Einträge kommen unten dazu, die Nummern laufen weiter. Commits verweisen auf das Repository `ROWAPA-Konzepte/ROWAPA-Website-2027-Automation`.
 
 ---
 
@@ -76,14 +76,29 @@ Commit b2000a2.
 | 37 | Staging veröffentlichen | **ja** | veröffentlicht auf `rowapa-website-2027-automation.webflow.io` (nur Webflow-Subdomain) |
 | 38 | Mobile kürzen | **ja** | Bento-Karten ohne Text, Insights 2 Karten (rund 900 px kürzer) |
 | 39 | Pull Request beobachten | **ja** | Claude reagiert auf Kommentare im PR |
-| 40 | Backup | **jetzt** | dieses 4-Datei-Backup |
+| 40 | Backup | **jetzt** | 4-Datei-Backup vom 25.10.2026 (in der Git-Historie, Commit 64d2f0c) |
+
+## 7. Dokumentation und Feedback-Runde 3
+
+| # | Frage | Entscheid | Umsetzung |
+|---|---|---|---|
+| 41 | Braucht es Backup-Runden? | **Nein.** Webflow sichert die Website, Git die Doku | laufend gepflegte Dokumente: `00_start_hier.md`, `00_entscheide.md` (dieses Dokument), `07_benutzerhandbuch.md`, `00_webflow-ids.md`. Regel in `CLAUDE.md` |
+| 42 | Backup-Ordner 2026-10-25 | **überführen** | Inhalte in die laufenden Dokumente verschoben; PDFs und Konzeptpapier entfernt (bleiben in der Git-Historie) |
+| 43 | Kurzfassung für Dritte | **nein** | – |
+| 44 | Netzwerk der Cloud-Umgebung | Webflow freigegeben | Staging live geprüft: Laufband mit Pause beim Darüberfahren und Hover-Video funktionieren |
+| 45 | Textänderungen direkt in Webflow | von ROWAPA vorgenommen, beim nächsten Veröffentlichen übernehmen | Hero-Kicker «Beratung · Training · Digitale Lösungen»; Kartentitel «Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung» |
+| 46 | Feedback-Runde 3 zur Staging-Seite | Einschätzung von Claude vor dem Bau | Entscheide von ROWAPA ausstehend (Offene Punkte 1 und 2) |
 
 ---
 
 ## Offene Punkte
 
-1. Feedback zur Staging-Version.
-2. Favicon und Webclip in Webflow hochladen (von Hand).
-3. Stehendes Logo als SVG (falls vorhanden).
-4. Ungenutzte, nachgebaute Logo-Assets in Webflow löschen (nur mit OK).
-5. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
+1. Entscheide zur Feedback-Runde 3 (Animationen, Slider bei Erfolgen und Insights, Video, Logo-Titel).
+2. Kennzahl Trainerteam: 150 Jahre (Vorlage) oder 133 Jahre (Baseline)? [ROWAPA bestätigen]
+3. Favicon und Webclip in Webflow hochladen (von Hand).
+4. Stehendes Logo als SVG (falls vorhanden).
+5. Ungenutzte, nachgebaute Logo-Assets in Webflow löschen (nur mit OK).
+6. Weitere Kennzahlen, die gezeigt werden dürfen.
+7. Hilfs-Collection «Organisationen» in Stufe 3 nach der Begriffsregel benennen. Vorschlag: «Unternehmen & Partner».
+8. Option Mobile: Wische-Reihen für Wege, Insights und Werkzeuge (nochmals rund 3 000 px kürzer).
+9. Nächste Stufe nach Freigabe: Stufe 3 (CMS).

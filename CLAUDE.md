@@ -36,6 +36,7 @@ Baseline für das bisherige visuelle Design ist die URL: https://rowapa-2027.web
 - Nutze das Finsweet Client-First System für Klassen-Benennungen.
 - Tool-Aufrufe (Webflow, Dateien, Shell, Web) ohne Rückfrage ausführen. Anhalten nur am Ende jeder Stufe/Phase sowie vor dem Veröffentlichen der Website und vor dem Löschen von Inhalten.
 - Pull Request: Für den Arbeits-Branch besteht ein offener Pull Request. Jede Stufe wird committet und gepusht, der PR damit automatisch aktualisiert. Ist er zusammengeführt, wird für neue Arbeit selbständig ein neuer PR erstellt. Zusammenführen (Merge) nur mit Freigabe von ROWAPA.
+- Dokumentation statt Backup: In diesem Projekt gibt es keine 4-Datei-Backup-Runden (Entscheid ROWAPA 25.10.2026), auch keine Rückfrage danach. Stattdessen mit jedem Stufen-Commit nachführen: `exports/00_start_hier.md` (Wiederherstellung, Stand), `exports/00_entscheide.md` (Entscheide, offene Punkte), `exports/07_benutzerhandbuch.md` (Pflege), `exports/00_webflow-ids.md`. Keine Zugangsdaten. PDFs nur auf Wunsch. Ab Stufe 3 am Stufenende zusätzlich jede CMS-Collection als CSV nach `exports/cms/`.
 
 ## 6. Inhalte & Verständlichkeit (verbindlich)
 - Werte der Website: klar, souverän, inspirierend. Jede Section vor der Freigabe gegen den Redaktionsleitfaden `exports/04_redaktionsleitfaden.md` prüfen: Was ist es, für wen, welcher Nutzen, welcher nächste Schritt?
