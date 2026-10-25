@@ -2,7 +2,7 @@
 
 **Projekt:** ROWAPA Website Transformation (68 Seiten)
 **Webflow-Zielprojekt:** „ROWAPA Website 2027 Automation“ (Site-ID `6addf1532819c0aacc74a496`, aktuell leer: 1 Seite „Home“, 0 Collections)
-**Phase:** 1 (Analyse) + 2 (Architektur) · Stand 25.10.2026, Rev. 2 (mit Live-Sichtung der Baseline) · Status: **Entwurf zur Freigabe**
+**Phase:** 1 (Analyse) + 2 (Architektur) · Stand 25.10.2026, Rev. 3 (Live-Sichtung der Baseline + Redirect-Mapping) · Status: **Entwurf zur Freigabe**
 **Wichtig:** Es wurden **keine** schreibenden Webflow-API-Aufrufe ausgeführt. Alle Aussagen über die Baseline beruhen auf reinen Lesezugriffen.
 
 ---
@@ -135,10 +135,10 @@ Die Baseline erfüllt die Vorgabe „Custom Code streng limitiert“ **nicht**: 
 | 8 | **Partnerrollen** | Seitentyp | 3 | `/partnerschaft/{slug}` | Partner werden |
 | 9 | **Blog-Artikel** | offen | ~58 + neue | `/blog/{slug}` | Wissen & Impulse, Blog-Übersicht, Home |
 | 10 | **Downloads** | offen | ~16 | `/downloads/{slug}` | Downloads-Übersicht |
-| 11 | **Webinare** | offen | laufend | `/webinare/{slug}` | Webinare-Übersicht |
+| 11 | **Webinare** | offen | laufend | `/webinar/{slug}` (Übersicht bleibt `/webinare`) | Webinare-Übersicht |
 | 12 | **Videos (ROWAPA TV)** | offen | laufend | `/tv/{slug}` | TV-Übersicht |
 | 13 | **Kurse & Termine** | offen | laufend | `/kurse/{slug}` | Broker Excellence · Kurse |
-| 14 | **Personen / Dozent:innen** | offen | Team + Dozent:innen | `/team/{slug}` | Team, Dozenten, Dozentinnen, Autor:innen |
+| 14 | **Personen / Dozent:innen** | offen | Team + Dozent:innen | `/experten/{slug}` (wie heute auf rowapa.ch) | Team, Dozenten, Dozentinnen, Autor:innen |
 | 15 | **Referenzen / Case-Stories** | offen | 2–3 zum Start | `/cases/{slug}` | Unsere Kunden, Themenlinien, Lösungswelten |
 
 > **Slug-Regel:** Die Collection-Slugs unterscheiden sich bewusst von den Slugs der Unikat-Übersichtsseiten (z. B. Übersicht `/selbstchecks`, Detail `/check/salesstep`). Sonst gibt es Pfad-Konflikte zwischen statischer Seite und Collection. Webflow erzeugt CMS-URLs nur einstufig (`/collection/item`). Die Hierarchie zeigen wir deshalb über Breadcrumbs aus Referenzfeldern, nicht über die URL.
@@ -154,6 +154,47 @@ Die Baseline erfüllt die Vorgabe „Custom Code streng limitiert“ **nicht**: 
 | 20 | **Werkzeuge** | Diagnostik-Tools & Methoden (SalesStep, Reiss-Profil, Bluquist …) | „Diagnostik & Tools“ auf Themenlinien und Hebeln, „Tool × Einsatzbereich“ auf Tools & Methoden |
 
 > ⚠️ **Plan-Limit:** 15 + 5 = **20 Collections**. Das ist genau die Obergrenze des Webflow **CMS**-Site-Plans; der **Business**-Plan erlaubt 40. Ohne Reserve sind spätere Erweiterungen (z. B. Termine, E-Learnings, Stellen) blockiert. Empfehlung: **Business-Plan** (auch wegen Datei-Uploads in Formularen und Formular-Kontingent) **oder** Programme und Mentorings zusammenlegen (siehe Abschnitt 7, Entscheidung E1). *Plan-Limits vor dem Build gegen die aktuelle Webflow-Preisseite prüfen.*
+
+### 2.3 URL-Plan & Weiterleitungen (Basis: ROWAPA Alt-URL-Liste, 166 URLs)
+
+**Grundsatz: Bestehende URLs schlagen neue „schönere“ URLs.** Wo es auf rowapa.ch eine inhaltlich gleiche Seite gibt, übernimmt der Neubau ihren Slug. Das sichert den SEO-Wert und spart Redirects.
+
+**Slugs der 29 Unikat-Seiten** (flach, ohne Ordner: Webflow-Ordner haben keine eigene Startseite, ein Hub wie `/broker-excellence` könnte also nicht gleichzeitig Ordner sein. Die Hierarchie zeigt die Breadcrumb):
+
+| Seite | Slug | | Seite | Slug |
+|---|---|---|---|---|
+| Home | `/` | | So arbeiten wir | `/so-arbeiten-wir` |
+| Für Organisationen | `/fuer-organisationen` | | Tools & Methoden | `/tools-methoden` |
+| Meine persönliche Entwicklung | `/persoenliche-entwicklung` | | Unsere Kunden | `/referenzen` ★ |
+| Broker Excellence (Hub) | `/broker-excellence` | | Über uns | `/ueber-uns` |
+| Für Brokerfirmen | `/broker-excellence-brokerfirmen` | | Team | `/team` ★ |
+| Für einzelne Broker | `/broker-excellence-broker` | | Kontakt | `/kontakt` ★ |
+| Kurse-Übersicht | `/broker-excellence-kurse` | | Wissen & Impulse | `/wissen` |
+| Dozenten-Übersicht | `/broker-excellence-dozenten` | | Blog-Übersicht | `/blog-news` ★ |
+| Female Empowerment (Hub) | `/female-empowerment` | | Downloads-Übersicht | `/wissen-downloads` |
+| SOUVERÄN ICH | `/souveraen-ich` | | Webinare-Übersicht | `/webinare` ★ |
+| Keynotes | `/keynotes` | | ROWAPA TV-Übersicht | `/rowapa-tv` ★ |
+| Dozentinnen-Übersicht | `/female-empowerment-dozentinnen` | | Partner werden | `/partner-werden` |
+| CAS Leadership | `/cas-professional-leadership-for-finance` ★ | | Partner & Kooperationen | `/partner-kooperationen` |
+| Selbstchecks | `/selbstchecks` | | E-Learnings | `/e-learnings` |
+| Persönliche Beratung | `/persoenliche-beratung` | | | |
+
+★ = identisch mit der heutigen URL auf rowapa.ch.
+
+**Collection-Slugs, die alte URLs 1:1 erhalten:** `blog` (58 Artikel), `downloads` (16 Downloads), `experten` (14 Personenprofile). Deshalb heissen die Webinar-Detailseiten `/webinar/{slug}` (die Übersicht behält `/webinare`) und die Personen-Collection `/experten/{slug}`.
+
+**Mapping-Ergebnis** (Datei `exports/02_redirect_mapping.xlsx`: die gelieferte Liste, ausgefüllt in den Spalten „Neue URL“ und „Redirect“, dazu „Status“ und „Begründung“):
+
+| Ergebnis | Anzahl | Beispiele |
+|---|---|---|
+| **none · 1:1 identisch** | 82 | alle 58 Blog-Artikel, 16 Downloads, `/team`, `/kontakt`, `/webinare`, `/rowapa-tv`, `/blog-news`, `/referenzen`, CAS Leadership |
+| **none · 1:1, aber prüfen** | 14 | `/experten/…`: bleibt nur bestehen, wenn die Person weiter ein Profil hat, sonst 301 → `/team` |
+| **none · entfällt (404)** | 4 | 3 interne Feedback-Seiten, Shop-Kategorie „Rechnung“ |
+| **301 · sicher** | 51 | Shop- und Seiten-Doppel auf *eine* neue Seite (z. B. 3 × Berater-Zertifizierung, 2 × je Mentoring), Tests → Selbstchecks, Begleitungen → Training on the Job |
+| **301 · Vorschlag – prüfen** | 15 | Angebote ohne Entsprechung in Sitemap v4 (siehe E14) |
+| **Summe** | **166** | Redirect-Einträge in Webflow: ca. 63 (die 4 `/category/…`-URLs deckt eine einzige Platzhalter-Regel ab) |
+
+**Umsetzung in Webflow:** Site Settings → Publishing → 301 Redirects, nach dem Muster `/alter-pfad` → `/neuer-pfad`. Für die Kategorie-Archive genügt eine Regel mit Platzhalter (`/category/(.*)` → `/kategorie/%1`). Beim Go-Live-Test prüfen, wie die alten URLs mit Schrägstrich am Ende (`/kontakt/`) aufgelöst werden.
 
 ---
 
@@ -435,7 +476,7 @@ Einträge: Managing Partner · Education Partner · Trainer Academy
 
 > Lead-Capture **ohne Custom Code**: natives Webflow-Formular auf dem Template. Die Erfolgsmeldung enthält den an das Feld `datei` gebundenen Download-Link. (Die Datei-URL ist technisch öffentlich. Ein echter Zugriffsschutz bräuchte Memberships oder ein externes Tool.)
 
-### 3.11 Webinare · `/webinare/{slug}`
+### 3.11 Webinare · `/webinar/{slug}`
 
 | Feld | Slug | Typ | Pflicht | Hinweis |
 |---|---|---|---|---|
@@ -494,7 +535,7 @@ Einträge: Managing Partner · Education Partner · Trainer Academy
 | Bild | `bild` | Image | Nein | |
 | *Block S* (3) · Platzhalter | | | | |
 
-### 3.14 Personen / Dozent:innen · `/team/{slug}`
+### 3.14 Personen / Dozent:innen · `/experten/{slug}`
 
 | Feld | Slug | Typ | Pflicht | Hinweis |
 |---|---|---|---|---|
@@ -839,7 +880,7 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 | **E1** | Programme (6) und Mentorings (3) zu einer Collection „Angebote“ zusammenlegen? | **Ja**: identisches Schema, 1 Template weniger, Reserve bei den Collections |
 | **E2** | Site-Plan: CMS (20 Collections) oder Business (40)? | **Business**: Reserve, Formular-Uploads, mehr Submissions |
 | **E3** | Die 5 Hilfs-Collections (Kategorien, FAQ, Stimmen, Organisationen, Werkzeuge) freigeben? | **Ja**: Voraussetzung für „eine Information, ein Ort“ |
-| **E4** | URL-Schema (Abschnitt 2.1) und Umgang mit den alten URLs von rowapa.ch? | **Teilweise geklärt:** Blog-Artikel liegen heute unter `/blog/{slug}/`. Mit dem Collection-Slug `blog` bleiben sie 1:1 erhalten, ohne Redirects. Für alle anderen alten Seiten (z. B. `/blog-news/`, `/cas-professional-leadership-for-finance/`) braucht es eine 301-Liste. Dafür fehlt noch die vollständige Seitenliste von rowapa.ch (Host `rowapa.ch` freigeben oder Sitemap-Export liefern) |
+| **E4** | URL-Schema und Umgang mit den alten URLs von rowapa.ch? | **Mapping liegt vor** (Kapitel 2.3, `exports/02_redirect_mapping.xlsx`): 166 Alt-URLs, davon 82 bleiben 1:1, ca. 63 Redirect-Einträge. Bitte die 29 Zeilen mit Status „Vorschlag – prüfen“ bestätigen oder korrigieren |
 | **E5** | Filter auf Übersichten: native Kategorie-Archivseiten oder Finsweet-Filter-Skript? | **Native Archivseiten** (No-Code, SEO). Finsweet nur bei Bedarf an Mehrfachfiltern (Kurse) |
 | **E6** | Mini-Sales-Check: externes Tool oder eigenes Mini-Skript? | **Externes Formular-Tool** (vom Kunden selbst pflegbar) |
 | **E7** | Mehrsprachigkeit DE/EN/FR/IT (Prototyp-Navigation): zum Start oder später? | Architektur ist lokalisierungsfähig (Labels über Referenzen). **Start DE**, weitere Sprachen als eigene Phase mit Webflow Localization |
@@ -848,6 +889,8 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 | **E10** | Punktemeer, 3D-Punktfiguren und Orbit der Baseline (WebGL) übernehmen? | **Ja, aber reduziert:** als *ein* gekapseltes Grafik-Modul nur für Hero, Themenlinien-Featured-Karte und ROWAPA Digital, mit Fallback-Bild und Rücksicht auf „reduzierte Bewegung“. Alles andere aus dem Baseline-Code entfällt oder wird nativ nachgebaut (Kapitel 0.2 d) |
 | **E11** | Headline-Grössen: Baseline (H1 ≈ 75 px, H2 ≈ 63 px, Zeilenhöhe 1.04) oder Styleguide (H1 ≈ 54 px, H2 ≈ 32–36 px, Zeilenhöhe 1.2–1.4)? | **Mittelweg:** H1 64 px · H2 48 px · H3 24 px · Zeilenhöhe 1.1 (Headlines) und 1.5 (Body), alles im 8px-Raster. Die editoriale Wirkung der Baseline bleibt, Lesbarkeit auf Unterseiten steigt |
 | **E12** | Diagonal-Ribbon (CLAUDE.md, Visual Guidelines) fehlt in der Baseline; dort übernehmen Punkt-Grafiken und Plum-Unterstreichung diese Rolle. Wie soll es weitergehen? | **Beides, klar getrennt:** Punkt-Grafik nur auf Startseite und Hubs; Ribbon als dezentes Element auf Unterseiten und in Bildern (Ecke, 60–80 %, max. 2 pro Bild) |
+| **E13** | Alte Slugs übernehmen, wo der Inhalt gleich bleibt? Konkret: Collection `experten` statt `team`, Webinar-Details unter `/webinar/…`, Übersichten `/blog-news`, `/webinare`, `/rowapa-tv`, `/referenzen` | **Ja**: 82 URLs bleiben ohne Redirect erhalten. Die Menü-Bezeichnungen (z. B. „Unsere Kunden“) sind davon unabhängig |
+| **E14** | Diese Alt-Angebote fehlen in Sitemap v4: **CAS Professional Sales for Finance**, HRV-Messung, Outsourcing, Booster, Lead Generator, Speaker, 4 Online-Kurse („Wie wirst du …“). Laufen sie weiter? | Bei jedem Angebot, das weiterläuft, eine Zielseite festlegen (bei CAS Sales eher eine eigene Unikat-Seite, analog CAS Leadership). Bis dahin zeigen die Redirects auf die naheliegende Übersicht (siehe Excel) |
 
 ---
 
