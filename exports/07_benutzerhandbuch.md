@@ -139,6 +139,22 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - Hero und Logo-Band liegen zusammen in der Hülle `startscreen_wrapper`. Sie ist genau so hoch wie das Fenster minus Navigation; der Hero füllt den Platz, das Logo-Band schliesst mit der Fensterunterkante ab. Das gilt auf jedem Format.
 - Mehr Luft im Hero: Klasse `padding-section-large` mit Zusatz `is-hero` (Abstände oben und unten). Höhe der Navigation geändert? Dann in `startscreen_wrapper` den Wert der Mindesthöhe anpassen (heute 4,5 rem, Tablet und Handy 4 rem).
 
+### 2.22 Schriftgrössen
+- Fliesstext 17 px (`text-size-regular`), gross 19–21 px, mittel 19 px, klein 15 px, sehr klein 13 px. Kicker 13–15 px, Buttons 14 px (klein 13 px), Navigation 15 px, Tags und Badges 12 px.
+- Grössen immer an der Klasse ändern (Style-Panel), nie am einzelnen Element. Kleiner als 12 px nur für reine Zierde.
+
+### 2.23 ROWAPA Digital: Texte und Buttons
+- Instanz der Komponente «Section Digital» auswählen › rechts **Properties**: Kicker, Titel, Einleitung, Hinweis Titel, Hinweis Text, Button 1 (Text, Link), Button 2 (Text, Link), Beschriftung Kugel. Alles ohne die Komponente zu öffnen.
+- Die fünf Karten sind eigene Karten-Komponenten (Properties wie jede Karte). Kachel und Karte gehören der Reihe nach zusammen; Darüberfahren über eine Kachel hebt die Karte hervor (Klasse `is-verbunden`) und umgekehrt.
+- Namen der oberen Kacheln (Anker, Segel, Logbuch) stehen über der Kachel: Zusatzklasse `is-oben` an `orbit_tile-name`. Auf der Seite setzt das Skript sie je nach Lage selbst.
+
+### 2.24 Team-Reihe
+- Mitglied ergänzen: eine Personenkarte in `team_grid` duplizieren und befüllen. Die Schlusskarte «Weitere Teammitglieder» bleibt immer die letzte.
+- Sichtbar: Desktop gut 4 Karten, Tablet 2,4, Handy 1,5; der Anschnitt zeigt, dass es weitergeht. Pfeile und Linie passen sich an.
+
+### 2.25 Variantenseite (intern)
+- `/varianten` zeigt die Vorschläge der Runde 4 nebeneinander; oben die Leiste zum Umschalten (A, B, C je Thema). Sie ist nicht verlinkt und wird nach dem Entscheid gelöscht.
+
 ---
 
 ## 3. Regeln für Inhalte (Kurzfassung)

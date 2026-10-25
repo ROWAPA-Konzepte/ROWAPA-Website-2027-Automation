@@ -185,6 +185,23 @@ Prüfung gegen den Redaktionsleitfaden: Jede Section beantwortet weiterhin «Was
 | Insights | Karte 6 | Generationsmanagement in der Finanzbranche (07.08.2025, Leadership) | Titel unverändert; Auszug «Worauf es ankommt, wenn mehrere Generationen im Team zusammenarbeiten.» | Titel ist bereits kurz | Auszug aus dem Titel abgeleitet [ROWAPA bestätigen] |
 | Insights | Alt-Texte neue Bilder | – | «Referentin vor Teilnehmenden in einem Seminarraum» · «Lächelnde Frau mit Smartphone unterwegs in der Stadt» · «Team aus mehreren Generationen im Besprechungsraum» | Barrierefreiheit; beschreibt, was zu sehen ist | – |
 
+## Rev. 4 (25.10.2026, Nacht)
+
+Prüfung gegen den Redaktionsleitfaden: Die Section Digital sagt jetzt klar, was es ist (digitale Lösungen), für wen (Vertrieb im Alltag) und welcher nächste Schritt folgt (Buttons). Begriff einheitlich «Lösungen».
+
+| Section | Element | Original | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| ROWAPA Digital | Titel | Digitale Werkzeuge … | **Digitale Lösungen, die Ihren Vertrieb im Alltag begleiten** | Wunsch ROWAPA: «Lösungen» statt «Werkzeuge» | – |
+| ROWAPA Digital | Einleitung | … fünf digitalen Werkzeugen … | … fünf digitalen Lösungen … Jede Lösung ist einzeln buchbar. | dito, auch im Fliesstext | – |
+| ROWAPA Digital | Hinweis | Alle fünf Werkzeuge … | Alle fünf Lösungen … | dito | – |
+| ROWAPA Digital | Karte Digital | … KI-gestützte Werkzeuge, die … | E-Learning, hybride Lernformate und KI-gestützte Lösungen, die … | dito | – |
+| ROWAPA Digital | Kartentitel (von ROWAPA geändert) | – | «Digitale Beratung strukturiert führen» · «Dein digitaler Begleiter im Verkauf» | übernommen | «Dein» widerspricht der Sie-Anrede der Section. Vorschlag «Ihr digitaler Begleiter im Verkauf» [ROWAPA bestätigen] |
+| Unser Vorgehen | Phase 03 | … digitale Werkzeuge … | … digitale Lösungen … | Begriff einheitlich | – |
+| Häufige Fragen | Frage und Antwort zu Digital | Werkzeuge | Lösungen | Begriff einheitlich | – |
+| Im Blickpunkt | Chip | (Daten offen) | 25. Februar bis 6. Dezember 2027 | Angabe ROWAPA | – |
+| Team | Schlusskarte | – | **Weitere Teammitglieder** · Ganzes Team kennenlernen → | zeigt, dass es mehr Menschen gibt, ohne Zahl (Wunsch ROWAPA) | – |
+| Team | Pfeile | – | Screenreader: «Vorherige Teammitglieder», «Weitere Teammitglieder» | sprechende Beschriftung | – |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -193,3 +210,4 @@ Prüfung gegen den Redaktionsleitfaden: Jede Section beantwortet weiterhin «Was
 2. ~~Schreibweise «die Mobiliar Ausserrhoden»~~: bestätigt
 3. Blog-Auszüge: aus dem Artikel übernehmen (Stufe 3, CMS); bis dahin die drei neuen Auszüge bestätigen (Rev. 3 · Rest)
 4. Weitere Kennzahlen, die wir zeigen dürfen (z. B. Anzahl begleiteter Unternehmen oder Teilnehmende pro Jahr)?
+5. Kartentitel «Dein digitaler Begleiter im Verkauf»: auf «Ihr …» umstellen? (Rev. 4)

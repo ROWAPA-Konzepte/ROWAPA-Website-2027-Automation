@@ -244,3 +244,44 @@ Wie 11.4: Video-Link in der Lightbox, Slider-Einstellungen (optional).
 ### 12.5 Nächster Schritt
 
 Feedback von ROWAPA zum Rest, danach Freigabe Stufe 2 und Beginn Stufe 3 (CMS).
+
+## 13. Feedback-Runde 4 (25.10.2026, Nacht)
+
+Feedback zuerst als Einschätzung, dann nach Antwort von ROWAPA umgesetzt. Direkt auf `/home-v2`, was eindeutig war; wo es mehrere gute Wege gibt, als Varianten auf der internen Seite `/varianten`.
+
+### 13.1 Direkt umgesetzt
+
+| Thema | Umsetzung |
+|---|---|
+| Schriftgrössen | Fliesstext 17 px, kleine Texte 13–15 px, Labels mindestens 12 px; rund 35 Klassen angepasst (Benutzerhandbuch 2.22) |
+| Begriff | «Digitale Lösungen» statt «Werkzeuge», auch im Fliesstext |
+| Digital pflegbar | alle Texte und Buttons als Properties der Komponente Section Digital |
+| Kugel und Kacheln | schneller (40 s / 90 s); Kacheln Great Serpent mit weissem Symbol; Bahn und Namen berühren die Kugel nie (Bahn flacher und tiefer, Kugel 42 % statt grösser, Namen oben über der Kachel); Kachel ↔ Karte in beide Richtungen |
+| Lösungen für Unternehmen | Figuren bauen sich rund 40 % schneller auf |
+| Team | Reihe mit Anschnitt, Pfeilen, Linie und Schlusskarte «Weitere Teammitglieder» → /team |
+| CAS | Daten 25. Februar bis 6. Dezember 2027 |
+
+### 13.2 Varianten (`/varianten`, Auswahl offen)
+
+| Thema | A | B | C |
+|---|---|---|---|
+| Mauszeiger | Punkt Plum, feiner Ring | Ring wächst auf Links und Karten zu «Öffnen» | Ring passt sich dunklem Grund an |
+| Megamenü | erste Fassung: Spalten, Vorschau beim Darüberfahren | editorial: Links links, grosse Bildvorschau | Wegweiser: drei Einstiege mit Punktfigur |
+| Kacheln Digital | Great Serpent, weisses Symbol (Startseite) | Sea Cliff, dunkles Symbol | dunkel mit kräftigem Rahmen |
+| Im Blickpunkt | Bildband mit Ribbon | Eckdaten (Start, Abschluss, Präsenztage, ECTS) | schmales Band weiter oben, direkt nach «Unsere Erfolge» |
+| Unser Vorgehen | ruhig: Bild steht, baut einmal auf, wechselt nur auf Wunsch | Phasen als Reiter mit Tafel | – |
+
+### 13.3 Technik
+
+- **Skript 1.3.1** (26,6 KB, komprimiert 11,3 KB): neu `zeiger`, `vorschau`, `varianten`; `treppe` mit `data-modus` (folge, ruhig, tabs); Kugel und Figuren schneller; `orbit` verbindet Kachel → Karte.
+- **Fehler behoben:** Kombiklasse `is-aktiv` aus dem HTML-Import wurde global veröffentlicht und färbte aktive Elemente Plum (auch Phasen der Startseite). Entfernt, Umschalter nutzt `var_wahl-an`; geprüft im veröffentlichten CSS.
+
+### 13.4 Prüfung (Staging, live mit 1.3.1)
+
+- Startseite: Zähler, Treppe, Kugel (Kachel → Karte und Karte → Kachel), Namen ausserhalb der Kugel, Team-Reihe; Phasen nicht mehr vollflächig Plum. Keine Fehler in der Konsole.
+- Variantenseite: alle Varianten auf Desktop 1440 und Handy 390 (Handy: Leiste nicht klebend, Varianten einspaltig, Vorschaubilder im Menü ausgeblendet).
+- Screens: `exports/stufe2-screens/runde4/`.
+
+### 13.5 Nächster Schritt
+
+ROWAPA wählt je Thema einen Buchstaben. Danach Umsetzung auf `/home-v2`, Variantenseite löschen (mit Freigabe), Freigabe Stufe 2.

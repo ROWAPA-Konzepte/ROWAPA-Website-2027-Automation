@@ -1,4 +1,4 @@
-# Webflow-IDs (laufend gepflegt, zuletzt 25.10.2026)
+# Webflow-IDs (laufend gepflegt, zuletzt 25.10.2026, Runde 4)
 
 Technische Referenz für die Wiederaufnahme. Keine Zugangsdaten. IDs sind nur zusammen mit einem berechtigten Webflow-Zugang nutzbar.
 
@@ -87,4 +87,11 @@ RUNDE3 REST: VORGEHEN step_item 3df154a3-cf8d-108f-0503-3edf7f103304 / …30e / 
 RUNDE3 REST: DIGITAL (in COMP 8066cf84…) digital_visual …d51e (data-grafik="orbit"), orbit_bahn 88a0e2dd-fab5-07cb-75cc-2901b42d5c4f, orbit_kugel (img) …d51f, orbit_label a52aad21-7f8a-2ba9-ee1c-8bfae079cb06, orbit_kacheln 4dc0b6ac-2e5d-6c1b-9f9e-17fd81ba8b1c; Kacheln anker 7d32a7a9-9aec-6367-b3c4-6799d66ba7af kompass a6f44702-454c-28b4-d5a2-8fdc66377525 lotse 37553cda-5c6a-2298-31ae-bc5c81f2204d segel 0954f584-fd9e-fbdf-ea27-e248aa0f5893 logbuch 34eca6aa-2222-4499-51ff-811cf56f8846
 RUNDE3 REST: INSIGHTS reihe_steuerung 9a699055-8aca-5324-e405-4ba5b34100e7 (Pfeile ce7d4a6d-2f6c-8d20-e1b5-dbe5ff24244e / 5b588113-a4a1-70e3-05ee-3f5577d81825), reihe_maske 5ee1dba9-bee6-a493-9a0d-0d673f8b6e25, insights_reihe f3cd7e1b-3734-b1ab-56af-41f668283664 (data-grafik="reihe"), reihe_fortschritt aea64c94-8f0c-ff3a-50f5-969b93e60c1f; neue Karten c2123d3b-8859-6d49-656f-b4d619bfa122 (CAS) 42435cd8-54ef-e66d-d645-049c86260af3 (Selbstführung) d3bdec43-92d4-3cd4-b04f-e6845f5a2053 (Generationen); layout-grid der Insights entfernt
 RUNDE3 REST: SCRIPT rowapagrafik 1.2.0 (jsDelivr @5f898a868d040cf8823993c660be6f809ccb078d, aktiv)
+RUNDE4: ASSETS Icons weiss anker 6ade7bbf9ab820cbb996ce9a kompass 6ade7bbf4f6effac234fc67a lotse 6ade7bbfb64eeadb923e104d segel 6ade7bc09ab820cbb996cedd logbuch 6ade7bc148f2f4531abcbbf0 (aktiv auf den Kacheln)
+RUNDE4: ASSETS Icons dunkel anker 6ade7bc1fb68436873cb33dd kompass 6ade7bc12793aa7a509c6a18 lotse 6ade7bc1aba4d489af9ef4e5 segel 6ade7bc1521ac8b8f09799b7 logbuch 6ade7bc1786b40539fdd3942 (Variante B)
+RUNDE4: STYLES orbit_tile-name.is-oben fc70f7ba, card.is-verbunden 194c2665, var_wahl-an (global), theme-tiefsee.is-ohne-grund 91a60216; Kombi var_wahl.is-aktiv entfernt (wurde global ausgegeben)
+RUNDE4: TEAM reihe_maske 8e1483a5 (data-grafik="reihe"), Schlusskarte team_mehr cb9d25e9 (→ /team), Pfeile e934dbac / beb73152, Fortschritt a2456de2
+RUNDE4: COMP Section Digital Props: Kicker, Titel, Einleitung, Hinweis Titel, Hinweis Text, Button 1 Text/Link, Button 2 Text/Link, Beschriftung Kugel
+RUNDE4: PAGE Varianten Runde 4 (intern) 6ade7d426411b7fa1d35c036 /varianten; main 83da0709-4ac8-167f-c5a8-96e466eaa1c4; Menü A 8e29dfa3, B b93ba78a, C 2d033a51; Kacheln e5c9d953; Blick A 3aac4d02, B fb304185, C 8136d184; Vorgehen A 2e2b45d6, B d1e1d61a
+RUNDE4: SCRIPT rowapagrafik 1.3.0 (@6e222aced6cf216965feb9cd983bc504cb57a22e), 1.3.1 (@e21fcbe59b45c1ceed462b1f48a2f0612292998f, aktiv)
 ```

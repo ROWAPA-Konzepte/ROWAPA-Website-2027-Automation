@@ -115,11 +115,33 @@ Commit b2000a2.
 | 66 | Insights | Claude: editoriale Reihe mit 6 Beiträgen, 3 sichtbar (Tablet 2, Handy 1 mit Anschnitt), Pfeile und feine Fortschrittslinie; wischen und scrollen gehen auch ohne Skript. 3 Beiträge aus der ersten Fassung ergänzt (Erfahrungsbericht CAS, Selbstführung als Lösung, Generationsmanagement); Auszüge aus dem Titel abgeleitet | Aufbau entspricht der späteren CMS-Liste (Stufe 3). Auszüge [ROWAPA bestätigen] |
 | 67 | Ladezeit nach dem Rest | Messung (Chromium, Mittel aus 3 Läufen) | Desktop 916 KB (vorher 955 KB), LCP 620 ms; Handy 441 KB, LCP 604 ms. Kugel rund 30 Bilder pro Sekunde, keine langen Aufgaben |
 
+## 9. Feedback-Runde 4 (25.10.2026, Nacht)
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 68 | Vorgehen bei Varianten | **Variantenseite ja** | interne Seite `/varianten` (Entwurf im Navigator, auf Staging veröffentlicht, nicht verlinkt) mit Umschaltleiste je Thema |
+| 69 | «Digitale Werkzeuge» | **heisst «Digitale Lösungen», auch im Fliesstext** | Titel, Einleitung, Hinweis, Vorgehen Phase 03, FAQ angepasst |
+| 70 | Team: «es gibt noch weitere» | **«weitere» statt Zahl** | Team als Reihe mit Anschnitt (4,4 Karten sichtbar), Pfeile, Fortschrittslinie, Schlusskarte «Weitere Teammitglieder · Ganzes Team kennenlernen» → /team |
+| 71 | CAS-Daten | **25. Februar bis 6. Dezember 2027** | Chip im Blickpunkt und Varianten |
+| 72 | Schriftgrössen | **ja, anheben** | Fliesstext 17 px (vorher 16), klein 15, sehr klein 13, Kicker 13–15, Buttons 14, Navigation 15, Labels nicht unter 12 px. Liste im Benutzerhandbuch 2.22 |
+| 73 | Section Digital in Webflow pflegen | Claude: alle Texte und Buttons als Properties der Komponente | Kicker, Titel, Einleitung, Hinweis (Titel, Text), Buttons 1 und 2 (Text, Link), Beschriftung Kugel |
+| 74 | Kugel schneller | Claude: Umdrehung 40 s (vorher 70), Kacheln 90 s (vorher 150) | Skript 1.3.0 |
+| 75 | Symbole auf dunklem Grund | Claude: Kacheln Great Serpent mit Rand Sea Cliff, weisse Symbole (38 px), Schatten | Varianten B und C auf der Testseite |
+| 76 | Bahn und Namen berühren die Kugel nie | Claude: Bahn flacher und tiefer, Kugel kleiner; Namen der oberen Kacheln stehen über der Kachel | Klasse `orbit_tile-name is-oben`; das Skript setzt sie während der Bewegung selbst |
+| 77 | Kachel ↔ Karte in beide Richtungen | Claude: Darüberfahren über eine Kachel hebt die Karte hervor (Rand Plum) | Klasse `card is-verbunden`, Skript 1.3.0 |
+| 78 | Ruhigere Treppe | Claude: zwei Modi als Varianten (A «ruhig»: steht fest, baut einmal auf; B «Tabs»: Phasen als Reiter) | Startseite bleibt bis zum Entscheid beim heutigen Ablauf |
+| 79 | Figuren in «Lösungen für Unternehmen» schneller | Claude: Aufbau rund 40 % kürzer, kleinere Staffelung | Skript 1.3.0 |
+| 80 | Mauszeiger | Claude: Punkt Plum mit feinem Ring, drei Varianten (A schlicht, B Ring wächst mit «Öffnen», C passt sich dem Grund an) | nur auf der Testseite eingeschaltet; nur bei Maus, nie in Formularfeldern |
+| 81 | Megamenü | Claude: drei Varianten (A erste Fassung mit Vorschau, B editorial mit grosser Vorschau, C Wegweiser mit Figuren) | Testseite; das echte Menü wird nach dem Entscheid umgebaut |
+| 82 | Im Blickpunkt prominenter | Claude: drei Varianten (A Bildband mit Ribbon, B Eckdaten, C schmales Band weiter oben) | Testseite |
+| 83 | Fehler Variantenumschalter | Claude: Die Kombiklasse `is-aktiv` wurde beim Veröffentlichen global ausgegeben und färbte aktive Elemente vollflächig Plum. Umschalter nutzt jetzt die eigene Klasse `var_wahl-an` | Skript 1.3.1; geprüft: keine globale Regel `.is-aktiv` mehr |
+
 ---
 
 ## Offene Punkte
 
-1. Feedback zum Rest auf Staging (Zähler, Treppe, ROWAPA Digital, Insights-Reihe); danach Freigabe Stufe 2.
+1. Varianten wählen (je Thema ein Buchstabe): Mauszeiger, Megamenü, Kacheln Digital, Im Blickpunkt, Unser Vorgehen. Danach Umsetzung auf `/home-v2` und Freigabe Stufe 2.
+1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).
 4. Auszüge der drei neuen Insights-Karten bestätigen (aus dem Titel abgeleitet, die Originalbeiträge waren aus der Cloud-Umgebung nicht erreichbar). In Stufe 3 kommen die Auszüge aus dem CMS. [ROWAPA bestätigen]
