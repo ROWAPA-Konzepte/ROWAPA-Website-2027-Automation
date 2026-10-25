@@ -1,4 +1,4 @@
-/* Umschalter für Varianten (Testseite): Knöpfe [data-wahl="gruppe:wert"] zeigen Elemente [data-variante="gruppe:wert"]
+/* Umschalter für Varianten (Testseite): Knöpfe [data-wahl="gruppe:wert"] (aktiv: Klasse var_wahl-an) zeigen Elemente [data-variante="gruppe:wert"]
    und blenden die anderen der Gruppe aus. Die Gruppe «zeiger» stellt den Mauszeiger um. */
 export function varianten(el) {
   const knoepfe = [...el.querySelectorAll('[data-wahl]')];
@@ -7,7 +7,7 @@ export function varianten(el) {
   const waehle = (g, wert) => {
     gruppen[g].forEach(k => {
       const an = k.getAttribute('data-wahl') === `${g}:${wert}`;
-      k.classList.toggle('is-aktiv', an);
+      k.classList.toggle('var_wahl-an', an);
       k.setAttribute('aria-pressed', String(an));
     });
     document.querySelectorAll(`[data-variante^="${g}:"]`).forEach(v => { v.style.display = v.getAttribute('data-variante') === `${g}:${wert}` ? '' : 'none'; });
