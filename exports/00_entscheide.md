@@ -87,18 +87,23 @@ Commit b2000a2.
 | 43 | Kurzfassung für Dritte | **nein** | – |
 | 44 | Netzwerk der Cloud-Umgebung | Webflow freigegeben | Staging live geprüft: Laufband mit Pause beim Darüberfahren und Hover-Video funktionieren |
 | 45 | Textänderungen direkt in Webflow | von ROWAPA vorgenommen, beim nächsten Veröffentlichen übernehmen | Hero-Kicker «Beratung · Training · Digitale Lösungen»; Kartentitel «Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung» |
-| 46 | Feedback-Runde 3 zur Staging-Seite | Einschätzung von Claude vor dem Bau | Entscheide von ROWAPA ausstehend (Offene Punkte 1 und 2) |
+| 46 | Feedback-Runde 3 zur Staging-Seite | Einschätzung von Claude vor dem Bau | Entscheide 47–52 |
+| 47 | Kennzahl Trainerteam | **150 Jahre** (bestätigt) | unverändert |
+| 48 | Logo-Titel, Erfolge-Slider (5 Stimmen im grossen Zitat, Karten bleiben), Video in Lightbox, Linktext Recruiting, Themen-URLs in Stufe 4 anpassen, Staging veröffentlichen | wie von Claude vorgeschlagen | nach Freigabe der Technik |
+| 49 | Punktfiguren auch in den vier Themenkarten | **ja**, zusammen mit Vertriebsperformance | Figuren in der Bildsprache der ersten Fassung |
+| 50 | ROWAPA Digital: Animation | lieber **eigenständig laufend, ohne Scroll-Abhängigkeit**; ob «Fluss in die Karten» dazukommt, schlägt Claude vor (Massstab: ruhiges, editoriales Gesamtbild) | Vorschlag von Claude ausstehend |
+| 51 | Insights und alles Weitere | passend zum editorialen Auftritt, nichts Verspieltes; Claude entscheidet im Zweifel zugunsten von Ruhe | – |
+| 52 | Technik | präzise, über Webflow beeinflussbar, gute Qualität, keine längeren Ladezeiten | Technikvorschlag von Claude vor dem Bau |
 
 ---
 
 ## Offene Punkte
 
-1. Entscheide zur Feedback-Runde 3 (Animationen, Slider bei Erfolgen und Insights, Video, Logo-Titel).
-2. Kennzahl Trainerteam: 150 Jahre (Vorlage) oder 133 Jahre (Baseline)? [ROWAPA bestätigen]
-3. Favicon und Webclip in Webflow hochladen (von Hand).
-4. Stehendes Logo als SVG (falls vorhanden).
-5. Ungenutzte, nachgebaute Logo-Assets in Webflow löschen (nur mit OK).
-6. Weitere Kennzahlen, die gezeigt werden dürfen.
-7. Hilfs-Collection «Organisationen» in Stufe 3 nach der Begriffsregel benennen. Vorschlag: «Unternehmen & Partner».
-8. Option Mobile: Wische-Reihen für Wege, Insights und Werkzeuge (nochmals rund 3 000 px kürzer).
-9. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
+1. Freigabe des Technik- und Gestaltungsvorschlags zur Feedback-Runde 3 (Grafik-Skript, Digital, Insights).
+2. Favicon und Webclip in Webflow hochladen (von Hand).
+3. Stehendes Logo als SVG (falls vorhanden).
+4. Ungenutzte, nachgebaute Logo-Assets in Webflow löschen (nur mit OK).
+5. Weitere Kennzahlen, die gezeigt werden dürfen.
+6. Hilfs-Collection «Organisationen» in Stufe 3 nach der Begriffsregel benennen. Vorschlag: «Unternehmen & Partner».
+7. Option Mobile: Wische-Reihen für Wege, Insights und Werkzeuge (nochmals rund 3 000 px kürzer).
+8. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
