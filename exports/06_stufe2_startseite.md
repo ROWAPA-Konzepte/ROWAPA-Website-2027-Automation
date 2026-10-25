@@ -142,3 +142,16 @@ Nach Ihrem Feedback zu Rev. 2 (insbesondere Werkzeuge «Karten» oder «Liste»)
 - Feinschliff, danach ersetzt `/home-v2` die heutige Startseite (Veröffentlichen nur mit Ihrer Freigabe).
 - **Stufe 3:** CMS-Collections und Draft-Einträge (Kunden-Logos, Partner, Team, Erfolge, Blog), dann Laufband und Raster aus dem CMS.
 - Grafik-Modul für die Punkte-Grafiken.
+
+---
+
+## 10. Nachtrag 25.10.2026, Abend (Entscheide ROWAPA)
+
+| Thema | Entscheid | Umsetzung |
+|---|---|---|
+| ROWAPA Digital | **Karten** | Variante «Karten» aktiv; «Liste» bleibt als Reserve in der Komponente |
+| Mobile kürzen | ja | Bento-Karten mit neuer Variante «Hell · kompakt» (auf Mobile ohne Beschreibung); dritte Insights-Karte auf Mobile ausgeblendet (`grid-item_hide-mobile`). Seitenlänge 390 px: rund 17 800 px inkl. Footer |
+| Staging | veröffentlichen | `Home v2` ist kein Entwurf mehr; Veröffentlichung nur auf die Webflow-Subdomain `rowapa-website-2027-automation.webflow.io` (18:27 Uhr). Der Styleguide bleibt Entwurf |
+| Pull Request | beobachten | Claude reagiert auf Kommentare in PR #2 |
+| Backup | jetzt | `exports/backup/2026-10-25/` (Handbuch, Konzept, Protokoll, Wiederherstellung; je MD und PDF im CI) |
+

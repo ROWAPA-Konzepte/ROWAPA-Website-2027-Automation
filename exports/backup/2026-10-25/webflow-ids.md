@@ -1,0 +1,73 @@
+# Webflow-IDs (Arbeitsnotiz, Stand 25.10.2026)
+
+Technische Referenz für die Wiederaufnahme. Keine Zugangsdaten. IDs sind nur zusammen mit einem berechtigten Webflow-Zugang nutzbar.
+
+```
+SITE 6addf1532819c0aacc74a496  HOME page 6addf1552819c0aacc74a4d2
+FONTS: Orbiter 400 6ade0c89520e38f05070cfb7, 500 6ade0cd0282d910c9b17537d, 600 6ade0cd027cf9de2fe424689, 700 6ade0d2586d35a5971bb8199, Explorer 800 6ade0d2548f2f4531aa9743f
+COLL Farben collection-857c51c1-6143-4b25-4e88-396f6da28aa4
+COLL Theme collection-16fcff89-d6c4-994d-884f-14dff0592147
+COLL Spacing collection-ea994b01-cfe2-a2ea-bee1-10ef6e88341c
+COLL Typografie collection-880921a9-ac90-e10b-bede-f8c48bf1f71b
+COLL Layout collection-f82eb369-e5dc-d8d4-f4d2-60fec9d97d9b
+VAR manganese variable-fe3a3a7b-09db-9af5-1993-da81578cef40
+VAR manganese-deep variable-cf365b75-1779-9932-2fe8-2b23de60d578
+VAR serpent variable-5aa61c47-0ac4-22fa-0415-c0afd2a1e98a
+VAR seacliff variable-c539e536-21ff-cae0-f59a-65fd654b9b17
+VAR plum variable-1a78331c-66ce-fda1-e524-e6390f73f1b4
+VAR plum-hover variable-1582ab5b-4a11-a9d0-c3f6-72de553b6d0b
+VAR snowbank variable-fd17a0e7-42ae-cfc1-edf1-0d95a6648d0a
+VAR white variable-f1c9d591-38ee-54e0-1404-03e27f38ebb4
+VAR seacliff-tint variable-0637c7f5-daf3-e230-49de-bab6a340e5d6
+VAR plum-tint variable-76b27da2-711f-784f-24f1-206cc211562e
+VAR text-soft variable-c30c831b-0c1d-6fba-188d-32fb747afc54
+VAR line variable-06720d3a-77de-6eea-1e97-04dd2c0a63d8
+VAR white-line variable-7e5f647f-b097-1208-40b9-5c98a4dd7bdf
+VAR white-soft variable-e37ff32c-9e84-0efa-cc6c-920013f244a8
+THEME modes: base=Hell, Soft mode-f74fc9d0-83d2-1439-2937-e8a77dfb0800, Sea mode-27be7aa1-8719-6377-ff5e-e7157d15fd56, Kontrast mode-94a56d37-f88d-dd42-b715-095bf477aec4, Tiefsee mode-63d57d41-e6c9-e9e2-30e8-f7cbea779ff8
+T bg variable-84191b01-299a-f30a-c229-75c204c58ff4 | text variable-0f82aeba-36d1-bcfd-7312-60a8c2140c3b | heading variable-a89cd6bf-43db-2040-0305-ffc64bf0af71 | muted variable-16164893-6702-f14c-849c-e691dc2a3fd6
+T line variable-315e777a-f594-d701-ad1a-ed832ec613b1 | accent variable-2ff9e1f7-a1cc-b561-337a-62098f4338a2 | card-bg variable-ea9a0156-340e-6bf3-e943-9b8770e6b360 | card-line variable-a8099603-5147-a808-3591-d89fade65a71
+T link variable-02687d7a-a3cc-6024-60b9-0e72b1ae08fb | icon-bg variable-e43e9a6e-4374-4321-7eaa-05ebb6c45ce7 | icon-fg variable-565c4129-de49-6a9d-07b3-e59bbae0dc71
+SP space-1 variable-95314c16-941a-4e52-dcef-5071dc4fca12 | space-2 variable-183f7062-9fcb-933f-ab41-afeaccfa6f4e | space-3 variable-cc35f698-1593-0f98-a7f9-94bd7ff2ca46 | space-4 variable-cfe0af03-1669-2aad-195e-55fb14b6a3b9
+SP space-6 variable-9910cdf3-c609-16bb-954c-8db6d6448f06 | space-8 variable-96cbd6d6-9f24-f7f9-a689-152ce3828ad8 | space-12 variable-bced950a-0f98-d76d-669e-51fbc6e64acf | space-16 variable-ec12a868-12f3-351c-bb7a-0c930433a6cb
+SP radius-s variable-1f6d862a-fb8c-00ef-51e5-e4ebc94b0fa3 | radius-m variable-3a7f0c26-29e5-6c28-807f-6dbd5ed1b0d7
+TY ff-main variable-fed16afd-7f43-266f-5355-bb5bc3f01043 | ff-accent variable-e5983ef6-9385-4978-c775-415b83776cf4 | lh-head variable-df1bb2fc-c937-a2c8-2309-882dee03e4ea | lh-body variable-4c2e2596-f590-8ce1-fbd7-30dfdbf789c3
+RIBBON variable-bdfbaab1-2a9a-c868-1a09-8a3e89303572
+LAYOUT c-large variable-189f0618-8831-ce59-d5ae-00ef4194d9d3 | c-xl variable-ff099e6b-498b-c390-384a-d4f1c153cf90 | c-xxl variable-2ac3d4c2-48c8-df94-5900-5cc9e3150c95 | c-medium variable-73da4b95-1b01-ceba-c04b-97f63464ccc5 | c-small variable-65693995-8b19-c3be-37c2-5058ebe5647f
+STYLES: container-large(base 80rem, xl 90rem) padding-section-small(clamp)
+STYLEGUIDE page 6ade123bf5506d04ac8b25d0  main-wrapper 35f42e44-c038-9799-273a-d999b7ae5670  intro 35f42e44-...566f  cards-section 504c7c25-deed-4e4c-258f-4dfe5cfb2f3c grid ...2f38
+COMP Navbar 874bfcfa-09e8-3cb6-8a7d-8bca4c1bbbdb  Footer 80f683ca-c575-0f18-701e-f2706972eadb
+COMP Card Feature 7800ce8c-00c8-802b-11a1-265dfd053647 (variant Dunkel 70a7d07e-dd98-55cb-d592-568a2dd2fb55, variant prop 8edcef04-9e64-942a-18d7-0de69484c606)
+COMP Card Teaser 1971ba4f-b364-ef25-a451-97d4d2170aac (Bild prop b0b1e214-a6a8-e121-5026-ba9a080240ec)
+COMP Card Angebot 6a5ae5ca-384d-953e-3058-b4e50f8ed286 (Erstgespraech fad87dc3-8faa-1a78-7742-30661ba03398, Kauf 2fc5581b-52c5-3e61-4697-a9187ee2fefa, variant prop cff87dc8-a8c0-abe9-1cda-960e162027d9)
+ASSET placeholder 6ade176334bdff49b80d6185  logos hell 6ade12d2c8e942edb5039875 dunkel 6ade12d28e540fa263969738 signet 6ade12d2c1ea8d82f92a0b3d
+VAR footer-wortmarke-deckkraft variable-5e857e69-0571-e1b6-5958-cd8765bdb148 ; COMP Ribbon 331851a6-d269-ee1b-faf2-6accbfc218f6 (Unten links c3f7a37c-1c00-d2b4-a161-e0565d177f1b)
+ASSETS Kunden: die-post 6ade2865d4e2b38f94bd7af4 zurich 6ade28699d6c402cfe6681d2 ukb 6ade286cf950f2509606b812 swisslife 6ade286ffc1021a5c2816424 raiffeisen 6ade2873bbcf70c54b5b0b02 mobiliar 6ade2875d955d72924b7bff7 visana 6ade2879082f0121214afeb1 ergo 6ade287b942cc529ab9694ea css 6ade287d691581a3975ad012 axa 6ade2880b26de708a91db69d allianz 6ade288328b989f6d80a76d2 generali 6ade288528b989f6d80a771d
+ASSETS Partner: bluquist 6ade289fc1666713b8c41cd2 innosuisse 6ade28a2c1666713b8c41ed4 eth 6ade28a5ff14354501525c6c superai 6ade28a98744271fad9ab1cc mendo 6ade28afbf25ed078500f969 trihow 6ade28b284aac2f5a371239b salesstep 6ade28b8692efb93f8cf0560 rmp 6ade28bb38872bf7957f801a gutberaten 6ade28bdbf25ed078500fd83 sfpo 6ade28c07c679e4c287b0050 fpv 6ade28c238872bf7957f80bc saq 6ade28c5f57b3356eca0d83f iffp 6ade28cb4bff0d09c4575afc hwz 6ade28cee41361088aa7d71b
+ASSETS Team: wachter 6ade28ea043cf26c13a371c9 bassi 6ade28ee691581a3975ada45 rothkoegel 6ade28f249eb70e98befd933 shokhova 6ade28f43cf0a887027752c4 hiltbrunner 6ade28f8ac3ef69bfd23d7cb boek 6ade28fa3afeca34a032ec96
+ASSETS: erfolg1 6ade28fdbbcf70c54b5b24f5 weg-privat 6ade2900b26de708a91dc5cf weg-broker 6ade2903e7abdfa0c1782fa7 weg-female 6ade29083afeca34a032edf2 cas 6ade290b9d6c402cfe66af48 hero-trainer 6ade290fff14354501526916
+ASSETS Insights: blog-zeit 6ade29218744271fad9ac386 blog-lead 6ade29243afeca34a032f10f blog-empathy 6ade29279a21a1e2cc4cd1ed tv 6ade29299bcad67a25c056d3 webinar 6ade292c7dae157855fc8930
+ASSETS Grafik: punktemeer-hero 6ade29614f41302393c93236 vertriebsperformance 6ade2961405d5ecd5757d4d5 treppe 6ade2961bd3ee2a36dff2c17 orbit 6ade29617800364969057c84 (orbit bg = #1D3149 -> theme-kontrast)
+PAGE home-v2 6ade29a04f41302393c94973 body 6ade29a04f41302393c94979 page-wrapper 0d293f51-ae7e-ebbf-932f-c0d83fd06148 main 0d293f51-...06147 hero section 0d293f51-...06146 hero_media ...06140
+COMP Card Featured 736a546a-2e6d-cedd-3318-8912b3d23e26
+INST bento b1 73e1d81d-5261-a5d4-4828-ec969d24c649 b2 ed6c21ce-e29f-49c8-e52f-4589d130cf46 b3 bba4b70a-641c-a742-d65b-a95238a37ce9 b4 a4b0cef3-bb72-bec3-5399-105c70d00b8c
+INST tools t1 06d4d7d8-f305-15a2-fb45-f034204623b1 t2 870b4470-12bd-8a3d-3714-90a88bde11bb t3 dfc95ddf-1a6f-c599-d51c-d6e24870e2bf t4 e3b1c404-acf7-91cf-e176-7413a191efed t5 9b8c7c6c-81f2-4243-4044-7595d166447b
+INST wege w1 d17dec68-922c-05af-7f4e-bbe25f66b860 w2 e227f7be-a554-7a43-2e7d-2ebd5b05afde w3 f18eed3d-437b-de17-4e1e-765373fb9d83 ; insights i1 7997c1da-49bc-7402-c3e9-fa24d22143b9 i2 cea22b06-7941-d39e-bb1c-f38d29e13686 i3 8f8acc47-b498-ea32-e129-01dd15e30fee
+COMP Section Hero Home 32443477-0ff1-d34e-0020-e8ec276c5ac1 (base "A · Signatur", variant "B · Editorial" 1e397a93-7193-3b38-3756-3f1206a4ab18) INST 74591f34-fad3-f8c2-f7d3-c0b5db1086d4
+  props: Kicker fe9f8002… Lead 63e7c05f… Btn1 Text ceee26f6… Link f4c16d2c… Btn2 Text 16e4ff58… Link bc479707…
+COMP Card Featured props: Kicker 153628e0… Titel 90d0e59a… Text 767f9c4c… Grafik c2255c03… Grafik Alt 33eeb44a… Button Text da8461d5… Link e9d5f90e… INST d3ce8a82-7fa0-ed5a-9ec6-5e46195c5c3a
+SECTIONS home-v2: logos e84b9222 | loesungen 60c79c3e | antrieb 78eb9e1b | vorgehen 3df154a3 | digital 0f39f9c0 | erfolge d456298d | team e120d84c | wege b28b7e4f | cas 04251899 | insights 607e32b6 | faq dde596eb | kontakt 114a994d
+ASSET FOLDERS: Marke 6ade4089865e1a7d97a43777 Grafiken 6ade4089fb68436873bc0524 Fotos 6ade408962d86a35dee8d028 Videos 6ade408967bf622c08926515 Team 6ade408924c0aee2ff3ce480 Kunden 6ade408ae38d313f97d45055 Partner 6ade408a10057a9f4358dff2 Blog 6ade408a10057a9f4358e007 Erfolge 6ade408ae38d313f97d45099 CAS 6ade408a27cf9de2fe4bdcb9
+ASSETS neu: foto-blog 6ade40ada453bde7aa51576f foto-broker 6ade40b4f57b3356eca494b6 foto-cas 6ade40b9ac3ef69bfd27acf3 foto-coach 6ade40bfcace370dd24f0d43 foto-digital 6ade40c33cf0a887027b5c99 foto-female 6ade40c72e459d1cb640295c video-weg-privatpersonen 6ade408a27cf9de2fe4bdccf foto-leadership 6ade41ab2e556a5d1f73ca21 foto-potenzial 6ade41ac27cf9de2fe4c1149 foto-privat 6ade41ac80fe7c5bb4c9cd73 foto-recruiting 6ade41acd618ef3b9679b49e foto-vertrieb 6ade41ac27cf9de2fe4c1178 foto-video 6ade41acfa31e4846a52b857 blog-arbeitskonflikte 6ade41ac80fe7c5bb4c9cda0 blog-generationsmanagement-in-der-finanzbranche 6ade41acc4fb95811953bb9e blog-kundenberatung-2-0 6ade41ad4f41302393cb7860 blog-positive-leadership-im-finanzvertrieb 6ade41add618ef3b9679b51d blog-selbstfuehrung-als-loesung 6ade41adfa31e4846a52b91f blog-erfahrungsbericht-cas 6ade41ad55d4432af3853d9c erfolg-2 6ade41add618ef3b9679b556 erfolg-3 6ade41ae2d5fe349f6296094 erfolg-4 6ade41ae2a4b47cb642ade92 erfolg-5 6ade41ae39f5d800b28ae472 erfolg-6 6ade41ae80fe7c5bb4c9ce7b erfolg-7 6ade41ae2e556a5d1f73cb19 erfolg-8 6ade41af34c2eb4e3009d9a8 cas-band 6ade41afc4fb95811953bce4 cas-hertenstein 6ade41af34c2eb4e3009d9d7 cas-ev-beratung 6ade41afaba4d489af95cca9 cas-ev-kurs 6ade41b0b591d03330b25104 cas-ev-zoom 6ade41b0aba4d489af95ccd1 video-weg-broker 6ade41b0ab3cad773e91fbff video-weg-female 6ade41b0d618ef3b9679b690 rowapa-signet-negativ 6ade41b044ad87ca90187288 rowapa-signet-dunkel 6ade41b010057a9f4359183b
+VIDEO URLs: https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/<id>_<name>.mp4
+PR https://github.com/ROWAPA-Konzepte/ROWAPA-Website-2027-Automation/pull/2
+ASSET grafik-punktemeer-footer 6ade42e279ca00a2d5d488c3 (dots on black, mix-blend screen)
+ASSET grafik-punktemeer-footer-v2 6ade46c562d86a35deea1ef0 (Sea Cliff/Plum, aktiv im Footer)
+RUNDE2: COMP Section Digital 8066cf84-037f-187c-26ab-6363bd29d502 (base "Karten", variant "Liste" c90f1dce-75d4-c899-cb00-82df79754193)
+RUNDE2: IX3 Logo-Laufband i-a430ee7d (timeline t-811a46c1 group laufband); SCRIPT rowapahovervideo 1.0.0 (site footer)
+RUNDE2: Card Teaser prop Video URL (Hover) 6ad58416-0928-575b-5bcc-d8b0790bffb2; video el 0d98d592-7805-9554-7978-8277a5f3c746
+RUNDE2: STYLES kicker 841c2e95 kicker_line 0dc7e047 logos_marquee cf8f8270 logos_track 08db8bf2 logos_list f4d1143d logos_fade c3589ec0 hero_scroll 4a943400 footer_grafik 5cc05e08 card_video 191d80f4 is-cell 551d6585 is-erfolge 628aa617
+RUNDE2: hero scroll link f346b2c0-c7a7-05c9-2627-c2c9a8b4e4da; hero kicker wrap 605e9773-2e15-4b63-4bd3-68077ca76ce1; footer_grafik a0509127-e643-58ab-cca6-6842025b1ed7 img d777c917-7b81-48a7-b890-54daf8c331a6
+RUNDE2: marquee 8233b604-64ea-7349-4ec2-0b824c185273 list1 ...526f list2 ...5270; FIX padding-global xxl theme mode removed
+LOGOS offiziell: dunkler-hg 6ade488d9e0675b53c59df77 (Navbar+Footer) heller-hg 6ade488dfa31e4846a53737a claim-hell 6ade488dfa31e4846a537392 claim-dunkel 6ade488d2d5fe349f62b84dd name-hell 6ade488e16c1dee2604fe6a5 name-dunkel 6ade488e1fd9e94a0464d9f2 claim 6ade488e34c2eb4e300b60c8 favicon.svg 6ade488e4f41302393cdb572 avatar 6ade488e62d86a35deeac319 favicon32 6ade488ee38d313f97d5c89c webclip 6ade488ee38d313f97d5c8b4
+```
