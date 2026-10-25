@@ -899,7 +899,7 @@ Ordnerstruktur im Webflow-Components-Panel: `01 Global` · `02 Sections` · `03 
 | E1 | **Zusammenlegen** | Eine Collection „Angebote“ mit Option „Angebotsart“ (Programm · Mentoring). Damit 19 Collections, 14 Master-Templates |
 | E2 | **Business-Plan** | 40 Collections, Formular-Uploads möglich |
 | E3 | **Ja** | 5 Hilfs-Collections werden angelegt |
-| E4 | **Alt-URLs:** Nr. 3, 6, 10, 15, 27, 33, 34, 105, 112–115, 117, 118, 156 entfallen (Seminare/Themen gibt es nicht mehr). Nr. 120–133 (Experten) → 301 auf `/team` | in `02_redirect_mapping.xlsx` eingetragen. Offen nur noch Nr. 155 (siehe Rückfrage) |
+| E4 | **Alt-URLs:** Nr. 3, 6, 10, 15, 27, 33, 34, 105, 112–115, 117, 118, 155 entfallen (Seminare/Themen gibt es nicht mehr; Nr. 155 bestätigt am 25.10.2026). Nr. 120–133 (Experten) → 301 auf `/team` | in `02_redirect_mapping.xlsx` eingetragen. **Alle 166 Zeilen entschieden:** 65 × 301, 82 × 1:1, 19 × entfällt |
 | E5 | **Native Kategorie-Archivseiten** | Collection „Kategorien“ mit öffentlichem Template |
 | E6 | **Typeform** | Mini-Sales-Check als Typeform-Embed bzw. Link |
 | E7 | **Start DE**, Mehrsprachigkeit wichtig | Alle sichtbaren Labels über Referenzen/Komponenten-Props, keine fest eingebauten Texte in Klassen oder Option-Feldern |
