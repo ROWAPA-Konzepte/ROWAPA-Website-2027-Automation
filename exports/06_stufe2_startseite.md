@@ -1,7 +1,7 @@
 # ROWAPA Website 2027 · Stufe 2: Startseite (Prototyp `/home-v2`)
 
 **Projekt:** ROWAPA Website 2027 Automation (Webflow Site-ID `6addf1532819c0aacc74a496`)
-**Stand:** 25.10.2026 · Phase 3, Stufe 2 von 4 · **wartet auf visuelles Feedback**
+**Stand:** 25.10.2026 · Phase 3, Stufe 2 von 4 · **Rev. 2 (Feedback-Runde 2 eingearbeitet), wartet auf visuelles Feedback**
 **Grundlagen:** Design-System Stufe 1 (`03_stufe1_designsystem.md`), Redaktionsleitfaden (`04_redaktionsleitfaden.md`), Texttabelle (`05_home_texttabelle.md`)
 
 ---
@@ -11,119 +11,134 @@
 | Was | Wo |
 |---|---|
 | Startseite (Entwurf, nicht veröffentlicht) | Webflow Designer › Seiten › **Home v2 (Prototyp)** (`/home-v2`) |
-| Hero-Variante umschalten | Hero anklicken › rechts **Eigenschaften/Properties** › **Variante**: «A · Signatur» oder «B · Editorial» |
-| Neue Komponenten | Komponenten-Panel › **03 Cards › Card Featured** und **04 Sections › Section Hero Home** |
-| Vorschau-Bilder (Annäherung) | `exports/stufe2-screens/` (Desktop 1440, Tablet 820, Mobile 390) |
+| Werkzeug-Darstellung umschalten | Section «ROWAPA Digital» anklicken › rechts **Eigenschaften/Properties** › **Variante**: «Karten» oder «Liste» |
+| Hero-Variante (entschieden: A) | Hero anklicken › Variante «A · Signatur» (B bleibt vorerst als Reserve für Unterseiten) |
+| Komponenten | Komponenten-Panel › **03 Cards** (Card Featured, Card Teaser mit Video) und **04 Sections** (Section Hero Home, Section Digital) |
+| Medien | Asset-Panel, neu in 10 Ordnern sortiert (siehe Kap. 5) |
+| Vorschau-Bilder (Annäherung) | `exports/stufe2-screens/runde2/` |
 
-Die Bilder in `stufe2-screens` sind mit einem lokalen Chromium aus den Webflow-Daten (Klassen, Variablen, Texte, Bilder) gerendert, weil die Designer-Vorschau über die Schnittstelle wiederholt nicht erreichbar war. Sie zeigen Layout, Abstände und Texte zuverlässig, ersetzen aber nicht den Blick in den Designer.
+Die Bilder sind mit einem lokalen Chromium aus den Webflow-Daten gerendert (Klassen, Variablen, Texte, Bilder). Sie zeigen Layout, Abstände und Texte zuverlässig. Bewegung (Laufband, Hover-Video) ist darin nicht sichtbar und lässt sich erst in der Webflow-Vorschau bzw. auf der Staging-Seite prüfen.
 
 ---
 
-## 2. Aufbau der Seite
+## 2. Aufbau der Seite (Rev. 2)
 
 | # | Section | Theme | Inhalt | Nächster Schritt |
 |---|---|---|---|---|
-| 1 | Hero (Komponente, 2 Varianten) | Tiefsee / B: Hell | Kicker, H1, Lead, 2 Buttons, Punktemeer-Grafik bzw. Bild mit Ribbon | Erstgespräch vereinbaren · Lösungen entdecken |
-| 2 | Kundenlogos | Hell | 12 Logos, eingeordnet | – |
-| 3 | Lösungen für Unternehmen | Soft | Card Featured (Vertriebsperformance) + 4 Card Feature im Bento-Raster | Mehr zu … (je Thema) · Zum Unternehmensbereich |
+| 1 | Hero (Komponente) | Tiefsee | Kicker mit rotem Strich, H1, Lead, Punktemeer, dezenter Scroll-Hinweis | (kein Button, «Erstgespräch vereinbaren» steht in der Navigation) |
+| 2 | Kundenlogos | Hell | 12 Logos als langsames Laufband | – |
+| 3 | Lösungen für Unternehmen | Soft | Card Featured + 4 Card Feature im Bento-Raster | Mehr zu … · Zum Unternehmensbereich |
 | 4 | Was uns antreibt | Sea | Leitsatz + 3 Kennzahlen | – |
 | 5 | Unser Vorgehen | Hell | Erstgespräch + 4 Phasen, Treppen-Grafik | Mehr zu unserem Vorgehen |
-| 6 | ROWAPA Digital | Kontrast | Einleitung (wer, KI, buchbar), 5 Werkzeug-Karten, Orbit-Grafik, Hinweis «Fundament» | Demo vereinbaren · Alle digitalen Lösungen |
-| 7 | Unsere Erfolge | Soft | grosses Zitat + 3 Karten | Alle Referenzen |
-| 8 | Menschen + Partner | Hell | Team (Gründer zuerst), Partnerlogos | Team kennenlernen |
-| 9 | Persönlich weiterkommen | Sea | 3 Card Teaser (neutral formuliert) | je Weg |
+| 6 | **Unsere Erfolge** (neu vor Digital) | Soft | grosses Zitat + 3 Karten (Karten auf Mobile ausgeblendet) | Alle Referenzen |
+| 7 | ROWAPA Digital (Komponente, 2 Varianten) | Kontrast | Einleitung, Orbit, Fundament, 5 Werkzeuge | Demo vereinbaren · Alle digitalen Lösungen |
+| 8 | Menschen + Partner | Hell | Team, Partnerlogos im feinen Linienraster | Team kennenlernen |
+| 9 | Persönlich weiterkommen | Sea | 3 Card Teaser mit Video-Vorschau beim Darüberfahren | je Weg |
 | 10 | Im Blickpunkt: CAS | Tiefsee | Spotlight mit Eckdaten | Mehr zum CAS · Zoom-Infosession |
-| 11 | Neueste Insights | Soft | 3 Blog-Karten (Card Teaser) + Hinweise auf Live-Webinare und ROWAPA TV | Alle Inhalte |
-| 12 | Häufige Fragen («Gut zu wissen») | Hell | 6 Fragen (natives Aufklappen) | – |
-| 13 | Kontakt | Sea | Porträt, Werte-Zeile, Text, Telefon und E-Mail | Erstgespräch vereinbaren · Schreiben Sie uns |
+| 11 | Neueste Insights | Soft | 3 Blog-Karten + Live-Webinare, ROWAPA TV | Alle Inhalte |
+| 12 | Häufige Fragen | Hell | 6 Fragen | Schreiben Sie uns |
+| 13 | Kontakt | Sea | Porträt, Werte-Zeile, Telefon, E-Mail | Erstgespräch vereinbaren |
+| – | Footer (Komponente) | Tiefsee | wie Stufe 1, **neu mit Punktemeer hinter der Wortmarke** | – |
 
-Navbar und Footer sind die Komponenten aus Stufe 1.
-
----
-
-## 3. Neue Komponenten
-
-### 3.1 Section Hero Home (Gruppe «04 Sections»)
-
-| Eigenschaft | Typ |
-|---|---|
-| Kicker, Lead | Text |
-| Button 1 Text / Link, Button 2 Text / Link | Text / Link |
-| **Variante** | A · Signatur (Tiefsee, Punktemeer-Grafik, zentriert) · B · Editorial (hell, zweispaltig, Bild mit Diagonal-Ribbon) |
-
-Die H1 ist bewusst nicht als Eigenschaft angelegt: Sie wird direkt im Designer geändert und bleibt so die einzige H1 der Seite.
-
-### 3.2 Card Featured (Gruppe «03 Cards»)
-
-Grosse Karte mit Grafik als Hintergrund (Kicker, Titel, Text, Grafik, Grafik-Alt-Text, Button-Text, Link). Im Bento-Raster für das Leitthema; wiederverwendbar auf den Lösungsseiten (Stufe 4).
-
-### 3.3 Klassen
-
-Alle neuen Klassen folgen Client-First und haben Regeln für Tablet, Mobile quer und Mobile hoch: `section-head`, `hero_*`, `logos_*`, `bento_*`, `card_featured*`, `statement_*`, `stat_*`, `vorgehen_*`, `steps_*`, `digital_*`, `tools_grid`, `note-box*`, `quote_*`, `team_*`, `partner_block`, `spotlight_*`, `chip-list`, `link-teaser*`, `faq_*`, `contact_*` sowie je Section eine `section_…`-Klasse.
+Dramaturgie: Was (Lösungen) → Warum (Antrieb) → Wie (Vorgehen) → Beweis (Erfolge) → Neu (Digital) → Wer (Team).
 
 ---
 
-## 4. Grafiken und Animation (Einschätzung, zur Freigabe)
+## 3. Änderungen Rev. 2 im Detail
 
-### 4.1 Grundsatz
-
-Bewegung erklärt oder lenkt, sie ist nie Selbstzweck. Das passt zu «klar, souverän, inspirierend»: ruhig statt verspielt.
-
-1. **Höchstens eine bewegte Grafik pro Bildschirmansicht.**
-2. **Langsam und leise:** lange Zyklen, kleine Ausschläge, nur CI-Farben.
-3. **Einmal statt endlos**, wo die Grafik etwas erklärt (aufbauen, dann stehen).
-4. **Barrierefrei:** Bei «Bewegung reduzieren» im Betriebssystem erscheint das Standbild. Ausserhalb des Bildschirms pausiert die Animation.
-5. **Kein Einfluss auf Ladezeit:** Das Standbild ist sofort da, die Animation lädt danach.
-
-### 4.2 Was bleibt, was geht
-
-| Element | Empfehlung | Begründung |
+| Thema | Umsetzung in Webflow | Pflege durch ROWAPA |
 |---|---|---|
-| **Punktemeer** (Hero A) | behalten: langsame Welle, auf Desktop leichte Reaktion auf die Maus, auf Mobile ruhiger | starkes Markenbild, erster Eindruck |
-| **Punkte-Figur** (Card Featured Vertriebsperformance) | behalten: Punkte formen sich beim Einscrollen einmal zur Figur, dann Stillstand | zeigt «Leistung wächst» ohne Worte |
-| **Treppe** (Vorgehen) | behalten: Stufen bauen sich nacheinander auf, passend zu den vier Phasen | erklärt den Ablauf |
-| **Orbit** (ROWAPA Digital) | behalten: fünf Punkte kreisen sehr langsam um das Zentrum | erklärt «fünf Werkzeuge, ein System» |
-| Einblenden der Sections, Logo-Laufband, FAQ, Hover der Karten | nativ in Webflow (Interactions), dezent | vom Kunden selbst pflegbar |
-| Wort-für-Wort-Aufbau des Leitsatzes | weglassen | halb ausgegrauter Text ist schwer lesbar |
-| Farbfluss beim Scrollen, Smooth Scrolling, festgehaltene Sections (Scroll-Jacking) | weglassen | lenkt ab, fühlt sich fremd an, Probleme bei Barrierefreiheit |
-| Rotierender Wertering (Kontakt) | ersetzt durch Werte-Zeile | Werte sollen lesbar sein |
+| Kleiner Übertitel mit rotem Strich | Wrapper `kicker` mit `kicker_line` (24 × 2 px, Plum Perfect) und `text-style-kicker` | Section-Kopf kopieren; Strich ändert sich global über die Klasse `kicker_line` |
+| Hero ohne Buttons | Button-Gruppe und die vier Button-Eigenschaften entfernt; neuer Link `hero_scroll` («Lösungen entdecken», Linie) springt zu `#loesungen`; auf Mobile ausgeblendet | Text direkt im Designer |
+| Logo-Laufband | `logos_marquee` › `logos_track` › 2 × `logos_list` (zweite Liste `aria-hidden`), Ränder mit `logos_fade`. Interaction «Logo-Laufband» (IX3): 45 s pro Durchlauf, Endlosschleife, hält beim Darüberfahren an, ruht bei «Bewegung reduzieren» | Logo in **beiden** Listen ergänzen (ab Stufe 3 aus dem CMS, dann nur noch einmal) |
+| Partner im Linienraster | `logos_grid.is-partner` mit Rahmen oben/links, Logos mit Kombi-Klasse `is-cell` (Rahmen rechts/unten). 7 Spalten Desktop/Tablet, 4 Mobile quer, 3 Mobile hoch | Logo duplizieren, Bild tauschen |
+| Signet auf dunklem Grund | offizielle Variante aus dem Styleguide (S. 7 «Logo/Pittogramma»): Schild in Pastel Snowbank | Asset «rowapa-signet-negativ.svg» im Ordner «01 Marke (CI)» |
+| Punktemeer im Footer | `footer_grafik` (absolut, hinter allen Inhalten, Mischmodus «Screen», 55 %) mit eigener Grafik in Sea Cliff und Plum | Bild tauschen = Asset ersetzen; ausblenden = Element verbergen |
+| Hover-Video | Card Teaser: neues Video-Element `card_video` über dem Bild, Quelle aus der neuen Eigenschaft **«Video URL (Hover)»** (Gruppe Medien). Kleines Skript «ROWAPAHoverVideo» (site-weit, Footer) spielt das Video nur bei Maus und nicht bei «Bewegung reduzieren» | Pro Karte den Link aus dem Asset-Ordner «04 Videos» einsetzen; leer = kein Video |
+| Section Digital | als Komponente, Varianten **Karten** (Raster unten) und **Liste** (Orbit links, beim Scrollen fix; Werkzeuge rechts untereinander). Ab Tablet beide gleich gestapelt | Variante im Eigenschaften-Panel wählen |
+| Begriff «Unternehmen» | Seite, Navigation (Mega-Menü und Mobile), Footer, Styleguide | – |
+| Beschreibungen gekürzt | entfernt bei Erfolge, Team, Insights; FAQ gekürzt | – |
+| Mobile kürzer | Erfolge-Karten auf Mobile ausgeblendet (`is-erfolge`), Partner kompakt, Beschreibungen weg | – |
 
-### 4.3 Umsetzung (nach Freigabe des Designs)
-
-- Ein kleines Grafik-Modul (Canvas, ohne Bibliotheken) für die vier Punkte-Grafiken. Die Stellen sind schon vorbereitet: Attribut `data-grafik` (`punktemeer`, `vertriebsperformance`, `treppe`, `orbit`) mit Standbild.
-- Pflege ohne Code: Grafik tauschen = Standbild im Asset ersetzen; Grafik aus = Attribut entfernen bzw. Hero-Variante B wählen.
-- Alles andere mit nativen Webflow Interactions.
+**Custom Code (Ausnahme nach CLAUDE.md):** nur das Hover-Video-Skript (rund 20 Zeilen), weil Webflow Videos nicht nativ beim Darüberfahren abspielt. Alles andere ist nativ.
 
 ---
 
-## 5. Prüfung
+## 4. Korrektur aus Stufe 1
+
+Mit den jetzt aktiven grossen Breakpoints (1280 / 1440 / 1920) zeigte die Prüfung einen Fehler: Die Klasse `padding-global` setzte ab 1920 px den Theme-Modus «Soft». Dadurch wären auf grossen Bildschirmen alle Sections grau erschienen. **Behoben.** Alle übrigen Klassen mit Theme-Modus wurden geprüft und sind korrekt.
+
+Werte für grosse Bildschirme (aus Stufe 1, jetzt wirksam): Container 90 rem (1440) bzw. 108 rem (1920), H1 4.5 / 5 rem, H2 3.5 rem, H3 1.75 rem, Section-Abstand 10 rem (1920), seitlicher Rand 4 rem (1920).
+
+---
+
+## 5. Medien und CI
+
+- **Aus dem Repository `rowapa-website` übernommen:**
+  - 12 Fotos (Vertrieb, Leadership, Recruiting, Coach, Digital usw.)
+  - 6 weitere Blog-Bilder
+  - Erfolge 2–8
+  - 5 CAS-Bilder
+  - 3 Video-Schleifen der Wege-Karten (MP4, je rund 0,3 MB)
+- **Logos aus dem CI-Styleguide** (`Style Guide ROWAPA_2026`, S. 7): Signet farbig, Signet dunkel (Manganese) und Signet negativ (Snowbank). Die Wortbildmarke hell/dunkel stammt aus den Vektorpfaden der Baseline. Als Dateien unter `exports/ci-logos/`.
+- **Asset-Ordner in Webflow:**
+  1. Marke (CI)
+  2. Grafiken
+  3. Fotos
+  4. Videos
+  5. Team
+  6. Kundenlogos
+  7. Partnerlogos
+  8. Blog und Insights
+  9. Erfolge
+  10. CAS
+
+---
+
+## 6. Grafiken und Animation (freigegeben)
+
+- **Grundsatz:** Bewegung erklärt oder lenkt, nie Selbstzweck. Höchstens eine bewegte Grafik pro Ansicht. Langsam und leise. Bei «Bewegung reduzieren» erscheint ein Standbild.
+- **Bleiben:**
+  - Punktemeer (Hero und neu Footer)
+  - Punkte-Figur (Vertriebsperformance)
+  - Treppe (Vorgehen)
+  - Orbit (Digital)
+- **Gestrichen:**
+  - Wort-für-Wort-Aufbau
+  - Farbfluss beim Scrollen und Smooth Scrolling
+  - festgehaltene Sections
+  - rotierender Wertering
+- **Section-Übergänge:** sauberer Schnitt, kein Verlauf. So bleiben die Sections frei verschiebbar.
+- **Grafik-Modul** für die Punkte-Grafiken (Canvas, ohne Bibliotheken): nach Freigabe des Designs. Die Stellen sind vorbereitet (`data-grafik`: `punktemeer`, `vertriebsperformance`, `treppe`, `orbit`, `punktemeer-footer`).
+
+---
+
+## 7. Prüfung
 
 | Prüfung | Ergebnis |
 |---|---|
-| Inhalt gegen Redaktionsleitfaden (Was, für wen, Nutzen, nächster Schritt) | alle 13 Sections geprüft, Texttabelle `05_home_texttabelle.md` |
-| Anrede | Sie; «Persönlich weiterkommen» neutral; keine Du-Anrede auf der Seite |
-| Überschriften | eine H1 (Hero), 11 H2 (je Section ausser Logos), Karten und Phasen H3 |
-| Bilder | alle inhaltlichen Bilder mit Alt-Text, Logos mit Firmennamen |
-| Kein horizontales Scrollen | geprüft bei 1440, 1024, 820, 390 px (lokaler Render) |
-| Mobile | alle Raster einspaltig, Lesereihenfolge bleibt erhalten |
+| Inhalt gegen Redaktionsleitfaden | alle Sections geprüft, Texttabelle Rev. 2 |
+| Begriff «Organisationen» | auf Startseite, Navigation, Footer, Styleguide nicht mehr vorhanden |
+| Anrede | Sie; «Persönlich weiterkommen» neutral |
+| Kein horizontales Scrollen | geprüft bei 1920, 1440, 1024, 820, 390 px |
+| Seitenlänge Mobile (390 px) | 18 635 px **inklusive Footer** (vorher rund 18 900 px ohne Footer) |
+| Laufband, Hover-Video | angelegt; Funktion erst in Webflow-Vorschau/Staging sichtbar |
 
 ---
 
-## 6. Bekannte Einschränkungen und Ideen
+## 8. Offene Punkte und Ideen
 
-1. **Grosse Breakpoints** 1280 / 1440 / 1920 sind im Designer noch nicht aktiviert (oben in der Geräte-Leiste über «+» hinzufügen). Danach ergänze ich die Werte für grosse Bildschirme.
-2. **Hero B** ist in den Webflow-Daten vollständig angelegt, aber noch nicht im Designer visuell kontrolliert (Vorschau-Timeouts).
-3. **Werkzeug-Karten** bei 1440 px: fünf schmale Spalten. Idee: Orbit links, Karten rechts als 2-spaltige Liste, oder Raster 3 + 2.
-4. **Mobile Seitenlänge** rund 18 900 px. Ideen: Partnerlogos auf Mobile hoch als Laufband statt Raster, Erfolge auf ein Zitat + Link, FAQ auf vier Fragen.
-5. **Blog-Auszüge** sind vorläufig; in Stufe 3 kommen sie aus dem CMS.
-6. Offene inhaltliche Fragen: siehe Ende von `05_home_texttabelle.md`.
+1. **Hover-Pause des Laufbands und Hover-Video:** technisch angelegt. Bitte in der Webflow-Vorschau (Auge-Symbol) kurz testen; bei Bedarf justiere ich Tempo und Verhalten.
+2. **Mobile weiter kürzen** (Vorschlag): Bento-Karten auf Mobile ohne Beschreibungstext, Insights auf 2 Karten.
+3. **Blog-Auszüge** kommen in Stufe 3 aus dem CMS.
+4. **Logo-Paket:** Falls es offizielle Logo-Dateien gibt (z. B. von der Agentur, die den Styleguide gestaltet hat), tausche ich die nachgebauten Wortbildmarken 1:1 aus.
 
 ---
 
-## 7. Nächster Schritt
+## 9. Nächster Schritt
 
-Nach Ihrem Feedback zur Startseite (Hero-Variante, Animationskonzept, Texte):
+Nach Ihrem Feedback zu Rev. 2 (insbesondere Werkzeuge «Karten» oder «Liste»):
 
-- Korrekturen an `/home-v2`, danach ersetzt sie die heutige Startseite.
-- **Stufe 3:** CMS-Collections und Draft-Einträge (inkl. echter Blog-Auszüge).
-- Grafik-Modul für die vier Punkte-Grafiken.
+- Feinschliff, danach ersetzt `/home-v2` die heutige Startseite (Veröffentlichen nur mit Ihrer Freigabe).
+- **Stufe 3:** CMS-Collections und Draft-Einträge (Kunden-Logos, Partner, Team, Erfolge, Blog), dann Laufband und Raster aus dem CMS.
+- Grafik-Modul für die Punkte-Grafiken.

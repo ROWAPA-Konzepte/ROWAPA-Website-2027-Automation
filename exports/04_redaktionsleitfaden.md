@@ -1,7 +1,7 @@
 # ROWAPA Website 2027 · Redaktionsleitfaden
 
 **Gilt für:** alle Seiten, Sections, Komponenten-Texte und CMS-Einträge
-**Stand:** 25.10.2026 · verbindlich (Entscheid ROWAPA)
+**Stand:** 25.10.2026 · verbindlich (Entscheid ROWAPA) · Rev. 2 nach Feedback-Runde 2
 **Grundsatz:** Was wir veröffentlichen, ist gut erklärt, klar, einfach und verständlich. Unsere Werte gelten auch für die Website: **klar · souverän · inspirierend.**
 
 ---
@@ -18,9 +18,9 @@
 
 ## 2. Aufbau einer Section
 
-1. **Kicker** (Bereich, Versalien): z. B. «ROWAPA DIGITAL»
+1. **Kicker** (kleiner Übertitel, Versalien, mit rotem Strich links): 1–3 Wörter, ordnet ein und wiederholt nie den Titel. Z. B. «ROWAPA DIGITAL», «REFERENZEN», «WAS WIR TUN»
 2. **Titel** = Kernaussage in Klartext. Wortspiele oder Claims nur als Zusatz, nie allein
-3. **Einleitung** in 1–2 Sätzen: was, für wen, Nutzen
+3. **Einleitung** in 1–2 Sätzen (was, für wen, Nutzen), **nur wenn sich der Titel nicht selbst erklärt**. Bei «Unsere Erfolge», «Die Menschen hinter ROWAPA», «Neueste Insights» oder «Häufige Fragen» entfällt sie
 4. **Inhalt**: Karten, Schritte, Belege
 5. **Nächster Schritt**: sprechender Button oder Link («Demo vereinbaren», «Zur Vertriebsperformance»). Nie nur «Mehr» oder «Hier»
 
@@ -32,7 +32,7 @@
 
 | Bereich | Anrede |
 |---|---|
-| Organisationen, Unternehmensbereich, gemeinsame Seiten (Startseite, Über uns, Kontakt, Wissen) | **Sie** |
+| Unternehmen (Unternehmensbereich), gemeinsame Seiten (Startseite, Über uns, Kontakt, Wissen) | **Sie** |
 | Bereich «Meine persönliche Entwicklung» und Angebote für Einzelpersonen (einzelne Broker, Female Empowerment, Selbstchecks, Kurse) | **Du** (gross geschrieben: Du, Dein, Dir) |
 | Section auf einer Sie-Seite, die Einzelpersonen anspricht (z. B. «Persönlich weiterkommen» auf der Startseite) | **neutral formulieren**, ohne direkte Anrede |
 
@@ -56,6 +56,7 @@ Nie Sie und Du in derselben Section mischen.
 
 | Begriff | Regel |
 |---|---|
+| Organisationen, Finanzorganisationen | ersetzen durch **Unternehmen**, **Finanzunternehmen**. Ein Begriff, nicht abwechselnd mit «Unternehmung» |
 | Themenlinie(n) | nicht allein verwenden. Sichtbar: «Themen» oder «Lösungen»; beim ersten Auftreten kurz erklären |
 | Hebel | nur mit Beispiel (z. B. «vier Hebel: Diagnostik, Training, Begleitung, Messung») |
 | Lösungswelt | sichtbar «digitale Werkzeuge» |

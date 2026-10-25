@@ -1,10 +1,23 @@
 # ROWAPA Website 2027 · Startseite `/home-v2` · Texttabelle
 
-**Stand:** 25.10.2026 · Stufe 2 · geprüft nach `exports/04_redaktionsleitfaden.md`
+**Stand:** 25.10.2026 · Stufe 2, Rev. 2 (Feedback-Runde 2 eingearbeitet) · geprüft nach `exports/04_redaktionsleitfaden.md`
 **Quellen:** Live-Baseline rowapa-2027.webflow.io (Startseite) und Vorlage `ROWAPA-Website-v11.html`
 **Lesart:** Original → Vorschlag (so in Webflow eingebaut) → Begründung. Jede Zeile lässt sich einzeln zurückdrehen.
 
 Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, ruhig, einheitliche Anrede), **I** = inspirierend (Nutzen, nächster Schritt).
+
+## Rev. 2: Entscheide von ROWAPA (25.10.2026)
+
+| Thema | Entscheid | Umsetzung |
+|---|---|---|
+| Hero | kein Call to Action | Buttons entfernt; dezenter Scroll-Hinweis «Lösungen entdecken» |
+| Hero-Text | Kompromiss | kurzer Kicker mit drei Begriffen + Originaltext mit «Finanzunternehmen» |
+| Begriff | «Unternehmen» statt «Organisationen» | überall ersetzt (Seite, Navigation, Footer, Styleguide) |
+| Kleine Übertitel | bleiben, mit rotem Strich | kurz, nie Wiederholung des Titels |
+| Beschreibungen | nur wo nötig | entfernt bei Erfolge, Team, Insights; FAQ auf «Ihre Frage ist nicht dabei?» gekürzt |
+| Reihenfolge | Erfolge vor ROWAPA Digital | Was → Warum → Wie → Beweis → Neu → Wer |
+| Kennzahl 100 % | bestätigt | unverändert |
+| «die Mobiliar Ausserrhoden» | bestätigt | unverändert |
 
 ---
 
@@ -12,23 +25,24 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 
 | Element | Original | Vorschlag (eingebaut) | Begründung |
 |---|---|---|---|
-| Kicker | – | Beratung, Training und digitale Werkzeuge für die Finanzbranche | **K** Der Claim allein sagt nicht, was ROWAPA ist |
+| Kicker | – | Beratung · Training · Digitale Werkzeuge | **K** sagt in drei Begriffen, was ROWAPA ist (Rev. 2: gekürzt) |
 | H1 | Mehr Vertriebsleistung. Stärkere Führung. Weniger Fluktuation. | unverändert | stärkstes Element der Seite |
-| Lead | Wir entwickeln Finanzorganisationen, datenbasiert, praxiserprobt, nachhaltig. | Wir entwickeln Vertrieb, Führung und Mitarbeitende von Banken, Versicherungen und Krankenkassen: datenbasiert, praxiserprobt und nachhaltig. | **K** konkret, wer und was |
-| Buttons | – | Erstgespräch vereinbaren · Lösungen entdecken | **I** nächster Schritt direkt sichtbar |
+| Lead | Wir entwickeln Finanzorganisationen, datenbasiert, praxiserprobt, nachhaltig. | Wir entwickeln Finanzunternehmen: datenbasiert, praxiserprobt, nachhaltig. | **S** Originaltext bleibt, nur «Unternehmen» (Rev. 2) |
+| Buttons | – | keine (Rev. 2); Scroll-Hinweis «Lösungen entdecken» | **S** ruhiger Auftritt, «Erstgespräch vereinbaren» steht immer in der Navigation |
 
 ## 2. Kundenlogos
 
 | Element | Original | Vorschlag | Begründung |
 |---|---|---|---|
-| Label | (nur «Kunden» als unsichtbares Label) | Unter anderem vertrauen uns diese Finanzorganisationen | **S** Logos brauchen eine Einordnung |
+| Label | (nur «Kunden» als unsichtbares Label) | Unter anderem vertrauen uns diese Finanzunternehmen | **S** Logos brauchen eine Einordnung |
+| Darstellung | Laufband | Laufband (langsam, hält beim Darüberfahren an) | wie bisher angedacht |
 | Position | 3. Block | direkt unter dem Hero | **S** Vertrauen zuerst |
 
 ## 3. Lösungen für Unternehmen
 
 | Element | Original | Vorschlag | Begründung |
 |---|---|---|---|
-| Kicker | – | Für Organisationen | **K** Zielgruppe sofort klar |
+| Kicker | – | Was wir tun | **K** ordnet ein, ohne den Titel zu wiederholen (Rev. 2) |
 | Unterzeile | Fünf Themenlinien. Ein System. | Fünf Themen, ein abgestimmtes System: Wir stärken Vertrieb, Führung und Personal so, dass sie zusammenwirken. | **K** «Themenlinie» ist ein interner Begriff |
 | 01 Vertriebsperformance | Verkaufsleistung entlang von vier Hebeln entwickeln, von der Diagnostik bis zur Begleitung im Kundenkontakt. | Verkaufsleistung messbar steigern: von der Diagnostik über das Training bis zur Begleitung im Kundengespräch. | **K** «vier Hebel» war unerklärt |
 | 02 Mensch & Potenzial | Diagnostik, Coaching und Resilienz: Potenzial sichtbar machen und gezielt entwickeln. | Potenziale sichtbar machen und gezielt entwickeln: mit Diagnostik, Coaching und Resilienz-Training. | **K** Nutzen zuerst |
@@ -74,6 +88,9 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 
 | Element | Original | Vorschlag | Begründung |
 |---|---|---|---|
+| Position | nach ROWAPA Digital | **vor** ROWAPA Digital (Rev. 2) | **I** Beleg direkt nach der Methode |
+| Kicker / Einleitung | Unsere Kunden · Was sich bei unseren Kunden verändert hat … | Referenzen · Einleitung entfällt (Rev. 2) | **K** Titel erklärt sich selbst |
+| Mobile | – | auf dem Handy nur das grosse Zitat + «Alle Referenzen» | kürzere Seite |
 | Form | Slider mit 8 Zitaten (eins sichtbar) | ein grosses Zitat und drei Karten, alle sichtbar, Link «Alle Referenzen» | **K** nichts versteckt, kein Klicken nötig |
 | Zitate | wörtlich | **wörtlich übernommen** (auch «der Geschäftsvolumen») | **S** Zitate werden nicht umformuliert |
 | Funktion Künzli | die Mobiliar AusserRhoden | die Mobiliar Ausserrhoden | Schreibweise des Kantons. **[ROWAPA bestätigen]** |
@@ -82,7 +99,8 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 
 | Element | Original | Vorschlag | Begründung |
 |---|---|---|---|
-| Unterzeile | – | Trainerinnen, Trainer und Beratende mit zusammen über 150 Jahren Wissen und Erfahrung. | **S** Zahl aus «Was uns antreibt» |
+| Unterzeile | – | ~~Trainerinnen, Trainer und Beratende mit zusammen über 150 Jahren Wissen und Erfahrung.~~ entfällt (Rev. 2) | Titel erklärt sich selbst; die 150 Jahre stehen bei «Was uns antreibt» |
+| Partner-Logos | in feinen Kästen | wieder in feinem Raster mit Linien (Rev. 2) | **S** Struktur, klar getrennt vom Kunden-Laufband |
 | Reihenfolge | Wachter, Bassi, Rothkögel, Shokhova, Hiltbrunner | Gründer zuerst: Wachter, Rothkögel, dann Team | **K** |
 | Partner | eigener Block «Partner und Zertifizierungen · Verankert in der Branche.» | als Teil dieser Section, mit Satz «akademische Partner, Verbände und Technologiepartner» | **K** kürzere Seite, gleiche Aussage |
 
@@ -91,7 +109,9 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 | Element | Original | Vorschlag | Begründung |
 |---|---|---|---|
 | Titel | Deine persönliche Entwicklung | Persönlich weiterkommen | **S** keine Du-Anrede auf der Sie-Seite (Leitfaden Kap. 3) |
+| Kicker | – | Meine Entwicklung (Rev. 2, Name des Bereichs in der Navigation) | **K** wiederholt nicht den Titel |
 | Karte 1 | Für Deine persönliche Entwicklung · … · Deinen Weg finden | Persönliche Entwicklung · Für Einzelpersonen · Passenden Weg finden | **S** neutral |
+| Videos | Vorschau-Schleife beim Darüberfahren | wieder eingebaut (Rev. 2), nur mit Maus | **I** zeigt Menschen und Atmosphäre |
 | Karte 2 | Für Broker und Brokerfirmen | Broker Excellence · Für Broker und Brokerfirmen | **K** Programmname als Titel |
 | Karte 3 | Für Frauen in der Finanzbranche · … mit SOUVERÄN ICH als Flagship-Programm … | Female Empowerment · … mit dem Programm SOUVERÄN ICH und einer starken Community. | **K** «Flagship» ersetzt |
 
@@ -109,15 +129,18 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 | Blog-Titel | z. B. «Zeitmanagement im Vertrieb: Wie zu viel Eifer Deine Ziele sabotiert» | Kurztitel vor dem Doppelpunkt: «Zeitmanagement im Vertrieb» | **S** keine Du-Anrede auf der Startseite. Der Artikel selbst bleibt unverändert |
 | Auszüge | (teilweise keine) | aus dem Titel abgeleitet | **[ROWAPA bestätigen]**: In Stufe 3 kommen die echten Auszüge aus dem CMS |
 | Newsletter-Box | eigene Box in der Section | entfernt (steht im Footer) | **K** keine doppelte Aufforderung |
+| Einleitung | – | ~~Beiträge, Webinare und Videos …~~ entfällt (Rev. 2) | Titel erklärt sich selbst |
 
 ## 12. Häufige Fragen
 
 | Element | Original | Vorschlag | Begründung |
 |---|---|---|---|
-| Reihenfolge | ab «Wie starte ich …» | Für wen → Ablauf → Wirkung → Werkzeuge → Ausland → persönlicher Start | **K** logische Reihenfolge für Organisationen |
+| Reihenfolge | ab «Wie starte ich …» | Für wen → Ablauf → Wirkung → Werkzeuge → Ausland → persönlicher Start | **K** logische Reihenfolge für Unternehmen |
 | Wirkung messen | Mit Interaktions-Analytik, Conversion- und Lern-Tracking, Feedback-Loops und einem Wirkungs-Reporting. | Wir werten Gespräche, Abschlüsse und Lernfortschritte aus, holen laufend Rückmeldungen ein und fassen alles in einem Wirkungsbericht zusammen. | **K** Fachjargon übersetzt |
 | Digitale Werkzeuge | … alle auf einer gemeinsamen Wissensbasis. | + mit KI, einzeln buchbar, Demo möglich | **S/I** Antworten von ROWAPA |
 | Persönlicher Start | … zeigen wir dir … | … zeigen wir, welcher Weg passt. | **S** neutral |
+| Einleitung | Die wichtigsten Antworten auf einen Blick. Ihre Frage ist nicht dabei? | Ihre Frage ist nicht dabei? + «Schreiben Sie uns» (Rev. 2) | kürzer, nächster Schritt bleibt |
+| Ausland | … Finanzorganisationen im ganzen DACH-Raum … | … Finanzunternehmen im ganzen DACH-Raum … | Begriff (Rev. 2) |
 
 ## 13. Kontakt
 
@@ -131,7 +154,7 @@ Legende Begründung: **K** = klar (verständlicher), **S** = souverän (belegt, 
 
 ## Offene Fragen an ROWAPA
 
-1. Kennzahl «100»: ist «100 % Praxisbezug ab dem ersten Tag» korrekt?
-2. Schreibweise «die Mobiliar Ausserrhoden» korrekt?
+1. ~~Kennzahl «100»~~: bestätigt
+2. ~~Schreibweise «die Mobiliar Ausserrhoden»~~: bestätigt
 3. Blog-Auszüge: aus dem Artikel übernehmen (Stufe 3, CMS)
-4. Weitere Kennzahlen, die wir zeigen dürfen (z. B. Anzahl begleiteter Organisationen oder Teilnehmende pro Jahr)?
+4. Weitere Kennzahlen, die wir zeigen dürfen (z. B. Anzahl begleiteter Unternehmen oder Teilnehmende pro Jahr)?

@@ -174,3 +174,12 @@ Die ganze Karte ist klickbar (Feature, Teaser). Alle Props lassen sich in Stufe 
 ## 8. Nächster Schritt
 
 **Stufe 2:** Startseiten-Prototyp `/home-v2` mit echten Platzhaltertexten aus dem HTML-Template, aufgebaut ausschliesslich aus den Bausteinen dieser Stufe. Start erst nach Freigabe von Stufe 1.
+
+---
+
+## Nachtrag 25.10.2026 (Stufe 2, Rev. 2)
+
+- Grosse Breakpoints 1280 / 1440 / 1920 sind im Designer aktiv; die Werte aus Kap. 3 wirken jetzt.
+- **Korrigiert:** `padding-global` setzte ab 1920 px fälschlich den Theme-Modus «Soft» (alle Sections wären grau gewesen). Modus entfernt, übrige Theme-Klassen geprüft.
+- Footer: neu mit Punktemeer-Grafik (`footer_grafik`) hinter der Wortmarke; `footer_component` hat dafür `z-index: 0`.
+- Navigation und Footer: «Für Organisationen» heisst jetzt «Für Unternehmen».
