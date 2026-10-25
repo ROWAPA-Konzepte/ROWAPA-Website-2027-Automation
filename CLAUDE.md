@@ -34,3 +34,10 @@ Baseline für das bisherige visuelle Design ist die URL: https://rowapa-2027.web
 - Vor jedem Phasenwechsel stoppen und Nutzerfreigabe einholen.
 - Alle unvollständigen CMS-Items als Status "Draft" anlegen.
 - Nutze das Finsweet Client-First System für Klassen-Benennungen.
+- Tool-Aufrufe (Webflow, Dateien, Shell, Web) ohne Rückfrage ausführen. Anhalten nur am Ende jeder Stufe/Phase sowie vor dem Veröffentlichen der Website und vor dem Löschen von Inhalten.
+
+## 6. Inhalte & Verständlichkeit (verbindlich)
+- Werte der Website: klar, souverän, inspirierend. Jede Section vor der Freigabe gegen den Redaktionsleitfaden `exports/04_redaktionsleitfaden.md` prüfen: Was ist es, für wen, welcher Nutzen, welcher nächste Schritt?
+- Anrede: Sie für Organisationen und gemeinsame Seiten; Du nur im Bereich «Meine persönliche Entwicklung» und bei Angeboten für Einzelpersonen. Nie gemischt in einer Section.
+- Keine Fakten erfinden. Fehlende Angaben als «[ROWAPA bestätigen]» markieren.
+- Zu jeder gebauten Seite eine Texttabelle liefern: Original → Vorschlag → Begründung → offene Fragen.
