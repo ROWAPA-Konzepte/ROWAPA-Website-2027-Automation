@@ -41,6 +41,7 @@ Zum Prüfen der Breakpoints im Designer oben die Geräte-Leiste nutzen (1920 · 
 | Manganese Linie / White Linie | 14 % / 16 % Deckkraft | Rahmen und Trennlinien |
 | White Soft (Text) | 76 % Weiss | gedämpfter Text auf Dunkel |
 | **Ribbon Deckkraft (0 = aus)** | `0.7` | **globaler Schalter für alle Ribbons (E12)** |
+| **Footer-Wortmarke Deckkraft (0 = aus)** | `0.12` | Helligkeit des grossen «ROWAPA» im Footer (Entscheid 25.10.2026: 12 %) |
 
 ### 2.2 Theme (Sammlung «Theme», 5 Modi)
 
@@ -119,7 +120,7 @@ Fliessende Grössen (`clamp()`) stehen direkt in den Klassen, weil Webflow-Grös
 
 ### 5.2 Footer (01 Global)
 
-- Logo und Adresse · 3 Linkspalten · Newsletter-Formular (natives Webflow-Formular, Button «Abonnieren», Erfolgs- und Fehlermeldung auf Deutsch) · Rechtliches · grosse ROWAPA-Wortmarke
+- Logo und Adresse · 3 Linkspalten · Newsletter-Formular (natives Webflow-Formular, Button «Abonnieren», Erfolgs- und Fehlermeldung auf Deutsch) · Rechtliches · grosse ROWAPA-Wortmarke **randlos über die volle Bildschirmbreite** (Schriftgrösse 24vw, unten angeschnitten; im Browser bei 390/1440/1920 px geprüft). Helligkeit über die Variable «Footer-Wortmarke Deckkraft»
 - Theme: Tiefsee · Inhalte werden direkt in der Komponente gepflegt (gilt automatisch für alle Seiten)
 
 ### 5.3 Ribbon (02 Elemente)
