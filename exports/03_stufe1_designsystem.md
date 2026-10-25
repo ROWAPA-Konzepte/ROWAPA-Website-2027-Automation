@@ -159,8 +159,8 @@ Die ganze Karte ist klickbar (Feature, Teaser). Alle Props lassen sich in Stufe 
 
 | # | Punkt | Was zu tun ist |
 |---|---|---|
-| 1 | Die Designer-Verbindung (MCP-App) war während Stufe 1 nicht aktiv; alles wurde über die Webflow-Data-API gebaut. Screenshots durch mich waren deshalb nicht möglich | Designer öffnen und visuell prüfen; optional die MCP-App starten, dann kann ich selbst Screenshots ziehen |
-| 2 | Breakpoints 1280/1440/1920 | Die Styles dafür sind gesetzt. Falls die Breakpoints in der Geräte-Leiste nicht sichtbar sind: einmal über «+» aktivieren |
+| 1 | Visuelle Prüfung am 25.10.2026 über die Designer-Verbindung (Screenshots in `exports/stufe1-screens/`). Dabei behoben: ungleiche Abstände im Menü (Webflow-Standard-Rand der Dropdowns), `theme-hell` setzt den Hell-Modus jetzt ausdrücklich (helle Fläche in dunkler/Soft-Section), Footer-Logo mit fester Breite. Die Screenshot-Funktion des Designers stellt Wortabstände kleiner Schriften, den Formular-Button und das Footer-Logo fehlerhaft dar; im echten Browser (Chromium-Test mit denselben Schriftdateien) ist alles korrekt | – |
+| 2 | **Breakpoints 1280/1440/1920 sind im Designer noch nicht aktiviert** (geprüft: aktiv sind nur Desktop, Tablet, Mobile quer, Mobile hoch) | Die Werte für die grossen Screens sind gespeichert, wirken aber erst nach dem Aktivieren: im Designer in der Geräte-Leiste oben die grösseren Breakpoints über «+» hinzufügen (lässt sich per API nicht auslösen) |
 | 3 | Platzhaltertext im Newsletter-Feld | Lässt sich per API nicht setzen: im Designer beim E-Mail-Feld «Ihre E-Mail-Adresse» eintragen |
 | 4 | Mobile-Menü als natives Dropdown | Modals/Popovers sind auf der Site nicht aktiviert. Bei Bedarf aktivieren, dann kann das Menü auf ein Vollbild-Modal umgestellt werden (Klassen `mobile-menu_*` sind vorbereitet) |
 | 5 | Kombinierte Theme-Klassen | Webflow legt bei gestapelten Klassen (z. B. `section_styleguide` + `theme-soft`) automatisch eine leere Kombi-Klasse an. Die Wirkung kommt von der globalen Theme-Klasse; die leeren Kombis sind unkritisch |
