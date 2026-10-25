@@ -1,0 +1,12 @@
+{
+  "name": "rowapa-grafik",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Punkte-Grafiken der ROWAPA-Website (Webflow), ohne Bibliotheken",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}
