@@ -80,7 +80,8 @@ export function treppe(box) {
     const bereit = () => {
       if (!einrichten()) return;
       img.style.opacity = '0';
-      sobaldNahe(box, starten, '0px 0px -15% 0px');
+      /* Aufbau, sobald die Treppe in der Bildmitte steht */
+      sobaldNahe(box, starten, '-35% 0px -35% 0px');
     };
     if (img.complete && img.naturalWidth) bereit();
     else img.addEventListener('load', bereit, { once: true });

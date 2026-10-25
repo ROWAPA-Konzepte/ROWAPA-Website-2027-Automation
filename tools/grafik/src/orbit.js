@@ -1,6 +1,7 @@
 /* ROWAPA Digital: Die Wissensplattform dreht sich langsam, die fünf Werkzeuge ziehen ruhig auf ihrer Bahn.
    Fährt man über eine Karte oder eine Kachel, leuchtet die Kachel auf und eine feine Linie verbindet sie mit der Kugel.
-   Kugel = Bild mit Klasse orbit_kugel, Bahn = orbit_bahn, Kacheln = orbit_tile (gleiche Reihenfolge wie die Karten). */
+   Kugel = Bild mit Klasse orbit_kugel, Bahn = orbit_bahn, Kacheln = orbit_tile (gleiche Reihenfolge wie die Karten).
+   Die Kacheln stehen in gleichen Abständen entlang der Bahn (gleiche Weglänge, nicht gleicher Winkel); die 5. Kachel startet oben. */
 import { clamp, zahl, sichtbar, takt, ciFarbe, istHandy } from './util.js';
 import { kugelDaten, kugelFarben, zeichneKugel } from './kugel.js';
 
@@ -19,7 +20,9 @@ export function orbit(box) {
   const D = kugelDaten();
   const F = kugelFarben({ sea: ciFarbe('sea-cliff', '#A0C4DF'), serpent: ciFarbe('great-serpent', '#486EA3'), manganese: ciFarbe('manganese-black', '#1D3149'), plum: ciFarbe('plum-perfect', '#AA1351') });
 
-  const start = kacheln.map((_, k) => (-18 + (360 / kacheln.length) * k) * Math.PI / 180);
+  /* Anteil der Bahn je Kachel; 0 = oben. weiter zählt in Umläufen */
+  const start = kacheln.map((_, k) => (k + 1) / kacheln.length);
+  let bogen = null;
   let G = null, cv, ctx, dpr = 1, weiter = 0, dreh = 0, pause = false, aktiv = -1, zuletzt = -1, linie = 0, im = false, laeuft = false, gezeigt = false;
   let tLetzt = 0, tBild = 0;
   const pos = kacheln.map(() => [0, 0]);
@@ -35,12 +38,29 @@ export function orbit(box) {
       cv.width = Math.round(G.w * dpr); cv.height = Math.round(G.h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
+    /* Weglänge entlang der Ellipse, ab oben gemessen */
+    const M = 720, L = new Float32Array(M + 1);
+    let px = 0, py = -G.ry;
+    for (let i = 1; i <= M; i++) {
+      const a = -Math.PI / 2 + (i / M) * TAU, x = G.rx * Math.cos(a), y = G.ry * Math.sin(a);
+      L[i] = L[i - 1] + Math.hypot(x - px, y - py); px = x; py = y;
+    }
+    bogen = L;
+  }
+
+  /* Winkel zu einem Anteil der Bahn (gleiche Weglänge) */
+  function winkel(s) {
+    const L = bogen, M = L.length - 1, T = (((s % 1) + 1) % 1) * L[M];
+    let lo = 0, hi = M;
+    while (hi - lo > 1) { const m = (lo + hi) >> 1; if (L[m] < T) lo = m; else hi = m; }
+    const f = (T - L[lo]) / ((L[hi] - L[lo]) || 1);
+    return -Math.PI / 2 + ((lo + f) / M) * TAU;
   }
 
   /* Kacheln auf die Bahn legen; hinten etwas kleiner */
   function legen() {
     kacheln.forEach((el, k) => {
-      const a = start[k] + weiter, x = G.cx + G.rx * Math.cos(a), y = G.cy + G.ry * Math.sin(a), tiefe = Math.sin(a);
+      const a = winkel(start[k] + weiter), x = G.cx + G.rx * Math.cos(a), y = G.cy + G.ry * Math.sin(a), tiefe = Math.sin(a);
       pos[k][0] = x; pos[k][1] = y;
       el.style.transform = `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) translate(-50%,-50%) scale(${(0.93 + 0.035 * (tiefe + 1)).toFixed(3)})`;
       el.style.zIndex = tiefe > 0 ? '3' : '2';
@@ -114,7 +134,7 @@ export function orbit(box) {
       if (!im) { laeuft = false; return false; }
       const dt = Math.min(0.05, (now - tLetzt) / 1000); tLetzt = now;
       dreh += dt * (TAU / 40) * tempo;
-      if (!pause && !handy) weiter += dt * (TAU / 90) * tempo;
+      if (!pause && !handy) weiter += (dt / 90) * tempo;
       if (aktiv >= 0) zuletzt = aktiv;
       linie = clamp(linie + (aktiv >= 0 ? dt / 0.3 : -dt / 0.4), 0, 1);
       /* rund 30 Bilder pro Sekunde reichen für diese ruhige Bewegung */

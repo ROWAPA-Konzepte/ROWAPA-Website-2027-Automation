@@ -1,6 +1,7 @@
-/* Mauszeiger als Punkt mit feinem Kreis (nur Geräte mit Maus). Element mit data-grafik="zeiger" schaltet ihn ein;
-   data-zeiger="a" Punkt und Kreis · "b" Kreis reagiert auf Links und Karten · "c" Kreis passt sich dem Grund an.
-   In Formularfeldern bleibt der normale Cursor. Bei «Bewegung reduzieren» folgt der Kreis ohne Verzögerung. */
+/* Mauszeiger als Punkt (Plum) mit feinem Ring (nur Geräte mit Maus). Element mit data-grafik="zeiger" schaltet ihn ein.
+   Der Ring steht immer im Kontrast zum Grund darunter: dunkel auf hellem, hell auf dunklem Grund und auf Bildern.
+   data-zeiger="a" (Standard) Punkt und Ring · "b" zusätzlich wächst der Ring auf Links und Karten («Öffnen»).
+   In Formularfeldern bleibt der normale Cursor. Bei «Bewegung reduzieren» folgt der Ring ohne Verzögerung. */
 import { reduziert, ciFarbe } from './util.js';
 
 let laeuft = false;
@@ -22,25 +23,39 @@ export function zeiger(el) {
   let mx = -100, my = -100, kx = -100, ky = -100, sichtbar = false, groesse = 36;
   const variante = () => (el.getAttribute('data-zeiger') || 'a').toLowerCase();
 
-  /* dunkler Grund unter dem Zeiger? (Theme-Klassen der Sections) */
-  const dunkel = t => !!(t && t.closest && t.closest('.theme-kontrast, .theme-tiefsee, .navbar_component, .footer_component'));
+  /* Grund unter dem Zeiger: 'bild', 'dunkel' oder 'hell' (erste deckende Hintergrundfarbe, Bilder zählen als dunkel) */
+  const merk = new WeakMap();
+  function grund(t) {
+    if (!t || !t.closest) return 'hell';
+    if (merk.has(t)) return merk.get(t);
+    let g = 'hell';
+    for (let e = t; e && e.nodeType === 1; e = e.parentElement) {
+      if (/^(IMG|VIDEO|CANVAS|PICTURE)$/.test(e.tagName)) { g = 'bild'; break; }
+      const s = getComputedStyle(e);
+      if (s.backgroundImage && s.backgroundImage !== 'none' && !/gradient/.test(s.backgroundImage)) { g = 'bild'; break; }
+      const m = s.backgroundColor.match(/rgba?\(([^)]+)\)/);
+      const a = m ? m[1].split(/[ ,/]+/).map(parseFloat) : null;
+      if (a && (a.length < 4 || a[3] > 0.5)) {
+        const [r, gr, b] = a.map(v => v / 255);
+        g = 0.2126 * r + 0.7152 * gr + 0.0722 * b < 0.5 ? 'dunkel' : 'hell';
+        break;
+      }
+    }
+    merk.set(t, g);
+    return g;
+  }
 
   function zustand(t) {
     const v = variante();
-    let g = 36, fuell = 'transparent', label = '', ring = dunkelblau, farbePunkt = plum, schrift = '#fff';
+    let g = 36, fuell = 'transparent', label = '', farbePunkt = plum, schrift = '#fff';
     const feld = t && t.closest && t.closest('input, textarea, select');
-    const dunkelGrund = dunkel(t);
-    if (dunkelGrund && v !== 'a') { ring = 'rgba(255,255,255,.85)'; }
-    if (dunkelGrund && v === 'a') { ring = 'rgba(160,196,223,.9)'; }
+    const gr = grund(t);
+    let ring = gr === 'hell' ? dunkelblau : 'rgba(255,255,255,.92)';
+    kreis.style.boxShadow = gr === 'bild' ? '0 0 0 1px rgba(17,29,44,.28), inset 0 0 0 1px rgba(17,29,44,.28)' : 'none';
     if (v === 'b') {
       const ziel = t && t.closest && t.closest('a, button, [role="button"], .card, label');
       if (ziel) { g = 72; fuell = plum; ring = plum; label = ziel.getAttribute('data-zeiger-text') || (ziel.matches('.card, a') ? 'Öffnen' : ''); farbePunkt = 'transparent'; }
       else if (t && t.closest && t.closest('p, h1, h2, h3, h4, li')) g = 22;
-    }
-    if (v === 'c') {
-      const ziel = t && t.closest && t.closest('a, button, [role="button"], .card');
-      if (ziel) { g = 52; fuell = dunkelGrund ? 'rgba(255,255,255,.12)' : 'rgba(170,19,81,.1)'; }
-      farbePunkt = dunkelGrund ? 'rgb(160,196,223)' : plum;
     }
     groesse = g;
     kreis.style.width = kreis.style.height = g + 'px';
