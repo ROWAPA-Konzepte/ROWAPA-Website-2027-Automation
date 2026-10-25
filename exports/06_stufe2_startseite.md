@@ -80,7 +80,7 @@ Werte für grosse Bildschirme (aus Stufe 1, jetzt wirksam): Container 90 rem (14
   - Erfolge 2–8
   - 5 CAS-Bilder
   - 3 Video-Schleifen der Wege-Karten (MP4, je rund 0,3 MB)
-- **Logos aus dem CI-Styleguide** (`Style Guide ROWAPA_2026`, S. 7): Signet farbig, Signet dunkel (Manganese) und Signet negativ (Snowbank). Die Wortbildmarke hell/dunkel stammt aus den Vektorpfaden der Baseline. Als Dateien unter `exports/ci-logos/`.
+- **Offizielle Logos von ROWAPA** (Nachtrag 25.10.2026): Logo quer hell/dunkel, mit Claim, Name allein, Claim, Favicon und Avatar. Navigation und Footer zeigen jetzt das offizielle Logo für dunklen Grund (Signet und Name in Pastel Snowbank). Übersicht in `exports/ci-logos/LIESMICH.md`.
 - **Asset-Ordner in Webflow:**
   1. Marke (CI)
   2. Grafiken
@@ -131,7 +131,7 @@ Werte für grosse Bildschirme (aus Stufe 1, jetzt wirksam): Container 90 rem (14
 1. **Hover-Pause des Laufbands und Hover-Video:** technisch angelegt. Bitte in der Webflow-Vorschau (Auge-Symbol) kurz testen; bei Bedarf justiere ich Tempo und Verhalten.
 2. **Mobile weiter kürzen** (Vorschlag): Bento-Karten auf Mobile ohne Beschreibungstext, Insights auf 2 Karten.
 3. **Blog-Auszüge** kommen in Stufe 3 aus dem CMS.
-4. **Logo-Paket:** Falls es offizielle Logo-Dateien gibt (z. B. von der Agentur, die den Styleguide gestaltet hat), tausche ich die nachgebauten Wortbildmarken 1:1 aus.
+4. **Favicon und Webclip:** Die PNG-Dateien liegen bereit (`exports/ci-logos/offiziell/`). Sie müssen einmalig von Hand in Webflow › Site settings › General › Favicon / Webclip hochgeladen werden; die Schnittstelle kann das nicht.
 
 ---
 
