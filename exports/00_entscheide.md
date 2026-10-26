@@ -174,11 +174,28 @@ Commit b2000a2.
 | 99 | Bewegung | Leitlinie «kein Farbfluss» (LIESMICH Grafik) wird auf Wunsch ROWAPA geöffnet [bei Wahl bestätigen] | G: Farbflächen wischen gerade von links nach rechts ein, Ribbons zeichnen sich einmal in die Section-Ecken. H: Farbflächen laufen mit schräger Kante ein, Ribbons gleiten mit dem Scrollen durch die Ecken |
 | 100 | Lösungen für Unternehmen | neue Anordnung, gleiche Inhalte und Figuren | G: Vertriebsperformance gross links, die vier anderen Themen als Zeilen rechts (Plum-Kante beim Darüberfahren). H: Akkordeon aus fünf Spalten, eine ist offen, wechselt alle 5 s und beim Darüberfahren; Handy: Karten untereinander |
 
+## 14. Feedback-Runde 10 (26.10.2026): Master Kombi G2
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 101 | Master | **Kombi G** ist die Grundlage: Schriftgrössen und Titel (gross, Plum-Strich) gelten für die ganze Seite | Entwurf `/kombi-g2` (Kopie von `/home-v2`, Aufsatz `exports/layout-entwuerfe/kombi2.css` und `kombi2.js`) mit Umschaltleiste «Varianten vergleichen»: erster Knopf je Section = Entscheid, weitere = Gegenvorschläge |
+| 102 | Hero / Referenzen | Hero bleibt wie in Kombi G (Fotofenster mit 45°-Kante über dem Punktemeer); Referenzen wieder als **Laufband** | Gegenvorschläge in der Leiste: Hero «G sauber» (ein Foto, keine Punkte darüber) und «Heute»; Referenzen «Raster (E)» |
+| 103 | Was wir tun | Anordnung G, **heller Hintergrund**, Grau erst beim Darüberfahren | Section weiss, Themenzeilen werden beim Darüberfahren Pastel Snowbank mit Plum-Kante; Gegenvorschläge: Akkordeon (H), Kacheln wie heute |
+| 104 | Was uns antreibt | **Look B** (grosse Kennzahlen), Titel in der Grösse von G, ohne Plum-Balken über der Section | umgesetzt; Gegenvorschlag Layout D |
+| 105 | So arbeiten wir | wie G | Phasen werden beim Darüberfahren grau (gleiches Prinzip wie «Was wir tun») |
+| 106 | Unsere Erfolge | **Layout E** mit versetztem Fotorahmen, als Slider | bestehender Webflow-Slider (5 Geschichten) im Fotorahmen-Layout, Zitat gross; die drei kurzen Zitate darunter ohne Kartenrahmen; Gegenvorschlag «Heute» |
+| 107 | Über uns | Mosaik aus G, mit Hinweis, dass das Team grösser ist | fünfspaltiges Mosaik mit Kachel «150 Jahre Wissen und Erfahrung im Trainerteam» und Kachel «Weitere Trainerinnen, Trainer und Partner · Lernen Sie unser ganzes Team kennen» (führt auf `/team`); Gegenvorschlag Reihe wie heute |
+| 108 | Meine Entwicklung | 2–3 Varianten nach D und F, Text muss sicher lesbar sein | A Text im Bild mit kräftigem Verlauf (D), B Text unter dem Bild (D), C wechselnde Zeilen Foto/Text (F); zum Umschalten |
+| 109 | Im Blickpunkt (CAS) | Foto links bis zur Mitte, Text rechts; Farbfläche als **einzige Einblendung** der Seite | Foto randabfallend links, Text rechts; Farbfläche wischt von der Bildkante nach rechts ein (Gegenvorschlag: blendet ein), Text erscheint danach |
+| 110 | Bewegung | Farbfluss nur noch im CAS-Block; bleiben: Strich unter den Titeln, Team-Kacheln nacheinander, Unterstreichung im Header; Ribbons stehen fest | umgesetzt; Punktemeer, Treppe, Orbit, Zähler unverändert. Ersetzt die Farbfluss-Notiz aus #99 |
+| 111 | Gut zu wissen, Kontakt | **Look B**: Gut zu wissen hell, Kontakt dunkel | Kontakt Manganese Deep, Kicker Sea Cliff; Gegenvorschlag «Hell wie heute» |
+| 112 | Vorgehen | zuerst Entwurf G2 auf Staging, nach Freigabe native Umsetzung auf `/home-v2` | Entwurf live; native Umsetzung folgt nach Freigabe |
+
 ---
 
 ## Offene Punkte
 
-1. Kombi G oder H wählen (oder Mischung, z. B. «Hero aus H, Lösungen aus G»); Alternativen bleiben Layout D, E oder F. Bisher: Layout D, E oder F wählen (gern Mischung je Section, z. B. «Hero aus E, Lösungen aus F, Digital aus D»), dazu Look A/B/C aus Runde 7 für Farben und Typografie. Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
+1. Kombi G2 (`/kombi-g2`) prüfen: Variante für «Meine Entwicklung» (A, B oder C) wählen, Gegenvorschläge in der Leiste ansehen, Farbfläche CAS (wischt oder blendet ein) wählen. Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
 1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).

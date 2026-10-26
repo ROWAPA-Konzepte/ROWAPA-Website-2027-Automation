@@ -106,3 +106,4 @@ RUNDE6: SCRIPT rowapagrafik 1.4.1 (@130b3935c71b096bd5a0c0ab23ab63b7abba2ca4, ak
 ```
 RUNDE8: PAGES Layout D (intern) 6adef25dda3fa456614ae522 /layout-d, Layout E (intern) 6adef25ed47632875e377809 /layout-e, Layout F (intern) 6adef25ed47632875e377844 /layout-f (Kopien von home-v2; Seitencode: Hauptbereich ausgeblendet, Entwurf per proto.js @8e9f31db3fb5bd6638c03e2b1e2a2dc061a987e6)
 RUNDE9: PAGES Kombi G (Entwurf intern) 6adf03c76e408e16055240d4 /kombi-g, Kombi H (Entwurf intern) 6adf03c85643027d1008c339 /kombi-h (Kopien von home-v2; Seitencode: kombi.css im Kopf, kombi.js mit data-variante g/h im Fuss, @59b779fc51ef1ce8aaa80e826ed8a5bb235585e8)
+RUNDE10: PAGE Kombi G2 (Entwurf intern) 6adf55d3441bacb461985d7e /kombi-g2 (Kopie von home-v2; Seitencode: kombi2.css im Kopf, kombi2.js im Fuss, @238c98eb1712342853f78e11c87a2c64c1e6297c)

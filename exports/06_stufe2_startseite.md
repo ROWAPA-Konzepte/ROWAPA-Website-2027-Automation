@@ -364,3 +364,27 @@ Grundlage ist die heutige Startseite (Kopie von `/home-v2`), nicht ein neuer Ent
 Geprüft live (1440 und 390 px): Punktemeer läuft, Foto folgt den Zeilen (Abfolge 0-1-2-0), Akkordeon wechselt, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde9/` (Vergleich heute / G / H, Hero-Vergleich, je Desktop und Handy).
 
 Native Umsetzung: Fotos als zweite Ebene im Hero-Component mit Webflow-Interaction (Wechsel synchron zur bestehenden Zeilen-Animation), Farbfluss und Ribbons als Scroll-Interactions (IX2: «While scrolling in view» / «Scroll into view»), Logos, Antrieb, Team und Lösungen G mit Grid-Klassen. Das Akkordeon in H geht mit IX2 (Hover/Klick ändert die Breite), der automatische Wechsel bräuchte eine kleine Ergänzung im Grafik-Skript.
+
+## 19. Master Kombi G2 (Runde 10, 26.10.2026)
+
+`/kombi-g2` zeigt die beschlossene Fassung auf der echten Startseite (Kopie von `/home-v2`, Aufsatz `kombi2.css` und `kombi2.js` über jsDelivr auf festem Commit). Unten rechts öffnet «Varianten vergleichen» die Umschaltleiste: erster Knopf je Section = Entscheid ROWAPA, weitere = Gegenvorschläge. Die Wahl bleibt im Browser gespeichert; ein Link mit `?wahl=wege:b,hero:heute` öffnet eine bestimmte Kombination.
+
+| Section | Entscheid | Gegenvorschläge |
+|---|---|---|
+| Hero | Kombi G: Fotofenster mit 45°-Kante und Plum-Ribbon, Foto wechselt mit der Zeile, Punktemeer | G sauber (ein Foto, keine Punkte darüber), Heute |
+| Referenzen | Laufband | Raster (E) |
+| Was wir tun | Zeilen (G) auf Weiss, Grau beim Darüberfahren | Akkordeon (H), Kacheln wie heute |
+| Was uns antreibt | Look B: Aufbau wie heute, Kennzahlen bis 6 rem | Layout D |
+| So arbeiten wir | G, Phasen grau beim Darüberfahren | – |
+| Unsere Erfolge | E: Fotorahmen, grosses Zitat, Slider (5 Geschichten), drei Zitate ohne Rahmen | Heute |
+| Digital, Insights, Gut zu wissen | G (Titel gross mit Strich) | – |
+| Über uns | Mosaik mit «150» und Kachel «Weitere Trainerinnen, Trainer und Partner» | Reihe wie heute |
+| Meine Entwicklung | offen | A Text im Bild, B Text unter dem Bild, C Zeilen |
+| Im Blickpunkt | Foto links bis zur Mitte, Text rechts, Farbfläche als einzige Einblendung | wischt ein / blendet ein |
+| Kontakt | dunkel (Look B) | hell wie heute |
+
+Bewegung: Farbfluss nur im CAS-Block. Animiert bleiben der Plum-Strich unter den Titeln, die Team-Kacheln (nacheinander), die Unterstreichung im Header sowie Punktemeer, Treppe, Orbit und Zähler. Ribbons stehen fest (Lösungen, Antrieb, Team, Meine Entwicklung, Kontakt).
+
+Geprüft live (1440 und 390 px): alle 22 Knöpfe der Leiste schalten die richtige Variante, Punktemeer läuft, Foto folgt den Zeilen, kein Farbfluss ausser CAS, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde10/`.
+
+Native Umsetzung (nach Freigabe): Lösungen-Zeilen, Antrieb, Team-Mosaik, Wege und CAS-Aufbau mit Grid-Klassen und Combo-Klassen; Grau beim Darüberfahren als Hover-State; Titelstrich und Team-Kacheln als IX2 «Scroll into view»; Farbfläche CAS als IX2 (Breite oder Deckkraft); Erfolge im bestehenden Slider-Element; Hero-Fotos als Ebene im Hero-Component mit Interaction synchron zur Zeilen-Animation.
