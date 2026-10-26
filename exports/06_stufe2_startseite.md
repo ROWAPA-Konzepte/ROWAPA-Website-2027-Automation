@@ -467,3 +467,5 @@ Ab Tablet abwärts sind die Ribbons klein (10 rem), damit sie keine ganzseitigen
 
 Geprüft live bei 1920, 1440, 1366, 1280, 1024, 768, 390 und 320 px: alle fünf Folien gleich hoch, Name und Steuerung auf einer Linie, Titel bis Name passt in jedes Fenster, Autoplay und Pfeile laufen, keine Skriptfehler, kein seitliches Überlaufen, kein Button über dem Rand. Screens: `exports/stufe2-screens/runde14/`.
 
+**Nachtrag Runde 14, ROWAPA Digital:** Hervorhebung der Karte beim Darüberfahren über Symbol oder Karte neu als Fläche in «Plum Gedaempft» (#B93E70) mit weisser Schrift statt feinem Rahmen. Umsetzung: Variable `--_farben---plum-gedaempft`, Theme-Modus «Plum» (Hintergrund und Karte Plum Gedaempft, Text, Überschrift, Kicker, Link, Akzent weiss, Linien White Linie), angewendet auf `card.is-verbunden` und auf den Hover der Variante «Weiss · Symbol (Digital)». Live geprüft (1440 px): Kachel Kompass → Karte Kompass Plum, Karte Segel beim Darüberfahren Plum, danach alle wieder weiss, keine Skriptfehler.
+
