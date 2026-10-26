@@ -158,11 +158,18 @@ Commit b2000a2.
 
 | 94 | Look-&-Feel-Varianten | «gerne verschiedene Varianten zeigen, auch Benchmark recherchieren» | drei Richtungen auf Kopien der Startseite: A Editorial Swiss `/home-look`, B Kontrast & Statement `/home-look-b`, C Hell & präzise `/home-look-c`. Umgesetzt mit Test-CSS nur auf diesen Seiten (`exports/look-entwuerfe/`); die gewählte Richtung wird danach nativ in Webflow-Klassen gebaut, ohne Custom Code |
 
+## 12. Feedback-Runde 8 (26.10.2026): Layout-Varianten
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 95 | Layout | «alle gleich aufgebaut (links Text und Titel)», 2–3 Varianten mit anderer Anordnung; Simon-Kucher und Unterseiten als Referenz, nicht 1:1 | drei Layout-Entwürfe mit unveränderter Dramaturgie und Texten: D «Bühne & Reiter» `/layout-d`, E «Editorial versetzt» `/layout-e`, F «Mosaik & Flächen» `/layout-f`. Benchmark: Simon-Kucher (Startseite, Financial Services, Banking, Versicherungen, Sales, Insights, Karriere, Kontakt), Bain, BCG, Oliver Wyman, Roland Berger, Korn Ferry, Pictet, Vontobel; nicht erreichbar: McKinsey, Julius Bär, zeb (Schutz gegen automatische Zugriffe bzw. Proxy) |
+| 96 | Umsetzung der Entwürfe | Claude: Entwürfe als HTML/CSS im Repository (`exports/layout-entwuerfe/`), per Lader nur auf den drei internen Seiten eingeblendet | die gewählte Variante (oder Mischung) wird danach nativ mit Webflow-Elementen und Client-First-Klassen gebaut; kein Custom Code im Endprodukt ausser den bestehenden Grafik-Modulen |
+
 ---
 
 ## Offene Punkte
 
-1. Look & Feel: Richtung A, B oder C wählen (gern auch Mischung, z. B. «Titel aus B, Karten aus C»). Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
+1. Layout D, E oder F wählen (gern Mischung je Section, z. B. «Hero aus E, Lösungen aus F, Digital aus D»), dazu Look A/B/C aus Runde 7 für Farben und Typografie. Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
 1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).

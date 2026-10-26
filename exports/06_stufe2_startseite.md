@@ -330,3 +330,17 @@ Struktur, Inhalte und Bewegungen identisch mit `/home-v2`; nur die Gestaltung ä
 | C Hell & präzise | `/home-look-c` | ruhig, viel Luft, Haarlinien | helle Flächen statt Sea-Tönung, mittlere Schriftstärke, sehr viel Weissraum, Karten als Liste mit Linie, eckige Buttons, Plum nur als Akzent | zurückhaltende Premium-Beratungen (Weissraum, Typografie statt Flächen) |
 
 Vergleich: `exports/stufe2-screens/runde7/vergleich_heute-A-B-C.jpg` (Spalten: heute, A, B, C).
+
+## 17. Layout-Varianten (Runde 8, 26.10.2026)
+
+Dramaturgie und Texte wie `/home-v2` (Entscheid ROWAPA), aber jede Section mit neuer Anordnung statt «links Titel, rechts Inhalt». Die Entwürfe sind HTML/CSS-Prototypen (`exports/layout-entwuerfe/d.html`, `e.html`, `f.html`, Steuerung `proto.js`), werden über jsDelivr auf festem Commit geladen und ersetzen auf den Testseiten nur den Hauptbereich; Navigation, Megamenü, Zeiger und Footer sind die echten.
+
+| Variante | Seite | Idee | Typische Anordnungen | Referenz |
+|---|---|---|---|---|
+| D Bühne & Reiter | `/layout-d` | grosse Bühne, Inhalte zum Durchschalten | Vollbild-Hero mit 4 automatisch wechselnden Themen und Fortschrittsbalken; Lösungen als Bildkacheln mit Hover-Text; Antrieb mit Riesentitel und senkrechten Kennzahlen; Digital als Reiter auf Navy; Erfolge als Fall-Slider; Wege als hohe Bildspalten; Kontakt mit schrägem Plum-Band | Simon-Kucher (Startseite, Branchen), Bain |
+| E Editorial versetzt | `/layout-e` | Magazin, asymmetrisches Raster | schmale nummerierte Label-Spalte (00–11) und breite Inhaltsspalte; typografischer Hero in drei versetzten Zeilen mit Ribbon; Lösungen als nummerierte Zeilen; Vorgehen als versetzte Treppe; grosses Zitat mit versetztem Fotorahmen; Wege mit versetzter Mittelspalte; Schluss-Statement auf Navy | Oliver Wyman, Pictet, Simon-Kucher Insights |
+| F Mosaik & Flächen | `/layout-f` | Flächen, Kacheln, klare Einstiege | geteilter Hero mit schrägem Bildschnitt und Plum-Band; drei Einstiegskarten (Unternehmen / persönlich / Broker) über der Hero-Kante; Lösungen als Bento-Mosaik mit Kennzahl-Kachel; Vorgehen als mittige Zeitachse; Wege in wechselnden Zeilen; CAS mit Siegel; Kontakt-Band mit Diagonalschnitt | Korn Ferry, Vontobel |
+
+Geprüft live (1440 und 390 px): Inhalte geladen, Reiter und Slider schalten, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde8/` (je Variante Desktop und Handy, Vergleich `vergleich_D-E-F.jpg`).
+
+Native Umsetzbarkeit: alle Anordnungen sind mit Webflow-Grid, Flex, Tabs-Element (Auto-Wechsel nativ möglich), Slider-Element und Interactions baubar. Schräge Flächen über native Transform (Skew) bzw. Ribbon-Klasse; nur der Fortschrittsbalken der Reiter in D bräuchte eine kleine Interaction.

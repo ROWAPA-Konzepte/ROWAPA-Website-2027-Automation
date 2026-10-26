@@ -104,3 +104,4 @@ RUNDE6: VORGEHEN vorgehen_media data-modus="folge", Stil relative + translateY(-
 RUNDE6: PAGE Home Look & Feel (Entwurf intern) 6ade9bb78161cf2b914ecdd3 /home-look; Klassen heading-style-h2.is-display 29d4c382, ribbon_band c6d523ef (+ is-unten-links 0e5f79a8), section_*.theme-*.is-band, section_*.theme-hell.is-raster
 RUNDE6: SCRIPT rowapagrafik 1.4.1 (@130b3935c71b096bd5a0c0ab23ab63b7abba2ca4, aktiv)
 ```
+RUNDE8: PAGES Layout D (intern) 6adef25dda3fa456614ae522 /layout-d, Layout E (intern) 6adef25ed47632875e377809 /layout-e, Layout F (intern) 6adef25ed47632875e377844 /layout-f (Kopien von home-v2; Seitencode: Hauptbereich ausgeblendet, Entwurf per proto.js @8e9f31db3fb5bd6638c03e2b1e2a2dc061a987e6)
