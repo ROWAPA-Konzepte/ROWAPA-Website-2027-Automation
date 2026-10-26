@@ -191,11 +191,24 @@ Commit b2000a2.
 | 111 | Gut zu wissen, Kontakt | **Look B**: Gut zu wissen hell, Kontakt dunkel | Kontakt Manganese Deep, Kicker Sea Cliff; Gegenvorschlag «Hell wie heute» |
 | 112 | Vorgehen | zuerst Entwurf G2 auf Staging, nach Freigabe native Umsetzung auf `/home-v2` | Entwurf live; native Umsetzung folgt nach Freigabe |
 
+## 15. Feedback-Runde 11 (26.10.2026): Kombi G2 nachgeführt
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 113 | Punktfiguren «Was wir tun» | Aufbau der Figuren wieder sichtbar machen | Ursache: in der Zeilen-Anordnung waren die Figuren nur 112 × 96 px gross, der Aufbau lief, war aber kaum zu sehen. Jetzt 192 × 144 px; Handy wie heute ohne Figur |
+| 114 | Hero / Referenzen / Was wir tun / Antrieb / Erfolge / Über uns | Hero **wie heute** (nur Punktemeer), Laufband, Zeilen, Look B, Fotorahmen, Mosaik | als Standard gesetzt; Kombi G bleibt als Alternative in der Leiste |
+| 115 | Meine Entwicklung | **C** (Zeilen), Frage nach drei dezenten Farbtönen | C als Standard, Zeilen etwas niedriger (22 rem); Alternative «C mit drei Farbtönen»: Section weiss, Textflächen in den CI-Tönungen Sea Cliff Tint, Pastel Snowbank, Plum Tint |
+| 116 | Im Blickpunkt | Farbfläche **blendet ein** | Standard |
+| 117 | Insights | Fortschrittsbalken nicht nötig | ausgeblendet, Pfeile bleiben; Alternative «mit Balken» |
+| 118 | Kontakt | **hell** | Standard (wie heute), dunkel als Alternative |
+| 119 | Digitale Lösungen | wirkt zu schwer, Wissensplattform-Kasten; 2–3 leichtere Darstellungen | «Liste neben der Kugel» (Vorschlag: Lösungen als aufklappbare Zeilen, mit den Orbit-Kacheln verbunden, Wissensplattform als schmale Notiz unter der Kugel), «Kugel in der Mitte» (zentriert, Lösungen als schlanke Reihe ohne Beschreibung), «Kompakt» (Aufbau wie heute, Wissensplattform einzeilig, Karten ohne Beschreibung), «Heute». Texte unverändert, nur ein- oder ausgeblendet |
+| 120 | Titel immer links | zu statisch? Simon-Kucher recherchieren | Befund: Simon-Kucher setzt Titel fast immer links, aber nie zentriert; sie springen im Raster (linker Rand, um ein Viertel eingerückt, schmale Seitenspalte). Vorschlag «Im Raster versetzt»: Vorgehen um ¼ eingerückt, Meine Entwicklung ab 5/12, Insights mit Titel in der Seitenspalte; CAS rechts und Gut zu wissen mit Seitenspalte waren schon so. Alternative «Einheitlich links» |
+
 ---
 
 ## Offene Punkte
 
-1. Kombi G2 (`/kombi-g2`) prüfen: Variante für «Meine Entwicklung» (A, B oder C) wählen, Gegenvorschläge in der Leiste ansehen, Farbfläche CAS (wischt oder blendet ein) wählen. Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
+1. Kombi G2 (`/kombi-g2`, Stand Runde 11) prüfen: Digital (Liste, Mitte oder Kompakt), Titel-Anordnung (versetzt oder links), Meine Entwicklung C mit oder ohne Farbtöne. Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
 1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).

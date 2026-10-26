@@ -388,3 +388,19 @@ Bewegung: Farbfluss nur im CAS-Block. Animiert bleiben der Plum-Strich unter den
 Geprüft live (1440 und 390 px): alle 22 Knöpfe der Leiste schalten die richtige Variante, Punktemeer läuft, Foto folgt den Zeilen, kein Farbfluss ausser CAS, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde10/`.
 
 Native Umsetzung (nach Freigabe): Lösungen-Zeilen, Antrieb, Team-Mosaik, Wege und CAS-Aufbau mit Grid-Klassen und Combo-Klassen; Grau beim Darüberfahren als Hover-State; Titelstrich und Team-Kacheln als IX2 «Scroll into view»; Farbfläche CAS als IX2 (Breite oder Deckkraft); Erfolge im bestehenden Slider-Element; Hero-Fotos als Ebene im Hero-Component mit Interaction synchron zur Zeilen-Animation.
+
+## 20. Kombi G2, Stand Runde 11 (26.10.2026)
+
+Standard in der Leiste (erster Knopf) ist jetzt: Hero wie heute, Laufband, Titel im Raster versetzt (Vorschlag), Zeilen, Look B, Fotorahmen, Digital als Liste neben der Kugel (Vorschlag), Mosaik, Meine Entwicklung C, CAS blendet ein, Insights ohne Balken, Kontakt hell. Die gespeicherte Wahl im Browser wurde zurückgesetzt, damit alle mit diesem Stand starten.
+
+| Neu | Was | Native Umsetzung |
+|---|---|---|
+| Figuren «Was wir tun» | 192 × 144 px statt 112 × 96 px, Aufbau wieder sichtbar | Grösse der Klasse `card_grafik` in der Zeilen-Variante |
+| Digital «Liste neben der Kugel» | links Titel, Text, fünf Zeilen (eine offen), rechts Orbit, darunter Wissensplattform als schmale Notiz | entspricht weitgehend der bestehenden Component-Variante mit Liste; Aufklappen per IX2 (Hover) |
+| Digital «Kugel in der Mitte» | zentriert, Lösungen als Reihe ohne Beschreibung | Flex-Spalte, Karten-Variante «schlank» |
+| Digital «Kompakt» | wie heute, ohne Beschreibungen, Wissensplattform einzeilig | Component-Variante |
+| Titel versetzt | Vorgehen ¼ eingerückt, Meine Entwicklung ab 5/12, Insights mit Seitenspalte | Combo-Klassen am `section-head` (z. B. `is-versetzt-1`, `is-versetzt-2`), Insights-Layout als Grid |
+| Meine Entwicklung C (Töne) | Section weiss, Textflächen Sea Cliff Tint / Pastel Snowbank / Plum Tint | Combo-Klassen an den Karten |
+| Insights | ohne Fortschrittsbalken | Element ausblenden |
+
+Geprüft live (1440 und 390 px): alle Knöpfe schalten, Figuren-Aufbau läuft, Farbfläche nur im CAS-Block, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde11/`.
