@@ -179,6 +179,9 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - Komponente «Navbar» › Dropdown «Was wir tun» › `navbar_vorschau`: neun Vorschaukarten (Bild, Titel, Satz), direkt im Designer änderbar.
 - Verbindung: Der Link trägt `data-vorschau="name"`, die Karte `data-vorschau-karte="name"` (Zahnrad › Custom attributes). Mehrere Links dürfen dieselbe Karte zeigen (z. B. alle Links unter «Meine Entwicklung»). Neuer Link: Attribut setzen; neue Karte: eine Karte duplizieren und Name anpassen.
 - Sichtbar ist zuerst die Karte mit der Zusatzklasse `is-aktiv` (heute Vertriebsperformance).
+- Öffnen und Schliessen: Das Menü öffnet beim Darüberfahren und schliesst 300 ms nach dem Verlassen (Dropdown › Einstellungen › «Close delay» bzw. Attribut `data-delay`). Über dem Panel liegt eine unsichtbare Brücke von 24 px (Klasse `navbar_dropdown-list`, Abstand oben −1.5 rem und Innenabstand oben 1.5 rem, Hintergrund transparent). Sie verhindert, dass das Menü auf schrägem Weg zum Link schliesst. Nicht entfernen.
+- Die drei kleinen Menüs (So arbeiten wir, Über uns, Partner werden) tragen die Zusatzklasse `is-schmal`: Sie stehen unter ihrem Menüpunkt, das grosse Menü über die ganze Inhaltsbreite.
+- Logo, Sprachwahl und Kontakt-Button liegen auf Ebene (z-index) 902, damit die Brücke sie nie verdeckt. Wert nicht unter 902 setzen.
 
 ### 2.27 Mauszeiger
 - Eingeschaltet über das Attribut `data-grafik="zeiger"` an der Navigation (Komponente «Navbar», oberstes Element). Attribut löschen = normaler Mauszeiger auf der ganzen Website.

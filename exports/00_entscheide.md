@@ -251,6 +251,16 @@ Hinweis ROWAPA: Es wird nur gebaut, was besprochen ist. Eigene Ideen kommen als 
 | 142 | Schriftgrössen | Muster prüfen | Inventar aller Sections in fünf Breiten erstellt. Abweichung vom vereinbarten Fliesstext 17 px behoben (Digital-Karten 16, Meine Entwicklung 18 → 17). Übrige Stufen einheitlich: H2 62 px (1440), Kicker 14 px, Untertitel 19 px, Kartentitel 24 px |
 | 143 | Section-Höhen | jede Section je Bildschirm sauber | vermessen in sieben Formaten; Ergebnis und Vorschlag siehe Bericht Runde 15 (Lösungen, Vorgehen, Digital, Team, Meine Entwicklung sind auf keinem Format eine Bildschirmhöhe) |
 
+## 20. Feedback-Runde 16 (26.10.2026): Megamenü reparieren
+
+Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche Darstellung für die anderen Menüs, Grösse je Format, Inhalte straffen) zuerst nur als Rückmeldung, nicht bauen.
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 144 | Megamenü nicht anklickbar | reparieren | Drei Ursachen behoben: (1) zwischen Menüpunkt und Panel lag eine Lücke von 15 px, die Menüpunkte füllen jetzt die ganze Leistenhöhe; (2) die drei kleinen Menüs standen in der Bildschirmmitte statt unter ihrem Menüpunkt (Zusatzklasse `is-schmal`); (3) Webflow öffnet ein Menü nur über dem Menüpunkt selbst. Wer schräg nach links oder rechts unten zum Link fährt, streift kurz die Leiste neben dem Menüpunkt, dann schliesst das Menü. Lösung: unsichtbare Brücke von 24 px über dem Panel (`navbar_dropdown-list`: Abstand oben −1.5 rem, Innenabstand oben 1.5 rem, Hintergrund transparent), Schliessverzögerung 300 ms |
+| 145 | Logo, Sprachwahl, Kontakt-Button | müssen bei offenem Menü voll klickbar bleiben | auf Ebene 902 gelegt, über dem offenen Menü (Webflow setzt 900/901) |
+| 146 | Prüfung | — | live geprüft: alle 31 Links der vier Menüs in 1920, 1440, 1280 und 1024 px, jeweils schräg langsam und schnell angefahren (248 von 248 Klicks ok); Wechsel zum Nachbarmenü ok; Logo, Sprachwahl und Button bei offenem Menü klickbar; Handy-Menü in 390 und 768 px unverändert |
+
 ---
 
 ## Offene Punkte
@@ -267,3 +277,4 @@ Hinweis ROWAPA: Es wird nur gebaut, was besprochen ist. Eigene Ideen kommen als 
 9. Option Mobile: Wische-Reihen auch für Wege und Werkzeuge (Insights ist umgesetzt).
 10. Themen-URLs in Stufe 4 an die neuen Titel anpassen (mit Weiterleitung); ebenso `/fuer-organisationen`.
 11. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
+12. Megamenü-Bezeichnungen «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention» weichen von den Titeln auf der Startseite ab («Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung»). Angleichen? [ROWAPA bestätigen]
