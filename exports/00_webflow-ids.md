@@ -108,3 +108,4 @@ RUNDE8: PAGES Layout D (intern) 6adef25dda3fa456614ae522 /layout-d, Layout E (in
 RUNDE9: PAGES Kombi G (Entwurf intern) 6adf03c76e408e16055240d4 /kombi-g, Kombi H (Entwurf intern) 6adf03c85643027d1008c339 /kombi-h (Kopien von home-v2; Seitencode: kombi.css im Kopf, kombi.js mit data-variante g/h im Fuss, @59b779fc51ef1ce8aaa80e826ed8a5bb235585e8)
 RUNDE10: PAGE Kombi G2 (Entwurf intern) 6adf55d3441bacb461985d7e /kombi-g2 (Kopie von home-v2; Seitencode: kombi2.css im Kopf, kombi2.js im Fuss, @238c98eb1712342853f78e11c87a2c64c1e6297c)
 RUNDE11: PAGE Kombi G2 6adf55d3441bacb461985d7e Seitencode jetzt @7dba0228a11c756a3e9c9527a1bc2c3fed569cb0 (kombi2.css, kombi2.js; Speicherschlüssel k2-wahl-r11)
+RUNDE12: PAGE Kombi G2 6adf55d3441bacb461985d7e Seitencode jetzt @3fbc05e4a4d65be9d4b0cfa08d33c80647d6cf35 (finaler Entwurf; Speicherschlüssel k2-wahl-r12)

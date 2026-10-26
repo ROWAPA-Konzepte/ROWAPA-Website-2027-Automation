@@ -40,7 +40,7 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 |---|---|---|
 | Phase 1+2 | Analyse, CMS-Architektur, URL-Plan | erledigt |
 | Stufe 1 | Design-System | freigegeben |
-| Stufe 2 | Startseite `/home-v2` | Feedback-Runde 6 auf Staging; Look-Varianten A/B/C (`/home-look`, `/home-look-b`, `/home-look-c`) Master-Entwurf Kombi G2 (`/kombi-g2`, Stand Runde 11, mit Umschaltleiste) wartet auf letzte Wahl (Digital, Titel-Anordnung, Farbtöne Meine Entwicklung) und Freigabe; frühere Entwürfe: Looks A/B/C, Layouts D/E/F, Kombi G/H, danach native Umsetzung und Freigabe |
+| Stufe 2 | Startseite `/home-v2` | Feedback-Runde 6 auf Staging; Look-Varianten A/B/C (`/home-look`, `/home-look-b`, `/home-look-c`) finaler Entwurf Kombi G2 (`/kombi-g2`) wartet nur noch auf die Wahl «Digitale Lösungen» (A–D), danach native Umsetzung auf `/home-v2`; frühere Entwürfe: Looks A/B/C, Layouts D/E/F, Kombi G/H, danach native Umsetzung und Freigabe |
 | Stufe 3 | CMS-Collections, Draft-Einträge (Logos, Partner, Team, Referenzen, Blog) | nach Freigabe Stufe 2 |
 | Stufe 4 | Templates und Unikat-Seiten | danach |
 | Go-live | Domain, Weiterleitungen, Favicon, SEO | zum Schluss, nur mit Freigabe |

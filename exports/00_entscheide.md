@@ -204,11 +204,21 @@ Commit b2000a2.
 | 119 | Digitale Lösungen | wirkt zu schwer, Wissensplattform-Kasten; 2–3 leichtere Darstellungen | «Liste neben der Kugel» (Vorschlag: Lösungen als aufklappbare Zeilen, mit den Orbit-Kacheln verbunden, Wissensplattform als schmale Notiz unter der Kugel), «Kugel in der Mitte» (zentriert, Lösungen als schlanke Reihe ohne Beschreibung), «Kompakt» (Aufbau wie heute, Wissensplattform einzeilig, Karten ohne Beschreibung), «Heute». Texte unverändert, nur ein- oder ausgeblendet |
 | 120 | Titel immer links | zu statisch? Simon-Kucher recherchieren | Befund: Simon-Kucher setzt Titel fast immer links, aber nie zentriert; sie springen im Raster (linker Rand, um ein Viertel eingerückt, schmale Seitenspalte). Vorschlag «Im Raster versetzt»: Vorgehen um ¼ eingerückt, Meine Entwicklung ab 5/12, Insights mit Titel in der Seitenspalte; CAS rechts und Gut zu wissen mit Seitenspalte waren schon so. Alternative «Einheitlich links» |
 
+## 16. Feedback-Runde 12 (26.10.2026): finaler Entwurf Kombi G2
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 121 | Digitale Lösungen | Aufbau wie heute; Wissensplattform so knapp wie in «Kompakt»; die fünf Karten besser lesbar und heller, damit der Block nicht so dunkel wirkt; dazu 2–3 neue Varianten | A «Heute, Karten hell» (Wunsch ROWAPA): Wissensplattform einzeilig, Karten Sea Cliff Tint mit dunkler Schrift. Neu: B Karten Great Serpent mit weisser Schrift und Symbolen; C dunkle Bühne oben, weisse Karten mit Symbolen im hellen Teil darunter; D ganze Section hell (Sea Cliff Tint), Kugel auf dunkler Fläche, weisse Karten mit Symbolen. Wahl offen |
+| 122 | Meine Entwicklung | **C mit drei Farbtönen**; Köpfe nicht abschneiden, mindestens die Augen immer sichtbar, auch in den Videos | Bildausschnitt für Foto und Video auf 19 % von oben gesetzt (Augen liegen in allen Fotos und Video-Bildern bei 20–40 % der Höhe); geprüft am Desktop und Handy |
+| 123 | Was wir tun | Linktext «Mehr zu …» wiederholt den Titel | Linktext entfällt, die ganze Zeile ist der Link, Pfeil (Plum) direkt hinter dem Titel, der beim Darüberfahren nach rechts rückt. Der Button «Zur Vertriebsperformance» in der grossen Karte bleibt |
+| 124 | Titel-Anordnung | Titel nicht versetzen, alles wie bisher, **ausser Insights**: Titel in der Seitenspalte, ohne Fortschrittsbalken | umgesetzt |
+| 125 | Entwurf | finaler Entwurf | Umschaltleiste zeigt nur noch «Digitale Lösungen»; alle anderen Sections sind fest |
+
 ---
 
 ## Offene Punkte
 
-1. Kombi G2 (`/kombi-g2`, Stand Runde 11) prüfen: Digital (Liste, Mitte oder Kompakt), Titel-Anordnung (versetzt oder links), Meine Entwicklung C mit oder ohne Farbtöne. Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
+1. Finaler Entwurf `/kombi-g2`: Variante «Digitale Lösungen» wählen (A Wunsch, B Great Serpent, C Bühne, D hell). Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
 1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).

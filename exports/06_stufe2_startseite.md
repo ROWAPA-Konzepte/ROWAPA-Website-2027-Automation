@@ -404,3 +404,27 @@ Standard in der Leiste (erster Knopf) ist jetzt: Hero wie heute, Laufband, Titel
 | Insights | ohne Fortschrittsbalken | Element ausblenden |
 
 Geprüft live (1440 und 390 px): alle Knöpfe schalten, Figuren-Aufbau läuft, Farbfläche nur im CAS-Block, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde11/`.
+
+## 21. Finaler Entwurf Kombi G2 (Runde 12, 26.10.2026)
+
+Feste Fassung (Grundlage für die native Umsetzung auf `/home-v2`):
+
+| Section | Fassung |
+|---|---|
+| Hero | wie heute (Punktemeer, Zeilen mit Unterstreichung) |
+| Referenzen | Laufband |
+| Was wir tun | Zeilen (G) auf Weiss, Grau und Plum-Kante beim Darüberfahren, Figuren 192 × 144 px mit Aufbau, Pfeil hinter dem Titel statt Linktext |
+| Was uns antreibt | Look B (grosse Kennzahlen), Titel in G-Grösse |
+| Unser Vorgehen | wie G, Phasen grau beim Darüberfahren |
+| Unsere Erfolge | Fotorahmen (E) im Slider, drei Zitate ohne Rahmen |
+| Digitale Lösungen | **Wahl offen** (A–D, siehe Entscheid 121) |
+| Über uns | Mosaik mit «150» und «Weitere Trainerinnen, Trainer und Partner» |
+| Meine Entwicklung | C (Zeilen) mit drei Farbtönen; Bildausschnitt 19 % von oben (Augen sichtbar) |
+| Im Blickpunkt | Foto links bis zur Mitte, Text rechts, Farbfläche blendet ein (einzige Einblendung) |
+| Neueste Insights | Titel in der Seitenspalte, ohne Fortschrittsbalken |
+| Gut zu wissen | wie heute, Titel in G-Grösse |
+| Kontakt | hell wie heute |
+
+Titel überall gross (bis 4,25 rem) mit Plum-Strich, der sich beim Hereinscrollen zeichnet; Kicker in Plum (auf Dunkel Sea Cliff). Ribbons fest an Lösungen, Antrieb, Team, Meine Entwicklung, Kontakt.
+
+Geprüft live (1440 und 390 px): Figuren-Aufbau läuft, Farbfläche nur im CAS-Block, Leiste mit fünf Digital-Varianten schaltet, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde12/`.
