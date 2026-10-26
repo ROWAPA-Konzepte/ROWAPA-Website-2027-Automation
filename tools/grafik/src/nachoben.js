@@ -12,7 +12,10 @@ export function nachoben(el) {
   stand();
   el.addEventListener('click', e => {
     e.preventDefault();
+    const y0 = scrollY;
     scrollTo({ top: 0, behavior: reduziert() ? 'auto' : 'smooth' });
+    /* falls das sanfte Scrollen bei hoher Last nicht anläuft: direkt springen */
+    setTimeout(() => { if (scrollY >= y0 - 2) scrollTo(0, 0); }, 700);
     /* Tastatur: Fokus zurück an den Anfang der Seite */
     const erstes = document.querySelector('a[href]:not([tabindex="-1"]), button');
     if (erstes && erstes !== el) erstes.focus({ preventScroll: true });
