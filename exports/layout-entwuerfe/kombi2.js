@@ -10,22 +10,22 @@
   function el(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html) e.innerHTML = html; return e; }
 
   /* Varianten: [Schlüssel, Name, Section, [[Wert, Beschriftung, Zusatz]]]; der erste Wert ist der Entscheid ROWAPA */
+  /* [Schlüssel, Name, Section, Optionen, in der Leiste zeigen]; Entwurf final: nur Digital ist noch offen */
   var GRUPPEN = [
-    ['hero', 'Hero', '.section_hero', [['heute', 'Heute', 'Entscheid: nur Punktemeer'], ['g', 'Kombi G', 'Fotos wechseln'], ['sauber', 'G sauber', 'ein Foto']]],
-    ['logos', 'Referenzen', '.section_logos', [['band', 'Laufband', 'Entscheid'], ['raster', 'Raster', 'aus Layout E']]],
-    ['titel', 'Titel-Anordnung', '.section_vorgehen', [['versetzt', 'Im Raster versetzt', 'Vorschlag, wie Simon-Kucher'], ['links', 'Einheitlich links', 'bisher']]],
-    ['loesungen', 'Was wir tun', '.section_loesungen', [['zeilen', 'Zeilen', 'Entscheid (G, hell)'], ['akkordeon', 'Akkordeon', 'aus Kombi H'], ['heute', 'Kacheln', 'wie heute, hell']]],
-    ['antrieb', 'Was uns antreibt', '.section_antrieb', [['b', 'Look B', 'Entscheid'], ['d', 'Layout D', 'Zahlen senkrecht']]],
-    ['erfolge', 'Unsere Erfolge', '.section_erfolge', [['e', 'Fotorahmen', 'Entscheid (E, Slider)'], ['heute', 'Heute', '']]],
-    ['digital', 'Digitale Lösungen', '.section_digital', [['liste', 'Liste neben der Kugel', 'Vorschlag'], ['mitte', 'Kugel in der Mitte', ''], ['kompakt', 'Kompakt', 'Aufbau wie heute, weniger Text'], ['heute', 'Heute', '']]],
-    ['team', 'Über uns', '.section_team', [['mosaik', 'Mosaik', 'Entscheid (G/F)'], ['reihe', 'Reihe', 'wie heute']]],
-    ['wege', 'Meine Entwicklung', '.section_wege', [['c', 'C Zeilen', 'Entscheid'], ['c-toene', 'C mit drei Farbtönen', ''], ['a', 'A', 'Text im Bild'], ['b', 'B', 'Text unter dem Bild']]],
-    ['cas', 'Im Blickpunkt', '.section_cas', [['blende', 'Farbe blendet ein', 'Entscheid'], ['wisch', 'Farbe wischt ein', '']]],
-    ['insights', 'Neueste Insights', '.section_insights', [['ohne', 'Ohne Balken', 'Entscheid'], ['balken', 'Mit Balken', 'wie heute']]],
-    ['kontakt', 'Kontakt', '.section_kontakt', [['hell', 'Hell', 'Entscheid'], ['dunkel', 'Dunkel', 'Look B']]]
+    ['hero', 'Hero', '.section_hero', [['heute', 'Heute', ''], ['g', 'Kombi G', ''], ['sauber', 'G sauber', '']], false],
+    ['logos', 'Referenzen', '.section_logos', [['band', 'Laufband', ''], ['raster', 'Raster', '']], false],
+    ['loesungen', 'Was wir tun', '.section_loesungen', [['zeilen', 'Zeilen', ''], ['akkordeon', 'Akkordeon', ''], ['heute', 'Kacheln', '']], false],
+    ['antrieb', 'Was uns antreibt', '.section_antrieb', [['b', 'Look B', ''], ['d', 'Layout D', '']], false],
+    ['erfolge', 'Unsere Erfolge', '.section_erfolge', [['e', 'Fotorahmen', ''], ['heute', 'Heute', '']], false],
+    ['digital', 'Digitale Lösungen', '.section_digital', [['heute-hell', 'Heute, Karten hell', 'Ihr Wunsch'], ['serpent', 'Karten Great Serpent', 'neu, mit Symbolen'], ['buehne', 'Dunkle Bühne, helle Karten', 'neu, mit Symbolen'], ['hell', 'Section hell', 'neu, Kugel auf dunkler Fläche'], ['heute', 'Heute', 'zum Vergleich']], true],
+    ['team', 'Über uns', '.section_team', [['mosaik', 'Mosaik', ''], ['reihe', 'Reihe', '']], false],
+    ['wege', 'Meine Entwicklung', '.section_wege', [['c-toene', 'C mit drei Farbtönen', ''], ['c', 'C', ''], ['a', 'A', ''], ['b', 'B', '']], false],
+    ['cas', 'Im Blickpunkt', '.section_cas', [['blende', 'Farbe blendet ein', ''], ['wisch', 'Farbe wischt ein', '']], false],
+    ['insights', 'Neueste Insights', '.section_insights', [['seite', 'Seitenspalte, ohne Balken', ''], ['balken', 'Wie heute', '']], false],
+    ['kontakt', 'Kontakt', '.section_kontakt', [['hell', 'Hell', ''], ['dunkel', 'Dunkel', '']], false]
   ];
   var wahl = {};
-  try { wahl = JSON.parse(localStorage.getItem('k2-wahl-r11') || '{}') || {}; } catch (e) { wahl = {}; }
+  try { wahl = JSON.parse(localStorage.getItem('k2-wahl-r12') || '{}') || {}; } catch (e) { wahl = {}; }
   // Link mit ?wahl=wege:b,hero:heute setzt eine bestimmte Kombination
   var q = (location.search.match(/[?&]wahl=([^&]+)/) || [])[1];
   if (q) decodeURIComponent(q).split(',').forEach(function (p) { var t = p.split(':'); if (t[1]) wahl[t[0]] = t[1]; });
@@ -35,8 +35,9 @@
     if (!g[3].some(function (o) { return o[0] === wert; })) wert = g[3][0][0];
     g[3].forEach(function (o) { wurzel.classList.toggle('k2-' + gruppe + '-' + o[0], o[0] === wert); });
     if (gruppe === 'wege') wurzel.classList.toggle('k2-wege-c', wert === 'c' || wert === 'c-toene');
+    if (gruppe === 'digital') { wurzel.classList.toggle('k2-digital-neu', wert !== 'heute'); if (window.k2Buehne) window.k2Buehne(); }
     wahl[gruppe] = wert;
-    try { localStorage.setItem('k2-wahl-r11', JSON.stringify(wahl)); } catch (e) {}
+    try { localStorage.setItem('k2-wahl-r12', JSON.stringify(wahl)); } catch (e) {}
     var knoepfe = document.querySelectorAll('[data-k2="' + gruppe + '"] button');
     [].forEach.call(knoepfe, function (b) { b.classList.toggle('ist-an', b.getAttribute('data-wert') === wert); });
   }
@@ -116,6 +117,25 @@
     }).observe(werkzeuge, { subtree: true, attributes: true, attributeFilter: ['class'] });
   }
 
+  /* 4c Digital: Symbole aus dem Orbit in die Karten, Höhe des hellen Teils für «Bühne» */
+  var dsec = document.querySelector('.section_digital');
+  if (dsec) {
+    var icons = dsec.querySelectorAll('.orbit_tile-icon');
+    [].forEach.call(dsec.querySelectorAll('.tools_grid > .card'), function (karte, i) {
+      var ic = icons[i]; var inhalt = karte.querySelector('.card_content');
+      if (!ic || !inhalt) return;
+      var sym = el('div', 'k2-symbol'); sym.setAttribute('aria-hidden', 'true');
+      var im = new Image(); im.src = ic.getAttribute('src'); im.alt = ''; sym.appendChild(im);
+      inhalt.insertBefore(sym, inhalt.firstChild);
+    });
+    window.k2Buehne = function () {
+      var g = dsec.querySelector('.tools_grid'); if (!g) return;
+      var rs = dsec.getBoundingClientRect(), rg = g.getBoundingClientRect();
+      dsec.style.setProperty('--k2-hell', Math.max(0, Math.round(rs.bottom - (rg.top + rg.height * 0.45))) + 'px');
+    };
+    addEventListener('resize', window.k2Buehne); addEventListener('load', window.k2Buehne); setTimeout(window.k2Buehne, 600);
+  }
+
   /* 5 Sichtbarkeit: «k2-da» für Titelstrich, Team-Kacheln, Logo-Raster und die Farbfläche im CAS-Block */
   var sections = [].slice.call(document.querySelectorAll('.main-wrapper section')).filter(function (s) { return s !== hero; });
   var io = null;
@@ -130,8 +150,8 @@
   /* 6 Umschaltleiste */
   var leiste = el('div', 'k2-leiste');
   var tafel = el('div', 'k2-leiste-tafel');
-  tafel.appendChild(el('p', 'k2-leiste-kopf', 'Entwurf Kombi G2, Stand Runde 11. Der erste Knopf jeder Zeile ist Ihr Entscheid oder mein Vorschlag, die weiteren sind Alternativen. Klick auf den Namen springt zur Section.'));
-  GRUPPEN.forEach(function (g) {
+  tafel.appendChild(el('p', 'k2-leiste-kopf', 'Finaler Entwurf Kombi G2. Offen ist nur noch «Digitale Lösungen»: erster Knopf = Ihr Wunsch, dann drei neue Varianten und der heutige Stand. Klick auf den Namen springt zur Section.'));
+  GRUPPEN.filter(function (g) { return g[4]; }).forEach(function (g) {
     var box = el('div', 'k2-gruppe'); box.setAttribute('data-k2', g[0]);
     var name = el('button', 'k2-gruppe-name', g[1]);
     name.addEventListener('click', function () { var s = document.querySelector(g[2]); if (s) s.scrollIntoView({ behavior: ruhig ? 'auto' : 'smooth', block: 'start' }); });

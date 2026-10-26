@@ -227,16 +227,16 @@
 .k2-wege-c-toene .section_wege .card:nth-child(3){background:var(--_farben---plum-tint)}
 
 /* Insights: ohne Fortschrittsbalken */
-.k2-insights-ohne .section_insights .reihe_fortschritt{display:none}
+.k2-insights-ohne .section_insights .reihe_fortschritt,.k2-insights-seite .section_insights .reihe_fortschritt{display:none}
 
 /* Titel im Raster versetzt (wie Simon-Kucher: links, eingerückt, Seitenspalte; nie zentriert) */
 @media (min-width:992px){
 .k2-titel-versetzt .section_vorgehen .section-head{margin-left:25%}
 .k2-titel-versetzt .section_wege .section-head{margin-left:41.666%}
-.k2-titel-versetzt .section_insights .padding-section-large{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);column-gap:clamp(2rem,1rem + 3vw,4rem);align-items:start}
-.k2-titel-versetzt .section_insights .section-head_row{grid-column:1;grid-row:1 / span 3;flex-direction:column;align-items:flex-start;justify-content:flex-start;margin:0;position:sticky;top:7rem}
-.k2-titel-versetzt .section_insights .reihe_maske,.k2-titel-versetzt .section_insights .reihe_fortschritt,.k2-titel-versetzt .section_insights .link-teaser-list{grid-column:2}
-.k2-titel-versetzt .section_insights .insights_reihe{grid-auto-columns:calc(33.333% - 1.333rem)}
+.k2-insights-seite .section_insights .padding-section-large{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);column-gap:clamp(2rem,1rem + 3vw,4rem);align-items:start}
+.k2-insights-seite .section_insights .section-head_row{grid-column:1;grid-row:1 / span 3;flex-direction:column;align-items:flex-start;justify-content:flex-start;margin:0;position:sticky;top:7rem}
+.k2-insights-seite .section_insights .reihe_maske,.k2-insights-seite .section_insights .reihe_fortschritt,.k2-insights-seite .section_insights .link-teaser-list{grid-column:2}
+.k2-insights-seite .section_insights .insights_reihe{grid-auto-columns:calc(33.333% - 1.333rem)}
 }
 
 /* Digital: Liste neben der Kugel (Lösungen klappen auf, Kachel und Zeile sind verbunden) */
@@ -289,6 +289,46 @@
 .k2-digital-liste .tools_grid .card_footer{grid-column:2;grid-row:1 / span 2}
 .k2-digital-liste .tools_grid>.k2-offen p{max-height:14rem}
 }
+
+
+/* ---------- Runde 12 ---------- */
+/* Meine Entwicklung C: Bildausschnitt so, dass die Augen sichtbar bleiben (Augen in Foto und Video bei 20–40 % der Höhe) */
+.k2-wege-c .section_wege .card_image,.k2-wege-c .section_wege .card_video{object-position:50% 19%}
+
+/* Was wir tun: kein Linktext, der den Titel wiederholt; ganze Zeile ist der Link, Pfeil hinter dem Titel */
+.k2-loesungen-zeilen .bento_grid>.card .card_footer{display:none}
+.k2-loesungen-zeilen .bento_grid>.card h3::after{content:"\2192";display:inline-block;margin-left:.5rem;color:var(--k-plum);transition:transform .35s var(--k-weich)}
+.k2-loesungen-zeilen .bento_grid>.card:hover h3::after{transform:translateX(.4rem)}
+
+/* Digital: Grundlage aller Varianten ausser «Heute»: Wissensplattform einzeilig */
+.k2-digital-neu .section_digital .note-box p{display:none}
+.k2-digital-neu .section_digital .note-box{padding:.9rem 1.25rem;align-items:center}
+/* helle Karten: dunkle Schrift auf hellem Grund */
+.k2-digital-heute-hell .section_digital .tools_grid>.card,.k2-digital-buehne .section_digital .tools_grid>.card,.k2-digital-hell .section_digital .tools_grid>.card{
+  --_theme---hintergrund:var(--_farben---white);--_theme---text:var(--_farben---manganese-black);--_theme---ueberschrift:var(--_farben---manganese-black);--_theme---link:var(--_farben---great-serpent);--_theme---text-gedaempft:var(--_farben---manganese-soft-text);--_theme---icon-hintergrund:var(--_farben---manganese-black);--_theme---icon-vordergrund:var(--_farben---white);--_theme---karte-linie:var(--_farben---manganese-linie);
+  color:var(--_farben---manganese-black);border-left:0;border-right:0;border-bottom:0;box-shadow:none;transition:transform .35s var(--k-weich),box-shadow .35s}
+.k2-digital-heute-hell .section_digital .tools_grid>.card{background-color:var(--_farben---sea-cliff-tint)}
+.k2-digital-buehne .section_digital .tools_grid>.card,.k2-digital-hell .section_digital .tools_grid>.card{background-color:#fff}
+.k2-digital-neu .section_digital .tools_grid .text-size-regular{font-size:1rem;line-height:1.5}
+.k2-digital-heute-hell .section_digital .tools_grid .text-style-kicker,.k2-digital-buehne .section_digital .tools_grid .text-style-kicker,.k2-digital-hell .section_digital .tools_grid .text-style-kicker{color:var(--k-plum)}
+.k2-digital-neu .section_digital .tools_grid>.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(17,29,44,.25)}
+/* Symbole der fünf Lösungen (aus dem Orbit) in den Karten */
+.k2-symbol{display:none;width:2.75rem;height:2.75rem;align-items:center;justify-content:center;background:var(--k-serpent);border-radius:2px;margin-bottom:.25rem}
+.k2-symbol img{width:1.5rem;height:auto}
+.k2-digital-serpent .k2-symbol,.k2-digital-buehne .k2-symbol,.k2-digital-hell .k2-symbol{display:flex}
+/* Variante: Karten in Great Serpent, weisse Schrift */
+.k2-digital-serpent .section_digital .tools_grid>.card{background-color:var(--k-serpent);border:0;border-top:3px solid var(--k-plum);
+  --_theme---text:#fff;--_theme---ueberschrift:#fff;--_theme---text-gedaempft:rgba(255,255,255,.92);--_theme---link:#fff;--_theme---icon-hintergrund:rgba(17,29,44,.35);--_theme---icon-vordergrund:#fff;transition:transform .35s var(--k-weich),box-shadow .35s}
+.k2-digital-serpent .section_digital .tools_grid .text-style-kicker{color:#fff;opacity:.85}
+.k2-digital-serpent .k2-symbol{background:var(--k-navy)}
+/* Variante: dunkle Bühne oben, Karten im Hellen darunter */
+.k2-digital-buehne .section_digital.theme-kontrast{background:linear-gradient(to bottom,var(--_farben---manganese-black) 0,var(--_farben---manganese-black) calc(100% - var(--k2-hell,14rem)),var(--_farben---white) calc(100% - var(--k2-hell,14rem)))!important}
+.k2-digital-buehne .section_digital .tools_grid>.card{box-shadow:0 18px 40px rgba(17,29,44,.18)}
+/* Variante: ganze Section hell, Kugel auf dunkler Fläche */
+.k2-digital-hell .section_digital.theme-kontrast{--_theme---hintergrund:var(--_farben---sea-cliff-tint);--_theme---text:var(--_farben---manganese-black);--_theme---ueberschrift:var(--_farben---manganese-black);--_theme---link:var(--_farben---great-serpent);--_theme---text-gedaempft:var(--_farben---manganese-soft-text);--_theme---linie:var(--_farben---manganese-linie);--_theme---karte-hintergrund:var(--_farben---white);--_theme---karte-linie:var(--_farben---manganese-linie);--_theme---icon-hintergrund:var(--_farben---manganese-black);--_theme---icon-vordergrund:var(--_farben---white);background-color:var(--_farben---sea-cliff-tint);color:var(--_farben---manganese-black)}
+.k2-digital-hell .main-wrapper section.section_digital .kicker .text-style-kicker{color:var(--k-plum)}
+.k2-digital-hell .section_digital .digital_visual{background:var(--_farben---manganese-black)}
+.k2-digital-hell .section_digital .note-box{background:#fff}
 
 /* ---------- Umschaltleiste (nur Entwurf) ---------- */
 .k2-leiste{position:fixed;right:16px;bottom:16px;z-index:2147483000;font-family:var(--_typografie---schrift-titel-und-text),sans-serif;color:#fff;cursor:auto}
