@@ -119,3 +119,5 @@ RUNDE13: ELEMENTE Ribbons Lösungen 5e52d8db-695e-89a0-1f42-ad510576c560, Antrie
 RUNDE13: FOOTER (COMP 80f683ca-c575-0f18-701e-f2706972eadb) Link «Nach oben» 4dfc77a3-4625-f02e-c253-69799c87ee3d (data-grafik="nachoben", aria-label «Nach oben»)
 RUNDE13: IX3 i-68f024f1 «Titel-Strich zeichnen» (Site), i-f854d73a «Team-Kacheln nacheinander», i-13dcee55 «CAS Farbfläche einblenden» (einzige Einblendung)
 RUNDE13: SCRIPT rowapagrafik 1.5.0 (@f27a29e27b336efcde4bc12d1cdce961d9273382), 1.5.1 (@6fab019695b4742b4a810365c9a3de8c0348e3ab, aktiv)
+RUNDE14: HERO (COMP 32443477-0ff1-d34e-0020-e8ec276c5ac1) hero_abdunkler ce771079-8689-2ac0-3f48-ed62a1dcab29 in hero_content 32443477-…-5ac9; Stil hero_abdunkler cab81bd6-acf1-c406-b515-407c99ff30be (Variante B 1e397a93-… ausgeblendet)
+RUNDE14: ERFOLGE Slider 200f6910-a8b4-aa2f-c841-ed0dec081865, Maske 200f6910-…-1866 mit erfolge_maske e491a95d-8ea5-c94d-162b-cdecc3a10687; Kopfzeile d456298d-976a-0448-81e9-95f6b56d84a6 + is-ohne-umbruch f39af9ad-802f-a0f3-8b25-eccdbeb2f8f3; Button d456298d-…-84a5 + is-nowrap 08564933-395c-99f0-05e3-5dcfc04a5376

@@ -230,6 +230,13 @@ Der finale Entwurf ist jetzt mit Webflow-Klassen, Komponenten-Varianten und Inte
 | 133 | Ribbons | statisch, dezent | Lösungen oben rechts, Antrieb unten links, Kontakt oben rechts (unten links kreuzte die Telefonnummer). Team: ausgeblendet (Eigenschaft «Ribbon anzeigen» aus), weil es nach dem Abstandsausgleich den Button «Team kennenlernen» kreuzte; jederzeit wieder einschaltbar. Auf Tablet und Handy entfällt «unten links» (lag über den Kennzahlen), die übrigen sind dort klein (10 rem), weil das Kontakt-Ribbon bei 768 px sonst den Titel kreuzte |
 | 134 | Animationen | alle sollen laufen | geprüft auf der veröffentlichten Seite: Punktemeer Header und Footer, Hero-Zeilen mit Unterstreichung, Logo-Laufband, Titel-Strich (11 von 11), Punktfiguren, Zähler (20 · 100 % · 150), Treppe, Kugel und Kacheln, Team-Kacheln nacheinander, Farbfläche CAS (einzige Einblendung), Hover-Videos, Kachel-Klick, Nach oben. Keine Skriptfehler, kein seitliches Überlaufen |
 
+## 18. Feedback-Runde 14 (26.10.2026): Header-Satz ruhig, Erfolge als ein Block
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 135 | Header | Satz unter dem Titel lag auf dem Wellenkamm des Punktemeers; dunkler, nicht ruhiger | weicher dunkler Verlauf hinter dem Satz (Element `hero_abdunkler` in der Hero-Komponente). Die Punkte werden dort gedämpft, die Bewegung bleibt, rechts ist das Punktemeer voll sichtbar. Wandert mit dem Text auf allen Formaten mit; Variante «B · Editorial» ohne |
+| 136 | Unsere Erfolge | Titel bis Name des Zitatgebers sollen auf jedem Format in einem Bildschirm stehen | Foto an die Fensterhöhe gekoppelt (`max-height: 100svh − 20 rem`, Tablet − 18 rem, Handy 16:10), Text oben, Zitat in der Mitte, Name auf Höhe der Fotounterkante, Punkte und Pfeile rechts daneben (Handy nur Punkte). Tablet neu zweispaltig wie Desktop. Folien gleich hoch (`erfolge_maske`). Handy: «Alle Referenzen» neben dem Titel. Gemessen Titel bis Name: 1920 px 925 von 1007 px, 1440 750/827, 1366 639/695, 1280 668/727, 1024 570/695, 768 528/959, 390 684/779 (Fensterhöhe ohne Navigation) |
+
 ---
 
 ## Offene Punkte

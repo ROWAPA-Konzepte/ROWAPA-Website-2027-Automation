@@ -454,3 +454,16 @@ Die feste Fassung aus Kapitel 21 ist jetzt mit Webflow-Mitteln gebaut. Die Entwu
 Ab Tablet abwärts sind die Ribbons klein (10 rem), damit sie keine ganzseitigen Titel kreuzen.
 
 **Geprüft live** auf der veröffentlichten Staging-Seite bei 1920, 1440, 1366, 1280, 1024, 992, 768 und 390 px: keine Skriptfehler, kein seitliches Überlaufen, Navigation passt, Titel-Strich 11 von 11, Zähler 20 · 100 % · 150, Insights ohne Scrollbalken, Tags ausserhalb der Fotos, Team-Kacheln und CAS-Farbfläche eingeblendet, Klick auf ein Orbit-Symbol hebt die passende Karte an (ohne Seitenwechsel), «Nach oben» führt an den Seitenanfang. H1/H2: 1920 px 96/68, 1440 px 84/62, 1366 px 80/60, 1280 px 76/58, 1024 px 65/50, 768 px 53/42, 390 px 40/32. Screens: `exports/stufe2-screens/runde13/`.
+
+## 23. Header-Satz und Erfolge-Block (Runde 14, 26.10.2026)
+
+| Teil | Umsetzung |
+|---|---|
+| Header | `hero_abdunkler` (DivBlock, erstes Kind von `hero_content`, `aria-hidden`): absolut, `z-index: -1`, oben `calc(100% − 8rem)`, unten −4,5 rem, links −10 rem, rechts −6 rem; Hintergrund `radial-gradient(closest-side, rgba(17,29,44,.85) 0%, .62 45%, .22 78%, 0 100%)`; Handy kleiner. `hero_content` ist `position: relative`. Variante «B · Editorial»: ausgeblendet |
+| Erfolge, Slider | `erfolge_slider` ohne Innenabstand unten, 4 rem Abstand zu den drei Zitaten; Maske `erfolge_maske` (Raster, eine Spalte je Folie) für gleich hohe Folien |
+| Erfolge, Folie | `quote_featured` füllt die Folie (`height: 100%`, `align-items: stretch`); Tablet zweispaltig (0,9 / 1,1); Handy Flex-Spalte. `quote_image-wrapper`: `aspect-ratio 1 / 1.05`, `width 100%`, `max-height calc(100svh − 20rem)` (Tablet − 18 rem), Handy `16 / 10`. `quote_content`: `space-between` |
+| Erfolge, Steuerung | Punkte `erfolge_slider-nav` rechts unten (6,5 rem vor den Pfeilen), Pfeile rechts unten, beide auf Höhe des Namens; `quote_author` höchstens `min(28rem, 100% − 12.5rem)` breit. Handy: Pfeile aus, Punkte rechts |
+| Erfolge, Kopf | `section-head_row.is-ohne-umbruch` (Handy: Titel und Button in einer Zeile), Button `is-nowrap` (bricht nicht um) |
+
+Geprüft live bei 1920, 1440, 1366, 1280, 1024, 768, 390 und 320 px: alle fünf Folien gleich hoch, Name und Steuerung auf einer Linie, Titel bis Name passt in jedes Fenster, Autoplay und Pfeile laufen, keine Skriptfehler, kein seitliches Überlaufen, kein Button über dem Rand. Screens: `exports/stufe2-screens/runde14/`.
+

@@ -106,7 +106,10 @@ Site settings › General › Favicon (`rowapa-favicon-32.png`) und Webclip (`ro
 ### 2.14 Kundenstimmen-Slider (Unsere Erfolge)
 - **Stimme ändern:** Im Navigator den Slider öffnen › Slide auswählen › Texte und Bild direkt ändern.
 - **Stimme ergänzen:** Slider auswählen › Zahnrad › «Add slide», danach den Inhalt einer bestehenden Slide (Block `quote_featured`) kopieren und einfügen.
-- **Automatischer Wechsel (optional):** Slider auswählen › Zahnrad › Animation «Cross Fade», Auto-play ein, Delay 8 s. Heute wechselt man von Hand mit Pfeilen und Punkten.
+- **Wechsel:** heute «Cross Fade», automatisch alle 4 s, dazu Pfeile und Punkte. Ändern: Slider auswählen › Zahnrad (Animation, Auto-play, Delay).
+- **Ein Block pro Bildschirm (seit Runde 14):** Titel, Foto, Zitat, Name und Steuerung passen auf jedem Format zusammen in ein Fenster. Dafür ist das Foto (`quote_image-wrapper`) höchstens «Fensterhöhe minus 20 rem» hoch (Tablet minus 18 rem, Handy im Format 16:10). Der Text steht oben, das Zitat in der Mitte, der Name unten auf Höhe der Fotounterkante; Punkte und Pfeile stehen rechts daneben (Handy: nur Punkte, gewischt wird mit dem Finger).
+- **Gleich hohe Folien:** Die Maske des Sliders trägt die Klasse `erfolge_maske` (Raster). So sind alle Folien gleich hoch und der Name steht immer auf derselben Linie. Diese Klasse nicht entfernen.
+- **Bildauswahl:** Gesichter in die Bildmitte; auf kleinen Laptops und dem Handy wird das Foto breiter als hoch angeschnitten.
 - Ab Stufe 3 kommen die Kundenstimmen aus dem CMS; der Slider bleibt für die Startseite.
 
 ### 2.15 Video «Wer wir sind»
@@ -147,6 +150,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ### 2.21 Startbildschirm (Header bis Logo-Band)
 - Hero und Logo-Band liegen zusammen in der Hülle `startscreen_wrapper`. Sie ist genau so hoch wie das Fenster minus Navigation; der Hero füllt den Platz, das Logo-Band schliesst mit der Fensterunterkante ab. Das gilt auf jedem Format.
+- **Ruhige Fläche hinter dem Satz:** Im Hero liegt hinter dem Text das Element `hero_abdunkler` (Komponente «Section Hero Home», in `hero_content`). Ein weicher dunkler Verlauf dämpft dort die Punkte, damit der Satz unter dem Titel ruhig steht; die Bewegung bleibt. Stärke ändern: Klasse `hero_abdunkler` › Hintergrund (Verlauf). In der Variante «B · Editorial» ist es ausgeblendet.
 - Mehr Luft im Hero: Klasse `padding-section-large` mit Zusatz `is-hero` (Abstände oben und unten). Höhe der Navigation geändert? Dann in `startscreen_wrapper` den Wert der Mindesthöhe anpassen (heute 4,5 rem, Tablet und Handy 4 rem).
 
 ### 2.22 Schriftgrössen
