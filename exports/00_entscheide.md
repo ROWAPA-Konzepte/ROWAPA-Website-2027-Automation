@@ -146,11 +146,21 @@ Commit b2000a2.
 | 87 | Mauszeiger | Ring passt sich dem Grund an (dunkel auf hell, hell auf dunkel), Punkt immer Plum | Skript 1.4.0 liest die Hintergrundfarbe unter dem Zeiger; auf Fotos heller Ring mit feiner Kontur. Site-weit eingeschaltet über das Attribut an der Navigation; nur mit Maus |
 | 88 | Im Blickpunkt | heutigen Aufbau behalten, Titel auf einer Linie, Foto nur im mittleren Bereich, «gerne noch ein paar Varianten» | Varianten D (Fotoband in der Mitte), E (heutiger Aufbau, Foto füllt die rechte Hälfte), F (breites Mittelband mit Eckdaten) auf `/varianten` |
 
+## 11. Feedback-Runde 6 (26.10.2026, Nacht)
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 89 | Im Blickpunkt | **Variante D** | auf `/home-v2`: Kicker und Titel einzeilig über einem Fotoband, Text, Daten und Buttons auf dem Band (Verlauf von links). Handy: Titel zweizeilig, Verlauf von oben |
+| 90 | Megamenü | **über die ganze Seitenspalte** | so breit wie der Inhaltsbereich (gemessen: bündig mit Logo und Kontakt-Button), Vorschau grösser |
+| 91 | Unser Vorgehen | **fest, optisch mittig, mit Farbaufbau** (Empfehlung Claude) | Grafik läuft nicht mehr mit; mittig zur Phasenliste, 5 % höher als rechnerisch (Schwerpunkt der Grafik liegt 9 % unter der Mitte). Aufbau in der Bildmitte, Stufen leuchten nacheinander Plum, Phase links leuchtet mit, danach Phase 01 |
+| 92 | Digitale Lösungen | Kacheln schneller, Halt nur über den Textboxen | Kugel 24 s, Kacheln 45 s je Runde; Halt nur über den Karten darunter, Kachel-Hover hebt die Karte hervor, dreht aber weiter (Skript 1.4.1) |
+| 93 | Look & Feel | Struktur und Dramaturgie bleiben, keine Zusammenlegung, Bewegung im Rahmen; Diagonal-Ribbon probieren | Entwurf `/home-look` (Kopie der Startseite): grössere Display-Titel, Diagonal-Ribbon an drei Section-Ecken, feine Swiss-Rasterlinien in drei hellen Sections. `/home-v2` unverändert |
+
 ---
 
 ## Offene Punkte
 
-1. Im Blickpunkt: Variante D, E oder F wählen (`/varianten`). Danach Umsetzung auf `/home-v2` und Freigabe Stufe 2. Mauszeiger, Megamenü, Kacheln und Unser Vorgehen sind umgesetzt (Runde 5).
+1. Look & Feel: Rückmeldung zum Entwurf `/home-look` (Display-Titel, Ribbons, Rasterlinien: einzeln übernehmen, anpassen oder verwerfen). Danach Übernahme auf `/home-v2` und Freigabe Stufe 2.
 1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).

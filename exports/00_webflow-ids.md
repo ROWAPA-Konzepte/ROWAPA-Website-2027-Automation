@@ -99,4 +99,8 @@ RUNDE5: VORGEHEN section-head …1032fa vor vorgehen_layout …10332a, steps_not
 RUNDE5: KACHELN Startplätze is-anker 87.1/36.55 (Handy 87.64/39.85), is-kompass 70.75/80.78 (72.08/75.02), is-lotse 29.25/80.78 (27.92/75.02), is-segel 12.9/36.55 (12.36/39.85), is-logbuch 50/14
 RUNDE5: VARIANTEN Blick D 074d1042-e3e9-867d-9560-3bd771a1ebf5, E c3a4951d-bd4b-bbdd-505b-1d57920cf7ef, F 5204fc6e-553f-9937-ce32-37c8f8f153bc; Klassen var_bx-*, var_bd-*, var_be-*, var_bf-*
 RUNDE5: SCRIPT rowapagrafik 1.4.0 (@f870ba05b03e2666cc40b9e411726d276546cb53, aktiv)
+RUNDE6: BLICKPUNKT D spotlight_kopf 1156d30f-8630-6bc0-25c2-989f5c09de5b (Kicker 12391d78…, H2 …210f3 + is-einzeilig f2e6a4fc), spotlight_verlauf 9cf6e114-5275-84b5-7be2-f24f17bc5e83; Megamenü is-mega volle Breite (max-width = Container-Variablen)
+RUNDE6: VORGEHEN vorgehen_media data-modus="folge", Stil relative + translateY(-5%)
+RUNDE6: PAGE Home Look & Feel (Entwurf intern) 6ade9bb78161cf2b914ecdd3 /home-look; Klassen heading-style-h2.is-display 29d4c382, ribbon_band c6d523ef (+ is-unten-links 0e5f79a8), section_*.theme-*.is-band, section_*.theme-hell.is-raster
+RUNDE6: SCRIPT rowapagrafik 1.4.1 (@130b3935c71b096bd5a0c0ab23ab63b7abba2ca4, aktiv)
 ```

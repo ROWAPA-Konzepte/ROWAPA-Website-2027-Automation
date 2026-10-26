@@ -299,3 +299,22 @@ Entscheide von ROWAPA: Vorgehen A, Kacheln A, Megamenü A, Mauszeiger mit Kontra
 | Im Blickpunkt | Varianten D, E, F auf `/varianten`, alle mit Titel auf einer Linie | Desktop und Handy |
 
 Screens: `exports/stufe2-screens/runde5/`. Keine Fehler in der Konsole.
+
+## 15. Feedback-Runde 6 (26.10.2026, Nacht)
+
+| Thema | Umsetzung | Prüfung (live, Skript 1.4.1) |
+|---|---|---|
+| Im Blickpunkt D | Titel einzeilig über einem Fotoband, Inhalt auf dem Band | Desktop und Handy |
+| Megamenü | volle Breite der Inhaltsspalte | linker und rechter Rand bündig mit der Navigation (47 / 1393 px bei 1440) |
+| Unser Vorgehen | fest, optisch mittig, Farbaufbau | Abfolge der aktiven Phase 0-1-2-3, danach 0; Grafik 19 px über der rechnerischen Mitte (gewollt) |
+| Digitale Lösungen | schneller, Halt nur über den Karten | Kachel dreht weiter, wenn die Maus über der Kugel ist; hält über den Karten |
+
+### 15.1 Look-&-Feel-Entwurf `/home-look`
+
+Struktur und Dramaturgie unverändert (Entscheid ROWAPA). Drei Gestaltungshebel, nur auf der Kopie:
+
+1. **Display-Titel:** H2 deutlich grösser (bis 5,25 rem), enger gesetzt, höchstens 16 Zeichen breit. Mehr Spannung zwischen Titel und Fliesstext.
+2. **Diagonal-Ribbon (45°, Plum):** als Akzent an drei Section-Ecken (Lösungen oben rechts, Erfolge unten links, Kontakt oben rechts); auf dem Handy ausgeblendet.
+3. **Swiss-Raster:** feine 12er-Spaltenlinien im Hintergrund von Vorgehen, Team und FAQ.
+
+Vergleich: `exports/stufe2-screens/runde6/look-feel_vergleich_links-heute_rechts-entwurf.jpg`.
