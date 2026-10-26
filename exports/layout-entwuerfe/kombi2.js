@@ -11,18 +11,21 @@
 
   /* Varianten: [Schlüssel, Name, Section, [[Wert, Beschriftung, Zusatz]]]; der erste Wert ist der Entscheid ROWAPA */
   var GRUPPEN = [
-    ['hero', 'Hero', '.section_hero', [['g', 'Kombi G', 'Entscheid'], ['sauber', 'G sauber', 'ein Foto, ohne Punkte darüber'], ['heute', 'Heute', 'nur Punktemeer']]],
+    ['hero', 'Hero', '.section_hero', [['heute', 'Heute', 'Entscheid: nur Punktemeer'], ['g', 'Kombi G', 'Fotos wechseln'], ['sauber', 'G sauber', 'ein Foto']]],
     ['logos', 'Referenzen', '.section_logos', [['band', 'Laufband', 'Entscheid'], ['raster', 'Raster', 'aus Layout E']]],
+    ['titel', 'Titel-Anordnung', '.section_vorgehen', [['versetzt', 'Im Raster versetzt', 'Vorschlag, wie Simon-Kucher'], ['links', 'Einheitlich links', 'bisher']]],
     ['loesungen', 'Was wir tun', '.section_loesungen', [['zeilen', 'Zeilen', 'Entscheid (G, hell)'], ['akkordeon', 'Akkordeon', 'aus Kombi H'], ['heute', 'Kacheln', 'wie heute, hell']]],
     ['antrieb', 'Was uns antreibt', '.section_antrieb', [['b', 'Look B', 'Entscheid'], ['d', 'Layout D', 'Zahlen senkrecht']]],
     ['erfolge', 'Unsere Erfolge', '.section_erfolge', [['e', 'Fotorahmen', 'Entscheid (E, Slider)'], ['heute', 'Heute', '']]],
+    ['digital', 'Digitale Lösungen', '.section_digital', [['liste', 'Liste neben der Kugel', 'Vorschlag'], ['mitte', 'Kugel in der Mitte', ''], ['kompakt', 'Kompakt', 'Aufbau wie heute, weniger Text'], ['heute', 'Heute', '']]],
     ['team', 'Über uns', '.section_team', [['mosaik', 'Mosaik', 'Entscheid (G/F)'], ['reihe', 'Reihe', 'wie heute']]],
-    ['wege', 'Meine Entwicklung', '.section_wege', [['a', 'A', 'Text im Bild (D)'], ['b', 'B', 'Text unter dem Bild (D)'], ['c', 'C', 'Zeilen (F)']]],
-    ['cas', 'Im Blickpunkt', '.section_cas', [['wisch', 'Farbe wischt ein', ''], ['blende', 'Farbe blendet ein', '']]],
-    ['kontakt', 'Kontakt', '.section_kontakt', [['dunkel', 'Dunkel', 'Entscheid (Look B)'], ['hell', 'Hell', 'wie heute']]]
+    ['wege', 'Meine Entwicklung', '.section_wege', [['c', 'C Zeilen', 'Entscheid'], ['c-toene', 'C mit drei Farbtönen', ''], ['a', 'A', 'Text im Bild'], ['b', 'B', 'Text unter dem Bild']]],
+    ['cas', 'Im Blickpunkt', '.section_cas', [['blende', 'Farbe blendet ein', 'Entscheid'], ['wisch', 'Farbe wischt ein', '']]],
+    ['insights', 'Neueste Insights', '.section_insights', [['ohne', 'Ohne Balken', 'Entscheid'], ['balken', 'Mit Balken', 'wie heute']]],
+    ['kontakt', 'Kontakt', '.section_kontakt', [['hell', 'Hell', 'Entscheid'], ['dunkel', 'Dunkel', 'Look B']]]
   ];
   var wahl = {};
-  try { wahl = JSON.parse(localStorage.getItem('k2-wahl') || '{}') || {}; } catch (e) { wahl = {}; }
+  try { wahl = JSON.parse(localStorage.getItem('k2-wahl-r11') || '{}') || {}; } catch (e) { wahl = {}; }
   // Link mit ?wahl=wege:b,hero:heute setzt eine bestimmte Kombination
   var q = (location.search.match(/[?&]wahl=([^&]+)/) || [])[1];
   if (q) decodeURIComponent(q).split(',').forEach(function (p) { var t = p.split(':'); if (t[1]) wahl[t[0]] = t[1]; });
@@ -31,8 +34,9 @@
     var g = GRUPPEN.filter(function (x) { return x[0] === gruppe; })[0]; if (!g) return;
     if (!g[3].some(function (o) { return o[0] === wert; })) wert = g[3][0][0];
     g[3].forEach(function (o) { wurzel.classList.toggle('k2-' + gruppe + '-' + o[0], o[0] === wert); });
+    if (gruppe === 'wege') wurzel.classList.toggle('k2-wege-c', wert === 'c' || wert === 'c-toene');
     wahl[gruppe] = wert;
-    try { localStorage.setItem('k2-wahl', JSON.stringify(wahl)); } catch (e) {}
+    try { localStorage.setItem('k2-wahl-r11', JSON.stringify(wahl)); } catch (e) {}
     var knoepfe = document.querySelectorAll('[data-k2="' + gruppe + '"] button');
     [].forEach.call(knoepfe, function (b) { b.classList.toggle('ist-an', b.getAttribute('data-wert') === wert); });
   }
@@ -99,6 +103,19 @@
     if (!ruhig) setInterval(function () { if (!halt && sichtbar && wurzel.classList.contains('k2-loesungen-akkordeon')) oeffne((an + 1) % teile.length); }, 5000);
   }
 
+  /* 4b Digital als Liste: eine Lösung ist offen; Darüberfahren oder Kachel im Orbit öffnet die passende */
+  var werkzeuge = document.querySelector('.section_digital .tools_grid');
+  if (werkzeuge) {
+    var zeilen = [].slice.call(werkzeuge.children);
+    var zeige = function (k) { zeilen.forEach(function (t, i) { t.classList.toggle('k2-offen', i === k); }); };
+    zeilen.forEach(function (t, i) { t.addEventListener('mouseenter', function () { zeige(i); }); t.addEventListener('focusin', function () { zeige(i); }); });
+    zeige(0);
+    new MutationObserver(function () {
+      var k = -1; zeilen.forEach(function (t, i) { if (t.classList.contains('is-verbunden')) k = i; });
+      if (k >= 0) zeige(k);
+    }).observe(werkzeuge, { subtree: true, attributes: true, attributeFilter: ['class'] });
+  }
+
   /* 5 Sichtbarkeit: «k2-da» für Titelstrich, Team-Kacheln, Logo-Raster und die Farbfläche im CAS-Block */
   var sections = [].slice.call(document.querySelectorAll('.main-wrapper section')).filter(function (s) { return s !== hero; });
   var io = null;
@@ -113,7 +130,7 @@
   /* 6 Umschaltleiste */
   var leiste = el('div', 'k2-leiste');
   var tafel = el('div', 'k2-leiste-tafel');
-  tafel.appendChild(el('p', 'k2-leiste-kopf', 'Entwurf Kombi G2. Der erste Knopf jeder Zeile ist Ihr Entscheid, die weiteren sind Gegenvorschläge. Klick auf den Namen springt zur Section.'));
+  tafel.appendChild(el('p', 'k2-leiste-kopf', 'Entwurf Kombi G2, Stand Runde 11. Der erste Knopf jeder Zeile ist Ihr Entscheid oder mein Vorschlag, die weiteren sind Alternativen. Klick auf den Namen springt zur Section.'));
   GRUPPEN.forEach(function (g) {
     var box = el('div', 'k2-gruppe'); box.setAttribute('data-k2', g[0]);
     var name = el('button', 'k2-gruppe-name', g[1]);
