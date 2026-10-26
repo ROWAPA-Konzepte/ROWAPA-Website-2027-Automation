@@ -12,11 +12,12 @@ import { zeiger } from './zeiger.js';
 import { vorschau } from './vorschau.js';
 import { varianten } from './varianten.js';
 import { hoverVideos } from './hovervideo.js';
+import { nachoben } from './nachoben.js';
 
 const VERSION = '__VERSION__';
 
 /* Bedienung (immer) und Bewegung (nur ohne «Bewegung reduzieren») */
-const BEDIENUNG = { varianten, reihe, zeiger, vorschau };
+const BEDIENUNG = { varianten, reihe, zeiger, vorschau, nachoben };
 const BEWEGUNG = { punktemeer, punktfigur: figur, zaehler, treppe, orbit };
 
 function start() {

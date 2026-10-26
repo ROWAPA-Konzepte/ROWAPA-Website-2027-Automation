@@ -1,9 +1,11 @@
 /* Reihe (Insights): Pfeile blättern um eine Karte, eine feine Linie zeigt, wo man in der Reihe steht.
    Wischen und Scrollen funktionieren auch ohne Skript; das Skript ergänzt nur Pfeile und Fortschritt.
-   In der Section: [data-reihe="zurueck"], [data-reihe="weiter"], [data-reihe="balken"]. */
+   In der Section: [data-reihe="zurueck"], [data-reihe="weiter"], [data-reihe="balken"].
+   Der Scrollbalken des Browsers wird ausgeblendet; die Reihe bleibt per Wischen, Trackpad und Pfeilen bedienbar. */
 import { reduziert } from './util.js';
 
 export function reihe(el) {
+  ohneBalken(el);
   const sec = el.closest('section') || document.body;
   const zurueck = sec.querySelector('[data-reihe="zurueck"]');
   const weiter = sec.querySelector('[data-reihe="weiter"]');
@@ -45,4 +47,14 @@ export function reihe(el) {
   el.addEventListener('scroll', planen, { passive: true });
   new ResizeObserver(planen).observe(el);
   stand();
+}
+
+/* Scrollbalken ausblenden: Standard (scrollbar-width) und ältere WebKit-Browser */
+function ohneBalken(el) {
+  el.style.scrollbarWidth = 'none';
+  if (document.getElementById('rowapa-reihe')) return;
+  const stil = document.createElement('style');
+  stil.id = 'rowapa-reihe';
+  stil.textContent = '[data-grafik="reihe"]::-webkit-scrollbar{display:none}';
+  document.head.appendChild(stil);
 }

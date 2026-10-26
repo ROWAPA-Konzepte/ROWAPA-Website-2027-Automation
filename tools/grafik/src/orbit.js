@@ -1,8 +1,10 @@
 /* ROWAPA Digital: Die Wissensplattform dreht sich langsam, die fünf Werkzeuge ziehen ruhig auf ihrer Bahn.
    Die Kacheln halten nur, solange die Maus über den Karten ist. Fährt man über eine Karte oder eine Kachel, leuchtet die Kachel auf und eine feine Linie verbindet sie mit der Kugel.
    Kugel = Bild mit Klasse orbit_kugel, Bahn = orbit_bahn, Kacheln = orbit_tile (gleiche Reihenfolge wie die Karten).
-   Die Kacheln stehen in gleichen Abständen entlang der Bahn (gleiche Weglänge, nicht gleicher Winkel); die 5. Kachel startet oben. */
-import { clamp, zahl, sichtbar, takt, ciFarbe, istHandy } from './util.js';
+   Die Kacheln stehen in gleichen Abständen entlang der Bahn (gleiche Weglänge, nicht gleicher Winkel); die 5. Kachel startet oben.
+   Klick auf eine Kachel: Die passende Karte bekommt kurz die Klasse is-angetippt (Gestaltung im Style-Panel: card › is-angetippt)
+   und wird ins Bild geholt, falls sie ausserhalb liegt. Den Link zur Unterseite trägt die Karte. */
+import { clamp, zahl, sichtbar, takt, ciFarbe, istHandy, reduziert } from './util.js';
 import { kugelDaten, kugelFarben, zeichneKugel } from './kugel.js';
 
 const TAU = Math.PI * 2;
@@ -88,6 +90,14 @@ export function orbit(box) {
     el.addEventListener('focusin', () => setAktiv(k));
     el.addEventListener('focusout', () => setAktiv(-1));
   }));
+  /* Klick auf eine Kachel zeigt die passende Karte */
+  kacheln.forEach((el, k) => el.addEventListener('click', e => {
+    const karte = karten[k];
+    if (!karte) return;
+    e.preventDefault();
+    setAktiv(k);
+    antippen(karte);
+  }));
   /* angehalten wird nur, solange die Maus über den Karten darunter ist */
   if (raster) {
     raster.addEventListener('mouseenter', () => { pause = true; });
@@ -158,4 +168,18 @@ export function orbit(box) {
     if (v && !cv) einrichten();
     if (v) los();
   }, '10% 0px');
+}
+
+const ANGETIPPT = 'is-angetippt';
+function antippen(karte) {
+  const r = karte.getBoundingClientRect();
+  const imBild = r.top >= 0 && r.bottom <= innerHeight;
+  if (!imBild) karte.scrollIntoView({ behavior: reduziert() ? 'auto' : 'smooth', block: 'center' });
+  clearTimeout(karte._tipp);
+  karte.classList.remove(ANGETIPPT);
+  /* erst wenn die Karte im Bild ist, damit man die Bewegung sieht */
+  karte._tipp = setTimeout(() => {
+    karte.classList.add(ANGETIPPT);
+    karte._tipp = setTimeout(() => karte.classList.remove(ANGETIPPT), 1400);
+  }, imBild ? 30 : 550);
 }
