@@ -1,0 +1,283 @@
+/* Kombi G2 (Runde 10): Master Kombi G mit den Entscheiden ROWAPA vom 26.10.2026.
+   Gilt nur mit Klasse .k2 auf <html> (gesetzt von kombi2.js). Varianten über Klassen k2-<bereich>-<wert>. */
+.k2{--k-navy:#1D3149;--k-deep:#111D2C;--k-plum:#AA1351;--k-serpent:#486EA3;--k-sea:#A0C4DF;--k-snow:#E8E9E9;--k-linie:rgba(29,49,73,.18);--k-weich:cubic-bezier(.7,0,.2,1)}
+
+/* ---------- Hero ---------- */
+.k2 .hero_wrap{position:relative;z-index:3}
+.k2 .hero_scroll{z-index:4}
+.k2-fotos{position:absolute;inset:0;z-index:1;pointer-events:none;--a:76%;clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%);transition:clip-path 1.4s var(--k-weich) .35s}
+.k2-los .k2-fotos{clip-path:polygon(var(--a) 0,100% 0,100% 100%,calc(var(--a) - var(--k2-h,700px)) 100%)}
+.k2-fotos-innen{position:absolute;top:0;bottom:0;right:0;left:30%}
+.k2-fotos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;opacity:0;transform:scale(1.06);transition:opacity 1.2s ease,transform 8s ease}
+.k2-fotos img.ist-an{opacity:1;transform:scale(1)}
+.k2-fotos::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,29,44,.55),rgba(17,29,44,0) 45%)}
+.k2-kante{position:absolute;inset:0;z-index:2;pointer-events:none;--a:76%;background:var(--k-plum);
+  clip-path:polygon(calc(var(--a) - 1.6rem) 0,var(--a) 0,calc(var(--a) - var(--k2-h,700px)) 100%,calc(var(--a) - var(--k2-h,700px) - 1.6rem) 100%);
+  transform:translate(40%,-40%);opacity:0;transition:transform 1.3s var(--k-weich),opacity .6s}
+.k2-los .k2-kante{transform:none;opacity:1}
+/* G: Foto löst sich unten ins Punktemeer auf */
+.k2-hero-g .k2-fotos{-webkit-mask-image:linear-gradient(to top,transparent 0,rgba(0,0,0,.35) 22%,#000 48%);mask-image:linear-gradient(to top,transparent 0,rgba(0,0,0,.35) 22%,#000 48%)}
+.k2-hero-g .k2-kante{-webkit-mask-image:linear-gradient(to top,transparent 5%,#000 55%);mask-image:linear-gradient(to top,transparent 5%,#000 55%)}
+/* G sauber: ein Foto, keine Punkte über dem Foto */
+.k2-hero-sauber .k2-fotos img{opacity:0}
+.k2-hero-sauber .k2-fotos img:first-child{opacity:1;transform:none}
+/* Heute: nur Punktemeer */
+.k2-hero-heute .k2-fotos,.k2-hero-heute .k2-kante{display:none}
+
+/* ---------- Titel wie Kombi G: gross, Plum-Strich zeichnet sich ---------- */
+.k2 .main-wrapper section:not(.section_hero) h2.heading-style-h2{font-size:clamp(2.25rem,1.2rem + 3vw,4.25rem);line-height:1.02;letter-spacing:-.03em;font-weight:700;white-space:normal}
+.k2 .main-wrapper section:not(.section_hero) h2.heading-style-h2::after{content:"";display:block;width:4rem;height:3px;margin-top:1.25rem;background:var(--k-plum);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--k-weich) .5s}
+.k2 .main-wrapper section.k2-da:not(.section_hero) h2.heading-style-h2::after{transform:scaleX(1)}
+.k2 .main-wrapper section:not(.section_hero) .kicker_line{display:none}
+.k2 .main-wrapper section:not(.section_hero) .kicker .text-style-kicker{color:var(--k-plum)}
+.k2 .main-wrapper section.theme-kontrast .kicker .text-style-kicker,.k2 .main-wrapper section.theme-tiefsee .kicker .text-style-kicker,.k2-kontakt-dunkel .section_kontakt .text-style-kicker{color:var(--k-sea)}
+
+/* ---------- Ribbons (fest, ohne Animation) ---------- */
+.k2-mit-ribbon{position:relative;overflow:clip}
+.k2-mit-ribbon>.padding-global{position:relative;z-index:1}
+.k2-ribbon{position:absolute;z-index:0;pointer-events:none;width:26rem;height:1.5rem;background:var(--k-plum)}
+.k2-ribbon.is-oben-rechts{top:12rem;right:-6rem;transform:rotate(45deg);transform-origin:right}
+.k2-ribbon.is-unten-rechts{bottom:12rem;right:-6rem;transform:rotate(-45deg);transform-origin:right}
+.k2-ribbon.is-unten-links{bottom:12rem;left:-6rem;transform:rotate(45deg);transform-origin:left}
+.k2-ribbon.is-oben-links{top:12rem;left:-6rem;transform:rotate(-45deg);transform-origin:left}
+
+/* ---------- Referenzen: Laufband (heute) oder Raster (E) ---------- */
+.k2-logos-raster .padding-section-small.is-logos{display:grid;grid-template-columns:12rem 1fr;gap:2rem;align-items:start}
+.k2-logos-raster .logos_label{position:static;width:auto;height:auto;margin:0;clip-path:none;white-space:normal;overflow:visible;font-family:var(--_typografie---schrift-akzent);font-weight:800;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--k-plum);line-height:1.5;padding-top:1rem}
+.k2-logos-raster .logos_fade,.k2-logos-raster .logos_list[aria-hidden="true"]{display:none}
+.k2-logos-raster .logos_marquee{overflow:visible}
+.k2-logos-raster .logos_track{width:auto;animation:none!important;transform:none!important}
+.k2-logos-raster .logos_list{display:grid;grid-template-columns:repeat(6,1fr);gap:0;padding:0;width:100%;border-left:1px solid #d9dde2;border-top:1px solid #d9dde2}
+.k2-logos-raster .logos_list .logos_image{box-sizing:border-box;width:100%;height:6rem;max-width:none;padding:2rem 1.75rem;object-fit:contain;border-right:1px solid #d9dde2;border-bottom:1px solid #d9dde2;filter:grayscale(1);opacity:0;transform:translateY(.75rem);transition:opacity .5s,transform .5s,filter .3s,background-color .3s}
+.k2-logos-raster .section_logos.k2-da .logos_list .logos_image{opacity:.75;transform:none}
+.k2-logos-raster .section_logos.k2-da .logos_list .logos_image:hover{filter:none;opacity:1;background:#F4F5F5}
+
+/* ---------- Was wir tun: heller Hintergrund, Grau erst beim Darüberfahren ---------- */
+.k2 .section_loesungen.theme-soft{--_theme---hintergrund:var(--_farben---white);background-color:var(--_farben---white)}
+/* Zeilen (G) */
+.k2-loesungen-zeilen .bento_grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);grid-auto-rows:auto;gap:0 clamp(1.5rem,1rem + 2vw,3rem)}
+.k2-loesungen-zeilen .bento_featured{grid-area:1 / 1 / 5 / 2}
+.k2-loesungen-zeilen .card_featured{min-height:36rem}
+.k2-loesungen-zeilen .bento_grid>.card{grid-column:2;border:0;border-top:1px solid var(--k-linie);border-radius:0;background:transparent;box-shadow:none;position:relative;transition:background-color .35s}
+.k2-loesungen-zeilen .bento_grid>.card:last-child{border-bottom:1px solid var(--k-linie)}
+.k2-loesungen-zeilen .bento_grid>.card::before{content:"";position:absolute;left:0;top:-1px;bottom:0;width:4px;background:var(--k-plum);transform:scaleY(0);transform-origin:top;transition:transform .4s var(--k-weich)}
+.k2-loesungen-zeilen .bento_grid>.card:hover{background:var(--k-snow)}
+.k2-loesungen-zeilen .bento_grid>.card:hover::before{transform:scaleY(1)}
+.k2-loesungen-zeilen .bento_grid>.card .card_content{display:grid;grid-template-columns:6rem minmax(0,1fr) 7rem;grid-template-areas:"kick titel bild" "kick text bild" "kick fuss bild";gap:.35rem 1.5rem;padding:1.75rem 1.25rem 1.75rem 1.5rem;align-items:start}
+.k2-loesungen-zeilen .bento_grid>.card .text-style-kicker{grid-area:kick;padding-top:.35rem}
+.k2-loesungen-zeilen .bento_grid>.card h3{grid-area:titel}
+.k2-loesungen-zeilen .bento_grid>.card p{grid-area:text;max-width:36rem}
+.k2-loesungen-zeilen .bento_grid>.card .card_grafik{grid-area:bild;height:6rem;margin:0;align-self:center}
+.k2-loesungen-zeilen .bento_grid>.card .card_footer{grid-area:fuss;padding-top:.25rem;justify-content:flex-start}
+.k2-loesungen-zeilen .bento_grid>.card .icon-box{transition:transform .35s}
+.k2-loesungen-zeilen .bento_grid>.card:hover .icon-box{transform:translateX(.35rem)}
+/* Kacheln heute: nur Grau beim Darüberfahren */
+.k2-loesungen-heute .bento_grid>.card{background:#fff;transition:background-color .35s}
+.k2-loesungen-heute .bento_grid>.card:hover{background:var(--k-snow)}
+/* Akkordeon (H) */
+@media (min-width:992px){
+.k2-loesungen-akkordeon .bento_grid{display:flex;gap:.75rem;height:34rem}
+.k2-loesungen-akkordeon .bento_grid>*{flex:1 1 0;min-width:0;transition:flex-grow .7s var(--k-weich),background-color .35s;position:relative}
+.k2-loesungen-akkordeon .bento_grid>.k2-offen{flex-grow:4.2}
+.k2-loesungen-akkordeon .bento_featured{grid-area:auto}
+.k2-loesungen-akkordeon .bento_grid>.card,.k2-loesungen-akkordeon .card_featured{height:100%;min-height:0;overflow:hidden}
+.k2-loesungen-akkordeon .bento_grid>.card{background:#fff}
+.k2-loesungen-akkordeon .bento_grid>.card.k2-offen{background:var(--k-snow)}
+.k2-loesungen-akkordeon .bento_grid>.card .card_content{height:100%;position:relative}
+.k2-loesungen-akkordeon .bento_grid>*:not(.k2-offen) p,.k2-loesungen-akkordeon .bento_grid>*:not(.k2-offen) .card_footer,.k2-loesungen-akkordeon .bento_grid>*:not(.k2-offen) .card_featured_footer{opacity:0;pointer-events:none}
+.k2-loesungen-akkordeon .bento_grid p,.k2-loesungen-akkordeon .card_footer,.k2-loesungen-akkordeon .card_featured_footer{transition:opacity .4s .25s;min-width:22rem}
+.k2-loesungen-akkordeon .bento_grid>*:not(.k2-offen) p{transition-delay:0s}
+.k2-loesungen-akkordeon .bento_grid>*:not(.k2-offen) h3{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;position:absolute;left:1.25rem;bottom:1.5rem;margin:0}
+.k2-loesungen-akkordeon .bento_grid>.k2-offen h3{max-width:26rem}
+.k2-loesungen-akkordeon .bento_grid>.card .card_grafik{position:absolute;right:1.5rem;bottom:4.5rem;width:13rem;height:10rem;margin:0;transition:opacity .5s}
+.k2-loesungen-akkordeon .bento_grid>.card:not(.k2-offen) .card_grafik{opacity:.18}
+.k2-loesungen-akkordeon .card_featured_grafik{left:auto;width:44rem;top:auto;height:64%}
+.k2-loesungen-akkordeon .bento_featured:not(.k2-offen) .card_featured_grafik{opacity:.35}
+}
+
+/* ---------- Was uns antreibt: Look B (Standard) oder Layout D ---------- */
+.k2-antrieb-b .stat_number{font-size:clamp(3.5rem,2rem + 4vw,6rem)}
+.k2-antrieb-d .statement_layout{display:block}
+.k2-antrieb-d .section_antrieb .section-head{max-width:none}
+.k2-antrieb-d .main-wrapper .section_antrieb h2.heading-style-h2{font-size:clamp(2.75rem,1rem + 5vw,6rem);line-height:1;max-width:16ch}
+.k2-antrieb-d .statement_content{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:4rem;margin-top:3rem;align-items:start}
+.k2-antrieb-d .stats_grid{order:-1;grid-template-columns:1fr;margin:0;gap:1.75rem;padding-right:2rem;position:relative;border-right:2px solid var(--k-serpent)}
+.k2-antrieb-d .stat_item{border-top:0;padding-top:0}
+.k2-antrieb-d .stat_number{color:var(--k-serpent);font-size:2.75rem}
+.k2-antrieb-d .statement_text{font-size:clamp(1.5rem,1.1rem + 1.2vw,2.25rem);max-width:30ch;line-height:1.25}
+
+/* ---------- So arbeiten wir: Grau erst beim Darüberfahren ---------- */
+.k2 .step_item{padding-left:1rem;padding-right:1rem;transition:background-color .3s,border-color .3s}
+.k2 .step_item:hover{background-color:var(--k-snow)}
+
+/* ---------- Unsere Erfolge: Fotorahmen (E) im Slider ---------- */
+.k2-erfolge-e .w-slide{padding:1.5rem 0 0 1.5rem}
+.k2-erfolge-e .quote_featured{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2.5rem,1rem + 4vw,5rem);align-items:center}
+.k2-erfolge-e .quote_image-wrapper{border-radius:0;padding-top:105%;box-shadow:-1.5rem -1.5rem 0 0 var(--k-navy);overflow:hidden}
+.k2-erfolge-e .quote_headline{font-size:clamp(1.125rem,1rem + .4vw,1.375rem);font-weight:600;color:var(--k-plum)}
+.k2-erfolge-e .quote_text{border-left:0;padding-left:0;font-size:clamp(1.5rem,1rem + 1.5vw,2.5rem);line-height:1.22;letter-spacing:-.02em;font-weight:500;color:var(--_theme---ueberschrift)}
+.k2-erfolge-e .quote_author{padding-top:1rem;border-top:1px solid var(--k-linie);max-width:28rem}
+.k2-erfolge-e .is-erfolge .card{background:transparent;border:0;border-top:1px solid rgba(29,49,73,.28);border-radius:0;box-shadow:none}
+.k2-erfolge-e .is-erfolge .card_content{padding:1.5rem 0 0}
+.k2-erfolge-e .is-erfolge .quote_text{font-size:1.0625rem;line-height:1.5;letter-spacing:0;font-weight:400;color:var(--_theme---text)}
+.k2-erfolge-e .is-erfolge .quote_headline{color:var(--_theme---ueberschrift)}
+
+/* ---------- Über uns: Mosaik (F) mit Kennzahl und Hinweis aufs ganze Team ---------- */
+.k2-team-mosaik .section_team .reihe_pfeil,.k2-team-mosaik .reihe_fortschritt{display:none!important}
+.k2-team-mosaik .reihe_maske{overflow:visible}
+.k2-team-mosaik .team_grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));grid-auto-rows:16rem;grid-auto-flow:row;gap:1rem;overflow:visible;margin:0;padding:0;scroll-snap-type:none}
+.k2-team-mosaik .team_card{position:relative;overflow:hidden;border-radius:var(--_spacing---radius-medium-8,8px);background:var(--k-navy);justify-content:flex-end;padding:1rem 1.25rem;gap:.15rem;isolation:isolate}
+.k2-team-mosaik .team_grid>:nth-child(1){grid-column:1;grid-row:1 / span 2}
+.k2-team-mosaik .team_grid>:nth-child(3){grid-column:2;grid-row:1}
+.k2-team-mosaik .team_grid>:nth-child(4){grid-column:2;grid-row:2}
+.k2-team-mosaik .team_grid>:nth-child(2){grid-column:3;grid-row:1 / span 2}
+.k2-team-mosaik .team_grid>:nth-child(5){grid-column:4;grid-row:1}
+.k2-team-mosaik .team_grid>:nth-child(6){grid-column:4;grid-row:2}
+.k2-team-mosaik .team_grid>:nth-child(7){grid-column:5;grid-row:1 / span 2}
+.k2-team-mosaik .team_image-wrapper{position:absolute;inset:0;padding:0;margin:0;border-radius:0;z-index:-1}
+.k2-team-mosaik .team_image-wrapper img{transition:transform .7s ease}
+.k2-team-mosaik .team_card:hover .team_image-wrapper img{transform:scale(1.05)}
+.k2-team-mosaik .team_image-wrapper::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,29,44,0) 55%,rgba(17,29,44,.88) 100%)}
+.k2-team-mosaik .team_card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--k-plum);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--k-weich)}
+.k2-team-mosaik .team_card:hover::after{transform:scaleX(1)}
+.k2-team-mosaik .team_card .person_name{color:#fff}
+.k2-team-mosaik .team_card .person_role{color:rgba(255,255,255,.82)}
+.k2-team-info{display:none}
+.k2-team-mosaik .k2-team-info{display:flex;flex-direction:column;justify-content:space-between;background:var(--k-navy);color:#fff;border-radius:var(--_spacing---radius-medium-8,8px);padding:1.75rem}
+.k2-team-info b{font-size:4rem;line-height:1;letter-spacing:-.04em;font-weight:700;color:var(--k-sea)}
+.k2-team-info span{font-size:1rem;line-height:1.4;color:rgba(255,255,255,.85)}
+.k2-team-mosaik .team_mehr{height:100%}
+.k2-team-mosaik .team_mehr-box{padding-top:0;height:100%;border-radius:var(--_spacing---radius-medium-8,8px);background:#DCE8F2;transition:background-color .35s}
+.k2-team-mosaik .team_mehr-inhalt{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:.75rem;padding:1.75rem;text-align:left}
+.k2-team-mosaik .team_mehr-pfeil{transition:transform .35s,background-color .35s,color .35s}
+.k2-team-mosaik .team_mehr-titel{font-size:1.375rem;line-height:1.2;font-weight:700;color:var(--k-navy)}
+.k2-team-mosaik .team_mehr-text{font-size:1rem;color:var(--k-navy);border-bottom:1px solid currentColor}
+.k2-team-mosaik .team_mehr:hover .team_mehr-box{background:var(--k-plum)}
+.k2-team-mosaik .team_mehr:hover .team_mehr-pfeil{background:#fff;color:var(--k-plum);transform:translateX(.35rem)}
+.k2-team-mosaik .team_mehr:hover .team_mehr-titel,.k2-team-mosaik .team_mehr:hover .team_mehr-text{color:#fff}
+.k2-team-mosaik .section_team .team_grid>*{opacity:0;transform:translateY(1.5rem);transition:opacity .6s,transform .7s var(--k-weich)}
+.k2-team-mosaik .section_team.k2-da .team_grid>*{opacity:1;transform:none}
+.k2-team-mosaik .section_team.k2-da .team_grid>:nth-child(2){transition-delay:.1s}.k2-team-mosaik .section_team.k2-da .team_grid>:nth-child(3){transition-delay:.2s}.k2-team-mosaik .section_team.k2-da .team_grid>:nth-child(4){transition-delay:.3s}.k2-team-mosaik .section_team.k2-da .team_grid>:nth-child(5){transition-delay:.4s}.k2-team-mosaik .section_team.k2-da .team_grid>:nth-child(6){transition-delay:.5s}.k2-team-mosaik .section_team.k2-da .team_grid>:nth-child(7){transition-delay:.6s}
+
+/* ---------- Meine Entwicklung: drei Varianten ---------- */
+/* A: Text im Bild (D), kräftiger Verlauf für sichere Lesbarkeit */
+.k2-wege-a .section_wege .layout-grid.is-3-col{gap:1rem}
+.k2-wege-a .section_wege .card{position:relative;min-height:36rem;border:0;border-radius:0;overflow:hidden;background:var(--k-deep);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.k2-wege-a .section_wege .card_image-wrapper{position:absolute;inset:0;padding-top:0;z-index:-1}
+.k2-wege-a .section_wege .card_image{transition:transform .7s ease}
+.k2-wege-a .section_wege .card:hover .card_image{transform:scale(1.05)}
+.k2-wege-a .section_wege .card_image-wrapper::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,29,44,0) 22%,rgba(17,29,44,.78) 52%,rgba(17,29,44,.97) 100%)}
+.k2-wege-a .section_wege .card_tag{position:absolute;top:1.25rem;left:1.25rem}
+.k2-wege-a .section_wege .card_content{position:relative;background:transparent;padding:2rem;gap:.75rem;flex-grow:0}
+.k2-wege-a .section_wege .card_footer,.k2-wege-c .section_wege .card_footer,.k2-wege-b .section_wege .card_footer{margin-top:.5rem}
+.k2-wege-a .section_wege .card_content .text-size-small{color:var(--k-sea);font-weight:600}
+.k2-wege-a .section_wege .card_content h3{color:#fff;font-size:clamp(1.5rem,1.1rem + 1vw,2rem)}
+.k2-wege-a .section_wege .card_content p{color:rgba(255,255,255,.9)}
+.k2-wege-a .section_wege .card_content .text-style-link{color:#fff}
+.k2-wege-a .section_wege .card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--k-plum);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--k-weich)}
+.k2-wege-a .section_wege .card:hover::after{transform:scaleX(1)}
+/* B: hohe Bilder, Text darunter (D) */
+.k2-wege-b .section_wege .layout-grid.is-3-col{gap:clamp(1.5rem,1rem + 1.5vw,2.5rem)}
+.k2-wege-b .section_wege .card{border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible}
+.k2-wege-b .section_wege .card_image-wrapper{padding-top:118%;border-radius:0}
+.k2-wege-b .section_wege .card_image{transition:transform .7s ease}
+.k2-wege-b .section_wege .card:hover .card_image{transform:scale(1.04)}
+.k2-wege-b .section_wege .card_content{padding:1.5rem 0 0;background:transparent;position:relative}
+.k2-wege-b .section_wege .card_content::before{content:"";position:absolute;left:0;top:0;width:3rem;height:3px;background:var(--k-plum);transition:width .5s var(--k-weich)}
+.k2-wege-b .section_wege .card:hover .card_content::before{width:100%}
+.k2-wege-b .section_wege .card_content h3{font-size:clamp(1.5rem,1.1rem + 1vw,2rem)}
+/* C: wechselnde Zeilen, Foto und Text nebeneinander (F) */
+.k2-wege-c .section_wege .layout-grid.is-3-col{grid-template-columns:1fr;gap:0}
+.k2-wege-c .section_wege .card{display:grid;grid-template-columns:1fr 1fr;border:0;border-radius:0;background:#fff;min-height:25rem;overflow:hidden}
+.k2-wege-c .section_wege .card:nth-child(even) .card_image-wrapper{order:2}
+.k2-wege-c .section_wege .card_image-wrapper{padding-top:0;min-height:25rem;border-radius:0}
+.k2-wege-c .section_wege .card_image{transition:transform .7s ease}
+.k2-wege-c .section_wege .card:hover .card_image{transform:scale(1.04)}
+.k2-wege-c .section_wege .card_content{padding:clamp(2rem,1rem + 3vw,4.5rem);justify-content:center;gap:1rem}
+.k2-wege-c .section_wege .card_content h3{font-size:clamp(1.75rem,1.2rem + 1.5vw,2.75rem)}
+.k2-wege-c .section_wege .card_content p{max-width:30rem;font-size:1.125rem}
+
+/* ---------- Im Blickpunkt (CAS): Foto links bis zur Mitte, Text rechts, Farbfläche als einzige Einblendung ---------- */
+.k2 .section_cas{position:relative;isolation:isolate;background-color:transparent!important;min-height:40rem;display:flex;align-items:center}
+.k2 .section_cas>.padding-global{width:100%}
+.k2 .section_cas::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--_theme---hintergrund)}
+.k2 .section_cas .padding-global,.k2 .section_cas .container-large,.k2 .section_cas .padding-section-large{position:static}
+.k2 .section_cas .container-large{max-width:none}
+.k2 .section_cas .padding-section-large{padding-left:calc(50% + clamp(2rem,1rem + 3vw,5rem))}
+.k2 .section_cas .spotlight_layout{position:static;display:block;min-height:0;overflow:visible;border-radius:0}
+.k2 .section_cas .spotlight_media{position:absolute;inset:0 50% 0 0;width:auto}
+.k2 .section_cas .spotlight_verlauf{display:none}
+.k2 .section_cas .spotlight_content{padding:0;max-width:40rem}
+.k2 .section_cas .spotlight_kopf,.k2 .section_cas .spotlight_content{opacity:0;transition:opacity .8s ease .7s}
+.k2 .section_cas.k2-da .spotlight_kopf,.k2 .section_cas.k2-da .spotlight_content{opacity:1}
+.k2-cas-wisch .section_cas::before{clip-path:inset(0 50% 0 50%);transition:clip-path 1.4s var(--k-weich)}
+.k2-cas-wisch .section_cas.k2-da::before{clip-path:inset(0 0 0 50%)}
+.k2-cas-blende .section_cas::before{opacity:0;transition:opacity 1.4s ease}
+.k2-cas-blende .section_cas.k2-da::before{opacity:1}
+
+/* ---------- Kontakt: dunkel (Look B) oder hell (heute) ---------- */
+.k2-kontakt-dunkel .section_kontakt.theme-sea{--_theme---hintergrund:var(--_farben---manganese-deep);--_theme---text:var(--_farben---white);--_theme---ueberschrift:var(--_farben---white);--_theme---link:var(--_farben---sea-cliff);--_theme---text-gedaempft:var(--_farben---white-soft-text);--_theme---linie:var(--_farben---white-linie);background-color:var(--_farben---manganese-deep);color:#fff}
+
+/* ---------- Umschaltleiste (nur Entwurf) ---------- */
+.k2-leiste{position:fixed;right:16px;bottom:16px;z-index:2147483000;font-family:var(--_typografie---schrift-titel-und-text),sans-serif;color:#fff;cursor:auto}
+.k2-leiste *{cursor:pointer}
+.k2-leiste-knopf{all:unset;display:inline-flex;align-items:center;gap:.5rem;background:var(--k-plum);color:#fff;padding:.75rem 1rem;font-family:var(--_typografie---schrift-akzent),sans-serif;font-weight:800;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 10px 30px rgba(17,29,44,.35)}
+.k2-leiste-tafel{display:none;position:absolute;right:0;bottom:calc(100% + 8px);width:min(25rem,calc(100vw - 32px));max-height:min(72vh,40rem);overflow:auto;background:var(--k-deep);padding:1rem;box-shadow:0 20px 50px rgba(17,29,44,.45)}
+.k2-leiste.ist-offen .k2-leiste-tafel{display:block}
+.k2-leiste-kopf{font-size:.8125rem;line-height:1.4;color:rgba(255,255,255,.7);margin:0 0 .75rem}
+.k2-gruppe{padding:.75rem 0;border-top:1px solid rgba(255,255,255,.14)}
+.k2-gruppe-name{all:unset;display:block;font-family:var(--_typografie---schrift-akzent),sans-serif;font-weight:800;font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--k-sea);margin-bottom:.5rem}
+.k2-gruppe-name:hover{color:#fff}
+.k2-wahl{display:flex;flex-wrap:wrap;gap:.375rem}
+.k2-wahl button{all:unset;font-size:.8125rem;line-height:1.2;padding:.45rem .65rem;border:1px solid rgba(255,255,255,.3);color:#fff}
+.k2-wahl button:hover{border-color:#fff}
+.k2-wahl button.ist-an{background:#fff;color:var(--k-navy);border-color:#fff;font-weight:600}
+.k2-wahl button small{display:block;font-size:.6875rem;opacity:.7;margin-top:.15rem}
+
+/* ---------- Tablet und Handy ---------- */
+@media (max-width:991px){
+.k2-logos-raster .padding-section-small.is-logos{grid-template-columns:1fr;gap:1rem}
+.k2-logos-raster .logos_list{grid-template-columns:repeat(4,1fr)}
+.k2-loesungen-zeilen .bento_grid{grid-template-columns:1fr}
+.k2-loesungen-zeilen .bento_featured{grid-area:auto}
+.k2-loesungen-zeilen .bento_grid>.card{grid-column:auto}
+.k2-team-mosaik .team_grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:15rem}
+.k2-team-mosaik .team_grid>:nth-child(n){grid-column:auto;grid-row:auto}
+.k2-team-mosaik .team_grid>:nth-child(1){grid-row:span 2}
+.k2-team-mosaik .team_grid>:nth-child(7){grid-column:1 / -1;grid-row:auto}
+.k2-wege-a .section_wege .layout-grid.is-3-col,.k2-wege-b .section_wege .layout-grid.is-3-col{grid-template-columns:1fr 1fr}
+.k2-erfolge-e .quote_featured{grid-template-columns:1fr}
+.k2-erfolge-e .quote_image-wrapper{padding-top:70%}
+}
+@media (max-width:767px){
+.k2-logos-raster .logos_list{grid-template-columns:repeat(3,1fr)}
+.k2-logos-raster .logos_list .logos_image{height:4.5rem;padding:1.25rem 1rem}
+.k2-antrieb-b .stat_number{font-size:clamp(2.25rem,1.5rem + 3vw,3rem)}
+.k2-antrieb-d .statement_content{grid-template-columns:1fr;gap:2rem}
+.k2-antrieb-d .stats_grid{grid-template-columns:repeat(3,1fr);padding:0 0 1.5rem;gap:1rem;border-right:0;border-bottom:2px solid var(--k-serpent)}
+.k2-antrieb-d .stat_number{font-size:2rem}
+.k2-loesungen-zeilen .bento_grid>.card .card_content{grid-template-columns:1fr 5rem;grid-template-areas:"kick bild" "titel bild" "text text" "fuss fuss"}
+.k2-team-mosaik .team_grid{grid-auto-rows:13rem;gap:.75rem}
+.k2-team-info b{font-size:3rem}
+.k2-wege-a .section_wege .layout-grid.is-3-col,.k2-wege-b .section_wege .layout-grid.is-3-col{grid-template-columns:1fr}
+.k2-wege-a .section_wege .card{min-height:30rem}
+.k2-wege-b .section_wege .card_image-wrapper{padding-top:90%}
+.k2-wege-c .section_wege .card{grid-template-columns:1fr}
+.k2-wege-c .section_wege .card:nth-child(even) .card_image-wrapper{order:0}
+.k2-wege-c .section_wege .card_image-wrapper{min-height:16rem}
+.k2-erfolge-e .w-slide{padding:1rem 0 0 1rem}
+.k2-erfolge-e .quote_image-wrapper{box-shadow:-1rem -1rem 0 0 var(--k-navy)}
+.k2-ribbon{width:14rem;height:1rem;top:auto}
+.k2-ribbon.is-oben-rechts,.k2-ribbon.is-oben-links{top:7rem}.k2-ribbon.is-unten-rechts,.k2-ribbon.is-unten-links{bottom:7rem}
+.k2 .section_cas{display:block;min-height:0}
+.k2 .section_cas .padding-section-large{padding-left:0;padding-top:calc(72vw + 2.5rem)}
+.k2 .section_cas .spotlight_media{inset:0 0 auto 0;height:72vw}
+.k2-cas-wisch .section_cas::before{clip-path:inset(72vw 100% 0 0)}
+.k2-cas-wisch .section_cas.k2-da::before{clip-path:inset(72vw 0 0 0)}
+.k2-hero-g .k2-fotos,.k2-hero-sauber .k2-fotos,.k2-los .k2-fotos{clip-path:none;opacity:.45}
+.k2-kante{display:none}
+.k2-leiste{right:8px;bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){
+.k2 *,.k2 *::before,.k2 *::after{transition:none!important}
+}
