@@ -1,6 +1,6 @@
 # ROWAPA Website 2027 · Startseite `/home-v2` · Texttabelle
 
-**Stand:** 25.10.2026 · Stufe 2, Rev. 2 (Feedback-Runde 2 eingearbeitet) · geprüft nach `exports/04_redaktionsleitfaden.md`
+**Stand:** 26.10.2026 · Stufe 2, Rev. 7 (Kopf: Rev. 2) (Feedback-Runde 2 eingearbeitet) · geprüft nach `exports/04_redaktionsleitfaden.md`
 **Quellen:** Live-Baseline rowapa-2027.webflow.io (Startseite) und Vorlage `ROWAPA-Website-v11.html`
 **Lesart:** Original → Vorschlag (so in Webflow eingebaut) → Begründung. Jede Zeile lässt sich einzeln zurückdrehen.
 
@@ -222,6 +222,25 @@ Prüfung gegen den Redaktionsleitfaden: Die Section Digital sagt jetzt klar, was
 | Insights | Themenhinweis | Tag im Foto (oben links) | Tag vor dem Datum in einer Zeile (z. B. «LEADERSHIP   26.08.2025 · Blog») | im Foto schlecht lesbar und verdeckte das Bild; neben dem Datum hilft er beim Überfliegen | – |
 | alle Seiten | Knopf «Nach oben» | – | Pfeil ↑, für Screenreader «Nach oben» | Rückweg an den Seitenanfang, ohne Text im Bild | – |
 
+## Rev. 7 · Menüs mit Vorschau, H2 Handy (26.10.2026, Runde 17)
+
+Neue Vorschaukarten in den Menüs «So arbeiten wir», «Über uns», «Partner werden» (Komponente Navbar). Wo die Startseite schon einen Text hat, ist er übernommen; sonst ein neutraler Entwurf ohne neue Fakten.
+
+| Menü | Karte | Original | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| So arbeiten wir | Unser Prozess | – | «Vom Bauchgefühl zur Gewissheit: Jedes Projekt beginnt mit einem Erstgespräch und durchläuft dann vier Phasen.» | Satz aus «Unser Vorgehen» | – |
+| So arbeiten wir | Tools & Methoden | – | «Diagnostik, Methoden und digitale Werkzeuge, mit denen wir Entwicklung messbar machen.» | angelehnt an «Was uns antreibt» (Menschen, Methoden, Daten) | [ROWAPA bestätigen] |
+| Über uns | Die Menschen hinter ROWAPA (Links Über uns, Team) | – | «Seit 20 Jahren arbeiten wir ausschliesslich für die Finanzbranche.» | Satz aus «Was uns antreibt» | – |
+| Über uns | Kontakt | – | «Im Erstgespräch klären wir Ihre Ausgangslage und Ziele und zeigen, wie ROWAPA Sie unterstützen kann.» | Satz aus «Kontakt» | – |
+| Über uns | Wissen & Impulse (Übersicht, Blog & News, Downloads) | – | «Beiträge, Downloads und Neuigkeiten rund um Vertrieb, Führung und Weiterbildung.» | beschreibt die Links | [ROWAPA bestätigen] |
+| Über uns | Webinare & ROWAPA TV | – | «Webinare und Videos mit Impulsen für Vertrieb, Führung und Weiterbildung.» | beschreibt die Links | [ROWAPA bestätigen] |
+| Partner werden | Partner werden (Übersicht) | – | «Mit ROWAPA zusammenarbeiten: als Managing Partner, Education Partner oder über die Trainer Academy.» | nennt die drei Wege aus dem Menü | – |
+| Partner werden | Managing Partner | – | «Aufgaben, Erwartungen und der Weg zur Partnerschaft als Managing Partner.» | beschreibt den geplanten Seiteninhalt (CMS «Partnerrollen») | [ROWAPA bestätigen] |
+| Partner werden | Education Partner | – | «Aufgaben, Erwartungen und der Weg zur Partnerschaft als Education Partner.» | wie oben | [ROWAPA bestätigen] |
+| Partner werden | Trainer Academy | – | «Was die Trainer Academy umfasst und wie der Weg dorthin aussieht.» | wie oben | [ROWAPA bestätigen] |
+| Partner werden | Partner & Kooperationen | – | «Verankert in der Branche: akademische Partner, Verbände und Technologiepartner.» | Satz aus dem Partner-Block der Startseite | – |
+| alle Sections | H2 auf dem Handy | 32 px (390 px Breite) | 25 px | H2 war fast so gross wie H1 (35 px); klare Hierarchie | – |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -230,4 +249,5 @@ Prüfung gegen den Redaktionsleitfaden: Die Section Digital sagt jetzt klar, was
 2. ~~Schreibweise «die Mobiliar Ausserrhoden»~~: bestätigt
 3. Blog-Auszüge: aus dem Artikel übernehmen (Stufe 3, CMS); bis dahin die drei neuen Auszüge bestätigen (Rev. 3 · Rest)
 4. Weitere Kennzahlen, die wir zeigen dürfen (z. B. Anzahl begleiteter Unternehmen oder Teilnehmende pro Jahr)?
-5. Kartentitel Logbuch: auf `/home-v2` steht jetzt «Ihr digitaler Begleiter im Verkauf» (Rev. 6). Bitte bestätigen.
+5. ~~Kartentitel Logbuch~~: «Ihr digitaler Begleiter im Verkauf» bestätigt (26.10.2026)
+6. Fünf Entwürfe in den Menükarten (Rev. 7) bestätigen oder ersetzen; dazu Bilder für Managing Partner, Education Partner und Trainer Academy, falls eigene vorhanden sind.

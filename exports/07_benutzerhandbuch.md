@@ -109,7 +109,7 @@ Site settings › General › Favicon (`rowapa-favicon-32.png`) und Webclip (`ro
 - **Stimme ergänzen:** Slider auswählen › Zahnrad › «Add slide», danach den Inhalt einer bestehenden Slide (Block `quote_featured`) kopieren und einfügen.
 - **Wechsel:** heute «Cross Fade», automatisch alle 4 s, dazu Pfeile und Punkte. Ändern: Slider auswählen › Zahnrad (Animation, Auto-play, Delay).
 - **Ein Block pro Bildschirm (seit Runde 14):** Titel, Foto, Zitat, Name und Steuerung passen auf jedem Format zusammen in ein Fenster. Dafür ist das Foto (`quote_image-wrapper`) höchstens «Fensterhöhe minus 20 rem» hoch (Tablet minus 18 rem, Handy im Format 16:10). Der Text steht oben, das Zitat in der Mitte, der Name unten auf Höhe der Fotounterkante; Punkte und Pfeile stehen rechts daneben (Handy: nur Punkte, gewischt wird mit dem Finger).
-- **Gleich hohe Folien:** Die Maske des Sliders trägt die Klasse `erfolge_maske` (Raster). So sind alle Folien gleich hoch und der Name steht immer auf derselben Linie. Diese Klasse nicht entfernen.
+- **Gleich hohe Folien:** Die Maske des Sliders trägt die Klasse `erfolge_maske` (Flexbox, nebeneinander, gleich hoch), jede Folie die Klasse `erfolge_folie` (schrumpft nicht, Höhe automatisch). So sind alle Folien gleich hoch und der Name steht immer auf derselben Linie. Beide Klassen nicht entfernen. Neue Folie: eine bestehende Folie duplizieren, dann trägt sie die Klasse schon. Kein Raster (Grid) auf die Maske legen: Das zeichnet der Webflow-Designer falsch (alle Folien gequetscht nebeneinander), auch wenn die Website richtig aussieht (Runde 17).
 - **Bildauswahl:** Gesichter in die Bildmitte; auf kleinen Laptops und dem Handy wird das Foto breiter als hoch angeschnitten.
 - Ab Stufe 3 kommen die Kundenstimmen aus dem CMS; der Slider bleibt für die Startseite.
 
@@ -155,6 +155,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - Mehr Luft im Hero: Klasse `padding-section-large` mit Zusatz `is-hero` (Abstände oben und unten). Höhe der Navigation geändert? Dann in `startscreen_wrapper` den Wert der Mindesthöhe anpassen (heute 4,5 rem, Tablet und Handy 4 rem).
 
 ### 2.22 Schriftgrössen
+- H2 auf dem Handy (seit Runde 17): bis 767 px `clamp(1.75rem, 1rem + 2.6vw, 2.25rem)`, bis 479 px `clamp(1.25rem, 0.5rem + 4.4vw, 1.75rem)`. Damit bleibt H2 überall deutlich kleiner als H1 (390 px: H2 25 px, H1 35 px).
 - Header-Titel H1 (`heading-style-h1`): wächst mit der Fensterbreite, Handy 28–38 px (so, dass jede Zeile einzeilig bleibt), 768 px 53 px, 1024 px 65 px, 1440 px 84 px, ab 1920 px 96 px.
 - Section-Titel H2 (`heading-style-h2`): Handy 32 px, 1024 px 50 px, 1440 px 62 px, ab 1920 px 68 px. Darunter der Plum-Strich (siehe 2.11).
 - Titel der grossen Felder bei «Meine Entwicklung» (Card Teaser, Varianten «Zeile · …»): Handy 28 px, 1024 px 39 px, 1440 px 47 px, ab 1536 px 48 px.
@@ -176,11 +177,11 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - `/varianten` zeigt die Vorschläge der Runde 4 nebeneinander; oben die Leiste zum Umschalten (A, B, C je Thema). Sie ist nicht verlinkt und wird nach dem Entscheid gelöscht.
 
 ### 2.26 Megamenü mit Vorschau
-- Komponente «Navbar» › Dropdown «Was wir tun» › `navbar_vorschau`: neun Vorschaukarten (Bild, Titel, Satz), direkt im Designer änderbar.
+- Alle vier Menüs (Was wir tun, So arbeiten wir, Über uns, Partner werden) haben dieselbe Darstellung: Panel über die ganze Inhaltsbreite (`navbar_dropdown-list` + `is-mega`), links die Linkspalten, rechts die Vorschau. Die Vorschau steht immer in Spalte 4 des Rasters (`navbar_vorschau`: Spalte 4, Zeile 1), auch wenn ein Menü nur eine oder zwei Linkspalten hat. Neue Linkspalte: eine `navbar_dropdown-column` duplizieren (höchstens drei Spalten).
+- Komponente «Navbar» › Dropdown › `navbar_vorschau`: Vorschaukarten (Bild, Titel, Satz), direkt im Designer änderbar. «Was wir tun» 9 Karten, «So arbeiten wir» 2, «Über uns» 4, «Partner werden» 5. Das Panel trägt `data-grafik="vorschau"`; ohne dieses Attribut wechselt die Karte nicht.
 - Verbindung: Der Link trägt `data-vorschau="name"`, die Karte `data-vorschau-karte="name"` (Zahnrad › Custom attributes). Mehrere Links dürfen dieselbe Karte zeigen (z. B. alle Links unter «Meine Entwicklung»). Neuer Link: Attribut setzen; neue Karte: eine Karte duplizieren und Name anpassen.
 - Sichtbar ist zuerst die Karte mit der Zusatzklasse `is-aktiv` (heute Vertriebsperformance).
 - Öffnen und Schliessen: Das Menü öffnet beim Darüberfahren und schliesst 300 ms nach dem Verlassen (Dropdown › Einstellungen › «Close delay» bzw. Attribut `data-delay`). Über dem Panel liegt eine unsichtbare Brücke von 24 px (Klasse `navbar_dropdown-list`, Abstand oben −1.5 rem und Innenabstand oben 1.5 rem, Hintergrund transparent). Sie verhindert, dass das Menü auf schrägem Weg zum Link schliesst. Nicht entfernen.
-- Die drei kleinen Menüs (So arbeiten wir, Über uns, Partner werden) tragen die Zusatzklasse `is-schmal`: Sie stehen unter ihrem Menüpunkt, das grosse Menü über die ganze Inhaltsbreite.
 - Logo, Sprachwahl und Kontakt-Button liegen auf Ebene (z-index) 902, damit die Brücke sie nie verdeckt. Wert nicht unter 902 setzen.
 
 ### 2.27 Mauszeiger
@@ -194,6 +195,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 ### 2.28a Rote Linien
 - Alle roten Trennlinien sind 1 px dick: Phasen bei «Unser Vorgehen», Zeilen bei «Was wir tun» (Klasse `card` › `is-accent`), Oberkante der Digital-Karten, Linie beim Darüberfahren. Neue Linien ebenfalls mit 1 px anlegen.
 - Eigene Akzente sind der kurze Strich unter jedem Section-Titel (3 px × 64 px) und die Unterstreichung der Header-Zeilen.
+- Die Header-Unterstreichung sind drei leere Elemente `hero_bar` (eines je Zeile, die Animation «Hero-Titelzeilen» bewegt sie). Ihre Höhe ist begrenzt (`max-height` 0.07em, Überlauf versteckt). Ohne diese Begrenzung zeichnet der Designer die aktive Linie als dicken Plum-Block über der dritten Zeile; im Designer ist die Linie deshalb unsichtbar, auf der Website ist sie da. Begrenzung nicht entfernen.
 
 ### 2.29 Knopf «Nach oben»
 - Liegt in der Komponente «Footer» (Link mit Klasse `nach-oben`, Attribut `data-grafik="nachoben"`) und ist damit auf jeder Seite. Er erscheint, sobald man gut eine Bildschirmhöhe gescrollt hat (Zusatzklasse `is-sichtbar`), und führt an den Seitenanfang.

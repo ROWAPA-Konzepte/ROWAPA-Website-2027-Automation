@@ -261,12 +261,25 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 145 | Logo, Sprachwahl, Kontakt-Button | müssen bei offenem Menü voll klickbar bleiben | auf Ebene 902 gelegt, über dem offenen Menü (Webflow setzt 900/901) |
 | 146 | Prüfung | — | live geprüft: alle 31 Links der vier Menüs in 1920, 1440, 1280 und 1024 px, jeweils schräg langsam und schnell angefahren (248 von 248 Klicks ok); Wechsel zum Nachbarmenü ok; Logo, Sprachwahl und Button bei offenem Menü klickbar; Handy-Menü in 390 und 768 px unverändert |
 
+## 21. Feedback-Runde 17 (26.10.2026): Designer-Ansicht, Menüs, H2 Handy, Format-Vorschau
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 147 | Designer zeigt Header und «Unsere Erfolge» verzogen | reparieren, ohne dass sich die Website ändert | **Slider:** Die Folienschiene war seit Runde 14 ein Raster (Grid), damit alle Folien gleich hoch sind. Die Website zeigt das richtig, der Designer nicht (alle Folien gequetscht nebeneinander). Auch ein ausgeschriebenes Raster half nicht. Neu: Flexbox auf `erfolge_maske`, Klasse `erfolge_folie` auf jeder Folie (schrumpft nicht, Höhe automatisch). Designer korrekt, Folien weiter gleich hoch (gemessen in 7 Formaten von 1920 bis 390 px). **Header:** Die leeren Unterstrich-Elemente `hero_bar` zeichnete der Designer als dicken Plum-Block über «Weniger Fluktuation.». Höhe begrenzt (`max-height` 0.07em, Überlauf versteckt): im Designer kein Block mehr, auf der Website unverändert (Linie 2 bis 6 px je nach Breite) |
+| 148 | Menüs | gleiche Darstellung wie «Was wir tun», mit Vorschau rechts | So arbeiten wir, Über uns, Partner werden: Panel über die ganze Breite, Links links, Vorschau rechts (fest in Spalte 4). 11 neue Karten mit vorhandenen Bildern; 6 Texte aus der Startseite, 5 Entwürfe [ROWAPA bestätigen] (Texttabelle Rev. 7). Kombi `is-schmal` entfernt. Live geprüft in 1920, 1440, 1280 und 1024 px: alle 31 Links klickbar, jede Karte wechselt beim Darüberfahren |
+| 149 | H2 auf dem Handy | verkleinern | bis 767 px `clamp(1.75rem, 1rem + 2.6vw, 2.25rem)`, bis 479 px `clamp(1.25rem, 0.5rem + 4.4vw, 1.75rem)`: 390 px H2 25 statt 32 px (H1 35), 320 px H2 22 (H1 28), 600 px H2 32 (H1 45) |
+| 150 | Titelstriche und Header-Unterstreichung | bleiben | unverändert |
+| 151 | Kartentitel Logbuch | «Ihr digitaler Begleiter im Verkauf» bestätigt | erledigt |
+| 152 | Grösse je Format | je Ansicht programmieren; das Design muss nicht in allen Formaten gleich sein, jedes Format bekommt die Darstellung, die dort am besten wirkt; gilt auch für alle weiteren Seiten | Vorschau mit 8 Formaten (1920×1080 bis 390×844) als private Seite https://claude.ai/artifact/WpvkhkkFWftgsXgK9fVoDw, Umschalter «Darstellung: Heute / Vorschlag je Format». Ergebnis: heute passen 3–6 von 12 Sections in einen Bildschirm (Seite 13,7–20,4 Bildschirme), mit Vorschlag und Straffung 11–12 von 12 (10,6–12,5 Bildschirme). Werkzeug: `tools/format-vorschau/`. Vorschlag nur im Testbrowser nachgestellt, mit Mitteln, die Webflow nativ kann (Breakpoints nach Breite, an die Fensterhöhe gekoppelte Grössen). Umsetzung in Webflow nach Entscheid je Section |
+| 153 | Inhalte straffen | nach Benchmark, als Variante zum Umschalten | in der Vorschau «Inhalt: Gestrafft» (Texte Original → Vorschlag auf der Vorschauseite) |
+| 154 | Digital im Header | Variante A als Vorschau, ohne Obertitel | in der Vorschau «Header: Variante A»: ohne Obertitel, Leiste «ROWAPA Digital» mit fünf Symbolen unter dem Lead-Text |
+| 155 | Lead-Text im Header | von ROWAPA im Designer geändert | heute im Designer: «Gemeinsam bewegen wir Menschen und Unternehmungen, datenbasiert, praxiserprobt, nachhaltig.» Hinweis: Die Begriffsregel sagt «Unternehmen» (nicht «Unternehmung»). [ROWAPA bestätigen] |
+
 ---
 
 ## Offene Punkte
 
 1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
-1a. Kartentitel Logbuch: auf `/home-v2` steht nach der Sie-Regel «Ihr digitaler Begleiter im Verkauf» (ROWAPA hatte «Dein …» gesetzt). [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).
 4. Auszüge der drei neuen Insights-Karten bestätigen (aus dem Titel abgeleitet, die Originalbeiträge waren aus der Cloud-Umgebung nicht erreichbar). In Stufe 3 kommen die Auszüge aus dem CMS. [ROWAPA bestätigen]
@@ -278,3 +291,6 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 10. Themen-URLs in Stufe 4 an die neuen Titel anpassen (mit Weiterleitung); ebenso `/fuer-organisationen`.
 11. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
 12. Megamenü-Bezeichnungen «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention» weichen von den Titeln auf der Startseite ab («Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung»). Angleichen? [ROWAPA bestätigen]
+13. Fünf Entwürfe in den Menükarten bestätigen (Texttabelle Rev. 7), dazu eigene Bilder für Managing Partner, Education Partner und Trainer Academy, falls vorhanden.
+14. Format-Vorschau: je Section entscheiden (Heute / Vorschlag / Gestrafft, Header A ja/nein); danach Umsetzung in Webflow.
+15. Lead-Text im Header: «Unternehmungen» oder «Unternehmen» (Begriffsregel).

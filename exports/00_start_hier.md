@@ -40,7 +40,7 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 |---|---|---|
 | Phase 1+2 | Analyse, CMS-Architektur, URL-Plan | erledigt |
 | Stufe 1 | Design-System | freigegeben |
-| Stufe 2 | Startseite `/home-v2` | finaler Entwurf Kombi G2 nativ gebaut (Runde 13), in acht Formaten geprüft; Runde 14: «Unsere Erfolge» als ein Block je Bildschirm; Runde 15: Header-Zeilen einzeilig, rote Linien 1 px, Schriftmuster geprüft; Runde 16: Megamenü repariert und in vier Breiten geprüft; **wartet auf Freigabe ROWAPA**. Danach Löschen der zehn Entwurfsseiten (Liste in `00_entscheide.md`, offene Punkte) |
+| Stufe 2 | Startseite `/home-v2` | finaler Entwurf Kombi G2 nativ gebaut (Runde 13), in acht Formaten geprüft; Runde 14: «Unsere Erfolge» als ein Block je Bildschirm; Runde 15: Header-Zeilen einzeilig, rote Linien 1 px, Schriftmuster geprüft; Runde 16: Megamenü repariert und in vier Breiten geprüft; Runde 17: Designer-Ansicht (Slider, Header) korrigiert, alle Menüs mit Vorschau, H2 Handy kleiner, Format-Vorschau mit Umschaltern (Darstellung, Inhalt, Header A) zur Entscheidung (private Seite https://claude.ai/artifact/WpvkhkkFWftgsXgK9fVoDw, Werkzeug `tools/format-vorschau/`); **wartet auf Entscheide und Freigabe ROWAPA**. Danach Löschen der zehn Entwurfsseiten (Liste in `00_entscheide.md`, offene Punkte) |
 | Stufe 3 | CMS-Collections, Draft-Einträge (Logos, Partner, Team, Referenzen, Blog) | nach Freigabe Stufe 2 |
 | Stufe 4 | Templates und Unikat-Seiten | danach |
 | Go-live | Domain, Weiterleitungen, Favicon, SEO | zum Schluss, nur mit Freigabe |
