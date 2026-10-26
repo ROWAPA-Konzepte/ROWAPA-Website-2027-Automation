@@ -156,11 +156,13 @@ Commit b2000a2.
 | 92 | Digitale Lösungen | Kacheln schneller, Halt nur über den Textboxen | Kugel 24 s, Kacheln 45 s je Runde; Halt nur über den Karten darunter, Kachel-Hover hebt die Karte hervor, dreht aber weiter (Skript 1.4.1) |
 | 93 | Look & Feel | Struktur und Dramaturgie bleiben, keine Zusammenlegung, Bewegung im Rahmen; Diagonal-Ribbon probieren | Entwurf `/home-look` (Kopie der Startseite): grössere Display-Titel, Diagonal-Ribbon an drei Section-Ecken, feine Swiss-Rasterlinien in drei hellen Sections. `/home-v2` unverändert |
 
+| 94 | Look-&-Feel-Varianten | «gerne verschiedene Varianten zeigen, auch Benchmark recherchieren» | drei Richtungen auf Kopien der Startseite: A Editorial Swiss `/home-look`, B Kontrast & Statement `/home-look-b`, C Hell & präzise `/home-look-c`. Umgesetzt mit Test-CSS nur auf diesen Seiten (`exports/look-entwuerfe/`); die gewählte Richtung wird danach nativ in Webflow-Klassen gebaut, ohne Custom Code |
+
 ---
 
 ## Offene Punkte
 
-1. Look & Feel: Rückmeldung zum Entwurf `/home-look` (Display-Titel, Ribbons, Rasterlinien: einzeln übernehmen, anpassen oder verwerfen). Danach Übernahme auf `/home-v2` und Freigabe Stufe 2.
+1. Look & Feel: Richtung A, B oder C wählen (gern auch Mischung, z. B. «Titel aus B, Karten aus C»). Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
 1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).

@@ -1,0 +1,14 @@
+/* Look C Hell & präzise (Test-CSS, nur Entwurfsseite) */
+section.theme-sea{--_theme---hintergrund:var(--_farben---white)!important;background-color:#fff!important}
+section.theme-soft{--_theme---hintergrund:#F6F6F6!important;background-color:#F6F6F6!important}
+section:not(.section_hero):not(.section_logos){border-top:1px solid var(--_farben---manganese-linie)}
+.padding-section-large{padding-top:clamp(5rem,2rem + 8vw,10rem);padding-bottom:clamp(5rem,2rem + 8vw,10rem)}
+.heading-style-h2{font-size:clamp(2.5rem,1rem + 3.6vw,4.5rem);font-weight:500;letter-spacing:-.035em;line-height:1.04}
+.section-head{max-width:56rem}
+.kicker_line{width:4.5rem;height:1px}
+.text-style-kicker{color:var(--_theme---ueberschrift)!important;letter-spacing:.2em}
+.card{border-radius:0!important;border-width:0!important;border-top:1px solid var(--_theme---ueberschrift)!important;background-color:transparent!important}
+.card:hover,.card.is-verbunden{border-top:3px solid var(--_farben---plum-perfect)!important;box-shadow:none!important}
+.card_featured,.card_featured_image,.card_image-wrapper,.card_image,.spotlight_layout,.button{border-radius:0!important}
+.step_number{border-radius:50%}
+.faq_item{border-bottom-color:var(--_theme---ueberschrift)}

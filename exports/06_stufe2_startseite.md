@@ -318,3 +318,15 @@ Struktur und Dramaturgie unverändert (Entscheid ROWAPA). Drei Gestaltungshebel,
 3. **Swiss-Raster:** feine 12er-Spaltenlinien im Hintergrund von Vorgehen, Team und FAQ.
 
 Vergleich: `exports/stufe2-screens/runde6/look-feel_vergleich_links-heute_rechts-entwurf.jpg`.
+
+## 16. Look-&-Feel-Varianten (26.10.2026)
+
+Struktur, Inhalte und Bewegungen identisch mit `/home-v2`; nur die Gestaltung ändert sich. Für den schnellen Vergleich mit Test-CSS im Seitenkopf der Entwurfsseiten (`exports/look-entwuerfe/`), die gewählte Richtung wird anschliessend nativ als Webflow-Klassen umgesetzt.
+
+| Look | Seite | Idee | Merkmale | Benchmark-Bezug |
+|---|---|---|---|---|
+| A Editorial Swiss | `/home-look` | Magazin mit Schweizer Raster | grosse Display-Titel, nummerierte Kicker (01 / 02 …), Karten ohne Box mit Linie oben, Diagonal-Ribbon an drei Ecken, feine Spaltenlinien | editoriale Insight-Seiten grosser Beratungen; Swiss Style (Raster, Weissraum, ein Akzent) |
+| B Kontrast & Statement | `/home-look-b` | selbstbewusst, plakativ | sehr grosse fette Titel, Wechsel dunkel/weiss, Plum-Balken über jeder Section, grosse Kennzahlen, Ribbon in Lösungen | Beratungen mit kräftigen Markenfarben und grossen Aussagen |
+| C Hell & präzise | `/home-look-c` | ruhig, viel Luft, Haarlinien | helle Flächen statt Sea-Tönung, mittlere Schriftstärke, sehr viel Weissraum, Karten als Liste mit Linie, eckige Buttons, Plum nur als Akzent | zurückhaltende Premium-Beratungen (Weissraum, Typografie statt Flächen) |
+
+Vergleich: `exports/stufe2-screens/runde7/vergleich_heute-A-B-C.jpg` (Spalten: heute, A, B, C).
