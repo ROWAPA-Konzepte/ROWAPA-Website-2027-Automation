@@ -469,3 +469,26 @@ Geprüft live bei 1920, 1440, 1366, 1280, 1024, 768, 390 und 320 px: alle fünf 
 
 **Nachtrag Runde 14, ROWAPA Digital:** Hervorhebung der Karte beim Darüberfahren über Symbol oder Karte neu als Fläche in «Plum Gedaempft» (#B93E70) mit weisser Schrift statt feinem Rahmen. Umsetzung: Variable `--_farben---plum-gedaempft`, Theme-Modus «Plum» (Hintergrund und Karte Plum Gedaempft, Text, Überschrift, Kicker, Link, Akzent weiss, Linien White Linie), angewendet auf `card.is-verbunden` und auf den Hover der Variante «Weiss · Symbol (Digital)». Live geprüft (1440 px): Kachel Kompass → Karte Kompass Plum, Karte Segel beim Darüberfahren Plum, danach alle wieder weiss, keine Skriptfehler.
 
+## 24. Runde 15 (26.10.2026): Header wie vorher, Zeilen einzeilig, Linien 1 px, Titelgrössen
+
+- **Header:** `hero_abdunkler` entfernt (Element, Klasse). `hero_content` max. 62 rem breit; `heading-style-h1` Breakpoint «Mobile portrait»: `min(2.5rem, calc(10.1vw − 0.25rem))`. Gemessen 1920 bis 320 px (15 Breiten): jede Header-Zeile einzeilig.
+- **Rote Linien 1 px:** `card.is-accent` Oberkante 3 → 1 px (Zeilen «Was wir tun», Digital-Karten), Linie beim Darüberfahren der Zeilen 4 → 1 px, Rahmen `card.is-angetippt` 3 → 1 px. Kurzer Strich unter den Section-Titeln (3 px) und Header-Unterstreichung unverändert.
+- **Meine Entwicklung:** Titel der drei Felder `clamp(1.75rem, 1.2rem + 1.9vw, 3rem)`, ab 1920 px 3 rem (vorher setzte die globale H3-Regel ab 1920 px 1,75 rem durch).
+- **Fliesstext:** Digital-Karten und Meine Entwicklung auf 17 px wie vereinbart.
+- **Section-Höhen (Inhalt ohne Innenabstand, sichtbare Höhe = Fenster minus Navigation):**
+
+| Section | 1920×1080 | 1440×900 | 1366×768 | 1280×800 | 1024×768 | 768×1024 | 390×844 |
+|---|---|---|---|---|---|---|---|
+| sichtbar | 1007 | 827 | 695 | 727 | 695 | 959 | 779 |
+| Lösungen | 1064 | 1069 | 991 | 1005 | 1158 | 1698 | 1134 |
+| Antrieb | 329 | 369 | 361 | 352 | 348 | 462 | 701 |
+| Vorgehen | 1012 | 1031 | 1080 | 1103 | 1171 | 1423 | 1682 |
+| Erfolge (mit 3 Zitaten) | 1219 | 1091 | 980 | 1009 | 1009 | 1253 | 684 |
+| Digital | 1170 | 1097 | 1140 | 1206 | 1384 | 2028 | 2557 |
+| Team | 1214 | 1196 | 1128 | 1122 | 1169 | 1888 | 1975 |
+| Meine Entwicklung | 1328 | 1280 | 1277 | 1275 | 1290 | 1296 | 1910 |
+| CAS | 488 | 514 | 510 | 504 | 660 | 703 | 600 |
+| Insights | 780 | 724 | 708 | 727 | 715 | 794 | 947 |
+| FAQ | 487 | 487 | 487 | 487 | 487 | 714 | 777 |
+| Kontakt | 413 | 429 | 424 | 419 | 454 | 717 | 742 |
+

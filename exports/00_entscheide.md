@@ -234,9 +234,22 @@ Der finale Entwurf ist jetzt mit Webflow-Klassen, Komponenten-Varianten und Inte
 
 | # | Anliegen | Entscheid | Ergebnis |
 |---|---|---|---|
-| 135 | Header | Satz unter dem Titel lag auf dem Wellenkamm des Punktemeers; dunkler, nicht ruhiger | weicher dunkler Verlauf hinter dem Satz (Element `hero_abdunkler` in der Hero-Komponente). Die Punkte werden dort gedämpft, die Bewegung bleibt, rechts ist das Punktemeer voll sichtbar. Wandert mit dem Text auf allen Formaten mit; Variante «B · Editorial» ohne |
+| 135 | Header (zurückgenommen, Nr. 138) | Satz unter dem Titel lag auf dem Wellenkamm des Punktemeers; dunkler, nicht ruhiger | weicher dunkler Verlauf hinter dem Satz (Element `hero_abdunkler` in der Hero-Komponente). Die Punkte werden dort gedämpft, die Bewegung bleibt, rechts ist das Punktemeer voll sichtbar. Wandert mit dem Text auf allen Formaten mit; Variante «B · Editorial» ohne |
 | 137 | ROWAPA Digital | Beim Darüberfahren über ein Symbol soll die ganze Karte farbig werden, in einem abgeschwächten Plum; der Rahmen war kaum sichtbar | Karte wird **gedämpftes Plum** (#B93E70, Variable «Plum Gedaempft») mit weisser Schrift, hebt sich leicht an. Gilt für Darüberfahren über das Symbol und über die Karte selbst. Technisch: neuer Theme-Modus «Plum» (Texte, Kicker, Link weiss; Kontrast weisse Schrift 5:1). Verglichen mit einer zarten Variante (helles Plum, dunkle Schrift), die gedämpfte ist deutlich besser sichtbar |
 | 136 | Unsere Erfolge | Titel bis Name des Zitatgebers sollen auf jedem Format in einem Bildschirm stehen | Foto an die Fensterhöhe gekoppelt (`max-height: 100svh − 20 rem`, Tablet − 18 rem, Handy 16:10), Text oben, Zitat in der Mitte, Name auf Höhe der Fotounterkante, Punkte und Pfeile rechts daneben (Handy nur Punkte). Tablet neu zweispaltig wie Desktop. Folien gleich hoch (`erfolge_maske`). Handy: «Alle Referenzen» neben dem Titel. Gemessen Titel bis Name: 1920 px 925 von 1007 px, 1440 750/827, 1366 639/695, 1280 668/727, 1024 570/695, 768 528/959, 390 684/779 (Fensterhöhe ohne Navigation) |
+
+## 19. Feedback-Runde 15 (26.10.2026): nur Besprochenes, Linien, Header-Zeilen, Titelgrössen
+
+Hinweis ROWAPA: Es wird nur gebaut, was besprochen ist. Eigene Ideen kommen als Vorschlag.
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 138 | Header-Verlauf (Nr. 135) | nicht gut, wieder entfernen | entfernt, Header wie vorher |
+| 139 | Header-Zeilen | jede Zeile wie früher auf einer Zeile | Textblock bis 62 rem breit, Handy-Schrift aus der Fensterbreite gerechnet; geprüft in 15 Breiten von 1920 bis 320 px: alle drei Zeilen einzeilig, Grösse sonst unverändert |
+| 140 | Rote Linien | überall gleich dick wie bei «Unser Vorgehen» | alle roten Trennlinien 1 px (Zeilen «Was wir tun», Digital-Karten, Linie beim Darüberfahren, Rahmen beim Klick); vorher 3–4 px |
+| 141 | Meine Entwicklung | Haupttitel in den Feldern prominenter | 1440 px 47 statt 41 px, ab 1536 px 48 px; vorher fielen sie ab 1920 px auf 28 px zurück (Fehler behoben) |
+| 142 | Schriftgrössen | Muster prüfen | Inventar aller Sections in fünf Breiten erstellt. Abweichung vom vereinbarten Fliesstext 17 px behoben (Digital-Karten 16, Meine Entwicklung 18 → 17). Übrige Stufen einheitlich: H2 62 px (1440), Kicker 14 px, Untertitel 19 px, Kartentitel 24 px |
+| 143 | Section-Höhen | jede Section je Bildschirm sauber | vermessen in sieben Formaten; Ergebnis und Vorschlag siehe Bericht Runde 15 (Lösungen, Vorgehen, Digital, Team, Meine Entwicklung sind auf keinem Format eine Bildschirmhöhe) |
 
 ---
 
