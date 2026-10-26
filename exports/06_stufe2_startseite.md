@@ -428,3 +428,29 @@ Feste Fassung (Grundlage für die native Umsetzung auf `/home-v2`):
 Titel überall gross (bis 4,25 rem) mit Plum-Strich, der sich beim Hereinscrollen zeichnet; Kicker in Plum (auf Dunkel Sea Cliff). Ribbons fest an Lösungen, Antrieb, Team, Meine Entwicklung, Kontakt.
 
 Geprüft live (1440 und 390 px): Figuren-Aufbau läuft, Farbfläche nur im CAS-Block, Leiste mit fünf Digital-Varianten schaltet, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde12/`.
+
+## 22. Nativer Bau Kombi G2 auf /home-v2 (Runde 13, 26.10.2026)
+
+Die feste Fassung aus Kapitel 21 ist jetzt mit Webflow-Mitteln gebaut. Die Entwurfs-Aufsätze (`kombi2.css`, `kombi2.js`) laufen auf `/home-v2` nicht mehr; einziger Custom Code bleibt das Skript «ROWAPA Grafik» (1.5.1).
+
+| Section | Umsetzung in Webflow |
+|---|---|
+| Typografie | H1 `clamp(2.5rem, 1.1rem + 4.6vw, 6rem)`, H2 `clamp(2.25rem, 1.2rem + 3vw, 4.25rem)` (Handy `clamp(2rem, 1.25rem + 3vw, 2.5rem)`), Plum-Strich als `::after` an `heading-style-h2`, gezeichnet über die Interaction «Titel-Strich zeichnen» (Zusatzklasse `is-gezeichnet`). Kicker-Farbe über die Theme-Variable «Kicker» |
+| Was wir tun | Card Feature, Variante «Zeile · Lösungen»: weiss, beim Darüberfahren Snowbank und Plum-Kante, Pfeil als `::after` am Titel, Figur 9 rem. 992–1439 px: Kicker über dem Titel, ab 1440 px eigene Kicker-Spalte |
+| Was uns antreibt | `stat_number` `clamp(2.75rem, 5.4vw, 6rem)`, einzeilig; Tablet `clamp(3rem, 2rem + 4vw, 4rem)` |
+| Unser Vorgehen | Phasen mit Innenabstand, Snowbank beim Darüberfahren |
+| Unsere Erfolge | `quote_featured` mit versetztem Fotorahmen; drei Zitate `card.is-linie` |
+| ROWAPA Digital | Bühne: Verlauf an `section_digital` (unten 15 rem weiss); Card Feature «Weiss · Symbol (Digital)»; `tools_grid` ab 992 px fünf Spalten, Tablet automatisch (3 + 2); `note-box.is-kompakt`; Klick auf ein Symbol → `card.is-angetippt` (Skript) |
+| Über uns | Mosaik: `team_card` (+ `is-hoch`), `team_info` («150»), `team_mehr` (+ `is-hoch`); Interaction «Team-Kacheln nacheinander» |
+| Meine Entwicklung | Card Teaser, Varianten «Zeile · Sea Cliff», «Zeile · Snowbank · Bild rechts», «Zeile · Plum»; `layout-grid.is-zeilen`; Bildausschnitt 50 % / 19 % |
+| Im Blickpunkt | Foto links bis zur Mitte, Text rechts (`padding-section-large.is-cas`), Farbfläche `cas_farbe` mit Interaction «CAS Farbfläche einblenden» |
+| Neueste Insights | Seitenspalte (`is-seitenspalte`), Reihe ohne Scrollbalken, Tag vor dem Datum (`card_meta`), ohne Fortschrittslinie |
+| Ribbons | Komponente «Ribbon» in Lösungen, Antrieb (unten links), Kontakt; im Team ausgeblendet (kreuzte nach dem Abstandsausgleich die Buttons); Sections `position: relative`, `overflow: hidden` |
+| Abstände | alle Sections `padding-section-large` (`clamp(4rem, 1.5rem + 7vw, 8rem)`, ab 1920 px 10 rem). Folgt eine weisse Section auf eine weisse Fläche (Digital → Über uns → Meine Entwicklung), trägt sie `is-anschluss`: halber Abstand oben und eine feine Linie, statt doppeltem Weissraum |
+| Alle Seiten | Knopf «Nach oben» in der Footer-Komponente |
+
+**Korrekturen aus der Formatprüfung:** Navigation 992–1439 px kompakter (KONTAKT war bei 1024 px abgeschnitten); «100 %» brach bei 1024 px um; Digital-Karten standen bei 1024 px als 4 + 1; die Lösungen-Zeilen liessen bei 1024 px nur 90 px Textbreite; Ribbon «unten links» lag auf Tablet und Handy über den Kennzahlen; das Kontakt-Ribbon kreuzte die Telefonnummer, das Team-Ribbon danach den Button «Team kennenlernen»; doppelter Weissraum zwischen zwei weissen Sections.
+
+Ab Tablet abwärts sind die Ribbons klein (10 rem), damit sie keine ganzseitigen Titel kreuzen.
+
+**Geprüft live** auf der veröffentlichten Staging-Seite bei 1920, 1440, 1366, 1280, 1024, 992, 768 und 390 px: keine Skriptfehler, kein seitliches Überlaufen, Navigation passt, Titel-Strich 11 von 11, Zähler 20 · 100 % · 150, Insights ohne Scrollbalken, Tags ausserhalb der Fotos, Team-Kacheln und CAS-Farbfläche eingeblendet, Klick auf ein Orbit-Symbol hebt die passende Karte an (ohne Seitenwechsel), «Nach oben» führt an den Seitenanfang. H1/H2: 1920 px 96/68, 1440 px 84/62, 1366 px 80/60, 1280 px 76/58, 1024 px 65/50, 768 px 53/42, 390 px 40/32. Screens: `exports/stufe2-screens/runde13/`.

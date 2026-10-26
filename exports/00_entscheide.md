@@ -214,12 +214,28 @@ Commit b2000a2.
 | 124 | Titel-Anordnung | Titel nicht versetzen, alles wie bisher, **ausser Insights**: Titel in der Seitenspalte, ohne Fortschrittsbalken | umgesetzt |
 | 125 | Entwurf | finaler Entwurf | Umschaltleiste zeigt nur noch «Digitale Lösungen»; alle anderen Sections sind fest |
 
+## 17. Feedback-Runde 13 (26.10.2026): nativer Bau Kombi G2 auf /home-v2
+
+Der finale Entwurf ist jetzt mit Webflow-Klassen, Komponenten-Varianten und Interactions auf `/home-v2` gebaut. Die Entwurfs-Skripte (kombi2.js/.css) laufen dort nicht mehr.
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 126 | Digitale Lösungen | **C «Dunkle Bühne, helle Karten»** | Section oben dunkel (Kugel, Text, Buttons), unten 15 rem weiss; fünf weisse Karten mit Symbol (Card Feature, Variante «Weiss · Symbol (Digital)»); Wissensplattform einzeilig (`note-box.is-kompakt`) |
+| 127 | Klick auf Orbit-Symbol | passende Karte soll sich bewegen | Karte hebt sich 1,4 s an (Plum-Rand, Schatten; Klasse `card.is-angetippt`), wird ins Bild geholt, falls sie ausserhalb liegt. Den Link zur Unterseite trägt die Karte. Skript 1.5.0 |
+| 128 | Insights | Slider bleibt, **ohne Scrollbalken** | Balken ausgeblendet (Style `scrollbar-width: none` an `insights_reihe`, für ältere Browser zusätzlich im Skript). Blättern per Wischen, Trackpad und Pfeilen |
+| 129 | Insights-Hinweise (Sales, Leadership) | nicht im Foto; weglassen oder neben das Datum? | **Neben dem Datum** (Empfehlung umgesetzt): Die Themenzuordnung hilft beim Überfliegen und wird mit dem CMS (Stufe 3) zum Filter; im Foto war sie schwer lesbar und verdeckte das Bild. Zeile `card_meta`: Tag in Plum-Versalien, dann Datum · Format |
+| 130 | Nach oben | auf jeder Seite, sobald man unten ist | Knopf unten rechts (Plum, 48 px), erscheint nach gut einer Bildschirmhöhe, Klick scrollt sanft an den Anfang. Liegt in der Footer-Komponente, also auf jeder Seite. Skript 1.5.0, 1.5.1 springt direkt, falls sanftes Scrollen bei hoher Last nicht anläuft |
+| 131 | Schriftgrösse Header | noch passend zu den grösseren H2? | H1 vergrössert: `clamp(2.5rem, 1.1rem + 4.6vw, 6rem)`, 1440 px Fenster: 84 px statt 72 px (H2 62 px), 1920: 96/68, 1366: 80/60, 1024: 65/50. Auf dem Handy kann die H1 nicht wachsen («Vertriebsleistung.» muss in eine Zeile passen); dort H2 etwas kleiner (32 statt 36 px, H1 40 px). Der Startbildschirm passt weiter: Logos schliessen mit der Fensterunterkante ab |
+| 132 | Abstände | Ober- und Unterkante in allen Formaten sauber | alle Sections mit demselben Innenabstand (`padding-section-large`), Desktop 125 px oben und unten; geprüft auf der veröffentlichten Seite bei 1920, 1440, 1366, 1280, 1024, 992, 768, 390 px. Korrigiert: Navigation bei 992–1439 px kompakter (KONTAKT war bei 1024 px abgeschnitten), Kennzahlen bleiben einzeilig («100 %» brach bei 1024 px um), Digital-Karten ab 992 px fünf nebeneinander (vorher 4 + 1), Lösungen-Zeilen bei 992–1439 px mit Kicker über dem Titel (Text war bei 1024 px nur 90 px breit). Wo zwei weisse Flächen aufeinandertreffen (Digital → Über uns → Meine Entwicklung), entstand doppelter Weissraum (rund 250 px): Die zweite Section hat jetzt den halben Abstand oben und eine feine Linie (`is-anschluss`) |
+| 133 | Ribbons | statisch, dezent | Lösungen oben rechts, Antrieb unten links, Kontakt oben rechts (unten links kreuzte die Telefonnummer). Team: ausgeblendet (Eigenschaft «Ribbon anzeigen» aus), weil es nach dem Abstandsausgleich den Button «Team kennenlernen» kreuzte; jederzeit wieder einschaltbar. Auf Tablet und Handy entfällt «unten links» (lag über den Kennzahlen), die übrigen sind dort klein (10 rem), weil das Kontakt-Ribbon bei 768 px sonst den Titel kreuzte |
+| 134 | Animationen | alle sollen laufen | geprüft auf der veröffentlichten Seite: Punktemeer Header und Footer, Hero-Zeilen mit Unterstreichung, Logo-Laufband, Titel-Strich (11 von 11), Punktfiguren, Zähler (20 · 100 % · 150), Treppe, Kugel und Kacheln, Team-Kacheln nacheinander, Farbfläche CAS (einzige Einblendung), Hover-Videos, Kachel-Klick, Nach oben. Keine Skriptfehler, kein seitliches Überlaufen |
+
 ---
 
 ## Offene Punkte
 
-1. Finaler Entwurf `/kombi-g2`: Variante «Digitale Lösungen» wählen (A Wunsch, B Great Serpent, C Bühne, D hell). Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
-1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
+1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
+1a. Kartentitel Logbuch: auf `/home-v2` steht nach der Sie-Regel «Ihr digitaler Begleiter im Verkauf» (ROWAPA hatte «Dein …» gesetzt). [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).
 4. Auszüge der drei neuen Insights-Karten bestätigen (aus dem Titel abgeleitet, die Originalbeiträge waren aus der Cloud-Umgebung nicht erreichbar). In Stufe 3 kommen die Auszüge aus dem CMS. [ROWAPA bestätigen]

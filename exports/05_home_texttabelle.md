@@ -210,6 +210,18 @@ Prüfung gegen den Redaktionsleitfaden: Die Section Digital sagt jetzt klar, was
 | Unser Vorgehen | Hinweis «Die Messung ist zugleich …» | in der linken Spalte unter Phase 04 | unter dem Raster (Text unverändert) | Grafik steht so genau mittig zwischen der oberen und unteren Linie | – |
 | Im Blickpunkt | Titel | zweizeilig | «CAS Professional Leadership for Finance» auf einer Linie (Varianten D–F) | Wunsch ROWAPA | Auswahl D/E/F |
 
+## Rev. 6 · nativer Bau Kombi G2 (26.10.2026, Runde 13)
+
+| Section | Element | Original | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Was wir tun | Linktext der Zeilen | «Mehr zu …» unter jeder Zeile | entfällt; Pfeil hinter dem Titel, ganze Zeile ist der Link | Linktext wiederholte nur den Titel (Wunsch ROWAPA, Runde 12) | – |
+| ROWAPA Digital | Hinweis Wissensplattform | Kasten mit Titel und Erklärsatz | einzeilig: «Das Fundament: die ROWAPA Wissensplattform» | Bühne wirkt leichter; die Erklärung steht auf der Digital-Seite | Erklärsatz auf `/digital` übernehmen (Stufe 4) |
+| ROWAPA Digital | Kartentitel Logbuch | «Dein digitaler Begleiter im Verkauf» | «Ihr digitaler Begleiter im Verkauf» | Sie-Anrede in Sections für Unternehmen | [ROWAPA bestätigen] |
+| Über uns | Zahlenkachel im Mosaik | – | «150 · Jahre Wissen und Erfahrung im Trainerteam» | gleiche, belegte Kennzahl wie bei «Was uns antreibt» | – |
+| Über uns | letzte Kachel | «Weitere Teammitglieder» | Titel «Weitere Trainerinnen, Trainer und Partner», Satz «Lernen Sie unser ganzes Team kennen» | Wunsch ROWAPA: Hinweis, dass es mehr Trainerinnen, Trainer und Partner gibt; nächster Schritt klar | – |
+| Insights | Themenhinweis | Tag im Foto (oben links) | Tag vor dem Datum in einer Zeile (z. B. «LEADERSHIP   26.08.2025 · Blog») | im Foto schlecht lesbar und verdeckte das Bild; neben dem Datum hilft er beim Überfliegen | – |
+| alle Seiten | Knopf «Nach oben» | – | Pfeil ↑, für Screenreader «Nach oben» | Rückweg an den Seitenanfang, ohne Text im Bild | – |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -218,4 +230,4 @@ Prüfung gegen den Redaktionsleitfaden: Die Section Digital sagt jetzt klar, was
 2. ~~Schreibweise «die Mobiliar Ausserrhoden»~~: bestätigt
 3. Blog-Auszüge: aus dem Artikel übernehmen (Stufe 3, CMS); bis dahin die drei neuen Auszüge bestätigen (Rev. 3 · Rest)
 4. Weitere Kennzahlen, die wir zeigen dürfen (z. B. Anzahl begleiteter Unternehmen oder Teilnehmende pro Jahr)?
-5. Kartentitel «Dein digitaler Begleiter im Verkauf»: auf «Ihr …» umstellen? (Rev. 4)
+5. Kartentitel Logbuch: auf `/home-v2` steht jetzt «Ihr digitaler Begleiter im Verkauf» (Rev. 6). Bitte bestätigen.

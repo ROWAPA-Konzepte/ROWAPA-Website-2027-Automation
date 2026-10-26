@@ -1,6 +1,6 @@
 # ROWAPA Website 2027 · Start hier (Wiederherstellung)
 
-**Laufend gepflegt** · zuletzt aktualisiert 25.10.2026 · **Enthält keine Zugangsdaten, Tokens oder Passwörter.** Dieses Dokument zeigt nur, *wo* etwas liegt und *wie* man die Arbeit wieder aufnimmt.
+**Laufend gepflegt** · zuletzt aktualisiert 26.10.2026 · **Enthält keine Zugangsdaten, Tokens oder Passwörter.** Dieses Dokument zeigt nur, *wo* etwas liegt und *wie* man die Arbeit wieder aufnimmt.
 
 Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die früheren Backup-Runden (Entscheid ROWAPA vom 25.10.2026). Die Dateien werden mit jedem Stufen-Commit nachgeführt. Frühere Stände liegen in der Git-Historie.
 
@@ -40,7 +40,7 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 |---|---|---|
 | Phase 1+2 | Analyse, CMS-Architektur, URL-Plan | erledigt |
 | Stufe 1 | Design-System | freigegeben |
-| Stufe 2 | Startseite `/home-v2` | Feedback-Runde 6 auf Staging; Look-Varianten A/B/C (`/home-look`, `/home-look-b`, `/home-look-c`) finaler Entwurf Kombi G2 (`/kombi-g2`) wartet nur noch auf die Wahl «Digitale Lösungen» (A–D), danach native Umsetzung auf `/home-v2`; frühere Entwürfe: Looks A/B/C, Layouts D/E/F, Kombi G/H, danach native Umsetzung und Freigabe |
+| Stufe 2 | Startseite `/home-v2` | finaler Entwurf Kombi G2 nativ gebaut (Runde 13), in acht Formaten geprüft; **wartet auf Freigabe ROWAPA**. Danach Löschen der zehn Entwurfsseiten (Liste in `00_entscheide.md`, offene Punkte) |
 | Stufe 3 | CMS-Collections, Draft-Einträge (Logos, Partner, Team, Referenzen, Blog) | nach Freigabe Stufe 2 |
 | Stufe 4 | Templates und Unikat-Seiten | danach |
 | Go-live | Domain, Weiterleitungen, Favicon, SEO | zum Schluss, nur mit Freigabe |
@@ -69,10 +69,11 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 
 ## 6. Technische Merkposten
 
-- **Nur ein Custom Code:** das Skript «ROWAPAGrafik» (site-weit, Footer, Version 1.4.1), Quelle `tools/grafik`, geladen von jsDelivr mit fester Commit-Kennung und SRI-Prüfsumme, registriert über die Webflow-Schnittstelle. Enthält Punktemeer, Punktfiguren, Zähler, Treppe, Kugel mit Kacheln (Orbit), Reihen (Insights, Team), Mauszeiger, Menü-Vorschau, Variantenumschalter und Hover-Videos. Frühere Fassungen (1.0.0, 1.1.0) bleiben registriert; das alte «ROWAPAHoverVideo» ist nicht mehr eingebunden.
+- **Nur ein Custom Code:** das Skript «ROWAPAGrafik» (site-weit, Footer, Version 1.5.1), Quelle `tools/grafik`, geladen von jsDelivr mit fester Commit-Kennung und SRI-Prüfsumme, registriert über die Webflow-Schnittstelle. Enthält Punktemeer, Punktfiguren, Zähler, Treppe, Kugel mit Kacheln (Orbit, mit Klick auf die Karte), Insights-Reihe (ohne Scrollbalken), Knopf «Nach oben», Mauszeiger, Menü-Vorschau, Variantenumschalter und Hover-Videos. Frühere Fassungen (1.0.0, 1.1.0) bleiben registriert; das alte «ROWAPAHoverVideo» ist nicht mehr eingebunden.
 - **Neue Skript-Fassung:** `npm run build` in `tools/grafik`, committen, pushen, neue Commit-Kennung und `dist/sri.txt` als neue Version registrieren und anwenden, Staging veröffentlichen.
 - **Kombiklassen nie über HTML-Import anlegen:** Ein Selektor wie `.var_wahl.is-aktiv` im HTML-Import wurde als globale Klasse `.is-aktiv` veröffentlicht. Kombiklassen nur über das Style-Panel bzw. die Style-Schnittstelle mit Elternklasse anlegen.
-- **Master-Entwurf Kombi G2:** `/kombi-g2`; Kopie von `/home-v2` mit Aufsatz `exports/layout-entwuerfe/kombi2.css` und `kombi2.js` (jsDelivr, fester Commit), Umschaltleiste unten rechts. Grundlage für die native Umsetzung.
+- **Startseite nativ (Runde 13):** `/home-v2` enthält den finalen Entwurf Kombi G2 ohne Entwurfs-Skripte: Komponenten-Varianten (Card Feature «Zeile · Lösungen», «Weiss · Symbol (Digital)»; Card Teaser «Zeile · …»; Ribbon «Unten links»), drei Interactions (Titel-Strich, Team-Kacheln, CAS-Farbfläche), Knopf «Nach oben» in der Footer-Komponente.
+- **Master-Entwurf Kombi G2:** `/kombi-g2`; Kopie von `/home-v2` mit Aufsatz `exports/layout-entwuerfe/kombi2.css` und `kombi2.js` (jsDelivr, fester Commit). Nach der Freigabe löschen (mit Freigabe).
 - **Kombi-Entwürfe G/H:** `/kombi-g`, `/kombi-h`; Kopien von `/home-v2` mit Aufsatz `exports/layout-entwuerfe/kombi.css` und `kombi.js` (jsDelivr, fester Commit). Nur intern, nach dem Entscheid löschen (mit Freigabe).
 - **Layout-Entwürfe D/E/F:** `/layout-d`, `/layout-e`, `/layout-f`; Seitencode blendet den Hauptbereich aus und lädt den Entwurf aus `exports/layout-entwuerfe/` (jsDelivr, fester Commit). Nur intern, nach dem Entscheid löschen (mit Freigabe).
 - **Entwurfsseiten Look B und C:** `/home-look-b`, `/home-look-c`; Gestaltung nur über Test-CSS im Seitenkopf (Kopie in `exports/look-entwuerfe/`). Nicht für den Live-Betrieb gedacht.
@@ -85,7 +86,7 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 - **Interaction «Logo-Laufband»:** IX3, Endlosschleife, Pause bei Mausberührung, ruht bei «Bewegung reduzieren». Live geprüft am 25.10.2026.
 - **Theme-System:** Sammlung «Theme» mit Modi Hell (Basis), Soft, Sea, Kontrast, Tiefsee; gesetzt über die Klassen `theme-*`. Andere Klassen dürfen keinen Theme-Modus setzen (Fehler bei `padding-global` am 25.10. behoben).
 - **Uploads lokaler Dateien:** über die Asset-Schnittstelle (Datei-Eintrag anlegen, danach Upload per signiertem Formular). Bilder mit öffentlicher Adresse auch per «Upload by URL».
-- **Grosse Breakpoints** 1280 / 1440 / 1920 sind im Designer aktiv.
+- **Grosse Breakpoints** 1280 / 1440 / 1920 sind im Designer aktiv. Die Startseite nutzt heute 1440 und 1920; der Bereich 992–1439 px ist die Basis (Desktop) und wurde in Runde 13 eigens geprüft (1024, 1280, 1366 px).
 - **Seiten:** `Home v2 (Prototyp)` ist veröffentlicht (Staging). `Styleguide (intern)` bleibt Entwurf. Die leere Seite `Home` wird beim Go-live durch die neue Startseite ersetzt.
 - **Schriften in der Cloud-Vorschau:** Die Schriftdateien liegen auf `webflow-files-prod.global.ssl.fastly.net`. Ist dieser Host in der Umgebung gesperrt, zeigen lokale Screenshots eine Ersatzschrift; die Werkzeuge in `tools/vorschau/` laden die TASA-Dateien dann lokal.
 
