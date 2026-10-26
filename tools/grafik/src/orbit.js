@@ -1,5 +1,5 @@
 /* ROWAPA Digital: Die Wissensplattform dreht sich langsam, die fünf Werkzeuge ziehen ruhig auf ihrer Bahn.
-   Fährt man über eine Karte oder eine Kachel, leuchtet die Kachel auf und eine feine Linie verbindet sie mit der Kugel.
+   Die Kacheln halten nur, solange die Maus über den Karten ist. Fährt man über eine Karte oder eine Kachel, leuchtet die Kachel auf und eine feine Linie verbindet sie mit der Kugel.
    Kugel = Bild mit Klasse orbit_kugel, Bahn = orbit_bahn, Kacheln = orbit_tile (gleiche Reihenfolge wie die Karten).
    Die Kacheln stehen in gleichen Abständen entlang der Bahn (gleiche Weglänge, nicht gleicher Winkel); die 5. Kachel startet oben. */
 import { clamp, zahl, sichtbar, takt, ciFarbe, istHandy } from './util.js';
@@ -88,11 +88,11 @@ export function orbit(box) {
     el.addEventListener('focusin', () => setAktiv(k));
     el.addEventListener('focusout', () => setAktiv(-1));
   }));
-  [box, raster].forEach(el => {
-    if (!el) return;
-    el.addEventListener('mouseenter', () => { pause = true; });
-    el.addEventListener('mouseleave', () => { pause = false; });
-  });
+  /* angehalten wird nur, solange die Maus über den Karten darunter ist */
+  if (raster) {
+    raster.addEventListener('mouseenter', () => { pause = true; });
+    raster.addEventListener('mouseleave', () => { pause = false; });
+  }
 
   /* Leinwand über dem Standbild; übernimmt mit einer kurzen Überblendung */
   function einrichten() {
@@ -133,8 +133,8 @@ export function orbit(box) {
     takt(now => {
       if (!im) { laeuft = false; return false; }
       const dt = Math.min(0.05, (now - tLetzt) / 1000); tLetzt = now;
-      dreh += dt * (TAU / 40) * tempo;
-      if (!pause && !handy) weiter += (dt / 90) * tempo;
+      dreh += dt * (TAU / 24) * tempo;
+      if (!pause && !handy) weiter += (dt / 45) * tempo;
       if (aktiv >= 0) zuletzt = aktiv;
       linie = clamp(linie + (aktiv >= 0 ? dt / 0.3 : -dt / 0.4), 0, 1);
       /* rund 30 Bilder pro Sekunde reichen für diese ruhige Bewegung */
