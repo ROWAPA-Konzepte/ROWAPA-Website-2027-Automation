@@ -1,6 +1,6 @@
 # ROWAPA Website 2027 · Startseite `/home-v2` · Texttabelle
 
-**Stand:** 26.10.2026 · Stufe 2, Rev. 7 (Kopf: Rev. 2) (Feedback-Runde 2 eingearbeitet) · geprüft nach `exports/04_redaktionsleitfaden.md`
+**Stand:** 26.10.2026 · Stufe 2, Rev. 8 (Kopf: Rev. 2) (Feedback-Runde 2 eingearbeitet) · geprüft nach `exports/04_redaktionsleitfaden.md`
 **Quellen:** Live-Baseline rowapa-2027.webflow.io (Startseite) und Vorlage `ROWAPA-Website-v11.html`
 **Lesart:** Original → Vorschlag (so in Webflow eingebaut) → Begründung. Jede Zeile lässt sich einzeln zurückdrehen.
 
@@ -241,6 +241,32 @@ Neue Vorschaukarten in den Menüs «So arbeiten wir», «Über uns», «Partner 
 | Partner werden | Partner & Kooperationen | – | «Verankert in der Branche: akademische Partner, Verbände und Technologiepartner.» | Satz aus dem Partner-Block der Startseite | – |
 | alle Sections | H2 auf dem Handy | 32 px (390 px Breite) | 25 px | H2 war fast so gross wie H1 (35 px); klare Hierarchie | – |
 
+## Rev. 8 · Format je Bildschirm, gestraffte Texte (26.10.2026, Runde 18)
+
+Umgesetzt auf `/home-v2`. Gestrichene Elemente sind ausgeblendet, nicht gelöscht (Benutzerhandbuch 2.32).
+
+| Section | Element | Original | Vorschlag (umgesetzt) | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Hero | Lead | «Gemeinsam bewegen wir Menschen und Unternehmungen, datenbasiert, praxiserprobt, nachhaltig.» | «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» | Begriffsregel «Unternehmen» (Entscheid ROWAPA) | – |
+| Lösungen | Thema 02 | «Potenziale sichtbar machen und gezielt entwickeln: mit Diagnostik, Coaching und Resilienz-Training.» | «Potenziale sichtbar machen und gezielt entwickeln.» | Zeilen kompakt; Text nur ab 1920 px sichtbar, Details auf der Themenseite | – |
+| Lösungen | Thema 03 | «Führung wirksam gestalten: vom Führungsprofil bis zur Teamentwicklung.» | «Führung wirksam gestalten.» | wie oben | – |
+| Lösungen | Thema 04 | «Talente gewinnen, gut integrieren und langfristig binden: vom Assessment bis zur attraktiven Arbeitgebermarke.» | «Talente gewinnen, gut integrieren und langfristig binden.» | wie oben | – |
+| Lösungen | Thema 05 | «E-Learning, hybride Lernformate und KI-gestützte Lösungen, die Training und Beratung in den Alltag verlängern.» | «E-Learning, hybride Lernformate und KI-gestützte Lösungen.» | wie oben | – |
+| Vorgehen | Unterzeilen | «Ist-Zustand erheben, Ziele festlegen.» · «Muster erkennen, Ursachen verstehen.» · «Gezielt umsetzen, laufend nachjustieren.» · «Wirkung belegen, den Kreis schliessen.» | ausgeblendet | Titel und ein Satz genügen; die Section passt in einen Bildschirm | – |
+| Vorgehen | Analysieren | «Mit Diagnostik, Daten und Gesprächen erfassen wir, wo Ihr Unternehmen heute steht. Wo es sinnvoll ist, legen wir ein Soll-Profil fest: messbare Ziele, abgeleitet aus Vergleichsgruppen, auch für Soft Skills.» | «Mit Diagnostik, Daten und Gesprächen erfassen wir, wo Ihr Unternehmen steht, und legen messbare Ziele fest.» | ein Satz je Phase | Soll-Profil und Vergleichsgruppen auf der Seite «So arbeiten wir» erklären? |
+| Vorgehen | Verstehen | «Wir machen sichtbar, was wirkt, wo Leistung verloren geht und was die Menschen antreibt. Gehandelt wird erst, wenn die Ursachen klar sind.» | «Wir machen sichtbar, was wirkt und wo Leistung verloren geht.» | ein Satz je Phase | – |
+| Vorgehen | Handeln | «Programme, Begleitung und digitale Lösungen setzen genau dort an. Vergleichsformate zeigen früh, was in der Praxis überzeugt.» | «Programme, Begleitung und digitale Lösungen setzen genau dort an.» | ein Satz je Phase | – |
+| Vorgehen | Messen | «Mit denselben Instrumenten wie zu Beginn messen wir, was sich verändert hat. Die Ergebnisse sind die Grundlage für die nächste Runde.» | «Mit denselben Instrumenten wie zu Beginn messen wir, was sich verändert hat.» | Der Hinweis «Die Messung ist zugleich der Start der nächsten Analyse.» steht unter den Phasen | – |
+| Erfolge | Drei Zitate unter dem Slider | Basler Versicherung, Raiffeisenbank Berg-Erlen, die Mobiliar Ausserrhoden als Raster | dieselben Zitate als Folien 6–8 im Slider, Text unverändert, mit Seminarbildern | ein Block pro Bildschirm | – |
+| Digital | Einleitung | «Was wir beraten, bauen wir auch: Unsere Methodik steckt in fünf digitalen Lösungen mit künstlicher Intelligenz, entwickelt mit ETH juniors (ETH Zürich). Eingeführt werden sie vom Vertrieb oder vom HR, genutzt im ganzen Vertrieb bis zur einzelnen Beraterin und zum einzelnen Berater. Jede Lösung ist einzeln buchbar.» | «Was wir beraten, bauen wir auch: fünf digitale Lösungen mit künstlicher Intelligenz, entwickelt mit ETH juniors (ETH Zürich). Jede Lösung ist einzeln buchbar.» | von vier auf zwei Sätze | – |
+| Digital | Anker | «Das Personalökosystem begleitet vom ersten Interesse bis zur Anstellung, findet die richtigen Mitarbeitenden und senkt die Fluktuation.» | «Begleitet vom ersten Interesse bis zur Anstellung und senkt die Fluktuation.» | Kartentexte kurz; sichtbar ab 1920 px und auf dem Tablet | – |
+| Digital | Kompass | «Der digitale Beratungsprozess führt Beraterinnen und Berater Schritt für Schritt von der Ausgangslage zur passenden Lösung.» | «Führt Schritt für Schritt von der Ausgangslage zur passenden Lösung.» | wie oben | – |
+| Digital | Lotse | «Der digitale Performance Coach begleitet Entwicklung über den Trainingstag hinaus, damit das Gelernte im Alltag wirkt.» | «Begleitet Entwicklung über den Trainingstag hinaus.» | wie oben | – |
+| Digital | Segel | «Die interaktive Beratung macht Themen im Kundengespräch sichtbar und greifbar, mit hybridem Storytelling.» | «Macht Themen im Kundengespräch sichtbar und greifbar.» | wie oben | – |
+| Digital | Logbuch | «Der digitale Sales Coach gibt Beraterinnen und Beratern im Alltag konkrete Impulse für das nächste Kundengespräch.» | «Gibt im Alltag konkrete Impulse für das nächste Kundengespräch.» | wie oben | – |
+| Team | Partnerlogos | Block mit Text und 14 Logos unter dem Team | auf der Startseite ausgeblendet | Section passt in einen Bildschirm; Logos gehören auf «Partner & Kooperationen» | Partnerlogos später auf der Partnerseite zeigen? |
+| Insights | Webinare, ROWAPA TV | unter den Karten | ab 992 px links unter «Alle Inhalte» | freier Platz in der Titelspalte (Entscheid ROWAPA) | – |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -250,4 +276,6 @@ Neue Vorschaukarten in den Menüs «So arbeiten wir», «Über uns», «Partner 
 3. Blog-Auszüge: aus dem Artikel übernehmen (Stufe 3, CMS); bis dahin die drei neuen Auszüge bestätigen (Rev. 3 · Rest)
 4. Weitere Kennzahlen, die wir zeigen dürfen (z. B. Anzahl begleiteter Unternehmen oder Teilnehmende pro Jahr)?
 5. ~~Kartentitel Logbuch~~: «Ihr digitaler Begleiter im Verkauf» bestätigt (26.10.2026)
-6. Fünf Entwürfe in den Menükarten (Rev. 7) bestätigen oder ersetzen; dazu Bilder für Managing Partner, Education Partner und Trainer Academy, falls eigene vorhanden sind.
+6. ~~Fünf Entwürfe in den Menükarten (Rev. 7)~~: bestätigt (26.10.2026). Offen: Bilder für Managing Partner, Education Partner und Trainer Academy, falls eigene vorhanden sind.
+7. Soll-Profil und Vergleichsgruppen (gestrichen im Vorgehen) auf der Seite «So arbeiten wir» erklären? (Rev. 8)
+8. Partnerlogos später auf der Seite «Partner & Kooperationen» zeigen? (Rev. 8)

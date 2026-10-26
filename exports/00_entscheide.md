@@ -275,6 +275,27 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 154 | Digital im Header | Variante A als Vorschau, ohne Obertitel | in der Vorschau «Header: Variante A»: ohne Obertitel, Leiste «ROWAPA Digital» mit fünf Symbolen unter dem Lead-Text |
 | 155 | Lead-Text im Header | von ROWAPA im Designer geändert | heute im Designer: «Gemeinsam bewegen wir Menschen und Unternehmungen, datenbasiert, praxiserprobt, nachhaltig.» Hinweis: Die Begriffsregel sagt «Unternehmen» (nicht «Unternehmung»). [ROWAPA bestätigen] |
 
+## 22. Feedback-Runde 18 (26.10.2026): Format-Vorschlag und Straffung nativ auf /home-v2
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 156 | Vorgehen umsetzen | v2 mit den Anpassungen aktualisieren; für die Themenlinien-Szene später eine v3 anlegen; aufräumen erst nach dem Entscheid für die definitive Variante | `/home-v2` nativ umgebaut (Klassen, Breakpoints, Kombi-Klassen, Komponenten-Varianten), kein Custom Code. Sections nicht gelöscht, nur ausgeblendet, wo gestrafft |
+| 157 | Abstände | an die Fensterhöhe koppeln | Section-Abstand `clamp(3rem, 9svh, 7rem)` oben und unten (ab 1920 nicht mehr fix 10rem), Anschluss-Sections oben `clamp(2rem, 5svh, 4rem)`, Kopf bis Inhalt `clamp(1.5rem, 4svh, 3rem)`. Header auf kleinen Laptops (992–1439) mit weniger Luft über dem Titel |
+| 158 | Unser Vorgehen: Grafik | «Die Grafik soll sich im rechten Teil aufbauen, von der Mitte nach rechts, da nach oben mehr Platz ist; so kann sie grösser werden» | Treppe rechts neben Titel und Einleitung, die vier Phasen darunter in einer Reihe. Höhe höchstens `100svh - 28.5rem`. Tablet: Treppe zentriert über den Phasen (2 × 2), Handy: Phasen als Wischkarten, Treppe ausgeblendet. Fette Unterzeilen ausgeblendet, je Phase ein Satz |
+| 159 | Digital: Symbole um die Kugel | «müssen kleiner werden, damit es sauber aussieht» | Kacheln, Symbole, Namen und Kugel-Beschriftung wachsen mit der Fensterhöhe (bei 1440×900 Kachel 50 statt 80 px). Orbit ab 1280 px; darunter Einleitung über die ganze Breite. Einleitung und Kartentexte gestrafft, Kartentexte nur ab 1920 und auf dem Tablet sichtbar, Tablet und Handy als Wischreihe |
+| 160 | Female Empowerment | «Gesicht weiter nach oben, lieber oben anschneiden als unten» | Bildausschnitt von 50 % 19 % auf 50 % 45 %: Gesicht höher, oben angeschnitten |
+| 161 | Insights | «Hier haben ROWAPA TV und Webinare noch Platz» | Die beiden Hinweise stehen ab 992 px links unter «Alle Inhalte», darunter wie bisher. Bildhöhe an die Fensterhöhe gekoppelt, Auszug 992–1919 ausgeblendet (eigene Kartenvariante «Insights Reihe») |
+| 162 | Format | Feedback galt für 1440×900 | sinngemäss auf alle 8 Formate übertragen |
+| 163 | Header | so lassen wie bisher (Variante A entfällt) | unverändert, mit Obertitel |
+| 164 | Kartentexte Menü | in Ordnung | bestätigt (Texttabelle Rev. 7) |
+| 165 | Lead-Text | «Unternehmen» ist gesetzt | «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» |
+| 166 | Unsere Erfolge | gestrafft | Die drei Zitate unter dem Slider sind jetzt Folien 6–8 mit bisher ungenutzten Bildern (erfolg-7, erfolg-5, erfolg-3). Das alte Zitate-Raster ist ausgeblendet, nicht gelöscht |
+| 167 | Partnerlogos | gestrafft | auf der Startseite ausgeblendet (Einstellungen › Sichtbarkeit), nicht gelöscht |
+| 168 | Meine Entwicklung | drei Wege nebeneinander | ab 992 px drei Spalten (Bild oben), Tablet Bild links neben dem Text, Handy Wischkarten |
+| 169 | Lösungen | kompakte Zeilen | grosse Karte und vier Zeilen an die Fensterhöhe gekoppelt, Zeilentexte nur ab 1920; Tablet 2 × 2, Handy Wischreihe. Zeilentexte gestrafft |
+| 170 | Prüfung live | in allen 8 Formaten nachgemessen | 1920 bis 768 px: 12 von 12 Sections passen in einen Bildschirm (Seite 10,3–11,7 Bildschirme, vorher 13,7–17,4). Handy 390×844: 10 von 12 (12,8 statt 20,4 Bildschirme). Länger als ein Bildschirm bleiben auf dem Handy «Im Blickpunkt» (+128 px, Bild über dem Text, war in der Vorschau falsch gemessen) und «Neueste Insights» (+221 px, weil Webinare und ROWAPA TV bleiben) |
+| 171 | Referenz Tresmares Capital | Seite live ansehen | aus der Cloud-Umgebung nicht erreichbar (Verbindung wird abgewiesen, auch nach Freigabe). Optionen: Sitzung auf dem eigenen Computer (Claude Desktop App) oder Screenshots. Themenlinien-Szene (v3) folgt danach |
+
 ---
 
 ## Offene Punkte
@@ -290,7 +311,9 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 9. Option Mobile: Wische-Reihen auch für Wege und Werkzeuge (Insights ist umgesetzt).
 10. Themen-URLs in Stufe 4 an die neuen Titel anpassen (mit Weiterleitung); ebenso `/fuer-organisationen`.
 11. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
-12. Megamenü-Bezeichnungen «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention» weichen von den Titeln auf der Startseite ab («Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung»). Angleichen? [ROWAPA bestätigen]
-13. Fünf Entwürfe in den Menükarten bestätigen (Texttabelle Rev. 7), dazu eigene Bilder für Managing Partner, Education Partner und Trainer Academy, falls vorhanden.
-14. Format-Vorschau: je Section entscheiden (Heute / Vorschlag / Gestrafft, Header A ja/nein); danach Umsetzung in Webflow.
-15. Lead-Text im Header: «Unternehmungen» oder «Unternehmen» (Begriffsregel).
+12. Megamenü-Bezeichnungen «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention» weichen von den Titeln auf der Startseite ab («Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung»). Bearbeiten wir später (Entscheid Runde 18).
+13. Eigene Bilder für Managing Partner, Education Partner und Trainer Academy, falls vorhanden (die Menütexte sind bestätigt).
+14. `/home-v3`: neue Reihenfolge, «Warum ROWAPA» in «Was uns antreibt», Themenlinien-Szene (ersetzt «Lösungen für Unternehmen»). Wartet auf die Referenz Tresmares Capital (Sitzung auf dem eigenen Computer oder Screenshots).
+15. Handy: «Im Blickpunkt» und «Neueste Insights» sind länger als ein Bildschirm (Entscheid 170). Kürzen oder so lassen?
+16. Designer-Ansicht: «Unsere Erfolge» mit 8 Folien geprüft und in Ordnung. «Unser Vorgehen» noch prüfen (die Designer-Vorschau brach mehrmals ab).
+17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante.

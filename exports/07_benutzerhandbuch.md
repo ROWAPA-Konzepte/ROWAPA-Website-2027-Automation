@@ -108,7 +108,8 @@ Site settings › General › Favicon (`rowapa-favicon-32.png`) und Webclip (`ro
 - **Stimme ändern:** Im Navigator den Slider öffnen › Slide auswählen › Texte und Bild direkt ändern.
 - **Stimme ergänzen:** Slider auswählen › Zahnrad › «Add slide», danach den Inhalt einer bestehenden Slide (Block `quote_featured`) kopieren und einfügen.
 - **Wechsel:** heute «Cross Fade», automatisch alle 4 s, dazu Pfeile und Punkte. Ändern: Slider auswählen › Zahnrad (Animation, Auto-play, Delay).
-- **Ein Block pro Bildschirm (seit Runde 14):** Titel, Foto, Zitat, Name und Steuerung passen auf jedem Format zusammen in ein Fenster. Dafür ist das Foto (`quote_image-wrapper`) höchstens «Fensterhöhe minus 20 rem» hoch (Tablet minus 18 rem, Handy im Format 16:10). Der Text steht oben, das Zitat in der Mitte, der Name unten auf Höhe der Fotounterkante; Punkte und Pfeile stehen rechts daneben (Handy: nur Punkte, gewischt wird mit dem Finger).
+- **Acht Stimmen (seit Runde 18):** Die drei Zitate, die früher unter dem Slider standen, sind jetzt die Folien 6–8. Das alte Zitate-Raster (`layout-grid is-3-col is-erfolge`) ist ausgeblendet (Klasse `is-erfolge`: Display none), nicht gelöscht.
+- **Ein Block pro Bildschirm (seit Runde 14):** Titel, Foto, Zitat, Name und Steuerung passen auf jedem Format zusammen in ein Fenster. Dafür ist das Foto (`quote_image-wrapper`) höchstens «Fensterhöhe minus 22 rem» hoch (1440–1919 minus 24 rem, ab 1920 minus 23 rem, Tablet minus 18 rem, Handy im Format 16:10). Der Text steht oben, das Zitat in der Mitte, der Name unten auf Höhe der Fotounterkante; Punkte und Pfeile stehen rechts daneben (Handy: nur Punkte, gewischt wird mit dem Finger).
 - **Gleich hohe Folien:** Die Maske des Sliders trägt die Klasse `erfolge_maske` (Flexbox, nebeneinander, gleich hoch), jede Folie die Klasse `erfolge_folie` (schrumpft nicht, Höhe automatisch). So sind alle Folien gleich hoch und der Name steht immer auf derselben Linie. Beide Klassen nicht entfernen. Neue Folie: eine bestehende Folie duplizieren, dann trägt sie die Klasse schon. Kein Raster (Grid) auf die Maske legen: Das zeichnet der Webflow-Designer falsch (alle Folien gequetscht nebeneinander), auch wenn die Website richtig aussieht (Runde 17).
 - **Bildauswahl:** Gesichter in die Bildmitte; auf kleinen Laptops und dem Handy wird das Foto breiter als hoch angeschnitten.
 - Ab Stufe 3 kommen die Kundenstimmen aus dem CMS; der Slider bleibt für die Startseite.
@@ -128,7 +129,9 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ### 2.18 Unser Vorgehen (Treppe und Phasen)
 - **Texte der Phasen:** direkt in der Liste ändern. Die Nummern (01–04) sind normaler Text.
-- **Ablauf (seit Runde 6):** Die Grafik steht fest und optisch mittig neben der Phasenliste (Style `vorgehen_media`: zentriert, 5 % nach oben verschoben). Sie baut sich auf, sobald sie in der Bildmitte ist; die Stufen leuchten nacheinander Plum, die Phase links leuchtet mit, danach steht Phase 01. Attribut `data-modus="folge"` an `vorgehen_media` (`ruhig` = ohne Farbdurchlauf).
+- **Aufbau (seit Runde 18):** Titel und Einleitung stehen links, die Treppe rechts daneben (Style `vorgehen_media`, Raster `vorgehen_layout` Spalte 2, Zeile 1). Die vier Phasen stehen darunter in einer Reihe (`steps_list`), auf dem Tablet 2 × 2, auf dem Handy als Wischkarten; die Treppe ist auf dem Handy ausgeblendet. Die Höhe der Treppe ist an die Fensterhöhe gekoppelt (`vorgehen_image`: höchstens Fensterhöhe minus 28,5 rem). Das Bild ist mit Rand links «auto» rechtsbündig gesetzt, nicht mit Flexbox: Mit Flexbox zeichnet das Skript die Treppe neben das Bild.
+- **Unterzeilen:** Die fetten Unterzeilen (`step_lead`) sind ausgeblendet (Klasse `step_lead`: Display none), nicht gelöscht. Wieder einblenden: Display auf Block stellen.
+- **Ablauf:** Sie baut sich auf, sobald sie in der Bildmitte ist; die Stufen leuchten nacheinander Plum, die Phase links leuchtet mit, danach steht Phase 01. Attribut `data-modus="folge"` an `vorgehen_media` (`ruhig` = ohne Farbdurchlauf).
 - **Hervorhebung:** Die aktive Phase trägt die Zusatzklasse `is-aktiv` (auf `step_item` und `step_number`). Im Designer ist Phase 01 hervorgehoben; auf der Seite wandert die Hervorhebung mit der Treppe.
 - **Bild der Treppe:** `grafik-vorgehen-treppe.png` (Stufen im Ruhezustand, transparenter Hintergrund). Die Plum-Hervorhebung erzeugt das Skript aus diesem Bild. Wird ein anderes Bild mit anderer Aufteilung eingesetzt, am Bildrahmen (`vorgehen_media`) das Attribut `data-spalten` mit den drei Spaltengrenzen setzen (Anteile der Bildbreite, z. B. `0.26,0.5,0.75`).
 
@@ -140,6 +143,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Lage:** Die Bahn ist das Element `orbit_bahn` (gepunktete Ellipse). Grösse und Lage im Style-Panel ändern; die Kacheln folgen auf der Seite der Bahn. Die Startplätze im Designer setzen die Zusatzklassen `is-anker`, `is-kompass`, `is-lotse`, `is-segel`, `is-logbuch`.
 - **Kugel:** Bild `grafik-wissensplattform-kugel.png` mit der Klasse `orbit_kugel` (Grösse über die Höhe in Prozent). Die drehende Kugel zeichnet das Skript genau an dieser Stelle.
 - **Beschriftung «Wissensplattform»:** Element `orbit_label`, Text direkt ändern.
+- **Grösse (seit Runde 18):** Kacheln, Symbole, Namen und Beschriftung wachsen mit der Fensterhöhe (`orbit_tile` `clamp(2.75rem, 5.6svh, 5rem)`, `orbit_tile-icon` `clamp(1.375rem, 2.6svh, 2.375rem)`, `orbit_tile-name` `clamp(0.8125rem, 1.45svh, 1.125rem)`). Der Orbit erscheint ab 1280 px; darunter steht die Einleitung über die ganze Breite. Die Kartentexte erscheinen ab 1920 px und auf dem Tablet, auf Tablet und Handy sind die Karten eine Wischreihe.
 - **Klick auf ein Symbol:** Die passende Karte hebt sich kurz an und wird ins Bild geholt. Aussehen: Klasse `card` › Zusatzklasse `is-angetippt` (heute Plum-Rand, Schatten, 12 px nach oben). Den Link zur Unterseite trägt die Karte.
 - **Bühne:** Die Section ist oben dunkel und unten auf 15 rem weiss (Hintergrundverlauf an `section_digital`); die Karten sitzen auf der Kante. Wird der Text länger, den Wert im Verlauf anpassen.
 
@@ -147,6 +151,8 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Beitrag ergänzen:** Einen Block `reihe_item` (mit Karte darin) duplizieren und die Karte über die Properties befüllen (Bild, Tag, Datum, Titel, Auszug, Link). Neueste Beiträge zuerst.
 - **Sichtbar:** Desktop 3 Karten neben der Titelspalte, Tablet 2, Handy 1 mit Anschnitt. Geblättert wird mit den Pfeilen, per Wischen oder Trackpad; einen Scrollbalken gibt es nicht (Style `insights_reihe`: «scrollbar-width: none»). Die Fortschrittslinie (`reihe_fortschritt`) ist ausgeblendet. Bei 3 oder weniger Karten verschwinden die Pfeile.
 - **Tag und Datum:** Tag (z. B. «Leadership») und Datum stehen in einer Zeile über dem Titel (`card_meta`), nicht im Foto.
+- **Variante «Insights Reihe» (seit Runde 18):** Bildhöhe an die Fensterhöhe gekoppelt, Auszug 992–1919 px ausgeblendet. Neue Karten in der Reihe bekommen diese Variante.
+- **Webinare und ROWAPA TV:** Ab 992 px stehen die zwei Hinweise links unter «Alle Inhalte» (Klasse `link-teaser-list is-seitenspalte`, Spalte 1, Zeile 2), auf Tablet und Handy unter den Karten.
 - Ab Stufe 3 wird die Reihe eine CMS-Liste; der Aufbau bleibt gleich.
 
 ### 2.21 Startbildschirm (Header bis Logo-Band)
@@ -172,6 +178,8 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - Aufbau in `team_grid`: Personenkarten (`team_card`), hohe Karten mit Zusatzklasse `is-hoch` (heute Wolfgang Wachter, Thomas Rothkögel), die Zahlenkachel `team_info` («150 Jahre Wissen und Erfahrung im Trainerteam») und als letzte Kachel `team_mehr` («Weitere Trainerinnen, Trainer und Partner», Link zum Team).
 - Mitglied ergänzen: eine Personenkarte duplizieren und befüllen; `team_mehr` bleibt die letzte Kachel.
 - Die Kacheln erscheinen beim Hereinscrollen nacheinander (siehe 2.11).
+- **Format (seit Runde 18):** Desktop: zwei Reihen, Höhe an die Fensterhöhe gekoppelt (`team_grid`). Tablet und Handy: Wischreihe, die Zahlenkachel ist dort ausgeblendet.
+- **Partnerlogos:** Der Block `partner_block` unter dem Team ist auf der Startseite ausgeblendet (Einstellungen › Sichtbarkeit). Wieder einblenden: Block im Navigator wählen › Zahnrad › Sichtbarkeit ein.
 
 ### 2.25 Variantenseite (intern)
 - `/varianten` zeigt die Vorschläge der Runde 4 nebeneinander; oben die Leiste zum Umschalten (A, B, C je Thema). Sie ist nicht verlinkt und wird nach dem Entscheid gelöscht.
@@ -206,8 +214,29 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - Die Section braucht «position: relative» und «overflow: hidden». Alle Ribbons aus: Variable «Ribbon Deckkraft» auf 0.
 
 ### 2.31 Meine Entwicklung (drei Zeilen)
-- Drei Card-Teaser-Zeilen in den Tönen Sea Cliff Tint, Snowbank (Bild rechts) und Plum Tint. Variante je Karte rechts unter Properties wählen.
-- Bildausschnitt: Foto und Video sitzen auf 19 % von oben, damit die Augen immer sichtbar bleiben. Neues Bild: Gesicht im oberen Drittel wählen.
+- Drei Card-Teaser-Karten in den Tönen Sea Cliff Tint, Snowbank und Plum Tint. Variante je Karte rechts unter Properties wählen.
+- **Darstellung (seit Runde 18):** ab 992 px drei Karten nebeneinander, Bild oben (Höhe an die Fensterhöhe gekoppelt); Tablet: Bild links, Text rechts, untereinander; Handy: Wischkarten. Eingestellt in den drei Varianten (Klassen `card`, `card_image-wrapper`, `card_content`) und in `layout-grid is-zeilen`.
+- Bildausschnitt: Foto und Video sitzen auf 19 % von oben, damit die Augen sichtbar bleiben; Female Empowerment auf 45 % (Gesicht höher, oben angeschnitten). Ändern: Karte auswählen › Variante › `card_image` › Object position. Neues Bild: Gesicht im oberen Drittel wählen.
+
+### 2.32 Darstellung je Format (seit Runde 18)
+- **Grundsatz:** Jedes Format bekommt die Darstellung, die dort am besten wirkt. Auf Desktop und Tablet passt jede Section vom Titel bis zum Button in einen Bildschirm, auf dem Handy werden lange Reihen zu Wischreihen.
+- **Fensterhöhe:** Viele Grössen hängen an der sichtbaren Fensterhöhe, z. B. `clamp(3rem, 9svh, 7rem)`. Das bedeutet: 9 % der Fensterhöhe, mindestens 3 rem, höchstens 7 rem. Werte nur im Style-Panel ändern, die Schreibweise beibehalten.
+- **Breakpoints:** Basis 992–1279 px, darüber 1280, 1440 und 1920 (Werte gelten nach oben weiter), darunter Tablet (bis 991), Handy quer (bis 767) und Handy (bis 479).
+- **Section-Abstand:** `padding-section-large` oben und unten `clamp(3rem, 9svh, 7rem)`, Anschluss-Sections (`is-anschluss`) oben `clamp(2rem, 5svh, 4rem)`; Kopf bis Inhalt (`section-head`, `section-head_row`) `clamp(1.5rem, 4svh, 3rem)`.
+- **Neue Zusatzklassen:**
+
+| Klasse | Wo | Wirkung |
+|---|---|---|
+| `section-head_row is-breit` | Lösungen, Team | Titel und Button auf Desktop in einer Zeile, ab Tablet umbrechend |
+| `section-head is-flush is-breit` | Lösungen, Team | Kopf darf breiter als 48 rem werden |
+| `button-group is-fest` | Team | Buttons werden nicht gestaucht |
+| `section-head is-flush is-kompakt` | Digital | kleinere Abstände im Kopf |
+| `note-box is-kompakt is-digital` | Digital | Hinweis «Wissensplattform» auf dem Handy ausgeblendet |
+| `button-group is-digital`, `button is-digital`, `button is-secondary is-digital` | Digital | kleinere Buttons auf dem Handy |
+
+- **Kartenvarianten:** Lösungen-Zeilen, Digital-Karten, Wege und Insights haben ihre Darstellung je Format in der jeweiligen Komponenten-Variante. Die Insights-Karten nutzen die Variante «Insights Reihe» (Bildhöhe an die Fensterhöhe gekoppelt, Auszug 992–1919 ausgeblendet). Neue Insights-Karte: Variante «Insights Reihe» wählen.
+- **Ausgeblendet, nicht gelöscht (Runde 18):** Zitate-Raster unter dem Slider (`is-erfolge`), fette Unterzeilen im Vorgehen (`step_lead`), Partnerlogos (Block `partner_block`, Einstellungen › Sichtbarkeit aus). Wieder einblenden: Klasse auf Display Block bzw. Grid stellen oder die Sichtbarkeit einschalten.
+- **Prüfen:** Werkzeug `tools/format-vorschau/` misst die Staging-Seite in 8 Formaten (LIESMICH dort).
 
 ---
 

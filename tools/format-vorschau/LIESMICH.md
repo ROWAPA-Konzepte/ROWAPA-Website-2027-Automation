@@ -15,3 +15,11 @@ Werkzeug für die Entscheidung «Darstellung je Format». Es fotografiert die St
 3. `python3 bauen.py ./heute ./vorschlag` → Ordner `site/` (index.html + Bilder als WebP), als private Vorschauseite veröffentlichen.
 
 Messung je Section: Section-Oberkante bis Ende des Inhalts (ohne unteren Abstand) gegen sichtbare Höhe (Fenster minus Navigation). Startbildschirm: ganze Höhe gegen Fensterhöhe.
+
+## Stand Runde 18
+
+Der Vorschlag und die Straffung sind seit Runde 18 nativ in Webflow umgesetzt. Die Zustände «vorschlag-…» und «…-gestrafft» würden jetzt doppelt wirken; zum Prüfen der Seite, wie sie ist, nur `Z=heute-heute` verwenden:
+
+`FONTS=/pfad Z=heute-heute OUT=./live node gen.js`
+
+Ergebnis 26.10.2026 (live): 1920 bis 768 px 12 von 12 Sections in einem Bildschirm, Seite 10,3–11,7 Bildschirme; 390×844 10 von 12 (12,8 Bildschirme), länger bleiben «Im Blickpunkt» (+128 px) und «Neueste Insights» (+221 px). Die Vorschau hatte «Im Blickpunkt» auf dem Handy zu kurz gemessen, weil ihre Abstandsregel den Bildplatz über dem Text überschrieb.
