@@ -165,11 +165,20 @@ Commit b2000a2.
 | 95 | Layout | «alle gleich aufgebaut (links Text und Titel)», 2–3 Varianten mit anderer Anordnung; Simon-Kucher und Unterseiten als Referenz, nicht 1:1 | drei Layout-Entwürfe mit unveränderter Dramaturgie und Texten: D «Bühne & Reiter» `/layout-d`, E «Editorial versetzt» `/layout-e`, F «Mosaik & Flächen» `/layout-f`. Benchmark: Simon-Kucher (Startseite, Financial Services, Banking, Versicherungen, Sales, Insights, Karriere, Kontakt), Bain, BCG, Oliver Wyman, Roland Berger, Korn Ferry, Pictet, Vontobel; nicht erreichbar: McKinsey, Julius Bär, zeb (Schutz gegen automatische Zugriffe bzw. Proxy) |
 | 96 | Umsetzung der Entwürfe | Claude: Entwürfe als HTML/CSS im Repository (`exports/layout-entwuerfe/`), per Lader nur auf den drei internen Seiten eingeblendet | die gewählte Variante (oder Mischung) wird danach nativ mit Webflow-Elementen und Client-First-Klassen gebaut; kein Custom Code im Endprodukt ausser den bestehenden Grafik-Modulen |
 
+## 13. Feedback-Runde 9 (26.10.2026): Kombi-Varianten auf der heutigen Startseite
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 97 | Kombination statt Neuaufbau | heutige Startseite behalten, Punktemeer nicht aufgeben, aber mit Fotos wie D; Logos aus E, «Was uns antreibt» aus D, Team aus F, Titel wie D (gross, Plum-Strich); mehr unterschiedliche Bewegung: Farbfluss der Sections von links nach rechts, animierte Diagonal-Elemente, neue Darstellung der Lösungen | zwei Varianten auf Kopien von `/home-v2`: **G** `/kombi-g` und **H** `/kombi-h`. Echte Seite mit allen Grafiken (Punktemeer, Figuren, Treppe, Orbit, Zeiger), darüber ein Aufsatz aus `exports/layout-entwuerfe/kombi.css` und `kombi.js` |
+| 98 | Hero | Punktemeer bleibt | G: Fotofenster rechts mit 45°-Kante und Plum-Ribbon, das Foto löst sich unten ins Punktemeer auf. H: Foto über die ganze Breite, Text und Wellen bleiben frei, Ribbon läuft oben rechts ein, Hero in voller Fensterhöhe. In beiden wechselt das Foto mit der hervorgehobenen Zeile (Vertriebsleistung / Führung / Fluktuation) |
+| 99 | Bewegung | Leitlinie «kein Farbfluss» (LIESMICH Grafik) wird auf Wunsch ROWAPA geöffnet [bei Wahl bestätigen] | G: Farbflächen wischen gerade von links nach rechts ein, Ribbons zeichnen sich einmal in die Section-Ecken. H: Farbflächen laufen mit schräger Kante ein, Ribbons gleiten mit dem Scrollen durch die Ecken |
+| 100 | Lösungen für Unternehmen | neue Anordnung, gleiche Inhalte und Figuren | G: Vertriebsperformance gross links, die vier anderen Themen als Zeilen rechts (Plum-Kante beim Darüberfahren). H: Akkordeon aus fünf Spalten, eine ist offen, wechselt alle 5 s und beim Darüberfahren; Handy: Karten untereinander |
+
 ---
 
 ## Offene Punkte
 
-1. Layout D, E oder F wählen (gern Mischung je Section, z. B. «Hero aus E, Lösungen aus F, Digital aus D»), dazu Look A/B/C aus Runde 7 für Farben und Typografie. Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
+1. Kombi G oder H wählen (oder Mischung, z. B. «Hero aus H, Lösungen aus G»); Alternativen bleiben Layout D, E oder F. Bisher: Layout D, E oder F wählen (gern Mischung je Section, z. B. «Hero aus E, Lösungen aus F, Digital aus D»), dazu Look A/B/C aus Runde 7 für Farben und Typografie. Danach native Umsetzung auf `/home-v2`, Entwurfsseiten löschen (mit Freigabe), Freigabe Stufe 2.
 1a. Kartentitel in Digital «Dein digitaler Begleiter im Verkauf» (von ROWAPA geändert) nutzt die Du-Anrede, die Section spricht mit Sie. Vorschlag: «Ihr digitaler Begleiter im Verkauf». [ROWAPA bestätigen]
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).

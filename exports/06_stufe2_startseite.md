@@ -344,3 +344,23 @@ Dramaturgie und Texte wie `/home-v2` (Entscheid ROWAPA), aber jede Section mit n
 Geprüft live (1440 und 390 px): Inhalte geladen, Reiter und Slider schalten, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde8/` (je Variante Desktop und Handy, Vergleich `vergleich_D-E-F.jpg`).
 
 Native Umsetzbarkeit: alle Anordnungen sind mit Webflow-Grid, Flex, Tabs-Element (Auto-Wechsel nativ möglich), Slider-Element und Interactions baubar. Schräge Flächen über native Transform (Skew) bzw. Ribbon-Klasse; nur der Fortschrittsbalken der Reiter in D bräuchte eine kleine Interaction.
+
+## 18. Kombi-Varianten G und H (Runde 9, 26.10.2026)
+
+Grundlage ist die heutige Startseite (Kopie von `/home-v2`), nicht ein neuer Entwurf. Struktur, Texte, Punktemeer, Figuren, Treppe, Orbit und Zeiger bleiben; ein Aufsatz (`exports/layout-entwuerfe/kombi.css`, `kombi.js`, über jsDelivr auf festem Commit) ändert Anordnung und Bewegung.
+
+| Bereich | G `/kombi-g` | H `/kombi-h` |
+|---|---|---|
+| Hero | Punktemeer + Fotofenster rechts (45°-Kante, Plum-Ribbon), Foto löst sich ins Punktemeer auf | Punktemeer + Foto über die ganze Breite, links und unten ausgeblendet; volle Fensterhöhe; Ribbon oben rechts |
+| Foto | wechselt mit der hervorgehobenen Zeile: Seminar (Vertriebsleistung), Leadership (Führung), Recruiting (Fluktuation) | gleich |
+| Titel | wie D: gross, fett, Plum-Strich zeichnet sich beim Hereinscrollen | gleich |
+| Logos | wie E: Raster 6 × 2 mit Haarlinien, Label-Spalte, Logos erscheinen nacheinander | gleich |
+| Lösungen | Schwerpunkt links, vier Themen als Zeilen rechts | Akkordeon, fünf Spalten, eine offen |
+| Was uns antreibt | wie D: Riesentitel, Zahlen senkrecht mit Linie, Zahlen Great Serpent | gleich, Zahlen Plum |
+| Team | wie F: Mosaik mit Kachel «150 Jahre Wissen und Erfahrung im Trainerteam» (Navy) | gleich, Kachel Plum |
+| Farbfluss | gerade Wischbewegung von links | schräge Kante von links |
+| Ribbons | zeichnen sich einmal in Section-Ecken (Lösungen, Antrieb, Team, Wege, Kontakt) | gleiten beim Scrollen durch die Ecken (Lösungen, Antrieb, Vorgehen, Team, Kontakt) |
+
+Geprüft live (1440 und 390 px): Punktemeer läuft, Foto folgt den Zeilen (Abfolge 0-1-2-0), Akkordeon wechselt, keine Skriptfehler, kein seitlicher Überlauf. Screens: `exports/stufe2-screens/runde9/` (Vergleich heute / G / H, Hero-Vergleich, je Desktop und Handy).
+
+Native Umsetzung: Fotos als zweite Ebene im Hero-Component mit Webflow-Interaction (Wechsel synchron zur bestehenden Zeilen-Animation), Farbfluss und Ribbons als Scroll-Interactions (IX2: «While scrolling in view» / «Scroll into view»), Logos, Antrieb, Team und Lösungen G mit Grid-Klassen. Das Akkordeon in H geht mit IX2 (Hover/Klick ändert die Breite), der automatische Wechsel bräuchte eine kleine Ergänzung im Grafik-Skript.
