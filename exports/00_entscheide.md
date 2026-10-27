@@ -462,6 +462,16 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 
 ---
 
+## 39. Feedback-Runde 35 (27.10.2026): Linie unter «Im Blickpunkt», Textlinks Manganese, Einschätzung Plum-Form
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 254 | Grauer Strich an der Unterkante von «Im Blickpunkt» (Unterkante Foto) als Abgrenzung zu den Insights | umgesetzt (nur Variante) | `section_cas theme-soft` mit Linie unten, 1 px, Variable «Manganese Linie» (gleich wie zwischen Erfolge und Themen). Desktop: Linie genau an der Unterkante des Fotos über die ganze Breite; Handy: unter den Buttons. Bilder `stufe2-screens/runde35/cas-linie-*` |
+| 255 | Textlinks in Manganese Black statt Great Serpent (Vorschlag 252) | umgesetzt (nur Variante) | Neue Variablen-Sammlung **«Textlinks»** mit «Textlink hell» (Grundwert Great Serpent, Modus «Manganese» = Manganese Black). Theme › Link zeigt in den hellen Modi (Base, Soft, Sea Cliff) auf «Textlink hell»; die dunklen Modi bleiben (Sea Cliff bzw. Weiss). Auf `/home-v3-farben` schaltet die Zusatzklasse `main-wrapper is-farbkonzept` den Modus «Manganese» ein. Gemessen: 14 Textlinks der Variante 10,5–13,2:1 (vorher 4,1–5,2:1); v2 und v3 unverändert in Great Serpent (geprüft). Bei Übernahme genügt ein Klick: Grundwert von «Textlink hell» auf Manganese Black, dann gilt es auf allen Seiten |
+| 256 | Plum-Form in den Themenlinien (Quadrate und Vierecke im Wechsel): wertvoll oder weglassen? | Einschätzung, nichts gebaut | **Empfehlung: weglassen, alles andere bleibt** (Punktfiguren, Vorhang, Titel, Texte, Einrasten). Gründe: Die Form liegt im Wechsel über Titel und neuer Figur und verdeckt sie; mit dem Wisch-Einrasten dauert ein Wechsel 1,1 s, die Form durchläuft darin vier Phasen (zusammensetzen 0,26 s, schrumpfen 0,17 s, wachsen 0,16 s, zerfallen 0,3 s, berechnet aus der Einrast-Kurve) und wirkt eher unruhig als lesbar; sie trägt keinen Inhalt (die Figuren zeigen das Thema); im Farbkonzept sind die Figuren schon Plum, die Form verdoppelt die Akzentfarbe auf grosser Fläche; sie entsteht im Skript und lässt sich in Webflow nicht pflegen. Was wegfällt: die bewegte Anspielung auf das 45°-Ribbon in dieser Section. Umsetzung bei Zustimmung: Schalter im Skript (Attribut an der Section), zuerst auf der Variante. Bilder `stufe2-screens/runde35/vergleich-plumform.png` (offener Punkt 38) |
+
+---
+
 ## Offene Punkte
 
 1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
@@ -480,7 +490,7 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 14. `/home-v3` mit der Themenlinien-Szene wie die Referenz (Runde 20). Wird v3 die definitive Startseite? Tendenz v3, Entscheid folgt (Runde 27).
 15. Handy: «Im Blickpunkt» und «Neueste Insights» sind länger als ein Bildschirm (Entscheid 170). Kürzen oder so lassen?
 16. Designer-Ansicht: «Unsere Erfolge» mit 8 Folien geprüft und in Ordnung. «Unser Vorgehen» noch prüfen (die Designer-Vorschau brach mehrmals ab).
-17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante. Dazu seit Runde 24: Zusatzklassen `is-diagonal` und der Schalter `?anordnung=diagonal` im Skript; seit Runde 27 auch der Schalter `?uebergang=diagonal` (Vorhang von unten entschieden); seit Runde 28 die zwei Logo-Band-Interaktionen (zusammenführen) und die Hero-Variante (Grundvariante mit wechselnder Unterstreichung entfällt, wenn v3 gilt); seit Runde 33 der Schalter `?einrasten=rad` und, je nach Entscheid 37, die Seite `/home-v3-farben` mit ihren Zusatzklassen und Varianten.
+17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante. Dazu seit Runde 24: Zusatzklassen `is-diagonal` und der Schalter `?anordnung=diagonal` im Skript; seit Runde 27 auch der Schalter `?uebergang=diagonal` (Vorhang von unten entschieden); seit Runde 28 die zwei Logo-Band-Interaktionen (zusammenführen) und die Hero-Variante (Grundvariante mit wechselnder Unterstreichung entfällt, wenn v3 gilt); seit Runde 33 der Schalter `?einrasten=rad` und, je nach Entscheid 37, die Seite `/home-v3-farben` mit ihren Zusatzklassen und Varianten; seit Runde 35 dazu `main-wrapper is-farbkonzept` und der Modus «Manganese» der Sammlung «Textlinks» (bei Übernahme stattdessen den Grundwert umstellen).
 18. Kurznamen der stehenden Leiste (Tablet, Handy): «Vertrieb · Potenzial · Führung · Recruiting · Digital». [ROWAPA bestätigen]
 19. Texte «Warum ROWAPA» (vier Punkte, Texttabelle Rev. 9). [ROWAPA bestätigen]
 20. ~~Themenlinien-Texte (Rev. 9)~~: vorläufig übernommen (Entscheid 223).
@@ -500,4 +510,5 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 34. ~~Themen-Szene mit Trackpad: Wisch-Einrasten~~: Standard seit Grafik 1.12.0 (Entscheid 250); `?einrasten=rad` beim Aufräumen entfernen.
 35. Zeiger und Hover-Videos auf dem Gerät von ROWAPA: Ursache gefunden und mit Grafik 1.11.1 behoben (Entscheid 245); Bestätigung auf dem eigenen Gerät offen.
 36. «Was uns antreibt» und «Warum ROWAPA»: Entwurf B, C, D oder heutiger Stand (Entscheid 249).
-37. Farbkonzept (`/home-v3-farben`, Entscheid 251): übernehmen (dann auf v3 bzw. die definitive Startseite übertragen und die Kopie löschen, nur mit Freigabe) oder verwerfen. Dazu: Textlinks in Manganese Black statt Great Serpent (Entscheid 252)? Das «Persönliche Wort» mit Name und Satz ist nicht nötig (Entscheid 248, bestätigen); das Porträt liegt in Webflow bereit.
+37. Farbkonzept (`/home-v3-farben`, Entscheid 251): übernehmen (dann auf v3 bzw. die definitive Startseite übertragen und die Kopie löschen, nur mit Freigabe) oder verwerfen. Textlinks in Manganese Black sind auf der Variante umgesetzt (Entscheid 255); bei Übernahme Grundwert von «Textlink hell» umstellen. Das «Persönliche Wort» mit Name und Satz ist nicht nötig (Entscheid 248, bestätigen); das Porträt liegt in Webflow bereit.
+38. Plum-Form in den Themenlinien weglassen (Empfehlung, Entscheid 256)? Bei Ja: Schalter im Skript, zuerst auf der Variante, dann je nach Entscheid 37 auf v3.
