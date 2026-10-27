@@ -43,14 +43,25 @@ export function themen(sec) {
     }
   }
 
-  /* Karten untereinander: das Thema im oberen Drittel ist aktiv */
+  /* Karten untereinander: aktiv ist die letzte Karte, deren Oberkante die 40-%-Linie erreicht hat, davor die erste */
+  let zuletzt = -1, geplant = false;
+  function lageListe() {
+    geplant = false;
+    const linie = innerHeight * 0.4;
+    let k = 0;
+    panels.forEach((p, i) => { if (p.getBoundingClientRect().top <= linie) k = i; });
+    if (k !== zuletzt) { zuletzt = k; markiere(k); }
+  }
+  const beimScrollen = () => { if (!geplant) { geplant = true; requestAnimationFrame(lageListe); } };
   function beobachter(an) {
     if (an && !io) {
-      io = new IntersectionObserver(es => es.forEach(e => {
-        if (e.isIntersecting) markiere(panels.indexOf(e.target));
-      }), { rootMargin: '-35% 0px -60% 0px' });
-      panels.forEach(p => io.observe(p));
-    } else if (!an && io) { io.disconnect(); io = null; }
+      /* nur rechnen, solange die Section nahe am Bild ist */
+      io = new IntersectionObserver(es => {
+        if (es[0].isIntersecting) { addEventListener('scroll', beimScrollen, { passive: true }); zuletzt = -1; lageListe(); }
+        else removeEventListener('scroll', beimScrollen);
+      }, { rootMargin: '50% 0px' });
+      io.observe(sec);
+    } else if (!an && io) { io.disconnect(); io = null; removeEventListener('scroll', beimScrollen); zuletzt = -1; }
   }
 
   links.forEach((a, i) => a.addEventListener('click', e => {

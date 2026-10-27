@@ -296,6 +296,22 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 170 | Prüfung live | in allen 8 Formaten nachgemessen | 1920 bis 768 px: 12 von 12 Sections passen in einen Bildschirm (Seite 10,3–11,7 Bildschirme, vorher 13,7–17,4). Handy 390×844: 10 von 12 (12,8 statt 20,4 Bildschirme). Länger als ein Bildschirm bleiben auf dem Handy «Im Blickpunkt» (+128 px, Bild über dem Text, war in der Vorschau falsch gemessen) und «Neueste Insights» (+221 px, weil Webinare und ROWAPA TV bleiben) |
 | 171 | Referenz Tresmares Capital | Seite live ansehen | aus der Cloud-Umgebung nicht erreichbar (Verbindung wird abgewiesen, auch nach Freigabe). Optionen: Sitzung auf dem eigenen Computer (Claude Desktop App) oder Screenshots. Themenlinien-Szene (v3) folgt danach |
 
+## 23. Feedback-Runde 19 (27.10.2026): Themenlinien-Szene auf /home-v3
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 172 | Im Blickpunkt (v2, Handy) | «Bild niedriger machen» | Bildhöhe auf dem Handy 40 % der Bildschirmbreite (`spotlight_media`), Farbfläche und Textabstand darauf abgestimmt (`cas_farbe`, `padding-section-large is-cas`). Gilt für alle Seiten mit dieser Section |
+| 173 | Referenz Tresmares Capital | Analyse in der Desktop-App, Ergebnis als private Seite (https://claude.ai/artifact/LwdWCvJZ13WPBPLMSFPcDe) | Muster übernommen: stehende Bühne, kleine Liste links mit aktivem Thema, Wechsel mit Vorhang, Figur verwandelt sich. Nicht übernommen: Einrasten mit geglättetem Scrollen, ganze Fläche als Link |
+| 174 | Tempo | «ohne einrasten» | je Thema rund zwei Drittel Bildschirmhöhe Scrollweg; ab der Hälfte wechselt das Thema mit einem kurzen Übergang (0,6 s). Die Seite scrollt normal weiter, die Navigation bleibt sichtbar |
+| 175 | Übergang | «beide varianten bauen» | Vorhang diagonal 45° (Richtung des Ribbons, Standard) und Vorhang von unten. Umschalten in Webflow mit dem Attribut `data-uebergang` an der Section, zum Vergleichen ohne Änderung: `/home-v3?uebergang=unten` bzw. `?uebergang=diagonal` |
+| 176 | Tablet und Handy | «auch eine stehende leiste mit namen zum später anpassen» | Karten untereinander, darüber eine stehende Leiste mit Kurznamen «Vertrieb · Potenzial · Führung · Recruiting · Digital», das Thema im Bild ist markiert. Kurznamen sind eigene Textelemente (`themen_link-kurz`) und frei änderbar [ROWAPA bestätigen] |
+| 177 | Umsetzung | «loslegen wie von dir vorgeschlagen» | `/home-v3` (Kopie von v2) mit der neuen Reihenfolge: Header, Was uns antreibt mit «Warum ROWAPA», Unsere Erfolge, Lösungen für Unternehmen (Themenlinien), Unser Vorgehen, Digitale Lösungen, Über uns, Meine Entwicklung, Im Blickpunkt, Wissen & Impulse, Häufige Fragen, Kontakt, Footer. Die alte Lösungen-Section ist auf v3 ausgeblendet, nicht gelöscht; v2 bleibt unverändert |
+| 178 | Warum ROWAPA | in «Was uns antreibt» integriert | vier Punkte (Nur Finanzbranche, Wirkung gemessen, Aus der Praxis, Aus einer Hand) mit Nummer, Titel und einem Satz; Texte neu formuliert [ROWAPA bestätigen]. Auf dem Handy nur Nummer und Titel. Das Ribbon unten links im Antrieb ist auf v3 ausgeschaltet, weil es den ersten Punkt kreuzen würde |
+| 179 | Themenlinien: Inhalt | wie vorgeschlagen | links Kicker, Titel, Einleitung, Liste der fünf Themen, Button «Zum Unternehmensbereich»; rechts je Thema Kernbotschaft, höchstens zwei Sätze, Button zur Themenseite, nur die Punktfigur, keine Kennzahlen. Alles native Webflow-Elemente |
+| 180 | Themenlinien: Figur | Punkte ziehen sich zusammen und bilden die nächste Figur | Das Skript liest die Punkte aus den Standbildern; neue Figur = neues PNG im Bildfeld. Die Vertriebs-Figur gibt es neu in einer Fassung für hellen Grund (`grafik-vertriebsperformance-hell.png`) |
+| 181 | Technik | so wenig Code wie möglich | Grafik-Skript 1.6.1, Modul `themen` (nur Lage, Ausschnitt, Morph und Klasse `is-aktiv`). Ohne Skript, bei «Bewegung reduzieren» und bei sehr niedrigen Fenstern stehen die Karten untereinander. Geprüft ab 992×620 bis 1920×1080 |
+| 182 | Prüfung live | Staging, 8 Formate | siehe Abschnitt «Prüfung Runde 19» unten |
+
 ---
 
 ## Offene Punkte
@@ -313,7 +329,11 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 11. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
 12. Megamenü-Bezeichnungen «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention» weichen von den Titeln auf der Startseite ab («Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung»). Bearbeiten wir später (Entscheid Runde 18).
 13. Eigene Bilder für Managing Partner, Education Partner und Trainer Academy, falls vorhanden (die Menütexte sind bestätigt).
-14. `/home-v3`: neue Reihenfolge, «Warum ROWAPA» in «Was uns antreibt», Themenlinien-Szene (ersetzt «Lösungen für Unternehmen»). Wartet auf die Referenz Tresmares Capital (Sitzung auf dem eigenen Computer oder Screenshots).
+14. `/home-v3` ist gebaut (Runde 19). Entscheid: welcher Übergang (diagonal oder von unten), und wird v3 die definitive Startseite?
 15. Handy: «Im Blickpunkt» und «Neueste Insights» sind länger als ein Bildschirm (Entscheid 170). Kürzen oder so lassen?
 16. Designer-Ansicht: «Unsere Erfolge» mit 8 Folien geprüft und in Ordnung. «Unser Vorgehen» noch prüfen (die Designer-Vorschau brach mehrmals ab).
 17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante.
+18. Kurznamen der stehenden Leiste (Tablet, Handy): «Vertrieb · Potenzial · Führung · Recruiting · Digital». [ROWAPA bestätigen]
+19. Texte «Warum ROWAPA» (vier Punkte, Texttabelle Rev. 9). [ROWAPA bestätigen]
+20. Themenlinien: Kernbotschaften, Sätze und Button-Texte der fünf Themen (Texttabelle Rev. 9). [ROWAPA bestätigen]
+21. Option: feine Plum-Linie entlang der diagonalen Vorhangkante (wie das Ribbon). Nicht gebaut, nur Idee.

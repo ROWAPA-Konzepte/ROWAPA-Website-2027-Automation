@@ -23,3 +23,7 @@ Der Vorschlag und die Straffung sind seit Runde 18 nativ in Webflow umgesetzt. D
 `FONTS=/pfad Z=heute-heute OUT=./live node gen.js`
 
 Ergebnis 26.10.2026 (live): 1920 bis 768 px 12 von 12 Sections in einem Bildschirm, Seite 10,3–11,7 Bildschirme; 390×844 10 von 12 (12,8 Bildschirme), länger bleiben «Im Blickpunkt» (+128 px) und «Neueste Insights» (+221 px). Die Vorschau hatte «Im Blickpunkt» auf dem Handy zu kurz gemessen, weil ihre Abstandsregel den Bildplatz über dem Text überschrieb.
+
+## Stand Runde 19
+
+`SEITE=home-v3` misst eine andere Seite (Standard `home-v2`). Bei der Themenlinien-Bühne zählt die stehende Fläche (ein Bildschirm), nicht der Scrollweg der fünf Themen; ausgeblendete Sections werden übersprungen.

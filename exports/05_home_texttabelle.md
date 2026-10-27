@@ -267,6 +267,26 @@ Umgesetzt auf `/home-v2`. Gestrichene Elemente sind ausgeblendet, nicht gelösch
 | Team | Partnerlogos | Block mit Text und 14 Logos unter dem Team | auf der Startseite ausgeblendet | Section passt in einen Bildschirm; Logos gehören auf «Partner & Kooperationen» | Partnerlogos später auf der Partnerseite zeigen? |
 | Insights | Webinare, ROWAPA TV | unter den Karten | ab 992 px links unter «Alle Inhalte» | freier Platz in der Titelspalte (Entscheid ROWAPA) | – |
 
+## Rev. 9 · Themenlinien und Warum ROWAPA (27.10.2026, Runde 19)
+
+Umgesetzt auf `/home-v3`. `/home-v2` bleibt unverändert. Kopf der Section (Kicker «Was wir tun», Titel «Lösungen für Unternehmen», Einleitung, Button «Zum Unternehmensbereich») unverändert übernommen.
+
+| Section | Element | Original (v2) | Vorschlag (umgesetzt auf v3) | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Lösungen | Liste und Leiste | «Thema 01» … «Thema 05» über den Kartentiteln | Liste mit Nummer und vollem Namen (Desktop); stehende Leiste mit Kurznamen «Vertrieb · Potenzial · Führung · Recruiting · Digital» (Tablet, Handy) | zeigt jederzeit, wo man steht; Kurznamen passen in eine Zeile | Kurznamen so? [ROWAPA bestätigen] |
+| Lösungen | Thema 01 Kernbotschaft | Titel «Vertriebsperformance», Text «Verkaufsleistung messbar steigern: von der Diagnostik über das Training bis zur Begleitung im Kundengespräch.» | Kicker «Vertriebsperformance», Kernbotschaft «Verkaufsleistung messbar steigern», Satz «Wir begleiten Ihren Vertrieb von der Diagnostik über das Training bis ins Kundengespräch.» | Nutzen gross, Weg in einem Satz | [ROWAPA bestätigen] |
+| Lösungen | Thema 01 Button | «Zur Vertriebsperformance» | «Vertriebsperformance verbessern» | Button nennt den nächsten Schritt | – |
+| Lösungen | Thema 02 | Titel «Mitarbeiterperformance & Potenzial», Text «Potenziale sichtbar machen und gezielt entwickeln.», Link «Mehr zu Mitarbeiterperformance & Potenzial» | Kernbotschaft «Potenziale erkennen und gezielt entwickeln», Satz «Mit Diagnostik, Coaching und Resilienz-Training machen wir Potenziale sichtbar und entwickeln sie gezielt weiter.», Button «Potenziale entwickeln» | Methoden aus dem früheren Langtext (Rev. 8) wieder sichtbar, da jedes Thema eigenen Raum hat | [ROWAPA bestätigen] |
+| Lösungen | Thema 03 | Titel «Führung & Teams», Text «Führung wirksam gestalten.», Link «Mehr zu Führung & Teams» | Kernbotschaft «Führung stärken und Zusammenarbeit verbessern», Satz «Vom Führungsprofil bis zur Teamentwicklung: Wir machen Führung wirksam.», Button «Führung stärken» | wie oben | [ROWAPA bestätigen] |
+| Lösungen | Thema 04 | Titel «Recruiting & Mitarbeiterbindung», Text «Talente gewinnen, gut integrieren und langfristig binden.», Link «Mehr zu Recruiting & Mitarbeiterbindung» | Kernbotschaft «Die richtigen Menschen gewinnen und halten», Satz «Vom Assessment bis zur attraktiven Arbeitgebermarke: Wir helfen, Talente zu gewinnen, gut zu integrieren und langfristig zu binden.», Button «Recruiting und Bindung stärken» | wie oben | [ROWAPA bestätigen] |
+| Lösungen | Thema 05 | Titel «Digitale Lösungen», Text «E-Learning, hybride Lernformate und KI-gestützte Lösungen.», Link «Mehr zu den digitalen Lösungen» | Kernbotschaft «Entwicklung im Arbeitsalltag verankern», Satz «E-Learning, hybride Lernformate und KI-gestützte Lösungen verlängern Training und Beratung in den Alltag.», Button «Digitale Lösungen entdecken» | wie oben | [ROWAPA bestätigen] |
+| Lösungen | Alt-Texte Figuren | Potenzial, Führung, Recruiting, Digital ohne Alt-Text | «Person aus Punkten, umgeben von einer Spirale, die in einen Pfeil nach oben übergeht» · «Mehrere Personen aus Punkten, durch Linien verbunden, eine davon hervorgehoben» · «Trichter aus Punkten, der in einen Kreis aus Personen mündet» · «Bildschirm aus Punkten mit Kacheln und einem hervorgehobenen Punkt in der Mitte» | Barrierefreiheit; Vertrieb behält seinen Alt-Text | – |
+| Was uns antreibt | Kicker | – | «Warum ROWAPA» | neuer Block unter den Kennzahlen | – |
+| Was uns antreibt | Punkt 01 | – | «Nur Finanzbranche» · «Seit 20 Jahren arbeiten wir ausschliesslich für Banken, Versicherungen und Krankenkassen.» | Kernaussage der Seite, belegt durch die Kennzahl 20 | Aufzählung Banken, Versicherungen, Krankenkassen korrekt? [ROWAPA bestätigen] |
+| Was uns antreibt | Punkt 02 | – | «Wirkung gemessen» · «Zu Beginn und am Ende messen wir mit denselben Instrumenten, was sich verändert hat.» | aus «Unser Vorgehen» (Phase Messen) | [ROWAPA bestätigen] |
+| Was uns antreibt | Punkt 03 | – | «Aus der Praxis» · «Unsere Trainerinnen und Trainer bringen eigene Praxis aus Vertrieb und Führung mit.» | stützt die Kennzahl «Praxisbezug ab dem ersten Tag» | [ROWAPA bestätigen] |
+| Was uns antreibt | Punkt 04 | – | «Aus einer Hand» · «Beratung, Training und digitale Lösungen greifen ineinander.» | verbindet Themen und Digitales | [ROWAPA bestätigen] |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -279,3 +299,6 @@ Umgesetzt auf `/home-v2`. Gestrichene Elemente sind ausgeblendet, nicht gelösch
 6. ~~Fünf Entwürfe in den Menükarten (Rev. 7)~~: bestätigt (26.10.2026). Offen: Bilder für Managing Partner, Education Partner und Trainer Academy, falls eigene vorhanden sind.
 7. Soll-Profil und Vergleichsgruppen (gestrichen im Vorgehen) auf der Seite «So arbeiten wir» erklären? (Rev. 8)
 8. Partnerlogos später auf der Seite «Partner & Kooperationen» zeigen? (Rev. 8)
+9. Kurznamen der stehenden Leiste «Vertrieb · Potenzial · Führung · Recruiting · Digital» (Rev. 9)?
+10. Kernbotschaften, Sätze und Buttons der fünf Themen (Rev. 9)?
+11. Texte «Warum ROWAPA», insbesondere die Aufzählung «Banken, Versicherungen und Krankenkassen» (Rev. 9)?

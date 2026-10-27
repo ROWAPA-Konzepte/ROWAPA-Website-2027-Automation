@@ -8,6 +8,7 @@ const FORMATE = process.env.F ? ALLE_FORMATE.filter(f => process.env.F.split(','
 const ALLE_Z = ['heute-heute', 'vorschlag-heute', 'heute-gestrafft', 'vorschlag-gestrafft', 'kopfA'];
 const ZUST = process.env.Z ? process.env.Z.split(',') : ALLE_Z;
 const OUT = process.env.OUT || __dirname + '/out';
+const SEITE = process.env.SEITE || 'home-v2';
 fs.mkdirSync(OUT, { recursive: true });
 
 const GESTRAFFT = () => {
@@ -60,7 +61,7 @@ const RUHE = `.nachoben, [class*="nachoben"], .zeiger, [data-zeiger-ring]{displa
       const [d, i] = z === 'kopfA' ? ['heute', 'heute'] : z === 'kopfAv' ? ['vorschlag', 'heute'] : z.split('-');
       const p = await b.newPage({ viewport: { width: w, height: h } });
       await p.route(/fastly\.net\/.*\.woff2/, r => { const m = r.request().url().match(/(TASA[A-Za-z]+-[A-Za-z]+)\.woff2/); m ? r.fulfill({ path: FD + m[1] + '.woff2', contentType: 'font/woff2' }) : r.continue(); });
-      await p.goto('https://rowapa-website-2027-automation.webflow.io/home-v2?x=' + Date.now(), { waitUntil: 'load', timeout: 90000 });
+      await p.goto('https://rowapa-website-2027-automation.webflow.io/' + SEITE + '?x=' + Date.now(), { waitUntil: 'load', timeout: 90000 });
       await p.waitForTimeout(1500);
       await p.addStyleTag({ content: RUHE });
       if (d === 'vorschlag') { await p.addStyleTag({ content: CSS }); await p.evaluate(PARTNERBAND); }
@@ -74,7 +75,7 @@ const RUHE = `.nachoben, [class*="nachoben"], .zeiger, [data-zeiger-ring]{displa
       const sektionen = await p.evaluate(() => {
         const liste = [{ key: 'start', el: document.querySelector('.startscreen_wrapper') }];
         document.querySelectorAll('section[class*="section_"]').forEach(s => { if (s.closest('.startscreen_wrapper')) return; const k = [...s.classList].find(c => c.startsWith('section_')).replace('section_', ''); if (k !== 'hero') liste.push({ key: k, el: s }); });
-        return liste.filter(x => x.el && !x.el.closest('footer')).map(x => x.key);
+        return liste.filter(x => x.el && !x.el.closest('footer') && x.el.getBoundingClientRect().height > 0).map(x => x.key);
       });
       const nurKopf = z === 'kopfA' || z === 'kopfAv';
       const res = [];
@@ -87,7 +88,10 @@ const RUHE = `.nachoben, [class*="nachoben"], .zeiger, [data-zeiger-ring]{displa
           const r = el.getBoundingClientRect();
           const pad = el.querySelector('.padding-section-large');
           const pb = pad ? parseFloat(getComputedStyle(pad).paddingBottom) : 0;
-          const hoehe = key === 'start' ? Math.round(r.bottom) : Math.round(r.height - pb);
+          /* Themenlinien-Bühne: die stehende Fläche zählt (ein Bildschirm), nicht der Scrollweg der Themen */
+          const buehne = el.querySelector('.themen_layout');
+          const steht = buehne && getComputedStyle(buehne).position === 'sticky';
+          const hoehe = key === 'start' ? Math.round(r.bottom) : steht ? Math.round(buehne.getBoundingClientRect().height) : Math.round(r.height - pb);
           return { ziel, hoehe, ganz: Math.round(r.height) };
         }, [key, navH]);
         await p.waitForTimeout(key === 'team' || key === 'cas' ? 1600 : 900);

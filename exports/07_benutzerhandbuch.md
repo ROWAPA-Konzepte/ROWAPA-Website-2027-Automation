@@ -1,7 +1,7 @@
 # ROWAPA Website 2027 · Benutzerhandbuch
 
 **Für:** das ROWAPA-Team, das die Website in Webflow selbst pflegt
-**Laufend gepflegt** · zuletzt 26.10.2026 · Stufe 2 (Startseite) · Webflow-Projekt «ROWAPA Website 2027 Automation»
+**Laufend gepflegt** · zuletzt 27.10.2026 · Stufe 2 (Startseite) · Webflow-Projekt «ROWAPA Website 2027 Automation»
 **Wächst mit jeder Stufe:** Mit Stufe 3 kommt die CMS-Pflege dazu.
 
 ---
@@ -10,7 +10,7 @@
 
 | Bereich | Wo in Webflow | Wofür |
 |---|---|---|
-| Seiten | Designer › links **Pages** | `Home v2 (Prototyp)` (`/home-v2`) ist die neue Startseite; `Styleguide (intern)` zeigt alle Bausteine |
+| Seiten | Designer › links **Pages** | `Home v2 (Prototyp)` (`/home-v2`) und `Home v3` (`/home-v3`, neue Reihenfolge mit Themenlinien) sind die Entwürfe der neuen Startseite; `Styleguide (intern)` zeigt alle Bausteine |
 | Komponenten | Designer › links **Components** | wiederverwendbare Bausteine: Navbar, Footer, Karten, Hero, Section Digital |
 | Variablen | Designer › links **Variables** | Farben, Abstände, Schriften, Theme-Farben |
 | Klassen | Designer › rechts **Style** bzw. Style Manager | Gestaltung nach Finsweet Client-First |
@@ -212,6 +212,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 ### 2.30 Diagonal-Ribbon
 - Komponente «Ribbon» (Plum, 45°), Varianten «Oben rechts» und «Unten links». Heute sichtbar in Lösungen, Antrieb (unten links) und Kontakt; im Team liegt es ausgeblendet bereit (Properties › «Ribbon anzeigen»). «Unten links» entfällt auf Tablet und Handy; dort sind die Ribbons klein (10 rem, Klasse `ribbon` im Breakpoint Tablet). Vor dem Einschalten prüfen, dass es keinen Text oder Button kreuzt.
 - Die Section braucht «position: relative» und «overflow: hidden». Alle Ribbons aus: Variable «Ribbon Deckkraft» auf 0.
+- Auf `/home-v3` ist das Ribbon im Antrieb ausgeschaltet (Properties › «Ribbon anzeigen» aus), weil es sonst den ersten Punkt von «Warum ROWAPA» kreuzt.
 
 ### 2.31 Meine Entwicklung (drei Zeilen)
 - Drei Card-Teaser-Karten in den Tönen Sea Cliff Tint, Snowbank und Plum Tint. Variante je Karte rechts unter Properties wählen.
@@ -237,6 +238,23 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Kartenvarianten:** Lösungen-Zeilen, Digital-Karten, Wege und Insights haben ihre Darstellung je Format in der jeweiligen Komponenten-Variante. Die Insights-Karten nutzen die Variante «Insights Reihe» (Bildhöhe an die Fensterhöhe gekoppelt, Auszug 992–1919 ausgeblendet). Neue Insights-Karte: Variante «Insights Reihe» wählen.
 - **Ausgeblendet, nicht gelöscht (Runde 18):** Zitate-Raster unter dem Slider (`is-erfolge`), fette Unterzeilen im Vorgehen (`step_lead`), Partnerlogos (Block `partner_block`, Einstellungen › Sichtbarkeit aus). Wieder einblenden: Klasse auf Display Block bzw. Grid stellen oder die Sichtbarkeit einschalten.
 - **Prüfen:** Werkzeug `tools/format-vorschau/` misst die Staging-Seite in 8 Formaten (LIESMICH dort).
+
+### 2.33 Lösungen für Unternehmen: Themenlinien (`/home-v3`, seit Runde 19)
+- **Was es ist:** eine Section mit fünf Themen. Auf Desktop (ab 992 px) bleibt sie beim Scrollen stehen, die Themen wechseln nacheinander (je Thema rund zwei Drittel Bildschirmhöhe), die Liste links zeigt das aktive Thema in Plum. Klick auf ein Thema scrollt dorthin. Tablet und Handy: Karten untereinander, darüber eine stehende Leiste mit Kurznamen.
+- **Aufbau (Navigator):** `section_themen` › `themen_layout` › `themen_kopf` (Kicker, Titel, Einleitung, Button) · `themen_liste` (fünf Links `themen_link`, je mit `themen_link-nummer`, `themen_link-lang`, `themen_link-kurz`) · `themen_panels` (fünf Panels `themen_panel`, je mit `themen_text` und `themen_figur`).
+- **Texte ändern:** direkt auf der Seite doppelklicken (Kicker, Kernbotschaft `themen_aussage`, Satz, Button). Den Link des Buttons rechts unter Settings › Link.
+- **Kurznamen der Leiste (Tablet, Handy):** Text in `themen_link-kurz` ändern; auf Desktop steht der lange Name (`themen_link-lang`).
+- **Figur tauschen:** Bild in `themen_figur` auswählen › Bildfeld. PNG mit transparentem Hintergrund und Punkten in den CI-Farben (hellen Grund beachten). Die Verwandlung entsteht aus dem Bild von selbst. Alt-Text unter Settings anpassen.
+- **Übergang wählen:** `section_themen` auswählen › Settings › Custom attributes › `data-uebergang` = `diagonal` (Vorhang 45°, Standard) oder `unten` (Vorhang von unten). Zum Vergleichen ohne Änderung: Adresse mit `?uebergang=unten` bzw. `?uebergang=diagonal` öffnen.
+- **Scrollweg je Thema:** Attribut `data-schritt` an `section_themen` (Anteil der Bildschirmhöhe, Standard 0.65). Geschwindigkeit des Übergangs: `data-tempo` (1 = 0,6 s).
+- **Thema hinzufügen oder entfernen:** Panel duplizieren bzw. löschen, dem neuen Panel eine eigene ID geben (Settings › ID, z. B. `thema-neu`), in der Liste einen `themen_link` duplizieren und seinen Link auf «Section» › dieses Panel stellen. Das Skript zählt die Themen selbst.
+- **Aktives Thema:** Zusatzklasse `is-aktiv` auf `themen_link` (Plum, Linie). Im Designer steht sie auf dem ersten Link; auf der Website setzt sie das Skript.
+- **Ohne Skript, bei «Bewegung reduzieren» und in sehr niedrigen Fenstern** stehen die Karten untereinander; alle Inhalte bleiben lesbar.
+- **Nicht ändern:** Klassennamen `themen_*` und `section_themen` (das Skript sucht sie), die Reihenfolge Text vor Figur im Panel.
+
+### 2.34 Warum ROWAPA (in «Was uns antreibt», `/home-v3`)
+- Block `warum_block` unter den Kennzahlen: Kicker «Warum ROWAPA» und vier Punkte (`warum_item` mit `warum_nummer`, `warum_titel`, `warum_text`). Desktop vier Spalten, Tablet zwei, Handy nur Nummer und Titel (`warum_text` ausgeblendet).
+- Punkt ändern: Text doppelklicken. Punkt hinzufügen: `warum_item` duplizieren (bei fünf Punkten Spaltenzahl in `warum_liste` anpassen).
 
 ---
 
