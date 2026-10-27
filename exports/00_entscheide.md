@@ -310,7 +310,7 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 179 | Themenlinien: Inhalt | wie vorgeschlagen | links Kicker, Titel, Einleitung, Liste der fünf Themen, Button «Zum Unternehmensbereich»; rechts je Thema Kernbotschaft, höchstens zwei Sätze, Button zur Themenseite, nur die Punktfigur, keine Kennzahlen. Alles native Webflow-Elemente |
 | 180 | Themenlinien: Figur | Punkte ziehen sich zusammen und bilden die nächste Figur | Das Skript liest die Punkte aus den Standbildern; neue Figur = neues PNG im Bildfeld. Die Vertriebs-Figur gibt es neu in einer Fassung für hellen Grund (`grafik-vertriebsperformance-hell.png`) |
 | 181 | Technik | so wenig Code wie möglich | Grafik-Skript 1.6.1, Modul `themen` (nur Lage, Ausschnitt, Morph und Klasse `is-aktiv`). Ohne Skript, bei «Bewegung reduzieren» und bei sehr niedrigen Fenstern stehen die Karten untereinander. Geprüft ab 992×620 bis 1920×1080 |
-| 182 | Prüfung live | Staging, 8 Formate | siehe Abschnitt «Prüfung Runde 19» unten |
+| 182 | Prüfung live | Staging, 8 Formate, Skript 1.6.1 | v3: 1920 bis 1024 px 12 von 12 Sections in einem Bildschirm (die Themenlinien als stehende Bühne), Seite 13,1–14,6 Bildschirme (davon 2,6 Scrollweg der Themen). Bühne geprüft von 992×620 bis 1920×1080 (bei knapper Höhe mit schmalem Rand). Tablet 768: 11 von 12, Handy 390: 10 von 12; länger sind die Themenkarten untereinander (Tablet +1317 px, Handy +2159 px, Seite 15,6 Bildschirme) und auf dem Handy «Neueste Insights» (+221 px). v2 Handy: «Im Blickpunkt» passt jetzt (vorher +128 px). Beide Übergänge, Klick in der Liste, Zurückscrollen, «Bewegung reduzieren» und v2 ohne Fehler |
 
 ---
 
@@ -337,3 +337,4 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 19. Texte «Warum ROWAPA» (vier Punkte, Texttabelle Rev. 9). [ROWAPA bestätigen]
 20. Themenlinien: Kernbotschaften, Sätze und Button-Texte der fünf Themen (Texttabelle Rev. 9). [ROWAPA bestätigen]
 21. Option: feine Plum-Linie entlang der diagonalen Vorhangkante (wie das Ribbon). Nicht gebaut, nur Idee.
+22. Tablet und Handy: Die fünf Themenkarten untereinander sind lang (Handy rund 2,5 Bildschirme). So lassen, kompakter (Satz ausblenden, Figur kleiner) oder als Wischreihe wie auf v2, mit der Leiste als Reiter?
