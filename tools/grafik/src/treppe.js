@@ -63,7 +63,7 @@ export function treppe(box) {
     s.setAttribute('role', 'button');
     s.style.cursor = 'pointer';
     const waehle = neu => { manuell = true; setAktiv(k, neu); };
-    if (s.matches('.step_item') && matchMedia('(hover: hover)').matches) s.addEventListener('mouseenter', () => waehle(false));
+    if (s.matches('.step_item') && matchMedia('(any-hover: hover)').matches) s.addEventListener('mouseenter', () => waehle(false));
     s.addEventListener('click', () => waehle(true));
     s.addEventListener('focus', () => waehle(false));
     s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); waehle(true); } });

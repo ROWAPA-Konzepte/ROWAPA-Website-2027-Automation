@@ -2,6 +2,8 @@
 
 export const reduziert = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 export const istHandy = () => innerWidth < 700;
+/* Gerät mit Maus oder Trackpad, auch wenn es zusätzlich einen Touchscreen hat (Chrome meldet solche Laptops sonst als Touch-Gerät) */
+export const hatMaus = () => matchMedia('(any-hover: hover) and (any-pointer: fine)').matches;
 export const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 export const lerp = (a, b, t) => a + (b - a) * t;
 export const easeOut = t => 1 - Math.pow(1 - t, 3);

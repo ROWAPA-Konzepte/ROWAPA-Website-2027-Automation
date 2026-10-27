@@ -126,7 +126,7 @@ export function figur(box) {
   /* beim Darüberfahren zieht sich die Figur leicht zusammen */
   function hover() {
     const karte = box.closest('a, [class*="card"]');
-    if (!karte || !matchMedia('(hover: hover)').matches) return;
+    if (!karte || !matchMedia('(any-hover: hover)').matches) return;
     img.style.transition = 'transform .7s cubic-bezier(.2,.7,.1,1), opacity .6s ease';
     img.style.transformOrigin = '50% 70%';
     karte.addEventListener('mouseenter', () => { img.style.transform = 'scale(.97)'; });
