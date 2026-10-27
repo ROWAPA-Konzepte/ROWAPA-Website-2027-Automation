@@ -15,6 +15,7 @@
    Darunter (Tablet, Handy): Blöcke untereinander mit stehender Leiste; der Titel im Blick ist voll, die anderen blass,
    der ausscheidende Block dunkelt ab, die Form zerfällt, während der Block in den Blick rückt. Bei «Bewegung reduzieren»
    nur die Markierung, ohne Form. Ohne Skript: Blöcke untereinander.
+   Anordnung «diagonal» zum Vergleichen: ?anordnung=diagonal oder data-anordnung="diagonal" (Zusatzklasse is-diagonal).
    Texte, Links und Bilder sind native Webflow-Elemente; das Skript setzt Lage, Ausschnitt, Deckkraft und die Klasse is-aktiv. */
 import Lenis from 'lenis';
 import { clamp, lerp, easeInOut, zahl, reduziert } from './util.js';
@@ -141,6 +142,15 @@ function uebergang(sec) {
   return art === 'diagonal' ? 'diagonal' : 'unten';
 }
 
+/* Anordnung der Texte zum Vergleichen: ?anordnung=diagonal in der Adresse oder data-anordnung="diagonal" an der Section
+   setzt die Zusatzklasse is-diagonal (Stile in Webflow): Kernbotschaft unten links, Satz und Link oben rechts */
+function anordnung(sec) {
+  let art = '';
+  try { art = new URLSearchParams(location.search).get('anordnung') || ''; } catch (e) { /* alte Browser */ }
+  art = (art || sec.getAttribute('data-anordnung') || '').trim().toLowerCase();
+  return art === 'diagonal' ? 'diagonal' : '';
+}
+
 export function themen(sec) {
   const huelle = sec.querySelector('.themen_huelle');
   const buehne = sec.querySelector('.themen_buehne');
@@ -152,6 +162,13 @@ export function themen(sec) {
   if (!huelle || !buehne || !box || !n) return;
   const nav = document.querySelector('.navbar_component');
   const hoch = document.querySelector('.nach-oben');
+
+  if (anordnung(sec) === 'diagonal') {
+    panels.forEach(p => ['.themen_titel', '.themen_unten', '.themen_text', '.themen_aktion'].forEach(k => {
+      const e = p.querySelector(k);
+      if (e) e.classList.add('is-diagonal');
+    }));
+  }
 
   const zu = links.map((a, i) => {
     const id = (a.getAttribute('href') || '').split('#')[1];
