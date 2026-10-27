@@ -326,6 +326,19 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 190 | Tablet und Handy | wie die Referenz auf dem Handy | Blöcke untereinander mit stehender Leiste; Titel ausserhalb des Blicks bei 35 %, der ausscheidende Block dunkelt leicht ab; die Form ruht hinter der Figur (verwandelt sich nicht) |
 | 191 | Prüfung | an denselben Stellen wie die Analyse | Bilder eingerastet und bei halbem Wechsel neben den Referenzbildern verglichen; Video der Szene (Mausrad, Einrasten, Klick); Bühne ohne Überlappung von 992×620 bis 2560×1440; Einrasten zurück (30 %) und vor (60 %), Klick, Navigation, «Bewegung reduzieren» und Handy ohne Fehler. Grafik-Skript 1.7.0 |
 
+## 25. Feedback-Runde 21 (27.10.2026): Form löst sich auf, Texte gross, Team und Insights
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 192 | Rückmeldung zu Runde 20 | «Jetzt kommen wir der Lösung viel näher.» Beide Vorhänge sind gut («diagonal oder auch von unten») | Standard bleibt «von unten», diagonal weiter mit `/home-v3?uebergang=diagonal` (offener Punkt 24) |
+| 193 | Plum-Form deckt die Schrift | «auflösen, wenn ich das fertige Wort habe, damit ich nur noch die Schrift sehe» | Die Form zeigt sich nur noch im Wechsel: Sie setzt sich aus kleinen Quadraten zusammen, schrumpft zu vier kleinen Quadraten, wächst zur nächsten Form und zerfällt wieder in kleine Quadrate, während der neue Titel erscheint (Drift nach rechts oben, 45° wie das Ribbon). In Ruhe: nur Titel, Figur und Texte. Tablet und Handy: Die Form liegt auf der Figur, solange der Block hereinkommt, und zerfällt, bis die Figur in der Fenstermitte steht (löst offenen Punkt 22). «Bewegung reduzieren»: keine Form |
+| 194 | Erklärtexte zu wenig prominent | «links und rechts davon lesen, um was es geht, aber viel grösser und viel prominenter» | Variante A gebaut: zwei Spalten unter dem Titel. Links Kicker und Kernbotschaft (H3, auf dem Laptop 33–44 px statt 20–30 px, ab 1920 px 60 px), rechts der Satz in Manganese statt Grau (18–21 px statt 14 px, ab 1920 px 24 px), darunter der Link (fett, grösser). Der Satz ist dafür in die rechte Spalte gewandert (neue Klasse `themen_beschreibung`). Die Figur ist etwas kleiner und steht etwas höher (64 % statt 74 % der Fensterhöhe), damit die Texte frei stehen |
+| 195 | «in einer anderen Darstellung zeigen» | Vergleich A und B | Variante B nur als Bildentwurf (nicht in Webflow): Kernbotschaft links und Satz rechts auf Höhe des Titels. Dafür muss der Titel rund ein Drittel kleiner werden, die Texte werden kleiner als in A und stehen auf Laptops knapp am Titel. Empfehlung: A. Entscheid offen (offener Punkt 25) |
+| 196 | Einrasten zu träge | eigene Prüfung im Video | Nach dem Mausrad blieb die Szene gut eine Sekunde mitten im Wechsel stehen (jeder Schritt des weichen Nachlaufs startete die Wartezeit neu). Jetzt rastet sie 150 ms nach dem letzten Mausrad-Schritt ein: fertig nach rund 1,2 s statt 2,2 s, volle Form im Stillstand rund 0,2 s statt 1 s |
+| 197 | Über uns: Fotos auf v3 nicht sichtbar | reparieren | Ursache: Die Einblend-Interaktion «Team-Kacheln nacheinander» reagierte nur auf das Team-Raster der Seite v2. Auslöser jetzt die Klasse `team_grid` (gilt auf v2 und v3). Ebenso «CAS Farbfläche einblenden» (Auslöser Klasse `section_cas`, Ziele auf beiden Seiten) |
+| 198 | Insights: Titel läuft in Webinare und ROWAPA TV | «diese zwei Bezeichnungen wieder unter die Kasten legen» | Die zwei Links stehen wieder unter den Karten (rechte Spalte); der stehende Titel hat die linke Spalte für sich. Gilt auf v2 und v3 (gemeinsame Klasse) |
+| 199 | Prüfung | Formate, Handy, Bewegung reduzieren, Video | Ruhe ohne Überlappung von 992×620 bis 2560×1440; Ablauf in Einzelbildern; Tablet und Handy; «Bewegung reduzieren» ohne Form; Einrasten (Mausrad, Rückweg, Trackpad, Tastatur, Klick); v2 ohne Fehler. Grafik-Skript 1.8.1 |
+
 ---
 
 ## Offene Punkte
@@ -351,5 +364,7 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 19. Texte «Warum ROWAPA» (vier Punkte, Texttabelle Rev. 9). [ROWAPA bestätigen]
 20. Themenlinien: Kernbotschaften, Sätze und Button-Texte der fünf Themen (Texttabelle Rev. 9). [ROWAPA bestätigen]
 21. Option: feine Plum-Linie entlang der diagonalen Vorhangkante (wie das Ribbon). Nicht gebaut, nur Idee.
-22. Tablet und Handy: Blöcke untereinander wie die Referenz (Runde 20, rund 3,5 Bildschirme auf dem Handy). Die Plum-Form ruht dort; auf Wunsch verwandelt sie sich wie bei der Referenz auch auf dem Handy.
+22. Tablet und Handy: Blöcke untereinander wie die Referenz (Runde 20, rund 3,5 Bildschirme auf dem Handy). Die Plum-Form zerfällt dort, während der Block in den Blick rückt (Runde 21); auf Wunsch verwandelt sie sich wie auf dem Desktop.
 23. Riesige Titel der Themen (Entscheid 188) bestätigen. [ROWAPA bestätigen]
+24. Vorhang: beide gut (Runde 21). Für die definitive Fassung einen wählen? Heute «von unten», diagonal als Schalter.
+25. Themenlinien-Texte: Variante A (zwei Spalten unter dem Titel, gebaut) oder B (links und rechts neben dem Titel, Bildentwurf)?

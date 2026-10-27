@@ -301,6 +301,17 @@ Umgesetzt auf `/home-v3`. Kernbotschaften, Sätze und Linktexte aus Rev. 9 bleib
 | Lösungen | Links | Buttons «Vertriebsperformance verbessern» usw. | gleiche Texte als unterstrichener Link rechts unten | Ecken-Layout wie die Referenz («Know more») | – |
 | Lösungen | Sätze | Text mittelgross | Text klein, links unten | Ecken-Layout; Titel und Figur tragen die Fläche | – |
 
+## Rev. 11 · Erklärtexte gross, Form löst sich auf (27.10.2026, Runde 21)
+
+Umgesetzt auf `/home-v3`. Kein Wortlaut geändert; nur Anordnung, Grösse und Farbe.
+
+| Section | Element | Original (Rev. 10) | Vorschlag (umgesetzt) | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Lösungen | Kernbotschaft (z. B. «Verkaufsleistung messbar steigern») | links unten, 20–30 px | links unten, 33–44 px auf Laptops, 60 px ab 1920 px | «viel grösser und viel prominenter»; sagt in einem Satz, was das Thema bringt | – |
+| Lösungen | Satz (z. B. «Wir begleiten Ihren Vertrieb …») | links unten unter der Kernbotschaft, 14 px grau | rechte Spalte, 18–21 px (ab 1920 px 24 px), Manganese | links Botschaft, rechts Erklärung und nächster Schritt; dunkle Schrift liest sich auf Snowbank besser | – |
+| Lösungen | Link (z. B. «Vertriebsperformance verbessern») | rechts unten, 15 px | rechte Spalte unter dem Satz, 16–19 px fett | nächster Schritt direkt nach der Erklärung | – |
+| Lösungen | Variante B (nur Bildentwurf) | – | Kernbotschaft links und Satz rechts neben dem Titel | Vergleich zur Frage «links und rechts davon» | A oder B? (offene Frage 13) |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -317,3 +328,4 @@ Umgesetzt auf `/home-v3`. Kernbotschaften, Sätze und Linktexte aus Rev. 9 bleib
 10. Kernbotschaften, Sätze und Buttons der fünf Themen (Rev. 9)?
 11. Texte «Warum ROWAPA», insbesondere die Aufzählung «Banken, Versicherungen und Krankenkassen» (Rev. 9)?
 12. Riesige Titel der fünf Themen, besonders «Performance & Potenzial» und «Recruiting & Bindung» (Rev. 10)?
+13. Erklärtexte der Themenlinien: Variante A (zwei Spalten unter dem Titel, gebaut) oder B (links und rechts neben dem Titel, Bildentwurf) (Rev. 11)?
