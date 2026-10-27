@@ -261,7 +261,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Anordnung der Texte (seit Runde 23):** Standard A (Kernbotschaft links, Satz und Link rechts, beide unten). Variante diagonal (Kernbotschaft unten links, Satz und Link oben rechts): `section_themen` › Custom attributes › `data-anordnung` = `diagonal`; vergleichen ohne Änderung mit `?anordnung=diagonal` in der Adresse. Die Stile stehen in den Zusatzklassen `is-diagonal` (an `themen_titel`, `themen_unten`, `themen_text`, `themen_aktion`); das Skript setzt sie. Wird diagonal definitiv, setzen wir die Klassen fest in Webflow.
 - **Übergang:** `section_themen` › Custom attributes › `data-uebergang` = `unten` (Standard, wie die Referenz) oder `diagonal` (45°). Vergleichen ohne Änderung: Adresse mit `?uebergang=diagonal` bzw. `?uebergang=unten`.
 - **Scrollweg je Thema:** Attribut `data-schritt` an `section_themen` (Anteil der Fensterhöhe, Standard 1).
-- **Einrasten (seit Runde 30, zum Vergleichen):** Standard: Die Szene rastet 150 ms nach dem letzten Rad-Schritt im nächsten Thema ein. Mit `?einrasten=wisch` in der Adresse (oder Custom attribute `data-einrasten` = `wisch` an `section_themen`) bringt jeder Wisch auf dem Trackpad oder Rad-Stoss sofort genau ein Thema weiter; der Nachlauf des Trackpads wird übergangen.
+- **Einrasten (seit Runde 33 Wisch-Einrasten als Standard):** Jeder Wisch auf dem Trackpad oder Rad-Stoss bringt sofort genau ein Thema weiter; der Nachlauf des Trackpads wird übergangen. Das frühere Einrasten (150 ms nach dem letzten Rad-Schritt) zum Vergleichen mit `?einrasten=rad` in der Adresse oder Custom attribute `data-einrasten` = `rad` an `section_themen`.
 - **Thema hinzufügen oder entfernen:** Panel duplizieren bzw. löschen, dem neuen Panel eine eigene ID geben (Settings › ID, z. B. `thema-neu`), in der Liste einen `themen_link` duplizieren und seinen Link auf «Section» › dieses Panel stellen. Das Skript zählt die Themen selbst.
 - **Aktives Thema:** Zusatzklasse `is-aktiv` auf `themen_link` (Desktop Manganese, Tablet/Handy Plum mit Linie). Im Designer steht sie auf dem ersten Link; auf der Website setzt sie das Skript.
 - **Ohne Skript und bei «Bewegung reduzieren»** stehen die Themen als Vollbild-Blöcke untereinander; alle Inhalte bleiben lesbar und erreichbar.
@@ -284,6 +284,12 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Links:** Klasse `navbar_dropdown-link is-buehne` (beim Darüberfahren eine feine Plum-Linie links). Kurzbeschrieb unter dem Link: Textelement `navbar_link-beschrieb` im Link. Neuer Link: bestehenden duplizieren, Text, Ziel und Attribut `data-vorschau` anpassen (2.26).
 - **«Unsere Kunden»:** eigenes Menü mit «Branchen», «Case-Stories», «Kundenstimmen». Ziele `/referenzen#branchen`, `#cases`, `#stimmen`; die Seite `/referenzen` gibt es noch nicht (offener Punkt 31). Wenn sie steht, die Abschnitte mit diesen IDs versehen (Zahnrad › ID). Vorschaukarten wie in 2.26 (`data-vorschau` am Link, `data-vorschau-karte` an der Karte; Namen `branchen`, `cases`, `stimmen`).
 - **Handy:** Das Handy-Menü (`navbar_mobile-dropdown`) ist unverändert; «Unsere Kunden» ist dort ein einzelner Link.
+
+### 2.37 Farbkonzept-Variante (`/home-v3-farben`, seit Runde 33)
+- **Was es ist:** Kopie von `/home-v3` mit der Farbverteilung aus dem Farbkonzept von ROWAPA. v3 bleibt unverändert; beide Seiten lassen sich direkt vergleichen.
+- **Unterschiede zu v3:** «Unsere Erfolge» `section_erfolge theme-soft` (Snowbank), Fotorahmen `quote_image-wrapper is-plum-soft` (Plum-Linie, innen Snowbank); Themen `section_themen theme-soft is-linie` (feine Linie oben) mit den Figuren `grafik-thema-…-plum-gross.png` (Assets › 02 Grafiken) und `data-figur-ruhe` = `0.7`; «Meine Entwicklung» Karten-Varianten «Zeile · Snowbank (aus Sea Cliff)», «Zeile · Snowbank · Bild rechts», «Zeile · Snowbank (aus Plum)»; «Im Blickpunkt» `section_cas theme-hell` und dunkle Fläche aus (`cas_farbe is-aus`); Footer-Variante «Manganese».
+- **Eine Section umfärben:** Section auswählen › Theme-Klasse tauschen (`theme-hell` Weiss, `theme-soft` Snowbank, `theme-sea` helles Sea Cliff, `theme-kontrast` Manganese Black). Texte und Buttons folgen automatisch.
+- **Figuren in Plum neu erzeugen:** `tools/grafik/figuren/` › `PLUM=1 node render.js` und `HELL=1 PLUM=1 node render.js vertrieb` (siehe LIESMICH).
 
 ---
 

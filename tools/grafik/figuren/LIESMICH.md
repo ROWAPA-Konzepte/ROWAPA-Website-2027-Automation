@@ -8,6 +8,8 @@ Die Standbilder der Punktfiguren (Themenkarten, Vertriebsperformance) sind aus d
 node render.js            # vier Themenfiguren: roh-potenzial/-fuehrung/-recruiting/-digital.png
 node render.js vertrieb   # Treppe für Vertriebsperformance (helle Farben für dunklen Grund)
 HELL=1 node render.js vertrieb   # dieselbe Treppe in den Farben der Themenfiguren (für hellen Grund): roh-vertrieb-hell.png
+PLUM=1 node render.js            # Farbkonzept (Runde 33): Plum als Hauptfarbe, Sea Cliff und Mischblau untergeordnet: roh-…-plum.png
+HELL=1 PLUM=1 node render.js vertrieb   # dasselbe für die Treppe: roh-vertrieb-hell-plum.png
 ```
 
 **Grosse Fassungen für die Themenlinien (Runde 20):** `convert roh-NAME.png -trim +repage -bordercolor none -border 2%x2% -resize x1400 -colors 128 PNG8:grafik-thema-NAME-gross.png` (ImageMagick), in Webflow im Ordner der Grafiken.
