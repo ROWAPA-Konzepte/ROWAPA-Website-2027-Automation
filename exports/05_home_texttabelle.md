@@ -287,6 +287,20 @@ Umgesetzt auf `/home-v3`. `/home-v2` bleibt unverändert. Kopf der Section (Kick
 | Was uns antreibt | Punkt 03 | – | «Aus der Praxis» · «Unsere Trainerinnen und Trainer bringen eigene Praxis aus Vertrieb und Führung mit.» | stützt die Kennzahl «Praxisbezug ab dem ersten Tag» | [ROWAPA bestätigen] |
 | Was uns antreibt | Punkt 04 | – | «Aus einer Hand» · «Beratung, Training und digitale Lösungen greifen ineinander.» | verbindet Themen und Digitales | [ROWAPA bestätigen] |
 
+## Rev. 10 · Themenlinien wie die Referenz (27.10.2026, Runde 20)
+
+Umgesetzt auf `/home-v3`. Kernbotschaften, Sätze und Linktexte aus Rev. 9 bleiben; neu ist der riesige Titel je Thema.
+
+| Section | Element | Original (Rev. 9) | Vorschlag (umgesetzt) | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Lösungen | Titel Thema 01 | – | «Vertriebs- / performance» | riesiger zweizeiliger Titel wie die Referenz, aus dem Themennamen | [ROWAPA bestätigen] |
+| Lösungen | Titel Thema 02 | – | «Performance / & Potenzial» | aus «Mitarbeiterperformance & Potenzial», gekürzt für zwei Zeilen | «Mitarbeiter» fehlt im Titel, steht im Kicker; so in Ordnung? [ROWAPA bestätigen] |
+| Lösungen | Titel Thema 03 | – | «Führung / & Teams» | Themenname | [ROWAPA bestätigen] |
+| Lösungen | Titel Thema 04 | – | «Recruiting / & Bindung» | aus «Recruiting & Mitarbeiterbindung», gekürzt | [ROWAPA bestätigen] |
+| Lösungen | Titel Thema 05 | – | «Digitale / Lösungen» | Themenname | [ROWAPA bestätigen] |
+| Lösungen | Links | Buttons «Vertriebsperformance verbessern» usw. | gleiche Texte als unterstrichener Link rechts unten | Ecken-Layout wie die Referenz («Know more») | – |
+| Lösungen | Sätze | Text mittelgross | Text klein, links unten | Ecken-Layout; Titel und Figur tragen die Fläche | – |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -302,3 +316,4 @@ Umgesetzt auf `/home-v3`. `/home-v2` bleibt unverändert. Kopf der Section (Kick
 9. Kurznamen der stehenden Leiste «Vertrieb · Potenzial · Führung · Recruiting · Digital» (Rev. 9)?
 10. Kernbotschaften, Sätze und Buttons der fünf Themen (Rev. 9)?
 11. Texte «Warum ROWAPA», insbesondere die Aufzählung «Banken, Versicherungen und Krankenkassen» (Rev. 9)?
+12. Riesige Titel der fünf Themen, besonders «Performance & Potenzial» und «Recruiting & Bindung» (Rev. 10)?

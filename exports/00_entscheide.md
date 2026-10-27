@@ -312,6 +312,20 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 181 | Technik | so wenig Code wie möglich | Grafik-Skript 1.6.1, Modul `themen` (nur Lage, Ausschnitt, Morph und Klasse `is-aktiv`). Ohne Skript, bei «Bewegung reduzieren» und bei sehr niedrigen Fenstern stehen die Karten untereinander. Geprüft ab 992×620 bis 1920×1080 |
 | 182 | Prüfung live | Staging, 8 Formate, Skript 1.6.1 | v3: 1920 bis 1024 px 12 von 12 Sections in einem Bildschirm (die Themenlinien als stehende Bühne), Seite 13,1–14,6 Bildschirme (davon 2,6 Scrollweg der Themen). Bühne geprüft von 992×620 bis 1920×1080 (bei knapper Höhe mit schmalem Rand). Tablet 768: 11 von 12, Handy 390: 10 von 12; länger sind die Themenkarten untereinander (Tablet +1317 px, Handy +2159 px, Seite 15,6 Bildschirme) und auf dem Handy «Neueste Insights» (+221 px). v2 Handy: «Im Blickpunkt» passt jetzt (vorher +128 px). Beide Übergänge, Klick in der Liste, Zurückscrollen, «Bewegung reduzieren» und v2 ohne Fehler |
 
+## 24. Feedback-Runde 20 (27.10.2026): Themenlinien wie die Referenz
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 183 | Rückmeldung zu Runde 19 | «Ich sehe keine Unterschiede zwischen Variante 1 und 2» und «nicht annähernd wie die Referenz»; Ziel: den Effekt 1:1 herstellen | Ursachen: Auf Tablet und Handy gab es keine Bühne; auf dem Desktop deckte ein weisses Panel ein weisses auf (Kante unsichtbar), der Wechsel war ein fester Übergang statt am Scrollen gekoppelt. Neubau nach den Messwerten der Analyse (https://claude.ai/artifact/LwdWCvJZ13WPBPLMSFPcDe), eigener Code und eigene Gestaltung |
+| 184 | Einrasten | «Wie Tresmares» (ersetzt Entscheid 174) | Weiches Scrollen auf der Seite (Bibliothek Lenis, nur auf Seiten mit den Themenlinien, ab 992 px, nicht bei «Bewegung reduzieren»). In der Section rastet es bei der Hälfte auf das nächste Thema ein (1,3 s); Klick in der Liste 1 s |
+| 185 | Navigation | «Ausblenden» | Navigation und Knopf «Nach oben» sind ausgeblendet, solange die Bühne steht, und kommen danach zurück |
+| 186 | Bildsprache | «Punktfigur + Plum-Form» | Die fünf Punktfiguren neu in 1400 px Höhe gerendert (scharf auf grossen Bildschirmen). Hinter jeder Figur eine Plum-Form aus 45°-Bändern wie das Ribbon (Band, Doppelband, Winkel, Trichter, Raster), Attribut `data-form` am Panel |
+| 187 | Vorhang | «Von unten, diagonal als Schalter» (ersetzt Entscheid 175) | Standard von unten wie die Referenz (`data-uebergang="unten"`), diagonal zum Vergleich mit `/home-v3?uebergang=diagonal` |
+| 188 | Aufbau | wie die Referenz | Vollbild-Panels auf Snowbank. Riesiger Titel in der Mitte, zweite Zeile versetzt; Titel aus den Themennamen abgeleitet: «Vertriebs- / performance», «Performance / & Potenzial», «Führung / & Teams», «Recruiting / & Bindung», «Digitale / Lösungen» [ROWAPA bestätigen]. Kleine Liste links oben (aktiv Manganese, andere hellgrau), Text links unten, Link rechts unten (statt Kennzahlen, es gibt keine bestätigten Zahlen je Thema). Einleitung («Was wir tun», Titel, Text, Button) bleibt über der Bühne |
+| 189 | Ablauf eines Wechsels | Messwerte der Referenz | je Thema eine Fensterhöhe Scrollweg; alles hängt am Scroll-Fortschritt: Vorhang deckt von unten auf, das alte Thema dunkelt ab (Manganese, bei halbem Weg rund 42 %), Figur −20 % und Text −30 % der Fensterhöhe nach oben, das neue kommt von unten nach; alter Titel im ersten Viertel aus, neuer im letzten Viertel ein; die Form schrumpft zu vier kleinen Quadraten und wächst zur neuen Form; Markierung wechselt bei der Hälfte |
+| 190 | Tablet und Handy | wie die Referenz auf dem Handy | Blöcke untereinander mit stehender Leiste; Titel ausserhalb des Blicks bei 35 %, der ausscheidende Block dunkelt leicht ab; die Form ruht hinter der Figur (verwandelt sich nicht) |
+| 191 | Prüfung | an denselben Stellen wie die Analyse | Bilder eingerastet und bei halbem Wechsel neben den Referenzbildern verglichen; Video der Szene (Mausrad, Einrasten, Klick); Bühne ohne Überlappung von 992×620 bis 2560×1440; Einrasten zurück (30 %) und vor (60 %), Klick, Navigation, «Bewegung reduzieren» und Handy ohne Fehler. Grafik-Skript 1.7.0 |
+
 ---
 
 ## Offene Punkte
@@ -329,7 +343,7 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 11. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
 12. Megamenü-Bezeichnungen «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention» weichen von den Titeln auf der Startseite ab («Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung»). Bearbeiten wir später (Entscheid Runde 18).
 13. Eigene Bilder für Managing Partner, Education Partner und Trainer Academy, falls vorhanden (die Menütexte sind bestätigt).
-14. `/home-v3` ist gebaut (Runde 19). Entscheid: welcher Übergang (diagonal oder von unten), und wird v3 die definitive Startseite?
+14. `/home-v3` mit der Themenlinien-Szene wie die Referenz (Runde 20). Wird v3 die definitive Startseite?
 15. Handy: «Im Blickpunkt» und «Neueste Insights» sind länger als ein Bildschirm (Entscheid 170). Kürzen oder so lassen?
 16. Designer-Ansicht: «Unsere Erfolge» mit 8 Folien geprüft und in Ordnung. «Unser Vorgehen» noch prüfen (die Designer-Vorschau brach mehrmals ab).
 17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante.
@@ -337,4 +351,5 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 19. Texte «Warum ROWAPA» (vier Punkte, Texttabelle Rev. 9). [ROWAPA bestätigen]
 20. Themenlinien: Kernbotschaften, Sätze und Button-Texte der fünf Themen (Texttabelle Rev. 9). [ROWAPA bestätigen]
 21. Option: feine Plum-Linie entlang der diagonalen Vorhangkante (wie das Ribbon). Nicht gebaut, nur Idee.
-22. Tablet und Handy: Die fünf Themenkarten untereinander sind lang (Handy rund 2,5 Bildschirme). So lassen, kompakter (Satz ausblenden, Figur kleiner) oder als Wischreihe wie auf v2, mit der Leiste als Reiter?
+22. Tablet und Handy: Blöcke untereinander wie die Referenz (Runde 20, rund 3,5 Bildschirme auf dem Handy). Die Plum-Form ruht dort; auf Wunsch verwandelt sie sich wie bei der Referenz auch auf dem Handy.
+23. Riesige Titel der Themen (Entscheid 188) bestätigen. [ROWAPA bestätigen]

@@ -239,18 +239,19 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Ausgeblendet, nicht gelöscht (Runde 18):** Zitate-Raster unter dem Slider (`is-erfolge`), fette Unterzeilen im Vorgehen (`step_lead`), Partnerlogos (Block `partner_block`, Einstellungen › Sichtbarkeit aus). Wieder einblenden: Klasse auf Display Block bzw. Grid stellen oder die Sichtbarkeit einschalten.
 - **Prüfen:** Werkzeug `tools/format-vorschau/` misst die Staging-Seite in 8 Formaten (LIESMICH dort).
 
-### 2.33 Lösungen für Unternehmen: Themenlinien (`/home-v3`, seit Runde 19)
-- **Was es ist:** eine Section mit fünf Themen. Auf Desktop (ab 992 px) bleibt sie beim Scrollen stehen, die Themen wechseln nacheinander (je Thema rund zwei Drittel Bildschirmhöhe), die Liste links zeigt das aktive Thema in Plum. Klick auf ein Thema scrollt dorthin. Tablet und Handy: Karten untereinander, darüber eine stehende Leiste mit Kurznamen.
-- **Aufbau (Navigator):** `section_themen` › `themen_layout` › `themen_kopf` (Kicker, Titel, Einleitung, Button) · `themen_liste` (fünf Links `themen_link`, je mit `themen_link-nummer`, `themen_link-lang`, `themen_link-kurz`) · `themen_panels` (fünf Panels `themen_panel`, je mit `themen_text` und `themen_figur`).
-- **Texte ändern:** direkt auf der Seite doppelklicken (Kicker, Kernbotschaft `themen_aussage`, Satz, Button). Den Link des Buttons rechts unter Settings › Link.
-- **Kurznamen der Leiste (Tablet, Handy):** Text in `themen_link-kurz` ändern; auf Desktop steht der lange Name (`themen_link-lang`).
-- **Figur tauschen:** Bild in `themen_figur` auswählen › Bildfeld. PNG mit transparentem Hintergrund und Punkten in den CI-Farben (hellen Grund beachten). Die Verwandlung entsteht aus dem Bild von selbst. Alt-Text unter Settings anpassen.
-- **Übergang wählen:** `section_themen` auswählen › Settings › Custom attributes › `data-uebergang` = `diagonal` (Vorhang 45°, Standard) oder `unten` (Vorhang von unten). Zum Vergleichen ohne Änderung: Adresse mit `?uebergang=unten` bzw. `?uebergang=diagonal` öffnen.
-- **Scrollweg je Thema:** Attribut `data-schritt` an `section_themen` (Anteil der Bildschirmhöhe, Standard 0.65). Geschwindigkeit des Übergangs: `data-tempo` (1 = 0,6 s).
+### 2.33 Lösungen für Unternehmen: Themenlinien (`/home-v3`, seit Runde 19, neu aufgebaut in Runde 20)
+- **Was es ist:** Szene mit fünf Themen nach dem Vorbild der Referenz Tresmares Capital. Auf Desktop (ab 992 px) steht eine Vollbild-Bühne, je Thema scrollt man eine Fensterhöhe. Beim Weiterscrollen deckt das nächste Thema das alte von unten auf, das alte dunkelt ab, die Plum-Form verwandelt sich über vier kleine Quadrate. Die Seite rastet bei der Hälfte auf das nächste Thema ein. Navigation und «Nach oben» sind ausgeblendet, solange die Bühne steht. Tablet und Handy: Blöcke untereinander mit stehender Leiste.
+- **Aufbau (Navigator):** `section_themen` › Einleitung (`padding-global` › … › `themen_kopf`: Kicker, Titel, Text, Button) › `themen_huelle` › `themen_buehne` › `themen_liste` (fünf `themen_link`, je mit `themen_link-nummer`, `themen_link-lang`, `themen_link-kurz`) und `themen_panels` (fünf `themen_panel`). Jedes Panel: `themen_titel` (zwei Zeilen `themen_titel-zeile`, die zweite mit `is-versetzt`), `themen_figur` (Bild), `themen_unten` (`themen_text` mit Kicker, Kernbotschaft `themen_aussage`, Satz; `themen_aktion` mit dem Link `themen_mehr`).
+- **Texte ändern:** direkt auf der Seite doppelklicken. Riesiger Titel: die beiden Zeilen in `themen_titel` (der Titel ist für Bildschirmleser ausgeblendet, `aria-hidden`; der Name steht im Kicker). Link unten rechts: Text doppelklicken, Ziel unter Settings › Link.
+- **Kurznamen der Leiste (Tablet, Handy):** Text in `themen_link-kurz`; auf Desktop steht der lange Name (`themen_link-lang`).
+- **Figur tauschen:** Bild in `themen_figur` › Bildfeld. PNG mit transparentem Hintergrund, rund 1400 px hoch (`grafik-thema-…-gross.png`), Punkte in den CI-Farben für hellen Grund. Alt-Text unter Settings.
+- **Plum-Form wählen:** Panel auswählen › Settings › Custom attributes › `data-form` = `band` (ein Band), `doppel` (zwei Bänder), `winkel`, `trichter` oder `raster` (vier Quadrate). Die Form zeichnet das Skript; ohne Skript ist sie nicht da.
+- **Übergang:** `section_themen` › Custom attributes › `data-uebergang` = `unten` (Standard, wie die Referenz) oder `diagonal` (45°). Vergleichen ohne Änderung: Adresse mit `?uebergang=diagonal` bzw. `?uebergang=unten`.
+- **Scrollweg je Thema:** Attribut `data-schritt` an `section_themen` (Anteil der Fensterhöhe, Standard 1).
 - **Thema hinzufügen oder entfernen:** Panel duplizieren bzw. löschen, dem neuen Panel eine eigene ID geben (Settings › ID, z. B. `thema-neu`), in der Liste einen `themen_link` duplizieren und seinen Link auf «Section» › dieses Panel stellen. Das Skript zählt die Themen selbst.
-- **Aktives Thema:** Zusatzklasse `is-aktiv` auf `themen_link` (Plum, Linie). Im Designer steht sie auf dem ersten Link; auf der Website setzt sie das Skript.
-- **Ohne Skript, bei «Bewegung reduzieren» und in sehr niedrigen Fenstern** stehen die Karten untereinander; alle Inhalte bleiben lesbar.
-- **Nicht ändern:** Klassennamen `themen_*` und `section_themen` (das Skript sucht sie), die Reihenfolge Text vor Figur im Panel.
+- **Aktives Thema:** Zusatzklasse `is-aktiv` auf `themen_link` (Desktop Manganese, Tablet/Handy Plum mit Linie). Im Designer steht sie auf dem ersten Link; auf der Website setzt sie das Skript.
+- **Ohne Skript und bei «Bewegung reduzieren»** stehen die Themen als Vollbild-Blöcke untereinander; alle Inhalte bleiben lesbar und erreichbar.
+- **Nicht ändern:** Klassennamen `themen_*` und `section_themen` (das Skript sucht sie). Weiches Scrollen gibt es nur auf Seiten mit dieser Section.
 
 ### 2.34 Warum ROWAPA (in «Was uns antreibt», `/home-v3`)
 - Block `warum_block` unter den Kennzahlen: Kicker «Warum ROWAPA» und vier Punkte (`warum_item` mit `warum_nummer`, `warum_titel`, `warum_text`). Desktop vier Spalten, Tablet zwei, Handy nur Nummer und Titel (`warum_text` ausgeblendet).
