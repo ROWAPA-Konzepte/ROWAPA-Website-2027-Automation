@@ -153,6 +153,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Tag und Datum:** Tag (z. B. «Leadership») und Datum stehen in einer Zeile über dem Titel (`card_meta`), nicht im Foto.
 - **Variante «Insights Reihe» (seit Runde 18):** Bildhöhe an die Fensterhöhe gekoppelt, Auszug 992–1919 px ausgeblendet. Neue Karten in der Reihe bekommen diese Variante.
 - **Webinare und ROWAPA TV:** stehen unter den Karten (seit Runde 21; ab 992 px rechte Spalte, Zeile 2, Klasse `link-teaser-list is-seitenspalte`). Die linke Spalte gehört dem Titel, der beim Scrollen stehen bleibt.
+- **Webinare und ROWAPA TV (seit Runde 25, v3):** dezent als Zeilen mit feiner Linie oben und Plum-Pfeil (`link-teaser is-dezent`, Pfeil `icon-box is-dezent`). Auf v2 noch als weisse Kästen.
 - Ab Stufe 3 wird die Reihe eine CMS-Liste; der Aufbau bleibt gleich.
 
 ### 2.21 Startbildschirm (Header bis Logo-Band)
@@ -261,6 +262,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - Von oben nach unten: Header dunkel (`theme-tiefsee`) · Logos und «Was uns antreibt» weiss (`theme-hell`) · «Unsere Erfolge» hellblau (`theme-sea`) · «Lösungen für Unternehmen» mit Bühne grau (`theme-soft`) · «Unser Vorgehen» weiss · «ROWAPA Digital» Manganese (`theme-kontrast`) · «Über uns» und «Meine Entwicklung» weiss (mit Linie verbunden) · «Im Blickpunkt» dunkel · «Neueste Insights» grau · «Gut zu wissen» weiss · «Kontakt» hellblau · Footer dunkel.
 - Grundsatz: Dunkel nur für die Anker (Header, Digital, CAS, Footer), Hellblau für Kundenstimmen und Kontakt, Grau für Themen und Insights, Weiss dazwischen. Nie zwei gleiche Flächen nacheinander ausser bewusst verbundene Sections.
 - Ändern: Section auswählen › Klasse `theme-…` tauschen (siehe 2.3). `/home-v2` hat noch die frühere Folge.
+- **Logo-Band (seit Runde 25, v3):** `section_logos is-header` im Ton der Header-Unterkante (Variable «Header Unterkante», Sammlung Farben). Die Logos werden weiss über die Zusatzklasse `logos_track is-hell` (Effekte: Filter invert und brightness, Mischmodus screen); die Randverläufe `logos_fade … is-header` haben denselben Ton. Neues Logo: wie gewohnt ins Laufband legen (beide Listen), es wird automatisch weiss. Ändert sich der Header-Verlauf, die Variable mitziehen.
 
 ### 2.34 Warum ROWAPA (in «Was uns antreibt», `/home-v3`)
 - Block `warum_block` unter den Kennzahlen: Kicker «Warum ROWAPA» und vier Punkte (`warum_item` mit `warum_nummer`, `warum_titel`, `warum_text`). Desktop vier Spalten, Tablet zwei, Handy nur Nummer und Titel (`warum_text` ausgeblendet).

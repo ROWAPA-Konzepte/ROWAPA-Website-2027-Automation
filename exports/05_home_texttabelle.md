@@ -330,6 +330,16 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 |---|---|---|---|---|---|
 | Lösungen | Kicker über der Themenliste (Desktop) | – | «Lösungen für Unternehmen» | gleicher Wortlaut wie der Titel der Einleitung; bleibt während der fünf Themen sichtbar und sagt, worum es geht | – |
 
+## Rev. 14 · ROWAPA Digital (27.10.2026, Runde 25)
+
+| Section | Element | Original (Rev. 13) | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| ROWAPA Digital | Titel (H2) | «Digitale Lösungen, die Ihren Vertrieb im Alltag begleiten» | «Digitale Lösungen für Ihren Alltag» (umgesetzt, v3) | Wunsch ROWAPA: kürzer, ruhiger | – |
+| ROWAPA Digital | Einleitung | «Was wir beraten, bauen wir auch: fünf digitale Lösungen mit künstlicher Intelligenz, entwickelt mit ETH juniors (ETH Zürich). Jede Lösung ist einzeln buchbar.» | «Was wir beraten, bauen wir auch: fünf Lösungen mit künstlicher Intelligenz auf einer gemeinsamen Wissensplattform, entwickelt mit ETH juniors (ETH Zürich).» (nur Entwurf) | nimmt die Aussage des Kastens «Das Fundament» auf, der Kasten entfällt | «Jede Lösung ist einzeln buchbar.» auf die Übersichtsseite? |
+| ROWAPA Digital | Kasten «Das Fundament: die ROWAPA Wissensplattform» | Kasten mit Logo | entfällt (nur Entwurf) | doppelt zur Beschriftung der Kugel | – |
+| ROWAPA Digital | Button 2 «Alle digitalen Lösungen» | Rahmen-Button | Textlink «Alle digitalen Lösungen →» neben dem Button (nur Entwurf) | ein Haupt-Button, weniger Gewicht in der Ecke | – |
+| ROWAPA Digital | Karten «Mehr zu …» | Linktext und Pfeil | nur Pfeil (nur Entwurf) | die ganze Karte ist der Link | – |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -348,3 +358,4 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 12. Riesige Titel der fünf Themen, besonders «Performance & Potenzial» und «Recruiting & Bindung» (Rev. 10)?
 13. Erklärtexte der Themenlinien: Variante A (zwei Spalten unter dem Titel, gebaut) oder B (links und rechts neben dem Titel, Bildentwurf) (Rev. 11)?
 14. Erweiterte Erklärtexte der fünf Themen, besonders die Zuordnung von Executive Coaching (Rev. 12)?
+15. ROWAPA Digital ruhiger (Rev. 14): Entwurf umsetzen, und wohin mit «Jede Lösung ist einzeln buchbar.»?

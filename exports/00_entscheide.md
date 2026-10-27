@@ -368,6 +368,15 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 212 | Titel «Lösungen für Unternehmen» | Empfehlung umsetzen | Zusätzlich als Kicker über der Themenliste oben links (Klasse `text-style-kicker is-liste`), bleibt während aller fünf Themen sichtbar; auf Tablet und Handy ausgeblendet (dort steht die Leiste waagrecht). Die Einleitung bleibt. Für Bildschirmleser ausgeblendet, weil der Titel direkt darüber schon als H2 steht. Von 992×620 bis 1920×1080 ohne Berührung mit dem Titel |
 | 213 | Textanordnung | «so wie vorher, also nicht diagonal … sozusagen die Variante A» | A bleibt (ersetzt offenen Punkt 25). Der Schalter `?anordnung=diagonal` und die Klassen `is-diagonal` bleiben vorerst stehen und gehen beim Aufräumen weg (offener Punkt 17) |
 
+## 29. Feedback-Runde 25 (27.10.2026): Logo-Band dunkel, ROWAPA Digital entlasten, Insights luftiger
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 214 | Logos auf dunklem Grund, weiss, an den Header angeglichen | umgesetzt (nur v3) | Logo-Band im Ton der Header-Unterkante (neue Farbvariable «Header Unterkante» #344F76, Ende des Header-Verlaufs), Logos weiss über einen Filter am Laufband (`logos_track is-hell`: invert + brightness, Mischmodus «screen»). So erscheinen auch Logos mit weissem Bildhintergrund (Raiffeisen, Visana) ohne Kasten. Randverläufe im selben Ton. Laufband unverändert. Folge jetzt: Header und Logos dunkel · Antrieb weiss · … |
+| 215 | ROWAPA Digital: Titel | «nur schreiben: Digitale Lösungen für Ihren Alltag» | Titel auf v3 als Überschreibung der Komponente gesetzt; v2 behält den alten Titel |
+| 216 | ROWAPA Digital zu überfüllt, Fundament und zwei Buttons gedrängt | Vorschlag, nur Entwurf | Ein Button «Demo vereinbaren», daneben schlichter Textlink «Alle digitalen Lösungen →»; Kasten «Das Fundament» entfällt, die Aussage steht im Einleitungssatz («… auf einer gemeinsamen Wissensplattform …»), die Kugel ist schon mit «Wissensplattform» beschriftet; Titel in zwei Zeilen; Karten nur mit Pfeil statt «Mehr zu …». Der Satz «Jede Lösung ist einzeln buchbar.» würde auf die Übersichtsseite wandern. Section 3–5 % kürzer. Entscheid offen (offener Punkt 29) |
+| 217 | Insights: Live-Webinare und ROWAPA TV dezenter | umgesetzt (nur v3) | Statt weisser Kästen schlichte Zeilen mit feiner Linie oben und Plum-Pfeil (`link-teaser is-dezent`, `icon-box is-dezent`); die Section wirkt leichter |
+
 ---
 
 ## Offene Punkte
@@ -400,3 +409,4 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 26. Erweiterte Erklärtexte der fünf Themen (Texttabelle Rev. 12). [ROWAPA bestätigen]
 27. Farbfolge: auf v3 umgesetzt (Entscheid 211). Offen: auch auf v2, falls v2 weitergeführt wird.
 28. ~~Titel «Lösungen für Unternehmen»~~: entschieden, Kicker über der Themenliste (Entscheid 212).
+29. ROWAPA Digital ruhiger (Entwurf Runde 25): umsetzen? Satz «Jede Lösung ist einzeln buchbar.» auf die Übersichtsseite verschieben oder behalten?
