@@ -14,6 +14,7 @@ import { varianten } from './varianten.js';
 import { hoverVideos } from './hovervideo.js';
 import { nachoben } from './nachoben.js';
 import { themen } from './themen.js';
+import { diagnose } from './diagnose.js';
 
 const VERSION = '__VERSION__';
 
@@ -21,8 +22,14 @@ const VERSION = '__VERSION__';
 const BEDIENUNG = { varianten, reihe, zeiger, vorschau, nachoben, themen };
 const BEWEGUNG = { punktemeer, punktfigur: figur, zaehler, treppe, orbit };
 
+const info = (window.ROWAPAGrafik = { version: VERSION });
+let gestartet = false;
+
 function start() {
-  hoverVideos();
+  if (gestartet) return;
+  gestartet = true;
+  info.gestartet = performance.now();
+  info.videos = hoverVideos();
   const ruhig = reduziert();
   document.querySelectorAll('[data-grafik]').forEach(el => {
     const art = (el.getAttribute('data-grafik') || '').trim().toLowerCase();
@@ -36,7 +43,13 @@ function start() {
   });
 }
 
-window.ROWAPAGrafik = { version: VERSION };
-/* erst nach dem Laden der Seite, damit der erste Bildaufbau nicht verzögert wird */
+diagnose(info);
+/* erst nach dem Laden der Seite, damit der erste Bildaufbau nicht verzögert wird; hängt eine Datei (langsames Netz),
+   startet alles spätestens 5 s nach dem Aufbau der Seite */
 if (document.readyState === 'complete') setTimeout(start, 0);
-else addEventListener('load', () => setTimeout(start, 0), { once: true });
+else {
+  addEventListener('load', () => setTimeout(start, 0), { once: true });
+  const spaetestens = () => setTimeout(start, 5000);
+  if (document.readyState === 'interactive') spaetestens();
+  else document.addEventListener('DOMContentLoaded', spaetestens, { once: true });
+}

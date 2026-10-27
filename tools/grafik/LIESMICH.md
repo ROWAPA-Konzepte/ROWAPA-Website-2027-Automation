@@ -26,6 +26,10 @@ Die Kacheln im Orbit stehen in gleichen Abständen entlang der Bahn (gleiche Weg
 
 **Themenlinien einstellen** (Attribute auf der Section `section_themen`): `data-uebergang` = `unten` (Standard) oder `diagonal`; zum Vergleichen ohne Änderung in Webflow die Adresse mit `?uebergang=diagonal` bzw. `?uebergang=unten` öffnen. `data-schritt` = Scrollweg je Thema als Anteil der Bildschirmhöhe (Standard `1`). Je Panel `data-form` = `band`, `doppel`, `winkel`, `trichter` oder `raster` (Plum-Form aus 45°-Bändern bzw. Quadraten). Ein Thema mehr oder weniger: Panel `themen_panel` (mit eigener ID, z. B. `thema-neu`) duplizieren bzw. löschen und in der Liste einen `themen_link` mit Link «Section» auf dieses Panel; das Skript zählt selbst.
 
+Umschalter in der Adresse (zum Vergleichen, ab 1.11.0): `?einrasten=wisch` (oder `data-einrasten="wisch"` an `section_themen`) – Wisch-Einrasten in der Themen-Szene: ein Wisch oder Rad-Stoss = sofort ein Thema, Nachlauf des Trackpads wird übergangen. `?diagnose` – kleine Anzeige unten links: Skript-Fassung, Startzeit, Maus/Touch laut Browser, «Bewegung reduzieren», Zeiger, Hover-Videos, Themen-Szene. Beides lässt sich kombinieren (`?einrasten=wisch&diagnose`).
+
+Start: nach dem Laden der Seite, spätestens 5 s nach ihrem Aufbau (ab 1.11.0), falls eine Datei hängt.
+
 Zusätzlich: Hover-Videos der Karten (`<video data-hover-video>`), früher eigenes Skript «ROWAPAHoverVideo».
 
 ## Einstellungen ohne Code

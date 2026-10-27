@@ -12,6 +12,8 @@
      Thema aus ein Stück weiterscrollt, kommt zum nächsten, zurück zum vorherigen; nur kleine Bewegungen laufen zurück.
      Die Fahrt (1,3 s) beginnt mit dem Tempo des Scrollens und läuft ganz ab.
      Klick auf ein Thema der Liste scrollt in einer Sekunde dorthin. Die Navigation ist ausgeblendet, solange die Bühne steht.
+   - Wisch-Einrasten zum Vergleichen (?einrasten=wisch oder data-einrasten="wisch"): Ein Wisch auf dem Trackpad oder ein
+     Rad-Stoss fährt sofort genau ein Thema weiter, der Nachlauf wird übergangen.
    Darunter (Tablet, Handy): Blöcke untereinander mit stehender Leiste; der Titel im Blick ist voll, die anderen blass,
    der ausscheidende Block dunkelt ab, die Form zerfällt, während der Block in den Blick rückt. Bei «Bewegung reduzieren»
    nur die Markierung, ohne Form. Ohne Skript: Blöcke untereinander.
@@ -34,6 +36,7 @@ const RASTER = 7;            // Zerfall: jedes Viereck in 7 × 7 Zellen
 const ZEIT = 0.4;            // Zerfall: Anteil, über den eine einzelne Zelle schrumpft
 const FIGUR_RUHE = 0.4;      // Deckkraft der Figur, sobald ein Thema ganz offen ist (data-figur-ruhe an der Section)
 const SCHWELLE = 0.04;       // Einrasten: so weit (Anteil der Fensterhöhe) muss man vom Thema weg, damit es weitergeht
+const PAUSE = 200;           // Wisch-Einrasten: so lange (ms) ohne Rad-Ereignis beginnt eine neue Bewegung
 
 /* Formen aus 45°-Bändern wie das Ribbon, je vier Vierecke in einem Feld von −1 bis 1 (y nach unten) */
 function band(ax, ay, bx, by, d, stuecke, luecke = 0.035) {
@@ -151,6 +154,15 @@ function anordnung(sec) {
   return art === 'diagonal' ? 'diagonal' : '';
 }
 
+/* Einrasten: «rad» (Standard, 150 ms nach dem letzten Rad-Schritt) oder «wisch» (sofort, ein Wisch = ein Thema);
+   zum Vergleichen ?einrasten=wisch in der Adresse oder data-einrasten="wisch" an der Section */
+function einrastArt(sec) {
+  let art = '';
+  try { art = new URLSearchParams(location.search).get('einrasten') || ''; } catch (e) { /* alte Browser */ }
+  art = (art || sec.getAttribute('data-einrasten') || '').trim().toLowerCase();
+  return art === 'wisch' ? 'wisch' : 'rad';
+}
+
 export function themen(sec) {
   const huelle = sec.querySelector('.themen_huelle');
   const buehne = sec.querySelector('.themen_buehne');
@@ -240,6 +252,8 @@ export function themen(sec) {
       for (const k in stile) { gemerkt.push([el, k]); el.style[k] = stile[k]; }
     };
     const ruheFigur = clamp(zahl(sec, 'data-figur-ruhe', FIGUR_RUHE), 0.1, 1);
+    const wisch = einrastArt(sec) === 'wisch';
+    if (window.ROWAPAGrafik) window.ROWAPAGrafik.einrasten = wisch ? 'Wisch' : 'Rad';
     let vh = innerHeight, w = innerWidth, schritt = vh, oben = 0, aktiv = -1, aus = false, navWeg = false, letzteLage = null;
 
     setze(buehne, { position: 'sticky', top: '0px', overflow: 'hidden' });
@@ -333,25 +347,27 @@ export function themen(sec) {
     /* weiches Scrollen und Einrasten in Scrollrichtung (wie die Referenz): Wer vom stehenden Thema aus ein Stück
        weiterscrollt, kommt zum nächsten, wer zurückscrollt, zum vorherigen; nur kleine Bewegungen laufen zurück.
        Während der Fahrt zählt das Mausrad nicht, damit jeder Wechsel ganz abläuft. */
-    const lenis = new Lenis({ autoRaf: true, lerp: 0.1, smoothWheel: true, syncTouch: false, anchors: false, allowNestedScroll: true });
+    let virtuell = () => true;
+    const lenis = new Lenis({ autoRaf: true, lerp: 0.1, smoothWheel: true, syncTouch: false, anchors: false, allowNestedScroll: true,
+      virtualScroll: d => virtuell(d) });
     document.documentElement.style.scrollBehavior = 'auto';
     let ruhe = null, versuche = 0, rad = 0, faehrt = false, gesperrt = false, sicher = null, basis = 0;
     /* Fahrt mit dem Tempo beginnen, das gerade anliegt, und weich anhalten (kubische Hermite-Kurve) */
     const kurve = m0 => t => (t * t * t - 2 * t * t + t) * m0 + (3 * t * t - 2 * t * t * t);
-    const fahre = (k, dauer) => {
+    const fahre = (k, dauer, start) => {
       const y = oben + k * schritt, d = y - scrollY, anteil = Math.abs(d) / schritt;
       if (Math.abs(d) < 2) { basis = k; return; }
       /* kurze Korrekturen kurz und ohne Sperre, ganze Wechsel 1,3 s und gesperrt */
       dauer *= clamp(Math.sqrt(anteil), 0.3, 1);
       const v = lenis.velocity * 60; // Pixel je Sekunde
-      const m0 = Math.sign(d) === Math.sign(v) ? clamp(Math.abs(v) * dauer / Math.abs(d), 0, 2.5) : 0;
+      const m0 = start !== undefined ? start : Math.sign(d) === Math.sign(v) ? clamp(Math.abs(v) * dauer / Math.abs(d), 0, 2.5) : 0;
       faehrt = true;
       gesperrt = anteil > 0.15;
       clearTimeout(sicher);
       sicher = setTimeout(() => { faehrt = false; }, dauer * 1000 + 500);
       lenis.scrollTo(y, { duration: dauer, easing: kurve(m0), lock: gesperrt, force: true, onComplete: () => { faehrt = false; basis = k; } });
     };
-    const selbst = () => { rad = performance.now(); if (faehrt && !gesperrt) faehrt = false; }; // kurze Korrektur: Rad übernimmt
+    const selbst = () => { rad = performance.now(); if (faehrt && !gesperrt && !wisch) faehrt = false; }; // kurze Korrektur: Rad übernimmt
     addEventListener('wheel', selbst, { passive: true });
     const einrasten = () => {
       if (aus || faehrt) return;
@@ -368,6 +384,36 @@ export function themen(sec) {
       if (q > basis + SCHWELLE) k = Math.ceil(q - 0.001);
       else if (q < basis - SCHWELLE) k = Math.floor(q + 0.001);
       fahre(clamp(k, 0, n - 1), 1.3);
+    };
+    /* Wisch-Einrasten: Die erste Rad-Meldung einer Bewegung startet die Fahrt zum nächsten Thema in ihrer Richtung; alle
+       weiteren Meldungen derselben Bewegung (Nachlauf des Trackpads, weitere Rad-Schritte) werden übergangen. Neue Bewegung:
+       200 ms Pause oder ein deutlich stärkerer Ausschlag nach der Fahrt. Am ersten und letzten Thema führt die nächste
+       Bewegung wie gewohnt aus der Szene hinaus; wer von aussen hineinscrollt, hält am ersten bzw. letzten Thema an. */
+    let strom = 0, letztesD = 0, schlucken = false;
+    if (wisch) virtuell = ({ deltaY: d, event: e }) => {
+      if (aus || !e || !e.type.includes('wheel') || e.ctrlKey || !d) return true;
+      const jetzt = performance.now();
+      const neu = jetzt - strom > PAUSE || (!faehrt && Math.abs(d) > 1.6 * Math.abs(letztesD) + 4 && Math.abs(d) >= 12);
+      strom = jetzt; letztesD = d;
+      const halt = () => { if (e.cancelable) e.preventDefault(); return false; };
+      if (faehrt || (schlucken && !neu)) return halt();
+      schlucken = false;
+      const s = scrollY - oben, max = (n - 1) * schritt, dir = Math.sign(d);
+      if (s > -2 && s < max + 2) {
+        const q = s / schritt;
+        const k = dir > 0 ? Math.floor(q + 0.02) + 1 : Math.ceil(q - 0.02) - 1;
+        if (k < 0 || k > n - 1) return true;
+        schlucken = true;
+        fahre(k, 1.1, 0.6);
+        return halt();
+      }
+      const ziel = lenis.targetScroll + d - oben;
+      if ((dir > 0 && s < 0 && ziel > 0) || (dir < 0 && s > max && ziel < max)) {
+        schlucken = true;
+        fahre(dir > 0 ? 0 : n - 1, 0.8, 0.8);
+        return halt();
+      }
+      return true;
     };
     const beimScrollen = () => {
       zeichne();

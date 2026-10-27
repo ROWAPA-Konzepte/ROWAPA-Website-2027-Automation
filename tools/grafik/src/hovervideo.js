@@ -4,9 +4,11 @@
 import { reduziert, hatMaus } from './util.js';
 
 export function hoverVideos() {
-  if (!hatMaus() || reduziert()) return;
+  if (!hatMaus() || reduziert()) return 0;
+  let anzahl = 0;
   document.querySelectorAll('video[data-hover-video]').forEach(v => {
     if (!v.getAttribute('src')) return;
+    anzahl++;
     const karte = v.closest('a, .card') || v.parentElement;
     v.muted = true;
     karte.addEventListener('pointerenter', e => {
@@ -17,4 +19,5 @@ export function hoverVideos() {
     });
     karte.addEventListener('pointerleave', () => { v.style.opacity = 0; v.pause(); });
   });
+  return anzahl;
 }
