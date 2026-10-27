@@ -437,6 +437,13 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 246 | Webflow MCP Bridge App wieder verbunden – braucht Claude sie? | Hinweis | Für die laufende Arbeit nicht nötig: Skripte, Veröffentlichen, Stile, Elemente und Interaktionen gehen seit Webflow MCP 2.0 über die Schnittstelle ohne Designer. Offen lassen schadet nicht; braucht eine Änderung den Designer, meldet Claude das |
 | 247 | Entwurf A «Persönliches Wort» in «Was uns antreibt» | «Entwurf A», Porträt von ROWAPA geliefert | Zwei Entwürfe als Bild (nichts gebaut), Block links unter dem Titel: **A1 kompakt** (Porträt 5,5 × 7 rem neben Satz, Name und Funktion; Section bei 1440 × 900 +32 px, 824 statt 792 px) und **A2 markant** (Porträt 9 × 12 rem mit feiner Plum-Linie wie bei «Unsere Erfolge»; +128 px, bei 1280 × 800 rutscht «Warum ROWAPA» teilweise unter den Bildrand). Handy: Block zwischen Titel und Einleitung. Satz als Vorschlag, Name und Funktion fehlen (Texttabelle Rev. 18). Die Bilder mit dem Porträt liegen wegen des öffentlichen Repositorys nicht im Repository, sie gingen im Chat an ROWAPA. Das Porträt ist noch nicht in Webflow (offener Punkt 36) |
 
+## 36. Feedback-Runde 32 (27.10.2026): Porträt hochgeladen, weitere Entwürfe für «Was uns antreibt» und «Warum ROWAPA»
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 248 | Entwurf A: A1/A2, Name und Funktion, Satz | «brauchen wir nicht» | Das «Persönliche Wort» mit Name und Satz wird nicht weiterverfolgt (Verständnis Claude, bestätigen). Das Porträt darf verwendet werden: hochgeladen nach Webflow, Ordner «05 Team», Asset `6ae1051d7b134954def851d2` (`portrait-persoenliches-wort.webp`, noch auf keiner Seite). Die Entwurfsbilder der Runde 31 liegen jetzt mit Zustimmung im Repository (`stufe2-screens/runde31/`) |
+| 249 | Weitere Gestaltungsmöglichkeiten für «Was uns antreibt» und «Warum ROWAPA» | drei Entwürfe als Bild, nichts gebaut | Befund heute: «20 Jahre Finanzbranche» steht dreimal (Einleitung, Zahl, Punkt 01), Zahlen und Gründe stehen getrennt. **B «Belege»**: jeder Grund bekommt seinen Beleg als grosse Zahl (20 Jahre · 2× gemessen · 150 Jahre Erfahrung · 3 in einer Hand), die Zahlenreihe entfällt, Einleitung ohne den ersten Satz; Section 724 statt 792 px (1440 × 900), Handy 1029 px. **C «Manifest-Zeilen»**: Titel über die ganze Breite, Zahlen als Liste mit feinen Linien, Gründe als ruhige Tabelle (Nummer, Titel, Text); 873 px, Handy 1131 px. **D «Bild und Haltung»**: echtes Foto aus einem Training (`erfolg-2`) mit Plum-Linie wie bei «Unsere Erfolge», daneben Titel, Einleitung und Zahlen, Gründe als helle Karten (Pastel Snowbank); 913 px, Handy 1375 px. Empfehlung B (kürzer, keine Wiederholung, jede Aussage belegt, passt zu «Messbare Entwicklung»); D, wenn ein Bild gewünscht ist (statt des Trainingsfotos geht auch das Porträt). Bilder `stufe2-screens/runde32/`, Texte Texttabelle Rev. 19 |
+
 ---
 
 ## Offene Punkte
@@ -476,4 +483,4 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 33. Leeren Variablen-Modus «Luft (v3)» im Designer löschen (Entscheid 238, von Hand).
 34. Themen-Szene mit Trackpad: «Wisch-Einrasten» gebaut zum Vergleichen (`?einrasten=wisch`, Entscheid 242). Entscheid offen: übernehmen (dann Standard, Umschalter entfällt) oder beim heutigen Einrasten bleiben.
 35. Zeiger und Hover-Videos auf dem Gerät von ROWAPA: Ursache gefunden und mit Grafik 1.11.1 behoben (Entscheid 245); Bestätigung auf dem eigenen Gerät offen.
-36. Persönliches Element in «Was uns antreibt»: Weg A gewählt, Entwürfe A1 kompakt und A2 markant (Entscheid 247). Offen: A1 oder A2, Name, Funktion und Satz [ROWAPA bestätigen]; Ablage der Entwurfsbilder mit Porträt im öffentlichen Repository nur mit Zustimmung.
+36. «Was uns antreibt» und «Warum ROWAPA»: Entwurf B, C, D oder heutiger Stand (Entscheid 249). Das «Persönliche Wort» mit Name und Satz ist nicht nötig (Entscheid 248, bestätigen); das Porträt liegt in Webflow bereit.

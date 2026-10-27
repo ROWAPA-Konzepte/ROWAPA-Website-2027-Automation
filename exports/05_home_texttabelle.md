@@ -385,6 +385,18 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 | Was uns antreibt | Persönliches Wort: Name, Funktion | – | «[Name]», «[Funktion], ROWAPA» | Zuordnung des Satzes | [ROWAPA bestätigen] |
 | Was uns antreibt | Porträt | – | Porträt von ROWAPA (geliefert), Ausschnitt 3:4, Gesicht im oberen Drittel | echtes Foto statt Bildagentur | Freigabe zur Veröffentlichung |
 
+## Rev. 19 · «Was uns antreibt» und «Warum ROWAPA», Entwurf B «Belege» (27.10.2026, Runde 32, nur Entwurf)
+
+| Section | Element | Original (Rev. 18) | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Was uns antreibt | Einleitung | «Seit 20 Jahren arbeiten wir ausschliesslich für die Finanzbranche. Wir verbinden Menschen, Methoden und Daten, damit Entwicklung kein Versprechen bleibt, sondern messbar wird.» | «Wir verbinden Menschen, Methoden und Daten, damit Entwicklung kein Versprechen bleibt, sondern messbar wird.» | «20 Jahre Finanzbranche» steht sonst dreimal; der Beleg folgt direkt darunter | – |
+| Warum ROWAPA | Beleg 01 | Zahl «20 · Jahre ausschliesslich in der Finanzbranche» (eigene Reihe) | «20 Jahre» beim Grund «Nur Finanzbranche» | Zahl und Grund zusammen | – |
+| Warum ROWAPA | Beleg 02 | – | «2× gemessen» beim Grund «Wirkung gemessen» | aus «Zu Beginn und am Ende messen wir …» | [ROWAPA bestätigen] |
+| Warum ROWAPA | Beleg 03 | Zahlen «100 %» und «150» (eigene Reihe) | «150 Jahre Erfahrung» beim Grund «Aus der Praxis»; Text ergänzt «…, mit 100 % Praxisbezug ab dem ersten Tag.» | beide Zahlen gehören zur Praxis | [ROWAPA bestätigen] |
+| Warum ROWAPA | Beleg 04 | – | «3 in einer Hand» beim Grund «Aus einer Hand» | aus «Beratung, Training und digitale Lösungen» | [ROWAPA bestätigen] |
+
+Entwürfe C und D lassen alle Texte unverändert.
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -405,4 +417,5 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 14. Erweiterte Erklärtexte der fünf Themen, besonders die Zuordnung von Executive Coaching (Rev. 12)?
 15. ~~ROWAPA Digital ruhiger (Rev. 14)~~: umgesetzt (Rev. 15); «Jede Lösung ist einzeln buchbar.» kommt auf die Übersichtsseite (Stufe 3).
 16. ~~Unterpunkte und Satz für «Unsere Kunden» im Megamenü (Rev. 16)~~: bestätigt und umgesetzt (Rev. 17).
-17. Persönliches Wort in «Was uns antreibt»: A1 oder A2, Name, Funktion und Satz (Rev. 18)?
+17. ~~Persönliches Wort in «Was uns antreibt» (Rev. 18)~~: nicht nötig (Runde 32).
+18. «Was uns antreibt» und «Warum ROWAPA»: Entwurf B, C oder D; bei B die Belege «2× gemessen» und «3 in einer Hand» (Rev. 19)?
