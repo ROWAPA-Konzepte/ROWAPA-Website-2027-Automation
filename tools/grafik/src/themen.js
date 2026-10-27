@@ -8,12 +8,10 @@
      sich aus kleinen Quadraten zusammen, schrumpft zu vier kleinen Quadraten, wächst zur nächsten Form (data-form am Panel)
      und zerfällt wieder, sobald der neue Titel steht. In Ruhe ist nur die Schrift zu sehen.
    - Die Figur ist im Wechsel kräftig und tritt zurück (Deckkraft 40 %, data-figur-ruhe), sobald das Thema ganz offen ist.
-   - Weiches Scrollen (Lenis) und Einrasten in Scrollrichtung 150 ms nach dem letzten Mausrad-Schritt: Wer vom stehenden
-     Thema aus ein Stück weiterscrollt, kommt zum nächsten, zurück zum vorherigen; nur kleine Bewegungen laufen zurück.
-     Die Fahrt (1,3 s) beginnt mit dem Tempo des Scrollens und läuft ganz ab.
+   - Weiches Scrollen (Lenis) und Wisch-Einrasten (seit 1.12.0 Standard): Ein Wisch auf dem Trackpad oder ein Rad-Stoss
+     fährt sofort genau ein Thema weiter, der Nachlauf wird übergangen. Tastatur und Scrollbalken rasten in Scrollrichtung
+     ein (früheres Verhalten, mit dem Mausrad zum Vergleichen noch über ?einrasten=rad).
      Klick auf ein Thema der Liste scrollt in einer Sekunde dorthin. Die Navigation ist ausgeblendet, solange die Bühne steht.
-   - Wisch-Einrasten zum Vergleichen (?einrasten=wisch oder data-einrasten="wisch"): Ein Wisch auf dem Trackpad oder ein
-     Rad-Stoss fährt sofort genau ein Thema weiter, der Nachlauf wird übergangen.
    Darunter (Tablet, Handy): Blöcke untereinander mit stehender Leiste; der Titel im Blick ist voll, die anderen blass,
    der ausscheidende Block dunkelt ab, die Form zerfällt, während der Block in den Blick rückt. Bei «Bewegung reduzieren»
    nur die Markierung, ohne Form. Ohne Skript: Blöcke untereinander.
@@ -154,13 +152,13 @@ function anordnung(sec) {
   return art === 'diagonal' ? 'diagonal' : '';
 }
 
-/* Einrasten: «rad» (Standard, 150 ms nach dem letzten Rad-Schritt) oder «wisch» (sofort, ein Wisch = ein Thema);
-   zum Vergleichen ?einrasten=wisch in der Adresse oder data-einrasten="wisch" an der Section */
+/* Einrasten: «wisch» (Standard seit 1.12.0, sofort, ein Wisch = ein Thema) oder «rad» (früher: 150 ms nach dem letzten
+   Rad-Schritt); zum Vergleichen ?einrasten=rad in der Adresse oder data-einrasten="rad" an der Section */
 function einrastArt(sec) {
   let art = '';
   try { art = new URLSearchParams(location.search).get('einrasten') || ''; } catch (e) { /* alte Browser */ }
   art = (art || sec.getAttribute('data-einrasten') || '').trim().toLowerCase();
-  return art === 'wisch' ? 'wisch' : 'rad';
+  return art === 'rad' ? 'rad' : 'wisch';
 }
 
 export function themen(sec) {
