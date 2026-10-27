@@ -360,6 +360,14 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 209 | Frage: Passt die Farbfolge von oben nach unten? | Empfehlung, nur Entwurf | Heute wechselt der Grund in den ersten drei Bildschirmen fünfmal (dunkel, weiss, hellblau, grau, weiss, grau). Vorschlag mit drei Änderungen: «Was uns antreibt» auf Weiss (Logos und Antrieb bilden ein ruhiges weisses Kapitel), «Unsere Erfolge» auf Hellblau, Einleitung «Lösungen für Unternehmen» auf Grau wie die Bühne. Logos auf Hellblau wären auch möglich, brauchen aber Logo-Dateien mit transparentem Hintergrund (Raiffeisen, Visa zeigen heute einen weissen Kasten). Entscheid offen (offener Punkt 27) |
 | 210 | Frage: Titel «Lösungen für Unternehmen» frei stehend lassen oder mitnehmen? | Empfehlung, nur Entwurf | Empfehlung: Einleitung bleibt als Kapitelanfang (auf Grau, siehe 209) und der Titel steht zusätzlich als Kicker über der Themenliste oben links, so bleibt er während aller fünf Themen sichtbar. Oben rechts ist möglich, steht aber von der Liste getrennt und kollidiert mit Variante C (dort steht oben rechts die Erklärung). Entscheid offen (offener Punkt 28) |
 
+## 28. Feedback-Runde 24 (27.10.2026): Farbfolge, Titel über der Themenliste, Variante A
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 211 | Farbfolge (Vorschlag Runde 23) | «so umsetzen, aber noch nicht auf V2» | Auf `/home-v3`: «Was uns antreibt» weiss (`theme-hell`), «Unsere Erfolge» hellblau (`theme-sea`), Einleitung «Lösungen für Unternehmen» grau wie die Bühne (`theme-soft`). Folge jetzt: dunkel · weiss (Logos, Antrieb) · hellblau · grau (Lösungen) · weiss · dunkel · weiss · dunkel · grau · weiss · hellblau · dunkel. `/home-v2` unverändert |
+| 212 | Titel «Lösungen für Unternehmen» | Empfehlung umsetzen | Zusätzlich als Kicker über der Themenliste oben links (Klasse `text-style-kicker is-liste`), bleibt während aller fünf Themen sichtbar; auf Tablet und Handy ausgeblendet (dort steht die Leiste waagrecht). Die Einleitung bleibt. Für Bildschirmleser ausgeblendet, weil der Titel direkt darüber schon als H2 steht. Von 992×620 bis 1920×1080 ohne Berührung mit dem Titel |
+| 213 | Textanordnung | «so wie vorher, also nicht diagonal … sozusagen die Variante A» | A bleibt (ersetzt offenen Punkt 25). Der Schalter `?anordnung=diagonal` und die Klassen `is-diagonal` bleiben vorerst stehen und gehen beim Aufräumen weg (offener Punkt 17) |
+
 ---
 
 ## Offene Punkte
@@ -380,7 +388,7 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 14. `/home-v3` mit der Themenlinien-Szene wie die Referenz (Runde 20). Wird v3 die definitive Startseite?
 15. Handy: «Im Blickpunkt» und «Neueste Insights» sind länger als ein Bildschirm (Entscheid 170). Kürzen oder so lassen?
 16. Designer-Ansicht: «Unsere Erfolge» mit 8 Folien geprüft und in Ordnung. «Unser Vorgehen» noch prüfen (die Designer-Vorschau brach mehrmals ab).
-17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante.
+17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante. Dazu seit Runde 24: Zusatzklassen `is-diagonal` und der Schalter `?anordnung=diagonal` im Skript.
 18. Kurznamen der stehenden Leiste (Tablet, Handy): «Vertrieb · Potenzial · Führung · Recruiting · Digital». [ROWAPA bestätigen]
 19. Texte «Warum ROWAPA» (vier Punkte, Texttabelle Rev. 9). [ROWAPA bestätigen]
 20. Themenlinien: Kernbotschaften, Sätze und Button-Texte der fünf Themen (Texttabelle Rev. 9). [ROWAPA bestätigen]
@@ -388,7 +396,7 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 22. Tablet und Handy: Blöcke untereinander wie die Referenz (Runde 20, rund 3,5 Bildschirme auf dem Handy). Die Plum-Form zerfällt dort, während der Block in den Blick rückt (Runde 21); auf Wunsch verwandelt sie sich wie auf dem Desktop.
 23. Riesige Titel der Themen (Entscheid 188) bestätigen. [ROWAPA bestätigen]
 24. Vorhang: beide gut (Runde 21). Für die definitive Fassung einen wählen? Heute «von unten», diagonal als Schalter.
-25. Themenlinien-Texte: Variante A (zwei Spalten unter dem Titel, gebaut, seit Runde 22 eingezogen), B (links und rechts neben dem Titel, Bildentwurf Runde 21) oder C (diagonal: unten links und oben rechts, seit Runde 23 live mit `?anordnung=diagonal`)?
+25. ~~Themenlinien-Texte A, B oder C~~: entschieden, Variante A (Entscheid 213).
 26. Erweiterte Erklärtexte der fünf Themen (Texttabelle Rev. 12). [ROWAPA bestätigen]
-27. Farbfolge: Vorschlag umsetzen (Antrieb weiss, Erfolge hellblau, Lösungen-Einleitung grau)? Gilt auch für v2? (Runde 23)
-28. Titel «Lösungen für Unternehmen»: zusätzlich als Kicker über der Themenliste (Empfehlung) oder oben rechts? (Runde 23)
+27. Farbfolge: auf v3 umgesetzt (Entscheid 211). Offen: auch auf v2, falls v2 weitergeführt wird.
+28. ~~Titel «Lösungen für Unternehmen»~~: entschieden, Kicker über der Themenliste (Entscheid 212).

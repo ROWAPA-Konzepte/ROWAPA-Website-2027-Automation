@@ -324,6 +324,12 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 | Lösungen | Satz Recruiting | «Vom Assessment bis zur attraktiven Arbeitgebermarke: Wir helfen, Talente zu gewinnen, gut zu integrieren und langfristig zu binden.» | + «Dazu gehören eine gute Candidate Experience, ein durchdachtes Onboarding und gezielte Massnahmen zur Mitarbeiterbindung.» | Hebel «Recruiting & Candidate Experience», «Onboarding & Integration», «Mitarbeiterbindung» | [ROWAPA bestätigen] |
 | Lösungen | Satz Digital | «E-Learning, hybride Lernformate und KI-gestützte Lösungen verlängern Training und Beratung in den Alltag.» | + «Fünf digitale Lösungen, entwickelt mit ETH juniors (ETH Zürich): Anker, Kompass, Lotse, Segel und Logbuch, jede einzeln buchbar.» | wörtlich aus der Section «ROWAPA Digital» der Startseite | – |
 
+## Rev. 13 · Titel über der Themenliste (27.10.2026, Runde 24)
+
+| Section | Element | Original (Rev. 12) | Vorschlag (umgesetzt) | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Lösungen | Kicker über der Themenliste (Desktop) | – | «Lösungen für Unternehmen» | gleicher Wortlaut wie der Titel der Einleitung; bleibt während der fünf Themen sichtbar und sagt, worum es geht | – |
+
 ---
 
 ## Offene Fragen an ROWAPA
