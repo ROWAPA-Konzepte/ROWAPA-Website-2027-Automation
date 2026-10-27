@@ -454,6 +454,14 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 
 ---
 
+## 38. Feedback-Runde 34 (27.10.2026): «Im Blickpunkt» in Snowbank
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 253 | «Im Blickpunkt» (CAS) mit dem gleichen Grau wie die folgende Section, ohne Einblenden | umgesetzt (nur Variante `/home-v3-farben`) | `section_cas theme-soft`: Pastel Snowbank wie «Neueste Insights», fest hinterlegt; die dunkle Fläche bleibt aus (`cas_farbe is-aus`), es wird nichts eingeblendet. Lesbarkeit gemessen (Desktop und Handy): Titel 10,9:1, Einleitung 5,8:1, Kicker Plum 5,9:1, Button weiss auf Plum 7,2:1. Der Wechsel weiss → Snowbank liegt jetzt zwischen «Meine Entwicklung» und «Im Blickpunkt»; «Im Blickpunkt» und Insights gehen ohne Linie ineinander über. v3 unverändert (`theme-tiefsee`). Bilder `stufe2-screens/runde34/` |
+
+---
+
 ## Offene Punkte
 
 1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
