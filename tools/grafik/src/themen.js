@@ -7,8 +7,10 @@
      im ersten Viertel aus, der neue im letzten Viertel ein. Die Plum-Form zeigt sich nur während des Wechsels: Sie setzt
      sich aus kleinen Quadraten zusammen, schrumpft zu vier kleinen Quadraten, wächst zur nächsten Form (data-form am Panel)
      und zerfällt wieder, sobald der neue Titel steht. In Ruhe ist nur die Schrift zu sehen.
-   - Weiches Scrollen (Lenis) und Einrasten 150 ms nach dem letzten Mausrad-Schritt: Wer vor der Hälfte loslässt, läuft
-     zurück, sonst weiter zum nächsten Thema.
+   - Die Figur ist im Wechsel kräftig und tritt zurück (Deckkraft 40 %, data-figur-ruhe), sobald das Thema ganz offen ist.
+   - Weiches Scrollen (Lenis) und Einrasten in Scrollrichtung 150 ms nach dem letzten Mausrad-Schritt: Wer vom stehenden
+     Thema aus ein Stück weiterscrollt, kommt zum nächsten, zurück zum vorherigen; nur kleine Bewegungen laufen zurück.
+     Die Fahrt (1,3 s) beginnt mit dem Tempo des Scrollens und läuft ganz ab.
      Klick auf ein Thema der Liste scrollt in einer Sekunde dorthin. Die Navigation ist ausgeblendet, solange die Bühne steht.
    Darunter (Tablet, Handy): Blöcke untereinander mit stehender Leiste; der Titel im Blick ist voll, die anderen blass,
    der ausscheidende Block dunkelt ab, die Form zerfällt, während der Block in den Blick rückt. Bei «Bewegung reduzieren»
@@ -29,6 +31,8 @@ const FERTIG = 0.62;         // neue Form steht
 const WEG = 0.92;            // neue Form ist zerfallen
 const RASTER = 7;            // Zerfall: jedes Viereck in 7 × 7 Zellen
 const ZEIT = 0.4;            // Zerfall: Anteil, über den eine einzelne Zelle schrumpft
+const FIGUR_RUHE = 0.4;      // Deckkraft der Figur, sobald ein Thema ganz offen ist (data-figur-ruhe an der Section)
+const SCHWELLE = 0.04;       // Einrasten: so weit (Anteil der Fensterhöhe) muss man vom Thema weg, damit es weitergeht
 
 /* Formen aus 45°-Bändern wie das Ribbon, je vier Vierecke in einem Feld von −1 bis 1 (y nach unten) */
 function band(ax, ay, bx, by, d, stuecke, luecke = 0.035) {
@@ -218,13 +222,14 @@ export function themen(sec) {
       if (!el) return;
       for (const k in stile) { gemerkt.push([el, k]); el.style[k] = stile[k]; }
     };
-    let vh = innerHeight, w = innerWidth, schritt = vh, oben = 0, aktiv = -1, aus = false, navWeg = false;
+    const ruheFigur = clamp(zahl(sec, 'data-figur-ruhe', FIGUR_RUHE), 0.1, 1);
+    let vh = innerHeight, w = innerWidth, schritt = vh, oben = 0, aktiv = -1, aus = false, navWeg = false, letzteLage = null;
 
     setze(buehne, { position: 'sticky', top: '0px', overflow: 'hidden' });
     setze(box, { position: 'absolute', left: '0px', top: '0px', width: '100%', height: '100%' });
     teile.forEach(t => {
       setze(t.p, { position: 'absolute', left: '0px', top: '0px', width: '100%', height: '100%', minHeight: '0px', willChange: 'clip-path' });
-      setze(t.figur, { willChange: 'transform' });
+      setze(t.figur, { willChange: 'transform, opacity' });
       setze(t.unten, { willChange: 'transform' });
     });
     if (nav) setze(nav, { transition: 'transform .45s cubic-bezier(.2,.7,.1,1)' });
@@ -237,11 +242,15 @@ export function themen(sec) {
       huelle.style.height = vh + (n - 1) * schritt + 'px';
       oben = huelle.getBoundingClientRect().top + scrollY;
       const s = Math.round(Math.min(w * 0.24, vh * 0.33) * 2);
-      teile.forEach(t => { t.svg.style.width = s + 'px'; t.svg.style.height = s + 'px'; t.svg.style.left = '50%'; t.svg.style.top = '50%'; });
+      /* Form mittig auf dem Titel (dessen Lage steht in Webflow, Klasse themen_titel) */
+      teile.forEach(t => {
+        const mitte = t.titel ? parseFloat(getComputedStyle(t.titel).top) : NaN;
+        Object.assign(t.svg.style, { width: s + 'px', height: s + 'px', left: '50%', top: isFinite(mitte) ? mitte + 'px' : '50%' });
+      });
     }
     gemerkt.push([buehne, 'height'], [huelle, 'height']);
     teile.forEach(t => gemerkt.push([t.p, 'clipPath'], [t.p, 'visibility'], [t.p, 'zIndex'], [t.dunkel, 'opacity'], [t.titel, 'opacity'],
-      [t.figur, 'transform'], [t.figur, 'filter'], [t.unten, 'transform'], [t.unten, 'opacity']));
+      [t.figur, 'transform'], [t.figur, 'opacity'], [t.unten, 'transform'], [t.unten, 'opacity']));
     if (nav) gemerkt.push([nav, 'transform']);
     if (hoch) gemerkt.push([hoch, 'opacity'], [hoch, 'pointerEvents']);
 
@@ -255,17 +264,22 @@ export function themen(sec) {
       return `inset(${((1 - p) * 100).toFixed(3)}% 0 0 0)`;
     }
 
-    function zeichne() {
+    function zeichne(neu) {
       if (aus) return;
       const r = huelle.getBoundingClientRect();
-      const q = clamp(-r.top / schritt, 0, n - 1);
+      if (!neu && r.top === letzteLage) return; // je Bild nur einmal rechnen (Lenis und Browser melden beide)
+      letzteLage = r.top;
+      let q = clamp(-r.top / schritt, 0, n - 1);
+      if (Math.abs(q - Math.round(q)) < 0.003) q = Math.round(q); // Rest unter 2 px (halbe Pixel der Lage): Thema steht
       const i = Math.min(Math.floor(q), n - 1), p = i === n - 1 ? 0 : q - i, j = Math.min(i + 1, n - 1);
+      /* Figur: im Wechsel kräftig, sobald das Thema ganz offen ist, tritt sie zurück (data-figur-ruhe) */
+      const einstieg = i === 0 && p === 0 ? easeInOut(clamp(1 - r.top / (vh * 0.5), 0, 1)) : 1;
       teile.forEach((t, k) => {
         if (k === i) {
           t.p.style.visibility = ''; t.p.style.zIndex = '1'; t.p.style.clipPath = 'none';
           t.dunkel.style.opacity = (DUNKEL * p).toFixed(3);
           t.figur.style.transform = `translate(-50%, calc(-50% - ${(20 * p).toFixed(3)}vh))`;
-          t.figur.style.filter = p > 0 ? `brightness(${(1 - 0.45 * p).toFixed(3)})` : '';
+          t.figur.style.opacity = (lerp(1, ruheFigur, einstieg) * (1 - 0.5 * p)).toFixed(3);
           t.unten.style.transform = `translateY(${(-30 * p).toFixed(3)}vh)`;
           t.unten.style.opacity = '';
           t.titel.style.opacity = (1 - clamp(p / 0.25, 0, 1)).toFixed(3);
@@ -273,7 +287,7 @@ export function themen(sec) {
           t.p.style.visibility = ''; t.p.style.zIndex = '2'; t.p.style.clipPath = klappe(p);
           t.dunkel.style.opacity = '0';
           t.figur.style.transform = `translate(-50%, calc(-50% + ${(20 * (1 - p)).toFixed(3)}vh))`;
-          t.figur.style.filter = '';
+          t.figur.style.opacity = lerp(1, ruheFigur, easeInOut(clamp((p - 0.8) / 0.2, 0, 1))).toFixed(3);
           t.unten.style.transform = `translateY(${(30 * (1 - p)).toFixed(3)}vh)`;
           t.titel.style.opacity = clamp((p - 0.7) / 0.25, 0, 1).toFixed(3);
         } else {
@@ -299,37 +313,51 @@ export function themen(sec) {
       }
     }
 
-    /* weiches Scrollen und Einrasten bei der Hälfte */
+    /* weiches Scrollen und Einrasten in Scrollrichtung (wie die Referenz): Wer vom stehenden Thema aus ein Stück
+       weiterscrollt, kommt zum nächsten, wer zurückscrollt, zum vorherigen; nur kleine Bewegungen laufen zurück.
+       Während der Fahrt zählt das Mausrad nicht, damit jeder Wechsel ganz abläuft. */
     const lenis = new Lenis({ autoRaf: true, lerp: 0.1, smoothWheel: true, syncTouch: false, anchors: false, allowNestedScroll: true });
     document.documentElement.style.scrollBehavior = 'auto';
-    let ruhe = null, versuche = 0, rad = 0, faehrt = false, sicher = null;
-    const weich = t => 1 - Math.pow(1 - t, 3);
-    /* eigene Fahrt (Einrasten, Klick): nicht erneut einrasten, bis sie fertig ist oder jemand selbst scrollt */
-    const fahre = (y, dauer) => {
+    let ruhe = null, versuche = 0, rad = 0, faehrt = false, gesperrt = false, sicher = null, basis = 0;
+    /* Fahrt mit dem Tempo beginnen, das gerade anliegt, und weich anhalten (kubische Hermite-Kurve) */
+    const kurve = m0 => t => (t * t * t - 2 * t * t + t) * m0 + (3 * t * t - 2 * t * t * t);
+    const fahre = (k, dauer) => {
+      const y = oben + k * schritt, d = y - scrollY, anteil = Math.abs(d) / schritt;
+      if (Math.abs(d) < 2) { basis = k; return; }
+      /* kurze Korrekturen kurz und ohne Sperre, ganze Wechsel 1,3 s und gesperrt */
+      dauer *= clamp(Math.sqrt(anteil), 0.3, 1);
+      const v = lenis.velocity * 60; // Pixel je Sekunde
+      const m0 = Math.sign(d) === Math.sign(v) ? clamp(Math.abs(v) * dauer / Math.abs(d), 0, 2.5) : 0;
       faehrt = true;
+      gesperrt = anteil > 0.15;
       clearTimeout(sicher);
-      sicher = setTimeout(() => { faehrt = false; }, dauer * 1000 + 400);
-      lenis.scrollTo(y, { duration: dauer, easing: weich, onComplete: () => { faehrt = false; } });
+      sicher = setTimeout(() => { faehrt = false; }, dauer * 1000 + 500);
+      lenis.scrollTo(y, { duration: dauer, easing: kurve(m0), lock: gesperrt, force: true, onComplete: () => { faehrt = false; basis = k; } });
     };
-    const selbst = () => { rad = performance.now(); faehrt = false; };
+    const selbst = () => { rad = performance.now(); if (faehrt && !gesperrt) faehrt = false; }; // kurze Korrektur: Rad übernimmt
     addEventListener('wheel', selbst, { passive: true });
-    addEventListener('touchstart', selbst, { passive: true });
     const einrasten = () => {
       if (aus || faehrt) return;
-      /* Mausrad: 150 ms nach der letzten Bewegung einrasten, ohne den weichen Nachlauf abzuwarten;
+      /* Mausrad: 150 ms nach dem letzten Rad-Schritt, ohne den weichen Nachlauf abzuwarten;
          Wischen und Tastatur: warten, bis der Browser fertig gescrollt hat */
       const nachlauf = lenis.isScrolling === 'smooth' && performance.now() - rad >= 150;
       if (lenis.isScrolling && !nachlauf && versuche++ < 30) { ruhe = setTimeout(einrasten, 80); return; }
       versuche = 0;
       const s = scrollY - oben, max = (n - 1) * schritt;
-      if (s <= 1 || s >= max - 1) return;
-      const ziel = Math.round(s / schritt) * schritt;
-      if (Math.abs(ziel - s) < 2) return;
-      fahre(oben + ziel, 1.3);
+      if (s <= 1) { basis = 0; return; }
+      if (s >= max - 1) { basis = n - 1; return; }
+      const q = s / schritt;
+      let k = basis;
+      if (q > basis + SCHWELLE) k = Math.ceil(q - 0.001);
+      else if (q < basis - SCHWELLE) k = Math.floor(q + 0.001);
+      fahre(clamp(k, 0, n - 1), 1.3);
     };
     const beimScrollen = () => {
       zeichne();
       if (faehrt) return;
+      const s = scrollY - oben;
+      /* von oben hereingescrollt: wie vom ersten Thema aus; von unten: wie vom letzten */
+      if (s < -2) basis = 0; else if (s > (n - 1) * schritt + 2) basis = n - 1;
       /* nach dem Mausrad zählt der letzte Rad-Schritt, nicht jeder Schritt des weichen Nachlaufs */
       const seitRad = performance.now() - rad;
       clearTimeout(ruhe);
@@ -339,28 +367,27 @@ export function themen(sec) {
     let geplant = false;
     const nativ = () => { if (!geplant) { geplant = true; requestAnimationFrame(() => { geplant = false; zeichne(); }); } };
     addEventListener('scroll', nativ, { passive: true });
-    const beiGroesse = () => requestAnimationFrame(() => { if (!aus) { messen(); zeichne(); } });
+    const beiGroesse = () => requestAnimationFrame(() => { if (!aus) { messen(); zeichne(true); } });
     addEventListener('resize', beiGroesse);
 
     /* Tastatur: Fokus in einem verdeckten Thema holt dieses Thema auf die Bühne */
     const fokus = e => {
       const k = panels.findIndex(p => p.contains(e.target));
-      if (k >= 0 && k !== aktiv) lenis.scrollTo(oben + k * schritt, { immediate: true });
+      if (k >= 0 && k !== aktiv) { lenis.scrollTo(oben + k * schritt, { immediate: true, force: true }); basis = k; }
     };
     sec.addEventListener('focusin', fokus);
 
     messen();
-    zeichne();
+    zeichne(true);
 
     return {
       art: 'buehne',
-      geheZu(k) { fahre(oben + k * schritt, 1); },
+      geheZu(k) { fahre(k, 1); },
       weg() {
         aus = true;
         clearTimeout(ruhe);
         clearTimeout(sicher);
         removeEventListener('wheel', selbst);
-        removeEventListener('touchstart', selbst);
         lenis.destroy();
         document.documentElement.style.scrollBehavior = '';
         removeEventListener('scroll', nativ);
