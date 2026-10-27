@@ -2,12 +2,14 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 const shapes = fs.readFileSync('makeShapes.js', 'utf8');
+/* HELL=1: Vertriebs-Treppe in den Farben der Themenfiguren (für hellen Grund) */
+const HELL_SUFFIX = process.env.HELL && process.argv[2] === 'vertrieb' ? '-hell' : '';
 (async () => {
   const b = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const p = await b.newPage();
   await p.setContent('<html><body style="margin:0;background:transparent"></body></html>');
   await p.addScriptTag({ url: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js' });
-  const urls = await p.evaluate(([src, ART]) => {
+  const urls = await p.evaluate(([src, ART, HELL]) => {
     const N = ART === 'vertrieb' ? 7000 : 3200;
     const makeShapes = new Function('N', src + '; return makeShapes();');
     const SH = makeShapes(N);
@@ -26,13 +28,13 @@ const shapes = fs.readFileSync('makeShapes.js', 'utf8');
       fragmentShader: 'varying vec3 vC;varying float vA;void main(){vec2 q=gl_PointCoord-.5;float d=length(q);if(d>.5)discard;gl_FragColor=vec4(vC,min(1.,vA*1.15)*smoothstep(.5,.34,d));}' });
     const pts = new THREE.Points(g, mat), grp = new THREE.Group(); grp.add(pts); sc.add(grp);
     { let y0 = 1e9, y1 = -1e9; const P0 = SH[0].P; for (let i = 1; i < P0.length; i += 3) { if (P0[i] < y0) y0 = P0[i]; if (P0[i] > y1) y1 = P0[i]; } pts.position.y = -(y0 + y1) / 2; }
-    const PAL = (ART === 'vertrieb' ? ['#FFFFFF', '#D9E7F2', '#A0C4DF', '#D23A70'] : ['#1D3149', '#486EA3', '#7196BF', '#AA1351']).map(h => new THREE.Color(h));
+    const PAL = (ART === 'vertrieb' && !HELL ? ['#FFFFFF', '#D9E7F2', '#A0C4DF', '#D23A70'] : ['#1D3149', '#486EA3', '#7196BF', '#AA1351']).map(h => new THREE.Color(h));
     if (ART === 'vertrieb') { r.setSize(620, 520, false); cam.aspect = 620 / 520; } else { r.setSize(800, 640, false); cam.aspect = 800 / 640; } const d = ART === 'vertrieb' ? 11.5 : 15.5; cam.position.set(0, .5 * d / 11, d); cam.lookAt(0, 0, 0); cam.updateProjectionMatrix(); grp.rotation.set(.12, -.5, 0);
     const out = [];
     for (const k of (ART === 'vertrieb' ? [0] : [1, 2, 3, 4])) { const A = SH[k]; pos.set(A.P); for (let i = 0; i < N; i++) { const c = PAL[A.K[i]]; col[i * 3] = c.r; col[i * 3 + 1] = c.g; col[i * 3 + 2] = c.b; } g.attributes.position.needsUpdate = true; g.attributes.color.needsUpdate = true; r.render(sc, cam); out.push(cv.toDataURL('image/png')); }
     return out;
-  }, [shapes, process.argv[2] || 'themen']);
+  }, [shapes, process.argv[2] || 'themen', !!process.env.HELL]);
   const names = process.argv[2] === 'vertrieb' ? ['vertrieb'] : ['potenzial', 'fuehrung', 'recruiting', 'digital'];
-  urls.forEach((u, i) => fs.writeFileSync(`roh-${names[i]}.png`, Buffer.from(u.split(',')[1], 'base64')));
+  urls.forEach((u, i) => fs.writeFileSync(`roh-${names[i]}${HELL_SUFFIX}.png`, Buffer.from(u.split(',')[1], 'base64')));
   await b.close();
 })();

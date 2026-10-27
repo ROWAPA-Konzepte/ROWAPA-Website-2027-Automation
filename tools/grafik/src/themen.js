@@ -1,33 +1,134 @@
-/* Themenlinien («Lösungen für Unternehmen»): fünf Themen auf einer Bühne.
-   Ab 992 px und ohne «Bewegung reduzieren» bleibt die Section beim Scrollen stehen, je Thema rund zwei Drittel
-   Bildschirmhöhe (data-schritt). Ab der Hälfte wechselt das Thema mit einem kurzen Übergang: Vorhang diagonal 45°
-   (Richtung des Ribbons) oder von unten (data-uebergang="diagonal" | "unten", zum Vergleichen auch ?uebergang=unten
-   in der Adresse). Die Punkte der Figur ziehen sich zusammen und bilden die nächste Figur. Kein Einrasten, die Seite
-   scrollt normal weiter. Klick auf ein Thema der Liste scrollt sanft dorthin.
-   Darunter (Tablet, Handy) und bei «Bewegung reduzieren»: Karten untereinander; die Liste (auf Tablet und Handy die
-   stehende Leiste) zeigt das Thema, das im Bild ist. Ohne Skript: Karten untereinander.
-   Texte, Links und Bilder sind native Webflow-Elemente; das Skript setzt nur Lage, Ausschnitt und die Klasse is-aktiv. */
-import { clamp, lerp, easeInOut, easeOut, zahl, reduziert, takt, sobaldNahe } from './util.js';
+/* Themenlinien («Lösungen für Unternehmen»): Szene nach dem Vorbild der Referenz Tresmares Capital, eigener Code.
+   Ab 992 px und ohne «Bewegung reduzieren»:
+   - Die Bühne (themen_buehne) steht beim Scrollen, je Thema eine Fensterhöhe Scrollweg (data-schritt).
+   - Alles hängt am Scroll-Fortschritt zwischen zwei Themen: Vorhang von unten (data-uebergang="unten", Standard) oder
+     diagonal 45° («diagonal», zum Vergleichen auch ?uebergang=diagonal in der Adresse). Das alte Thema dunkelt ab,
+     Figur und Text rücken nach oben (−20 % / −30 % der Fensterhöhe), das neue kommt von unten nach. Der alte Titel blendet
+     im ersten Viertel aus, der neue im letzten Viertel ein. Die Plum-Form schrumpft zu vier kleinen Quadraten und wächst
+     zur nächsten Form (data-form am Panel).
+   - Weiches Scrollen (Lenis) und Einrasten: Wer vor der Hälfte loslässt, läuft zurück, sonst weiter zum nächsten Thema.
+     Klick auf ein Thema der Liste scrollt in einer Sekunde dorthin. Die Navigation ist ausgeblendet, solange die Bühne steht.
+   Darunter (Tablet, Handy): Blöcke untereinander mit stehender Leiste; der Titel im Blick ist voll, die anderen blass,
+   der ausscheidende Block dunkelt ab. Bei «Bewegung reduzieren» nur die Markierung. Ohne Skript: Blöcke untereinander.
+   Texte, Links und Bilder sind native Webflow-Elemente; das Skript setzt Lage, Ausschnitt, Deckkraft und die Klasse is-aktiv. */
+import Lenis from 'lenis';
+import { clamp, lerp, easeInOut, zahl, reduziert } from './util.js';
 
 const BREIT = '(min-width: 992px)';
+const DUNKEL = 0.85;         // Abdunklung des ausscheidenden Themas (Manganese), bei halbem Wechsel rund 42 % wie die Referenz
+const DUNKEL_HANDY = 0.2;    // Abdunklung des ausscheidenden Blocks auf Tablet und Handy (Referenz: leicht)
+const BLASS = 0.35;          // Deckkraft der Titel ausserhalb des Blicks (Handy)
+const PLUM = '#AA1351';
+
+/* Formen aus 45°-Bändern wie das Ribbon, je vier Vierecke in einem Feld von −1 bis 1 (y nach unten) */
+function band(ax, ay, bx, by, d, stuecke, luecke = 0.035) {
+  const lx = bx - ax, ly = by - ay, l = Math.hypot(lx, ly), ux = lx / l, uy = ly / l, nx = -uy * d / 2, ny = ux * d / 2;
+  const out = [];
+  for (let s = 0; s < stuecke; s++) {
+    const t0 = s / stuecke + (s ? luecke / 2 : 0), t1 = (s + 1) / stuecke - (s < stuecke - 1 ? luecke / 2 : 0);
+    const p0x = ax + lx * t0, p0y = ay + ly * t0, p1x = ax + lx * t1, p1y = ay + ly * t1;
+    out.push([[p0x + nx, p0y + ny], [p1x + nx, p1y + ny], [p1x - nx, p1y - ny], [p0x - nx, p0y - ny]]);
+  }
+  return out;
+}
+function quadrat(cx, cy, s) {
+  return [[cx - s, cy - s], [cx + s, cy - s], [cx + s, cy + s], [cx - s, cy + s]];
+}
+const FORMEN = {
+  band: () => band(-0.9, 0.9, 0.9, -0.9, 0.42, 4),
+  doppel: () => [...band(-0.95, 0.45, 0.45, -0.95, 0.32, 2), ...band(-0.45, 0.95, 0.95, -0.45, 0.32, 2)],
+  winkel: () => [...band(-0.9, 0.55, 0, -0.35, 0.34, 2), ...band(0, -0.35, 0.9, 0.55, 0.34, 2)],
+  trichter: () => [...band(-0.9, -0.55, 0, 0.35, 0.34, 2), ...band(0, 0.35, 0.9, -0.55, 0.34, 2)],
+  raster: () => [quadrat(-0.4, -0.4, 0.34), quadrat(0.4, -0.4, 0.34), quadrat(-0.4, 0.4, 0.34), quadrat(0.4, 0.4, 0.34)]
+};
+const REIHE = ['band', 'doppel', 'winkel', 'trichter', 'raster'];
+const KLEIN = [quadrat(-0.16, -0.16, 0.13), quadrat(0.16, -0.16, 0.13), quadrat(-0.16, 0.16, 0.13), quadrat(0.16, 0.16, 0.13)];
+
+/* Ecken im Uhrzeigersinn, beginnend oben links, damit beim Verwandeln nichts verdreht */
+function ordne(q) {
+  const cx = q.reduce((s, p) => s + p[0], 0) / 4, cy = q.reduce((s, p) => s + p[1], 0) / 4;
+  const r = q.slice().sort((a, b) => Math.atan2(a[1] - cy, a[0] - cx) - Math.atan2(b[1] - cy, b[0] - cx));
+  let k = 0;
+  r.forEach((p, i) => { if (p[0] + p[1] < r[k][0] + r[k][1]) k = i; });
+  return r.slice(k).concat(r.slice(0, k));
+}
+/* jedes Viereck dem nächstgelegenen kleinen Quadrat zuordnen (beste von 24 Reihenfolgen) */
+function zuordnen(form) {
+  const m = q => [q.reduce((s, p) => s + p[0], 0) / 4, q.reduce((s, p) => s + p[1], 0) / 4];
+  const mk = KLEIN.map(m), mf = form.map(m);
+  let best = null, bestD = 1e9;
+  const perm = (a, l = []) => {
+    if (!a.length) {
+      const d = l.reduce((s, k, i) => s + Math.hypot(mf[i][0] - mk[k][0], mf[i][1] - mk[k][1]), 0);
+      if (d < bestD) { bestD = d; best = l; }
+      return;
+    }
+    a.forEach((x, i) => perm(a.slice(0, i).concat(a.slice(i + 1)), l.concat(x)));
+  };
+  perm([0, 1, 2, 3]);
+  const out = [];
+  best.forEach((k, i) => { out[k] = ordne(form[i]); });
+  return out;
+}
+const KLEIN_O = KLEIN.map(ordne);
+function zwischen(A, B, t) {
+  return A.map((q, i) => q.map((p, j) => [lerp(p[0], B[i][j][0], t), lerp(p[1], B[i][j][1], t)]));
+}
+
+function navHoehe(nav) {
+  if (!nav) return 0;
+  const pos = getComputedStyle(nav).position;
+  return pos === 'sticky' || pos === 'fixed' ? nav.getBoundingClientRect().height : 0;
+}
+
+function uebergang(sec) {
+  let art = '';
+  try { art = new URLSearchParams(location.search).get('uebergang') || ''; } catch (e) { /* alte Browser */ }
+  art = (art || sec.getAttribute('data-uebergang') || '').trim().toLowerCase();
+  return art === 'diagonal' ? 'diagonal' : 'unten';
+}
 
 export function themen(sec) {
-  const layout = sec.querySelector('.themen_layout');
+  const huelle = sec.querySelector('.themen_huelle');
+  const buehne = sec.querySelector('.themen_buehne');
   const liste = sec.querySelector('.themen_liste');
   const box = sec.querySelector('.themen_panels');
   const panels = [...sec.querySelectorAll('.themen_panel')];
   const links = [...sec.querySelectorAll('.themen_link')];
   const n = panels.length;
-  if (!layout || !box || n < 2) return;
+  if (!huelle || !buehne || !box || !n) return;
+  const nav = document.querySelector('.navbar_component');
+  const hoch = document.querySelector('.nach-oben');
 
-  /* Link → Panel über die Sprungmarke, sonst nach Reihenfolge */
   const zu = links.map((a, i) => {
     const id = (a.getAttribute('href') || '').split('#')[1];
     const k = id ? panels.findIndex(p => p.id === id) : -1;
     return k >= 0 ? k : Math.min(i, n - 1);
   });
-  const mq = matchMedia(BREIT);
-  let buehne = null, io = null;
+
+  /* Ebenen je Panel: Abdunklung und Plum-Form (vom Skript angelegt, nicht in Webflow) */
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const teile = panels.map((p, k) => {
+    const dunkel = document.createElement('div');
+    dunkel.setAttribute('aria-hidden', 'true');
+    dunkel.style.cssText = 'position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;background:var(--_farben---manganese-black,#1D3149)';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('viewBox', '-1 -1 2 2');
+    svg.style.cssText = 'position:absolute;z-index:2;pointer-events:none;overflow:visible;left:50%;top:50%;transform:translate(-50%,-50%)';
+    const polys = [0, 1, 2, 3].map(() => {
+      const pl = document.createElementNS(svgNS, 'polygon');
+      pl.setAttribute('fill', `var(--_farben---plum-perfect, ${PLUM})`);
+      svg.appendChild(pl);
+      return pl;
+    });
+    p.prepend(svg);
+    p.prepend(dunkel);
+    const name = (p.getAttribute('data-form') || '').trim().toLowerCase();
+    const form = zuordnen((FORMEN[name] || FORMEN[REIHE[k % REIHE.length]])());
+    return { p, dunkel, svg, polys, form, titel: p.querySelector('.themen_titel'), figur: p.querySelector('.themen_figur'), unten: p.querySelector('.themen_unten') };
+  });
+  const male = (t, F) => t.polys.forEach((pl, i) => pl.setAttribute('points', F[i].map(q => q[0].toFixed(4) + ',' + q[1].toFixed(4)).join(' ')));
 
   function markiere(i) {
     links.forEach((a, k) => {
@@ -36,369 +137,224 @@ export function themen(sec) {
       if (an) a.setAttribute('aria-current', 'true');
       else a.removeAttribute('aria-current');
     });
-    /* stehende Leiste (Tablet, Handy): aktives Thema waagrecht ins Bild holen, ohne die Seite zu bewegen */
     const a = links[zu.indexOf(i)];
     if (a && liste && liste.scrollWidth > liste.clientWidth + 2) {
       liste.scrollTo({ left: a.offsetLeft - (liste.clientWidth - a.offsetWidth) / 2, behavior: reduziert() ? 'auto' : 'smooth' });
     }
   }
 
-  /* Karten untereinander: aktiv ist die letzte Karte, deren Oberkante die 40-%-Linie erreicht hat, davor die erste */
-  let zuletzt = -1, geplant = false;
-  function lageListe() {
-    geplant = false;
-    const linie = innerHeight * 0.4;
-    let k = 0;
-    panels.forEach((p, i) => { if (p.getBoundingClientRect().top <= linie) k = i; });
-    if (k !== zuletzt) { zuletzt = k; markiere(k); }
+  const mq = matchMedia(BREIT);
+  let modus = null;
+  function wechsle() {
+    const soll = mq.matches && !reduziert() ? 'buehne' : 'liste';
+    if (modus && modus.art === soll) return;
+    if (modus) modus.weg();
+    modus = soll === 'buehne' ? neueBuehne() : neueListe();
   }
-  const beimScrollen = () => { if (!geplant) { geplant = true; requestAnimationFrame(lageListe); } };
-  function beobachter(an) {
-    if (an && !io) {
-      /* nur rechnen, solange die Section nahe am Bild ist */
-      io = new IntersectionObserver(es => {
-        if (es[0].isIntersecting) { addEventListener('scroll', beimScrollen, { passive: true }); zuletzt = -1; lageListe(); }
-        else removeEventListener('scroll', beimScrollen);
-      }, { rootMargin: '50% 0px' });
-      io.observe(sec);
-    } else if (!an && io) { io.disconnect(); io = null; removeEventListener('scroll', beimScrollen); zuletzt = -1; }
-  }
+  if (mq.addEventListener) mq.addEventListener('change', wechsle);
+  else mq.addListener(wechsle);
 
   links.forEach((a, i) => a.addEventListener('click', e => {
     e.preventDefault();
     e.stopPropagation();
-    const k = zu[i];
-    if (buehne) return buehne.geheZu(k);
-    const leiste = liste && getComputedStyle(liste).position === 'sticky' ? liste.getBoundingClientRect().height : 0;
-    const y = panels[k].getBoundingClientRect().top + scrollY - navHoehe() - leiste - 16;
-    scrollTo({ top: y, behavior: reduziert() ? 'auto' : 'smooth' });
-    markiere(k);
+    if (modus) modus.geheZu(zu[i]);
   }));
 
-  /* Passt der Inhalt nicht in die Fensterhöhe (sehr niedrige Fenster), bleiben die Karten untereinander */
-  let zuNiedrig = 0;
-  function zuKlein() {
-    if (buehne) { buehne.weg(); buehne = null; }
-    zuNiedrig = innerHeight;
-    beobachter(true);
-  }
-  function modus() {
-    const soll = mq.matches && !reduziert() && innerHeight > zuNiedrig;
-    if (soll && !buehne) {
-      buehne = neueBuehne(sec, layout, box, panels, markiere, zuKlein);
-      if (!buehne.einpassen()) return zuKlein();
-    } else if (!soll && buehne) { buehne.weg(); buehne = null; }
-    beobachter(!buehne);
-  }
-  if (mq.addEventListener) mq.addEventListener('change', modus);
-  else mq.addListener(modus);
-  addEventListener('resize', () => { if (!buehne && zuNiedrig && innerHeight > zuNiedrig) { zuNiedrig = 0; modus(); } });
-  modus();
-}
+  /* ---------- Bühne (Desktop) ---------- */
+  function neueBuehne() {
+    const art = uebergang(sec);
+    const anteil = clamp(zahl(sec, 'data-schritt', 1), 0.4, 2);
+    const gemerkt = [];
+    const setze = (el, stile) => {
+      if (!el) return;
+      for (const k in stile) { gemerkt.push([el, k]); el.style[k] = stile[k]; }
+    };
+    let vh = innerHeight, w = innerWidth, schritt = vh, oben = 0, aktiv = -1, aus = false, navWeg = false;
 
-function navHoehe() {
-  const nav = document.querySelector('.navbar_component');
-  if (!nav) return 0;
-  const pos = getComputedStyle(nav).position;
-  return pos === 'sticky' || pos === 'fixed' ? nav.getBoundingClientRect().height : 0;
-}
-
-/* Übergang aus der Adresse (?uebergang=unten) vor dem Attribut der Section */
-function uebergang(sec) {
-  let art = '';
-  try { art = new URLSearchParams(location.search).get('uebergang') || ''; } catch (e) { /* alte Browser */ }
-  art = (art || sec.getAttribute('data-uebergang') || '').trim().toLowerCase();
-  return art === 'unten' ? 'unten' : 'diagonal';
-}
-
-function neueBuehne(sec, layout, box, panels, markiere, zuKlein) {
-  const n = panels.length;
-  const huelle = layout.parentElement;
-  const art = uebergang(sec);
-  const tempo = clamp(zahl(sec, 'data-tempo', 1), 0.3, 3);
-  const anteil = clamp(zahl(sec, 'data-schritt', 0.65), 0.3, 1.5);
-  const texte = panels.map(p => p.querySelector('.themen_text'));
-  const bilder = panels.map(p => p.querySelector('.themen_figur img') || p.querySelector('img'));
-
-  /* alle gesetzten Inline-Stile merken, damit beim Wechsel unter 992 px alles wieder nativ ist */
-  const gemerkt = new Set();
-  const setze = (el, stile) => {
-    if (!el) return;
-    for (const k in stile) { gemerkt.add([el, k]); el.style[k] = stile[k]; }
-  };
-
-  let aktiv = 0, wunsch = 0, vorhang = false, aus = false;
-  let navH = 0, schritt = 1, w = 0, h = 0;
-
-  setze(huelle, { paddingTop: '0px', paddingBottom: '0px' });
-  setze(layout, { position: 'sticky', boxSizing: 'border-box' });
-  setze(box, { alignSelf: 'stretch', height: '100%' });
-  panels.forEach(p => setze(p, { position: 'absolute', left: '0', top: '0', width: '100%', height: '100%', minHeight: '0' }));
-  texte.forEach(t => setze(t, { willChange: 'transform, opacity' }));
-  bilder.forEach(img => setze(img, { transition: 'opacity .25s ease' }));
-
-  const figuren = neueFiguren(box, bilder, tempo);
-
-  function klappe(o) {
-    if (o >= 1) return 'none';
-    if (art === 'unten') return `inset(${((1 - o) * 100).toFixed(2)}% 0 0 0)`;
-    /* Kante unter 45° wie das Ribbon (/), wandert von rechts unten nach links oben */
-    const c = (1 - o) * (w + h);
-    return `polygon(${c.toFixed(1)}px 0, ${w + h}px 0, ${w + h}px ${h}px, ${(c - h).toFixed(1)}px ${h}px)`;
-  }
-
-  function ruhe(i) {
-    aktiv = i;
-    panels.forEach((p, k) => {
-      p.style.zIndex = k === i ? '2' : '1';
-      p.style.clipPath = k === i ? 'none' : klappe(0);
-      if (texte[k]) { texte[k].style.transform = ''; texte[k].style.opacity = ''; }
+    setze(buehne, { position: 'sticky', top: '0px', overflow: 'hidden' });
+    setze(box, { position: 'absolute', left: '0px', top: '0px', width: '100%', height: '100%' });
+    teile.forEach(t => {
+      setze(t.p, { position: 'absolute', left: '0px', top: '0px', width: '100%', height: '100%', minHeight: '0px', willChange: 'clip-path' });
+      setze(t.figur, { willChange: 'transform' });
+      setze(t.unten, { willChange: 'transform' });
     });
-    figuren.zeige(i);
-    markiere(i);
+    if (nav) setze(nav, { transition: 'transform .45s cubic-bezier(.2,.7,.1,1)' });
+    if (hoch) setze(hoch, { transition: 'opacity .3s ease' });
+
+    function messen() {
+      vh = innerHeight; w = buehne.clientWidth || innerWidth;
+      schritt = Math.round(vh * anteil);
+      buehne.style.height = vh + 'px';
+      huelle.style.height = vh + (n - 1) * schritt + 'px';
+      oben = huelle.getBoundingClientRect().top + scrollY;
+      const s = Math.round(Math.min(w * 0.24, vh * 0.33) * 2);
+      teile.forEach(t => { t.svg.style.width = s + 'px'; t.svg.style.height = s + 'px'; t.svg.style.left = '50%'; t.svg.style.top = '50%'; });
+    }
+    gemerkt.push([buehne, 'height'], [huelle, 'height']);
+    teile.forEach(t => gemerkt.push([t.p, 'clipPath'], [t.p, 'visibility'], [t.p, 'zIndex'], [t.dunkel, 'opacity'], [t.titel, 'opacity'],
+      [t.figur, 'transform'], [t.figur, 'filter'], [t.unten, 'transform'], [t.unten, 'opacity']));
+    if (nav) gemerkt.push([nav, 'transform']);
+    if (hoch) gemerkt.push([hoch, 'opacity'], [hoch, 'pointerEvents']);
+
+    function klappe(p) {
+      if (p >= 1) return 'none';
+      if (art === 'diagonal') {
+        /* Kante unter 45° wie das Ribbon (/), wandert von rechts unten nach links oben */
+        const h = vh, c = (1 - p) * (w + h);
+        return `polygon(${c.toFixed(1)}px 0, ${w + h}px 0, ${w + h}px ${h}px, ${(c - h).toFixed(1)}px ${h}px)`;
+      }
+      return `inset(${((1 - p) * 100).toFixed(3)}% 0 0 0)`;
+    }
+
+    function zeichne() {
+      if (aus) return;
+      const r = huelle.getBoundingClientRect();
+      const q = clamp(-r.top / schritt, 0, n - 1);
+      const i = Math.min(Math.floor(q), n - 1), p = i === n - 1 ? 0 : q - i, j = Math.min(i + 1, n - 1);
+      teile.forEach((t, k) => {
+        if (k === i) {
+          t.p.style.visibility = ''; t.p.style.zIndex = '1'; t.p.style.clipPath = 'none';
+          t.dunkel.style.opacity = (DUNKEL * p).toFixed(3);
+          t.figur.style.transform = `translate(-50%, calc(-50% - ${(20 * p).toFixed(3)}vh))`;
+          t.figur.style.filter = p > 0 ? `brightness(${(1 - 0.45 * p).toFixed(3)})` : '';
+          t.unten.style.transform = `translateY(${(-30 * p).toFixed(3)}vh)`;
+          t.unten.style.opacity = '';
+          t.titel.style.opacity = (1 - clamp(p / 0.25, 0, 1)).toFixed(3);
+        } else if (k === j && p > 0) {
+          t.p.style.visibility = ''; t.p.style.zIndex = '2'; t.p.style.clipPath = klappe(p);
+          t.dunkel.style.opacity = '0';
+          t.figur.style.transform = `translate(-50%, calc(-50% + ${(20 * (1 - p)).toFixed(3)}vh))`;
+          t.figur.style.filter = '';
+          t.unten.style.transform = `translateY(${(30 * (1 - p)).toFixed(3)}vh)`;
+          t.titel.style.opacity = clamp((p - 0.75) / 0.25, 0, 1).toFixed(3);
+        } else {
+          t.p.style.visibility = 'hidden';
+        }
+      });
+      /* Form: bis zur Hälfte zu vier kleinen Quadraten, danach zur neuen Form */
+      const F = p < 0.5 ? zwischen(teile[i].form, KLEIN_O, easeInOut(p / 0.5)) : zwischen(KLEIN_O, teile[j].form, easeInOut((p - 0.5) / 0.5));
+      male(teile[i], F);
+      if (j !== i) male(teile[j], F);
+      const k = Math.round(q);
+      if (k !== aktiv) { aktiv = k; markiere(k); }
+      /* Navigation und «Nach oben» ausblenden, solange die Bühne steht */
+      const steht = r.top <= vh * 0.05 && r.bottom >= vh * 0.6;
+      if (steht !== navWeg) {
+        navWeg = steht;
+        if (nav) nav.style.transform = steht ? 'translateY(-101%)' : '';
+        if (hoch) { hoch.style.opacity = steht ? '0' : ''; hoch.style.pointerEvents = steht ? 'none' : ''; }
+      }
+    }
+
+    /* weiches Scrollen und Einrasten bei der Hälfte */
+    const lenis = new Lenis({ autoRaf: true, lerp: 0.1, smoothWheel: true, syncTouch: false, anchors: false, allowNestedScroll: true });
+    document.documentElement.style.scrollBehavior = 'auto';
+    let ruhe = null, versuche = 0;
+    const einrasten = () => {
+      if (aus) return;
+      if (lenis.isScrolling && versuche++ < 30) { ruhe = setTimeout(einrasten, 80); return; }
+      versuche = 0;
+      const s = scrollY - oben, max = (n - 1) * schritt;
+      if (s <= 1 || s >= max - 1) return;
+      const ziel = Math.round(s / schritt) * schritt;
+      if (Math.abs(ziel - s) < 2) return;
+      lenis.scrollTo(oben + ziel, { duration: 1.3, easing: t => 1 - Math.pow(1 - t, 3) });
+    };
+    const beimScrollen = () => {
+      zeichne();
+      clearTimeout(ruhe);
+      ruhe = setTimeout(einrasten, 140);
+    };
+    lenis.on('scroll', beimScrollen);
+    let geplant = false;
+    const nativ = () => { if (!geplant) { geplant = true; requestAnimationFrame(() => { geplant = false; zeichne(); }); } };
+    addEventListener('scroll', nativ, { passive: true });
+    const beiGroesse = () => requestAnimationFrame(() => { if (!aus) { messen(); zeichne(); } });
+    addEventListener('resize', beiGroesse);
+
+    /* Tastatur: Fokus in einem verdeckten Thema holt dieses Thema auf die Bühne */
+    const fokus = e => {
+      const k = panels.findIndex(p => p.contains(e.target));
+      if (k >= 0 && k !== aktiv) lenis.scrollTo(oben + k * schritt, { immediate: true });
+    };
+    sec.addEventListener('focusin', fokus);
+
+    messen();
+    zeichne();
+
+    return {
+      art: 'buehne',
+      geheZu(k) { lenis.scrollTo(oben + k * schritt, { duration: 1, easing: t => 1 - Math.pow(1 - t, 3) }); },
+      weg() {
+        aus = true;
+        clearTimeout(ruhe);
+        lenis.destroy();
+        document.documentElement.style.scrollBehavior = '';
+        removeEventListener('scroll', nativ);
+        removeEventListener('resize', beiGroesse);
+        sec.removeEventListener('focusin', fokus);
+        gemerkt.forEach(([el, k]) => { if (el) el.style[k] = ''; });
+      }
+    };
   }
 
-  /* eng: knapper Rand für niedrige Fenster, bevor die Karten wieder untereinander stehen */
-  function messen(eng) {
-    navH = navHoehe();
-    const vh = innerHeight, hoehe = vh - navH;
-    const rand = eng ? 16 : clamp(Math.round(vh * 0.06), 24, 72);
-    layout.style.top = navH + 'px';
-    layout.style.height = hoehe + 'px';
-    layout.style.paddingTop = layout.style.paddingBottom = rand + 'px';
-    schritt = Math.max(1, Math.round(vh * anteil));
-    huelle.style.height = hoehe + (n - 1) * schritt + 'px';
-    w = box.clientWidth; h = box.clientHeight;
-    figuren.messen();
-    panels.forEach((p, k) => { if (k !== aktiv && !vorhang) p.style.clipPath = klappe(0); });
-  }
-  gemerkt.add([layout, 'top']); gemerkt.add([layout, 'height']); gemerkt.add([layout, 'paddingTop']);
-  gemerkt.add([layout, 'paddingBottom']); gemerkt.add([huelle, 'height']);
-  panels.forEach((p, k) => { gemerkt.add([p, 'zIndex']); gemerkt.add([p, 'clipPath']); gemerkt.add([texte[k], 'transform']); gemerkt.add([texte[k], 'opacity']); });
+  /* ---------- Blöcke untereinander (Tablet, Handy, «Bewegung reduzieren») ---------- */
+  function neueListe() {
+    const ruhig = reduziert();
+    let aktiv = -1, geplant = false, aus = false;
+    teile.forEach(t => { if (t.titel && !ruhig) t.titel.style.transition = 'opacity .35s ease'; });
 
-  /* alles im Bild? Kopf und Liste links, Text jedes Themas rechts */
-  function passt() {
-    const r = layout.getBoundingClientRect();
-    const teile = [layout.querySelector('.themen_kopf'), layout.querySelector('.themen_liste'), ...texte];
-    return teile.every(t => {
-      if (!t) return true;
-      const q = t.getBoundingClientRect();
-      return q.bottom <= r.bottom - 8 && q.top >= r.top + 8;
-    });
-  }
+    /* Form ruht hinter der Figur */
+    function messen() {
+      teile.forEach(t => {
+        male(t, t.form);
+        const f = t.figur, pr = t.p.getBoundingClientRect();
+        if (!f) return;
+        const fr = f.getBoundingClientRect(), s = Math.round(Math.min(fr.height * 0.95, pr.width * 0.7));
+        Object.assign(t.svg.style, { width: s + 'px', height: s + 'px', left: fr.left - pr.left + fr.width / 2 + 'px', top: fr.top - pr.top + fr.height / 2 + 'px' });
+      });
+    }
 
-  function einpassen() {
-    messen(false);
-    if (passt()) return true;
-    messen(true);
-    return passt();
-  }
-
-  function lage() {
-    const r = huelle.getBoundingClientRect();
-    wunsch = clamp(Math.floor((navH - r.top) / schritt + 0.5), 0, n - 1);
-    /* Bühne nicht im Bild (z. B. Sprung von weit her): ohne Übergang setzen */
-    if (!vorhang && (r.bottom < 0 || r.top > innerHeight)) { if (wunsch !== aktiv) ruhe(wunsch); return; }
-    weiter();
-  }
-
-  function weiter() {
-    if (!vorhang && !aus && wunsch !== aktiv) wechsel(aktiv, wunsch);
-  }
-
-  function wechsel(a, b) {
-    const vor = b > a, oben = panels[vor ? b : a], unten = panels[vor ? a : b];
-    const tOben = texte[vor ? b : a], tUnten = texte[vor ? a : b];
-    panels.forEach(p => { if (p !== oben && p !== unten) { p.style.zIndex = '1'; p.style.clipPath = klappe(0); } });
-    unten.style.zIndex = '2'; unten.style.clipPath = 'none';
-    oben.style.zIndex = '3';
-    vorhang = true;
-    markiere(b);
-    figuren.morph(a, b);
-    const t0 = performance.now(), dauer = 0.6 / tempo;
-    takt(now => {
-      if (aus) return false;
-      const u = clamp((now - t0) / 1000 / dauer, 0, 1), o = vor ? easeInOut(u) : 1 - easeInOut(u);
-      oben.style.clipPath = klappe(o);
-      /* das Thema darunter tritt zurück und rückt nach oben, das neue kommt leicht von unten */
-      if (tUnten) { tUnten.style.transform = `translate3d(0,${(-o * 48).toFixed(1)}px,0)`; tUnten.style.opacity = (1 - o * 0.8).toFixed(3); }
-      if (tOben) { tOben.style.transform = `translate3d(0,${((1 - o) * 32).toFixed(1)}px,0)`; tOben.style.opacity = ''; }
-      if (u < 1) return true;
-      vorhang = false;
-      ruhe(b);
-      weiter();
-      return false;
-    });
-  }
-
-  function geheZu(k, verhalten = 'smooth') {
-    const y0 = huelle.getBoundingClientRect().top + scrollY - navH;
-    scrollTo({ top: Math.round(y0 + k * schritt), behavior: verhalten });
-  }
-
-  /* Tastatur: Fokus in einem verdeckten Thema holt dieses Thema auf die Bühne */
-  const fokus = e => {
-    const k = panels.findIndex(p => p.contains(e.target));
-    if (k >= 0 && k !== wunsch) geheZu(k, 'auto');
-  };
-
-  let geplant = false;
-  const beimScrollen = () => {
-    if (geplant) return;
-    geplant = true;
-    requestAnimationFrame(() => { geplant = false; if (!aus) lage(); });
-  };
-  const beiGroesse = () => requestAnimationFrame(() => {
-    if (aus) return;
-    if (!einpassen()) return zuKlein();
+    function lage() {
+      geplant = false;
+      if (aus) return;
+      const linie = innerHeight * 0.4;
+      let k = 0;
+      const tops = panels.map(p => p.getBoundingClientRect().top);
+      tops.forEach((top, i) => { if (top <= linie) k = i; });
+      if (k !== aktiv) {
+        aktiv = k;
+        markiere(k);
+        if (!ruhig) teile.forEach((t, i) => { if (t.titel) t.titel.style.opacity = i === k ? '' : String(BLASS); });
+      }
+      /* der ausscheidende Block dunkelt ab, während der nächste hochkommt */
+      if (!ruhig) teile.forEach((t, i) => {
+        const naechster = tops[i + 1];
+        t.dunkel.style.opacity = naechster === undefined ? '0' : (DUNKEL_HANDY * clamp(1 - naechster / innerHeight, 0, 1)).toFixed(3);
+      });
+    }
+    const beimScrollen = () => { if (!geplant) { geplant = true; requestAnimationFrame(lage); } };
+    const beiGroesse = () => requestAnimationFrame(() => { messen(); lage(); });
+    addEventListener('scroll', beimScrollen, { passive: true });
+    addEventListener('resize', beiGroesse);
+    messen();
     lage();
-  });
 
-  messen(false);
-  ruhe(clamp(Math.floor((navH - huelle.getBoundingClientRect().top) / schritt + 0.5), 0, n - 1));
-  wunsch = aktiv;
-  addEventListener('scroll', beimScrollen, { passive: true });
-  addEventListener('resize', beiGroesse);
-  sec.addEventListener('focusin', fokus);
-
-  return {
-    geheZu, einpassen,
-    weg() {
-      aus = true;
-      removeEventListener('scroll', beimScrollen);
-      removeEventListener('resize', beiGroesse);
-      sec.removeEventListener('focusin', fokus);
-      figuren.weg();
-      gemerkt.forEach(([el, k]) => { if (el) el.style[k] = ''; });
-    }
-  };
-}
-
-/* Punkte-Morph der Figuren: eine Zeichenfläche über dem Bildbereich. Die Punkte werden aus den Standbildern
-   (PNG mit transparentem Hintergrund) gelesen, ziehen sich zu einem kleinen Haufen zusammen und bilden die
-   nächste Figur; am Ende steht wieder das Original. Kann ein Bild nicht gelesen werden: Überblenden. */
-function neueFiguren(box, bilder, tempo) {
-  const cv = document.createElement('canvas');
-  cv.setAttribute('aria-hidden', 'true');
-  cv.style.cssText = 'position:absolute;z-index:5;pointer-events:none;opacity:0;transition:opacity .2s ease';
-  box.appendChild(cv);
-  const ctx = cv.getContext('2d');
-  const quellen = [], punkte = [];
-  let R = { x: 0, y: 0, w: 0, h: 0 }, dpr = 1, lauf = null, jetzt = null, laeuft = false, aus = false;
-
-  sobaldNahe(box, () => bilder.forEach((img, k) => {
-    if (!img) return;
-    const q = new Image();
-    q.crossOrigin = 'anonymous';
-    q.onload = () => { quellen[k] = q; };
-    q.src = img.currentSrc || img.src;
-  }), '150% 0px');
-
-  function messen() {
-    const fig = bilder[0] && bilder[0].parentElement;
-    if (!fig) return;
-    const b = box.getBoundingClientRect(), f = fig.getBoundingClientRect();
-    R = { x: f.left - b.left, y: f.top - b.top, w: f.width, h: f.height };
-    dpr = Math.min(devicePixelRatio || 1, 2);
-    cv.width = Math.max(1, Math.round(R.w * dpr));
-    cv.height = Math.max(1, Math.round(R.h * dpr));
-    Object.assign(cv.style, { left: R.x + 'px', top: R.y + 'px', width: R.w + 'px', height: R.h + 'px' });
-    punkte.length = 0;
+    return {
+      art: 'liste',
+      geheZu(k) {
+        const leiste = liste && getComputedStyle(liste).position === 'sticky' ? liste.getBoundingClientRect().height : 0;
+        const y = panels[k].getBoundingClientRect().top + scrollY - navHoehe(nav) - leiste;
+        scrollTo({ top: y, behavior: ruhig ? 'auto' : 'smooth' });
+      },
+      weg() {
+        aus = true;
+        removeEventListener('scroll', beimScrollen);
+        removeEventListener('resize', beiGroesse);
+        teile.forEach(t => { if (t.titel) { t.titel.style.opacity = ''; t.titel.style.transition = ''; } t.dunkel.style.opacity = '0'; });
+      }
+    };
   }
 
-  /* Punkte eines Bildes in der Grösse des Bildbereichs (object-fit: contain, mittig) */
-  function abtasten(k) {
-    if (punkte[k] !== undefined) return punkte[k];
-    const q = quellen[k];
-    if (!q || !q.naturalWidth || R.w < 10 || R.h < 10) return null;
-    const s = Math.min(R.w / q.naturalWidth, R.h / q.naturalHeight);
-    const iw = q.naturalWidth * s, ih = q.naturalHeight * s;
-    const c = document.createElement('canvas');
-    c.width = Math.ceil(R.w); c.height = Math.ceil(R.h);
-    const g = c.getContext('2d');
-    g.drawImage(q, (R.w - iw) / 2, (R.h - ih) / 2, iw, ih);
-    let d;
-    try { d = g.getImageData(0, 0, c.width, c.height).data; } catch (e) { return (punkte[k] = null); }
-    const alle = [];
-    for (let y = 0; y < c.height; y += 2) for (let x = 0; x < c.width; x += 2) {
-      const i = (y * c.width + x) * 4;
-      if (d[i + 3] > 150) alle.push({ x, y, f: `rgb(${d[i] & 0xf8},${d[i + 1] & 0xf8},${d[i + 2] & 0xf8})` });
-    }
-    /* gemischt und begrenzt: gleich viele Punkte je Figur, dichte Stellen bleiben dicht */
-    for (let i = alle.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; const t = alle[i]; alle[i] = alle[j]; alle[j] = t; }
-    return (punkte[k] = alle.slice(0, 1600));
-  }
-
-  function zeige(i) {
-    if (lauf) return;
-    bilder.forEach((img, k) => { if (img) img.style.opacity = k === i ? '' : '0'; });
-  }
-
-  function ueberblenden(b) {
-    bilder.forEach((img, k) => { if (img) img.style.opacity = k === b ? '' : '0'; });
-  }
-
-  function morph(a, b) {
-    const A = lauf && lauf.gezeichnet ? jetzt : abtasten(a), B = abtasten(b);
-    if (!A || !B || !A.length || !B.length) { lauf = null; cv.style.opacity = '0'; return ueberblenden(b); }
-    const m = Math.max(A.length, B.length);
-    const kx = R.w / 2, ky = R.h * 0.55, rad = Math.min(R.w, R.h) * 0.06;
-    const wege = new Array(m);
-    for (let i = 0; i < m; i++) {
-      const p = A[i % A.length], q = B[i % B.length];
-      const wnk = Math.random() * Math.PI * 2, r = Math.sqrt(Math.random()) * rad;
-      wege[i] = { ax: p.x, ay: p.y, af: p.f, bx: q.x, by: q.y, bf: q.f, kx: kx + Math.cos(wnk) * r, ky: ky + Math.sin(wnk) * r, v: Math.random() * 0.08 };
-    }
-    lauf = { b, wege, t0: performance.now() };
-    jetzt = new Array(m);
-    bilder.forEach(img => { if (img) img.style.opacity = '0'; });
-    cv.style.opacity = '1';
-    if (!laeuft) { laeuft = true; takt(zeichne); }
-  }
-
-  const gruppen = new Map();
-  function zeichne(now) {
-    if (aus || !lauf) { laeuft = false; return false; }
-    const u = clamp((now - lauf.t0) / 1000 / (0.95 / tempo), 0, 1);
-    const r0 = 1.5;
-    gruppen.forEach(l => { l.length = 0; });
-    const wege = lauf.wege;
-    for (let i = 0; i < wege.length; i++) {
-      const p = wege[i], t = clamp((u - p.v) / 0.92, 0, 1);
-      let x, y, f, r;
-      if (t < 0.45) { const e = easeInOut(t / 0.45); x = lerp(p.ax, p.kx, e); y = lerp(p.ay, p.ky, e); f = p.af; r = lerp(r0, r0 * 0.7, e); }
-      else if (t < 0.55) { x = p.kx; y = p.ky; f = t < 0.5 ? p.af : p.bf; r = r0 * 0.7; }
-      else { const e = easeOut((t - 0.55) / 0.45); x = lerp(p.kx, p.bx, e); y = lerp(p.ky, p.by, e); f = p.bf; r = lerp(r0 * 0.7, r0, e); }
-      jetzt[i] = { x, y, f };
-      let l = gruppen.get(f);
-      if (!l) gruppen.set(f, (l = []));
-      l.push(x, y, r);
-    }
-    lauf.gezeichnet = true;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, R.w, R.h);
-    gruppen.forEach((l, f) => {
-      if (!l.length) return;
-      ctx.fillStyle = f;
-      ctx.beginPath();
-      for (let i = 0; i < l.length; i += 3) { ctx.moveTo(l[i] + l[i + 2], l[i + 1]); ctx.arc(l[i], l[i + 1], l[i + 2], 0, 6.2832); }
-      ctx.fill();
-    });
-    if (u < 1) return true;
-    /* Ende: Original zeigen, Zeichenfläche ausblenden */
-    const b = lauf.b;
-    lauf = null; jetzt = null; laeuft = false;
-    ueberblenden(b);
-    cv.style.opacity = '0';
-    return false;
-  }
-
-  return {
-    messen, morph, zeige,
-    weg() {
-      aus = true;
-      cv.remove();
-      bilder.forEach(img => { if (img) img.style.opacity = ''; });
-    }
-  };
+  wechsle();
 }
