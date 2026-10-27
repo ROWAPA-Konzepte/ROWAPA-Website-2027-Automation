@@ -355,6 +355,18 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 
 ---
 
+## Rev. 16 · Header und Megamenü (27.10.2026, Runde 27, nur Entwurf)
+
+| Section | Element | Original (Rev. 15) | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Header | Kicker | «Beratung · Training · Digitale Lösungen» | entfällt (Wunsch ROWAPA, Bau nach Freigabe) | ruhiger, mehr Platz; das Angebot steht im Menü und in den Sections | – |
+| Megamenü «Unsere Kunden» | Unterpunkte | – (Menüpunkt ohne Unterpunkte) | «Branchen» (Banken, Versicherungen und Krankenkassen.), «Case-Stories» (Ausgewählte Projekte und ihre Wirkung.), «Kundenstimmen» (Was Kunden und Teilnehmende sagen.) | aus der Seitenplanung «Unsere Kunden» (Branchen, Real Cases, Testimonials) | [ROWAPA bestätigen] |
+| Megamenü «Unsere Kunden» | Satz (nur Variante B) | – | «Banken, Versicherungen und Krankenkassen, die mit ROWAPA arbeiten, und was sie erreicht haben.» | Was ist es, für wen | [ROWAPA bestätigen] |
+| Megamenü «So arbeiten wir» | Satz (nur Variante B) | – | «Mit Diagnostik, Daten und Gesprächen erfassen wir, wo Ihr Unternehmen steht, und legen messbare Ziele fest.» | bestehender Satz aus «Unser Vorgehen» | – |
+| Megamenü übrige | Sätze und Kurzbeschriebe | Texte der Menükarten | unverändert übernommen | keine neuen Texte | – |
+
+---
+
 ## Offene Fragen an ROWAPA
 
 1. ~~Kennzahl «100»~~: bestätigt
@@ -372,3 +384,4 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 13. Erklärtexte der Themenlinien: Variante A (zwei Spalten unter dem Titel, gebaut) oder B (links und rechts neben dem Titel, Bildentwurf) (Rev. 11)?
 14. Erweiterte Erklärtexte der fünf Themen, besonders die Zuordnung von Executive Coaching (Rev. 12)?
 15. ~~ROWAPA Digital ruhiger (Rev. 14)~~: umgesetzt (Rev. 15); «Jede Lösung ist einzeln buchbar.» kommt auf die Übersichtsseite (Stufe 3).
+16. Unterpunkte und Satz für «Unsere Kunden» im Megamenü (Rev. 16)?

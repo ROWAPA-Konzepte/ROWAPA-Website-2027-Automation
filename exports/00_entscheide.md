@@ -385,6 +385,19 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 219 | Wie gebaut | über Schalter und eine Variante, keine Kopie der Komponente | Neue Schalter in «Section Digital»: «Hinweis anzeigen», «Button 2 anzeigen», «Textlink anzeigen», «Karten-Linktext anzeigen»; in «Card Feature»: «Linktext anzeigen». Neue Variante «Karten · ruhig» (nur Abstand über den Karten). Der Titel nimmt jetzt Zeilenumbrüche an (Enter). Die Voreinstellungen entsprechen dem bisherigen Stand, darum ändern sich v2 und die übrigen Seiten nicht |
 | 220 | Satz «Jede Lösung ist einzeln buchbar.» | «Satz auf die Übersichtsseite» | Auf v3 aus der Einleitung entfernt. Die Übersichtsseite `/themen/digitale-loesungen` gibt es in Webflow noch nicht (sie entsteht in Stufe 3 als Themenlinie «Digitale Lösungen»). Der Satz ist dort als Pflichtinhalt vorgemerkt (`01_cms_architektur.md`, 3.1). v2 behält ihn |
 
+## 31. Feedback-Runde 27 (27.10.2026): Entscheide, Header, Fotorahmen, Abstände, Megamenü
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 221 | v2 oder v3 | Entscheid folgt später, Tendenz v3 | offener Punkt 14 bleibt offen (Tendenz v3) |
+| 222 | Übergang zwischen den Themen | «von unten ist soweit in Ordnung» | entschieden: Vorhang von unten. Der Schalter diagonal (`?uebergang=diagonal`) und die Zusatzklassen `is-diagonal` kommen beim Aufräumen weg (offener Punkt 17) |
+| 223 | Texte der Themen (Kernbotschaften, erweiterte Erklärtexte) | «im Moment so übernehmen, können jederzeit geändert werden» | vorläufig übernommen (Texttabelle Rev. 9 und 12); offene Punkte 20, 23 und 26 geschlossen |
+| 224 | Header: Kicker «Beratung · Training · Digitale Lösungen» | entfernen (Wunsch ROWAPA), Bau nach Freigabe der Runde | Entwurf: Titel rückt rund 25 px höher, der Header wirkt ruhiger (`stufe2-screens/runde27/header-heute-ohne-kicker-ruhig.png`) |
+| 225 | Header: Bewegung (Punktemeer, wechselnde Unterstreichung, Logo-Band) zu viel? | Vorschlag, nur Entwurf | Drei Bewegungen laufen gleichzeitig und ohne Ende; am stärksten zieht die wechselnde Unterstreichung, die zwei von drei Zeilen grau macht. Vorschlag: Unterstreichung läuft nur einmal durch (unter 5 s), danach alle drei Zeilen weiss mit kurzer Plum-Linie wie bei den Section-Titeln; Logo-Band bleibt, etwas langsamer, hält beim Darüberfahren an; Punktemeer bleibt. So erfüllt der Header auch die Regel WCAG 2.2.2 (bewegte Inhalte über 5 s brauchen eine Möglichkeit zum Anhalten) besser |
+| 226 | Unsere Erfolge: Fotorahmen dunkelblau, frischer? | Vorschlag, nur Entwurf | sechs Farben verglichen (`erfolge-fotorahmen-farben.png`): Manganese (heute), Weiss, Great Serpent, Sea Cliff, Plum, Plum als Linie. Empfehlung Weiss (am frischesten auf dem hellblauen Grund), Alternative Plum als feine Linie |
+| 227 | Weissraum zwischen den Sections | geprüft und gemessen, Vorschlag | Abstand zwischen den Inhalten zweier Sections bei 1440 × 900 (Median): BCG 110 px, Roland Berger 113, Vontobel 130, Korn Ferry 137, **ROWAPA v3 162**, Simon-Kucher 221, Oliver Wyman 331. Handy 390 px: BCG 66, Bain 72, Simon-Kucher 83, Vontobel 108, Roland Berger 114, Oliver Wyman 176, **ROWAPA 152**. Nicht messbar: Bain Desktop, Pictet (gesperrt), Tresmares (Szenen-Aufbau). Ergebnis: Desktop im Mittelfeld, Handy grosszügig. Enger sind drei Übergänge (Header → Antrieb 113 px, Über uns → Meine Entwicklung 127 px, um «Im Blickpunkt» 82–104 px) und der Abstand Titel → Inhalt (36 px). Vorschlag: Desktop +10 % (`clamp(3rem, 10svh, 8rem)`, 1440 × 900: 180 statt 162 px), Titel → Inhalt `clamp(2rem, 5svh, 4rem)`, die drei Übergänge angleichen, Handy 64 statt 76 px je Seite. Folge: bei 1440 × 900 sind Erfolge, Digital und Meine Entwicklung leicht höher als ein Bildschirm (Erfolge und Meine Entwicklung schon heute); Seite 1,4 % länger |
+| 228 | Megamenü: kleine Menüs wirken leer, «Unsere Kunden» bekommt Unterpunkte | drei Vorschläge, nur Entwurf | A «Angepasst» (kleine Menüs als schmales Panel unter dem Punkt, mit Kurzbeschrieb und kleinem Bild; «Was wir tun» bleibt), B «Bühne» (alle Menüs gleich: links dunkle Einleitung mit Satz und «Zur Übersicht», Mitte Links mit Kurzbeschrieb, rechts Bild), C «Editorial» (ohne Bilder, nummerierte Spalten, grosse Schrift, Höhe passt sich an). Texte aus den bestehenden Menükarten; für «Unsere Kunden» Unterpunkte aus der Seitenplanung (Branchen, Case-Stories, Kundenstimmen) und ein neuer Satz [ROWAPA bestätigen]. Empfehlung B. Bilder `megamenue-a-angepasst.png`, `megamenue-b-buehne.png`, `megamenue-c-editorial.png` |
+
 ---
 
 ## Offene Punkte
@@ -402,19 +415,20 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 11. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
 12. Megamenü-Bezeichnungen «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention» weichen von den Titeln auf der Startseite ab («Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung»). Bearbeiten wir später (Entscheid Runde 18).
 13. Eigene Bilder für Managing Partner, Education Partner und Trainer Academy, falls vorhanden (die Menütexte sind bestätigt).
-14. `/home-v3` mit der Themenlinien-Szene wie die Referenz (Runde 20). Wird v3 die definitive Startseite?
+14. `/home-v3` mit der Themenlinien-Szene wie die Referenz (Runde 20). Wird v3 die definitive Startseite? Tendenz v3, Entscheid folgt (Runde 27).
 15. Handy: «Im Blickpunkt» und «Neueste Insights» sind länger als ein Bildschirm (Entscheid 170). Kürzen oder so lassen?
 16. Designer-Ansicht: «Unsere Erfolge» mit 8 Folien geprüft und in Ordnung. «Unser Vorgehen» noch prüfen (die Designer-Vorschau brach mehrmals ab).
-17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante. Dazu seit Runde 24: Zusatzklassen `is-diagonal` und der Schalter `?anordnung=diagonal` im Skript.
+17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante. Dazu seit Runde 24: Zusatzklassen `is-diagonal` und der Schalter `?anordnung=diagonal` im Skript; seit Runde 27 auch der Schalter `?uebergang=diagonal` (Vorhang von unten entschieden).
 18. Kurznamen der stehenden Leiste (Tablet, Handy): «Vertrieb · Potenzial · Führung · Recruiting · Digital». [ROWAPA bestätigen]
 19. Texte «Warum ROWAPA» (vier Punkte, Texttabelle Rev. 9). [ROWAPA bestätigen]
-20. Themenlinien: Kernbotschaften, Sätze und Button-Texte der fünf Themen (Texttabelle Rev. 9). [ROWAPA bestätigen]
+20. ~~Themenlinien-Texte (Rev. 9)~~: vorläufig übernommen (Entscheid 223).
 21. Option: feine Plum-Linie entlang der diagonalen Vorhangkante (wie das Ribbon). Nicht gebaut, nur Idee.
 22. Tablet und Handy: Blöcke untereinander wie die Referenz (Runde 20, rund 3,5 Bildschirme auf dem Handy). Die Plum-Form zerfällt dort, während der Block in den Blick rückt (Runde 21); auf Wunsch verwandelt sie sich wie auf dem Desktop.
-23. Riesige Titel der Themen (Entscheid 188) bestätigen. [ROWAPA bestätigen]
-24. Vorhang: beide gut (Runde 21). Für die definitive Fassung einen wählen? Heute «von unten», diagonal als Schalter.
+23. ~~Riesige Titel der Themen~~: vorläufig übernommen (Entscheid 223).
+24. ~~Vorhang~~: entschieden, von unten (Entscheid 222).
 25. ~~Themenlinien-Texte A, B oder C~~: entschieden, Variante A (Entscheid 213).
-26. Erweiterte Erklärtexte der fünf Themen (Texttabelle Rev. 12). [ROWAPA bestätigen]
+26. ~~Erweiterte Erklärtexte~~: vorläufig übernommen (Entscheid 223).
 27. Farbfolge: auf v3 umgesetzt (Entscheid 211). Offen: auch auf v2, falls v2 weitergeführt wird.
 28. ~~Titel «Lösungen für Unternehmen»~~: entschieden, Kicker über der Themenliste (Entscheid 212).
 29. ~~ROWAPA Digital ruhiger~~: entschieden und auf v3 umgesetzt (Entscheide 218–220). Offen bleibt nur: Satz «Jede Lösung ist einzeln buchbar.» beim Bau der Übersichtsseite in Stufe 3 einsetzen.
+30. Runde 27 (nur Entwurf): Header ohne Kicker und mit einmaliger Unterstreichung, Fotorahmen (Empfehlung Weiss), Abstände +10 % Desktop und 64 px Handy, Megamenü A, B oder C (Empfehlung B), Unterpunkte und Satz für «Unsere Kunden». Freigabe vor dem Bau.
