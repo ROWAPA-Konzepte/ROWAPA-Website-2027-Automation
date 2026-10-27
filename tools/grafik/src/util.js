@@ -4,6 +4,17 @@ export const reduziert = () => matchMedia('(prefers-reduced-motion: reduce)').ma
 export const istHandy = () => innerWidth < 700;
 /* Gerät mit Maus oder Trackpad, auch wenn es zusätzlich einen Touchscreen hat (Chrome meldet solche Laptops sonst als Touch-Gerät) */
 export const hatMaus = () => matchMedia('(any-hover: hover) and (any-pointer: fine)').matches;
+/* Ruft f einmal auf, sobald eine Maus oder ein Trackpad benutzt wird: sofort, wenn der Browser eines meldet, sonst bei der
+   ersten Mausbewegung. Manche Windows-Geräte mit Touchscreen melden auch mit angeschlossener Maus «nur Touch». */
+export function beiMaus(f) {
+  if (hatMaus()) { f(); return; }
+  const pruefe = e => {
+    if (e.pointerType !== 'mouse') return;
+    removeEventListener('pointermove', pruefe);
+    f();
+  };
+  addEventListener('pointermove', pruefe, { passive: true });
+}
 export const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 export const lerp = (a, b, t) => a + (b - a) * t;
 export const easeOut = t => 1 - Math.pow(1 - t, 3);

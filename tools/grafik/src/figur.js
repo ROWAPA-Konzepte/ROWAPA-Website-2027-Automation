@@ -2,7 +2,7 @@
    Das Standbild (PNG mit transparentem Hintergrund) ist die Vorlage: Die Figur setzt sich aus kleinen
    Ausschnitten genau dieses Bildes zusammen, die von unten an ihren Platz fliegen; am Ende steht das Original.
    Das Bild wird dafür weder ein zweites Mal geladen noch ausgelesen. */
-import { clamp, easeOut, zahl, sobaldNahe, takt, istHandy } from './util.js';
+import { clamp, easeOut, zahl, sobaldNahe, takt, istHandy, beiMaus } from './util.js';
 
 const gruppen = new WeakMap();
 
@@ -126,10 +126,12 @@ export function figur(box) {
   /* beim Darüberfahren zieht sich die Figur leicht zusammen */
   function hover() {
     const karte = box.closest('a, [class*="card"]');
-    if (!karte || !matchMedia('(any-hover: hover)').matches) return;
-    img.style.transition = 'transform .7s cubic-bezier(.2,.7,.1,1), opacity .6s ease';
-    img.style.transformOrigin = '50% 70%';
-    karte.addEventListener('mouseenter', () => { img.style.transform = 'scale(.97)'; });
-    karte.addEventListener('mouseleave', () => { img.style.transform = ''; });
+    if (!karte) return;
+    beiMaus(() => {
+      img.style.transition = 'transform .7s cubic-bezier(.2,.7,.1,1), opacity .6s ease';
+      img.style.transformOrigin = '50% 70%';
+      karte.addEventListener('mouseenter', () => { img.style.transform = 'scale(.97)'; });
+      karte.addEventListener('mouseleave', () => { img.style.transform = ''; });
+    });
   }
 }

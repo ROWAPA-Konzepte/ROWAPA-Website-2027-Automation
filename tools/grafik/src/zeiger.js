@@ -1,15 +1,20 @@
-/* Mauszeiger als Punkt (Plum) mit feinem Ring (Geräte mit Maus oder Trackpad, auch Laptops mit Touchscreen; bei Berührung
-   mit dem Finger ausgeblendet). Element mit data-grafik="zeiger" schaltet ihn ein.
+/* Mauszeiger als Punkt (Plum) mit feinem Ring (Geräte mit Maus oder Trackpad; meldet der Browser keine Maus, z. B. bei
+   Touchscreens unter Windows, schaltet er sich bei der ersten Mausbewegung ein; bei Berührung mit dem Finger ausgeblendet).
+   Element mit data-grafik="zeiger" schaltet ihn ein.
    Der Ring steht immer im Kontrast zum Grund darunter: dunkel auf hellem, hell auf dunklem Grund und auf Bildern.
    data-zeiger="a" (Standard) Punkt und Ring · "b" zusätzlich wächst der Ring auf Links und Karten («Öffnen»).
    In Formularfeldern bleibt der normale Cursor. Bei «Bewegung reduzieren» folgt der Ring ohne Verzögerung. */
-import { reduziert, ciFarbe, hatMaus } from './util.js';
+import { reduziert, ciFarbe, beiMaus } from './util.js';
 
 let laeuft = false;
 
 export function zeiger(el) {
-  if (laeuft || !hatMaus()) return;
+  if (laeuft) return;
   laeuft = true;
+  beiMaus(() => starten(el));
+}
+
+function starten(el) {
   const plum = `rgb(${ciFarbe('plum-perfect', '#AA1351').join(',')})`;
   const dunkelblau = `rgb(${ciFarbe('manganese-black', '#1D3149').join(',')})`;
   const stil = document.createElement('style');

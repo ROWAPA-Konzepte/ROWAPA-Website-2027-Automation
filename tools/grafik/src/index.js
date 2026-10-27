@@ -29,7 +29,7 @@ function start() {
   if (gestartet) return;
   gestartet = true;
   info.gestartet = performance.now();
-  info.videos = hoverVideos();
+  hoverVideos(info);
   const ruhig = reduziert();
   document.querySelectorAll('[data-grafik]').forEach(el => {
     const art = (el.getAttribute('data-grafik') || '').trim().toLowerCase();

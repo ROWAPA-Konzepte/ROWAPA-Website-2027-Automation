@@ -4,7 +4,7 @@
    data-modus="tabs": wie «ruhig», dazu Reiter [data-phase-tab] und Texttafeln [data-phase] (Klasse is-aktiv). Ein Klick auf eine Phase (oder auf eine Stufe)
    hebt deren Stufe hervor: Plum füllt sie von unten, eine Linie markiert sie.
    Vorlage ist das PNG im Bildfeld (Stufen im Ruhezustand); die Hervorhebung entsteht daraus, ohne zweiten Download. */
-import { clamp, easeOut, easeInOut, lerp, zahl, sobaldNahe, takt, ciFarbe } from './util.js';
+import { clamp, easeOut, easeInOut, lerp, zahl, sobaldNahe, takt, ciFarbe, beiMaus } from './util.js';
 
 /* Spaltengrenzen und Grundlinie des mitgelieferten Bildes (Anteile von Breite und Höhe), siehe figuren/treppe.js */
 const GRENZEN = [0.258, 0.498, 0.755];
@@ -63,7 +63,7 @@ export function treppe(box) {
     s.setAttribute('role', 'button');
     s.style.cursor = 'pointer';
     const waehle = neu => { manuell = true; setAktiv(k, neu); };
-    if (s.matches('.step_item') && matchMedia('(any-hover: hover)').matches) s.addEventListener('mouseenter', () => waehle(false));
+    if (s.matches('.step_item')) beiMaus(() => s.addEventListener('mouseenter', () => waehle(false)));
     s.addEventListener('click', () => waehle(true));
     s.addEventListener('focus', () => waehle(false));
     s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); waehle(true); } });
