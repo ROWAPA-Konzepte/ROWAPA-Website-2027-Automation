@@ -399,6 +399,18 @@ Entwürfe C und D lassen alle Texte unverändert.
 
 ---
 
+## Rev. 20 · «Was uns antreibt» nach dem Muster Tresmares, Varianten A, B, C (27.10.2026, Runde 36, gebaut)
+
+| Section | Element | Original (v3) | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Was uns antreibt | Titel (H2) | «Messbare Entwicklung statt Versprechen.» | A: unverändert. B und C: die Einleitung wird zum Titel: «Seit 20 Jahren arbeiten wir ausschliesslich für die Finanzbranche. Wir verbinden Menschen, Methoden und Daten, damit Entwicklung kein Versprechen bleibt, sondern messbar wird.» | wie bei der Referenz trägt ein ganzer Satz die Section; er färbt sich beim Lesen ein; die Kernaussage des alten Titels steckt am Satzende | Satz als Titel bestätigen [ROWAPA bestätigen] |
+| Was uns antreibt | Einleitung | Satz wie oben | B und C: entfällt (steht im Titel). A: unverändert | keine Wiederholung | – |
+| Warum ROWAPA | Leitsatz | – | C: «Messbare Entwicklung statt Versprechen.» gross neben den Kacheln, unter «Warum ROWAPA» | der bisherige Titel bleibt erhalten und führt zu den Gründen | – |
+| Kennzahlen, Gründe 01–04 | alle | wie v3 | A und C: als Kacheln, Texte unverändert; B: unverändert wie v3 | keine neuen Fakten | – |
+
+
+---
+
 ## Offene Fragen an ROWAPA
 
 1. ~~Kennzahl «100»~~: bestätigt
@@ -418,4 +430,5 @@ Entwürfe C und D lassen alle Texte unverändert.
 15. ~~ROWAPA Digital ruhiger (Rev. 14)~~: umgesetzt (Rev. 15); «Jede Lösung ist einzeln buchbar.» kommt auf die Übersichtsseite (Stufe 3).
 16. ~~Unterpunkte und Satz für «Unsere Kunden» im Megamenü (Rev. 16)~~: bestätigt und umgesetzt (Rev. 17).
 17. ~~Persönliches Wort in «Was uns antreibt» (Rev. 18)~~: nicht nötig (Runde 32).
-18. «Was uns antreibt» und «Warum ROWAPA»: Entwurf B, C oder D; bei B die Belege «2× gemessen» und «3 in einer Hand» (Rev. 19)?
+18. ~~«Was uns antreibt»: Entwurf B, C oder D (Rev. 19)~~: abgelöst durch die gebauten Varianten A, B, C (Rev. 20).
+19. «Was uns antreibt»: Variante A, B oder C; bei B oder C die Einleitung als Titel (Rev. 20)?
