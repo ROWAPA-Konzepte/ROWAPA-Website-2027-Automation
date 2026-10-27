@@ -11,7 +11,7 @@
 | Bereich | Wo in Webflow | Wofür |
 |---|---|---|
 | Seiten | Designer › links **Pages** | `Home v2 (Prototyp)` (`/home-v2`) und `Home v3` (`/home-v3`, neue Reihenfolge mit Themenlinien) sind die Entwürfe der neuen Startseite; `Styleguide (intern)` zeigt alle Bausteine |
-| Komponenten | Designer › links **Components** | wiederverwendbare Bausteine: Navbar, Footer, Karten, Hero, Section Digital |
+| Komponenten | Designer › links **Components** | wiederverwendbare Bausteine: Navbar (auf `/home-v3`: «Navbar · Bühne»), Footer, Karten, Hero, Section Digital |
 | Variablen | Designer › links **Variables** | Farben, Abstände, Schriften, Theme-Farben |
 | Klassen | Designer › rechts **Style** bzw. Style Manager | Gestaltung nach Finsweet Client-First |
 | Bilder, Logos, Videos | Designer › links **Assets** | in 10 Ordnern sortiert (siehe Kap. 4) |
@@ -86,8 +86,10 @@ Die Komponente doppelklicken, Links und Texte bearbeiten und mit Esc verlassen. 
 Variables › «Footer-Wortmarke Deckkraft» (aktuell 12 %).
 
 ### 2.11 Animationen
-- **Logo-Laufband:** Interactions › «Logo-Laufband». Dauer 45 s pro Durchlauf, hält beim Darüberfahren an. Bei «Bewegung reduzieren» steht es still.
-- **Hero-Titelzeilen:** Interactions › «Hero-Titelzeilen» (in der Komponente Section Hero Home, Variante A). Die drei Zeilen werden im Wechsel hell und rot unterstrichen, je 5 s. Tempo im Interactions-Panel änderbar (Positionen 0 / 5 / 10 s).
+- **Logo-Laufband:** Interactions › «Logo-Laufband». Dauer 45 s pro Durchlauf, hält beim Darüberfahren an. Bei «Bewegung reduzieren» steht es still. Gilt für alle Seiten ausser `/home-v3`.
+- **Logo-Laufband ruhig (v3, seit Runde 28):** Interactions › «Logo-Laufband ruhig (v3)». Gleich wie oben, aber 60 s pro Durchlauf; gilt nur für `/home-v3`. Tempo ändern: Dauer der Bewegung im Interactions-Panel. Neue Seite mit ruhigem Band: unter «Scope» ergänzen und dieselbe Seite bei «Logo-Laufband» entfernen (sonst laufen beide).
+- **Hero-Titelzeilen:** Interactions › «Hero-Titelzeilen» (in der Komponente Section Hero Home, Variante A). Die drei Zeilen werden im Wechsel hell und rot unterstrichen, je 5 s. Tempo im Interactions-Panel änderbar (Positionen 0 / 5 / 10 s). Gilt für `/home-v2`.
+- **Hero-Titelzeilen einmal (v3, seit Runde 28):** Interactions › «Hero-Titelzeilen einmal» (Komponente Section Hero Home, nur Variante «A · Signatur ruhig»). Beim Laden wird jede Zeile einmal unterstrichen (Positionen 0,3 / 1,7 / 3,1 s), danach sind alle drei Zeilen weiss und die kurze Plum-Linie `hero_strich` zeichnet sich unter dem Titel (4,4 s). Bei «Bewegung reduzieren» steht sofort der Endzustand da. Andere Seite gleich ruhig: Hero-Instanz auswählen › Variante «A · Signatur ruhig».
 - **Titel-Strich zeichnen:** Interactions › «Titel-Strich zeichnen». Unter jedem H2 zeichnet sich der kurze Plum-Strich von links, sobald der Titel ins Bild kommt (Zusatzklasse `is-gezeichnet`). Länge, Farbe, Tempo: Klasse `heading-style-h2`, Zustand «::after».
 - **Team-Kacheln nacheinander:** Interactions › «Team-Kacheln nacheinander». Die Kacheln steigen nacheinander leicht auf und blenden ein (je 0,1 s versetzt, Dauer 0,7 s). Auslöser ist die Klasse `team_grid` (seit Runde 21), damit gilt sie auf `/home-v2` und `/home-v3`; eine weitere Seite unter «Scope» ergänzen.
 - **CAS Farbfläche einblenden:** Interactions › «CAS Farbfläche einblenden». Die einzige Einblendung der Startseite: Die dunkle Fläche hinter dem Text im Blickpunkt blendet in 1,4 s ein, Titel und Text folgen. Bei «Bewegung reduzieren» steht alles sofort da. Auslöser ist die Klasse `section_cas`; die Ziele sind je Seite eingetragen (v2 und v3). Auf einer neuen Seite die drei Ziele im Interactions-Panel ergänzen.
@@ -111,6 +113,7 @@ Site settings › General › Favicon (`rowapa-favicon-32.png`) und Webclip (`ro
 - **Acht Stimmen (seit Runde 18):** Die drei Zitate, die früher unter dem Slider standen, sind jetzt die Folien 6–8. Das alte Zitate-Raster (`layout-grid is-3-col is-erfolge`) ist ausgeblendet (Klasse `is-erfolge`: Display none), nicht gelöscht.
 - **Ein Block pro Bildschirm (seit Runde 14):** Titel, Foto, Zitat, Name und Steuerung passen auf jedem Format zusammen in ein Fenster. Dafür ist das Foto (`quote_image-wrapper`) höchstens «Fensterhöhe minus 22 rem» hoch (1440–1919 minus 24 rem, ab 1920 minus 23 rem, Tablet minus 18 rem, Handy im Format 16:10). Der Text steht oben, das Zitat in der Mitte, der Name unten auf Höhe der Fotounterkante; Punkte und Pfeile stehen rechts daneben (Handy: nur Punkte, gewischt wird mit dem Finger).
 - **Gleich hohe Folien:** Die Maske des Sliders trägt die Klasse `erfolge_maske` (Flexbox, nebeneinander, gleich hoch), jede Folie die Klasse `erfolge_folie` (schrumpft nicht, Höhe automatisch). So sind alle Folien gleich hoch und der Name steht immer auf derselben Linie. Beide Klassen nicht entfernen. Neue Folie: eine bestehende Folie duplizieren, dann trägt sie die Klasse schon. Kein Raster (Grid) auf die Maske legen: Das zeichnet der Webflow-Designer falsch (alle Folien gequetscht nebeneinander), auch wenn die Website richtig aussieht (Runde 17).
+- **Fotorahmen Plum-Linie (v3, seit Runde 28):** Auf `/home-v3` trägt jedes Foto (`quote_image-wrapper`) die Zusatzklasse `is-plum-linie`: eine feine Plum-Linie (1 px), 24 px nach links oben versetzt (Handy 16 px). Gemacht mit zwei Schatten (Effekte › Box shadow): der erste in der Farbe des Section-Hintergrunds (#D9E7F2), der zweite Plum. Neue Folie: Zusatzklasse mitkopieren. Ändert sich der Hintergrund der Section, den ersten Schatten mitziehen. `/home-v2` hat noch den dunkelblauen Rahmen.
 - **Bildauswahl:** Gesichter in die Bildmitte; auf kleinen Laptops und dem Handy wird das Foto breiter als hoch angeschnitten.
 - Ab Stufe 3 kommen die Kundenstimmen aus dem CMS; der Slider bleibt für die Startseite.
 
@@ -159,6 +162,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 ### 2.21 Startbildschirm (Header bis Logo-Band)
 - Hero und Logo-Band liegen zusammen in der Hülle `startscreen_wrapper`. Sie ist genau so hoch wie das Fenster minus Navigation; der Hero füllt den Platz, das Logo-Band schliesst mit der Fensterunterkante ab. Das gilt auf jedem Format.
 - **Titelzeilen immer einzeilig:** Jede der drei Header-Zeilen steht auf allen Formaten auf einer Zeile. Dafür ist der Textblock (`hero_content`) bis 62 rem breit, und auf dem Handy rechnet sich die Schriftgrösse aus der Fensterbreite (`heading-style-h1`, Breakpoint «Mobile portrait»). Längere Zeilen vorher auf dem Handy prüfen.
+- **Kicker und Plum-Linie (v3, seit Runde 28):** Hero-Instanz auswählen › rechts Schalter «Kicker anzeigen» (auf `/home-v3` aus, auf `/home-v2` an). Die Variante «A · Signatur ruhig» zeigt unter dem Titel die kurze Plum-Linie (`hero_strich`, 4 rem × 3 px) und lässt die Unterstreichung nur einmal laufen (2.11).
 - Mehr Luft im Hero: Klasse `padding-section-large` mit Zusatz `is-hero` (Abstände oben und unten). Höhe der Navigation geändert? Dann in `startscreen_wrapper` den Wert der Mindesthöhe anpassen (heute 4,5 rem, Tablet und Handy 4 rem).
 
 ### 2.22 Schriftgrössen
@@ -225,9 +229,9 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ### 2.32 Darstellung je Format (seit Runde 18)
 - **Grundsatz:** Jedes Format bekommt die Darstellung, die dort am besten wirkt. Auf Desktop und Tablet passt jede Section vom Titel bis zum Button in einen Bildschirm, auf dem Handy werden lange Reihen zu Wischreihen.
-- **Fensterhöhe:** Viele Grössen hängen an der sichtbaren Fensterhöhe, z. B. `clamp(3rem, 9svh, 7rem)`. Das bedeutet: 9 % der Fensterhöhe, mindestens 3 rem, höchstens 7 rem. Werte nur im Style-Panel ändern, die Schreibweise beibehalten.
+- **Fensterhöhe:** Viele Grössen hängen an der sichtbaren Fensterhöhe, z. B. `clamp(3rem, 10svh, 8rem)`. Das bedeutet: 10 % der Fensterhöhe, mindestens 3 rem, höchstens 8 rem. Werte nur im Style-Panel ändern, die Schreibweise beibehalten.
 - **Breakpoints:** Basis 992–1279 px, darüber 1280, 1440 und 1920 (Werte gelten nach oben weiter), darunter Tablet (bis 991), Handy quer (bis 767) und Handy (bis 479).
-- **Section-Abstand:** `padding-section-large` oben und unten `clamp(3rem, 9svh, 7rem)`, Anschluss-Sections (`is-anschluss`) oben `clamp(2rem, 5svh, 4rem)`; Kopf bis Inhalt (`section-head`, `section-head_row`) `clamp(1.5rem, 4svh, 3rem)`.
+- **Section-Abstand (seit Runde 28, alle Seiten):** `padding-section-large` oben und unten `clamp(3rem, 10svh, 8rem)` (bei 1440 × 900: 90 px), Handy (bis 767) 4 rem = 64 px; Anschluss-Sections (`is-anschluss`) oben `clamp(2rem, 5svh, 4rem)`; Kopf bis Inhalt (`section-head`, `section-head_row`) `clamp(2rem, 5svh, 4rem)`. Zwei weisse Sections nacheinander mit vollem Abstand und feiner Linie dazwischen: Zusatzklasse `is-linie` (1 px oben in der Linienfarbe; heute auf `/home-v3` bei «Meine Entwicklung»).
 - **Neue Zusatzklassen:**
 
 | Klasse | Wo | Wirkung |
@@ -270,6 +274,14 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 ### 2.34 Warum ROWAPA (in «Was uns antreibt», `/home-v3`)
 - Block `warum_block` unter den Kennzahlen: Kicker «Warum ROWAPA» und vier Punkte (`warum_item` mit `warum_nummer`, `warum_titel`, `warum_text`). Desktop vier Spalten, Tablet zwei, Handy nur Nummer und Titel (`warum_text` ausgeblendet).
 - Punkt ändern: Text doppelklicken. Punkt hinzufügen: `warum_item` duplizieren (bei fünf Punkten Spaltenzahl in `warum_liste` anpassen).
+
+### 2.36 Megamenü «Bühne» (`/home-v3`, seit Runde 28)
+- **Komponente:** «Navbar · Bühne» (Components › 01 Global), eine Kopie der «Navbar». Sie steht nur auf `/home-v3`; die übrigen Seiten haben die bisherige «Navbar» (2.26). Änderungen an der einen gelten nicht für die andere. Auf eine weitere Seite: alte Navbar löschen, «Navbar · Bühne» zuoberst in `page-wrapper` ziehen.
+- **Aufbau jedes Menüs (gleich für alle fünf):** links die dunkle Einleitung `navbar_intro` (Kicker `text-style-kicker is-intro`, Satz `navbar_intro-satz`, Link `navbar_intro-link` «Zur Übersicht →»), in der Mitte die Linkspalten `navbar_dropdown-column is-buehne` (bei wenigen Links zweispaltig: `is-raster`), rechts die Vorschau `navbar_vorschau is-buehne`. Die Vorschau erscheint ab 1280 px; von 992 bis 1279 px ist sie ausgeblendet, damit die Links Platz haben.
+- **Satz oder Kicker ändern:** im Komponenten-Modus doppelklicken. «Zur Übersicht →» nur dort zeigen, wo es eine Übersichtsseite gibt (heute «So arbeiten wir», «Unsere Kunden», «Partner werden»); Ziel über Zahnrad › Link.
+- **Links:** Klasse `navbar_dropdown-link is-buehne` (beim Darüberfahren eine feine Plum-Linie links). Kurzbeschrieb unter dem Link: Textelement `navbar_link-beschrieb` im Link. Neuer Link: bestehenden duplizieren, Text, Ziel und Attribut `data-vorschau` anpassen (2.26).
+- **«Unsere Kunden»:** eigenes Menü mit «Branchen», «Case-Stories», «Kundenstimmen». Ziele `/referenzen#branchen`, `#cases`, `#stimmen`; die Seite `/referenzen` gibt es noch nicht (offener Punkt 31). Wenn sie steht, die Abschnitte mit diesen IDs versehen (Zahnrad › ID). Vorschaukarten wie in 2.26 (`data-vorschau` am Link, `data-vorschau-karte` an der Karte; Namen `branchen`, `cases`, `stimmen`).
+- **Handy:** Das Handy-Menü (`navbar_mobile-dropdown`) ist unverändert; «Unsere Kunden» ist dort ein einzelner Link.
 
 ---
 

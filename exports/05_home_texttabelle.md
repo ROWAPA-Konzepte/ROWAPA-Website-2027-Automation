@@ -367,6 +367,18 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 
 ---
 
+## Rev. 17 · Header ruhig, Megamenü «Bühne» umgesetzt (27.10.2026, Runde 28)
+
+| Section | Element | Original (Rev. 16) | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Header | Kicker «Beratung · Training · Digitale Lösungen» | über dem Titel | ausgeblendet (umgesetzt, v3; Schalter «Kicker anzeigen» in «Section Hero Home», v2 unverändert) | Wunsch ROWAPA: ruhiger, mehr Platz | – |
+| Header | Titel «Mehr Vertriebsleistung. Stärkere Führung. Weniger Fluktuation.» | Unterstreichung wechselt ohne Ende, zwei Zeilen grau | Unterstreichung läuft einmal durch, danach alle drei Zeilen weiss mit kurzer Plum-Linie (umgesetzt, v3) | Text unverändert; ruhiger und nach rund 5 s fertig | – |
+| Megamenü «Unsere Kunden» | Unterpunkte | Entwurf | «Branchen», «Case-Stories», «Kundenstimmen» mit Kurzbeschrieb (umgesetzt, v3) | bestätigt («B und Texte passen») | – |
+| Megamenü «Unsere Kunden» | Satz | Entwurf | «Banken, Versicherungen und Krankenkassen, die mit ROWAPA arbeiten, und was sie erreicht haben.» (umgesetzt, v3) | bestätigt | – |
+| Megamenü (alle fünf) | Einleitung links | Entwurf | Kicker, Satz und «Zur Übersicht →», Texte wie Rev. 16 (umgesetzt, v3) | bestätigt | – |
+
+---
+
 ## Offene Fragen an ROWAPA
 
 1. ~~Kennzahl «100»~~: bestätigt
@@ -384,4 +396,4 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 13. Erklärtexte der Themenlinien: Variante A (zwei Spalten unter dem Titel, gebaut) oder B (links und rechts neben dem Titel, Bildentwurf) (Rev. 11)?
 14. Erweiterte Erklärtexte der fünf Themen, besonders die Zuordnung von Executive Coaching (Rev. 12)?
 15. ~~ROWAPA Digital ruhiger (Rev. 14)~~: umgesetzt (Rev. 15); «Jede Lösung ist einzeln buchbar.» kommt auf die Übersichtsseite (Stufe 3).
-16. Unterpunkte und Satz für «Unsere Kunden» im Megamenü (Rev. 16)?
+16. ~~Unterpunkte und Satz für «Unsere Kunden» im Megamenü (Rev. 16)~~: bestätigt und umgesetzt (Rev. 17).
