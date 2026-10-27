@@ -342,6 +342,19 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 
 ---
 
+## Rev. 15 · ROWAPA Digital ruhiger umgesetzt (27.10.2026, Runde 26)
+
+| Section | Element | Original (Rev. 14) | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| ROWAPA Digital | Titel (H2) | «Digitale Lösungen für Ihren Alltag» (eine Zeile, wo Platz ist) | «Digitale Lösungen» / «für Ihren Alltag» mit festem Umbruch (umgesetzt, v3) | ruhiges, zweizeiliges Bild auf allen Bildschirmen | – |
+| ROWAPA Digital | Einleitung | «Was wir beraten, bauen wir auch: fünf digitale Lösungen mit künstlicher Intelligenz, entwickelt mit ETH juniors (ETH Zürich). Jede Lösung ist einzeln buchbar.» | «Was wir beraten, bauen wir auch: fünf Lösungen mit künstlicher Intelligenz auf einer gemeinsamen Wissensplattform, entwickelt mit ETH juniors (ETH Zürich).» (umgesetzt, v3) | Was: fünf Lösungen mit KI; Nutzen: gemeinsame Wissensplattform statt allgemeinem Internetwissen; Herkunft: ETH juniors. Ersetzt den Kasten «Das Fundament» | – |
+| ROWAPA Digital | Kasten «Das Fundament: die ROWAPA Wissensplattform» | Kasten mit Logo | ausgeblendet (umgesetzt, v3; Text bleibt in der Komponente) | doppelt zur Beschriftung der Kugel | – |
+| ROWAPA Digital | Button 2 «Alle digitalen Lösungen» | Rahmen-Button | Textlink «Alle digitalen Lösungen →» neben «Demo vereinbaren» (umgesetzt, v3) | ein Haupt-Button, klarer nächster Schritt | – |
+| ROWAPA Digital | Karten «Mehr zu Anker» usw. | Linktext und Pfeil | nur Pfeil, rechts unten (umgesetzt, v3) | die ganze Karte ist der Link | – |
+| Übersicht Digitale Lösungen (`/themen/digitale-loesungen`) | Satz | – (Seite noch nicht gebaut) | «Jede Lösung ist einzeln buchbar.» | Wunsch ROWAPA: Satz von der Startseite auf die Übersichtsseite; vorgemerkt für Stufe 3 (`01_cms_architektur.md`, 3.1) | – |
+
+---
+
 ## Offene Fragen an ROWAPA
 
 1. ~~Kennzahl «100»~~: bestätigt
@@ -358,4 +371,4 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 12. Riesige Titel der fünf Themen, besonders «Performance & Potenzial» und «Recruiting & Bindung» (Rev. 10)?
 13. Erklärtexte der Themenlinien: Variante A (zwei Spalten unter dem Titel, gebaut) oder B (links und rechts neben dem Titel, Bildentwurf) (Rev. 11)?
 14. Erweiterte Erklärtexte der fünf Themen, besonders die Zuordnung von Executive Coaching (Rev. 12)?
-15. ROWAPA Digital ruhiger (Rev. 14): Entwurf umsetzen, und wohin mit «Jede Lösung ist einzeln buchbar.»?
+15. ~~ROWAPA Digital ruhiger (Rev. 14)~~: umgesetzt (Rev. 15); «Jede Lösung ist einzeln buchbar.» kommt auf die Übersichtsseite (Stufe 3).

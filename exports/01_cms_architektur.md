@@ -274,6 +274,8 @@ Einträge: Vertriebsperformance · Mitarbeiterperformance & Potenzial · Führun
 
 **≈ 30 Felder.** Case-Stories werden automatisch über `Referenzen.themenlinien` (enthält aktuellen Eintrag) gefiltert.
 
+> **Inhalt vorgemerkt für den Eintrag «Digitale Lösungen» (`/themen/digitale-loesungen`):** Der Satz «Jede Lösung ist einzeln buchbar.» gehört auf diese Übersichtsseite, gut sichtbar im Hero-Text oder im Vorteil-Text (Entscheid 220, Runde 26). Auf der Startseite v3 steht er nicht mehr.
+
 ---
 
 ### 3.2 Hebel / Lösungen (9) · `/loesungen/{slug}`

@@ -377,6 +377,14 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 216 | ROWAPA Digital zu überfüllt, Fundament und zwei Buttons gedrängt | Vorschlag, nur Entwurf | Ein Button «Demo vereinbaren», daneben schlichter Textlink «Alle digitalen Lösungen →»; Kasten «Das Fundament» entfällt, die Aussage steht im Einleitungssatz («… auf einer gemeinsamen Wissensplattform …»), die Kugel ist schon mit «Wissensplattform» beschriftet; Titel in zwei Zeilen; Karten nur mit Pfeil statt «Mehr zu …». Der Satz «Jede Lösung ist einzeln buchbar.» würde auf die Übersichtsseite wandern. Section 3–5 % kürzer. Entscheid offen (offener Punkt 29) |
 | 217 | Insights: Live-Webinare und ROWAPA TV dezenter | umgesetzt (nur v3) | Statt weisser Kästen schlichte Zeilen mit feiner Linie oben und Plum-Pfeil (`link-teaser is-dezent`, `icon-box is-dezent`); die Section wirkt leichter |
 
+## 30. Feedback-Runde 26 (27.10.2026): ROWAPA Digital ruhiger umgesetzt
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 218 | ROWAPA Digital ruhiger (Entwurf 216) | «Digitalen Entwurf so umsetzen» | Nativ umgesetzt, nur v3: ein Button «Demo vereinbaren», daneben Textlink «Alle digitalen Lösungen →»; Kasten «Das Fundament» ausgeblendet; Einleitung neu (Wissensplattform im Satz); Titel zweizeilig mit festem Umbruch; Karten nur mit Pfeil, die ganze Karte bleibt verlinkt; etwas mehr Luft über den Karten. Section live 3–11 % kürzer als auf v2 (1920×1080: 990 statt 1016 px; 1440×900: 818 statt 868 px; 1280×800: 699 statt 776 px; Handy 390: 703 statt 749 px), v2 unverändert |
+| 219 | Wie gebaut | über Schalter und eine Variante, keine Kopie der Komponente | Neue Schalter in «Section Digital»: «Hinweis anzeigen», «Button 2 anzeigen», «Textlink anzeigen», «Karten-Linktext anzeigen»; in «Card Feature»: «Linktext anzeigen». Neue Variante «Karten · ruhig» (nur Abstand über den Karten). Der Titel nimmt jetzt Zeilenumbrüche an (Enter). Die Voreinstellungen entsprechen dem bisherigen Stand, darum ändern sich v2 und die übrigen Seiten nicht |
+| 220 | Satz «Jede Lösung ist einzeln buchbar.» | «Satz auf die Übersichtsseite» | Auf v3 aus der Einleitung entfernt. Die Übersichtsseite `/themen/digitale-loesungen` gibt es in Webflow noch nicht (sie entsteht in Stufe 3 als Themenlinie «Digitale Lösungen»). Der Satz ist dort als Pflichtinhalt vorgemerkt (`01_cms_architektur.md`, 3.1). v2 behält ihn |
+
 ---
 
 ## Offene Punkte
@@ -409,4 +417,4 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 26. Erweiterte Erklärtexte der fünf Themen (Texttabelle Rev. 12). [ROWAPA bestätigen]
 27. Farbfolge: auf v3 umgesetzt (Entscheid 211). Offen: auch auf v2, falls v2 weitergeführt wird.
 28. ~~Titel «Lösungen für Unternehmen»~~: entschieden, Kicker über der Themenliste (Entscheid 212).
-29. ROWAPA Digital ruhiger (Entwurf Runde 25): umsetzen? Satz «Jede Lösung ist einzeln buchbar.» auf die Übersichtsseite verschieben oder behalten?
+29. ~~ROWAPA Digital ruhiger~~: entschieden und auf v3 umgesetzt (Entscheide 218–220). Offen bleibt nur: Satz «Jede Lösung ist einzeln buchbar.» beim Bau der Übersichtsseite in Stufe 3 einsetzen.
