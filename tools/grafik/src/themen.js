@@ -4,12 +4,14 @@
    - Alles hängt am Scroll-Fortschritt zwischen zwei Themen: Vorhang von unten (data-uebergang="unten", Standard) oder
      diagonal 45° («diagonal», zum Vergleichen auch ?uebergang=diagonal in der Adresse). Das alte Thema dunkelt ab,
      Figur und Text rücken nach oben (−20 % / −30 % der Fensterhöhe), das neue kommt von unten nach. Der alte Titel blendet
-     im ersten Viertel aus, der neue im letzten Viertel ein. Die Plum-Form schrumpft zu vier kleinen Quadraten und wächst
-     zur nächsten Form (data-form am Panel).
+     im ersten Viertel aus, der neue im letzten Viertel ein. Die Plum-Form zeigt sich nur während des Wechsels: Sie setzt
+     sich aus kleinen Quadraten zusammen, schrumpft zu vier kleinen Quadraten, wächst zur nächsten Form (data-form am Panel)
+     und zerfällt wieder, sobald der neue Titel steht. In Ruhe ist nur die Schrift zu sehen.
    - Weiches Scrollen (Lenis) und Einrasten: Wer vor der Hälfte loslässt, läuft zurück, sonst weiter zum nächsten Thema.
      Klick auf ein Thema der Liste scrollt in einer Sekunde dorthin. Die Navigation ist ausgeblendet, solange die Bühne steht.
    Darunter (Tablet, Handy): Blöcke untereinander mit stehender Leiste; der Titel im Blick ist voll, die anderen blass,
-   der ausscheidende Block dunkelt ab. Bei «Bewegung reduzieren» nur die Markierung. Ohne Skript: Blöcke untereinander.
+   der ausscheidende Block dunkelt ab, die Form zerfällt, während der Block in den Blick rückt. Bei «Bewegung reduzieren»
+   nur die Markierung, ohne Form. Ohne Skript: Blöcke untereinander.
    Texte, Links und Bilder sind native Webflow-Elemente; das Skript setzt Lage, Ausschnitt, Deckkraft und die Klasse is-aktiv. */
 import Lenis from 'lenis';
 import { clamp, lerp, easeInOut, zahl, reduziert } from './util.js';
@@ -19,6 +21,13 @@ const DUNKEL = 0.85;         // Abdunklung des ausscheidenden Themas (Manganese)
 const DUNKEL_HANDY = 0.2;    // Abdunklung des ausscheidenden Blocks auf Tablet und Handy (Referenz: leicht)
 const BLASS = 0.35;          // Deckkraft der Titel ausserhalb des Blicks (Handy)
 const PLUM = '#AA1351';
+/* Ablauf der Form innerhalb eines Wechsels (Anteil des Scrollwegs) */
+const AUFBAU = 0.22;         // bis hier setzt sich die alte Form zusammen
+const MITTE = 0.42;          // vier kleine Quadrate
+const FERTIG = 0.62;         // neue Form steht
+const WEG = 0.92;            // neue Form ist zerfallen
+const RASTER = 7;            // Zerfall: jedes Viereck in 7 × 7 Zellen
+const ZEIT = 0.4;            // Zerfall: Anteil, über den eine einzelne Zelle schrumpft
 
 /* Formen aus 45°-Bändern wie das Ribbon, je vier Vierecke in einem Feld von −1 bis 1 (y nach unten) */
 function band(ax, ay, bx, by, d, stuecke, luecke = 0.035) {
@@ -75,6 +84,45 @@ function zwischen(A, B, t) {
   return A.map((q, i) => q.map((p, j) => [lerp(p[0], B[i][j][0], t), lerp(p[1], B[i][j][1], t)]));
 }
 
+/* Zerfall in kleine Quadrate wie die Punktfiguren: jede Zelle hat einen festen Zeitpunkt (Zufall plus Lage, oben rechts
+   zuerst) und eine kleine Drift nach rechts oben, in 45° wie das Ribbon */
+const zufall = i => { const x = Math.sin(i * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
+const ZELLEN = [];
+for (let q = 0; q < 4; q++) {
+  for (let a = 0; a < RASTER; a++) {
+    for (let b = 0; b < RASTER; b++) {
+      const z = ZELLEN.length, lage = ((RASTER - 1 - b) + a) / (2 * (RASTER - 1));
+      const w = -Math.PI / 4 + (zufall(z + 101) - 0.5) * 2.4, weit = 0.05 + 0.12 * zufall(z + 202);
+      ZELLEN.push({ q, u0: b / RASTER, u1: (b + 1) / RASTER, v0: a / RASTER, v1: (a + 1) / RASTER,
+        start: (0.6 * zufall(z) + 0.4 * lage) * (1 - ZEIT), dx: Math.cos(w) * weit, dy: Math.sin(w) * weit });
+    }
+  }
+}
+const zahl3 = v => (Math.round(v * 1000) / 1000).toString();
+/* Punkt im Viereck (Ecken oben links, oben rechts, unten rechts, unten links) */
+function punkt(Q, u, v) {
+  const ox = lerp(Q[0][0], Q[1][0], u), oy = lerp(Q[0][1], Q[1][1], u);
+  const ux = lerp(Q[3][0], Q[2][0], u), uy = lerp(Q[3][1], Q[2][1], u);
+  return [lerp(ox, ux, v), lerp(oy, uy, v)];
+}
+/* Pfad der Form F; weg = 0 ganz, 1 ganz zerfallen */
+function pfad(F, weg) {
+  if (weg >= 0.999) return '';
+  if (weg <= 0.001) return F.map(Q => 'M' + Q.map(p => zahl3(p[0]) + ' ' + zahl3(p[1])).join('L') + 'Z').join('');
+  let d = '';
+  for (const z of ZELLEN) {
+    const k = 1 - easeInOut(clamp((weg - z.start) / ZEIT, 0, 1));
+    if (k <= 0.02) continue;
+    const Q = F[z.q];
+    const e = [punkt(Q, z.u0, z.v0), punkt(Q, z.u1, z.v0), punkt(Q, z.u1, z.v1), punkt(Q, z.u0, z.v1)];
+    const mx = (e[0][0] + e[1][0] + e[2][0] + e[3][0]) / 4, my = (e[0][1] + e[1][1] + e[2][1] + e[3][1]) / 4;
+    const cx = mx + (1 - k) * z.dx, cy = my + (1 - k) * z.dy;
+    const g = k * 1.06; // leicht überlappend, damit zwischen ganzen Zellen keine Haarlinien entstehen
+    d += 'M' + e.map(p => zahl3(cx + (p[0] - mx) * g) + ' ' + zahl3(cy + (p[1] - my) * g)).join('L') + 'Z';
+  }
+  return d;
+}
+
 function navHoehe(nav) {
   if (!nav) return 0;
   const pos = getComputedStyle(nav).position;
@@ -116,19 +164,19 @@ export function themen(sec) {
     svg.setAttribute('aria-hidden', 'true');
     svg.setAttribute('viewBox', '-1 -1 2 2');
     svg.style.cssText = 'position:absolute;z-index:2;pointer-events:none;overflow:visible;left:50%;top:50%;transform:translate(-50%,-50%)';
-    const polys = [0, 1, 2, 3].map(() => {
-      const pl = document.createElementNS(svgNS, 'polygon');
-      pl.setAttribute('fill', `var(--_farben---plum-perfect, ${PLUM})`);
-      svg.appendChild(pl);
-      return pl;
-    });
+    const form = document.createElementNS(svgNS, 'path');
+    form.setAttribute('fill', `var(--_farben---plum-perfect, ${PLUM})`);
+    svg.appendChild(form);
     p.prepend(svg);
     p.prepend(dunkel);
     const name = (p.getAttribute('data-form') || '').trim().toLowerCase();
-    const form = zuordnen((FORMEN[name] || FORMEN[REIHE[k % REIHE.length]])());
-    return { p, dunkel, svg, polys, form, titel: p.querySelector('.themen_titel'), figur: p.querySelector('.themen_figur'), unten: p.querySelector('.themen_unten') };
+    return { p, dunkel, svg, pfad: form, d: null, form: zuordnen((FORMEN[name] || FORMEN[REIHE[k % REIHE.length]])()),
+      titel: p.querySelector('.themen_titel'), figur: p.querySelector('.themen_figur'), unten: p.querySelector('.themen_unten') };
   });
-  const male = (t, F) => t.polys.forEach((pl, i) => pl.setAttribute('points', F[i].map(q => q[0].toFixed(4) + ',' + q[1].toFixed(4)).join(' ')));
+  const male = (t, F, weg) => {
+    const d = pfad(F, weg);
+    if (d !== t.d) { t.d = d; t.pfad.setAttribute('d', d); }
+  };
 
   function markiere(i) {
     links.forEach((a, k) => {
@@ -226,15 +274,19 @@ export function themen(sec) {
           t.figur.style.transform = `translate(-50%, calc(-50% + ${(20 * (1 - p)).toFixed(3)}vh))`;
           t.figur.style.filter = '';
           t.unten.style.transform = `translateY(${(30 * (1 - p)).toFixed(3)}vh)`;
-          t.titel.style.opacity = clamp((p - 0.75) / 0.25, 0, 1).toFixed(3);
+          t.titel.style.opacity = clamp((p - 0.7) / 0.25, 0, 1).toFixed(3);
         } else {
           t.p.style.visibility = 'hidden';
         }
       });
-      /* Form: bis zur Hälfte zu vier kleinen Quadraten, danach zur neuen Form */
-      const F = p < 0.5 ? zwischen(teile[i].form, KLEIN_O, easeInOut(p / 0.5)) : zwischen(KLEIN_O, teile[j].form, easeInOut((p - 0.5) / 0.5));
-      male(teile[i], F);
-      if (j !== i) male(teile[j], F);
+      /* Form nur im Wechsel: zusammensetzen, zu vier kleinen Quadraten, zur neuen Form, zerfallen; in Ruhe keine Form */
+      let F = teile[i].form, weg = 0;
+      if (p <= AUFBAU) weg = 1 - easeInOut(p / AUFBAU);
+      else if (p <= MITTE) F = zwischen(teile[i].form, KLEIN_O, easeInOut((p - AUFBAU) / (MITTE - AUFBAU)));
+      else if (p <= FERTIG) F = zwischen(KLEIN_O, teile[j].form, easeInOut((p - MITTE) / (FERTIG - MITTE)));
+      else { F = teile[j].form; weg = easeInOut(clamp((p - FERTIG) / (WEG - FERTIG), 0, 1)); }
+      male(teile[i], F, weg);
+      if (j !== i) male(teile[j], F, weg);
       const k = Math.round(q);
       if (k !== aktiv) { aktiv = k; markiere(k); }
       /* Navigation und «Nach oben» ausblenden, solange die Bühne steht */
@@ -304,10 +356,9 @@ export function themen(sec) {
     let aktiv = -1, geplant = false, aus = false;
     teile.forEach(t => { if (t.titel && !ruhig) t.titel.style.transition = 'opacity .35s ease'; });
 
-    /* Form ruht hinter der Figur */
+    /* Form liegt auf der Figur */
     function messen() {
       teile.forEach(t => {
-        male(t, t.form);
         const f = t.figur, pr = t.p.getBoundingClientRect();
         if (!f) return;
         const fr = f.getBoundingClientRect(), s = Math.round(Math.min(fr.height * 0.95, pr.width * 0.7));
@@ -327,10 +378,14 @@ export function themen(sec) {
         markiere(k);
         if (!ruhig) teile.forEach((t, i) => { if (t.titel) t.titel.style.opacity = i === k ? '' : String(BLASS); });
       }
-      /* der ausscheidende Block dunkelt ab, während der nächste hochkommt */
-      if (!ruhig) teile.forEach((t, i) => {
+      /* der ausscheidende Block dunkelt ab, während der nächste hochkommt; die Form zerfällt, während die Figur
+         von 85 % auf 50 % der Fensterhöhe steigt */
+      teile.forEach((t, i) => {
+        if (ruhig || !t.figur) { male(t, t.form, 1); return; }
         const naechster = tops[i + 1];
         t.dunkel.style.opacity = naechster === undefined ? '0' : (DUNKEL_HANDY * clamp(1 - naechster / innerHeight, 0, 1)).toFixed(3);
+        const fr = t.figur.getBoundingClientRect(), mitte = (fr.top + fr.bottom) / 2;
+        male(t, t.form, easeInOut(clamp((innerHeight * 0.85 - mitte) / (innerHeight * 0.35), 0, 1)));
       });
     }
     const beimScrollen = () => { if (!geplant) { geplant = true; requestAnimationFrame(lage); } };
@@ -351,7 +406,7 @@ export function themen(sec) {
         aus = true;
         removeEventListener('scroll', beimScrollen);
         removeEventListener('resize', beiGroesse);
-        teile.forEach(t => { if (t.titel) { t.titel.style.opacity = ''; t.titel.style.transition = ''; } t.dunkel.style.opacity = '0'; });
+        teile.forEach(t => { if (t.titel) { t.titel.style.opacity = ''; t.titel.style.transition = ''; } t.dunkel.style.opacity = '0'; male(t, t.form, 1); });
       }
     };
   }
