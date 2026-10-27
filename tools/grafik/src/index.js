@@ -13,11 +13,12 @@ import { vorschau } from './vorschau.js';
 import { varianten } from './varianten.js';
 import { hoverVideos } from './hovervideo.js';
 import { nachoben } from './nachoben.js';
+import { themen } from './themen.js';
 
 const VERSION = '__VERSION__';
 
-/* Bedienung (immer) und Bewegung (nur ohne «Bewegung reduzieren») */
-const BEDIENUNG = { varianten, reihe, zeiger, vorschau, nachoben };
+/* Bedienung (immer) und Bewegung (nur ohne «Bewegung reduzieren»); themen prüft «Bewegung reduzieren» selbst */
+const BEDIENUNG = { varianten, reihe, zeiger, vorschau, nachoben, themen };
 const BEWEGUNG = { punktemeer, punktfigur: figur, zaehler, treppe, orbit };
 
 function start() {

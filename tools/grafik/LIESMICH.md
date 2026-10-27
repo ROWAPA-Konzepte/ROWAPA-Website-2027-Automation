@@ -1,6 +1,6 @@
 # ROWAPA Grafik
 
-Ein einziges Skript für alle Punkte-Grafiken und kleinen Bewegungen der ROWAPA-Website. Es kommt ohne Bibliotheken aus (rund 28 KB, komprimiert rund 12 KB).
+Ein einziges Skript für alle Punkte-Grafiken und kleinen Bewegungen der ROWAPA-Website. Es kommt ohne Bibliotheken aus (rund 37 KB, komprimiert rund 15 KB).
 Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL kann, bleiben überall die Standbilder stehen. Die Pfeile der Insights-Reihe und der Knopf «Nach oben» funktionieren auch bei «Bewegung reduzieren».
 
 ## Was es heute kann
@@ -17,11 +17,14 @@ Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL ka
 | `nachoben` | Footer (Komponente, Link mit Klasse `nach-oben`) | Knopf erscheint, sobald man gut eine Bildschirmhöhe gescrollt hat (Klasse `is-sichtbar`), Klick führt an den Seitenanfang. Da er im Footer liegt, ist er auf jeder Seite |
 | `zeiger` | ein beliebiges (verstecktes) Element der Seite | Mauszeiger als Punkt (Plum) mit feinem Ring, der Ring steht immer im Kontrast zum Grund (dunkel auf hell, hell auf dunkel und auf Fotos); `data-zeiger="a"` (Standard) schlicht, `"b"` Ring wächst zusätzlich auf Links und Karten (Text aus `data-zeiger-text`, sonst «Öffnen»). Heute an der Navigation gesetzt. Nur mit Maus; in Formularfeldern normaler Cursor |
 | `vorschau` | Megamenü | Links `[data-vorschau="x"]` zeigen beim Darüberfahren die Karte `[data-vorschau-karte="x"]` (Klasse `is-aktiv`) |
+| `themen` | Themenlinien «Lösungen für Unternehmen» (`section_themen`, ab 1.6.0) | ab 992 px: die Section bleibt beim Scrollen stehen (je Thema rund zwei Drittel Bildschirmhöhe), ab der Hälfte wechselt das Thema mit einem kurzen Übergang (0,6 s): Vorhang diagonal 45° wie das Ribbon oder von unten; der alte Text tritt zurück und rückt nach oben; die Punkte der Figur ziehen sich zu einem kleinen Haufen zusammen und bilden die nächste Figur (Punkte aus dem Standbild gelesen). Die Liste links zeigt das aktive Thema (Klasse `is-aktiv` auf `themen_link`), Klick scrollt sanft dorthin. Tablet und Handy: Karten untereinander, stehende Leiste mit Kurznamen zeigt das Thema im Bild. Bei sehr niedrigem Fenster (Inhalt passt nicht) ebenfalls Karten untereinander |
 | `varianten` | Variantenleiste (intern) | Knöpfe `[data-wahl="gruppe:wert"]` zeigen `[data-variante="gruppe:wert"]` und blenden die übrigen der Gruppe aus; aktiver Knopf Klasse `var_wahl-an` |
 
 Die Kacheln im Orbit stehen in gleichen Abständen entlang der Bahn (gleiche Weglänge); die letzte Kachel startet oben. Die Treppe baut sich auf, sobald sie in der Bildmitte steht. Sie kennt `data-modus`: `folge` (Standard: Stufen bauen nacheinander auf, Phasen leuchten mit), `ruhig` (baut einmal auf, wechselt nur bei Darüberfahren oder Klick) und `tabs` (Reiter `[data-phase-tab]` schalten Tafeln `[data-phase]`).
 
-`zeiger`, `vorschau`, `varianten`, `reihe` und `nachoben` sind Bedienung und laufen auch bei «Bewegung reduzieren».
+`zeiger`, `vorschau`, `varianten`, `reihe` und `nachoben` sind Bedienung und laufen auch bei «Bewegung reduzieren». `themen` zeigt bei «Bewegung reduzieren» die Karten untereinander und markiert nur das Thema im Bild.
+
+**Themenlinien einstellen** (Attribute auf der Section `section_themen`): `data-uebergang` = `diagonal` (Standard) oder `unten`; zum Vergleichen ohne Änderung in Webflow die Adresse mit `?uebergang=unten` bzw. `?uebergang=diagonal` öffnen. `data-schritt` = Scrollweg je Thema als Anteil der Bildschirmhöhe (Standard `0.65`), `data-tempo` wie oben. Ein Thema mehr oder weniger: Panel `themen_panel` (mit eigener ID, z. B. `thema-neu`) duplizieren bzw. löschen und in der Liste einen `themen_link` mit Link «Section» auf dieses Panel; das Skript zählt selbst.
 
 Zusätzlich: Hover-Videos der Karten (`<video data-hover-video>`), früher eigenes Skript «ROWAPAHoverVideo».
 
@@ -65,6 +68,6 @@ Prüfwerkzeuge: `pruefung/messen.js` (Ladezeit, Datenmenge), `pruefung/rechenlas
 ## Leitlinien
 
 - Jede Grafik baut sich einmal auf und ruht dann. Dauerhaft bewegt sind nur das Punktemeer (Header, Footer) und die Kugel mit den Kacheln, alle langsam und nie gleichzeitig im Bild.
-- Kein Scroll-Halt, kein Farbfluss, kein geglättetes Mausrad-Scrollen. Sanft gescrollt wird nur auf Klick («Nach oben», Orbit-Kachel).
+- Kein Scroll-Halt, kein Einrasten, kein Farbfluss, kein geglättetes Mausrad-Scrollen. Die Themenlinien bleiben stehen (wie eine stehende Navigation), die Seite scrollt dabei normal weiter. Sanft gescrollt wird nur auf Klick («Nach oben», Orbit-Kachel, Thema in der Liste).
 - Die einzige Einblendung der Startseite ist die Farbfläche im Blickpunkt (CAS); sie ist eine native Webflow-Interaction, nicht Teil dieses Skripts. Ebenso nativ: Titel-Strich und Team-Kacheln nacheinander.
 - Start erst nach dem Laden der Seite; jede Grafik rechnet nur, solange sie sichtbar ist.
