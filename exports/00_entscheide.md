@@ -484,6 +484,19 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 
 ---
 
+## 41. Feedback-Runde 37 (27.10.2026): Variante A auf v3, Plum-Form weg, Aufräumen, Treppe schneller
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 262 | Plum-Form in den Themenlinien | «weglassen» | `data-plumform="aus"` an `section_themen` von v3; live geprüft (0 Formen). Der Programmteil bleibt im Skript, bis aufgeräumt wird (offener Punkt 17) |
+| 263 | «Was uns antreibt» | «Variante A, aber ohne Titel Warum ROWAPA und die Felder kleiner in der Höhe» | Auf v3 umgesetzt: links stehend Kicker, Titel, Einleitung; rechts Kennzahlen und, versetzt, die Gründe 01–04 als Kacheln. Titel «Warum ROWAPA» entfernt, die vier Gründe-Titel sind jetzt H3 (saubere Gliederung unter dem H2). Kacheln niedriger (`clamp(11rem, 26svh, 15rem)` statt `clamp(15rem, 36svh, 21rem)`, bei 1440 × 900: 234 statt 324 px), Versatz kleiner (`clamp(4rem, 10svh, 6rem)`). Höhe der Section bei 1440 × 900: 1202 px (Variante A vorher 1689, alter Stand 814); 1024: 1085, 1920: 1268, Handy: 1357. Der Text steht beim Scrollen rund 300 bis 500 px lang still. Die leeren alten Hüllen und der Titel «Warum ROWAPA» sind gelöscht (Freigabe). Geprüft 390 bis 1920 px, keine Überbreite |
+| 264 | «löschen was nicht mehr benötigt wird» | Freigabe | Gelöscht: Interaktion «Antrieb · Satz färbt sich beim Scrollen ein», Footer-Variante «Manganese». Bereinigt: Interaktion Team-Kacheln (v2, v3), Logo-Laufband ruhig (v3), CAS-Farbfläche nur noch v2 (auf v3 ist die dunkle Fläche aus, Titel und Text stehen sofort). **Seiten** `/home-v3-farben`, `/home-v3-antrieb-a/-b/-c`: die Schnittstelle kann keine Seiten löschen; sie sind als Entwurf aus der Veröffentlichung genommen (live 404) und heissen «ZU LÖSCHEN · …». Endgültig löschen in Webflow: Pages › Seite › Zahnrad › Delete. Danach lassen sich die Klassen entfernen, die nur dort hängen (Style Manager › Clean up) |
+| 265 | Veröffentlichen | «dann veröffentlichen auf webflow» | Veröffentlicht auf `rowapa-website-2027-automation.webflow.io` (eine eigene Domain ist nicht verbunden) |
+| 266 | Grafik «Unser Vorgehen» schneller | umgesetzt | Treppe `data-tempo` = `2` an `vorgehen_media` (v2 und v3): Aufbau rund 2,1 statt 4,25 Sekunden; Ablauf sonst gleich |
+| 267 | Handy und kleine Formate individuell lösen: am Schluss oder beim Bau jeder Seite? | Einschätzung, nichts gebaut | Empfehlung: je Seite gleich mitbauen (Grundsatz «Handy ist eine eigene Fassung»), am Schluss ein gemeinsamer Durchgang auf echten Geräten. Vorgehen und Begründung im Bericht der Runde 37; Entscheid ROWAPA offen (offener Punkt 39) |
+
+---
+
 ## Offene Punkte
 
 1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
@@ -502,7 +515,7 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 14. `/home-v3` mit der Themenlinien-Szene wie die Referenz (Runde 20). Wird v3 die definitive Startseite? Tendenz v3, Entscheid folgt (Runde 27).
 15. Handy: «Im Blickpunkt» und «Neueste Insights» sind länger als ein Bildschirm (Entscheid 170). Kürzen oder so lassen?
 16. Designer-Ansicht: «Unsere Erfolge» mit 8 Folien geprüft und in Ordnung. «Unser Vorgehen» noch prüfen (die Designer-Vorschau brach mehrmals ab).
-17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante. Dazu seit Runde 24: Zusatzklassen `is-diagonal` und der Schalter `?anordnung=diagonal` im Skript; seit Runde 27 auch der Schalter `?uebergang=diagonal` (Vorhang von unten entschieden); seit Runde 28 die zwei Logo-Band-Interaktionen (zusammenführen) und die Hero-Variante (Grundvariante mit wechselnder Unterstreichung entfällt, wenn v3 gilt); seit Runde 33 der Schalter `?einrasten=rad` und, je nach Entscheid 37, die Seite `/home-v3-farben` mit ihren Zusatzklassen und Varianten; seit Runde 35 dazu `main-wrapper is-farbkonzept` und der Modus «Manganese» der Sammlung «Textlinks» (seit Runde 36 überflüssig, der Grundwert ist Manganese); seit Runde 36 die Footer-Variante «Manganese» und `footer_component theme-tiefsee` (ersetzt durch `theme-kontrast`), `section_cas.theme-hell`, `section_cas.theme-tiefsee`, die Interaktion «CAS Farbfläche einblenden» und nach dem Entscheid 36 die drei Seiten `/home-v3-antrieb-a/-b/-c` mit den nicht gewählten Klassen.
+17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante. Dazu seit Runde 24: Zusatzklassen `is-diagonal` und der Schalter `?anordnung=diagonal` im Skript; seit Runde 27 auch der Schalter `?uebergang=diagonal` (Vorhang von unten entschieden); seit Runde 28 die zwei Logo-Band-Interaktionen (zusammenführen) und die Hero-Variante (Grundvariante mit wechselnder Unterstreichung entfällt, wenn v3 gilt); seit Runde 33 der Schalter `?einrasten=rad` und, je nach Entscheid 37, die Seite `/home-v3-farben` mit ihren Zusatzklassen und Varianten; seit Runde 35 dazu `main-wrapper is-farbkonzept` und der Modus «Manganese» der Sammlung «Textlinks» (seit Runde 36 überflüssig, der Grundwert ist Manganese); seit Runde 36 die Footer-Variante «Manganese» und `footer_component theme-tiefsee` (ersetzt durch `theme-kontrast`), `section_cas.theme-hell`, `section_cas.theme-tiefsee`, die Interaktion «CAS Farbfläche einblenden» und nach dem Entscheid 36 die drei Seiten `/home-v3-antrieb-a/-b/-c` mit den nicht gewählten Klassen. Seit Runde 37: der Programmteil der Plum-Form samt `?plumform` (Skript), die Sammlung «Textlinks» mit dem Modus «Manganese» (Grundwert bleibt), nach dem Löschen der vier Seiten die Klassen `antrieb_kopf`, `antrieb_aufdecken`, `antrieb_leitsatz`, `statement_layout.is-einspaltig`, `main-wrapper.is-farbkonzept`, `kicker.is-spalte`, `section_cas.theme-hell`.
 18. Kurznamen der stehenden Leiste (Tablet, Handy): «Vertrieb · Potenzial · Führung · Recruiting · Digital». [ROWAPA bestätigen]
 19. Texte «Warum ROWAPA» (vier Punkte, Texttabelle Rev. 9). [ROWAPA bestätigen]
 20. ~~Themenlinien-Texte (Rev. 9)~~: vorläufig übernommen (Entscheid 223).
@@ -521,6 +534,8 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 33. Leeren Variablen-Modus «Luft (v3)» im Designer löschen (Entscheid 238, von Hand).
 34. ~~Themen-Szene mit Trackpad: Wisch-Einrasten~~: Standard seit Grafik 1.12.0 (Entscheid 250); `?einrasten=rad` beim Aufräumen entfernen.
 35. ~~Zeiger und Hover-Videos auf dem Gerät von ROWAPA~~: bestätigt (Entscheid 261).
-36. «Was uns antreibt» und «Warum ROWAPA»: Variante A, B oder C (Runde 36, Entscheid 260) oder heutiger Stand; die Bildentwürfe B/C/D aus Runde 32 sind damit überholt. Bei B oder C die Einleitung als Titel bestätigen (Texttabelle Rev. 20).
+36. ~~«Was uns antreibt»~~: Variante A gewählt und auf v3 umgesetzt (Entscheid 263).
 37. ~~Farbkonzept~~: als Standard übernommen (Entscheid 258); `/home-v3-farben` ist überholt.
-38. Plum-Form: Schalter gebaut (Entscheid 257), zum Ansehen `/home-v3?plumform=aus`. Nach dem OK `data-plumform="aus"` an `section_themen` von v3 setzen; der Programmteil der Form bleibt im Skript, bis aufgeräumt wird.
+38. ~~Plum-Form~~: weggelassen (Entscheid 262).
+39. Handy und kleine Formate: Vorgehen festlegen (Empfehlung: je Seite mitbauen, am Schluss Gerätedurchgang; Entscheid 267). Für die Startseite eine Tabelle «Desktop → Handy» je Section als nächster Schritt?
+40. Vier Seiten «ZU LÖSCHEN · …» in Webflow endgültig löschen (Pages › Zahnrad › Delete) und danach Style Manager › Clean up (Entscheid 264).

@@ -411,6 +411,19 @@ Entwürfe C und D lassen alle Texte unverändert.
 
 ---
 
+## Rev. 21 · «Was uns antreibt» Variante A auf v3 (27.10.2026, Runde 37, gebaut)
+
+| Section | Element | Original (v3) | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Was uns antreibt | Titel, Einleitung, Kennzahlen | wie v3 | unverändert, neu angeordnet (Text links stehend, Kacheln rechts) | Variante A gewählt | – |
+| Warum ROWAPA | Titel | «Warum ROWAPA» | entfällt | Wunsch ROWAPA; die vier Gründe sprechen für sich | – |
+| Warum ROWAPA | Gründe 01–04 | Titel als H4 | Titel als H3, Texte unverändert | Gliederung direkt unter dem H2 der Section | – |
+
+Die Vorschläge von Rev. 20 für B und C (Einleitung als Titel, Leitsatz) sind damit hinfällig.
+
+
+---
+
 ## Offene Fragen an ROWAPA
 
 1. ~~Kennzahl «100»~~: bestätigt
@@ -431,4 +444,4 @@ Entwürfe C und D lassen alle Texte unverändert.
 16. ~~Unterpunkte und Satz für «Unsere Kunden» im Megamenü (Rev. 16)~~: bestätigt und umgesetzt (Rev. 17).
 17. ~~Persönliches Wort in «Was uns antreibt» (Rev. 18)~~: nicht nötig (Runde 32).
 18. ~~«Was uns antreibt»: Entwurf B, C oder D (Rev. 19)~~: abgelöst durch die gebauten Varianten A, B, C (Rev. 20).
-19. «Was uns antreibt»: Variante A, B oder C; bei B oder C die Einleitung als Titel (Rev. 20)?
+19. ~~«Was uns antreibt»: Variante A, B oder C (Rev. 20)~~: A gewählt (Rev. 21).
