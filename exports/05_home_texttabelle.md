@@ -377,6 +377,14 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 | Megamenü «Unsere Kunden» | Satz | Entwurf | «Banken, Versicherungen und Krankenkassen, die mit ROWAPA arbeiten, und was sie erreicht haben.» (umgesetzt, v3) | bestätigt | – |
 | Megamenü (alle fünf) | Einleitung links | Entwurf | Kicker, Satz und «Zur Übersicht →», Texte wie Rev. 16 (umgesetzt, v3) | bestätigt | – |
 
+## Rev. 18 · Persönliches Wort in «Was uns antreibt» (27.10.2026, Runde 31, nur Entwurf)
+
+| Section | Element | Original (Rev. 17) | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Was uns antreibt | Persönliches Wort: Satz | – | «Uns treibt an, dass Entwicklung im Alltag ankommt: im Kundengespräch, in der Führung, in den Zahlen.» | Was: persönliche Haltung hinter «messbar statt Versprechen»; für wen: Entscheiderinnen und Entscheider in Unternehmen; Nutzen: Vertrauen durch ein Gesicht; Satz nimmt die drei Wirkungsfelder auf, keine neuen Fakten | [ROWAPA bestätigen] eigener Satz der Person |
+| Was uns antreibt | Persönliches Wort: Name, Funktion | – | «[Name]», «[Funktion], ROWAPA» | Zuordnung des Satzes | [ROWAPA bestätigen] |
+| Was uns antreibt | Porträt | – | Porträt von ROWAPA (geliefert), Ausschnitt 3:4, Gesicht im oberen Drittel | echtes Foto statt Bildagentur | Freigabe zur Veröffentlichung |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -397,3 +405,4 @@ Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz 
 14. Erweiterte Erklärtexte der fünf Themen, besonders die Zuordnung von Executive Coaching (Rev. 12)?
 15. ~~ROWAPA Digital ruhiger (Rev. 14)~~: umgesetzt (Rev. 15); «Jede Lösung ist einzeln buchbar.» kommt auf die Übersichtsseite (Stufe 3).
 16. ~~Unterpunkte und Satz für «Unsere Kunden» im Megamenü (Rev. 16)~~: bestätigt und umgesetzt (Rev. 17).
+17. Persönliches Wort in «Was uns antreibt»: A1 oder A2, Name, Funktion und Satz (Rev. 18)?

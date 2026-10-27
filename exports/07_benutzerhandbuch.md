@@ -203,7 +203,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 ### 2.27 Mauszeiger
 - Eingeschaltet über das Attribut `data-grafik="zeiger"` an der Navigation (Komponente «Navbar», oberstes Element). Attribut löschen = normaler Mauszeiger auf der ganzen Website.
 - Der Ring richtet sich nach dem Grund (dunkel auf hell, hell auf dunkel und auf Fotos). Auf Handy und Tablet und in Formularfeldern gibt es ihn nicht.
-- Laptops mit Touchscreen (seit Skript 1.10.1): Punkt und Ring erscheinen, sobald man Maus oder Trackpad bewegt; tippt man mit dem Finger, verschwinden sie. Dasselbe gilt für die Hover-Videos der Karten.
+- Geräte mit Touchscreen (seit Skript 1.10.1, verbessert in 1.11.1): Punkt und Ring erscheinen, sobald man Maus oder Trackpad bewegt, auch wenn der Browser das Gerät als reines Touch-Gerät meldet; tippt man mit dem Finger, verschwinden sie. Dasselbe gilt für die Hover-Videos der Karten.
 
 ### 2.28 Im Blickpunkt (CAS)
 - Aufbau: Foto vom linken Fensterrand bis zur Mitte (`spotlight_media`), rechts Kicker, Titel, Text, Eckdaten (`chip`) und Buttons (`spotlight_content`). Hinter dem Text liegt die dunkle Farbfläche `cas_farbe`, die beim Hereinscrollen einblendet (siehe 2.11).
