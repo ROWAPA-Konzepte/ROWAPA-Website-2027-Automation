@@ -351,6 +351,15 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 205 | «mach bitte auch noch den diagonalen Entwurf» | Entwurf C (Bild und Video, nicht in Webflow) | Vorhang diagonal 45°, Kernbotschaft unten links, Erklärung und Link oben rechts, Titel dazwischen. Auf kurzen Laptops (1366×657) wird es zwischen Titel und Erklärung eng; dort bräuchte C einen etwas kleineren Titel. Entscheid offen (offener Punkt 25) |
 | 206 | Feinschliff | eigene Prüfung | Am Ende einer Fahrt blieb wegen halber Pixel ein Rest stehen, das nächste Thema schaute unten minimal hervor (dünne Textzeile am Rand); jetzt gerundet. Die Plum-Form sitzt mittig auf dem Titel. Grafik-Skript 1.9.0 |
 
+## 27. Feedback-Runde 23 (27.10.2026): Variante diagonal, Bilder Meine Entwicklung, Fragen Farbfolge und Titel
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 207 | «Kannst du mir als Variante noch diagonal anbieten?» | live umschaltbar | Entwurf C ist jetzt in Webflow gebaut (Zusatzklassen `is-diagonal` an `themen_titel`, `themen_unten`, `themen_text`, `themen_aktion`) und mit `/home-v3?anordnung=diagonal` einschaltbar, zusammen mit dem diagonalen Vorhang `/home-v3?anordnung=diagonal&uebergang=diagonal`. Standard bleibt A. Auf 992–1279 px steht der Titel tiefer und etwas kleiner, damit die Erklärung oben rechts frei bleibt. Ohne Überlappung von 992×620 bis 2560×1440. Grafik-Skript 1.10.0 |
+| 208 | Meine Entwicklung: Bilder grösser, auch auf 13 und 14 Zoll | umgesetzt (v2 und v3, gemeinsame Karten-Varianten) | Bildhöhe in den drei Varianten neu `clamp(9rem, 42svh - 7.5rem, 22rem)` statt `clamp(7rem, 30svh - 5rem, 17rem)`: 13 Zoll (1280×800) 216 statt 160 px, 13-Zoll-Air (1470×956) 282 statt 207 px, 14 Zoll (1512×982) 292 statt 215 px, 1920×1080 334 statt 244 px. Die Karten passen samt Link weiterhin in einen Bildschirm |
+| 209 | Frage: Passt die Farbfolge von oben nach unten? | Empfehlung, nur Entwurf | Heute wechselt der Grund in den ersten drei Bildschirmen fünfmal (dunkel, weiss, hellblau, grau, weiss, grau). Vorschlag mit drei Änderungen: «Was uns antreibt» auf Weiss (Logos und Antrieb bilden ein ruhiges weisses Kapitel), «Unsere Erfolge» auf Hellblau, Einleitung «Lösungen für Unternehmen» auf Grau wie die Bühne. Logos auf Hellblau wären auch möglich, brauchen aber Logo-Dateien mit transparentem Hintergrund (Raiffeisen, Visa zeigen heute einen weissen Kasten). Entscheid offen (offener Punkt 27) |
+| 210 | Frage: Titel «Lösungen für Unternehmen» frei stehend lassen oder mitnehmen? | Empfehlung, nur Entwurf | Empfehlung: Einleitung bleibt als Kapitelanfang (auf Grau, siehe 209) und der Titel steht zusätzlich als Kicker über der Themenliste oben links, so bleibt er während aller fünf Themen sichtbar. Oben rechts ist möglich, steht aber von der Liste getrennt und kollidiert mit Variante C (dort steht oben rechts die Erklärung). Entscheid offen (offener Punkt 28) |
+
 ---
 
 ## Offene Punkte
@@ -379,5 +388,7 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 22. Tablet und Handy: Blöcke untereinander wie die Referenz (Runde 20, rund 3,5 Bildschirme auf dem Handy). Die Plum-Form zerfällt dort, während der Block in den Blick rückt (Runde 21); auf Wunsch verwandelt sie sich wie auf dem Desktop.
 23. Riesige Titel der Themen (Entscheid 188) bestätigen. [ROWAPA bestätigen]
 24. Vorhang: beide gut (Runde 21). Für die definitive Fassung einen wählen? Heute «von unten», diagonal als Schalter.
-25. Themenlinien-Texte: Variante A (zwei Spalten unter dem Titel, gebaut, seit Runde 22 eingezogen), B (links und rechts neben dem Titel, Bildentwurf Runde 21) oder C (diagonal: unten links und oben rechts, Bild- und Videoentwurf Runde 22)?
+25. Themenlinien-Texte: Variante A (zwei Spalten unter dem Titel, gebaut, seit Runde 22 eingezogen), B (links und rechts neben dem Titel, Bildentwurf Runde 21) oder C (diagonal: unten links und oben rechts, seit Runde 23 live mit `?anordnung=diagonal`)?
 26. Erweiterte Erklärtexte der fünf Themen (Texttabelle Rev. 12). [ROWAPA bestätigen]
+27. Farbfolge: Vorschlag umsetzen (Antrieb weiss, Erfolge hellblau, Lösungen-Einleitung grau)? Gilt auch für v2? (Runde 23)
+28. Titel «Lösungen für Unternehmen»: zusätzlich als Kicker über der Themenliste (Empfehlung) oder oben rechts? (Runde 23)

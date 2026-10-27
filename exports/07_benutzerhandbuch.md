@@ -216,7 +216,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ### 2.31 Meine Entwicklung (drei Zeilen)
 - Drei Card-Teaser-Karten in den Tönen Sea Cliff Tint, Snowbank und Plum Tint. Variante je Karte rechts unter Properties wählen.
-- **Darstellung (seit Runde 18):** ab 992 px drei Karten nebeneinander, Bild oben (Höhe an die Fensterhöhe gekoppelt); Tablet: Bild links, Text rechts, untereinander; Handy: Wischkarten. Eingestellt in den drei Varianten (Klassen `card`, `card_image-wrapper`, `card_content`) und in `layout-grid is-zeilen`.
+- **Darstellung (seit Runde 18):** ab 992 px drei Karten nebeneinander, Bild oben (Höhe an die Fensterhöhe gekoppelt, seit Runde 23 grösser: `card_image-wrapper` in den drei Varianten, Height `clamp(9rem, 42svh - 7.5rem, 22rem)`, 13 Zoll rund 216 px, 14 Zoll rund 292 px); Tablet: Bild links, Text rechts, untereinander; Handy: Wischkarten. Eingestellt in den drei Varianten (Klassen `card`, `card_image-wrapper`, `card_content`) und in `layout-grid is-zeilen`.
 - Bildausschnitt: Foto und Video sitzen auf 19 % von oben, damit die Augen sichtbar bleiben; Female Empowerment auf 45 % (Gesicht höher, oben angeschnitten). Ändern: Karte auswählen › Variante › `card_image` › Object position. Neues Bild: Gesicht im oberen Drittel wählen.
 
 ### 2.32 Darstellung je Format (seit Runde 18)
@@ -248,6 +248,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Plum-Form wählen:** Panel auswählen › Settings › Custom attributes › `data-form` = `band` (ein Band), `doppel` (zwei Bänder), `winkel`, `trichter` oder `raster` (vier Quadrate). Die Form zeichnet das Skript und zeigt sie nur im Wechsel (auf Tablet und Handy, solange der Block hereinkommt); ohne Skript und bei «Bewegung reduzieren» ist sie nicht da.
 - **Figur in Ruhe:** `section_themen` › Custom attributes › `data-figur-ruhe` = Deckkraft der Figur, sobald ein Thema ganz offen ist (0.1 bis 1, Standard 0.4; 1 = immer kräftig).
 - **Lage von Titel und Texten:** Titel `themen_titel` (oben 43 %, Desktop); Texte `themen_unten` (Abstand links/rechts und unten). Nach einer Änderung bei 1366×657 und 992×620 prüfen, dass der Titel die Texte nicht berührt.
+- **Anordnung der Texte (seit Runde 23):** Standard A (Kernbotschaft links, Satz und Link rechts, beide unten). Variante diagonal (Kernbotschaft unten links, Satz und Link oben rechts): `section_themen` › Custom attributes › `data-anordnung` = `diagonal`; vergleichen ohne Änderung mit `?anordnung=diagonal` in der Adresse. Die Stile stehen in den Zusatzklassen `is-diagonal` (an `themen_titel`, `themen_unten`, `themen_text`, `themen_aktion`); das Skript setzt sie. Wird diagonal definitiv, setzen wir die Klassen fest in Webflow.
 - **Übergang:** `section_themen` › Custom attributes › `data-uebergang` = `unten` (Standard, wie die Referenz) oder `diagonal` (45°). Vergleichen ohne Änderung: Adresse mit `?uebergang=diagonal` bzw. `?uebergang=unten`.
 - **Scrollweg je Thema:** Attribut `data-schritt` an `section_themen` (Anteil der Fensterhöhe, Standard 1).
 - **Thema hinzufügen oder entfernen:** Panel duplizieren bzw. löschen, dem neuen Panel eine eigene ID geben (Settings › ID, z. B. `thema-neu`), in der Liste einen `themen_link` duplizieren und seinen Link auf «Section» › dieses Panel stellen. Das Skript zählt die Themen selbst.
