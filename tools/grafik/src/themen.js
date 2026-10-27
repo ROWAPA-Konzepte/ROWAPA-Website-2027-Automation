@@ -161,6 +161,15 @@ function einrastArt(sec) {
   return art === 'rad' ? 'rad' : 'wisch';
 }
 
+/* Plum-Form im Wechsel: «an» (Standard) oder «aus»; zum Vergleichen ?plumform=aus in der Adresse oder data-plumform="aus"
+   an der Section (Figuren, Vorhang, Titel und Einrasten bleiben gleich) */
+function plumform(sec) {
+  let art = '';
+  try { art = new URLSearchParams(location.search).get('plumform') || ''; } catch (e) { /* alte Browser */ }
+  art = (art || sec.getAttribute('data-plumform') || '').trim().toLowerCase();
+  return art === 'aus' ? 'aus' : 'an';
+}
+
 export function themen(sec) {
   const huelle = sec.querySelector('.themen_huelle');
   const buehne = sec.querySelector('.themen_buehne');
@@ -172,6 +181,8 @@ export function themen(sec) {
   if (!huelle || !buehne || !box || !n) return;
   const nav = document.querySelector('.navbar_component');
   const hoch = document.querySelector('.nach-oben');
+  const mitForm = plumform(sec) === 'an';
+  if (window.ROWAPAGrafik) window.ROWAPAGrafik.plumform = mitForm ? 'an' : 'aus';
 
   if (anordnung(sec) === 'diagonal') {
     panels.forEach(p => ['.themen_titel', '.themen_unten', '.themen_text', '.themen_aktion'].forEach(k => {
@@ -196,6 +207,7 @@ export function themen(sec) {
     svg.setAttribute('aria-hidden', 'true');
     svg.setAttribute('viewBox', '-1 -1 2 2');
     svg.style.cssText = 'position:absolute;z-index:2;pointer-events:none;overflow:visible;left:50%;top:50%;transform:translate(-50%,-50%)';
+    if (!mitForm) svg.style.display = 'none';
     const form = document.createElementNS(svgNS, 'path');
     form.setAttribute('fill', `var(--_farben---plum-perfect, ${PLUM})`);
     svg.appendChild(form);
@@ -206,6 +218,7 @@ export function themen(sec) {
       titel: p.querySelector('.themen_titel'), figur: p.querySelector('.themen_figur'), unten: p.querySelector('.themen_unten') };
   });
   const male = (t, F, weg) => {
+    if (!mitForm) return;
     const d = pfad(F, weg);
     if (d !== t.d) { t.d = d; t.pfad.setAttribute('d', d); }
   };

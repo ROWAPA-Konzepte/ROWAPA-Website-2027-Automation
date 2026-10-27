@@ -21,7 +21,7 @@ export function diagnose(info) {
     `Touchpunkte: ${navigator.maxTouchPoints || 0} · letzte Eingabe: ${eingabe}`,
     `Bewegung reduzieren: ${jn('(prefers-reduced-motion: reduce)')}`,
     `Zeiger: ${html.contains('hat-zeiger') ? 'an' : 'aus'} · Hover-Videos: ${info.videos === undefined ? '–' : info.videos}`,
-    `Themen-Szene: ${html.contains('lenis') ? 'Bühne' : 'aus'} · Einrasten: ${info.einrasten || '–'}`,
+    `Themen-Szene: ${html.contains('lenis') ? 'Bühne' : 'aus'} · Einrasten: ${info.einrasten || '–'} · Plum-Form: ${info.plumform || '–'}`,
     `Fenster: ${innerWidth} × ${innerHeight} · ${browser}`
   ].join('\n');
   const einhaengen = () => {
