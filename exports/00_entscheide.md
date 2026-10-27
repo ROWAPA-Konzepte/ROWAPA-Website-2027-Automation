@@ -497,6 +497,18 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 
 ---
 
+## 42. Feedback-Runde 38 (27.10.2026): Vorgehen Handy, Tabelle «Desktop → Handy», Aufräumen, Veröffentlichen
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 268 | Vorgehen Handy und kleine Formate (Entscheid 267) | «das gilt» | Jede Seite bekommt beim Bau gleich ihre Handy-Fassung. Je Section gibt es vier Möglichkeiten: gleich, vereinfacht, andere Darstellung, weglassen (nur ausgeblendet). Am Schluss folgt ein gemeinsamer Durchgang auf echten Geräten. Benutzerhandbuch 2.39 |
+| 269 | Tabelle «Desktop → Handy» für die Startseite | «ja gerne» | `08_startseite_desktop_handy.md`: 15 Sections mit Messung (Handy heute 14 251 px = 16,9 Bildschirme), Vorschlag, Schätzung und Spalte «Entscheid». Dazu Regeln für alle Seiten (Tippflächen 44 px, Eingabefeld 48 px, kleinste Schrift 15 px) und drei Ideen. Empfehlungen ergeben rund 15 Bildschirme, mit Option C bei den Themen rund 12,6. Nichts gebaut, Entscheid ROWAPA offen (offener Punkt 41). Bilder `stufe2-screens/runde38/` |
+| 270 | Vier Vergleichsseiten | von ROWAPA in Webflow gelöscht | Danach acht Klassen entfernt, die nur dort hingen (Liste RUNDE38 in `00_webflow-ids.md`). Offener Punkt 40 erledigt |
+| 271 | «nochmal veröffentlichen, da ich textlich etwas kleines geändert habe» | veröffentlicht | Textvergleich vor und nach dem Veröffentlichen: Geändert sind nur die drei Kennzahlen in «Was uns antreibt» auf v3. Sie lauten jetzt wie auf v2: 100 % Branchenerfahrung, 98 % zufriedene Kunden, 100 % erneute Beauftragung. Die Zähler laufen richtig. Festgehalten in der Texttabelle Rev. 22 mit freiwilligen Vorschlägen zur Verständlichkeit |
+| 272 | Team-Buttons auf dem Handy | Fehler, beim Messen gefunden und behoben | «Team kennenlernen» war bei 390 px rechts abgeschnitten. Jetzt darf `button-group is-fest` bis 767 px schmaler werden, die zwei Buttons stehen untereinander. Geprüft bei 360, 390, 430 und 768 px, veröffentlicht. Seit der Veröffentlichung davor keine weiteren Textunterschiede |
+
+---
+
 ## Offene Punkte
 
 1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
@@ -507,15 +519,15 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 6. Stehendes Logo als SVG (falls vorhanden).
 7. Weitere Kennzahlen, die gezeigt werden dürfen.
 8. Hilfs-Collection «Organisationen» in Stufe 3 nach der Begriffsregel benennen. Vorschlag: «Unternehmen & Partner».
-9. Option Mobile: Wische-Reihen auch für Wege und Werkzeuge (Insights ist umgesetzt).
+9. ~~Option Mobile: Wische-Reihen auch für Wege und Werkzeuge~~: heute Wischreihen (siehe Handy-Tabelle, Entscheid 269).
 10. Themen-URLs in Stufe 4 an die neuen Titel anpassen (mit Weiterleitung); ebenso `/fuer-organisationen`.
 11. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
 12. Megamenü-Bezeichnungen «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention» weichen von den Titeln auf der Startseite ab («Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung»). Bearbeiten wir später (Entscheid Runde 18).
 13. Eigene Bilder für Managing Partner, Education Partner und Trainer Academy, falls vorhanden (die Menütexte sind bestätigt).
 14. `/home-v3` mit der Themenlinien-Szene wie die Referenz (Runde 20). Wird v3 die definitive Startseite? Tendenz v3, Entscheid folgt (Runde 27).
-15. Handy: «Im Blickpunkt» und «Neueste Insights» sind länger als ein Bildschirm (Entscheid 170). Kürzen oder so lassen?
+15. Handy: «Im Blickpunkt» und «Neueste Insights» sind länger als ein Bildschirm (Entscheid 170). Vorschlag zum Kürzen jetzt in der Handy-Tabelle (Sections 11 und 12, offener Punkt 41).
 16. Designer-Ansicht: «Unsere Erfolge» mit 8 Folien geprüft und in Ordnung. «Unser Vorgehen» noch prüfen (die Designer-Vorschau brach mehrmals ab).
-17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante. Dazu seit Runde 24: Zusatzklassen `is-diagonal` und der Schalter `?anordnung=diagonal` im Skript; seit Runde 27 auch der Schalter `?uebergang=diagonal` (Vorhang von unten entschieden); seit Runde 28 die zwei Logo-Band-Interaktionen (zusammenführen) und die Hero-Variante (Grundvariante mit wechselnder Unterstreichung entfällt, wenn v3 gilt); seit Runde 33 der Schalter `?einrasten=rad` und, je nach Entscheid 37, die Seite `/home-v3-farben` mit ihren Zusatzklassen und Varianten; seit Runde 35 dazu `main-wrapper is-farbkonzept` und der Modus «Manganese» der Sammlung «Textlinks» (seit Runde 36 überflüssig, der Grundwert ist Manganese); seit Runde 36 die Footer-Variante «Manganese» und `footer_component theme-tiefsee` (ersetzt durch `theme-kontrast`), `section_cas.theme-hell`, `section_cas.theme-tiefsee`, die Interaktion «CAS Farbfläche einblenden» und nach dem Entscheid 36 die drei Seiten `/home-v3-antrieb-a/-b/-c` mit den nicht gewählten Klassen. Seit Runde 37: der Programmteil der Plum-Form samt `?plumform` (Skript), die Sammlung «Textlinks» mit dem Modus «Manganese» (Grundwert bleibt), nach dem Löschen der vier Seiten die Klassen `antrieb_kopf`, `antrieb_aufdecken`, `antrieb_leitsatz`, `statement_layout.is-einspaltig`, `main-wrapper.is-farbkonzept`, `kicker.is-spalte`, `section_cas.theme-hell`.
+17. Aufräumen (Entwurfsseiten, ausgeblendete Blöcke, ungenutzte Klassen) erst nach dem Entscheid für die definitive Variante. Dazu seit Runde 24: Zusatzklassen `is-diagonal` und der Schalter `?anordnung=diagonal` im Skript; seit Runde 27 auch der Schalter `?uebergang=diagonal` (Vorhang von unten entschieden); seit Runde 28 die zwei Logo-Band-Interaktionen (zusammenführen) und die Hero-Variante (Grundvariante mit wechselnder Unterstreichung entfällt, wenn v3 gilt); seit Runde 33 der Schalter `?einrasten=rad` und, je nach Entscheid 37, die Seite `/home-v3-farben` mit ihren Zusatzklassen und Varianten; seit Runde 35 dazu `main-wrapper is-farbkonzept` und der Modus «Manganese» der Sammlung «Textlinks» (seit Runde 36 überflüssig, der Grundwert ist Manganese); seit Runde 36 die Footer-Variante «Manganese» und `footer_component theme-tiefsee` (ersetzt durch `theme-kontrast`), `section_cas.theme-hell`, `section_cas.theme-tiefsee`, die Interaktion «CAS Farbfläche einblenden» und nach dem Entscheid 36 die drei Seiten `/home-v3-antrieb-a/-b/-c` mit den nicht gewählten Klassen. Seit Runde 37: der Programmteil der Plum-Form samt `?plumform` (Skript), die Sammlung «Textlinks» mit dem Modus «Manganese» (Grundwert bleibt), nach dem Löschen der vier Seiten die Klassen `antrieb_kopf`, `antrieb_aufdecken`, `antrieb_leitsatz`, `statement_layout.is-einspaltig`, `main-wrapper.is-farbkonzept`, `kicker.is-spalte`, `section_cas.theme-hell`. **Stand Runde 38:** Die vier Seiten sind gelöscht. Entfernt sind `antrieb_kopf`, `antrieb_aufdecken`, `antrieb_leitsatz`, `statement_layout.is-einspaltig`, `main-wrapper.is-farbkonzept`, `kicker.is-spalte`, `section_cas.theme-hell` und `footer_component.theme-tiefsee`. Offen bleiben die Schalter und Programmteile im Skript, die Sammlung «Textlinks» mit dem Modus «Manganese», `section_cas.theme-tiefsee` und die Interaktion «CAS Farbfläche einblenden» (nur noch v2).
 18. Kurznamen der stehenden Leiste (Tablet, Handy): «Vertrieb · Potenzial · Führung · Recruiting · Digital». [ROWAPA bestätigen]
 19. Texte «Warum ROWAPA» (vier Punkte, Texttabelle Rev. 9). [ROWAPA bestätigen]
 20. ~~Themenlinien-Texte (Rev. 9)~~: vorläufig übernommen (Entscheid 223).
@@ -537,5 +549,7 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 36. ~~«Was uns antreibt»~~: Variante A gewählt und auf v3 umgesetzt (Entscheid 263).
 37. ~~Farbkonzept~~: als Standard übernommen (Entscheid 258); `/home-v3-farben` ist überholt.
 38. ~~Plum-Form~~: weggelassen (Entscheid 262).
-39. Handy und kleine Formate: Vorgehen festlegen (Empfehlung: je Seite mitbauen, am Schluss Gerätedurchgang; Entscheid 267). Für die Startseite eine Tabelle «Desktop → Handy» je Section als nächster Schritt?
-40. Vier Seiten «ZU LÖSCHEN · …» in Webflow endgültig löschen (Pages › Zahnrad › Delete) und danach Style Manager › Clean up (Entscheid 264).
+39. ~~Handy und kleine Formate: Vorgehen festlegen~~: entschieden (Entscheid 268), Tabelle für die Startseite erstellt (Entscheid 269).
+40. ~~Vier Seiten «ZU LÖSCHEN · …» löschen~~: von ROWAPA gelöscht, Klassen entfernt (Entscheid 270).
+41. **Handy-Tabelle der Startseite** (`08_startseite_desktop_handy.md`): Entscheid je Section, besonders «Lösungen für Unternehmen» (A, B oder C) und Footer (A oder B, gilt für alle Seiten). Dazu die Ideen 1 bis 3, z. B. Button «Erstgespräch» in der Navigationsleiste auf dem Handy.
+42. Kennzahlen in «Was uns antreibt» und Zahlenkachel im Team (Texttabelle Rev. 22, Fragen 20 und 21). [ROWAPA bestätigen]

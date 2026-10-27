@@ -421,6 +421,17 @@ Entwürfe C und D lassen alle Texte unverändert.
 
 Die Vorschläge von Rev. 20 für B und C (Einleitung als Titel, Leitsatz) sind damit hinfällig.
 
+## Rev. 22 · Kennzahlen von ROWAPA geändert (27.10.2026, Runde 38)
+
+ROWAPA hat die drei Kennzahlen in «Was uns antreibt» auf v3 selbst im Designer geändert (aus dem Textvergleich vor und nach dem Veröffentlichen). Sie stehen jetzt gleich wie auf v2. Die Zahlen zählen weiterhin richtig hoch (auch «98 %»). Die Angaben stammen von ROWAPA; die Vorschläge unten betreffen nur die Verständlichkeit und sind freiwillig.
+
+| Section | Element | Original (Rev. 21) | Neu (ROWAPA, live) | Anmerkung / Vorschlag | Offene Fragen |
+|---|---|---|---|---|---|
+| Was uns antreibt | Kennzahl 1 | «20 · Jahre ausschliesslich in der Finanzbranche» | «100 % · Branchenerfahrung in unserem Team» | Die 20 Jahre bleiben in der Einleitung und beim Grund «Nur Finanzbranche». **K** Worauf sich die 100 % beziehen, ist nicht sofort klar. Vorschlag: «100 % · unseres Teams mit eigener Erfahrung in der Finanzbranche» | Gemeint: alle im Team kommen aus der Finanzbranche? [ROWAPA bestätigen] |
+| Was uns antreibt | Kennzahl 2 | «100 % · Praxisbezug ab dem ersten Tag» | «98 % · zufriedene Kunden aus der Befragung 2025» | **S** belegt durch die Befragung, Quelle steht dabei. Unverändert lassen | Für die Referenzseite: Wie viele Kunden haben geantwortet? [ROWAPA bestätigen] |
+| Was uns antreibt | Kennzahl 3 | «150 · Jahre Wissen und Erfahrung im Trainerteam» | «100 % · unserer Kunden beauftragen uns erneut» | **S** stark. Zwei von drei Zahlen heissen jetzt «100 %». Das liest sich gleichförmig, ist aber kein Fehler. Optional: einen Zeitraum nennen, z. B. «seit 2020» | Bezugszeitraum? [ROWAPA bestätigen] |
+| Die Menschen hinter ROWAPA | Zahlenkachel im Team | «100% · Trainer:innen mit eigener Praxis- und Führungserfahrung in der Finanzbranche» | unverändert (v2 und v3) | **K** Schreibweise wie sonst auf der Seite: «100 %» mit Abstand und «Trainerinnen und Trainer» (wie beim Grund «Aus der Praxis»). Die Kachel sagt fast dasselbe wie Kennzahl 1. Eine der beiden könnte etwas anderes zeigen | Schreibweise angleichen? [ROWAPA bestätigen] |
+
 
 ---
 
@@ -445,3 +456,5 @@ Die Vorschläge von Rev. 20 für B und C (Einleitung als Titel, Leitsatz) sind d
 17. ~~Persönliches Wort in «Was uns antreibt» (Rev. 18)~~: nicht nötig (Runde 32).
 18. ~~«Was uns antreibt»: Entwurf B, C oder D (Rev. 19)~~: abgelöst durch die gebauten Varianten A, B, C (Rev. 20).
 19. ~~«Was uns antreibt»: Variante A, B oder C (Rev. 20)~~: A gewählt (Rev. 21).
+20. Kennzahlen (Rev. 22): Bezug der «100 % Branchenerfahrung», Zahl der Antworten der Befragung 2025, Zeitraum für «beauftragen uns erneut».
+21. Zahlenkachel im Team (Rev. 22): «100 %» und «Trainerinnen und Trainer» angleichen? Kachel und Kennzahl 1 sagen fast dasselbe.

@@ -303,6 +303,14 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Kacheln:** Kennzahl = `stat_item is-kachel` (Zahl `stat_number`, zählt hoch, Bezeichnung `stat_label`); Grund = `warum_item is-kachel` (siehe 2.34). Höhe: `min-height` an `is-kachel` (Desktop `clamp(11rem, 26svh, 15rem)`, Tablet 11rem). Versatz der rechten Spalte: `antrieb_spalte is-versetzt` › Padding oben `clamp(4rem, 10svh, 6rem)`. Kürzere Kacheln oder weniger Versatz = kürzerer Scrollweg.
 - **Kachel hinzufügen:** eine bestehende in derselben Spalte duplizieren und Text ändern. Die rechte Spalte sollte nicht viel länger als die linke werden, sonst wird der Scrollweg lang.
 
+### 2.39 Handy-Fassung je Section (seit Runde 38)
+- **Grundsatz (Entscheid 268):** Das Handy bekommt eine eigene Fassung, die Desktop-Fassung bleibt unverändert. Je Section gibt es vier Möglichkeiten: gleich, vereinfacht, andere Darstellung oder weglassen (nur ausgeblendet). Die Übersicht für die Startseite steht in `exports/08_startseite_desktop_handy.md`.
+- **Etwas nur auf dem Handy ausblenden:** Im Designer oben den Breakpoint Handy (bis 479 px) wählen, das Element anklicken und im Style-Panel unter Layout «Display: None» setzen. Das nur tun, wenn das Element eine eigene Klasse oder Zusatzklasse hat, sonst verschwinden alle Elemente mit derselben Klasse. Im Zweifel eine Zusatzklasse anlegen, z. B. `is-handy-aus`. Für ganze Blöcke gibt es die Hilfsklassen `hide-mobile-portrait` (bis 479 px), `hide-mobile-landscape` (bis 767 px) und `hide-tablet` (bis 991 px), am besten als einzige Klasse auf einem eigenen Div-Block.
+- **Nichts löschen:** Ausgeblendetes bleibt im Navigator (mit durchgestrichenem Auge) und im CMS, auf dem Desktop sichtbar und für Suchmaschinen lesbar.
+- **Wirkung nach unten:** Eine Änderung im Breakpoint Tablet gilt auch auf beiden Handy-Breakpoints, eine Änderung im Breakpoint Handy nur dort.
+- **Tippflächen:** Buttons, Pfeile, Telefon und E-Mail mind. 44 px hoch, Eingabefelder 48 px. Mehr Innenabstand ist besser als grössere Schrift.
+- **Prüfen:** mit dem Werkzeug `tools/format-vorschau/` und am Schluss auf echten Geräten.
+
 ---
 
 ## 3. Regeln für Inhalte (Kurzfassung)
