@@ -312,6 +312,18 @@ Umgesetzt auf `/home-v3`. Kein Wortlaut geändert; nur Anordnung, Grösse und Fa
 | Lösungen | Link (z. B. «Vertriebsperformance verbessern») | rechts unten, 15 px | rechte Spalte unter dem Satz, 16–19 px fett | nächster Schritt direkt nach der Erklärung | – |
 | Lösungen | Variante B (nur Bildentwurf) | – | Kernbotschaft links und Satz rechts neben dem Titel | Vergleich zur Frage «links und rechts davon» | A oder B? (offene Frage 13) |
 
+## Rev. 12 · Erklärtexte erweitert (27.10.2026, Runde 22)
+
+Umgesetzt auf `/home-v3`, rechte Spalte (`themen_beschreibung`). Der erste Satz bleibt, ein zweiter erklärt, was zum Thema gehört. Quellen: Hebel und Angebote aus der Seitenstruktur (`01_cms_architektur.md`, Sitemap), Kurztexte der Baseline, bestätigte Texte der digitalen Lösungen auf der Startseite.
+
+| Section | Element | Original (Rev. 11) | Vorschlag (umgesetzt) | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Lösungen | Satz Vertrieb | «Wir begleiten Ihren Vertrieb von der Diagnostik über das Training bis ins Kundengespräch.» | + «Dabei setzen wir an vier Hebeln an: Verkaufstrainings, eine überzeugende Sales-Story, klare Verkaufsprozesse sowie digitales und hybrides Verkaufen.» | die vier Hebel der Themenseite; Baseline: «entlang von vier Hebeln» | [ROWAPA bestätigen] |
+| Lösungen | Satz Potenzial | «Mit Diagnostik, Coaching und Resilienz-Training machen wir Potenziale sichtbar und entwickeln sie gezielt weiter.» | + «Potenzialanalysen und Assessments zeigen, wo Ihre Mitarbeitenden stehen und wohin sie wachsen können.» | Hebel «Diagnostik & Potenzialanalyse» (Assessment Center gehört dazu) | [ROWAPA bestätigen] |
+| Lösungen | Satz Führung | «Vom Führungsprofil bis zur Teamentwicklung: Wir machen Führung wirksam.» | + «Mit Leadership-Trainings, Mentoring sowie Executive Coaching und Sparring stärken wir Ihre Führungskräfte im Alltag.» | Angebote Leadership-Trainings, Leadership-Mentoring, Hebel «Executive Coaching & Sparring» | Gehört Executive Coaching zu Führung oder zu Potenzial? [ROWAPA bestätigen] |
+| Lösungen | Satz Recruiting | «Vom Assessment bis zur attraktiven Arbeitgebermarke: Wir helfen, Talente zu gewinnen, gut zu integrieren und langfristig zu binden.» | + «Dazu gehören eine gute Candidate Experience, ein durchdachtes Onboarding und gezielte Massnahmen zur Mitarbeiterbindung.» | Hebel «Recruiting & Candidate Experience», «Onboarding & Integration», «Mitarbeiterbindung» | [ROWAPA bestätigen] |
+| Lösungen | Satz Digital | «E-Learning, hybride Lernformate und KI-gestützte Lösungen verlängern Training und Beratung in den Alltag.» | + «Fünf digitale Lösungen, entwickelt mit ETH juniors (ETH Zürich): Anker, Kompass, Lotse, Segel und Logbuch, jede einzeln buchbar.» | wörtlich aus der Section «ROWAPA Digital» der Startseite | – |
+
 ---
 
 ## Offene Fragen an ROWAPA
@@ -329,3 +341,4 @@ Umgesetzt auf `/home-v3`. Kein Wortlaut geändert; nur Anordnung, Grösse und Fa
 11. Texte «Warum ROWAPA», insbesondere die Aufzählung «Banken, Versicherungen und Krankenkassen» (Rev. 9)?
 12. Riesige Titel der fünf Themen, besonders «Performance & Potenzial» und «Recruiting & Bindung» (Rev. 10)?
 13. Erklärtexte der Themenlinien: Variante A (zwei Spalten unter dem Titel, gebaut) oder B (links und rechts neben dem Titel, Bildentwurf) (Rev. 11)?
+14. Erweiterte Erklärtexte der fünf Themen, besonders die Zuordnung von Executive Coaching (Rev. 12)?

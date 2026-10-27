@@ -339,6 +339,18 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 | 198 | Insights: Titel läuft in Webinare und ROWAPA TV | «diese zwei Bezeichnungen wieder unter die Kasten legen» | Die zwei Links stehen wieder unter den Karten (rechte Spalte); der stehende Titel hat die linke Spalte für sich. Gilt auf v2 und v3 (gemeinsame Klasse) |
 | 199 | Prüfung | Formate, Handy, Bewegung reduzieren, Video | Ruhe ohne Überlappung von 992×620 bis 2560×1440; Ablauf in Einzelbildern; Tablet und Handy; «Bewegung reduzieren» ohne Form; Einrasten (Mausrad, Rückweg, Trackpad, Tastatur, Klick); v2 ohne Fehler. Grafik-Skript 1.8.1 |
 
+## 26. Feedback-Runde 22 (27.10.2026): Animation flüssig, Figur im Hintergrund, Texte eingezogen und länger
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 200 | «Es stoppt dazwischen … wie ein kleiner Sprung, wo es wieder zurückläuft beim Runterscrollen» | Einrasten in Scrollrichtung wie die Referenz | Nachgestellt: Mit Pausen von 250–400 ms zwischen den Mausrad-Rasten zog das Einrasten jedes Mal zurück; nach einer ganzen Bildschirmhöhe stand die Szene wieder am Anfang. Jetzt: Wer vom stehenden Thema aus mehr als 4 % weiterscrollt, kommt zum nächsten Thema, zurück zum vorherigen; nur kleinere Bewegungen laufen zurück. Die Fahrt (1,3 s) beginnt mit dem Tempo des Scrollens und ist gegen weitere Rad-Schritte gesperrt, damit jeder Wechsel ganz abläuft. Von oben und von unten hereingescrollt gilt dasselbe. Gemessen: kein Rücklauf mehr bei Pausen von 120 bis 700 ms, Bildrate bei vierfach gedrosselter CPU 60 Bilder/s im Median |
+| 201 | Grafik zu kräftig, Titel und Text verschwinden | «ein bisschen in den Hintergrund, wenn das Fenster ganz aufgescrollt ist» | Die Punktfigur ist im Wechsel kräftig und blendet auf 40 % zurück, sobald das Thema ganz offen ist (einstellbar mit `data-figur-ruhe` an der Section). Beim Hereinscrollen in die Bühne ebenso |
+| 202 | Texte in den Ecken | «von den Ecken ein bisschen einziehen, diagonal mehr ins Bild» | Abstand zum Rand links/rechts rund 5 % der Breite (1440 px: 80 statt 48 px), unten 9 % der Höhe (900 px: 81 statt 45 px). Der Titel steht leicht über der Mitte (43 % der Höhe), damit die längeren Texte darunter Platz haben |
+| 203 | Text rechts erweitern | «damit man sich ein besseres Bild machen kann, was wir unter den einzelnen Themen verstehen» | Je Thema ein zweiter Satz aus ROWAPAs eigener Struktur: Vertrieb mit den vier Hebeln, Potenzial mit Potenzialanalysen und Assessments, Führung mit Leadership-Trainings, Mentoring, Executive Coaching und Sparring, Recruiting mit Candidate Experience, Onboarding und Mitarbeiterbindung, Digital mit den fünf Lösungen (Texttabelle Rev. 12) [ROWAPA bestätigen] |
+| 204 | «Wie machst du das auf Mobile, wo funktioniert das überhaupt?» | Erklärung und Geräteübersicht | Bühne ab 992 px Breite: Laptops, Desktops und Tablets quer (1024 und 1366 px, Wischen führt zum nächsten bzw. vorherigen Thema). Darunter (Tablet hoch, Handy): Blöcke untereinander mit stehender Leiste, die Form zerfällt beim Hereinkommen, die Figur bleibt kräftig (sie steht dort nicht hinter dem Titel) |
+| 205 | «mach bitte auch noch den diagonalen Entwurf» | Entwurf C (Bild und Video, nicht in Webflow) | Vorhang diagonal 45°, Kernbotschaft unten links, Erklärung und Link oben rechts, Titel dazwischen. Auf kurzen Laptops (1366×657) wird es zwischen Titel und Erklärung eng; dort bräuchte C einen etwas kleineren Titel. Entscheid offen (offener Punkt 25) |
+| 206 | Feinschliff | eigene Prüfung | Am Ende einer Fahrt blieb wegen halber Pixel ein Rest stehen, das nächste Thema schaute unten minimal hervor (dünne Textzeile am Rand); jetzt gerundet. Die Plum-Form sitzt mittig auf dem Titel. Grafik-Skript 1.9.0 |
+
 ---
 
 ## Offene Punkte
@@ -367,4 +379,5 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 22. Tablet und Handy: Blöcke untereinander wie die Referenz (Runde 20, rund 3,5 Bildschirme auf dem Handy). Die Plum-Form zerfällt dort, während der Block in den Blick rückt (Runde 21); auf Wunsch verwandelt sie sich wie auf dem Desktop.
 23. Riesige Titel der Themen (Entscheid 188) bestätigen. [ROWAPA bestätigen]
 24. Vorhang: beide gut (Runde 21). Für die definitive Fassung einen wählen? Heute «von unten», diagonal als Schalter.
-25. Themenlinien-Texte: Variante A (zwei Spalten unter dem Titel, gebaut) oder B (links und rechts neben dem Titel, Bildentwurf)?
+25. Themenlinien-Texte: Variante A (zwei Spalten unter dem Titel, gebaut, seit Runde 22 eingezogen), B (links und rechts neben dem Titel, Bildentwurf Runde 21) oder C (diagonal: unten links und oben rechts, Bild- und Videoentwurf Runde 22)?
+26. Erweiterte Erklärtexte der fünf Themen (Texttabelle Rev. 12). [ROWAPA bestätigen]
