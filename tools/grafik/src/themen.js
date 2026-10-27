@@ -7,7 +7,8 @@
      im ersten Viertel aus, der neue im letzten Viertel ein. Die Plum-Form zeigt sich nur während des Wechsels: Sie setzt
      sich aus kleinen Quadraten zusammen, schrumpft zu vier kleinen Quadraten, wächst zur nächsten Form (data-form am Panel)
      und zerfällt wieder, sobald der neue Titel steht. In Ruhe ist nur die Schrift zu sehen.
-   - Weiches Scrollen (Lenis) und Einrasten: Wer vor der Hälfte loslässt, läuft zurück, sonst weiter zum nächsten Thema.
+   - Weiches Scrollen (Lenis) und Einrasten 150 ms nach dem letzten Mausrad-Schritt: Wer vor der Hälfte loslässt, läuft
+     zurück, sonst weiter zum nächsten Thema.
      Klick auf ein Thema der Liste scrollt in einer Sekunde dorthin. Die Navigation ist ausgeblendet, solange die Bühne steht.
    Darunter (Tablet, Handy): Blöcke untereinander mit stehender Leiste; der Titel im Blick ist voll, die anderen blass,
    der ausscheidende Block dunkelt ab, die Form zerfällt, während der Block in den Blick rückt. Bei «Bewegung reduzieren»
@@ -301,21 +302,38 @@ export function themen(sec) {
     /* weiches Scrollen und Einrasten bei der Hälfte */
     const lenis = new Lenis({ autoRaf: true, lerp: 0.1, smoothWheel: true, syncTouch: false, anchors: false, allowNestedScroll: true });
     document.documentElement.style.scrollBehavior = 'auto';
-    let ruhe = null, versuche = 0;
+    let ruhe = null, versuche = 0, rad = 0, faehrt = false, sicher = null;
+    const weich = t => 1 - Math.pow(1 - t, 3);
+    /* eigene Fahrt (Einrasten, Klick): nicht erneut einrasten, bis sie fertig ist oder jemand selbst scrollt */
+    const fahre = (y, dauer) => {
+      faehrt = true;
+      clearTimeout(sicher);
+      sicher = setTimeout(() => { faehrt = false; }, dauer * 1000 + 400);
+      lenis.scrollTo(y, { duration: dauer, easing: weich, onComplete: () => { faehrt = false; } });
+    };
+    const selbst = () => { rad = performance.now(); faehrt = false; };
+    addEventListener('wheel', selbst, { passive: true });
+    addEventListener('touchstart', selbst, { passive: true });
     const einrasten = () => {
-      if (aus) return;
-      if (lenis.isScrolling && versuche++ < 30) { ruhe = setTimeout(einrasten, 80); return; }
+      if (aus || faehrt) return;
+      /* Mausrad: 150 ms nach der letzten Bewegung einrasten, ohne den weichen Nachlauf abzuwarten;
+         Wischen und Tastatur: warten, bis der Browser fertig gescrollt hat */
+      const nachlauf = lenis.isScrolling === 'smooth' && performance.now() - rad >= 150;
+      if (lenis.isScrolling && !nachlauf && versuche++ < 30) { ruhe = setTimeout(einrasten, 80); return; }
       versuche = 0;
       const s = scrollY - oben, max = (n - 1) * schritt;
       if (s <= 1 || s >= max - 1) return;
       const ziel = Math.round(s / schritt) * schritt;
       if (Math.abs(ziel - s) < 2) return;
-      lenis.scrollTo(oben + ziel, { duration: 1.3, easing: t => 1 - Math.pow(1 - t, 3) });
+      fahre(oben + ziel, 1.3);
     };
     const beimScrollen = () => {
       zeichne();
+      if (faehrt) return;
+      /* nach dem Mausrad zählt der letzte Rad-Schritt, nicht jeder Schritt des weichen Nachlaufs */
+      const seitRad = performance.now() - rad;
       clearTimeout(ruhe);
-      ruhe = setTimeout(einrasten, 140);
+      ruhe = setTimeout(einrasten, seitRad < 1000 ? Math.max(0, 150 - seitRad) : 140);
     };
     lenis.on('scroll', beimScrollen);
     let geplant = false;
@@ -336,10 +354,13 @@ export function themen(sec) {
 
     return {
       art: 'buehne',
-      geheZu(k) { lenis.scrollTo(oben + k * schritt, { duration: 1, easing: t => 1 - Math.pow(1 - t, 3) }); },
+      geheZu(k) { fahre(oben + k * schritt, 1); },
       weg() {
         aus = true;
         clearTimeout(ruhe);
+        clearTimeout(sicher);
+        removeEventListener('wheel', selbst);
+        removeEventListener('touchstart', selbst);
         lenis.destroy();
         document.documentElement.style.scrollBehavior = '';
         removeEventListener('scroll', nativ);
