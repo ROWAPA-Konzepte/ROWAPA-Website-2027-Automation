@@ -1,7 +1,9 @@
 /* Punktemeer: welliges Punktfeld mit WebGL (Header, Footer).
    Das Standbild im Element bleibt darunter liegen und ist zugleich Ersatz,
-   falls WebGL fehlt oder «Bewegung reduzieren» eingestellt ist. */
+   falls WebGL fehlt oder «Bewegung reduzieren» eingestellt ist.
+   Auf Wunsch liegt darüber ein ruhiges Netz aus Plum-Knoten (data-netz, siehe netz.js). */
 import { clamp, lerp, easeInOut, zahl, farbe, sichtbar, takt, istHandy } from './util.js';
+import { netz, netzStufe } from './netz.js';
 
 const VS = `
 attribute vec3 aP;
@@ -79,6 +81,8 @@ export function punktemeer(box, art) {
   if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) return;
   gl.useProgram(pr);
   box.appendChild(ebene);
+  const stufe = netzStufe(box, art);
+  if (window.ROWAPAGrafik && art === 'punktemeer') window.ROWAPAGrafik.netz = stufe || 'aus';
 
   /* Punktfeld: 70 × 70 Einheiten, auf dem Handy weniger Punkte */
   const dichte = clamp(zahl(box, 'data-dichte', 1), 0.3, 1.5), handy = istHandy();
@@ -104,7 +108,9 @@ export function punktemeer(box, art) {
   const plum = rgbOder(box.getAttribute('data-farbe-3')) || mix(farbe(box, '', 'plum-perfect', '#AA1351'), [255, 255, 255], 0.15);
   gl.uniform3fv(U.uC1, lin(serpent));
   gl.uniform3fv(U.uC2, lin(weiss));
-  gl.uniform3fv(U.uC3, lin(plum));
+  /* mit Netz gehört Plum nur den Knoten: die Wellenkämme bleiben dann weiss */
+  gl.uniform3fv(U.uC3, lin(stufe ? weiss : plum));
+  const netzZeichnen = stufe ? netz(ebene, cv, stufe, farbe(box, '', 'plum-perfect', '#AA1351')) : null;
   gl.uniform1f(U.uK, o.alpha);
   gl.enable(gl.BLEND);
   gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
@@ -118,7 +124,7 @@ export function punktemeer(box, art) {
 
   /* Kamera */
   const sec = box.closest('section, footer, header') || box.parentElement;
-  let fov = 58, asp = 1, eye = [0, o.camY, 7], ax = [1, 0, 0], ay = [0, 1, 0], az = [0, 0, 1];
+  let fov = 58, asp = 1, eye = [0, o.camY, 7], ax = [1, 0, 0], ay = [0, 1, 0], az = [0, 0, 1], V = null, P = null;
   const norm = v => { const l = Math.hypot(v[0], v[1], v[2]) || 1; return v.map(x => x / l); };
   const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
   const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
@@ -127,9 +133,11 @@ export function punktemeer(box, art) {
     az = norm([eye[0], eye[1] - look, eye[2] + 14]);
     ax = norm(cross([0, 1, 0], az));
     ay = cross(az, ax);
-    gl.uniformMatrix4fv(U.uV, false, [ax[0], ay[0], az[0], 0, ax[1], ay[1], az[1], 0, ax[2], ay[2], az[2], 0, -dot(ax, eye), -dot(ay, eye), -dot(az, eye), 1]);
+    V = [ax[0], ay[0], az[0], 0, ax[1], ay[1], az[1], 0, ax[2], ay[2], az[2], 0, -dot(ax, eye), -dot(ay, eye), -dot(az, eye), 1];
+    gl.uniformMatrix4fv(U.uV, false, V);
     const f = 1 / Math.tan((fov * Math.PI) / 360), nr = 0.1, fr = 200;
-    gl.uniformMatrix4fv(U.uP, false, [f / asp, 0, 0, 0, 0, f, 0, 0, 0, 0, (fr + nr) / (nr - fr), -1, 0, 0, (2 * fr * nr) / (nr - fr), 0]);
+    P = [f / asp, 0, 0, 0, 0, f, 0, 0, 0, 0, (fr + nr) / (nr - fr), -1, 0, 0, (2 * fr * nr) / (nr - fr), 0];
+    gl.uniformMatrix4fv(U.uP, false, P);
   }
 
   /* Kräuseln unter der Maus: Strahl von der Kamera auf die Ebene y = 0 */
@@ -161,8 +169,9 @@ export function punktemeer(box, art) {
     fov = istHandy() ? 75 : 58;
     const hp = o.scroll ? clamp(scrollY / ((sec ? sec.clientHeight : innerHeight) * 0.8), 0, 1) : 0;
     kamera(lerp(o.camY, o.camY + 1.3, hp), o.look);
-    gl.uniform1f(U.uT, ((now - t0) / 1000) * tempo);
-    gl.uniform1f(U.uAmp, lerp(amp0, 0.6 * amp0 / o.amp, easeInOut(hp)));
+    const sek = (now - t0) / 1000, amp = lerp(amp0, 0.6 * amp0 / o.amp, easeInOut(hp));
+    gl.uniform1f(U.uT, sek * tempo);
+    gl.uniform1f(U.uAmp, amp);
     rip *= 0.985;
     gl.uniform1f(U.uRip, rip);
     m[0] += (mZiel[0] - m[0]) * 0.08; m[1] += (mZiel[1] - m[1]) * 0.08;
@@ -170,6 +179,7 @@ export function punktemeer(box, art) {
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.POINTS, 0, n);
+    if (netzZeichnen) netzZeichnen({ V, P, t: sek * tempo, sek, amp, rip, m, w: cv.clientWidth, h: cv.clientHeight, dpr });
     if (erst) { erst = false; ebene.style.opacity = '1'; }
     return true;
   }

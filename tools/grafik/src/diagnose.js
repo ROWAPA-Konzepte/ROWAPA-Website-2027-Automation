@@ -22,6 +22,7 @@ export function diagnose(info) {
     `Bewegung reduzieren: ${jn('(prefers-reduced-motion: reduce)')}`,
     `Zeiger: ${html.contains('hat-zeiger') ? 'an' : 'aus'} · Hover-Videos: ${info.videos === undefined ? '–' : info.videos}`,
     `Themen-Szene: ${html.contains('lenis') ? 'Bühne' : 'aus'} · Einrasten: ${info.einrasten || '–'} · Plum-Form: ${info.plumform || '–'}`,
+    `Netz im Punktemeer: ${info.netz || '–'}`,
     `Fenster: ${innerWidth} × ${innerHeight} · ${browser}`
   ].join('\n');
   const einhaengen = () => {
