@@ -635,21 +635,40 @@ Geprüft live auf der Subdomain bei 360, 375, 390, 768, 1024, 1280, 1440 und 192
 
 Live geprüft bei 360 bis 1920 px: keine Skriptfehler, kein seitliches Scrollen. Bilder: `stufe2-screens/runde47/nachtrag-handy.jpg`.
 
+## 53. Stufe 3 (28.10.2026): CMS-Collections angelegt, Plan-Limit erreicht
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 320 | Freigabe Stufe 2 | erteilt («Handy passt, wir können weitermachen») | Stufe 3 gestartet |
+| 321 | Grundlage Stufe 3 | `ROWAPA_Sitemap_v4_CMS.docx` und `ROWAPA-Website-v11.html` (beide im Repository) sind verbindlich | Aufbau nach `01_cms_architektur.md` |
+| 322 | Collections | 19 Collections angelegt: 8 Seitentypen (Programme und Mentorings als «Angebote» zusammengelegt, E1), 6 offene, 5 Hilfs-Collections | Alle Felder angelegt, alle Felder vorerst freiwillig, damit Entwürfe möglich sind; die Pflichtangaben prüft eine Checkliste vor dem Veröffentlichen (Benutzerhandbuch 2.45) |
+| 323 | Slugs | `angebote` für die zusammengelegten Programme und Mentorings; Personen unter `/personen` | `/experten/…` wird nach `/team` umgeleitet (E13), deshalb ein neuer Slug |
+| 324 | Hilfs-Collection «Organisationen» | heisst «Unternehmen & Partner» (Begriffsregel, offener Punkt 8) | erledigt |
+| 325 | Logo-Grösse | ganze Zahl in Prozent (Webflow kennt hier keine Kommazahlen) | Feld «Logo-Grösse in Prozent», leer = 100 |
+| 326 | Feldgruppen im Editor | Seitentypen: Karte & Status · Hero · Inhalte · Beziehungen · Abschluss-CTA · SEO; Personen: Profil · Bilder & Video · Rollen · Kontakt · Verwaltung · SEO | angelegt |
+| 327 | Erste Einträge (alle Entwurf) | 5 Kategorien, 6 FAQ der Startseite, 14 Unternehmen & Partner mit Logo, 8 Stimmen der Startseite, 3 Werkzeuge, 5 Themenlinien, 5 Lösungswelten, 3 Kategorie-Hubs (nur Name und Slug) | 49 Einträge |
+| 328 | Stimmen | Nur die 8 echten Stimmen der Startseite übernommen; die Stimmen im Prototyp v11 sind Platzhalter und bleiben weg. «Freigegeben» bleibt aus, bis ROWAPA die Zustimmung bestätigt | [ROWAPA bestätigen] |
+| 329 | **Plan-Limit** | Beim 50. Eintrag meldet Webflow «You've created all the items in your CMS Database allowed on your current plan» | **Blocker:** Für die übrigen rund 300 Einträge (FAQ 74, Blog rund 58, Downloads 16, Personen, Hebel 9, Angebote 9, Selbstchecks 3, Partnerrollen 3) braucht die Site einen Site-Plan mit CMS, empfohlen **Business** (E2: Reserve bei den Collections; der Plan «CMS» reicht mit 20 Collections knapp für die heutigen 19). Zahlen vor dem Kauf auf der Webflow-Preisseite prüfen. Kaufen kann nur ROWAPA (Site settings › Plans) |
+| 330 | Team | Neue Sofa-Fotos mit persönlichem Gegenstand, anders dargestellt; Videos mit Aussagen folgen | Felder «Sofa-Bild», «Persönlicher Gegenstand», «Video-Aussage» und «Video-Datei» in «Personen» angelegt. Die ersten 5 Fotos liegen in `team-fotos-neu/`; Namen und die übrigen Fotos schickt ROWAPA |
+| 331 | Abgebrochener Aufruf | Ein vom Nutzer abgebrochener Aufruf war trotzdem ausgeführt | Kategorien und FAQ geprüft, ein doppelter Eintrag «Sales» gelöscht. Regel: nach jedem Abbruch den Stand in Webflow prüfen |
+
+Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp-Einträge, FAQ zuweisen (`faq_map`), Import aus rowapa.ch (Blog, Team, Downloads), CSV-Export am Stufenende.
+
 ---
 
 ## Offene Punkte
 
-1. **Freigabe Stufe 2** (Startseite `/`). Entwurfsseiten gelöscht (Entscheid 301).
+1. ~~Freigabe Stufe 2~~: erteilt (Entscheid 320).
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).
 4. Auszüge der drei neuen Insights-Karten bestätigen (aus dem Titel abgeleitet, die Originalbeiträge waren aus der Cloud-Umgebung nicht erreichbar). In Stufe 3 kommen die Auszüge aus dem CMS. [ROWAPA bestätigen]
 5. Favicon und Webclip in Webflow hochladen (von Hand).
 6. Stehendes Logo als SVG (falls vorhanden).
 7. Weitere Kennzahlen, die gezeigt werden dürfen.
-8. Hilfs-Collection «Organisationen» in Stufe 3 nach der Begriffsregel benennen. Vorschlag: «Unternehmen & Partner».
+8. ~~Hilfs-Collection «Organisationen»~~: heisst «Unternehmen & Partner» (Entscheid 324).
 9. ~~Option Mobile: Wische-Reihen auch für Wege und Werkzeuge~~: heute Wischreihen (siehe Handy-Tabelle, Entscheid 269).
 10. Themen-URLs in Stufe 4 an die neuen Titel anpassen (mit Weiterleitung); ebenso `/fuer-organisationen`.
-11. Nächste Stufe nach Freigabe: Stufe 3 (CMS).
+11. ~~Nächste Stufe~~: Stufe 3 läuft (Entscheid 320).
 12. Megamenü-Bezeichnungen «Mensch & Potenzial», «Leadership & Team», «Recruiting & Retention» weichen von den Titeln auf der Startseite ab («Mitarbeiterperformance & Potenzial», «Führung & Teams», «Recruiting & Mitarbeiterbindung»). Bearbeiten wir später (Entscheid Runde 18).
 13. Eigene Bilder für Managing Partner, Education Partner und Trainer Academy, falls vorhanden (die Menütexte sind bestätigt).
 14. `/home-v3` mit der Themenlinien-Szene wie die Referenz (Runde 20). Wird v3 die definitive Startseite? Tendenz v3, Entscheid folgt (Runde 27).
@@ -679,7 +698,7 @@ Live geprüft bei 360 bis 1920 px: keine Skriptfehler, kein seitliches Scrollen.
 38. ~~Plum-Form~~: weggelassen (Entscheid 262).
 39. ~~Handy und kleine Formate: Vorgehen festlegen~~: entschieden (Entscheid 268), Tabelle für die Startseite erstellt (Entscheid 269).
 40. ~~Vier Seiten «ZU LÖSCHEN · …» löschen~~: von ROWAPA gelöscht, Klassen entfernt (Entscheid 270).
-41. ~~Handy-Fassung der Startseite~~: gebaut (Entscheide 303–313). Rückmeldung zum Ergebnis ausstehend.
+41. ~~Handy-Fassung der Startseite~~: gebaut und bestätigt (Entscheide 303–320).
 42. Kennzahlen in «Was uns antreibt» und Zahlenkachel im Team (Texttabelle Rev. 22, Fragen 20 und 21). [ROWAPA bestätigen]
 43. ~~Netz im Punktemeer~~: «an», auf allen Seiten, Footer ohne (Entscheid 277).
 44. ~~Reihenfolge~~: als Variante «Home v3 · Variante Lösungen oben» neben v3 (Entscheid 278).
@@ -693,3 +712,7 @@ Live geprüft bei 360 bis 1920 px: keine Skriptfehler, kein seitliches Scrollen.
 52. Platzhalter «Ihre E-Mail-Adresse» im Newsletter-Feld setzen (von Hand: Footer › Feld › Einstellungen › Placeholder; die Schnittstelle kann ihn nicht setzen). Benutzerhandbuch 2.43.
 53. ~~Ziel des Buttons «Erstgespräch»~~: vorerst E-Mail, später Buchungstool (Entscheid 318).
 54. Newsletter-Anmeldungen: Heute landen sie in Webflow (Site settings › Forms, Benachrichtigung per E-Mail an die eingetragene Adresse). Soll später ein Newsletter-Dienst angebunden werden (z. B. Mailchimp, Brevo)? [ROWAPA bestätigen]
+55. **Site-Plan mit CMS kaufen** (empfohlen Business, E2). Ohne Upgrade lassen sich keine weiteren CMS-Einträge anlegen (Entscheid 329). Von ROWAPA: Site settings › Plans.
+56. Hauptsprache der Site steht auf «English» (`en`). Auf Deutsch umstellen: Site settings › Localization › Primary locale (von Hand, vor dem Import der Texte). [ROWAPA bestätigen]
+57. Team: Namen zu den Sofa-Fotos, die übrigen Fotos, der persönliche Gegenstand je Person und die Videos (als Dateien mit Namen).
+58. Zustimmung der 8 Personen in «Stimmen» bestätigen (Schalter «Freigegeben») und Beziehung HWZ / ETH juniors beschreiben (Kurzbeschreibung). [ROWAPA bestätigen]

@@ -360,6 +360,26 @@ Die Schnittstelle kann Modi nicht löschen. So geht es im Designer:
 4. Dasselbe in der Sammlung **Spacing** mit dem Modus **«Luft (v3)»**.
 5. Publish ist nicht nötig, die Modi sind nirgends angewendet.
 
+### 2.45 CMS pflegen (seit Stufe 3)
+
+**Wo:** Webflow › CMS (Datenbank-Symbol links). Jede Collection hat ihre Felder in Gruppen: bei Seiten «Karte & Status · Hero · Inhalte · Beziehungen · Abschluss-CTA · SEO», bei Personen «Profil · Bilder & Video · Rollen · Kontakt · Verwaltung · SEO».
+
+**Neue Einträge** sind immer zuerst **Entwurf** (Draft). Erst wenn alles stimmt: oben rechts «Set as ready to publish» und dann die Site veröffentlichen.
+
+**Checkliste vor dem Veröffentlichen eines Eintrags** (die Felder sind absichtlich nicht als Pflicht gesetzt, damit Entwürfe möglich sind):
+1. Name, Teaser bzw. Kurzbeschreibung und Hero-Titel gefüllt.
+2. Bild mit Alt-Text (was ist zu sehen?).
+3. Keine Markierung «[ROWAPA bestätigen]» mehr im Text, Schalter «Platzhalter» aus.
+4. Beziehungen gesetzt (z. B. FAQ, Stimmen, Werkzeuge, Kategorie).
+5. Anrede: Sie für Unternehmen, Du nur bei Angeboten für Einzelpersonen.
+6. Bei Stimmen: Schalter «Freigegeben» nur an, wenn die Person zugestimmt hat.
+
+**Logo-Band:** In «Unternehmen & Partner» den Schalter «Im Logo-Band» an. Die Reihenfolge steuert das Feld «Reihenfolge» (kleinere Zahl vorne, in Zehnerschritten, damit man später dazwischen einfügen kann). Wirkt ein Logo zu klein, bei «Logo-Grösse in Prozent» z. B. 120 eintragen.
+
+**Team:** In «Personen» unter «Bilder & Video» Porträt, Sofa-Bild, persönlichen Gegenstand und Video eintragen. Unter «Rollen» per Schalter festlegen, wo die Person erscheint (Geschäftsleitung, Team, Dozent:in, Autor:in …).
+
+**Grenze des Plans:** Meldet Webflow beim Anlegen «You've created all the items … allowed on your current plan», ist das Kontingent des Site-Plans voll. Dann hilft nur ein grösserer Plan (Site settings › Plans).
+
 ## 3. Regeln für Inhalte (Kurzfassung)
 
 Ausführlich in `exports/04_redaktionsleitfaden.md`.
