@@ -313,10 +313,16 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ### 2.40 Netz im Punktemeer des Headers (seit Runde 39, Grafik 1.14.0)
 - **Was es ist:** Über dem Punktemeer liegen wenige Plum-Knoten, die mit der Welle schwingen. Feine Linien verbinden sie und blenden langsam ein und aus, ab und zu läuft ein Impuls. Es zeigt ruhig, dass zu ROWAPA auch digitale Lösungen gehören.
-- **Einschalten:** Element `main-wrapper` der Seite anklicken › Zahnrad (Settings) › Custom attributes › `data-netz` mit dem Wert `an` (ruhig) oder `mehr`. Ausschalten: Attribut löschen oder `aus`. Der Header ist eine Komponente, darum steht das Attribut an der Seite und nicht im Header. Heute nur auf `/home-v3-entwurf`.
+- **Standard (seit Runde 40, Grafik 1.15.0):** an, auf jeder Seite mit Punktemeer im Header, auch auf künftigen Unterseiten. Der Footer bleibt ohne Netz.
+- **Je Seite ändern:** Element `main-wrapper` der Seite anklicken › Zahnrad (Settings) › Custom attributes › `data-netz` mit dem Wert `aus` (ohne Netz) oder `mehr` (mehr Knoten). Ohne Attribut gilt der Standard. Der Header ist eine Komponente, darum steht das Attribut an der Seite und nicht im Header.
 - **Vergleichen ohne Änderung:** an die Adresse `?netz=an`, `?netz=mehr` oder `?netz=aus` anhängen, z. B. `/home-v3?netz=an`.
 - **Farbe:** Mit Netz bleiben die Wellenkämme weiss, Plum gehört dann nur den Knoten. Bei «Bewegung reduzieren» steht wie bisher das Standbild ohne Netz.
 - **Reihenfolge der Sections ändern:** im Navigator die Section an die neue Stelle ziehen. Danach prüfen, ob zwei Sections mit gleicher Farbe aufeinandertreffen. Dann braucht die zweite die Zusatzklasse `is-linie` (siehe 2.32), oder man wählt eine andere Farbe.
+
+### 2.41 Leistentitel über der Themenliste ein- und ausblenden (seit Runde 40)
+- **Was:** die kleine Zeile «Lösungen für Unternehmen» über der Themenliste in «Lösungen für Unternehmen». Sie erscheint nur auf dem Desktop, auf Tablet und Handy ist sie schon aus.
+- **Ausblenden:** im Navigator das Element «Leistentitel · ausblendbar (Zahnrad › Visibility)» wählen (in der Section «Lösungen für Unternehmen»), dann Zahnrad (Settings) › Visibility › «Hidden». Wieder einblenden: «Visible». Danach veröffentlichen.
+- Auf v3 und auf der Variante «Lösungen oben» je einzeln, weil es zwei Seiten sind. Die Themen-Bühne funktioniert mit und ohne Zeile.
 
 ---
 

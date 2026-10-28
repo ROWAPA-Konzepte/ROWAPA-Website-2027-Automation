@@ -520,6 +520,17 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 
 ---
 
+## 44. Feedback-Runde 40 (28.10.2026): Netz an auf allen Seiten, Reihenfolge als Variante, Leistentitel ausblendbar
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 277 | Netz im Punktemeer | «Netz an und auch auf den Unterseiten» | ROWAPA Grafik 1.15.0: Das Netz ist Standard im Header jeder Seite mit Punktemeer (heute v2, v3 und die Variante, später jede Unterseite mit diesem Header). Der Footer bleibt ohne. Ausschalten je Seite mit `data-netz="aus"` am `main-wrapper`, vergleichen mit `?netz=aus`. Live geprüft. Offener Punkt 43 erledigt |
+| 278 | Reihenfolge | «so anpassen, aber als Variante, sodass wir v3 immer noch haben» | v3 bleibt unverändert. Die Seite mit «Lösungen für Unternehmen» unter dem Header heisst jetzt «Home v3 · Variante Lösungen oben» (Adresse bleibt `/home-v3-entwurf`), mit demselben SEO-Titel und derselben Beschreibung wie v3. Das Attribut `data-netz` dort ist entfernt, weil das Netz jetzt Standard ist. Texte identisch mit v3 (geprüft) |
+| 279 | Zweite Zeile «Lösungen für Unternehmen» über der Themenliste | «so, dass ich es dann selber noch ausblenden kann» | Das Element heisst im Navigator auf v3 und auf der Variante «Leistentitel · ausblendbar (Zahnrad › Visibility)». Ausblenden: anklicken, Zahnrad, Visibility auf «Hidden». Die Zeile erscheint nur auf dem Desktop, auf Tablet und Handy ist sie schon aus. Geprüft: Ohne Zeile rückt die Themenliste nach oben, die Bühne bleibt sauber. Benutzerhandbuch 2.41 |
+| 280 | Zwei Startseiten nebeneinander | Hinweis | Was in Klassen, Komponenten oder im Skript geändert wird, gilt auf beiden Seiten. Was nur auf einer Seite geändert wird (Texte direkt auf der Seite, Reihenfolge, Ausblenden), muss auf der anderen von Hand nachgezogen werden. Vorschlag: vor dem Bau der Handy-Fassung festlegen, welche Seite weitergeführt wird (offener Punkt 45) |
+
+---
+
 ## Offene Punkte
 
 1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
@@ -564,5 +575,6 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 40. ~~Vier Seiten «ZU LÖSCHEN · …» löschen~~: von ROWAPA gelöscht, Klassen entfernt (Entscheid 270).
 41. **Handy-Tabelle der Startseite** (`08_startseite_desktop_handy.md`): Entscheid je Section, besonders «Lösungen für Unternehmen» (A, B oder C) und Footer (A oder B, gilt für alle Seiten). Dazu die Ideen 1 bis 3, z. B. Button «Erstgespräch» in der Navigationsleiste auf dem Handy.
 42. Kennzahlen in «Was uns antreibt» und Zahlenkachel im Team (Texttabelle Rev. 22, Fragen 20 und 21). [ROWAPA bestätigen]
-43. **Netz im Punktemeer** (Entscheid 273): Stufe «an», «mehr» oder «aus»? Nur Startseite oder auch Header anderer Seiten, Footer?
-44. **Reihenfolge** (Entscheid 274): «Lösungen für Unternehmen» unter dem Header übernehmen? Dann baue ich es auf v3 um. Die Seite `/home-v3-entwurf` danach in Webflow löschen (Pages › Zahnrad › Delete), die Schnittstelle kann keine Seiten löschen.
+43. ~~Netz im Punktemeer~~: «an», auf allen Seiten, Footer ohne (Entscheid 277).
+44. ~~Reihenfolge~~: als Variante «Home v3 · Variante Lösungen oben» neben v3 (Entscheid 278).
+45. **Welche Startseite wird weitergeführt?** v3 (Lösungen nach «Unsere Erfolge») oder die Variante (Lösungen unter dem Header). Wichtig vor dem Bau der Handy-Fassung (offener Punkt 41), sonst doppelte Arbeit. Die andere Seite danach in Webflow löschen (Pages › Zahnrad › Delete).

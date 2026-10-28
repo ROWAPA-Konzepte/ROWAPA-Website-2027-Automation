@@ -466,4 +466,4 @@ ROWAPA hat die drei Kennzahlen in «Was uns antreibt» auf v3 selbst im Designer
 19. ~~«Was uns antreibt»: Variante A, B oder C (Rev. 20)~~: A gewählt (Rev. 21).
 20. Kennzahlen (Rev. 22): Bezug der «100 % Branchenerfahrung», Zahl der Antworten der Befragung 2025, Zeitraum für «beauftragen uns erneut».
 21. Zahlenkachel im Team (Rev. 22): «100 %» und «Trainerinnen und Trainer» angleichen? Kachel und Kennzahl 1 sagen fast dasselbe.
-22. Leistentitel «Lösungen für Unternehmen» über der Themenliste: bleibt, heisst «Fünf Themen» oder entfällt (Rev. 23)?
+22. Leistentitel «Lösungen für Unternehmen» über der Themenliste: bleibt vorerst; ROWAPA blendet ihn bei Bedarf selbst aus (Entscheid 279, Benutzerhandbuch 2.41).
