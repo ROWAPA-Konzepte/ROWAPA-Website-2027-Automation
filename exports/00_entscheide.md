@@ -667,6 +667,10 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 | 338 | Inhalte und Import | v11 gilt als Inhaltsvorlage; Import nur als Entwurf, Auswahl durch ROWAPA; die heutige Website rowapa.ch bleibt unberührt (ROWAPA, 28.10.2026) | Team wird neu gestaltet (Sofa-Fotos), nicht 1:1 übernommen |
 | 339 | Quelle des Imports | Die Live-Website rowapa.ch läuft auf **WordPress**, nicht in Webflow. Das Webflow-Projekt «rowapa.ch» (`69ba4dbcfcdc9b5d6232455f`, ohne eigene Domain, angelegt 18.03.2026) ist ein früherer Aufbau | offener Punkt 61 |
 | 340 | Vorlage «Themenlinie» | als Muster vorziehen (Vorgriff Stufe 4), Vertriebsperformance auf der Testadresse zeigen | wartet auf den Designer mit MCP-App |
+| 341 | Import aus dem Webflow-Projekt «rowapa.ch» | erledigt, alles als Entwurf | 9 Personen (Team und Trainer:innen zusammengeführt, Biografie aus «Antrieb», «Verkaufsprofil», «Laufbahn»), 4 Blogbeiträge von 2026 (mit «Das Wichtigste in Kürze» und «Häufige Fragen» im Text). Downloads: dort keine vorhanden |
+| 342 | Korrekturen beim Import | Tippfehler und Begriffe bereinigt | «Thomas Rothgoegel» → «Rothkoegel», vertauschte Slugs im Team (z. B. «peti-federer» bei Janos Niederhauser) neu nach Namen, Leerzeichen-Fehler, «Organisation» → «Unternehmen», alte Themen-Namen → neue Titel, Anführungszeichen «» |
+| 343 | Gramos Kerqeli, Janos Niederhauser | ohne Profiltext im früheren Projekt | Schalter «Platzhalter» an, Kurzprofil [ROWAPA bestätigen] |
+| 344 | WordPress rowapa.ch (rund 58 Blogbeiträge) | aus der Cloud-Umgebung gesperrt (Netzwerk-Regel) | wartet auf Freigabe der Adresse `rowapa.ch` und `www.rowapa.ch` in den Umgebungs-Einstellungen (offener Punkt 62) |
 
 ---
 
@@ -732,4 +736,6 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 58. Zustimmung der 8 Personen in «Stimmen» bestätigen (Schalter «Freigegeben») und Beziehung HWZ / ETH juniors beschreiben (Kurzbeschreibung). [ROWAPA bestätigen]
 59. Mehrsprachigkeit (DE/EN/FR/IT in der Navigation): zum Start nötig? Dann Zusatz «Localization» unter Plans › Add ons. [ROWAPA bestätigen]
 60. Muster Themenlinien prüfen (Texttabelle `09_cms_texttabelle_themenlinien.md`): 8 Hebel ohne Detailseite ergänzen, Leitfrage-Feld, Farbwelt je Themenlinie, Typeform, Wiederholung «Wissensplattform». [ROWAPA bestätigen]
-61. Quelle für Blog, Downloads und Team: die WordPress-Website rowapa.ch (live) oder das Webflow-Projekt «rowapa.ch» (früherer Aufbau)? [ROWAPA bestätigen]
+61. ~~Quelle für Blog, Downloads und Team~~: beide (Entscheid 341); WordPress folgt mit Punkt 62.
+62. Netzwerk der Cloud-Umgebung: `rowapa.ch` und `www.rowapa.ch` unter «Allowed domains» freigeben (Umgebung › Edit › Network access), damit die WordPress-Beiträge gelesen werden können.
+63. Team: welche der 9 Personen bleiben, Profiltexte Gramos Kerqeli und Janos Niederhauser, Autor:in je Blogbeitrag. [ROWAPA bestätigen]
