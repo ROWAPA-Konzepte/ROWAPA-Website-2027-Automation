@@ -568,6 +568,16 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 
 Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesbar.
 
+## 47. Feedback-Runde 43 (28.10.2026): Variante ist die definitive Startseite, neuer Satz im Header
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 289 | «Ja, die Variante wird die definitive Startseite» | entschieden | Die Seite `/home-v3-entwurf` heisst in Webflow jetzt «Startseite (definitiv)». Adresse, SEO-Titel und Beschreibung bleiben vorerst gleich. Damit können v3 (`/home-v3`, alte Reihenfolge) und v2 (`/home-v2`) weg: Löschen von Hand in Webflow (Pages › Seite › Zahnrad › Delete), nur durch ROWAPA. Offener Punkt 45 erledigt, neu offener Punkt 48 (als Home festlegen) |
+| 290 | Header: Satz unter den Titelzeilen auswechseln | umgesetzt | Neu: «Wir verbinden menschliche Expertise mit künstlicher Intelligenz und eigenen digitalen Lösungen. Damit aus Potenzial messbare Leistung wird.» Bisher live: «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» Im Designer stand schon ein Zwischenstand von ROWAPA («… Für bessere Entscheidungen, leistungsstärkere Teams und eine erfolgreiche Zukunft der Finanzbranche.», nicht veröffentlicht); er ist durch den neuen Satz ersetzt. Gesetzt als Eigenschaft «Lead» der Hero-Instanz, nur auf der Startseite. Textvergleich vor und nach dem Veröffentlichen: sonst keine Änderung. Texttabelle Rev. 25 |
+| 291 | Der neue Satz ist länger (3 statt 2 Zeilen, auf 1024 px stand «wird.» allein, auf dem 14-Zoll-Fenster rutschte das Logo-Band unter den Rand) | umgesetzt | Zusatzklasse `is-hero` am Satz (`text-size-large max-width-medium is-hero`, in der Komponente Section Hero Home): Breite bis 44 rem statt 36 rem und ausgeglichener Zeilenumbruch (`text-wrap: balance`). Ergebnis live in elf Formaten: ab 768 px zwei gleich lange Zeilen, Handy vier ausgeglichene Zeilen, Header so hoch wie bisher, Logo-Band an derselben Stelle (z. B. 1280 × 670: 591 px wie vorher), keine Überbreite. Ältere Browser brechen normal um |
+| 292 | Lesbarkeit über dem Punktemeer (14-Zoll-Fenster) | umgesetzt | Die zweite Zeile berührt auf 1280 × 670 oben die Welle (wie vorher «nachhaltig.»). Ein weicher Lichthof in Manganese Black hinter dem Text (`text-shadow` an `is-hero`) dämpft die Punkte direkt hinter den Buchstaben; auf dem dunklen Grund sonst unsichtbar |
+| 293 | Bisheriger Satz an anderen Stellen | Hinweis | «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» steht noch im Megamenü «Was wir tun» (Navbar · Bühne). Die SEO-Beschreibung endet mit «Datenbasiert, praxiserprobt, nachhaltig.» Beides passt weiterhin; Vorschläge in der Texttabelle Rev. 25 (offene Punkte 49 und 50) |
+
 ---
 
 ## Offene Punkte
@@ -616,6 +626,9 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 42. Kennzahlen in «Was uns antreibt» und Zahlenkachel im Team (Texttabelle Rev. 22, Fragen 20 und 21). [ROWAPA bestätigen]
 43. ~~Netz im Punktemeer~~: «an», auf allen Seiten, Footer ohne (Entscheid 277).
 44. ~~Reihenfolge~~: als Variante «Home v3 · Variante Lösungen oben» neben v3 (Entscheid 278).
-45. **Welche Startseite wird weitergeführt?** v2 entfällt (Entscheid 285). Die Variante «Lösungen oben» ist der Arbeitsstand (Entscheid 286). Offen: ausdrücklich bestätigen, dass sie die definitive Startseite wird; dann v3 mit der alten Reihenfolge und v2 löschen (von Hand, Pages › Zahnrad › Delete, nur mit Freigabe). Wichtig vor dem Bau der Handy-Fassung (offener Punkt 41).
+45. ~~Welche Startseite wird weitergeführt?~~: die Variante «Lösungen oben», jetzt «Startseite (definitiv)» (Entscheid 289). v3 (`/home-v3`) und v2 (`/home-v2`) löscht ROWAPA von Hand (Pages › Seite › Zahnrad › Delete); danach entfernen wir die nur dort genutzten Klassen.
 46. ~~«Was uns antreibt» gespiegelt~~: bleibt so (Entscheid 286).
 47. Option: Figur der Themen auch ab 1920 px nach der neuen Formel, falls der leichte Kontakt bei 1920 × 950 stört (Entscheid 288).
+48. **Startseite als Home festlegen:** «Startseite (definitiv)» in Webflow als Startseite setzen (Pages › Seite «Startseite (definitiv)» › Seiteneinstellungen › «Set as home page»), danach die leere Seite «Home» löschen. Das ändert die Adresse von `/home-v3-entwurf` auf `/`. Vorschlag: zusammen mit dem Löschen von v2 und v3, nur mit Freigabe ROWAPA.
+49. Megamenü «Was wir tun»: bisherigen Satz «Gemeinsam bewegen wir Menschen und Unternehmen …» lassen oder an den neuen Header-Satz angleichen? (Texttabelle Rev. 25)
+50. SEO-Beschreibung der Startseite an den neuen Header-Satz angleichen? Vorschlag in der Texttabelle Rev. 25.

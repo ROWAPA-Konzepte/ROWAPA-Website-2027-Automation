@@ -436,6 +436,14 @@ Auf der Entwurfsseite ist nur die Reihenfolge anders, kein Text ist geändert. E
 | Lösungen für Unternehmen | Button im Kopf | «Zum Unternehmensbereich» (Link `/fuer-organisationen`) | ausgeblendet | Wunsch ROWAPA: Kicker, Titel und Einleitung reichen direkt nach dem Header; jedes Thema hat unten seinen eigenen Link | Den Unternehmensbereich erreicht man weiterhin über das Menü «Was wir tun». Den Link-Pfad nach der Begriffsregel umbenennen (offener Punkt 10) |
 | Lösungen für Unternehmen | Leistentitel über der Themenliste | «Lösungen für Unternehmen» | wieder sichtbar | Missverständnis geklärt (Entscheid 282) | – |
 
+## Rev. 25 · Header: neuer Satz unter den Titelzeilen (28.10.2026, Runde 43, gebaut auf der Startseite)
+
+| Section | Element | Original | Neu (ROWAPA) | Begründung / Prüfung Redaktionsleitfaden | Offene Fragen |
+|---|---|---|---|---|---|
+| Header | Satz unter den Titelzeilen (Lead) | «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» | «Wir verbinden menschliche Expertise mit künstlicher Intelligenz und eigenen digitalen Lösungen. Damit aus Potenzial messbare Leistung wird.» | Text von ROWAPA, wörtlich übernommen. **Was:** Expertise, KI und eigene digitale Lösungen. **Nutzen:** messbare Leistung. **Für wen:** steht im Logo-Band direkt darunter («… vertrauen uns diese Finanzunternehmen»). **Nächster Schritt:** «Lösungen entdecken» und der Abschnitt darunter. Wir-Form, keine Anrede, darum keine Sie/Du-Frage. Der zweite Satz ist bewusst kurz und steht allein (Pointe). | Optional: als ein Satz mit Gedankenstrich («… digitalen Lösungen – damit aus Potenzial messbare Leistung wird.»). Wir empfehlen die Fassung von ROWAPA. |
+| Navigation | Megamenü «Was wir tun», Einleitung | «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» | unverändert | Der bisherige Header-Satz lebt hier weiter und passt zum Menü. | Lassen oder angleichen, z. B. «Expertise, künstliche Intelligenz und eigene digitale Lösungen für Banken, Versicherungen und Krankenkassen.»? |
+| SEO | Beschreibung der Startseite | «ROWAPA entwickelt Banken, Versicherungen und Krankenkassen: mehr Vertriebsleistung, stärkere Führung, weniger Fluktuation. Datenbasiert, praxiserprobt, nachhaltig.» | unverändert | Passt weiterhin. Vorschlag zum Angleichen (152 Zeichen): «Expertise, künstliche Intelligenz und eigene digitale Lösungen für Banken, Versicherungen und Krankenkassen. Damit aus Potenzial messbare Leistung wird.» | Angleichen? |
+
 ## Rev. 22 · Kennzahlen von ROWAPA geändert (27.10.2026, Runde 38)
 
 ROWAPA hat die drei Kennzahlen in «Was uns antreibt» auf v3 selbst im Designer geändert (aus dem Textvergleich vor und nach dem Veröffentlichen). Sie stehen jetzt gleich wie auf v2. Die Zahlen zählen weiterhin richtig hoch (auch «98 %»). Die Angaben stammen von ROWAPA; die Vorschläge unten betreffen nur die Verständlichkeit und sind freiwillig.
@@ -474,3 +482,4 @@ ROWAPA hat die drei Kennzahlen in «Was uns antreibt» auf v3 selbst im Designer
 20. Kennzahlen (Rev. 22): Bezug der «100 % Branchenerfahrung», Zahl der Antworten der Befragung 2025, Zeitraum für «beauftragen uns erneut».
 21. Zahlenkachel im Team (Rev. 22): «100 %» und «Trainerinnen und Trainer» angleichen? Kachel und Kennzahl 1 sagen fast dasselbe.
 22. Leistentitel «Lösungen für Unternehmen» über der Themenliste: bleibt vorerst; ROWAPA blendet ihn bei Bedarf selbst aus (Entscheid 279, Benutzerhandbuch 2.41).
+23. Header-Satz (Rev. 25): Megamenü «Was wir tun» und SEO-Beschreibung angleichen?
