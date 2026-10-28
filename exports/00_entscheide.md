@@ -533,6 +533,16 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 
 ---
 
+## 45. Feedback-Runde 41 (28.10.2026): Netz kräftiger, «Was uns antreibt» gespiegelt, nur noch v3
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 283 | «Das Leuchten und die Bewegung im Header mit den Linien sollte intensiver sichtbar sein» | umgesetzt | ROWAPA Grafik 1.16.0: neue Stufe «stark» ist Standard. 24 Knoten (Handy 12), Linien kräftiger (1,5 px) und nie ganz weg, Licht addiert sich auf dem dunklen Grund, bis drei Impulse gleichzeitig (etwa jede Sekunde ein neuer), beim Ankommen leuchtet die Linie nach und ein Ring wächst aus dem Knoten. Zum Vergleichen `?netz=mehr` und `?netz=ruhig`. Gilt auf allen Seiten mit Punktemeer. Die Lichthöfe werden einmal vorgezeichnet, und das Netz zeichnet höchstens mit 1,5-facher Auflösung, damit auch schwächere Geräte flüssig bleiben. Video `stufe2-screens/runde41/` |
+| 284 | «Was uns antreibt»: Titel und Text rechts, die scrollenden Zahlen links; «der Scrollbereich bleibt gleich» | als Ansicht gebaut | Auf der Variante `/home-v3-entwurf`: Zusatzklasse `is-gespiegelt` an `antrieb_split` (Spalten 1,25 : 1), `antrieb_stehend` (rechte Spalte) und `antrieb_kacheln` (linke Spalte), nur ab 992 px. Kennzahlen ganz links, die versetzte Spalte mit den Gründen neben dem Text. Der Text rechts bleibt linksbündig und steht beim Scrollen wie bisher (192 px unter dem Fensterrand bei 1440 × 900). Höhe unverändert (1202 px). Tablet und Handy unverändert: Titel zuerst, Kacheln darunter. Geprüft bei 1440, 1280, 1024, 768 und 390 px, keine Überbreite. v3 unverändert |
+| 285 | «Aktuell brauchen wir nur auf v3 zu arbeiten. v2 kommt nicht mehr in Frage» | festgehalten | v2 wird nicht mehr gepflegt. Gearbeitet wird an der v3-Familie, die Wünsche dieser Runde auf der Variante «Lösungen oben» (dort folgt «Was uns antreibt» auf die Themen). v2 kommt auf die Liste der Seiten, die nach der Freigabe gelöscht werden (von Hand in Webflow, nur mit Freigabe) |
+
+---
+
 ## Offene Punkte
 
 1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
@@ -579,4 +589,5 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 42. Kennzahlen in «Was uns antreibt» und Zahlenkachel im Team (Texttabelle Rev. 22, Fragen 20 und 21). [ROWAPA bestätigen]
 43. ~~Netz im Punktemeer~~: «an», auf allen Seiten, Footer ohne (Entscheid 277).
 44. ~~Reihenfolge~~: als Variante «Home v3 · Variante Lösungen oben» neben v3 (Entscheid 278).
-45. **Welche Startseite wird weitergeführt?** v3 (Lösungen nach «Unsere Erfolge») oder die Variante (Lösungen unter dem Header). Wichtig vor dem Bau der Handy-Fassung (offener Punkt 41), sonst doppelte Arbeit. Die andere Seite danach in Webflow löschen (Pages › Zahnrad › Delete).
+45. **Welche Startseite wird weitergeführt?** v2 entfällt (Entscheid 285). Gearbeitet wird auf der Variante «Lösungen oben». Bestätigen, dass sie die definitive Startseite wird; dann v3 mit der alten Reihenfolge und v2 löschen (von Hand, Pages › Zahnrad › Delete). Wichtig vor dem Bau der Handy-Fassung (offener Punkt 41).
+46. «Was uns antreibt» gespiegelt (Entscheid 284): so behalten oder zurück? Zurück: die drei Zusatzklassen `is-gespiegelt` entfernen.

@@ -302,6 +302,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Stehender Text:** Ab 992 px bleibt der linke Block stehen, solange die Kacheln vorbeiziehen (CSS sticky, Abstand oben `clamp(6rem, 22svh, 12rem)`). Dafür hat die Section die Zusatzklasse `is-stehend` (kein «overflow hidden»). Unter 992 px steht nichts; auf dem Tablet zwei Kachelspalten, auf dem Handy alle Kacheln untereinander.
 - **Kacheln:** Kennzahl = `stat_item is-kachel` (Zahl `stat_number`, zählt hoch, Bezeichnung `stat_label`); Grund = `warum_item is-kachel` (siehe 2.34). Höhe: `min-height` an `is-kachel` (Desktop `clamp(11rem, 26svh, 15rem)`, Tablet 11rem). Versatz der rechten Spalte: `antrieb_spalte is-versetzt` › Padding oben `clamp(4rem, 10svh, 6rem)`. Kürzere Kacheln oder weniger Versatz = kürzerer Scrollweg.
 - **Kachel hinzufügen:** eine bestehende in derselben Spalte duplizieren und Text ändern. Die rechte Spalte sollte nicht viel länger als die linke werden, sonst wird der Scrollweg lang.
+- **Gespiegelt (seit Runde 41, auf der Variante «Lösungen oben»):** Kacheln links, Titel und Text rechts, nur ab 992 px. Gesteuert über die Zusatzklasse `is-gespiegelt` an `antrieb_split`, `antrieb_stehend` und `antrieb_kacheln`. Zurück zur normalen Anordnung: bei allen drei Elementen die Zusatzklasse `is-gespiegelt` entfernen.
 
 ### 2.39 Handy-Fassung je Section (seit Runde 38)
 - **Grundsatz (Entscheid 268):** Das Handy bekommt eine eigene Fassung, die Desktop-Fassung bleibt unverändert. Je Section gibt es vier Möglichkeiten: gleich, vereinfacht, andere Darstellung oder weglassen (nur ausgeblendet). Die Übersicht für die Startseite steht in `exports/08_startseite_desktop_handy.md`.
@@ -313,8 +314,9 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ### 2.40 Netz im Punktemeer des Headers (seit Runde 39, Grafik 1.14.0)
 - **Was es ist:** Über dem Punktemeer liegen wenige Plum-Knoten, die mit der Welle schwingen. Feine Linien verbinden sie und blenden langsam ein und aus, ab und zu läuft ein Impuls. Es zeigt ruhig, dass zu ROWAPA auch digitale Lösungen gehören.
-- **Standard (seit Runde 40, Grafik 1.15.0):** an, auf jeder Seite mit Punktemeer im Header, auch auf künftigen Unterseiten. Der Footer bleibt ohne Netz.
-- **Je Seite ändern:** Element `main-wrapper` der Seite anklicken › Zahnrad (Settings) › Custom attributes › `data-netz` mit dem Wert `aus` (ohne Netz) oder `mehr` (mehr Knoten). Ohne Attribut gilt der Standard. Der Header ist eine Komponente, darum steht das Attribut an der Seite und nicht im Header.
+- **Standard (seit Runde 40, kräftiger seit Runde 41, Grafik 1.16.0):** an, auf jeder Seite mit Punktemeer im Header, auch auf künftigen Unterseiten. Der Footer bleibt ohne Netz.
+- **Stufen:** `an` (Standard, kräftig), `mehr` (etwas ruhiger), `ruhig` (wie der erste Entwurf), `aus`. Zum Vergleichen an die Adresse `?netz=mehr`, `?netz=ruhig` oder `?netz=aus` anhängen.
+- **Je Seite ändern:** Element `main-wrapper` der Seite anklicken › Zahnrad (Settings) › Custom attributes › `data-netz` mit dem Wert `aus` (ohne Netz), `ruhig` oder `mehr` (ruhigere Stufen). Ohne Attribut gilt der Standard. Der Header ist eine Komponente, darum steht das Attribut an der Seite und nicht im Header.
 - **Vergleichen ohne Änderung:** an die Adresse `?netz=an`, `?netz=mehr` oder `?netz=aus` anhängen, z. B. `/home-v3?netz=an`.
 - **Farbe:** Mit Netz bleiben die Wellenkämme weiss, Plum gehört dann nur den Knoten. Bei «Bewegung reduzieren» steht wie bisher das Standbild ohne Netz.
 - **Reihenfolge der Sections ändern:** im Navigator die Section an die neue Stelle ziehen. Danach prüfen, ob zwei Sections mit gleicher Farbe aufeinandertreffen. Dann braucht die zweite die Zusatzklasse `is-linie` (siehe 2.32), oder man wählt eine andere Farbe.
