@@ -436,6 +436,20 @@ Auf der Entwurfsseite ist nur die Reihenfolge anders, kein Text ist geändert. E
 | Lösungen für Unternehmen | Button im Kopf | «Zum Unternehmensbereich» (Link `/fuer-organisationen`) | ausgeblendet | Wunsch ROWAPA: Kicker, Titel und Einleitung reichen direkt nach dem Header; jedes Thema hat unten seinen eigenen Link | Den Unternehmensbereich erreicht man weiterhin über das Menü «Was wir tun». Den Link-Pfad nach der Begriffsregel umbenennen (offener Punkt 10) |
 | Lösungen für Unternehmen | Leistentitel über der Themenliste | «Lösungen für Unternehmen» | wieder sichtbar | Missverständnis geklärt (Entscheid 282) | – |
 
+## Rev. 27 · Handy-Fassung (28.10.2026, Runde 47, gebaut)
+
+Keine neuen Aussagen. Auf dem Handy entfallen einzelne Textteile, am Desktop bleibt alles sichtbar.
+
+| Section | Element | Original | Neu | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Navigation (Handy) | Button neben dem Menü | – | «Erstgespräch» (E-Mail an boek@rowapa.ch) | Der nächste Schritt ist auf dem Handy immer sichtbar; gleiches Ziel wie «Erstgespräch vereinbaren» im Kontakt | Ziel E-Mail oder Buchungstool? [ROWAPA bestätigen] |
+| Im Blickpunkt (Handy) | Chips | «25. Februar bis 6. Dezember 2027» · «16 Präsenztage» · «15 ECTS-Punkte» · «mit der HWZ Zürich» | nur Datum und «mit der HWZ Zürich» | Kürzer; Präsenztage und ECTS stehen auf der CAS-Seite | – |
+| Im Blickpunkt (Handy) | Beschreibung | zwei Sätze | nur der erste Satz; «Führungsthemen aus dem Berufsalltag, mit Dozierenden und Gastreferierenden aus der Praxis.» ausgeblendet | Was es ist und für wen, reicht auf dem Handy; Details auf der CAS-Seite | – |
+| Im Blickpunkt (Handy) | Zweiter Button | Button «Zoom-Infosession am 17.11.2026» | gleicher Text als Textlink | Ein klarer Hauptbutton, die Infosession als Nebenweg | – |
+| Neueste Insights (Handy) | Auszug der Karten | sichtbar | ausgeblendet | Titel und «Beitrag lesen» genügen; die Reihe wird kürzer | – |
+| ROWAPA Digital | Beschreibung der Kacheln | nur ab 1920 px und auf dem Tablet sichtbar | in allen Grössen sichtbar | Wunsch ROWAPA: Nutzen auf einen Blick | – |
+| Footer | Newsletter-Button | «Abonnieren» | «→» (für Screenreader «Abonnieren») | Feld und Button auf einer Linie; der Titel «Impulse abonnieren» steht darüber | Platzhalter im Feld «Ihre E-Mail-Adresse» (von Hand setzen) |
+
 ## Rev. 26 · Megamenü und Google-Beschreibung angeglichen (28.10.2026, Runde 44, gebaut)
 
 | Section | Element | Original | Neu | Begründung | Offene Fragen |
@@ -490,3 +504,4 @@ ROWAPA hat die drei Kennzahlen in «Was uns antreibt» auf v3 selbst im Designer
 21. Zahlenkachel im Team (Rev. 22): «100 %» und «Trainerinnen und Trainer» angleichen? Kachel und Kennzahl 1 sagen fast dasselbe.
 22. Leistentitel «Lösungen für Unternehmen» über der Themenliste: bleibt vorerst; ROWAPA blendet ihn bei Bedarf selbst aus (Entscheid 279, Benutzerhandbuch 2.41).
 23. ~~Header-Satz (Rev. 25): Megamenü und SEO-Beschreibung angleichen~~: angeglichen (Rev. 26).
+24. Ziel des Handy-Buttons «Erstgespräch» (Rev. 27): E-Mail an boek@rowapa.ch oder ein Buchungstool? [ROWAPA bestätigen]

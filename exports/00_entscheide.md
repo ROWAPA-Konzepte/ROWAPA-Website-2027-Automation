@@ -602,6 +602,26 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 | 301 | «Prüfe, was noch zu löschen ist, und mach es wo möglich selber» | umgesetzt | ROWAPA hat die 13 Hüllen gelöscht; es bleiben «Home» und «Styleguide (intern)». Gelöscht: alte Komponente «Navbar» (im Styleguide durch «Navbar · Bühne» ersetzt) und ihre letzte Klasse, das alte Skript «ROWAPAHoverVideo» (Registrierung), 7 überholte Bilder (fünf alte Themenfiguren ohne Plum, zwei Vorgänger-Grafiken, das Footer-Ersatzbild). Behalten: Logos, Favicon, Webclip und Signets (Marke), Inhaltsfotos und Blogbilder (für Unterseiten und CMS in Stufe 3), die Symbole der fünf digitalen Werkzeuge, das Porträt aus dem Entwurf «Persönliches Wort». Ältere Fassungen von ROWAPAGrafik bleiben registriert (sie lassen sich nur alle zusammen löschen). Live geprüft: Startseite unverändert, keine Fehler |
 | 302 | Handy-Wahl auf der Entscheidungsseite | eingegangen | Vorschlag: Navigation (Button «Erstgespräch»), Was uns antreibt, Im Blickpunkt, Insights, Kontakt. So lassen: Header, Erfolge, Team, Persönlich weiterkommen, Gut zu wissen. Mit Bemerkung: Lösungen (A, mit Scroll-Effekt wie auf dem Desktop, ganzer Bildschirm?), Vorgehen (Karten weiss auf weiss und Wischen schwer erkennbar), ROWAPA Digital (Texte in den Kacheln zeigen, alle Grössen prüfen), Footer (wie heute, Newsletter-Feld und Senden-Pfeil auf einer Linie). Rückmeldung und Bau folgen (offener Punkt 41) |
 
+## 51. Feedback-Runde 47 (28.10.2026): Handy-Fassung gebaut
+
+«Passt alles so wie von dir vorgeschlagen.» Gebaut wurde nur für das Handy (bis 767 px). Ausnahmen: der Footer (alle Grössen) und die Texte in den Digital-Kacheln (alle Grössen). Vorher/nachher als Bilder: `stufe2-screens/runde47/`.
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 303 | Navigation | Button «Erstgespräch» neben dem Menü | Neuer Link in «Navbar · Bühne» (`button is-small is-handy-cta`), nur auf dem Handy sichtbar, 44 px hoch, öffnet eine E-Mail an boek@rowapa.ch wie der Kontakt-Button. Ziel [ROWAPA bestätigen]: E-Mail oder später ein Buchungstool |
+| 304 | Was uns antreibt | Kennzahlen als Zeilen, Gründe als schlanke Liste | Kennzahl links, Text rechts, Linien dazwischen; die vier Gründe als nummerierte Zeilen. Abschnitt rund 440 px kürzer |
+| 305 | Lösungen für Unternehmen | Variante A, ganzer Bildschirm, Aufdecken von unten | Jedes Thema füllt den Bildschirm unter Navigation und Leiste und bleibt stehen, bis das nächste es von unten zudeckt (ohne Einrasten). Titel 40 px, Figur rund 150 px. Grafik 1.17.0 passt die Haltehöhe bei hohen Themen an |
+| 306 | Unser Vorgehen | Karten besser erkennbar, Wischen sichtbar | Karten hellgrau (Pastel Snowbank) mit feinem Rand; die nächste Karte ist rechts angeschnitten; darunter zeigt eine Plum-Linie, wo man in der Reihe steht (Modul «reihe») |
+| 307 | ROWAPA Digital | Texte in den Kacheln zeigen | Beschreibung jetzt in allen Grössen sichtbar (`is-immer`); geprüft bei 390, 768, 1024, 1280, 1440 und 1920 px |
+| 308 | Im Blickpunkt | kürzen | Auf dem Handy ausgeblendet: «16 Präsenztage», «15 ECTS-Punkte» und der zweite Satz; die Zoom-Infosession ist dort ein Textlink. Am Desktop unverändert |
+| 309 | Neueste Insights | kompakter | Bild 140 px, ohne Auszug, Pfeile 44 px. Dafür gibt es die eigene Komponente «Card Insight» (Kopie von «Card Teaser»), weil sich Varianten-Stile über die Schnittstelle nicht ändern lassen. Die sechs Karten sind übertragen, Inhalte unverändert |
+| 310 | Kontakt | Zeilen statt Fliesstext | Mobil, Büro und E-Mail als Zeilen von 48 px mit Linien; Porträt 96 px |
+| 311 | Footer | Feld und Senden-Pfeil auf einer Linie | In allen Grössen: Feld und quadratischer Pfeil-Button (48 px, Screenreader-Text «Abonnieren»). Auch unter 480 px auf einer Linie (vorher untereinander und das Feld zu flach) |
+| 312 | Unveränderte Abschnitte | Header, Erfolge, Team, Wege, Gut zu wissen | Nur unsichtbare Tippflächen: Reihen-Pfeile auf dem Handy 44 statt 40 px |
+| 313 | Grafik-Skript | Vergleichsschalter entfernen (Entscheid 299) | 1.17.0: Umschalter «varianten» entfernt, Themen auf dem Handy stehend und zudeckend. Die übrigen Schalter (`?plumform`, `?uebergang`, `?einrasten`, `?anordnung`) folgen in einer eigenen, getesteten Fassung |
+
+Geprüft live auf der Subdomain bei 360, 375, 390, 768, 1024, 1280, 1440 und 1920 px: keine Skriptfehler, kein seitliches Scrollen. Der Desktop ist ausser Footer und Digital-Texten unverändert. Die Seite ist auf dem Handy rund 14 100 px hoch (vorher 14 195 px).
+
 ---
 
 ## Offene Punkte
@@ -646,7 +666,7 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 38. ~~Plum-Form~~: weggelassen (Entscheid 262).
 39. ~~Handy und kleine Formate: Vorgehen festlegen~~: entschieden (Entscheid 268), Tabelle für die Startseite erstellt (Entscheid 269).
 40. ~~Vier Seiten «ZU LÖSCHEN · …» löschen~~: von ROWAPA gelöscht, Klassen entfernt (Entscheid 270).
-41. **Handy-Fassung der Startseite:** Entscheid je Abschnitt auf der Entscheidungsseite https://claude.ai/artifact/94Kw6Fk1UmcaodtJvJ3xTC (Entscheid 300), danach Bau nur im Breakpoint Handy.
+41. ~~Handy-Fassung der Startseite~~: gebaut (Entscheide 303–313). Rückmeldung zum Ergebnis ausstehend.
 42. Kennzahlen in «Was uns antreibt» und Zahlenkachel im Team (Texttabelle Rev. 22, Fragen 20 und 21). [ROWAPA bestätigen]
 43. ~~Netz im Punktemeer~~: «an», auf allen Seiten, Footer ohne (Entscheid 277).
 44. ~~Reihenfolge~~: als Variante «Home v3 · Variante Lösungen oben» neben v3 (Entscheid 278).
@@ -656,4 +676,6 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 48. ~~Startseite als Home festlegen~~: erledigt (Entscheid 297). Offen nur das Löschen der Hüllen (Punkt 1).
 49. ~~Megamenü «Was wir tun»~~: angeglichen (Entscheid 295).
 50. ~~SEO-Beschreibung der Startseite~~: angeglichen (Entscheid 296).
-51. Skript-Version ohne Vergleichsschalter (Entscheid 299), am besten zusammen mit dem Handy-Bau.
+51. Skript-Version ohne Vergleichsschalter: «varianten» entfernt (1.17.0); `?plumform`, `?uebergang`, `?einrasten`, `?anordnung` folgen in einer eigenen Fassung.
+52. Platzhalter «Ihre E-Mail-Adresse» im Newsletter-Feld setzen (von Hand: Footer › Feld › Einstellungen › Placeholder; die Schnittstelle kann ihn nicht setzen). Benutzerhandbuch 2.43.
+53. Ziel des Buttons «Erstgespräch» auf dem Handy: E-Mail an boek@rowapa.ch oder später ein Buchungstool. [ROWAPA bestätigen]

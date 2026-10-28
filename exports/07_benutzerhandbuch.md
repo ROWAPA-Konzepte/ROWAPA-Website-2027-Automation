@@ -338,6 +338,18 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Teilen auf LinkedIn und Co. (Open Graph):** In denselben Einstellungen ist «Same as SEO» für Titel und Beschreibung eingeschaltet. Ein eigenes Vorschaubild für das Teilen fehlt noch; bei Bedarf unter Open Graph Settings ein Bild (1200 × 630 px) hochladen.
 - **Satz im Megamenü «Was wir tun»:** Komponente «Navbar · Bühne» öffnen, im Menü «Was wir tun» den Satz (`navbar_intro-satz`) doppelklicken (2.36). Gilt auf allen Seiten mit diesem Menü.
 
+### 2.43 Handy-Fassung der Startseite (seit Runde 47)
+Alle Handy-Anpassungen liegen im Breakpoint «Mobile landscape» (bis 767 px) und gelten automatisch auch für «Mobile portrait». Im Designer oben auf das Handy-Symbol wechseln, um sie zu sehen oder zu ändern.
+- **Button «Erstgespräch» oben:** Komponente «Navbar · Bühne», Link mit `is-handy-cta` neben dem Menü-Button. Ziel ändern: Link anklicken › Einstellungen › E-Mail oder URL. Am Desktop ist er ausgeblendet; dort gilt der Button «Kontakt».
+- **Was uns antreibt:** Kennzahlen und Gründe sind auf dem Handy Zeilen. Texte wie bisher direkt doppelklicken; die Zahlen zählen weiter hoch (Skript).
+- **Lösungen für Unternehmen:** Jedes Thema bleibt stehen, bis das nächste es von unten zudeckt. Ein weiteres Thema ist ein weiterer Block `themen_panel` in der Liste; die Höhe stellt sich selbst ein.
+- **Unser Vorgehen:** Die Linie unter den Karten (`reihe_fortschritt is-vorgehen`) zeigt beim Wischen die Position. Sie erscheint nur auf dem Handy und braucht kein Pflegen. Das Attribut `data-grafik="reihe"` an `steps_list` nicht entfernen.
+- **Im Blickpunkt:** Auf dem Handy ausgeblendet sind zwei Chips (Klasse `is-ohne-handy`) und der zweite Satz (Textteil mit Klasse `text-ohne-handy`). Den Satz ändern: im Absatz doppelklicken; er bleibt am Desktop sichtbar. Soll ein weiterer Chip auf dem Handy fehlen, ihm ebenfalls `is-ohne-handy` geben.
+- **Neueste Insights:** Die Karten sind die Komponente «Card Insight» (Variante «Insights Reihe»). Neue Karte: eine bestehende Karte samt `reihe_item` duplizieren und die Felder rechts ausfüllen. Auf dem Handy zeigt sie ein niedrigeres Bild und keinen Auszug. «Card Teaser» bleibt für «Persönlich weiterkommen».
+- **ROWAPA Digital:** Die Beschreibung jeder Kachel ist in allen Grössen sichtbar (`is-immer`). Kurz halten, rund 12 Wörter, sonst wird die Kachel auf 1024 px hoch.
+- **Kontakt:** Mobil, Büro und E-Mail stehen auf dem Handy als Zeilen; Inhalte wie bisher bearbeiten.
+- **Newsletter im Footer:** Feld und quadratischer Pfeil auf einer Linie, in allen Grössen. Der Button-Text ist «→»; für Screenreader heisst er «Abonnieren» (Attribut `aria-label`). **Platzhalter von Hand setzen:** Footer öffnen, das Feld anklicken › Einstellungen (Zahnrad) › Placeholder «Ihre E-Mail-Adresse». Die Schnittstelle kann ihn nicht setzen.
+
 ## 3. Regeln für Inhalte (Kurzfassung)
 
 Ausführlich in `exports/04_redaktionsleitfaden.md`.
