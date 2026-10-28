@@ -654,6 +654,17 @@ Live geprüft bei 360 bis 1920 px: keine Skriptfehler, kein seitliches Scrollen.
 
 Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp-Einträge, FAQ zuweisen (`faq_map`), Import aus rowapa.ch (Blog, Team, Downloads), CSV-Export am Stufenende.
 
+## 54. Stufe 3 (28.10.2026): Plan Premium, Sprache Deutsch (Schweiz), Einträge vollständig, Muster Themenlinien
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 332 | Hauptsprache | «German (Switzerland)», `de-CH`, ohne Unterverzeichnis (ROWAPA, 28.10.2026) | geprüft: interne Sprach-ID unverändert, alle Einträge bleiben zugeordnet |
+| 333 | Site-Plan | **Premium** (ROWAPA, 28.10.2026): 20 000 CMS-Einträge, 40 Collections, Planung und Einzel-Veröffentlichung von Einträgen | Plan-Limit aufgehoben (offener Punkt 55 erledigt) |
+| 334 | Mehrsprachigkeit | in Premium nicht enthalten; Zusatz erst, wenn ROWAPA übersetzen will | offener Punkt 59 |
+| 335 | Seiten-Einträge | alle 37 angelegt: 5 Themenlinien, 9 Hebel, 5 Lösungswelten, 3 Kategorie-Hubs, 9 Angebote, 3 Selbstchecks, 3 Partnerrollen | Entwurf |
+| 336 | FAQ | 74 Fragen aus v11 importiert (zusammen mit der Startseite 80), Gruppe je Bereich | zwei Reste bereinigt («hier buchen .», Stern als [ROWAPA bestätigen]) |
+| 337 | Muster Themenlinien | 5 Einträge mit allen Texten aus v11, angepasst an Begriffsregel und neue Titel; Hebel mit Themenlinie, Kennung und Reihenfolge verknüpft | Texttabelle `09_cms_texttabelle_themenlinien.md`; Rückmeldung ROWAPA, dann gleiches Vorgehen für die übrigen 32 Einträge |
+
 ---
 
 ## Offene Punkte
@@ -712,7 +723,9 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 52. Platzhalter «Ihre E-Mail-Adresse» im Newsletter-Feld setzen (von Hand: Footer › Feld › Einstellungen › Placeholder; die Schnittstelle kann ihn nicht setzen). Benutzerhandbuch 2.43.
 53. ~~Ziel des Buttons «Erstgespräch»~~: vorerst E-Mail, später Buchungstool (Entscheid 318).
 54. Newsletter-Anmeldungen: Heute landen sie in Webflow (Site settings › Forms, Benachrichtigung per E-Mail an die eingetragene Adresse). Soll später ein Newsletter-Dienst angebunden werden (z. B. Mailchimp, Brevo)? [ROWAPA bestätigen]
-55. **Site-Plan mit CMS kaufen** (empfohlen Business, E2). Ohne Upgrade lassen sich keine weiteren CMS-Einträge anlegen (Entscheid 329). Von ROWAPA: Site settings › Plans.
-56. Hauptsprache der Site steht auf «English» (`en`). Auf Deutsch umstellen: Site settings › Localization › Primary locale (von Hand, vor dem Import der Texte). [ROWAPA bestätigen]
+55. ~~Site-Plan mit CMS kaufen~~: Premium aktiv (Entscheid 333). Ohne Upgrade lassen sich keine weiteren CMS-Einträge anlegen (Entscheid 329). Von ROWAPA: Site settings › Plans.
+56. ~~Hauptsprache~~: Deutsch (Schweiz), `de-CH` (Entscheid 332). Früher: «English» (`en`). Auf Deutsch umstellen: Site settings › Localization › Primary locale (von Hand, vor dem Import der Texte). [ROWAPA bestätigen]
 57. Team: Namen zu den Sofa-Fotos, die übrigen Fotos, der persönliche Gegenstand je Person und die Videos (als Dateien mit Namen).
 58. Zustimmung der 8 Personen in «Stimmen» bestätigen (Schalter «Freigegeben») und Beziehung HWZ / ETH juniors beschreiben (Kurzbeschreibung). [ROWAPA bestätigen]
+59. Mehrsprachigkeit (DE/EN/FR/IT in der Navigation): zum Start nötig? Dann Zusatz «Localization» unter Plans › Add ons. [ROWAPA bestätigen]
+60. Muster Themenlinien prüfen (Texttabelle `09_cms_texttabelle_themenlinien.md`): 8 Hebel ohne Detailseite ergänzen, Leitfrage-Feld, Farbwelt je Themenlinie, Typeform, Wiederholung «Wissensplattform». [ROWAPA bestätigen]
