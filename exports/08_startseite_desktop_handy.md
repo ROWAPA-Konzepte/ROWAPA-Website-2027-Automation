@@ -1,5 +1,7 @@
 # ROWAPA Website 2027 · Startseite `/home-v3`: Desktop → Handy
 
+**Neu seit Runde 45:** Alle Vorschläge als Vorher-nachher-Bilder mit Auswahl auf https://claude.ai/artifact/94Kw6Fk1UmcaodtJvJ3xTC (gemessene Längen statt Schätzungen). Die Startseite ist jetzt `/`.
+
 **Stand:** 27.10.2026 · Runde 38 · **Vorschlag, nichts gebaut** (ausser der Korrektur in Kap. 5) · Entscheid je Section durch ROWAPA
 **Grundlagen:** Entscheid 268 (Vorgehen Handy), Benutzerhandbuch 2.32 (Darstellung je Format), Redaktionsleitfaden (`04_redaktionsleitfaden.md`)
 

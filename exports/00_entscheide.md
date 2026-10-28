@@ -586,11 +586,20 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 | 295 | Megamenü «Was wir tun»: Satz angleichen | umgesetzt | Neu: «Mit menschlicher Expertise, künstlicher Intelligenz und eigenen digitalen Lösungen machen wir aus Potenzial messbare Leistung.» Bisher: «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» Gleiche Botschaft wie der Header, aber nicht wörtlich, damit beim geöffneten Menü nicht zweimal derselbe Satz steht. In der Komponente «Navbar · Bühne», gilt auf allen Seiten mit diesem Menü. Live geprüft bei 1440, 1280 und 1024 px: fünf bis sieben Zeilen, das Menü bleibt gleich hoch. Offener Punkt 49 erledigt |
 | 296 | Google-Beschreibung angleichen | umgesetzt | Beschreibung der Startseite (152 Zeichen): «Expertise, künstliche Intelligenz und eigene digitale Lösungen für Banken, Versicherungen und Krankenkassen. Damit aus Potenzial messbare Leistung wird.» SEO-Titel unverändert. Zusätzlich übernehmen Titel und Beschreibung für LinkedIn und andere Netzwerke (Open Graph) jetzt die SEO-Angaben. Live geprüft. Offener Punkt 50 erledigt |
 
+## 49. Feedback-Runde 45 (28.10.2026): Startseite ist Home, Aufräumen, Handy-Fassung als Bilder
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 297 | Startseite als Home | erledigt (ROWAPA, von Hand) | «Startseite (definitiv)» ist die Home-Seite und heisst in Webflow jetzt «Home». Live unter `/` geprüft (Texte, SEO-Beschreibung). Die frühere leere Seite heisst «ZU LÖSCHEN · Old Home» |
+| 298 | «Alles löschen, was nicht mehr gebraucht wird» | umgesetzt, soweit die Schnittstelle es erlaubt | 13 überholte Seiten (v2, v3, Kombi G/G2/H, Layout D/E/F, Look A/B/C, Varianten, Old Home) geleert, auf Entwurf gesetzt und «ZU LÖSCHEN · …» benannt; live sind sie weg (404). Die leeren Hüllen löscht ROWAPA von Hand (Pages › Zahnrad › Delete), Seiten löschen kann die Schnittstelle nicht. 128 ungenutzte Klassen entfernt (alle `var_*`, alte Section-Farbkombinationen, `statement_*`, `warum_block`/`warum_liste`, `stats_grid`, `ribbon_band`, `mobile-menu_*`, `is-diagonal` der Themen u. a.). Bewusst behalten als Reserve des Design-Systems: Client-First-Hilfsklassen (`hide-*`, `show-*`, `margin-bottom` …), `badge`, `button.is-icon-link`, `card.is-dark`, `ribbon.is-bottom-left`. Interaktionen: «Logo-Laufband» (alt), «CAS Farbfläche einblenden» und «Hero-Titelzeilen» (Wechsel) gelöscht; «Logo-Laufband ruhig» heisst jetzt «Logo-Laufband». Komponenten: alle zehn noch verwendet. Live geprüft: Startseite unverändert, keine Fehler |
+| 299 | Noch offen beim Aufräumen | Hinweis | (a) leerer Variablen-Modus «Luft (v3)» und der Modus «Manganese» der Sammlung «Textlinks»: von Hand (die Schnittstelle kann keine Modi löschen). (b) Skript: Die Vergleichsschalter (`?anordnung`, `?uebergang`, `?einrasten=rad`, Plum-Form, Variantenumschalter) sind ohne Wirkung, stecken aber noch im Code. Entfernen als eigene, geprüfte Skript-Version, weil sie mit der Themen-Szene verflochten sind. Bis dahin `data-plumform="aus"` an `section_themen` nicht entfernen |
+| 300 | Handy: «anhand von Visualisierungen vorher, nachher entscheiden» | umgesetzt | Entscheidungsseite (privat): https://claude.ai/artifact/94Kw6Fk1UmcaodtJvJ3xTC. Je Abschnitt der echte Stand auf dem iPhone (390 px) und daneben der Vorschlag als Simulation auf der Live-Seite, mit Desktop zum Vergleich, gemessener Länge und Auswahl. Die Wahl wird gespeichert und von Claude ausgelesen. Gemessen: heute 14 195 px (16,8 Bildschirme), alle Empfehlungen 12 926 px (15,3), mit Themen B und Footer B 12 086 px (14,3). Bilder `stufe2-screens/runde45/` |
+
 ---
 
 ## Offene Punkte
 
-1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
+1. **Freigabe Stufe 2** (Startseite `/`). Die Entwurfsseiten sind geleert und offline (Entscheid 298); ROWAPA löscht die 13 Hüllen «ZU LÖSCHEN · …» von Hand.
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).
 4. Auszüge der drei neuen Insights-Karten bestätigen (aus dem Titel abgeleitet, die Originalbeiträge waren aus der Cloud-Umgebung nicht erreichbar). In Stufe 3 kommen die Auszüge aus dem CMS. [ROWAPA bestätigen]
@@ -630,13 +639,14 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 38. ~~Plum-Form~~: weggelassen (Entscheid 262).
 39. ~~Handy und kleine Formate: Vorgehen festlegen~~: entschieden (Entscheid 268), Tabelle für die Startseite erstellt (Entscheid 269).
 40. ~~Vier Seiten «ZU LÖSCHEN · …» löschen~~: von ROWAPA gelöscht, Klassen entfernt (Entscheid 270).
-41. **Handy-Tabelle der Startseite** (`08_startseite_desktop_handy.md`): Entscheid je Section, besonders «Lösungen für Unternehmen» (A, B oder C) und Footer (A oder B, gilt für alle Seiten). Dazu die Ideen 1 bis 3, z. B. Button «Erstgespräch» in der Navigationsleiste auf dem Handy.
+41. **Handy-Fassung der Startseite:** Entscheid je Abschnitt auf der Entscheidungsseite https://claude.ai/artifact/94Kw6Fk1UmcaodtJvJ3xTC (Entscheid 300), danach Bau nur im Breakpoint Handy.
 42. Kennzahlen in «Was uns antreibt» und Zahlenkachel im Team (Texttabelle Rev. 22, Fragen 20 und 21). [ROWAPA bestätigen]
 43. ~~Netz im Punktemeer~~: «an», auf allen Seiten, Footer ohne (Entscheid 277).
 44. ~~Reihenfolge~~: als Variante «Home v3 · Variante Lösungen oben» neben v3 (Entscheid 278).
 45. ~~Welche Startseite wird weitergeführt?~~: die Variante «Lösungen oben», jetzt «Startseite (definitiv)» (Entscheid 289). v3 (`/home-v3`) und v2 (`/home-v2`) löscht ROWAPA von Hand (Pages › Seite › Zahnrad › Delete); danach entfernen wir die nur dort genutzten Klassen.
 46. ~~«Was uns antreibt» gespiegelt~~: bleibt so (Entscheid 286).
 47. Option: Figur der Themen auch ab 1920 px nach der neuen Formel, falls der leichte Kontakt bei 1920 × 950 stört (Entscheid 288).
-48. **Startseite als Home festlegen** (Entscheid 294, ROWAPA): Pages › «Startseite (definitiv)» › Zahnrad › «Set as home page», dann veröffentlichen. Danach die leere Seite «Home» sowie v2 und v3 löschen (von Hand). Wir prüfen anschliessend `/` live und räumen die nur auf v2 und v3 genutzten Klassen auf.
+48. ~~Startseite als Home festlegen~~: erledigt (Entscheid 297). Offen nur das Löschen der Hüllen (Punkt 1).
 49. ~~Megamenü «Was wir tun»~~: angeglichen (Entscheid 295).
 50. ~~SEO-Beschreibung der Startseite~~: angeglichen (Entscheid 296).
+51. Skript-Version ohne Vergleichsschalter (Entscheid 299), am besten zusammen mit dem Handy-Bau.
