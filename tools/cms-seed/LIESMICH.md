@@ -6,3 +6,7 @@ Arbeitsdateien, mit denen die CMS-Collections angelegt wurden. Keine Zugangsdate
 - `v11.json`: aus `ROWAPA-Website-v11.html` gelesene FAQ (77) und Stimmen (23, grösstenteils Platzhalter).
 - `faq_items.json`: 74 bereinigte FAQ-Einträge für den Import (warten auf das Plan-Upgrade).
 - `faq_map.json`: welche Seite welche FAQ zeigt (für die Mehrfach-Referenzen).
+
+## wpconv.py
+
+Wandelt die WordPress-Beiträge (`https://www.rowapa.ch/wp-json/wp/v2/posts?per_page=100&_embed=1`, als JSON gespeichert) in Webflow-Einträge für die Collection «Blog» um: Kategorie, Teaser, Lesezeit, Titelbild, Lösungs-CTA, alte URL, SEO. Ergebnis wurde in vier Läufen als Entwurf angelegt (Entscheid 345).

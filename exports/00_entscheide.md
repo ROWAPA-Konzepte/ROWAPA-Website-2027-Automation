@@ -670,7 +670,12 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 | 341 | Import aus dem Webflow-Projekt «rowapa.ch» | erledigt, alles als Entwurf | 9 Personen (Team und Trainer:innen zusammengeführt, Biografie aus «Antrieb», «Verkaufsprofil», «Laufbahn»), 4 Blogbeiträge von 2026 (mit «Das Wichtigste in Kürze» und «Häufige Fragen» im Text). Downloads: dort keine vorhanden |
 | 342 | Korrekturen beim Import | Tippfehler und Begriffe bereinigt | «Thomas Rothgoegel» → «Rothkoegel», vertauschte Slugs im Team (z. B. «peti-federer» bei Janos Niederhauser) neu nach Namen, Leerzeichen-Fehler, «Organisation» → «Unternehmen», alte Themen-Namen → neue Titel, Anführungszeichen «» |
 | 343 | Gramos Kerqeli, Janos Niederhauser | ohne Profiltext im früheren Projekt | Schalter «Platzhalter» an, Kurzprofil [ROWAPA bestätigen] |
-| 344 | WordPress rowapa.ch (rund 58 Blogbeiträge) | aus der Cloud-Umgebung gesperrt (Netzwerk-Regel) | wartet auf Freigabe der Adresse `rowapa.ch` und `www.rowapa.ch` in den Umgebungs-Einstellungen (offener Punkt 62) |
+| 344 | WordPress rowapa.ch (rund 58 Blogbeiträge) | aus der Cloud-Umgebung gesperrt (Netzwerk-Regel) | nach Freigabe von `www.rowapa.ch` durch ROWAPA erledigt (siehe 345) |
+| 345 | WordPress-Import Blog | alle 58 Beiträge als Entwurf (4 Läufe parallel, je 14–15) | Blog total 62 Entwürfe (58 WordPress + 4 früheres Webflow-Projekt), keine Duplikate; Bilder auf den Webflow-CDN übernommen; Kategorie, Teaser, Lesezeit, alte URL, SEO und Lösungs-CTA übernommen; Mängel aus der Quelle unverändert, Liste in `10_cms_blogimport.md` |
+| 346 | Vorlage «Themenlinie» | im Designer gebaut: Navbar · Bühne, Hero, Hebel-Karten, Diagnostik & Tools mit Werkzeugen, Vorteil, Abschluss-CTA, Footer | alle Texte, Bild und CTA-Buttons an CMS-Felder gebunden; neue Klassen `section_thema-hebel`, `-tools`, `-vorteil`, `-cta`, `thema_hebel-liste`, `thema_werkzeuge`, `thema_vorteil`, `thema_cta`, `text-rich-text` (Raster 8 px, Tablet und Handy einspaltig) |
+| 347 | Filter «Hebel dieser Themenlinie», Werkzeuge der Themenlinie, Sortierung | Schnittstelle kann einen Filter «= aktuelle Themenlinie» und eine Liste aus einem Mehrfach-Bezug nicht setzen (von Webflow bestätigt); Sortierung schlug mit Serverfehler fehl | im Designer von Hand, zusammen rund 2 Minuten (Benutzerhandbuch 2.46); bis dahin zeigen die Listen alle 9 Hebel bzw. alle Werkzeuge |
+| 348 | CTA-Links der Themenlinien | Button 1 «Erstgespräch vereinbaren» → `/kontakt`, Button 2 «Alle/Weitere Themenlinien» → `/` (bis Übersichtsseite steht); «Digitale Lösungen»: Button 2 → `/kontakt`, Showroom-Link fehlt | [ROWAPA bestätigen] |
+| 349 | Veröffentlichen der Vorlage | nicht veröffentlicht: Einträge sind Entwurf (Entscheid 338); Ansicht im Designer über die Vorlage und Auswahl des Eintrags oben | Testadresse folgt, wenn ROWAPA den Eintrag «Vertriebsperformance» freigibt |
 
 ---
 
@@ -737,5 +742,8 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 59. Mehrsprachigkeit (DE/EN/FR/IT in der Navigation): zum Start nötig? Dann Zusatz «Localization» unter Plans › Add ons. [ROWAPA bestätigen]
 60. Muster Themenlinien prüfen (Texttabelle `09_cms_texttabelle_themenlinien.md`): 8 Hebel ohne Detailseite ergänzen, Leitfrage-Feld, Farbwelt je Themenlinie, Typeform, Wiederholung «Wissensplattform». [ROWAPA bestätigen]
 61. ~~Quelle für Blog, Downloads und Team~~: beide (Entscheid 341); WordPress folgt mit Punkt 62.
-62. Netzwerk der Cloud-Umgebung: `rowapa.ch` und `www.rowapa.ch` unter «Allowed domains» freigeben (Umgebung › Edit › Network access), damit die WordPress-Beiträge gelesen werden können.
+62. ~~Netzwerk der Cloud-Umgebung~~ (erledigt, Entscheid 345): `rowapa.ch` und `www.rowapa.ch` unter «Allowed domains» freigeben (Umgebung › Edit › Network access), damit die WordPress-Beiträge gelesen werden können.
 63. Team: welche der 9 Personen bleiben, Profiltexte Gramos Kerqeli und Janos Niederhauser, Autor:in je Blogbeitrag. [ROWAPA bestätigen]
+64. Blog-Import aufräumen: Umfragereste, kaputte Überschriften, abgeschnittene SEO-Titel, CTA-Links auf `rowapa.ch/dev/…`, Du-Anrede in Firmen-Themen (Liste `10_cms_blogimport.md`). Welche Beiträge bleiben? [ROWAPA entscheiden]
+65. Vorlage Themenlinie: Filter, Werkzeug-Liste und Sortierung von Hand setzen (Handbuch 2.46) oder mich im Designer machen lassen, sobald die Schnittstelle es kann.
+66. Freigabe Eintrag «Vertriebsperformance» als Vorschau auf der Testadresse (Entscheid 349).

@@ -378,7 +378,22 @@ Die Schnittstelle kann Modi nicht löschen. So geht es im Designer:
 
 **Team:** In «Personen» unter «Bilder & Video» Porträt, Sofa-Bild, persönlichen Gegenstand und Video eintragen. Unter «Rollen» per Schalter festlegen, wo die Person erscheint (Geschäftsleitung, Team, Dozent:in, Autor:in …).
 
+**Blog:** Importierte Beiträge sind Entwürfe. Vor dem Veröffentlichen die Prüfliste `10_cms_blogimport.md` beachten (Umfragereste, SEO-Titel, CTA-Links).
+
 **Grenze des Plans:** Meldet Webflow beim Anlegen «You've created all the items … allowed on your current plan», ist das Kontingent des Site-Plans voll. Dann hilft nur ein grösserer Plan (Site settings › Plans).
+
+### 2.46 Vorlage «Themenlinie» (CMS-Seite)
+
+**Wo:** Pages › CMS Collection Pages › «Themenlinien Template». Oben in der Leiste den Eintrag wählen (z. B. «Vertriebsperformance»), dann zeigt die Vorlage dessen Inhalte. Texte ändern Sie im CMS, nicht in der Vorlage: Die Felder sind verknüpft (lila Rahmen im Designer).
+
+**Aufbau:** Hero (Kicker, Hero-Titel, Hero-Lead, Hero-Bild) · Hebel (Abschnittstitel, Intro, Karten aus der Collection «Hebel») · Diagnostik & Tools (Titel, Text, Werkzeuge) · Vorteil (Titel, Text) · Abschluss (CTA-Titel, CTA-Text, zwei Buttons mit Text und Link).
+
+**Einmalig von Hand einstellen** (die Schnittstelle kann das nicht, rund 2 Minuten):
+1. Hebel-Liste anklicken (Navigator: Section Hebel › Collection List Wrapper) › Zahnrad › **Filter** › «Add filter» › Feld «Themenlinie» › «Current Themenlinie». **Sort Order** › «Reihenfolge» › «Ascending».
+2. Werkzeug-Liste anklicken (Section Diagnostik & Tools › Collection List Wrapper) › Zahnrad › **Source** von «Werkzeuge» auf «Werkzeuge (Themenlinien)» umstellen, das ist der Bezug des aktuellen Eintrags. Danach Sortierung «Reihenfolge» › «Ascending».
+3. Optional: Sections ohne Inhalt ausblenden. Section anklicken › Zahnrad › **Conditional Visibility** › z. B. «Diagnostik und Tools Titel is set».
+
+**Neue Themenlinie:** CMS › Themenlinien › «New Themenlinie», Felder in den Gruppen ausfüllen, Hebel in der Collection «Hebel» mit der Themenlinie verknüpfen und «Reihenfolge» in Zehnerschritten setzen.
 
 ## 3. Regeln für Inhalte (Kurzfassung)
 
