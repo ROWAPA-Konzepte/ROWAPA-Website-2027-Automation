@@ -76,6 +76,10 @@ Prüfwerkzeuge: `pruefung/messen.js` (Ladezeit, Datenmenge), `pruefung/rechenlas
 - Die einzige Einblendung der Startseite ist die Farbfläche im Blickpunkt (CAS); sie ist eine native Webflow-Interaction, nicht Teil dieses Skripts. Ebenso nativ: Titel-Strich und Team-Kacheln nacheinander.
 - Start erst nach dem Laden der Seite; jede Grafik rechnet nur, solange sie sichtbar ist.
 
+## 1.18.0 (28.10.2026)
+
+- Treppe «Unser Vorgehen»: Wischt man auf dem Handy durch die Phasen-Karten, wird die vorne stehende Karte aktiv (Plum-Nummer und Stufe laufen mit). Am Desktop unverändert.
+
 ## 1.17.0 (28.10.2026)
 
 - Themen auf dem Handy: Jeder Block steht (CSS `position: sticky` in Webflow) und wird vom nächsten von unten zugedeckt; das Skript setzt je Block die stehende Lage so, dass auch ein Block, der höher ist als der freie Platz, zuerst ganz sichtbar wird. Kein Einrasten.

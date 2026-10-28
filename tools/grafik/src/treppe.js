@@ -68,6 +68,26 @@ export function treppe(box) {
     s.addEventListener('focus', () => waehle(false));
     s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); waehle(true); } });
   });
+  /* Handy: Wischt man durch die Phasen-Karten, wird die vorne stehende Karte aktiv (Plum-Nummer läuft mit, seit 1.18.0) */
+  const liste = schritte[0] && schritte[0].matches('.step_item') ? schritte[0].parentElement : null;
+  if (liste) {
+    let geplant = false;
+    liste.addEventListener('scroll', () => {
+      if (geplant) return;
+      geplant = true;
+      requestAnimationFrame(() => {
+        geplant = false;
+        const max = liste.scrollWidth - liste.clientWidth;
+        if (max < 2) return;
+        const x = liste.scrollLeft, x0 = schritte[0].offsetLeft;
+        let k = 0, d = Infinity;
+        schritte.slice(0, N).forEach((s, i) => { const a = Math.abs(s.offsetLeft - x0 - x); if (a < d) { d = a; k = i; } });
+        if (x >= max - 2) k = Math.min(N, schritte.length) - 1;
+        manuell = true;
+        setAktiv(k, false);
+      });
+    }, { passive: true });
+  }
   box.addEventListener('click', e => {
     if (!cv) return;
     const x = (e.clientX - cv.getBoundingClientRect().left) / W;
