@@ -664,6 +664,9 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 | 335 | Seiten-Einträge | alle 37 angelegt: 5 Themenlinien, 9 Hebel, 5 Lösungswelten, 3 Kategorie-Hubs, 9 Angebote, 3 Selbstchecks, 3 Partnerrollen | Entwurf |
 | 336 | FAQ | 74 Fragen aus v11 importiert (zusammen mit der Startseite 80), Gruppe je Bereich | zwei Reste bereinigt («hier buchen .», Stern als [ROWAPA bestätigen]) |
 | 337 | Muster Themenlinien | 5 Einträge mit allen Texten aus v11, angepasst an Begriffsregel und neue Titel; Hebel mit Themenlinie, Kennung und Reihenfolge verknüpft | Texttabelle `09_cms_texttabelle_themenlinien.md`; Rückmeldung ROWAPA, dann gleiches Vorgehen für die übrigen 32 Einträge |
+| 338 | Inhalte und Import | v11 gilt als Inhaltsvorlage; Import nur als Entwurf, Auswahl durch ROWAPA; die heutige Website rowapa.ch bleibt unberührt (ROWAPA, 28.10.2026) | Team wird neu gestaltet (Sofa-Fotos), nicht 1:1 übernommen |
+| 339 | Quelle des Imports | Die Live-Website rowapa.ch läuft auf **WordPress**, nicht in Webflow. Das Webflow-Projekt «rowapa.ch» (`69ba4dbcfcdc9b5d6232455f`, ohne eigene Domain, angelegt 18.03.2026) ist ein früherer Aufbau | offener Punkt 61 |
+| 340 | Vorlage «Themenlinie» | als Muster vorziehen (Vorgriff Stufe 4), Vertriebsperformance auf der Testadresse zeigen | wartet auf den Designer mit MCP-App |
 
 ---
 
@@ -729,3 +732,4 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 58. Zustimmung der 8 Personen in «Stimmen» bestätigen (Schalter «Freigegeben») und Beziehung HWZ / ETH juniors beschreiben (Kurzbeschreibung). [ROWAPA bestätigen]
 59. Mehrsprachigkeit (DE/EN/FR/IT in der Navigation): zum Start nötig? Dann Zusatz «Localization» unter Plans › Add ons. [ROWAPA bestätigen]
 60. Muster Themenlinien prüfen (Texttabelle `09_cms_texttabelle_themenlinien.md`): 8 Hebel ohne Detailseite ergänzen, Leitfrage-Feld, Farbwelt je Themenlinie, Typeform, Wiederholung «Wissensplattform». [ROWAPA bestätigen]
+61. Quelle für Blog, Downloads und Team: die WordPress-Website rowapa.ch (live) oder das Webflow-Projekt «rowapa.ch» (früherer Aufbau)? [ROWAPA bestätigen]
