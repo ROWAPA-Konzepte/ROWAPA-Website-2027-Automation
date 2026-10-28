@@ -595,11 +595,18 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 | 299 | Noch offen beim Aufräumen | Hinweis | (a) leerer Variablen-Modus «Luft (v3)» und der Modus «Manganese» der Sammlung «Textlinks»: von Hand (die Schnittstelle kann keine Modi löschen). (b) Skript: Die Vergleichsschalter (`?anordnung`, `?uebergang`, `?einrasten=rad`, Plum-Form, Variantenumschalter) sind ohne Wirkung, stecken aber noch im Code. Entfernen als eigene, geprüfte Skript-Version, weil sie mit der Themen-Szene verflochten sind. Bis dahin `data-plumform="aus"` an `section_themen` nicht entfernen |
 | 300 | Handy: «anhand von Visualisierungen vorher, nachher entscheiden» | umgesetzt | Entscheidungsseite (privat): https://claude.ai/artifact/94Kw6Fk1UmcaodtJvJ3xTC. Je Abschnitt der echte Stand auf dem iPhone (390 px) und daneben der Vorschlag als Simulation auf der Live-Seite, mit Desktop zum Vergleich, gemessener Länge und Auswahl. Die Wahl wird gespeichert und von Claude ausgelesen. Gemessen: heute 14 195 px (16,8 Bildschirme), alle Empfehlungen 12 926 px (15,3), mit Themen B und Footer B 12 086 px (14,3). Bilder `stufe2-screens/runde45/` |
 
+## 50. Feedback-Runde 46 (28.10.2026): Restliches Aufräumen, Handy-Wahl eingegangen
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 301 | «Prüfe, was noch zu löschen ist, und mach es wo möglich selber» | umgesetzt | ROWAPA hat die 13 Hüllen gelöscht; es bleiben «Home» und «Styleguide (intern)». Gelöscht: alte Komponente «Navbar» (im Styleguide durch «Navbar · Bühne» ersetzt) und ihre letzte Klasse, das alte Skript «ROWAPAHoverVideo» (Registrierung), 7 überholte Bilder (fünf alte Themenfiguren ohne Plum, zwei Vorgänger-Grafiken, das Footer-Ersatzbild). Behalten: Logos, Favicon, Webclip und Signets (Marke), Inhaltsfotos und Blogbilder (für Unterseiten und CMS in Stufe 3), die Symbole der fünf digitalen Werkzeuge, das Porträt aus dem Entwurf «Persönliches Wort». Ältere Fassungen von ROWAPAGrafik bleiben registriert (sie lassen sich nur alle zusammen löschen). Live geprüft: Startseite unverändert, keine Fehler |
+| 302 | Handy-Wahl auf der Entscheidungsseite | eingegangen | Vorschlag: Navigation (Button «Erstgespräch»), Was uns antreibt, Im Blickpunkt, Insights, Kontakt. So lassen: Header, Erfolge, Team, Persönlich weiterkommen, Gut zu wissen. Mit Bemerkung: Lösungen (A, mit Scroll-Effekt wie auf dem Desktop, ganzer Bildschirm?), Vorgehen (Karten weiss auf weiss und Wischen schwer erkennbar), ROWAPA Digital (Texte in den Kacheln zeigen, alle Grössen prüfen), Footer (wie heute, Newsletter-Feld und Senden-Pfeil auf einer Linie). Rückmeldung und Bau folgen (offener Punkt 41) |
+
 ---
 
 ## Offene Punkte
 
-1. **Freigabe Stufe 2** (Startseite `/`). Die Entwurfsseiten sind geleert und offline (Entscheid 298); ROWAPA löscht die 13 Hüllen «ZU LÖSCHEN · …» von Hand.
+1. **Freigabe Stufe 2** (Startseite `/`). Entwurfsseiten gelöscht (Entscheid 301).
 2. Video-Link `https://vimeo.com/738627796` in der Lightbox einsetzen (von Hand, 30 Sekunden; Benutzerhandbuch 2.15). Die Schnittstelle kann die Lightbox-Medien nicht setzen.
 3. Slider optional auf «Cross Fade» und automatischen Wechsel (8 s) stellen (von Hand; Benutzerhandbuch 2.14).
 4. Auszüge der drei neuen Insights-Karten bestätigen (aus dem Titel abgeleitet, die Originalbeiträge waren aus der Cloud-Umgebung nicht erreichbar). In Stufe 3 kommen die Auszüge aus dem CMS. [ROWAPA bestätigen]

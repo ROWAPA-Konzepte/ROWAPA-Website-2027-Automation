@@ -283,7 +283,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - Grund ändern: Text doppelklicken. Grund hinzufügen: eine Kachel duplizieren.
 
 ### 2.36 Megamenü «Bühne» (`/home-v3`, seit Runde 28)
-- **Komponente:** «Navbar · Bühne» (Components › 01 Global), eine Kopie der «Navbar». Sie steht nur auf `/home-v3`; die übrigen Seiten haben die bisherige «Navbar» (2.26). Änderungen an der einen gelten nicht für die andere. Auf eine weitere Seite: alte Navbar löschen, «Navbar · Bühne» zuoberst in `page-wrapper` ziehen.
+- **Komponente:** «Navbar · Bühne» (Components › 01 Global) ist seit Runde 46 die einzige Navigation (die alte «Navbar» ist gelöscht). Neue Seite: «Navbar · Bühne» zuoberst in `page-wrapper` ziehen.
 - **Aufbau jedes Menüs (gleich für alle fünf):** links die dunkle Einleitung `navbar_intro` (Kicker `text-style-kicker is-intro`, Satz `navbar_intro-satz`, Link `navbar_intro-link` «Zur Übersicht →»), in der Mitte die Linkspalten `navbar_dropdown-column is-buehne` (bei wenigen Links zweispaltig: `is-raster`), rechts die Vorschau `navbar_vorschau is-buehne`. Die Vorschau erscheint ab 1280 px; von 992 bis 1279 px ist sie ausgeblendet, damit die Links Platz haben.
 - **Satz oder Kicker ändern:** im Komponenten-Modus doppelklicken. «Zur Übersicht →» nur dort zeigen, wo es eine Übersichtsseite gibt (heute «So arbeiten wir», «Unsere Kunden», «Partner werden»); Ziel über Zahnrad › Link.
 - **Links:** Klasse `navbar_dropdown-link is-buehne` (beim Darüberfahren eine feine Plum-Linie links). Kurzbeschrieb unter dem Link: Textelement `navbar_link-beschrieb` im Link. Neuer Link: bestehenden duplizieren, Text, Ziel und Attribut `data-vorschau` anpassen (2.26).
