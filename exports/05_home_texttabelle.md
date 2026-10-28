@@ -421,6 +421,14 @@ Entwürfe C und D lassen alle Texte unverändert.
 
 Die Vorschläge von Rev. 20 für B und C (Einleitung als Titel, Leitsatz) sind damit hinfällig.
 
+## Rev. 23 · Entwurf `/home-v3-entwurf`: Lösungen unter dem Header (28.10.2026, Runde 39)
+
+Auf der Entwurfsseite ist nur die Reihenfolge anders, kein Text ist geändert. Eine Beobachtung, nichts umgesetzt:
+
+| Section | Element | Original (v3) | Vorschlag | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Lösungen für Unternehmen | Leistentitel über der Themenliste (Kicker) | «Lösungen für Unternehmen» | **A** bleibt · **B** «Fünf Themen» · **C** entfällt | **K** Direkt nach dem Titel «Lösungen für Unternehmen» steht derselbe Text noch einmal über der Leiste. B nimmt die Einleitung «Fünf Themen, ein abgestimmtes System» auf, C ist am ruhigsten | Welche Variante? (Entscheid 212 hatte den Kicker über die Liste gesetzt) |
+
 ## Rev. 22 · Kennzahlen von ROWAPA geändert (27.10.2026, Runde 38)
 
 ROWAPA hat die drei Kennzahlen in «Was uns antreibt» auf v3 selbst im Designer geändert (aus dem Textvergleich vor und nach dem Veröffentlichen). Sie stehen jetzt gleich wie auf v2. Die Zahlen zählen weiterhin richtig hoch (auch «98 %»). Die Angaben stammen von ROWAPA; die Vorschläge unten betreffen nur die Verständlichkeit und sind freiwillig.
@@ -458,3 +466,4 @@ ROWAPA hat die drei Kennzahlen in «Was uns antreibt» auf v3 selbst im Designer
 19. ~~«Was uns antreibt»: Variante A, B oder C (Rev. 20)~~: A gewählt (Rev. 21).
 20. Kennzahlen (Rev. 22): Bezug der «100 % Branchenerfahrung», Zahl der Antworten der Befragung 2025, Zeitraum für «beauftragen uns erneut».
 21. Zahlenkachel im Team (Rev. 22): «100 %» und «Trainerinnen und Trainer» angleichen? Kachel und Kennzahl 1 sagen fast dasselbe.
+22. Leistentitel «Lösungen für Unternehmen» über der Themenliste: bleibt, heisst «Fünf Themen» oder entfällt (Rev. 23)?

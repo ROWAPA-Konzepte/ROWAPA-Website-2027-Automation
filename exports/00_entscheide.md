@@ -509,6 +509,17 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 
 ---
 
+## 43. Feedback-Runde 39 (28.10.2026): Netz im Punktemeer, «Lösungen für Unternehmen» unter dem Header
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 273 | Punktemeer im Header «noch etwas digitaler, technischer», z. B. rote Punkte, die sich verbinden, insgesamt ruhig | Entwurf gebaut | ROWAPA Grafik 1.14.0: Auf Wunsch liegt über dem Punktemeer ein Netz. Wenige Plum-Knoten schwingen auf der Welle mit, feine Linien verbinden Nachbarn und blenden langsam ein und aus, alle paar Sekunden läuft ein Impuls von Knoten zu Knoten. Stufe «an» (14 Knoten, Handy 7) und «mehr» (22, Handy 11). Mit Netz bleiben die Wellenkämme weiss, Plum gehört dann nur den Knoten. Schalter `data-netz` (an der Entwurfsseite am `main-wrapper`), zum Vergleichen `?netz=an`, `?netz=mehr`, `?netz=aus`. Standard aus: v2 und v3 sind unverändert. Bei «Bewegung reduzieren» bleibt wie bisher das Standbild |
+| 274 | «Lösungen für Unternehmen» direkt unter dem Header | Entwurf gebaut | Neue Seite `/home-v3-entwurf` (Kopie von v3) mit der Reihenfolge Header, Lösungen für Unternehmen, Was uns antreibt, Unsere Erfolge, Unser Vorgehen, danach wie v3. Die feine Linie oben an «Lösungen» ist dort weggelassen (sie trennte zwei graue Sections). Netz «an». Texte und Höhen gleich wie v3. Die Interaktionen (Logo-Laufband, Team) gelten auch für die neue Seite |
+| 275 | Farbwelt und Farbverlauf prüfen | geprüft, keine Farbänderung nötig | Mit «Lösungen» oben verschwindet das einzige ungewollte «zweimal Grau» (heute Erfolge und Lösungen). Die Folge oben wechselt sauber: dunkel, grau, weiss, grau, weiss, dunkel (Digital). Der Übergang vom dunklen Header ins helle Grau ist ruhig. Gleich bleiben die zwei gewollten Paare mit Linie (Team und Wege, Im Blickpunkt und Insights). Farbband `stufe2-screens/runde39/farbfolge-heute-entwurf.png` |
+| 276 | Hinweise zum Entwurf | Einschätzung | Die Navigation blendet sich wie auf v3 aus, solange die Themen-Bühne steht; sie verschwindet jetzt früher (nach rund einem Bildschirm). Die weisse Fläche nach dem Header (Muster Tresmares) folgt jetzt nach den Lösungen. Im Kopf von «Lösungen» steht «Lösungen für Unternehmen» zweimal kurz hintereinander (Titel und Leiste, Texttabelle Rev. 23) |
+
+---
+
 ## Offene Punkte
 
 1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
@@ -553,3 +564,5 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 40. ~~Vier Seiten «ZU LÖSCHEN · …» löschen~~: von ROWAPA gelöscht, Klassen entfernt (Entscheid 270).
 41. **Handy-Tabelle der Startseite** (`08_startseite_desktop_handy.md`): Entscheid je Section, besonders «Lösungen für Unternehmen» (A, B oder C) und Footer (A oder B, gilt für alle Seiten). Dazu die Ideen 1 bis 3, z. B. Button «Erstgespräch» in der Navigationsleiste auf dem Handy.
 42. Kennzahlen in «Was uns antreibt» und Zahlenkachel im Team (Texttabelle Rev. 22, Fragen 20 und 21). [ROWAPA bestätigen]
+43. **Netz im Punktemeer** (Entscheid 273): Stufe «an», «mehr» oder «aus»? Nur Startseite oder auch Header anderer Seiten, Footer?
+44. **Reihenfolge** (Entscheid 274): «Lösungen für Unternehmen» unter dem Header übernehmen? Dann baue ich es auf v3 um. Die Seite `/home-v3-entwurf` danach in Webflow löschen (Pages › Zahnrad › Delete), die Schnittstelle kann keine Seiten löschen.
