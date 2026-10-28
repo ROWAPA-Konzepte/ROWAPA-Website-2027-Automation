@@ -7,7 +7,7 @@ Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL ka
 
 | Attribut `data-grafik` | Wo | Was passiert |
 |---|---|---|
-| `punktemeer` | Header (`hero_grafik`) | welliges Punktfeld (WebGL), Kräuseln unter der Maus, ruhig. Ab 1.14.0 auf Wunsch mit **Netz**: wenige Plum-Knoten schwingen auf der Welle mit, feine Linien verbinden Nachbarn und blenden langsam ein und aus, alle paar Sekunden läuft ein Impuls von Knoten zu Knoten (Attribut `data-netz`, siehe unten). Mit Netz bleiben die Wellenkämme weiss, Plum gehört dann nur den Knoten |
+| `punktemeer` | Header (`hero_grafik`) | welliges Punktfeld (WebGL), Kräuseln unter der Maus, ruhig. Ab 1.14.0 mit **Netz** (seit 1.15.0 Standard im Header aller Seiten, Entscheid ROWAPA): wenige Plum-Knoten schwingen auf der Welle mit, feine Linien verbinden Nachbarn und blenden langsam ein und aus, alle paar Sekunden läuft ein Impuls von Knoten zu Knoten (Attribut `data-netz`, siehe unten). Mit Netz bleiben die Wellenkämme weiss, Plum gehört dann nur den Knoten |
 | `punktemeer-footer` | Footer (`footer_grafik`) | dasselbe Feld, flacher, hinter der Wortmarke |
 | `punktfigur…` (z. B. `punktfigur`, `punktfigur-vertrieb`) | Themenkarten, Karte Vertriebsperformance | die Figur baut sich einmal aus dem Standbild auf und ruht dann; beim Darüberfahren zieht sie sich leicht zusammen |
 | `zaehler` | Kennzahlen (`stat_number`) | zählt einmal von 0 bis zum Wert, sobald die Zahl ins Bild kommt; Vorsatz und Zusatz («%», «CHF») bleiben |
@@ -45,7 +45,7 @@ In Webflow: Element auswählen › Zahnrad (Settings) › **Custom attributes**.
 | `data-verzoegerung` | Sekunden bis zum Aufbau einer Figur | automatisch gestaffelt |
 | `data-farbe-1`, `data-farbe-2`, `data-farbe-3` | Farben des Punktemeers als Hex (z. B. `#486EA3`) | CI-Variablen |
 | `data-hintergrund` | `aus` lässt beim Header-Punktemeer den Verlauf weg | an |
-| `data-netz` | Netz im Header-Punktemeer: `an` (ruhig, 14 Knoten, Handy 7), `mehr` (22 Knoten, Handy 11, öfter ein Impuls), `aus`. Darf am Punktemeer oder an einem umgebenden Element stehen (z. B. `main-wrapper` der Seite, weil der Header eine Komponente ist). Zum Vergleichen ohne Änderung in Webflow: `?netz=an`, `?netz=mehr`, `?netz=aus` in der Adresse. Der Footer bekommt das Netz nur mit eigenem Attribut | aus |
+| `data-netz` | Netz im Header-Punktemeer: `an` (ruhig, 14 Knoten, Handy 7), `mehr` (22 Knoten, Handy 11, öfter ein Impuls), `aus`. Darf am Punktemeer oder an einem umgebenden Element stehen (z. B. `main-wrapper` der Seite, weil der Header eine Komponente ist). Zum Vergleichen ohne Änderung in Webflow: `?netz=an`, `?netz=mehr`, `?netz=aus` in der Adresse. Der Footer bekommt das Netz nur mit eigenem Attribut | Header an (seit 1.15.0), Footer aus |
 | `data-spalten` | Treppe: drei Spaltengrenzen als Anteile der Bildbreite, z. B. `0.26,0.5,0.75` (nur bei einem anderen Bild nötig) | passend zum mitgelieferten Bild |
 
 **Figuren tauschen:** Das Standbild ist die Vorlage. Neues PNG mit transparentem Hintergrund hochladen und im Bildfeld der Karte («Grafik») auswählen; die Animation entsteht daraus von selbst: Die Figur setzt sich aus kleinen Ausschnitten genau dieses Bildes zusammen. Das Bild wird dafür weder ein zweites Mal geladen noch ausgelesen. JPG-Bilder bleiben als Standbild stehen (keine Animation).

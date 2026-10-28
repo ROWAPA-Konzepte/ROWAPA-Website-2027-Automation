@@ -9,7 +9,8 @@ const STUFEN = {
   mehr: { spalten: 8, spaltenHandy: 4, knoten: 22, knotenHandy: 11, nachbarn: 3, linie: 0.75, takt: 1.7 }
 };
 
-/* Stufe aus der Adresse (?netz=an|mehr|aus, nur Header) oder dem nächsten Element mit data-netz; Standard aus */
+/* Stufe aus der Adresse (?netz=an|mehr|aus, nur Header) oder dem nächsten Element mit data-netz.
+   Standard seit 1.15.0: im Header an (Entscheid ROWAPA, alle Seiten), im Footer aus */
 export function netzStufe(box, art) {
   const eigenes = box.hasAttribute('data-netz');
   if (art !== 'punktemeer' && !eigenes) return null;
@@ -19,7 +20,7 @@ export function netzStufe(box, art) {
     const el = box.closest('[data-netz]');
     w = el ? el.getAttribute('data-netz') : '';
   }
-  w = (w || '').trim().toLowerCase();
+  w = (w || '').trim().toLowerCase() || (art === 'punktemeer' ? 'an' : '');
   return STUFEN[w] ? w : null;
 }
 
