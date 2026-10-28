@@ -10,7 +10,6 @@ import { orbit } from './orbit.js';
 import { reihe } from './reihe.js';
 import { zeiger } from './zeiger.js';
 import { vorschau } from './vorschau.js';
-import { varianten } from './varianten.js';
 import { hoverVideos } from './hovervideo.js';
 import { nachoben } from './nachoben.js';
 import { themen } from './themen.js';
@@ -19,7 +18,7 @@ import { diagnose } from './diagnose.js';
 const VERSION = '__VERSION__';
 
 /* Bedienung (immer) und Bewegung (nur ohne «Bewegung reduzieren»); themen prüft «Bewegung reduzieren» selbst */
-const BEDIENUNG = { varianten, reihe, zeiger, vorschau, nachoben, themen };
+const BEDIENUNG = { reihe, zeiger, vorschau, nachoben, themen };
 const BEWEGUNG = { punktemeer, punktfigur: figur, zaehler, treppe, orbit };
 
 const info = (window.ROWAPAGrafik = { version: VERSION });

@@ -12,7 +12,8 @@
      fährt sofort genau ein Thema weiter, der Nachlauf wird übergangen. Tastatur und Scrollbalken rasten in Scrollrichtung
      ein (früheres Verhalten, mit dem Mausrad zum Vergleichen noch über ?einrasten=rad).
      Klick auf ein Thema der Liste scrollt in einer Sekunde dorthin. Die Navigation ist ausgeblendet, solange die Bühne steht.
-   Darunter (Tablet, Handy): Blöcke untereinander mit stehender Leiste; der Titel im Blick ist voll, die anderen blass,
+   Darunter (Tablet, Handy): Blöcke untereinander mit stehender Leiste (Handy seit 1.17.0: jeder Block füllt den
+   Bildschirm und wird vom nächsten von unten zugedeckt, ohne Einrasten); der Titel im Blick ist voll, die anderen blass,
    der ausscheidende Block dunkelt ab, die Form zerfällt, während der Block in den Blick rückt. Bei «Bewegung reduzieren»
    nur die Markierung, ohne Form. Ohne Skript: Blöcke untereinander.
    Anordnung «diagonal» zum Vergleichen: ?anordnung=diagonal oder data-anordnung="diagonal" (Zusatzklasse is-diagonal).
@@ -480,6 +481,13 @@ export function themen(sec) {
 
     /* Form liegt auf der Figur */
     function messen() {
+      /* Handy: Die Blöcke stehen (CSS sticky in Webflow) und werden vom nächsten Block von unten zugedeckt.
+         Ein Block, der höher ist als der freie Platz, bleibt erst stehen, wenn sein Ende im Fenster ist. */
+      const oben = navHoehe(nav) + (liste && getComputedStyle(liste).position === 'sticky' ? liste.getBoundingClientRect().height : 0);
+      panels.forEach(p => {
+        if (getComputedStyle(p).position !== 'sticky') { p.style.top = ''; return; }
+        p.style.top = Math.round(Math.min(oben, innerHeight - p.offsetHeight)) + 'px';
+      });
       teile.forEach(t => {
         const f = t.figur, pr = t.p.getBoundingClientRect();
         if (!f) return;
@@ -521,7 +529,9 @@ export function themen(sec) {
       art: 'liste',
       geheZu(k) {
         const leiste = liste && getComputedStyle(liste).position === 'sticky' ? liste.getBoundingClientRect().height : 0;
-        const y = panels[k].getBoundingClientRect().top + scrollY - navHoehe(nav) - leiste;
+        /* stehende Blöcke melden ihre stehende Lage; darum vom Anfang der Liste aus zählen */
+        let y = panels[0].parentElement.getBoundingClientRect().top + scrollY - navHoehe(nav) - leiste;
+        for (let j = 0; j < k; j++) y += panels[j].offsetHeight;
         scrollTo({ top: y, behavior: ruhig ? 'auto' : 'smooth' });
       },
       weg() {
@@ -529,6 +539,7 @@ export function themen(sec) {
         removeEventListener('scroll', beimScrollen);
         removeEventListener('resize', beiGroesse);
         teile.forEach(t => { if (t.titel) { t.titel.style.opacity = ''; t.titel.style.transition = ''; } t.dunkel.style.opacity = '0'; male(t, t.form, 1); });
+        panels.forEach(p => { p.style.top = ''; });
       }
     };
   }
