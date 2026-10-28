@@ -429,6 +429,13 @@ Auf der Entwurfsseite ist nur die Reihenfolge anders, kein Text ist geändert. E
 |---|---|---|---|---|---|
 | Lösungen für Unternehmen | Leistentitel über der Themenliste (Kicker) | «Lösungen für Unternehmen» | **A** bleibt · **B** «Fünf Themen» · **C** entfällt | **K** Direkt nach dem Titel «Lösungen für Unternehmen» steht derselbe Text noch einmal über der Leiste. B nimmt die Einleitung «Fünf Themen, ein abgestimmtes System» auf, C ist am ruhigsten | Welche Variante? (Entscheid 212 hatte den Kicker über die Liste gesetzt) |
 
+## Rev. 24 · Variante: Button im Kopf von «Lösungen für Unternehmen» ausgeblendet (28.10.2026, Runde 40)
+
+| Section | Element | Original (v3) | Variante `/home-v3-entwurf` | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Lösungen für Unternehmen | Button im Kopf | «Zum Unternehmensbereich» (Link `/fuer-organisationen`) | ausgeblendet | Wunsch ROWAPA: Kicker, Titel und Einleitung reichen direkt nach dem Header; jedes Thema hat unten seinen eigenen Link | Den Unternehmensbereich erreicht man weiterhin über das Menü «Was wir tun». Den Link-Pfad nach der Begriffsregel umbenennen (offener Punkt 10) |
+| Lösungen für Unternehmen | Leistentitel über der Themenliste | «Lösungen für Unternehmen» | wieder sichtbar | Missverständnis geklärt (Entscheid 282) | – |
+
 ## Rev. 22 · Kennzahlen von ROWAPA geändert (27.10.2026, Runde 38)
 
 ROWAPA hat die drei Kennzahlen in «Was uns antreibt» auf v3 selbst im Designer geändert (aus dem Textvergleich vor und nach dem Veröffentlichen). Sie stehen jetzt gleich wie auf v2. Die Zahlen zählen weiterhin richtig hoch (auch «98 %»). Die Angaben stammen von ROWAPA; die Vorschläge unten betreffen nur die Verständlichkeit und sind freiwillig.

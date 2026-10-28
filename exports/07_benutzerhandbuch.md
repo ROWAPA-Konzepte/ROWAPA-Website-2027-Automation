@@ -323,6 +323,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 - **Was:** die kleine Zeile «Lösungen für Unternehmen» über der Themenliste in «Lösungen für Unternehmen». Sie erscheint nur auf dem Desktop, auf Tablet und Handy ist sie schon aus.
 - **Ausblenden:** im Navigator das Element «Leistentitel · ausblendbar (Zahnrad › Visibility)» wählen (in der Section «Lösungen für Unternehmen»), dann Zahnrad (Settings) › Visibility › «Hidden». Wieder einblenden: «Visible». Danach veröffentlichen.
 - Auf v3 und auf der Variante «Lösungen oben» je einzeln, weil es zwei Seiten sind. Die Themen-Bühne funktioniert mit und ohne Zeile.
+- **Button «Zum Unternehmensbereich» im Kopf:** auf der Variante ausgeblendet (Navigator: «Button Zum Unternehmensbereich · ausgeblendet»), auf v3 sichtbar. Wieder einblenden gleich wie oben: Zahnrad › Visibility › «Visible».
 
 ---
 
