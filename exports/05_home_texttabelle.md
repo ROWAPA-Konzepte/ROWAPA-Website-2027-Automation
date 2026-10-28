@@ -436,6 +436,13 @@ Auf der Entwurfsseite ist nur die Reihenfolge anders, kein Text ist geändert. E
 | Lösungen für Unternehmen | Button im Kopf | «Zum Unternehmensbereich» (Link `/fuer-organisationen`) | ausgeblendet | Wunsch ROWAPA: Kicker, Titel und Einleitung reichen direkt nach dem Header; jedes Thema hat unten seinen eigenen Link | Den Unternehmensbereich erreicht man weiterhin über das Menü «Was wir tun». Den Link-Pfad nach der Begriffsregel umbenennen (offener Punkt 10) |
 | Lösungen für Unternehmen | Leistentitel über der Themenliste | «Lösungen für Unternehmen» | wieder sichtbar | Missverständnis geklärt (Entscheid 282) | – |
 
+## Rev. 26 · Megamenü und Google-Beschreibung angeglichen (28.10.2026, Runde 44, gebaut)
+
+| Section | Element | Original | Neu | Begründung | Offene Fragen |
+|---|---|---|---|---|---|
+| Navigation | Megamenü «Was wir tun», Einleitung | «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» | «Mit menschlicher Expertise, künstlicher Intelligenz und eigenen digitalen Lösungen machen wir aus Potenzial messbare Leistung.» | Wunsch ROWAPA: an den Header angleichen. Gleiche Botschaft in einem Satz, nicht wörtlich wiederholt. Wir-Form wie die anderen Menüs («Mit Diagnostik, Daten und Gesprächen erfassen wir …»). Banken, Versicherungen und Krankenkassen nennt schon das Menü «Unsere Kunden» | – |
+| SEO | Beschreibung der Startseite | «ROWAPA entwickelt Banken, Versicherungen und Krankenkassen: mehr Vertriebsleistung, stärkere Führung, weniger Fluktuation. Datenbasiert, praxiserprobt, nachhaltig.» | «Expertise, künstliche Intelligenz und eigene digitale Lösungen für Banken, Versicherungen und Krankenkassen. Damit aus Potenzial messbare Leistung wird.» | Freigegeben durch ROWAPA (Vorschlag Rev. 25), 152 Zeichen, passt in die Google-Anzeige. Open Graph übernimmt Titel und Beschreibung | – |
+
 ## Rev. 25 · Header: neuer Satz unter den Titelzeilen (28.10.2026, Runde 43, gebaut auf der Startseite)
 
 | Section | Element | Original | Neu (ROWAPA) | Begründung / Prüfung Redaktionsleitfaden | Offene Fragen |
@@ -482,4 +489,4 @@ ROWAPA hat die drei Kennzahlen in «Was uns antreibt» auf v3 selbst im Designer
 20. Kennzahlen (Rev. 22): Bezug der «100 % Branchenerfahrung», Zahl der Antworten der Befragung 2025, Zeitraum für «beauftragen uns erneut».
 21. Zahlenkachel im Team (Rev. 22): «100 %» und «Trainerinnen und Trainer» angleichen? Kachel und Kennzahl 1 sagen fast dasselbe.
 22. Leistentitel «Lösungen für Unternehmen» über der Themenliste: bleibt vorerst; ROWAPA blendet ihn bei Bedarf selbst aus (Entscheid 279, Benutzerhandbuch 2.41).
-23. Header-Satz (Rev. 25): Megamenü «Was wir tun» und SEO-Beschreibung angleichen?
+23. ~~Header-Satz (Rev. 25): Megamenü und SEO-Beschreibung angleichen~~: angeglichen (Rev. 26).

@@ -331,6 +331,12 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ---
 
+### 2.42 Startseite, Google-Beschreibung und Teilen (seit Runde 43/44)
+- **Welche Seite ist die Startseite?** «Startseite (definitiv)». Als Home festlegen (einmal, von Hand): Pages › Seite › Zahnrad › «Set as home page», dann veröffentlichen. Die Seite ist danach unter `/` erreichbar; das Logo in der Navigation zeigt schon auf `/`.
+- **Google-Titel und -Beschreibung:** Pages › Seite › Zahnrad › SEO Settings. Die Beschreibung höchstens rund 155 Zeichen lang halten (heute 152), sonst kürzt Google sie ab.
+- **Teilen auf LinkedIn und Co. (Open Graph):** In denselben Einstellungen ist «Same as SEO» für Titel und Beschreibung eingeschaltet. Ein eigenes Vorschaubild für das Teilen fehlt noch; bei Bedarf unter Open Graph Settings ein Bild (1200 × 630 px) hochladen.
+- **Satz im Megamenü «Was wir tun»:** Komponente «Navbar · Bühne» öffnen, im Menü «Was wir tun» den Satz (`navbar_intro-satz`) doppelklicken (2.36). Gilt auf allen Seiten mit diesem Menü.
+
 ## 3. Regeln für Inhalte (Kurzfassung)
 
 Ausführlich in `exports/04_redaktionsleitfaden.md`.

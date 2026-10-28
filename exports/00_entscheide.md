@@ -578,6 +578,14 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 | 292 | Lesbarkeit über dem Punktemeer (14-Zoll-Fenster) | umgesetzt | Die zweite Zeile berührt auf 1280 × 670 oben die Welle (wie vorher «nachhaltig.»). Ein weicher Lichthof in Manganese Black hinter dem Text (`text-shadow` an `is-hero`) dämpft die Punkte direkt hinter den Buchstaben; auf dem dunklen Grund sonst unsichtbar |
 | 293 | Bisheriger Satz an anderen Stellen | Hinweis | «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» steht noch im Megamenü «Was wir tun» (Navbar · Bühne). Die SEO-Beschreibung endet mit «Datenbasiert, praxiserprobt, nachhaltig.» Beides passt weiterhin; Vorschläge in der Texttabelle Rev. 25 (offene Punkte 49 und 50) |
 
+## 48. Feedback-Runde 44 (28.10.2026): Startseite als Home, Megamenü und Google-Beschreibung angeglichen
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 294 | «Startseite als Home festlegen» | entschieden, ein Handgriff in Webflow | Die Webflow-Schnittstelle kann die Startseite nicht festlegen (bei Webflow nachgefragt: kein Werkzeug dafür). Schritt im Designer: Pages › «Startseite (definitiv)» › Zahnrad › «Set as home page», danach veröffentlichen. Vorbereitet: Das Logo in der Navigation führt schon auf `/`, es braucht keine weitere Anpassung. Die Adresse `/home-v3-entwurf` entfällt danach. Offener Punkt 48 bleibt offen, bis der Schritt gemacht ist; danach prüfen wir `/` live |
+| 295 | Megamenü «Was wir tun»: Satz angleichen | umgesetzt | Neu: «Mit menschlicher Expertise, künstlicher Intelligenz und eigenen digitalen Lösungen machen wir aus Potenzial messbare Leistung.» Bisher: «Gemeinsam bewegen wir Menschen und Unternehmen, datenbasiert, praxiserprobt, nachhaltig.» Gleiche Botschaft wie der Header, aber nicht wörtlich, damit beim geöffneten Menü nicht zweimal derselbe Satz steht. In der Komponente «Navbar · Bühne», gilt auf allen Seiten mit diesem Menü. Live geprüft bei 1440, 1280 und 1024 px: fünf bis sieben Zeilen, das Menü bleibt gleich hoch. Offener Punkt 49 erledigt |
+| 296 | Google-Beschreibung angleichen | umgesetzt | Beschreibung der Startseite (152 Zeichen): «Expertise, künstliche Intelligenz und eigene digitale Lösungen für Banken, Versicherungen und Krankenkassen. Damit aus Potenzial messbare Leistung wird.» SEO-Titel unverändert. Zusätzlich übernehmen Titel und Beschreibung für LinkedIn und andere Netzwerke (Open Graph) jetzt die SEO-Angaben. Live geprüft. Offener Punkt 50 erledigt |
+
 ---
 
 ## Offene Punkte
@@ -629,6 +637,6 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 45. ~~Welche Startseite wird weitergeführt?~~: die Variante «Lösungen oben», jetzt «Startseite (definitiv)» (Entscheid 289). v3 (`/home-v3`) und v2 (`/home-v2`) löscht ROWAPA von Hand (Pages › Seite › Zahnrad › Delete); danach entfernen wir die nur dort genutzten Klassen.
 46. ~~«Was uns antreibt» gespiegelt~~: bleibt so (Entscheid 286).
 47. Option: Figur der Themen auch ab 1920 px nach der neuen Formel, falls der leichte Kontakt bei 1920 × 950 stört (Entscheid 288).
-48. **Startseite als Home festlegen:** «Startseite (definitiv)» in Webflow als Startseite setzen (Pages › Seite «Startseite (definitiv)» › Seiteneinstellungen › «Set as home page»), danach die leere Seite «Home» löschen. Das ändert die Adresse von `/home-v3-entwurf` auf `/`. Vorschlag: zusammen mit dem Löschen von v2 und v3, nur mit Freigabe ROWAPA.
-49. Megamenü «Was wir tun»: bisherigen Satz «Gemeinsam bewegen wir Menschen und Unternehmen …» lassen oder an den neuen Header-Satz angleichen? (Texttabelle Rev. 25)
-50. SEO-Beschreibung der Startseite an den neuen Header-Satz angleichen? Vorschlag in der Texttabelle Rev. 25.
+48. **Startseite als Home festlegen** (Entscheid 294, ROWAPA): Pages › «Startseite (definitiv)» › Zahnrad › «Set as home page», dann veröffentlichen. Danach die leere Seite «Home» sowie v2 und v3 löschen (von Hand). Wir prüfen anschliessend `/` live und räumen die nur auf v2 und v3 genutzten Klassen auf.
+49. ~~Megamenü «Was wir tun»~~: angeglichen (Entscheid 295).
+50. ~~SEO-Beschreibung der Startseite~~: angeglichen (Entscheid 296).
