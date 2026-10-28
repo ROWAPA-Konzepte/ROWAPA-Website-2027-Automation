@@ -349,6 +349,16 @@ Alle Handy-Anpassungen liegen im Breakpoint «Mobile landscape» (bis 767 px) un
 - **ROWAPA Digital:** Die Beschreibung jeder Kachel ist in allen Grössen sichtbar (`is-immer`). Kurz halten, rund 12 Wörter, sonst wird die Kachel auf 1024 px hoch.
 - **Kontakt:** Mobil, Büro und E-Mail stehen auf dem Handy als Zeilen; Inhalte wie bisher bearbeiten.
 - **Newsletter im Footer:** Feld und quadratischer Pfeil auf einer Linie, in allen Grössen. Der Button-Text ist «→»; für Screenreader heisst er «Abonnieren» (Attribut `aria-label`). **Platzhalter von Hand setzen:** Footer öffnen, das Feld anklicken › Einstellungen (Zahnrad) › Placeholder «Ihre E-Mail-Adresse». Die Schnittstelle kann ihn nicht setzen.
+- **Buttons gleich gross:** Buttons in einer `button-group` werden automatisch gleich breit und gleich hoch. Einfach Buttons in die Gruppe legen; mehr ist nicht nötig. Sollen sie auch am Desktop untereinander stehen, der Gruppe zusätzlich `is-gestapelt` geben.
+- **Digital-Kacheln gleich hoch:** erledigt `tools_grid is-gleich-hoch` (Komponente «Section Digital»), nichts pflegen.
+
+### 2.44 Variablen-Modi von Hand löschen (Runde 48)
+Die Schnittstelle kann Modi nicht löschen. So geht es im Designer:
+1. Links das Symbol **Variables** öffnen.
+2. Sammlung **Textlinks** wählen. In der Tabelle gibt es die Spalten «Base mode» und «Manganese».
+3. Mit der Maus über die Spaltenüberschrift **«Manganese»** fahren und auf den kleinen Pfeil oder die drei Punkte daneben klicken (alternativ Rechtsklick auf die Überschrift) › **Delete mode**. Die Variable «Textlink hell» und die Sammlung bleiben, sie werden gebraucht.
+4. Dasselbe in der Sammlung **Spacing** mit dem Modus **«Luft (v3)»**.
+5. Publish ist nicht nötig, die Modi sind nirgends angewendet.
 
 ## 3. Regeln für Inhalte (Kurzfassung)
 

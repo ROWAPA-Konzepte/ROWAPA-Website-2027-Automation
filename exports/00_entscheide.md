@@ -622,6 +622,19 @@ Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesb
 
 Geprüft live auf der Subdomain bei 360, 375, 390, 768, 1024, 1280, 1440 und 1920 px: keine Skriptfehler, kein seitliches Scrollen. Der Desktop ist ausser Footer und Digital-Texten unverändert. Die Seite ist auf dem Handy rund 14 100 px hoch (vorher 14 195 px).
 
+## 52. Feedback-Runde 48 (28.10.2026): Buttons gleich gross, Kacheln gleich hoch, Plum-Nummer läuft mit
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 314 | Buttons gleich gross, egal wie viel Text, untereinander und nebeneinander | umgesetzt für alle `button-group` | Alle Buttons einer Gruppe sind so breit wie der breiteste und gleich hoch (Raster statt Flexbox). Handy: untereinander über die volle Breite. «Im Blickpunkt» steht in allen Grössen untereinander (`is-gestapelt`), weil der Zoom-Button nebeneinander zweizeilig würde. Ausgenommen: ROWAPA Digital (Button und Textlink, `is-digital`) |
+| 315 | ROWAPA Digital: Kacheln ungleich hoch | ungewollt, behoben | Auf Tablet und Handy waren Kacheln mit kürzerem Text niedriger. Jetzt sind alle Kacheln gleich hoch (`tools_grid is-gleich-hoch`), am Desktop war es schon so |
+| 316 | Vorgehen: Plum-Nummer soll beim Wischen mitlaufen | umgesetzt | Grafik 1.18.0: Die vorne stehende Karte wird aktiv (Nummer in Plum, Stufe in der Treppe) |
+| 317 | Platzhalter im Newsletter-Feld: Was ist gemeint? | erklärt | Nur der graue Hinweis «Ihre E-Mail-Adresse» im leeren Feld; er verschwindet beim Tippen und sendet nichts. Wohin die Anmeldungen gehen, ist eine eigene Frage (offener Punkt 54) |
+| 318 | Erstgespräch | vorerst per E-Mail | Später wird ein Buchungstool hinterlegt (Link im Button «Erstgespräch» und «Erstgespräch vereinbaren» ersetzen) |
+| 319 | Variablen-Modi löschen: Einträge nicht gefunden | Anleitung | Benutzerhandbuch 2.44 (Modus «Manganese» in «Textlinks», Modus «Luft (v3)» in «Spacing») |
+
+Live geprüft bei 360 bis 1920 px: keine Skriptfehler, kein seitliches Scrollen. Bilder: `stufe2-screens/runde47/nachtrag-handy.jpg`.
+
 ---
 
 ## Offene Punkte
@@ -678,4 +691,5 @@ Geprüft live auf der Subdomain bei 360, 375, 390, 768, 1024, 1280, 1440 und 192
 50. ~~SEO-Beschreibung der Startseite~~: angeglichen (Entscheid 296).
 51. Skript-Version ohne Vergleichsschalter: «varianten» entfernt (1.17.0); `?plumform`, `?uebergang`, `?einrasten`, `?anordnung` folgen in einer eigenen Fassung.
 52. Platzhalter «Ihre E-Mail-Adresse» im Newsletter-Feld setzen (von Hand: Footer › Feld › Einstellungen › Placeholder; die Schnittstelle kann ihn nicht setzen). Benutzerhandbuch 2.43.
-53. Ziel des Buttons «Erstgespräch» auf dem Handy: E-Mail an boek@rowapa.ch oder später ein Buchungstool. [ROWAPA bestätigen]
+53. ~~Ziel des Buttons «Erstgespräch»~~: vorerst E-Mail, später Buchungstool (Entscheid 318).
+54. Newsletter-Anmeldungen: Heute landen sie in Webflow (Site settings › Forms, Benachrichtigung per E-Mail an die eingetragene Adresse). Soll später ein Newsletter-Dienst angebunden werden (z. B. Mailchimp, Brevo)? [ROWAPA bestätigen]
