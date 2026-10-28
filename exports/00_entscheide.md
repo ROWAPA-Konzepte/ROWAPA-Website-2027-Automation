@@ -543,6 +543,33 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 
 ---
 
+## 46. Feedback-Runde 42 (28.10.2026): Spiegelung bleibt, Figuren der Themen auf Laptops kleiner
+
+| # | Anliegen | Entscheid | Ergebnis |
+|---|---|---|---|
+| 286 | «Für mich passt es so, wie wir es jetzt gemacht haben» | festgehalten | «Was uns antreibt» bleibt gespiegelt (Titel und Text rechts, Kacheln links, Entscheid 284). Die Variante «Lösungen oben» (`/home-v3-entwurf`) ist der Arbeitsstand der Startseite. Offener Punkt 46 erledigt. Das Löschen von v3 mit der alten Reihenfolge und von v2 bleibt offen (offener Punkt 45, nur mit ausdrücklicher Freigabe, von Hand) |
+| 287 | 13- und 14-Zoll-Laptop: Die Figur in «Lösungen für Unternehmen» läuft teilweise in den Text unten rechts | umgesetzt, nur auf niedrigen Laptop-Fenstern | Die Figur richtet sich jetzt nach der Fensterhöhe: Höhe = 90 % der Fensterhöhe minus 336 px, mindestens 280 px, höchstens wie bisher (64 % der Fensterhöhe, höchstens 736 px). Formel an der Klasse `themen_figur`: `clamp(17.5rem, calc(90svh - 21rem), min(64svh, 46rem))`. Auf hohen Fenstern greift die Obergrenze, die Figur bleibt dort gleich gross. Alle fünf Figuren teilen die Klasse und sind je Format gleich gross (Frage «werden nur zwei kleiner?»: nein, alle fünf einheitlich). Tablet und Handy unverändert. Live gemessen, Tabelle unten. Bilder `stufe2-screens/runde42/` |
+| 288 | «Ab 1920 bleibt es so wie heute» | umgesetzt | Ab 1920 px Breite (Breakpoint 1920) gilt wieder der frühere Wert `min(64svh, 46rem)`. Hinweis: Bei einem Fenster von 1920 × 950 berührt der Ring der Figur den Satz rechts wie bisher leicht (906 Pixel, vorher gleich). Wenn das stört, lässt sich die neue Formel auch ab 1920 einsetzen (eine Angabe am Breakpoint 1920) |
+
+**Messung live (Höhe des Figurenfelds; Bildpunkte der Figuren in den Textzeilen mit 3 px Rand, Summe der fünf Themen):**
+
+| Gerät (Fenster) | Höhe Figur vorher → nachher | Figur im Text vorher → nachher |
+|---|---|---|
+| Windows 13", Full HD 150 % (1280 × 600) | 384 → 280 px | 6102 → 0 |
+| Windows 14", 1920 × 1200 150 % (1280 × 670) | 429 → 280 px | 8931 → 0 |
+| ältere Laptops 1366 × 768 (1366 × 657) | 421 → 280 px | 6564 → 0 |
+| MacBook Air 13" (1440 × 790) | 505 → 375 px | 5807 → 0 |
+| MacBook Air 13,6" (1470 × 845) | 541 → 424 px | 4259 → 0 |
+| MacBook Pro 14" (1512 × 870) | 557 → 447 px | 3260 → 2 |
+| Windows 15,6", 125 % (1536 × 730) | 467 → 321 px | 3782 → 0 |
+| Monitor 22" (1680 × 950) | 608 → 519 px | 738 → 51 |
+| Monitor 24" Full HD (1920 × 950) | 608 px, unverändert | 906 → 906 |
+| Monitor 27" QHD (2560 × 1300) | 736 px, unverändert | 0 → 0 |
+
+Die Werte 2 und 51 sind einzelne Randpunkte des Rings, der Text bleibt frei lesbar.
+
+---
+
 ## Offene Punkte
 
 1. **Freigabe Stufe 2** (Startseite `/home-v2`). Danach Löschen der zehn internen Entwurfsseiten (nur mit Freigabe): `/varianten`, `/home-look`, `/home-look-b`, `/home-look-c`, `/layout-d`, `/layout-e`, `/layout-f`, `/kombi-g`, `/kombi-h`, `/kombi-g2`, dazu die nur dort genutzten Klassen (`var_*`, `ribbon_band`, `is-band`, `is-raster`, `is-display`).
@@ -589,5 +616,6 @@ Auftrag ROWAPA: «Erstens Mega-Menü reparieren.» Die weiteren Punkte (gleiche 
 42. Kennzahlen in «Was uns antreibt» und Zahlenkachel im Team (Texttabelle Rev. 22, Fragen 20 und 21). [ROWAPA bestätigen]
 43. ~~Netz im Punktemeer~~: «an», auf allen Seiten, Footer ohne (Entscheid 277).
 44. ~~Reihenfolge~~: als Variante «Home v3 · Variante Lösungen oben» neben v3 (Entscheid 278).
-45. **Welche Startseite wird weitergeführt?** v2 entfällt (Entscheid 285). Gearbeitet wird auf der Variante «Lösungen oben». Bestätigen, dass sie die definitive Startseite wird; dann v3 mit der alten Reihenfolge und v2 löschen (von Hand, Pages › Zahnrad › Delete). Wichtig vor dem Bau der Handy-Fassung (offener Punkt 41).
-46. «Was uns antreibt» gespiegelt (Entscheid 284): so behalten oder zurück? Zurück: die drei Zusatzklassen `is-gespiegelt` entfernen.
+45. **Welche Startseite wird weitergeführt?** v2 entfällt (Entscheid 285). Die Variante «Lösungen oben» ist der Arbeitsstand (Entscheid 286). Offen: ausdrücklich bestätigen, dass sie die definitive Startseite wird; dann v3 mit der alten Reihenfolge und v2 löschen (von Hand, Pages › Zahnrad › Delete, nur mit Freigabe). Wichtig vor dem Bau der Handy-Fassung (offener Punkt 41).
+46. ~~«Was uns antreibt» gespiegelt~~: bleibt so (Entscheid 286).
+47. Option: Figur der Themen auch ab 1920 px nach der neuen Formel, falls der leichte Kontakt bei 1920 × 950 stört (Entscheid 288).
