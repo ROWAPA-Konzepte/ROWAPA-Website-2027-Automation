@@ -676,6 +676,9 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 | 347 | Filter «Hebel dieser Themenlinie», Werkzeuge der Themenlinie, Sortierung | Schnittstelle kann einen Filter «= aktuelle Themenlinie» und eine Liste aus einem Mehrfach-Bezug nicht setzen (von Webflow bestätigt); Sortierung schlug mit Serverfehler fehl | im Designer von Hand, zusammen rund 2 Minuten (Benutzerhandbuch 2.46); bis dahin zeigen die Listen alle 9 Hebel bzw. alle Werkzeuge |
 | 348 | CTA-Links der Themenlinien | Button 1 «Erstgespräch vereinbaren» → `/kontakt`, Button 2 «Alle/Weitere Themenlinien» → `/` (bis Übersichtsseite steht); «Digitale Lösungen»: Button 2 → `/kontakt`, Showroom-Link fehlt | [ROWAPA bestätigen] |
 | 349 | Veröffentlichen der Vorlage | nicht veröffentlicht: Einträge sind Entwurf (Entscheid 338); Ansicht im Designer über die Vorlage und Auswahl des Eintrags oben | Testadresse folgt, wenn ROWAPA den Eintrag «Vertriebsperformance» freigibt |
+| 350 | Blog-Auswahl | ab 2023 bis heute übernehmen, ältere nicht mehr (ROWAPA, 29.10.2026) | 39 Beiträge vor 2023 **archiviert** (nicht gelöscht, jederzeit zurückholbar); aktiv bleiben 23 Entwürfe: 19 aus WordPress (2023–2025) und 4 aus dem früheren Webflow-Projekt (2026) |
+| 351 | Anrede im Blog | Persönlichkeit mit Du; Sales und Leadership mit Sie (ROWAPA, 29.10.2026, Vorschlag aus 10_cms_blogimport.md) | Umstellung der 17 Sales- und Leadership-Beiträge läuft |
+| 352 | Autorin | Galina Shokhova ist im Team, «corinne» nicht mehr (ROWAPA, 29.10.2026) | Person «Galina Shokhova» als Entwurf angelegt (Team, Autorin; Funktion und Kurzprofil [ROWAPA bestätigen]), als Autorin bei allen 19 WordPress-Beiträgen ab 2023 gesetzt; die Beiträge von «corinne» sind alle vor 2023 und archiviert |
 
 ---
 
@@ -744,6 +747,6 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 61. ~~Quelle für Blog, Downloads und Team~~: beide (Entscheid 341); WordPress folgt mit Punkt 62.
 62. ~~Netzwerk der Cloud-Umgebung~~ (erledigt, Entscheid 345): `rowapa.ch` und `www.rowapa.ch` unter «Allowed domains» freigeben (Umgebung › Edit › Network access), damit die WordPress-Beiträge gelesen werden können.
 63. Team: welche der 9 Personen bleiben, Profiltexte Gramos Kerqeli und Janos Niederhauser, Autor:in je Blogbeitrag. [ROWAPA bestätigen]
-64. Blog-Import aufräumen: Umfragereste, kaputte Überschriften, abgeschnittene SEO-Titel, CTA-Links auf `rowapa.ch/dev/…`, Du-Anrede in Firmen-Themen (Liste `10_cms_blogimport.md`). Welche Beiträge bleiben? [ROWAPA entscheiden]
+64. Blog-Import aufräumen (Auswahl, Anrede und Autorin entschieden, Entscheide 350–352): Umfragereste, kaputte Überschriften, abgeschnittene SEO-Titel, CTA-Links auf `rowapa.ch/dev/…`, Du-Anrede in Firmen-Themen (Liste `10_cms_blogimport.md`). Welche Beiträge bleiben? [ROWAPA entscheiden]
 65. Vorlage Themenlinie: Filter, Werkzeug-Liste und Sortierung von Hand setzen (Handbuch 2.46) oder mich im Designer machen lassen, sobald die Schnittstelle es kann.
 66. Freigabe Eintrag «Vertriebsperformance» als Vorschau auf der Testadresse (Entscheid 349).

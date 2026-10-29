@@ -8,6 +8,14 @@ Stand 28.10.2026 · Collection «Blog» `6ae2662518387f485b2e2bd7` · alle Eintr
 
 **Was beim Import bereinigt wurde:** leere Lazy-Load-Bilder, Link-Hüllen um Bilder, Absätze in Zitaten, Fettschrift in Überschriften, HTML-Zeichen in SEO-Titeln.
 
+## Entscheide ROWAPA (29.10.2026)
+
+- Nur Beiträge **ab 2023** bleiben (19 aus WordPress, 4 aus dem früheren Webflow-Projekt). Die 39 älteren sind in Webflow **archiviert**, nicht gelöscht (Entscheid 350).
+- Anrede: Persönlichkeit mit Du, Sales und Leadership mit Sie (Entscheid 351).
+- Autorin aller WordPress-Beiträge ab 2023: Galina Shokhova (Entscheid 352).
+
+Die Mängelliste unten betrifft teils archivierte Beiträge; relevant sind nur die aktiven.
+
 ## Prüfen vor dem Veröffentlichen (Mängel aus der Quelle, unverändert übernommen)
 
 | Thema | Beiträge | Vorschlag |
