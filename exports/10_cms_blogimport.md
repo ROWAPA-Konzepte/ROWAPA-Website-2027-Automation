@@ -11,7 +11,7 @@ Stand 28.10.2026 · Collection «Blog» `6ae2662518387f485b2e2bd7` · alle Eintr
 ## Entscheide ROWAPA (29.10.2026)
 
 - Nur Beiträge **ab 2023** bleiben (19 aus WordPress, 4 aus dem früheren Webflow-Projekt). Die 39 älteren sind in Webflow **archiviert**, nicht gelöscht (Entscheid 350).
-- Anrede: Persönlichkeit mit Du, Sales und Leadership mit Sie (Entscheid 351).
+- Anrede: Persönlichkeit mit Du, Sales und Leadership mit Sie (Entscheid 351). Umgestellt: 17 Beiträge. Bleibt in Du: Zitate Dritter (z. B. Erpresser-Nachricht in «Cyberversicherung und KMU», Sätze in «Positive Leadership») und das Interview Wolfgang Wachter / Jasmina Rasiti im CAS-Erfahrungsbericht. Abgeschnittene SEO-Titel bleiben zu kürzen (u. a. Selbstführung, Zeitmanagement, Leadership-Weiterbildung).
 - Autorin aller WordPress-Beiträge ab 2023: Galina Shokhova (Entscheid 352).
 
 Die Mängelliste unten betrifft teils archivierte Beiträge; relevant sind nur die aktiven.
