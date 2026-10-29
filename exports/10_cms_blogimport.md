@@ -16,6 +16,14 @@ Stand 28.10.2026 · Collection «Blog» `6ae2662518387f485b2e2bd7` · alle Eintr
 
 Die Mängelliste unten betrifft teils archivierte Beiträge; relevant sind nur die aktiven.
 
+## Bereinigung der aktiven Beiträge (29.10.2026, Entscheid 353)
+
+- **SEO-Titel neu** (vollständig, max. 60 Zeichen): Burnout in der Finanzbranche · Erfahrungsbericht CAS · Leadership-Weiterbildung · Selbstführung («Selbstführung: So stoppen Sie die Fluktuation im Team») · CAS Leadership · Zeitmanagement im Vertrieb («… Wie Eifer Ihre Ziele sabotiert») · Kundenberatung als Sales-Story · Empathische Führung.
+- **Entfernt:** Umfragerest (Storytelling), abgelaufenes LinkedIn-Bild (Kundenberatung als Sales-Story), leere LinkedIn-Links (Erfahrungsbericht CAS, Empathische Führung), nicht funktionsfähiger «Kosten der Fluktuation – interaktiver Rechner» (Selbstführung; Inhalt: Recruiting 20 % des Jahreslohns, Vakanz = Jahreslohn / 220 Arbeitstage × Tage, Onboarding pauschal 5 000 CHF, Ramp-up 30 % der Monatskosten, Austritt pauschal 1 000 CHF; als Webflow-Rechner nur mit Code möglich).
+- **Neu gesetzt:** Vergleichstabellen als Listen (Positive Leadership, Empathische Führung), Überschriften ohne kaputte Fettschrift (CAS Leadership), Labels «Lösungsansatz» und Bildunterschriften als Absätze, geteilter Link «Khaled Salah» zusammengeführt.
+- **Tippfehler:** «Postitive», «emotionalle», fehlendes Leerzeichen im CTA-Titel (11 Fehler), Satzbau (Schwierige Kunden), doppeltes Verb (Empathische Führung).
+- **Offen:** Ziel der Lösungs-Kästen (offener Punkt 70); Beschreibung «Leadership-Weiterbildung» sprachlich holprig; Linkpfade zum CAS uneinheitlich (bei den Weiterleitungen prüfen).
+
 ## Prüfen vor dem Veröffentlichen (Mängel aus der Quelle, unverändert übernommen)
 
 | Thema | Beiträge | Vorschlag |
