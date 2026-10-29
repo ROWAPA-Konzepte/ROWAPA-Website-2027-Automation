@@ -681,6 +681,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 | 352 | Autorin | Galina Shokhova ist im Team, «corinne» nicht mehr (ROWAPA, 29.10.2026) | Person «Galina Shokhova» als Entwurf angelegt (Team, Autorin; Funktion und Kurzprofil [ROWAPA bestätigen]), als Autorin bei allen 19 WordPress-Beiträgen ab 2023 gesetzt; die Beiträge von «corinne» sind alle vor 2023 und archiviert |
 | 353 | Bereinigung der 23 aktiven Blog-Beiträge | SEO-Titel und Reste bereinigen (ROWAPA, 29.10.2026) | 9 SEO-Titel vollständig und max. 60 Zeichen; Umfragereste entfernt; Überschriften ohne kaputte Fettschrift; 2 Vergleichstabellen als Listen; lose Texte in Absätze; abgelaufenes LinkedIn-Bild, leere Links und ein nicht funktionsfähiger Rechner (Selbstführung) entfernt; 4 Tippfehler; Wortlaut sonst unverändert, alles weiterhin Entwurf (Details `10_cms_blogimport.md`) |
 | 354 | Design der Unterseiten (Vorschlag, wartet auf ROWAPA) | drei Header-Typen (A Bühne nur Startseite, B Themen-Header dunkel mit stehendem Punktemeer und Themenfigur, C Inhalts-Header hell mit Foto und Ribbon); ein Kontaktweg (Haupt-Aufruf «Erstgespräch vereinbaren», Abschluss mit Ansprechperson je Thema, Kontaktseite mit Formular, optional Buchungskalender); fünf Seitenfamilien, je mit Musterseite; vorher Section-Komponenten aus der Vorlage bauen | offene Punkte 67–70 |
+| 355 | Header, Bewegung, Kontakt (ROWAPA, 29.10.2026) | drei Header-Typen als Grundlage, **jeder Typ wird von ROWAPA einzeln abgenommen**; Bewegung vorerst aus (Header B mit stehendem Punktemeer); Buchungstool folgt, vermutlich Calendly; **Ansprechperson überall Jennifer Boek** | Entwürfe als Bild `stufe3-screens/runde49/` (Header B, C, Artikel, Kontakt-Abschluss Sie/Du) |
 
 ---
 
@@ -752,7 +753,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 64. Blog-Import aufräumen (Auswahl, Anrede und Autorin entschieden, Entscheide 350–352): Umfragereste, kaputte Überschriften, abgeschnittene SEO-Titel, CTA-Links auf `rowapa.ch/dev/…`, Du-Anrede in Firmen-Themen (Liste `10_cms_blogimport.md`). Welche Beiträge bleiben? [ROWAPA entscheiden]
 65. Vorlage Themenlinie: Filter, Werkzeug-Liste und Sortierung von Hand setzen (Handbuch 2.46) oder mich im Designer machen lassen, sobald die Schnittstelle es kann.
 66. Freigabe Eintrag «Vertriebsperformance» als Vorschau auf der Testadresse (Entscheid 349).
-67. Header-Typen A/B/C bestätigen; Bewegung nur auf der Startseite oder ruhig auch auf Themenseiten? (Entscheid 354)
-68. Buchungstool für Termine (z. B. Microsoft Bookings, Calendly) oder nur Formular? [ROWAPA bestätigen]
-69. Ansprechperson je Themenlinie und für «Meine Entwicklung». [ROWAPA bestätigen]
+67. Abnahme je Header-Typ: B (Themen-Header) und C (Inhalts-Header, Artikel) anhand `stufe3-screens/runde49/` (Entscheid 355). Offen: Bewegung auf der Startseite bleibt wie heute?
+68. Buchungstool: vermutlich Calendly, Link folgt (Entscheid 355). Bis dahin führt «Termin buchen» auf die Kontaktseite.
+69. ~~Ansprechperson~~: überall Jennifer Boek (Entscheid 355).
 70. Lösungs-Kästen im Blog: Ziel der Links festlegen (alte Pfade `rowapa.ch/cas-professional-leadership-for-finance/`, leere Links in 4 Beiträgen).
