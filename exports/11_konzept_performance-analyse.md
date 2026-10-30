@@ -168,3 +168,7 @@ Neu im Text: Top-Performer als Vorschlag für das Soll (Massstab, Phase 1, FAQ �
 ## 10. Runde 54 (30.10.2026): angeglichen an die Startseite
 
 Gilt ab jetzt und ersetzt die Abschnitte 7 bis 9 als Vorlage. Seite für Entscheider: Nutzen und Ablauf auf einen Blick, Details im FAQ. Aufbau und Texttabelle: `stufe3-screens/runde54/LIESMICH.md`. Navigation, Logo-Band, «Unser Vorgehen», «Gut zu wissen», Kontakt und Footer sind die Bausteine der Startseite. Runde 53 (`exports/landingpage-performance-analyse/`) bleibt nur als Archiv.
+
+## 11. Runde 55 (30.10.2026)
+
+Ergänzt Runde 54 um «Was Sie erreichen» mit Auswertungs-Slider (fünf Folien), die fünf Methoden mit «Warum» und die Aufteilung der sechs Analyse-Phasen auf die vier Phasen der Startseite. Details: `stufe3-screens/runde55/LIESMICH.md`.
