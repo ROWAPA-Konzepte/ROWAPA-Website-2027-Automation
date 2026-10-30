@@ -164,3 +164,7 @@ Aufbau nach Abschnitt 8 (V4-Dramaturgie + Runde 51), volle Website-Navigation, S
 | Lesefortschritt, schwebender Button | aus · an | nativ |
 
 Neu im Text: Top-Performer als Vorschlag für das Soll (Massstab, Phase 1, FAQ «Vergleichen Sie unsere Mitarbeitenden untereinander?»), Vertraulichkeitsstufen als Tabs, Musterbericht-Formular mit Newsletter-Häkchen (Mailchimp, Double-Opt-in).
+
+## 10. Runde 54 (30.10.2026): angeglichen an die Startseite
+
+Gilt ab jetzt und ersetzt die Abschnitte 7 bis 9 als Vorlage. Seite für Entscheider: Nutzen und Ablauf auf einen Blick, Details im FAQ. Aufbau und Texttabelle: `stufe3-screens/runde54/LIESMICH.md`. Navigation, Logo-Band, «Unser Vorgehen», «Gut zu wissen», Kontakt und Footer sind die Bausteine der Startseite. Runde 53 (`exports/landingpage-performance-analyse/`) bleibt nur als Archiv.
