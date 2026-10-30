@@ -781,6 +781,6 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 85. Section «Wo anfangen?» in der Themenlinie Vertriebsperformance; Demo-Seite wartet (Entscheid 360). [ROWAPA entscheiden]
 86. ~~Zusammenführung~~: ja (Entscheid 361).
 87. ~~Top-Performer~~: Vorschlag für das Soll-Profil (Entscheid 361).
-88. Bewegung auf der Landingpage: Auswahl je Section auf der Testseite Runde 52. [ROWAPA entscheiden]
-89. ~~Navigation~~: volle Website-Navigation (Entscheid 361). CTA-Text: «Analyse besprechen» (Vorschlag) oder «Strategiegespräch». [ROWAPA bestätigen]
+88. ~~Bewegung~~: zurückhaltend, ohne Schalter (Entscheid 362): Punkte-Lupe im Header, Logo-Laufband, Detailansicht Teamvergleich, Aufbau der Diagramme.
+89. ~~Navigation und CTA~~: Website-Navigation (Entscheid 361); CTA «Strategiegespräch anfragen» (Entscheid 362).
 90. Landingpage: Buchungslink (Calendly) eintragen, Adressen Impressum und Datenschutz bestätigen, Mindestgrösse «Standard fünf Personen» und die drei Erhebungsformen bestätigen (`landingpage-performance-analyse/AENDERUNGEN.md`). [ROWAPA bestätigen]
