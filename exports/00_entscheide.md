@@ -686,6 +686,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 | 357 | Neues Angebot Performance-Analyse / Standortbestimmung (ROWAPA, 30.10.2026, Pitch und Musterbericht) | Vorschlag: eigene Seite «Performance-Analyse» unter «Für Unternehmen» als Einstieg vor jedem Hebel, verlinkt von Startseite, Megamenü, Themenlinien, Hebel-Seiten, Tools & Methoden | Konzept `11_konzept_performance-analyse.md`; wartet auf ROWAPA (offene Punkte 71–76) |
 | 358 | Performance-Analyse (ROWAPA, 30.10.2026) | Name **Performance-Analyse**; Investition **auf Anfrage**; eigenes Angebot, abgegrenzt von den übrigen Tools; Logos dürfen verwendet werden (so verstanden, zu bestätigen); Sales-Deck als Textquelle, Analyse-Cockpit nur intern | Vorschlag Landingpage, Demo-Seite (passwortgeschützt), Musterbericht-Regel und Einbettung in «So arbeiten wir» in `11_konzept_performance-analyse.md` Abschnitt 6 |
 | 359 | Performance-Analyse, Klärungen (ROWAPA, 30.10.2026) | **5 Methoden** (Skill-Check als eigener Fragebogen, Eigensicht, Fremdsicht mit denselben Aussagen, Interviews, On-the-Job); **ca. 25 Min.** je Person; Folgemessung **individuell**, z. B. nach 6 Monaten; Ablauf mit den **6 Phasen aus dem Cockpit** (0 Auftrag aufsetzen · 1 Profil entwickeln · 2 Erheben · 3 Auswerten · 4 Ergebnis · 5 Wirkung messen, optional); Logos frei; Demo-Seite mit Passwort einverstanden, keine Cockpit-Bildschirmfotos; Musterbericht: Auszüge frei, PDF gegen E-Mail | Gewichtung bleibt intern (nicht veröffentlichen). Landingpage als ganze Seite: `stufe3-screens/runde51/`; «So arbeiten wir» bleibt Oberbegriff (Analysieren = Phasen 0–2, Verstehen = 3–4, Handeln = Massnahmen, Messen = 5) |
+| 360 | Performance-Analyse, Rückmeldung (ROWAPA, 30.10.2026) | Aussagen aus Punkt 83 dürfen auf die Website; Musterbericht gegen E-Mail über **Pipedrive** (CRM); «Diagnostik & Potenzialanalyse» ist ein **eigenes Angebot**, nicht Teil der Performance-Analyse; Demo-Seite wartet; Vorlage «V4 Landingpage» (Dramaturgie) einbeziehen, Animationen erwünscht | Einschätzung V4 und Vorschlag Zusammenführung in `11_konzept_performance-analyse.md` Abschnitt 8; Abnahme Runde 51 wartet auf diese Einschätzung |
 
 ---
 
@@ -764,7 +765,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 71. ~~Name~~: Performance-Analyse (Entscheid 358).
 72. ~~Musterbericht~~: Auszüge frei, PDF gegen E-Mail (Entscheid 359).
 73. ~~Preis~~: auf Anfrage (Entscheid 358).
-74. Abgrenzung zum Hebel «Diagnostik & Potenzialanalyse» (Mitarbeiterperformance) und zu SalesStep: Teil der Analyse, eigenes Angebot oder zusammenlegen? [ROWAPA bestätigen]
+74. ~~Abgrenzung Diagnostik & Potenzialanalyse~~: eigenes Angebot (Entscheid 360). Auf der Seite höchstens als Querverweis.
 75. ~~Referenzlogos~~: dürfen gezeigt werden (Entscheid 359).
 76. ~~Ganze Seite als Entwurf~~: `stufe3-screens/runde51/` (Entscheid 359).
 77. ~~Methoden~~: fünf (Entscheid 359).
@@ -773,6 +774,10 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 80. ~~Demo-Seite~~: Passwort einverstanden, keine Cockpit-Bildschirmfotos (Entscheid 359).
 81. ~~Musterbericht-Regel~~: einverstanden (Entscheid 359).
 82. Abnahme Landingpage «Performance-Analyse» (`stufe3-screens/runde51/`): Aufbau, Reihenfolge, Länge. [ROWAPA bestätigen]
-83. Aussagen auf der Landingpage bestätigen: «Aus zwanzig Jahren Mandaten in der Finanzbranche», «Gruppen unter fünf Personen werden nie ausgewiesen», «Jede Person sieht ihr eigenes Ergebnis», Stufe «Mit Namen» für kleine Teams. [ROWAPA bestätigen]
-84. Musterbericht gegen E-Mail: Webflow-Formulare verschicken keine Dateien. Variante a) Formular → Danke-Seite mit PDF-Link (einfach, ohne Prüfung der Adresse); b) Versand über ein Newsletter-Werkzeug (Adresse wird geprüft). Welches Werkzeug nutzt ROWAPA? [ROWAPA entscheiden]
-85. Nächste Entwürfe: Demo-Seite (Passwort) und Section «Wo anfangen?» in der Themenlinie Vertriebsperformance. [ROWAPA entscheiden]
+83. ~~Aussagen auf der Landingpage~~: freigegeben (Entscheid 360).
+84. Musterbericht über Pipedrive (Entscheid 360): Pipedrive-Plan (Automationen mit E-Mail-Versand ab «Advanced»?), Zusatz «Campaigns» vorhanden?, Verbindungswerkzeug (Make, Zapier oder n8n) vorhanden? Absender (Jennifer Boek?). [ROWAPA bestätigen]
+85. Section «Wo anfangen?» in der Themenlinie Vertriebsperformance; Demo-Seite wartet (Entscheid 360). [ROWAPA entscheiden]
+86. Landingpage: Zusammenführung V4-Dramaturgie und Runde 51 (Vorschlag Abschnitt 8 im Konzept). [ROWAPA entscheiden]
+87. Top-Performer-Referenz (V4) und «verglichen wird mit der Anforderung, nie mit Kolleginnen und Kollegen» (Deck/Cockpit) widersprechen sich. Vorschlag: Top-Performer als optionale Grundlage für das Soll-Profil, nicht als Rangliste. [ROWAPA entscheiden]
+88. Bewegung auf der Landingpage als Ausnahme zu Entscheid 356? Welche Varianten (Konzept Abschnitt 8)? [ROWAPA entscheiden]
+89. Navigation der Landingpage: volle Website-Navigation oder reduzierte Variante (Sprungmarken + Button) für Kampagnen? CTA «Strategiegespräch» oder «Analyse besprechen»? [ROWAPA entscheiden]

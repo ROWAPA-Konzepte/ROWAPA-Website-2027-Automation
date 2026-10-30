@@ -107,3 +107,38 @@ Bilder: `stufe3-screens/runde51/` (Desktop 1440 px, Handy 390 px). Werkzeug: `to
 | 12 | Musterbericht | Weiss | Cover, Inhalt, Formular «Musterbericht erhalten» |
 | 13 | Gut zu wissen | Weiss | 6 Fragen (Antworten aus Deck und Entscheid 359) |
 | 14 | Kontakt | Sea Cliff | Jennifer Boek, «Welche Fragestellung möchten Sie genauer untersuchen?» |
+
+## 8. Einschätzung Vorlage «V4 Landingpage» (30.10.2026) und Vorschlag
+
+**Stärken der V4 (übernehmen):** klare Dramaturgie Problem → Ergebnis → Methode → Entscheidung → Aufwand → Gespräch; Hero mit Versprechen und «Beispielhafter Erkenntnis»; drei zugespitzte Fragen (Vertrieb, Mitarbeitende, Führung); Ergebniskarten mit «Ergänzung aus der Praxis» und «Möglicher Entwicklungsansatz» (Befund → Massnahme); On-the-Job als eigenes, dunkles Band; Aufwand-Karten mit «Ihr Ergebnis»; Schlusspanel mit Kleingedrucktem; Top-Performer-Referenz als neues Argument.
+
+**Anpassen:** Name Performance-Analyse statt Standortbestimmung (358); «Unternehmen» statt «Organisation»; CI (TASA statt Arial, ROWAPA-Logo statt Behelfszeichen, Farben und 8-px-Raster); Top-Performer-Vergleich mit dem Grundsatz «nie mit Kolleginnen und Kollegen» abstimmen (Punkt 87).
+
+**Fehlt in der V4, ist in Runde 51 vorhanden:** Logos, Soll-Profil als Massstab, Vertraulichkeit, sechs Phasen, Musterbericht, FAQ, Ansprechperson.
+
+**Vorschlag Zusammenführung (11 statt 14 Sections):**
+
+| # | Section | Herkunft |
+|---|---|---|
+| 1 | Hero «Sie kennen Ihre Ergebnisse. Wir zeigen, wo Sie gezielt ansetzen können.», Methoden-Stapel, beispielhafte Erkenntnis | V4 |
+| 2 | Leiste «Seit 2006 …» und Logo-Band | V4 + R51 |
+| 3 | Ausgangslage: drei Fragen, Schlussfrage | V4 |
+| 4 | Was sichtbar wird: Einzelperson (Eigen/Fremd) und Teams (Wärmetabelle), je Praxis-Ergänzung und Ansatz; Massstab Soll-Profil, optional Top-Performer | V4 + R51 |
+| 5 | Methodik: vier Karten, On-the-Job-Band, Satz zur Aussagekraft | V4 |
+| 6 | Messen mit Sorgfalt (kompakt, dunkel) | R51 |
+| 7 | Von Erkenntnis zu Entscheidung, Budget-Argument | V4 + R51 |
+| 8 | Ablauf: sechs Phasen als schmale Leiste | R51 |
+| 9 | Aufwand mit «Ihr Ergebnis», Folgemessung | V4 + R51 |
+| 10 | Musterbericht (Formular → Pipedrive) | R51 |
+| 11 | Gut zu wissen (FAQ) und Kontakt Jennifer Boek | R51 |
+
+**Bewegung (Vorschlag, wartet auf Punkt 88):**
+- A · Header: Punktemeer wie auf der Startseite; die Lupe setzt sich aus Punkten zusammen (vorhandenes Grafik-Modul).
+- B · Balken wachsen beim Hineinscrollen auf ihren Wert (native Interaction).
+- C · Wärmetabelle: Felder erscheinen als Welle, danach werden die zwei schwächsten Spalten Plum gerahmt («Zwei Themen, nicht vier Teams») (native Interaction).
+- D · «Aus fünf Quellen ein Bild»: Punkte aus den fünf Methoden fliessen zu einer Figur zusammen (Grafik-Modul, Signatur-Moment).
+- E · Ablauf: Treppe aus «Unser Vorgehen» für die sechs Phasen wiederverwenden (vorhandenes Modul).
+- F · Zähler in «Ihr Aufwand» (vorhandenes Modul).
+Empfehlung: A, B, C und E; D als einziges neues Signatur-Element; F weglassen (ruhiger). Alles mit «reduzierte Bewegung» abschaltbar.
+
+**Musterbericht über Pipedrive:** natives Webflow-Formular → Verbindung (Make, Zapier oder n8n über Webhook) → Pipedrive legt Person und Lead «Musterbericht» an → Pipedrive-Automation schickt eine E-Mail mit dem PDF-Link. Newsletter-Einwilligung separat als Häkchen; Double-Opt-in löst Pipedrive laut Hilfe-Center nicht automatisch aus. Zu klären: Plan, Zusatz Campaigns, Verbindungswerkzeug (Punkt 84).
