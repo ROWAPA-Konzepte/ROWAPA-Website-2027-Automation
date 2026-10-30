@@ -684,6 +684,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 | 355 | Header, Bewegung, Kontakt (ROWAPA, 29.10.2026) | drei Header-Typen als Grundlage, **jeder Typ wird von ROWAPA einzeln abgenommen**; Bewegung vorerst aus (Header B mit stehendem Punktemeer); Buchungstool folgt, vermutlich Calendly; **Ansprechperson überall Jennifer Boek** | Entwürfe als Bild `stufe3-screens/runde49/` (Header B, C, Artikel, Kontakt-Abschluss Sie/Du) |
 | 356 | Ganze Unterseite statt Einzelteile (ROWAPA, 29.10.2026) | Bewegung nur auf der Startseite bestätigt; Schreibweise «Boek» bestätigt; ROWAPA will die ganze Seite im Zusammenspiel sehen | Entwurf ganze Seite «Vertriebsperformance» `stufe3-screens/runde50/` (Desktop, Handy); wartet auf Abnahme |
 | 357 | Neues Angebot Performance-Analyse / Standortbestimmung (ROWAPA, 30.10.2026, Pitch und Musterbericht) | Vorschlag: eigene Seite «Performance-Analyse» unter «Für Unternehmen» als Einstieg vor jedem Hebel, verlinkt von Startseite, Megamenü, Themenlinien, Hebel-Seiten, Tools & Methoden | Konzept `11_konzept_performance-analyse.md`; wartet auf ROWAPA (offene Punkte 71–76) |
+| 358 | Performance-Analyse (ROWAPA, 30.10.2026) | Name **Performance-Analyse**; Investition **auf Anfrage**; eigenes Angebot, abgegrenzt von den übrigen Tools; Logos dürfen verwendet werden (so verstanden, zu bestätigen); Sales-Deck als Textquelle, Analyse-Cockpit nur intern | Vorschlag Landingpage, Demo-Seite (passwortgeschützt), Musterbericht-Regel und Einbettung in «So arbeiten wir» in `11_konzept_performance-analyse.md` Abschnitt 6 |
 
 ---
 
@@ -759,9 +760,14 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 68. Buchungstool: vermutlich Calendly, Link folgt (Entscheid 355). Bis dahin führt «Termin buchen» auf die Kontaktseite.
 69. ~~Ansprechperson~~: überall Jennifer Boek (Entscheid 355).
 70. Lösungs-Kästen im Blog: Ziel der Links festlegen (alte Pfade `rowapa.ch/cas-professional-leadership-for-finance/`, leere Links in 4 Beiträgen).
-71. Name des Angebots: «Performance-Analyse» (Vorschlag) oder «Standortbestimmung»? «Standortbestimmung & Wachstum» ist bereits ein Bereich für Einzelpersonen. [ROWAPA entscheiden]
+71. ~~Name~~: Performance-Analyse (Entscheid 358).
 72. Musterbericht als Download auf der Website (frei oder gegen E-Mail-Adresse)? [ROWAPA entscheiden]
-73. Preis oder «Investition» auf der Website nennen oder nur auf Anfrage? [ROWAPA bestätigen]
+73. ~~Preis~~: auf Anfrage (Entscheid 358).
 74. Abgrenzung zum Hebel «Diagnostik & Potenzialanalyse» (Mitarbeiterperformance) und zu SalesStep: Teil der Analyse, eigenes Angebot oder zusammenlegen? [ROWAPA bestätigen]
 75. Referenzlogos aus Pitch-Folie 2 auf der Seite zeigen (Freigabe der Kunden)? [ROWAPA bestätigen]
 76. Ganze Seite «Performance-Analyse» als Entwurf (Bild) bauen, sobald 71–74 geklärt sind.
+77. Methoden: vier oder fünf? Sales-Deck zählt Skill-Check und Eigensicht getrennt, das Cockpit nicht. [ROWAPA entscheiden]
+78. Folgemessung: nach 6 Wochen (Cockpit) oder 6–12 Monaten (Sales-Deck)? [ROWAPA entscheiden]
+79. Zeit je Person: «ca. 25 Min.» oder «15–18 Min. Selbsteinschätzung, 10–12 Min. Fremdbeurteilung»? [ROWAPA entscheiden]
+80. Demo-Seite: mit Webflow-Passwort geschützt, ein gemeinsames Passwort (periodisch wechseln) einverstanden? Gibt es Bildschirmfotos aus dem Cockpit, die gezeigt werden dürfen? [ROWAPA bestätigen]
+81. Musterbericht: Auszüge frei, ganzes PDF gegen E-Mail-Adresse (Empfehlung) einverstanden? [ROWAPA bestätigen]

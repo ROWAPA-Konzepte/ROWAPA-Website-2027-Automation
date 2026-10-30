@@ -1,6 +1,6 @@
 # Konzept · Performance-Analyse auf der Website (Vorschlag, 30.10.2026)
 
-Grundlage: ROWAPA-Präsentationen «Standortbestimmung · Pitch» (12 Folien) und «Standortbestimmung · Musterbericht» (13 Folien, anonymisiert, erfundene Daten). Status: Vorschlag, wartet auf ROWAPA (Entscheid 357, offene Punkte 71–76).
+Grundlage: ROWAPA-Präsentationen «Standortbestimmung · Pitch» (12 Folien) und «Standortbestimmung · Musterbericht» (13 Folien, anonymisiert, erfundene Daten). Status: Vorschlag, wartet auf ROWAPA (Entscheide 357–358, offene Punkte 71–81). Ergänzt am 30.10.2026 um «Sales-Deck Performance-Analyse» (14 Folien, aktuellste Fassung) und «Analyse-Cockpit · Funktionsübersicht» (internes Werkzeug, Stand 21.09.2026).
 
 ## 1. Einordnung
 
@@ -8,7 +8,7 @@ Grundlage: ROWAPA-Präsentationen «Standortbestimmung · Pitch» (12 Folien) un
 - Sie gilt für **beide Leistungsfelder**: Vertriebsperformance und Mitarbeiterperformance (inkl. Führung). Darum gehört sie nicht als fünfter Hebel in eine einzelne Themenlinie, sondern als **eigene Seite im Bereich «Für Unternehmen»**, auf die alle Themenlinien verweisen.
 - Sie passt zur Phase **01 Analysieren** im globalen Baustein «So arbeiten wir» und konkretisiert ihn.
 
-## 2. Name (Entscheid nötig)
+## 2. Name (entschieden: Performance-Analyse, Entscheid 358)
 
 | Variante | Für | Gegen |
 |---|---|---|
@@ -60,3 +60,29 @@ Nicht verknüpfen: Selbstchecks und «Standortbestimmung & Wachstum» (Einzelper
 - Unikat-Seite aus den Bausteinen (Header B, Kartenraster, Schritte, Text-Band, Note-Box, FAQ, Kontakt); keine neue Collection nötig.
 - CMS: Download «Musterbericht» (Collection Downloads), FAQ-Gruppe «Performance-Analyse», in den Themenlinien ein Schalter «Analyse-Hinweis anzeigen».
 - Musterbericht als PDF aus der PowerPoint, mit Hinweis «erfundener Fall».
+
+## 6. Ergänzung 30.10.2026: Sales-Deck und Analyse-Cockpit
+
+**Quelle für die öffentliche Seite ist das Sales-Deck** (neuer als der Pitch): Name Performance-Analyse, zusätzlich «Der Massstab» (Soll-Profil gemeinsam festgelegt), «Die Ursache» (Eigen- vs. Fremdsicht der Führung), «Jede einzelne Person» und das Budget-Argument «wofür kein Budget nötig ist». Kundenname auf Folie 1 und 14 nicht übernehmen.
+
+**Das Analyse-Cockpit ist eine interne Funktionsübersicht** (Pseudonym-Tabellen, Linklisten, Gewichte, Werkstatt). Nicht veröffentlichen. Übernehmen als Vertrauensargumente in eine Section «Messen mit Sorgfalt»:
+- vier Blickwinkel auf dieselben Kompetenzen statt eines Fragebogens;
+- die Beobachtung im realen Kundentermin wiegt am stärksten, das Interview erklärt, zählt aber nicht mit;
+- zwei Vergleiche getrennt: Ist gegen Soll der Rolle, Selbst- gegen Fremdbild; verglichen wird mit der Anforderung, nie mit Kolleginnen und Kollegen;
+- eingebaute Prüffragen gegen geschöntes Antworten;
+- Datenschutz: anonym, pseudonym oder mit Namen, je Gruppe wählbar; Gruppen unter fünf Personen werden nie ausgewiesen; jede Person sieht ihr eigenes Ergebnis.
+
+**Widersprüche, die vor dem Bau zu klären sind** (offene Punkte 77–79):
+| Thema | Sales-Deck | Cockpit |
+|---|---|---|
+| Methoden | fünf (Skill-Check, Eigensicht, Fremdsicht, Interviews, On-the-Job) | vier Instrumente (Skillcheck = Selbstbeurteilung, Fremdbeurteilung, Beobachtung, Interview) |
+| Zeit je Person | ca. 25 Min. Skill-Check | 15–18 Min. Skillcheck, 10–12 Min. Fremdbeurteilung |
+| Folgemessung | nach 6–12 Monaten | nach 6 Wochen |
+| Ablauf | 4 Phasen, 4–6 Wochen | 6 Phasen (0–5), Erhebung 3–4 Wochen |
+
+**Landingpage und Demo-Seite**
+- *Landingpage (vor dem Gespräch):* die öffentliche Seite `/fuer-unternehmen/performance-analyse` nach Abschnitt 3, Texte aus dem Sales-Deck, ergänzt um «Messen mit Sorgfalt».
+- *Demo-Seite (nach dem Gespräch):* eigene Seite `/demo/performance-analyse`, mit Webflow-Passwort geschützt und nicht in Suchmaschinen; zeigt den Musterbericht Schritt für Schritt (Soll-Profil, Abgleich, Teamvergleich, Eigen-/Fremdsicht, Person, Befunde, Massnahmen), «So läuft Ihre Analyse» mit Wochenplan, die Datenschutz-Stufen und ein Feld «Ihre Fragestellung» für die Vorbereitung des Angebots. Passwort wird nach dem Gespräch mitgegeben und periodisch gewechselt.
+- *Musterbericht:* Auszüge frei auf der Landingpage, ganzes PDF gegen geschäftliche E-Mail-Adresse (Download-Formular), auf der Demo-Seite frei.
+
+**«So arbeiten wir» und die Analyse:** Die vier ROWAPA-Phasen bleiben der Oberbegriff für jedes Mandat. Die Performance-Analyse füllt Phase 01 Analysieren und 02 Verstehen, die Hebel sind Phase 03 Handeln, die Folgemessung ist Phase 04 Messen und zugleich der Start der nächsten Analyse. Der Ablauf der Analyse wird als Wochenplan gezeigt (Woche 1–6), nicht als zweite Reihe «Phasen», damit es keine zwei konkurrierenden Viererschemen gibt.
