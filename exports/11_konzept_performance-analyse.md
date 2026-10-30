@@ -172,3 +172,7 @@ Gilt ab jetzt und ersetzt die Abschnitte 7 bis 9 als Vorlage. Seite für Entsche
 ## 11. Runde 55 (30.10.2026)
 
 Ergänzt Runde 54 um «Was Sie erreichen» mit Auswertungs-Slider (fünf Folien), die fünf Methoden mit «Warum» und die Aufteilung der sechs Analyse-Phasen auf die vier Phasen der Startseite. Details: `stufe3-screens/runde55/LIESMICH.md`.
+
+## 12. Runde 56 (30.10.2026)
+
+Führung als eigenes Messinstrument (Band unter den Leistungsfeldern, Folie 3 mit drei Blickwinkeln, FAQ), Leistungsfelder aus der Vorlage «Standortbestimmung» in der Ausgangslage, vier Phasen gestrichen, fünf Methoden als Visualisierung mit Linien zum Ergebnis. Details: `stufe3-screens/runde56/LIESMICH.md`. Vorlagen: `quellen/vorlagen/`.
