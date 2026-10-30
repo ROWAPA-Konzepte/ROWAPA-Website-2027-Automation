@@ -142,3 +142,25 @@ Bilder: `stufe3-screens/runde51/` (Desktop 1440 px, Handy 390 px). Werkzeug: `to
 Empfehlung: A, B, C und E; D als einziges neues Signatur-Element; F weglassen (ruhiger). Alles mit «reduzierte Bewegung» abschaltbar.
 
 **Musterbericht über Pipedrive:** natives Webflow-Formular → Verbindung (Make, Zapier oder n8n über Webhook) → Pipedrive legt Person und Lead «Musterbericht» an → Pipedrive-Automation schickt eine E-Mail mit dem PDF-Link. Newsletter-Einwilligung separat als Häkchen; Double-Opt-in löst Pipedrive laut Hilfe-Center nicht automatisch aus. Zu klären: Plan, Zusatz Campaigns, Verbindungswerkzeug (Punkt 84).
+
+## 9. Runde 52 (30.10.2026): Testseite mit Bewegungsvarianten
+
+Private Testseite: https://claude.ai/artifact/Rn76rHcMDZjUwMjuRe74sd · Quelle `tools/entwuerfe/runde52/src.html` (Schriften werden mit `build.py` eingebettet) · Bilder `stufe3-screens/runde52/`.
+
+Aufbau nach Abschnitt 8 (V4-Dramaturgie + Runde 51), volle Website-Navigation, Sie-Form. Unten links «Varianten umschalten»: je Section eine Auswahl, drei Voreinstellungen. Ein Wechsel spielt die Animation neu ab. Die Wahl wird im Browser gemerkt.
+
+| Section | Varianten | Umsetzung in Webflow |
+|---|---|---|
+| Header-Grafik | Lupe still · Lupe aus Punkten (Maus weicht aus, Klick zerstreut und baut neu auf) · Ist-Bild einer Rolle (Netz zeichnet sich, Kompetenz anwählbar, Puls auf der grössten Lücke) | still nativ; Punkte und Netz über das ROWAPA-Grafik-Skript |
+| Logo-Band | Laufband · stehend | nativ |
+| Ausgangslage | statisch · Klick auf eine Frage hebt die passenden Analysefelder hervor | nativ (Interaction) |
+| Teamvergleich | statisch · Welle + Plum-Rahmen um den Themenbefund · Zeile anwählen → Detailansicht | nativ (Interaction; Detail über Webflow-Tabs) |
+| Eigen- und Fremdsicht | Balken · Abstand zeigen (Punkte gehen auseinander, grosse Abstände Plum) | nativ |
+| Balken wachsen | aus · beim Hineinscrollen | nativ |
+| Fünf Methoden | statisch · Linien fliessen zum Ergebnis (Klick hebt eine Methode hervor und zeigt ihren Beitrag) · Aus fünf Quellen ein Bild (Punkte fliessen zur Lupe) | Skript |
+| Umfang skizzieren | nur Text · Konfigurator (3 × 3 Wahl, «Daraus entsteht») | kleines Skript |
+| Ablauf | Leiste · Linie zeichnet sich, Phase anwählbar · Treppe | Linie nativ; Treppe über das vorhandene Modul |
+| Zähler | aus · an | vorhandenes Modul |
+| Lesefortschritt, schwebender Button | aus · an | nativ |
+
+Neu im Text: Top-Performer als Vorschlag für das Soll (Massstab, Phase 1, FAQ «Vergleichen Sie unsere Mitarbeitenden untereinander?»), Vertraulichkeitsstufen als Tabs, Musterbericht-Formular mit Newsletter-Häkchen (Mailchimp, Double-Opt-in).

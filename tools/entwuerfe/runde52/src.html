@@ -1,0 +1,881 @@
+<title>Performance-Analyse · Bewegungsvarianten</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: ROWAPA-Unterseite «Für Unternehmen», helle Bänder im Wechsel mit Manganese-Bändern, 1200er Raster, 8-px-Grundraster. Ein Look (Markenwebsite), darum kein Dunkelmodus. */
+@font-face{font-family:"TASA";font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{{F400}}) format("woff2")}
+@font-face{font-family:"TASA";font-weight:600;font-display:swap;src:url(data:font/woff2;base64,{{F600}}) format("woff2")}
+@font-face{font-family:"TASA";font-weight:700;font-display:swap;src:url(data:font/woff2;base64,{{F700}}) format("woff2")}
+@font-face{font-family:"TASA Explorer";font-weight:800;font-display:swap;src:url(data:font/woff2;base64,{{FEX}}) format("woff2")}
+:root{
+  color-scheme:light;
+  --navy:#1D3149; --navy-2:#253c57; --serpent:#486EA3; --sea:#A0C4DF; --plum:#AA1351;
+  --white:#FFFFFF; --snow:#E8E9E9; --snow-2:#F3F4F4; --ink:#1D3149; --sub:#4E5E70; --line:#D5D9DE;
+  --on-dark:#FFFFFF; --on-dark-sub:#C9D6E3; --line-dark:rgba(160,196,223,.28);
+  --f-text:"TASA",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-label:"TASA Explorer","TASA",system-ui,Arial,sans-serif;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s6:48px;--s8:64px;--s12:96px;
+  --gut:max(clamp(16px,4vw,48px),env(safe-area-inset-left,0px));
+  --gut-r:max(clamp(16px,4vw,48px),env(safe-area-inset-right,0px));
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--f-text);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3{text-wrap:balance;letter-spacing:-.02em}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+.band{padding-left:var(--gut);padding-right:var(--gut-r)}
+.band>.in{max-width:1200px;margin:0 auto;padding-block:var(--s12)}
+.dark{background:var(--navy);color:var(--on-dark)}
+.soft{background:var(--snow-2)}
+.sea{background:#D9E7F2}
+.kicker{display:flex;align-items:center;gap:12px;font-family:var(--f-label);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--plum)}
+.kicker::before{content:"";width:24px;height:2px;background:currentColor}
+.dark .kicker{color:var(--sea)}
+.h2{font-size:clamp(30px,3.4vw,44px);line-height:1.12;font-weight:700;margin-top:var(--s2)}
+.lead{font-size:19px;line-height:1.6;color:var(--sub);max-width:62ch;margin-top:var(--s3)}
+.dark .lead{color:var(--on-dark-sub)}
+.head{margin-bottom:var(--s6);max-width:820px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 24px;font-family:var(--f-label);font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;transition:background .2s,transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-plum{background:var(--plum);color:#fff}.btn-plum:hover{background:#8f0f44}
+.btn-line{border-color:currentColor}
+.muster{display:inline-block;font-family:var(--f-label);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--plum);border:1px solid var(--plum);padding:4px 8px}
+.small{font-size:14px;color:var(--sub)}
+.dark .small{color:var(--on-dark-sub)}
+.card{background:#fff;border:1px solid var(--line);padding:var(--s4)}
+.card h3{font-size:22px;line-height:1.25;font-weight:600}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy);color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+.nav .in{max-width:1200px;margin:0 auto;height:76px;display:flex;align-items:center;gap:var(--s4)}
+.nav img{height:30px;width:auto;display:block}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0 0 0 auto;padding:0;font-size:15px}
+.nav li a{text-decoration:none;color:var(--on-dark-sub)}
+.nav li a:hover,.nav li a.on{color:#fff}
+.nav .dd::after{content:" ▾";font-size:11px;opacity:.7}
+.nav .btn{min-height:40px;padding:8px 16px;font-size:12px}
+.nav .burger{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--line-dark);background:none;color:#fff}
+@media(max-width:1020px){.nav ul{display:none}.nav .burger{display:block}.nav .btn{display:none}}
+.progress{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;background:var(--plum);width:0;z-index:55;transition:opacity .3s}
+html:not([data-progress="an"]) .progress{opacity:0}
+
+/* HERO */
+.hero{position:relative;overflow:hidden}
+.hero .in{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s8);align-items:center;padding-block:var(--s8) var(--s12);position:relative;z-index:2}
+.hero .sea-bg{position:absolute;inset:auto 0 0 0;height:46%;background:url(img/punktemeer.jpg) center bottom/cover no-repeat;opacity:.4;-webkit-mask-image:linear-gradient(transparent,#000 50%);mask-image:linear-gradient(transparent,#000 50%);z-index:1}
+.crumb{font-size:14px;color:var(--on-dark-sub);margin-bottom:var(--s3)}
+.crumb b{color:#fff;font-weight:600}
+.hero h1{font-size:clamp(38px,4.6vw,62px);line-height:1.06;font-weight:700;margin-top:var(--s2);letter-spacing:-.03em}
+.hero h1 span{color:var(--sea)}
+.hero .rule{width:64px;height:3px;background:var(--plum);margin:var(--s3) 0}
+.hero p.l{font-size:19px;color:var(--on-dark-sub);max-width:54ch}
+.hero .acts{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4)}
+.hero .foot{font-size:14px;color:var(--on-dark-sub);margin-top:var(--s3)}
+.visual{position:relative;min-height:420px;display:flex;flex-direction:column;justify-content:center}
+.vis{display:none}
+html[data-hero="still"] .vis-still,html[data-hero="punkte"] .vis-punkte,html[data-hero="radar"] .vis-radar{display:block}
+.vis-still img{display:block;height:380px;width:auto;margin:0 auto}
+.vis-punkte canvas{display:block;width:100%;height:400px;cursor:pointer;touch-action:pan-y}
+.vis-hint{font-size:13px;color:var(--on-dark-sub);text-align:center;margin-top:var(--s1)}
+.radar{background:#fff;color:var(--ink);padding:var(--s3);max-width:460px;margin-left:auto}
+.radar-top{display:flex;justify-content:space-between;align-items:start;gap:var(--s2)}
+.radar-top small{display:block;font-family:var(--f-label);font-weight:800;font-size:11px;letter-spacing:.12em;color:var(--sub);text-transform:uppercase}
+.radar-top b{font-size:18px;font-weight:600}
+.radar svg{display:block;width:100%;height:auto;margin-top:var(--s1)}
+.radar .ax{cursor:pointer}
+.radar .ax text{font-family:var(--f-text);font-size:15px;font-weight:600;fill:var(--ink)}
+.radar .ax.on text{fill:var(--plum)}
+.radar-info{font-size:14px;color:var(--sub);min-height:44px;border-top:1px solid var(--line);padding-top:var(--s1)}
+.radar-info b{color:var(--ink)}
+.insight{margin-top:var(--s3);border:1px solid var(--line-dark);background:rgba(10,22,36,.35);padding:var(--s2) var(--s3);font-size:15px;color:var(--on-dark-sub);max-width:460px;margin-left:auto;position:relative;z-index:2}
+.insight small{display:block;font-family:var(--f-label);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sea);margin-bottom:6px}
+.insight b{display:block;color:#fff;font-weight:600;margin-top:6px}
+@keyframes zeichnen{from{stroke-dashoffset:var(--len)}to{stroke-dashoffset:0}}
+@keyframes puls{0%{r:6;opacity:1}100%{r:20;opacity:0}}
+.pulse{animation:puls 1.8s ease-out infinite}
+
+/* LOGOS */
+.logos{background:var(--navy);border-top:1px solid rgba(255,255,255,.08)}
+.logos .in{padding-block:var(--s4) var(--s6)}
+.logos .cap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s2);font-size:15px;color:var(--on-dark-sub);margin-bottom:var(--s3)}
+.logos .cap b{color:#fff;font-weight:600}
+.lg-view{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.lg-track{display:flex;gap:56px;align-items:center;width:max-content}
+.lg-track img{height:34px;width:auto;opacity:.85}
+html[data-logos="lauf"] .lg-track{animation:lauf 48s linear infinite}
+html[data-logos="still"] .lg-track{flex-wrap:wrap;width:auto;justify-content:center;gap:24px 48px}
+html[data-logos="still"] .lg-track .dup{display:none}
+html[data-logos="still"] .lg-view{-webkit-mask-image:none;mask-image:none}
+@keyframes lauf{to{transform:translateX(-50%)}}
+
+/* AUSGANGSLAGE */
+.q-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3)}
+.q{border:1px solid var(--line);border-top:3px solid var(--serpent);padding:var(--s4);background:#fff;transition:border-color .25s,box-shadow .25s,opacity .25s;text-align:left;width:100%}
+.q.f3{border-top-color:var(--plum)}
+.q .up{font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--serpent)}
+.q h3{font-size:21px;line-height:1.3;font-weight:600;margin:var(--s2) 0 var(--s1)}
+.q p{font-size:15px;color:var(--sub)}
+html[data-felder="an"] .q{cursor:pointer}
+html[data-felder="an"] .q:hover,.q.on{box-shadow:0 12px 32px rgba(29,49,73,.1)}
+html[data-felder="an"] .q-grid.sel .q:not(.on){opacity:.55}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s1);margin-top:var(--s4);align-items:center}
+.chips>span:first-child{font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);margin-right:var(--s1)}
+.chip{border:1px solid var(--line);padding:6px 12px;font-size:14px;font-weight:600;background:#fff;transition:all .25s}
+.chip.hit{background:var(--navy);color:#fff;border-color:var(--navy)}
+.chip.dim{opacity:.35}
+.closure{display:flex;gap:var(--s2);align-items:center;margin-top:var(--s4);background:var(--snow-2);border-left:3px solid var(--plum);padding:var(--s3);font-size:19px;font-weight:600}
+
+/* ERGEBNIS */
+.res-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s3)}
+.res{display:flex;flex-direction:column;gap:var(--s2)}
+.res .top{display:flex;justify-content:space-between;align-items:center;gap:var(--s2)}
+.res .who{font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--serpent)}
+.res h3{font-size:24px}
+.res .desc{font-size:15px;color:var(--sub)}
+.obs{background:var(--snow-2);border-left:3px solid var(--serpent);padding:var(--s2);font-size:14px;color:var(--sub)}
+.obs b,.act b{color:var(--ink);display:block}
+.act{background:#F8E9EF;border-left:3px solid var(--plum);padding:var(--s2);font-size:14px;color:#5b3a4a;margin-top:auto}
+table.heat{width:100%;border-collapse:separate;border-spacing:4px;font-variant-numeric:tabular-nums}
+.heat th{font-size:12px;font-weight:600;color:var(--sub);padding:4px;text-align:center;line-height:1.25}
+.heat td{text-align:center;font-weight:600;font-size:15px;padding:12px 0;transition:box-shadow .4s,opacity .35s,transform .35s}
+.heat td.l{text-align:left;color:var(--ink);padding-left:8px;font-size:14px;white-space:nowrap}
+.heat tr.row{transition:outline-color .2s}
+html[data-heat="klick"] .heat tr.row{cursor:pointer}
+html[data-heat="klick"] .heat tr.row:hover td.l{color:var(--plum)}
+.heat tr.row.on td.l{color:var(--plum);box-shadow:inset 3px 0 0 var(--plum)}
+.heat tr.row.on td:not(.l){box-shadow:inset 0 0 0 2px var(--navy)}
+.heat.befund td.c1,.heat.befund td.c3{box-shadow:inset 0 0 0 2px var(--plum)}
+.heat-legend{display:flex;gap:var(--s2);align-items:center;font-size:12px;color:var(--sub)}
+.heat-legend i{display:inline-block;width:80px;height:8px;background:linear-gradient(90deg,#AA1351,#A0C4DF)}
+.befund-note{font-size:14px;font-weight:600;color:var(--plum);min-height:22px;opacity:0;transition:opacity .4s}
+.heat.befund~.befund-note{opacity:1}
+html:not([data-heat="welle"]) .befund-note{display:none}
+.detail{display:none;background:var(--snow-2);padding:var(--s2) var(--s3)}
+html[data-heat="klick"] .detail{display:block}
+.detail h4{font-size:17px;font-weight:600}
+.detail .meta{font-size:13px;color:var(--sub);margin-bottom:var(--s1)}
+.drow{display:grid;grid-template-columns:150px 1fr 36px;gap:12px;align-items:center;font-size:14px;margin:6px 0}
+.track{position:relative;height:8px;background:#DDE3E9}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--serpent);transition:width .9s cubic-bezier(.2,.7,.2,1)}
+.fill.low{background:var(--plum)}
+.fill.f2{background:var(--sea)}
+.mark{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink);opacity:.6}
+.mark.soll{background:var(--plum);opacity:1;width:3px}
+.num{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.ef-bars,.ef-hantel{display:none}
+html[data-ef="balken"] .ef-bars,html[data-ef="hantel"] .ef-hantel{display:block}
+.efb{display:grid;grid-template-columns:170px 1fr;gap:12px;align-items:center;margin:12px 0;font-size:14px}
+.efb .track{margin:3px 0}
+.efh{margin:14px 0}
+.efh .t{display:flex;justify-content:space-between;font-size:14px;font-weight:600}
+.efh .t b{color:var(--sub);font-weight:600}
+.efh .t b.big{color:var(--plum)}
+.efh .ax{position:relative;height:22px;margin-top:4px}
+.efh .ax::before{content:"";position:absolute;left:0;right:0;top:10px;height:2px;background:#DDE3E9}
+.efh .bar{position:absolute;top:9px;height:4px;background:var(--serpent);transition:left .9s cubic-bezier(.2,.7,.2,1),width .9s cubic-bezier(.2,.7,.2,1)}
+.efh .bar.big{background:var(--plum)}
+.efh .dot{position:absolute;top:4px;width:14px;height:14px;border-radius:50%;margin-left:-7px;transition:left .9s cubic-bezier(.2,.7,.2,1)}
+.efh .dot.e{background:var(--serpent)}
+.efh .dot.f{background:#fff;border:2px solid var(--navy)}
+.legend{display:flex;flex-wrap:wrap;gap:var(--s2);font-size:12px;color:var(--sub)}
+.legend i{display:inline-block;width:12px;height:8px;margin-right:6px;vertical-align:middle}
+.mass{margin-top:var(--s3);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--s6);align-items:start}
+.steps3{display:grid;gap:var(--s2);margin-top:var(--s3)}
+.steps3 div{border-top:1px solid var(--line);padding-top:var(--s2)}
+.steps3 b{display:block;font-weight:600}
+.steps3 span{font-size:15px;color:var(--sub)}
+.tp{margin-top:var(--s2);font-size:14px;color:var(--sub);border-left:3px solid var(--plum);padding-left:var(--s2)}
+.sbar{display:grid;grid-template-columns:180px 1fr 44px;gap:12px;align-items:center;font-size:14px;margin:10px 0}
+.foot-row{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line)}
+.foot-row a{color:var(--plum);font-weight:600;text-decoration:none}
+
+/* METHODIK */
+.meth{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) 120px minmax(0,.85fr);align-items:stretch}
+.m-list{display:grid;gap:10px}
+.m{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-left:3px solid var(--serpent);padding:var(--s2) var(--s3);transition:background .25s,border-color .25s,opacity .25s}
+.m.otj{border-left-color:var(--plum)}
+.m .mt{display:flex;justify-content:space-between;gap:var(--s2);align-items:baseline}
+.m h3{font-size:19px;font-weight:600}
+.m h3 small{font-family:var(--f-label);font-weight:800;font-size:12px;color:var(--sub);letter-spacing:.1em;margin-right:8px}
+.m .tag{font-family:var(--f-label);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:2px 6px;white-space:nowrap;color:var(--sub)}
+.m.otj .tag{color:var(--plum);border-color:var(--plum)}
+.m p{font-size:14px;color:var(--sub);margin-top:4px}
+.m .ex{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.m .ex span{font-size:12px;border:1px solid var(--line);padding:2px 8px}
+html:not([data-methode="still"]) .m{cursor:pointer}
+html:not([data-methode="still"]) .m:hover{background:var(--snow-2)}
+.m-list.sel .m:not(.on){opacity:.5}
+.m.on{background:var(--snow-2)}
+.wires{position:relative}
+.wires svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.wires path{fill:none;stroke:var(--serpent);stroke-width:1.5;opacity:.55;stroke-dasharray:4 7;transition:stroke .3s,opacity .3s,stroke-width .3s}
+html[data-methode="fluss"] .wires path{animation:fliessen 1.4s linear infinite}
+.wires path.otj{stroke:var(--plum)}
+.wires path.on{stroke:var(--plum);opacity:1;stroke-width:2.5}
+.wires path.off{opacity:.15}
+html:not([data-methode="fluss"]) .wires svg{display:none}
+@keyframes fliessen{to{stroke-dashoffset:-22}}
+.m-panel{background:var(--navy);color:#fff;padding:var(--s4);display:flex;flex-direction:column;gap:var(--s2);position:relative;overflow:hidden}
+.m-panel small{font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sea)}
+.m-panel h3{font-size:24px;font-weight:600}
+.m-panel ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px;color:var(--on-dark-sub)}
+.m-panel li::before{content:"";display:inline-block;width:8px;height:8px;background:var(--sea);margin-right:10px}
+.m-panel .why{border-top:1px solid var(--line-dark);padding-top:var(--s2);font-size:15px;min-height:72px;color:#fff;position:relative;z-index:2}
+.m-panel .why b{color:var(--sea);font-weight:600;display:block}
+.m-panel canvas{position:absolute;left:0;right:0;bottom:0;width:100%;height:58%;pointer-events:none;display:none}
+html[data-methode="punkte"] .m-panel canvas{display:block}
+html[data-methode="punkte"] .m-panel{min-height:560px}
+.m-note{margin-top:var(--s3);border:1px solid var(--line);padding:var(--s2) var(--s3);font-size:14px;color:var(--sub)}
+
+/* SORGFALT */
+.care{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s2)}
+.care div{border:1px solid var(--line-dark);padding:var(--s3)}
+.care h3{font-size:19px;font-weight:600;margin-bottom:var(--s1)}
+.care p{font-size:15px;color:var(--on-dark-sub)}
+.tabs{margin-top:var(--s6);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:var(--s4);align-items:start}
+.tablist{display:flex;gap:var(--s1);flex-wrap:wrap;margin-top:var(--s2)}
+.tablist button{background:none;border:1px solid var(--line-dark);color:var(--on-dark-sub);padding:10px 16px;font-weight:600}
+.tablist button[aria-selected="true"]{background:var(--sea);color:var(--navy);border-color:var(--sea)}
+.tabpanel{border-left:3px solid var(--plum);padding:var(--s2) var(--s3);background:rgba(255,255,255,.04);font-size:16px;color:var(--on-dark-sub)}
+.tabpanel b{display:block;color:#fff;font-size:19px;font-weight:600;margin-bottom:6px}
+
+/* ENTSCHEIDUNG */
+.dec{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:var(--s8);align-items:center}
+.dstep{display:flex;gap:var(--s2);align-items:center;background:#fff;border:1px solid var(--line);padding:var(--s3);margin-bottom:12px}
+.dstep span{display:grid;place-items:center;width:40px;height:40px;flex:none;background:#E3ECF5;color:var(--serpent);font-weight:700}
+.dstep:last-child{border-left:4px solid var(--plum)}
+.dstep b{display:block;font-weight:600}
+.dstep p{font-size:14px;color:var(--sub)}
+.budget{margin-top:var(--s3);background:#fff;border-left:3px solid var(--plum);padding:var(--s3)}
+.budget small{display:block;font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--plum);margin-bottom:6px}
+
+/* UMFANG */
+.umf{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:var(--s6);align-items:start}
+.u-static{display:grid;gap:var(--s2)}
+.u-static div{border-top:1px solid var(--line);padding-top:var(--s2)}
+.u-static b{display:block;font-weight:600}
+.u-static span{font-size:15px;color:var(--sub)}
+.conf{background:var(--navy);color:#fff;padding:var(--s4);border-top:3px solid var(--plum)}
+html[data-umfang="aus"] .conf{display:none}
+.conf .ct{display:flex;justify-content:space-between;gap:var(--s2);align-items:start}
+.conf .ct small{font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sea)}
+.conf .ct b{display:block;font-size:21px;font-weight:600;margin-top:4px}
+.conf .ub{font-size:12px;border:1px solid var(--line-dark);padding:4px 8px;color:var(--on-dark-sub);white-space:nowrap}
+.conf fieldset{border:0;margin:var(--s3) 0 0;padding:0}
+.conf legend{font-family:var(--f-label);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-sub);margin-bottom:8px}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.opts button{background:none;border:1px solid var(--line-dark);color:#fff;padding:10px 12px;text-align:left;font-size:14px;min-height:48px}
+.opts button[aria-pressed="true"]{background:rgba(160,196,223,.22);border-color:var(--sea)}
+.out{margin-top:var(--s3);border-top:1px solid var(--line-dark);padding-top:var(--s2)}
+.out .r{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s2)}
+.out .r small{font-family:var(--f-label);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-sub)}
+.out .r b{font-size:20px;font-weight:600}
+.out .track{background:rgba(255,255,255,.12);margin:12px 0 6px}
+.out .fill{background:linear-gradient(90deg,var(--serpent),var(--sea))}
+.out .ends{display:flex;justify-content:space-between;font-size:12px;color:var(--on-dark-sub)}
+.out p{font-size:15px;color:var(--on-dark-sub);margin-top:var(--s1)}
+
+/* ABLAUF */
+.phases{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--s2)}
+.ph{position:relative;text-align:left;background:none;border:0;padding:var(--s3) 0 0;border-top:2px solid var(--line)}
+.ph .n{font-family:var(--f-label);font-weight:800;color:var(--plum);font-size:14px}
+.ph b{display:block;font-size:17px;font-weight:600;margin-top:4px;line-height:1.3}
+.ph p{font-size:14px;color:var(--sub);margin-top:4px}
+.ph .d{display:inline-block;margin-top:8px;font-family:var(--f-label);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--serpent)}
+.ph.opt{border-top-style:dashed}
+.ph-line{position:absolute;left:0;top:0;height:2px;background:var(--plum);width:0;display:none}
+html[data-ablauf="linie"] .ph-line{display:block}
+html[data-ablauf="linie"] .ph{cursor:pointer}
+html[data-ablauf="linie"] .ph::before{content:"";position:absolute;left:0;top:-7px;width:12px;height:12px;background:#fff;border:2px solid var(--plum);transform:rotate(45deg) scale(var(--sc,1));transition:transform .3s,background .3s}
+html[data-ablauf="linie"] .ph.on::before{background:var(--plum)}
+html[data-ablauf="linie"] .ph.on b{color:var(--plum)}
+.ph-detail{display:none;margin-top:var(--s3);background:var(--snow-2);padding:var(--s2) var(--s3);font-size:15px;color:var(--sub);min-height:56px}
+.ph-detail b{color:var(--ink)}
+html[data-ablauf="linie"] .ph-detail{display:block}
+.stairs{display:none;align-items:end;gap:var(--s2);height:300px;margin-bottom:var(--s3)}
+html[data-ablauf="treppe"] .stairs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr))}
+html[data-ablauf="treppe"] .phases .ph{border-top-color:transparent;padding-top:0}
+.stair{background:linear-gradient(180deg,var(--serpent),var(--navy));transform-origin:bottom;position:relative}
+.stair.opt{background:repeating-linear-gradient(45deg,#C8D7E6 0 6px,#E3ECF5 6px 12px)}
+.stair span{position:absolute;left:12px;top:10px;font-family:var(--f-label);font-weight:800;color:#fff;font-size:14px}
+.stair.opt span{color:var(--navy)}
+@keyframes wachsenY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.map{display:grid;grid-template-columns:3fr 2fr 0fr 1fr;gap:var(--s2);margin-top:var(--s4)}
+.map div{border-top:3px solid var(--sea);padding-top:var(--s1);font-size:13px;color:var(--sub)}
+.map div b{display:block;color:var(--ink);font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.map .h{display:none}
+.map-note{font-size:14px;color:var(--sub);margin-top:var(--s2)}
+
+/* AUFWAND */
+.eff{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s2)}
+.eff>div{background:#fff;border:1px solid var(--line);padding:var(--s3);display:flex;flex-direction:column;gap:6px}
+.eff .z{font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.eff b{font-weight:600}
+.eff p{font-size:14px;color:var(--sub)}
+.eff .res-l{margin-top:auto;border-top:1px solid var(--line);padding-top:12px}
+.eff .res-l small{display:block;font-family:var(--f-label);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--plum)}
+.eff .res-l b{font-size:14px}
+.follow{margin-top:var(--s4);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4);align-items:center;background:#fff;border-left:3px solid var(--serpent);padding:var(--s3)}
+.follow small{display:block;font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--serpent)}
+
+/* BERICHT */
+.rep{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:var(--s8);align-items:center}
+.cover{background:var(--navy);color:#fff;padding:var(--s4);position:relative;box-shadow:24px 24px 0 var(--sea);overflow:hidden;aspect-ratio:4/5;max-width:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.cover::before{content:"";position:absolute;right:-40px;top:20px;width:220px;height:28px;background:var(--plum);transform:rotate(45deg)}
+.cover small{font-family:var(--f-label);font-weight:800;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sea)}
+.cover h3{font-size:26px;font-weight:600;margin:8px 0}
+.form{display:flex;flex-wrap:wrap;gap:var(--s1);margin-top:var(--s3)}
+.form input[type=email]{flex:1 1 260px;min-height:48px;border:1px solid var(--line);padding:0 16px;font:inherit;font-size:16px}
+.form label.ck{flex-basis:100%;font-size:14px;color:var(--sub);display:flex;gap:8px;align-items:start}
+.form .ok{flex-basis:100%;font-size:14px;color:var(--serpent);font-weight:600}
+
+/* FAQ / KONTAKT */
+.faq{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:var(--s8)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;justify-content:space-between;gap:var(--s2);padding:var(--s3) 0;font-size:19px;font-weight:600;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary i{flex:none;width:32px;height:32px;display:grid;place-items:center;background:var(--navy);color:#fff;font-style:normal;transition:transform .25s}
+details[open] summary i{transform:rotate(45deg)}
+details p{padding-bottom:var(--s3);color:var(--sub);max-width:62ch}
+.contact{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:var(--s8);align-items:center}
+.lines{margin-top:var(--s4);border-top:1px solid #B9CCDD}
+.lines div{display:flex;justify-content:space-between;gap:var(--s2);padding:12px 0;border-bottom:1px solid #B9CCDD;font-size:16px}
+.person{text-align:center}
+.person img{width:180px;height:180px;object-fit:cover;border-radius:50%;border:6px solid #fff}
+.person b{display:block;font-size:19px;font-weight:600;margin-top:var(--s2)}
+.person span{font-size:14px;color:var(--sub)}
+footer.band{background:var(--navy);color:var(--on-dark-sub);font-size:14px}
+footer .in{padding-block:var(--s6)!important;display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s2)}
+footer img{height:28px}
+
+/* STICKY + VARIANTEN-PANEL */
+.sticky{position:fixed;right:max(24px,env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:40;box-shadow:0 10px 30px rgba(0,0,0,.25);transform:translateY(140%);transition:transform .35s}
+html[data-sticky="an"] .sticky.show{transform:none}
+html:not([data-sticky="an"]) .sticky{display:none}
+.vbtn{background:var(--plum)!important;color:#fff!important;border-color:var(--plum)!important;position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;background:#fff;color:var(--navy);border:2px solid var(--navy);font-family:var(--f-label);font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:12px 16px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.vpanel{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(72px + env(safe-area-inset-bottom,0px));z-index:70;width:min(400px,calc(100vw - 32px));max-height:calc(100vh - 170px);overflow:auto;background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 16px 48px rgba(0,0,0,.25);padding:var(--s2) var(--s3) var(--s3)}
+.vpanel h2{font-size:18px;font-weight:700}
+.vpanel .intro{font-size:13px;color:var(--sub);margin:4px 0 12px}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.presets button{border:1px solid var(--navy);background:#fff;padding:6px 10px;font-size:13px;font-weight:600}
+.presets button.on{background:var(--navy);color:#fff}
+.grp{border-top:1px solid var(--line);padding:10px 0}
+.grp .gh{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.grp .gh b{font-size:14px;font-weight:600}
+.grp .gh a{font-size:12px;color:var(--serpent);white-space:nowrap}
+.seg{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.seg button{border:1px solid var(--line);background:#fff;padding:6px 10px;font-size:13px;line-height:1.2;text-align:left}
+.seg button[aria-pressed="true"]{border-color:var(--plum);background:#F8E9EF;color:var(--plum);font-weight:600}
+.seg button small{display:block;font-size:11px;color:var(--sub);font-weight:400}
+.vtag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 5px;margin-left:4px;vertical-align:1px}
+.vtag.n{background:#E3ECF5;color:var(--serpent)}
+.vtag.s{background:#F8E9EF;color:var(--plum)}
+.vpanel .key{font-size:12px;color:var(--sub);margin-top:8px}
+
+@media(max-width:960px){
+  .hero .in,.mass,.dec,.umf,.rep,.faq,.contact,.tabs,.follow{grid-template-columns:minmax(0,1fr)}
+  .visual{min-height:0}
+  .radar,.insight{margin-left:0}
+  .q-grid,.res-grid{grid-template-columns:minmax(0,1fr)}
+  .care,.eff{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .meth{grid-template-columns:minmax(0,1fr)}
+  .wires{display:none}
+  .m-panel{margin-top:var(--s2)}
+  .phases,html[data-ablauf="treppe"] .stairs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stairs{height:220px}
+  .map{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  body{font-size:16px}
+  .band>.in{padding-block:var(--s8)}
+  .care,.eff,.opts{grid-template-columns:minmax(0,1fr)}
+  .phases,html[data-ablauf="treppe"] .stairs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .drow{grid-template-columns:110px 1fr 32px}
+  .efb{grid-template-columns:minmax(0,1fr)}
+  .sbar{grid-template-columns:120px 1fr 40px}
+  .heat td{font-size:13px;padding:10px 0}.heat th{font-size:10px}
+  .hero .acts .btn{width:100%}
+  .vis-still img{height:280px}
+  .vis-punkte canvas{height:300px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<div class="progress" id="progress"></div>
+
+<header class="nav band">
+  <div class="in">
+    <img src="img/logo-dunkel.svg" alt="ROWAPA">
+    <ul>
+      <li><a href="#" class="dd on">Was wir tun</a></li>
+      <li><a href="#">So arbeiten wir</a></li>
+      <li><a href="#" class="dd">Über uns</a></li>
+      <li><a href="#">Wissen &amp; Impulse</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="btn btn-plum" href="#kontakt">Erstgespräch</a>
+    <button class="burger" aria-label="Menü">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="band dark hero" id="s-hero">
+  <div class="sea-bg"></div>
+  <div class="in">
+    <div>
+      <div class="crumb">Für Unternehmen › <b>Performance-Analyse</b></div>
+      <div class="kicker">Für Unternehmen · Performance-Analyse</div>
+      <h1>Sie kennen Ihre Ergebnisse. <span>Wir zeigen, wo Sie gezielt ansetzen können.</span></h1>
+      <div class="rule"></div>
+      <p class="l">Die Performance-Analyse verbindet einen digitalen Skill-Check mit Eigen- und Fremdsicht, Interviews und Begleitungen im Arbeitsalltag. Daraus entstehen ein klarer Ist-Zustand und konkrete Empfehlungen für Mitarbeitende, Teams und Führung.</p>
+      <div class="acts"><a class="btn btn-plum" href="#kontakt">Analyse besprechen</a><a class="btn btn-line" href="#s-bericht">Musterbericht ansehen</a></div>
+      <div class="foot">Für Banken, Versicherungen und weitere Unternehmen der Finanzbranche</div>
+    </div>
+    <div>
+      <div class="visual">
+        <div class="vis vis-still"><img src="img/lupe.png" alt="Figur Lupe aus Punkten"></div>
+        <div class="vis vis-punkte"><canvas id="heroCanvas" aria-label="Lupe aus Punkten, reagiert auf Maus und Klick"></canvas><div class="vis-hint">Darüberfahren oder klicken</div></div>
+        <div class="vis vis-radar">
+          <div class="radar">
+            <div class="radar-top"><div><small>Kompetenzprofil</small><b>Ist-Bild einer Rolle</b></div><span class="muster">Musterdaten</span></div>
+            <svg id="radar" viewBox="0 0 480 330" role="img" aria-label="Netzdiagramm Ist gegen Soll, fünf Kompetenzen"></svg>
+            <div class="legend"><span><i style="background:#486EA3;opacity:.5"></i>Gemessenes Ist</span><span><i style="background:none;border-top:2px dashed #AA1351;height:0"></i>Soll der Rolle</span></div>
+            <div class="radar-info" id="radarInfo">Kompetenz anwählen für den Wert.</div>
+          </div>
+        </div>
+      </div>
+      <div class="insight"><small>Beispielhafte Erkenntnis</small>Die Fachkompetenz ist vorhanden. In begleiteten Kundengesprächen zeigt sich jedoch, dass Kundenbedürfnisse teilweise unentdeckt bleiben.<b>→ Ansatz: die Bedarfsergründung praxisnah weiterentwickeln.</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="logos band" id="s-logos">
+  <div class="in">
+    <div class="cap"><span><b>Seit 2006</b> auf Entwicklung und Performance in der Finanzbranche spezialisiert</span><span>Ausgewählte Referenzen</span></div>
+    <div class="lg-view"><div class="lg-track" id="lgTrack"></div></div>
+  </div>
+</section>
+
+<section class="band" id="s-frage">
+  <div class="in">
+    <div class="head"><div class="kicker">Die Ausgangslage</div><h2 class="h2">Die Resultate sind bekannt. Die Hintergründe oft nicht.</h2><p class="lead">Ob Vertriebsziele, Beratungsqualität oder die Wirkung von Führung: Ergebnisse allein erklären nicht, warum Potenzial ungenutzt bleibt.</p></div>
+    <div class="q-grid" id="qGrid">
+      <button class="q" data-f="1"><div class="up">Vertriebsperformance</div><h3>Warum bleibt Ihre Vertriebsleistung hinter den Möglichkeiten zurück?</h3><p>Was zeichnet erfolgreiche Teams aus? Wo bleiben Kundenbedürfnisse im Beratungsgespräch unentdeckt?</p></button>
+      <button class="q" data-f="2"><div class="up">Mitarbeiterperformance</div><h3>Verlieren Sie wertvolles Potenzial und vielleicht auch Mitarbeitende?</h3><p>Welche Stärken bleiben ungenutzt? Wo bremsen fehlende Entwicklung oder unklare Erwartungen die tägliche Leistung?</p></button>
+      <button class="q f3" data-f="3"><div class="up">Führung und Zusammenarbeit</div><h3>Bleibt Ihren Führungskräften zu wenig Raum für wirksame Führung?</h3><p>Wie gelingen Coaching, Feedback und die Umsetzung von Vereinbarungen im tatsächlichen Alltag?</p></button>
+    </div>
+    <div class="chips" id="chips"><span>Mögliche Analysefelder</span>
+      <span class="chip" data-f="1">Bedarfsergründung</span><span class="chip" data-f="1">Beratungsqualität</span><span class="chip" data-f="1 2">Kundenentwicklung</span><span class="chip" data-f="2">Potenzial und Entwicklung</span><span class="chip" data-f="3">Führungsqualität</span><span class="chip" data-f="2 3">Zusammenarbeit</span><span class="chip" data-f="1 2 3">Umsetzung &amp; Verbindlichkeit</span>
+    </div>
+    <div class="closure">Die zentrale Frage: Wo lohnt es sich für Ihr Unternehmen, gezielt anzusetzen?</div>
+  </div>
+</section>
+
+<section class="band soft" id="s-ergebnis">
+  <div class="in">
+    <div class="head"><div class="kicker">Was sichtbar wird</div><h2 class="h2">Vom Ist-Zustand zum konkreten Entwicklungsansatz</h2><p class="lead">Die Auswertung zeigt Stärken und Entwicklungsfelder bei Teams und einzelnen Personen, gemessen am Soll-Profil der Rolle.</p></div>
+    <div class="res-grid">
+      <article class="card res">
+        <div class="top"><span class="who">Teams</span><span class="muster">Musterdaten</span></div>
+        <h3>Zwei Themen, nicht vier Teams</h3>
+        <p class="desc">Dieselbe Rolle in vier Teams, Skala 1 bis 10. <span class="hk">Zeile anwählen für die Detailansicht.</span></p>
+        <table class="heat" id="heat"></table>
+        <div class="befund-note">Themenbefund: Kundenpotenziale und Verbindlichkeit sind in jedem Team am tiefsten.</div>
+        <div class="heat-legend"><span>tiefer</span><i></i><span>höher</span></div>
+        <div class="detail" id="detail"></div>
+        <div class="obs"><b>Ergänzung aus der Praxis</b>In begleiteten Kundengesprächen lässt sich vertieft prüfen, wie die Bedarfsergründung tatsächlich gelingt.</div>
+        <div class="act"><b>Möglicher Entwicklungsansatz</b>Statt alle Teams gleich zu schulen: Kundenpotenziale und Verbindlichkeit gezielt für alle stärken, Team D zusätzlich begleiten.</div>
+      </article>
+      <article class="card res">
+        <div class="top"><span class="who">Einzelperson</span><span class="muster">Musterdaten</span></div>
+        <h3>Teamleitung: Wo weichen Eigen- und Fremdsicht ab?</h3>
+        <p class="desc">Zwei Perspektiven auf dieselben Aussagen, Skala 1 bis 10.</p>
+        <div class="ef-bars" id="efBars"></div>
+        <div class="ef-hantel" id="efHantel"></div>
+        <div class="legend"><span><i style="background:#486EA3"></i>Eigensicht</span><span><i style="background:#A0C4DF"></i>Fremdsicht durch das Team</span></div>
+        <div class="obs"><b>Ergänzung aus der Praxis</b>In begleiteten Mitarbeitergesprächen zeigen sich zum Beispiel unklare Vereinbarungen.</div>
+        <div class="act"><b>Möglicher Entwicklungsansatz</b>Coaching und verbindliche Gesprächsführung gezielt stärken. Eine Abweichung ist ein Anlass für den Dialog, kein Urteil über eine Person.</div>
+      </article>
+    </div>
+    <article class="card mass" id="mass">
+      <div>
+        <div class="kicker">Der Massstab</div>
+        <h3 class="h2" style="font-size:28px">Zuerst legen wir fest, was die Rolle können muss</h3>
+        <div class="steps3">
+          <div><b>01 · Wir bringen einen Vorschlag mit</b><span>Aus zwanzig Jahren Mandaten in der Finanzbranche. Ist die Gruppe gross genug, leiten wir den Vorschlag zusätzlich aus dem Profil Ihrer erfolgreichsten Mitarbeitenden ab.</span></div>
+          <div><b>02 · Sie entscheiden</b><span>Die Führung prüft den Vorschlag gegen den eigenen Anspruch und den Rollenauftrag.</span></div>
+          <div><b>03 · Das Ergebnis ist der Massstab</b><span>Jeder Wert wird gegen dieses Soll-Profil gelesen, nicht gegen Kolleginnen und Kollegen.</span></div>
+        </div>
+        <p class="tp">Das Profil Ihrer Top-Performer ist ein Vorschlag für das Soll, keine Rangliste. Unterschiede liefern Hinweise auf Erfolgsfaktoren, keinen Beweis für Ursache und Wirkung.</p>
+      </div>
+      <div>
+        <div class="top" style="display:flex;justify-content:space-between;align-items:center"><b style="font-weight:600">Rolle Beratung im Kundenkontakt: Ist gegen Soll</b><span class="muster">Musterdaten</span></div>
+        <div id="sollBars" style="margin-top:12px"></div>
+        <div class="legend"><span><i style="background:#486EA3"></i>Ist-Wert</span><span><i style="background:#AA1351;width:3px;height:12px"></i>Soll der Rolle</span><span><i style="background:#AA1351"></i>deutlich unter dem Soll</span></div>
+        <p class="small" style="margin-top:12px">Zwei Lücken, eine Überdeckung: Beim Fachwissen liegt das Team über dem Soll. Eine fachliche Schulung würde dort ansetzen, wo kein Bedarf besteht.</p>
+      </div>
+    </article>
+    <div class="foot-row"><span class="small">Alle gezeigten Werte sind illustrativ, ohne reale Personen- oder Kundendaten.</span><a href="#kontakt">Welche Erkenntnisse wären für Ihr Unternehmen relevant? →</a></div>
+  </div>
+</section>
+
+<section class="band" id="s-methode">
+  <div class="in">
+    <div class="head"><div class="kicker">Unsere Erhebung</div><h2 class="h2">Fünf Methoden. Ein differenzierter Blick auf den Ist-Zustand.</h2><p class="lead">Wir verbinden digitale und persönliche Erhebungen mit Beobachtungen im Arbeitsalltag. Jede Methode liefert eine eigene Perspektive.</p></div>
+    <div class="meth" id="meth">
+      <div class="m-list" id="mList"></div>
+      <div class="wires"><svg id="wires" aria-hidden="true"></svg></div>
+      <div class="m-panel" id="mPanel">
+        <small>Ergebnis der Erhebung</small>
+        <h3>Ein differenzierter Ist-Zustand</h3>
+        <ul><li>Kompetenzwerte je Person und Team</li><li>Eigen- und Fremdsicht im Vergleich</li><li>Beobachtetes Verhalten aus dem Alltag</li><li>Hinweise aus den Gesprächen</li></ul>
+        <div class="why" id="mWhy"><b>Vier Methoden liefern Werte, die Interviews ordnen ein.</b>Methode anwählen, um ihren Beitrag zu sehen.</div>
+        <canvas id="methCanvas" aria-hidden="true"></canvas>
+      </div>
+    </div>
+    <p class="m-note">Die Methoden liefern unterschiedliche Arten von Erkenntnis. Wir werten sie nachvollziehbar aus und führen nicht einfach alles zu einer einzigen Zahl zusammen.</p>
+  </div>
+</section>
+
+<section class="band dark" id="s-sorgfalt">
+  <div class="in">
+    <div class="head"><div class="kicker">Messen mit Sorgfalt</div><h2 class="h2">Was die Performance-Analyse von einem Fragebogen unterscheidet</h2></div>
+    <div class="care">
+      <div><h3>Verhalten zählt am meisten</h3><p>Die Beobachtung im echten Kundentermin wiegt stärker als jede Einschätzung.</p></div>
+      <div><h3>Gemessen an der Rolle</h3><p>Verglichen wird mit dem Soll-Profil, nie mit Kolleginnen und Kollegen.</p></div>
+      <div><h3>Zwei Vergleiche, sauber getrennt</h3><p>Ist gegen Soll und Eigen- gegen Fremdsicht werden getrennt ausgewertet.</p></div>
+      <div><h3>Ehrliche Antworten</h3><p>Eingebaute Prüffragen erkennen widersprüchliches und geschöntes Antworten.</p></div>
+    </div>
+    <div class="tabs">
+      <div><h3 style="font-size:22px;font-weight:600">Vertraulichkeit, je Gruppe wählbar</h3><p class="small" style="margin-top:8px">Gruppen unter fünf Personen werden nie ausgewiesen. Jede Person sieht ihr eigenes Ergebnis.</p>
+        <div class="tablist" role="tablist" id="tablist"><button role="tab" aria-selected="true" data-t="0">Anonym</button><button role="tab" aria-selected="false" data-t="1">Pseudonym</button><button role="tab" aria-selected="false" data-t="2">Mit Namen</button></div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="tabpanel"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band soft" id="s-entscheid">
+  <div class="in dec">
+    <div><div class="kicker">Von Erkenntnissen zu Entscheidungen</div><h2 class="h2">Ihr Entwicklungsbudget gezielt einsetzen, statt es zu verteilen</h2><p class="lead">Die Analyse macht sichtbar, wo Entwicklung sinnvoll ist, und hilft, Massnahmen zu priorisieren.</p>
+      <div class="budget"><small>Und wofür kein Budget nötig ist</small>Die Analyse zeigt auch, wo das Soll bereits erreicht ist. Im Musterbericht brauchten sechs von achtzehn Beratenden keine Massnahme.</div>
+    </div>
+    <div>
+      <div class="dstep"><span>1</span><div><b>Ist-Zustand erkennen</b><p>Kompetenzen, Perspektiven und Beobachtungen aus dem Alltag erfassen.</p></div></div>
+      <div class="dstep"><span>2</span><div><b>Entwicklungsfelder priorisieren</b><p>Stärken und Lücken je Person, Team und Thema einordnen.</p></div></div>
+      <div class="dstep"><span>3</span><div><b>Gezielte Massnahmen ableiten</b><p>Training, Coaching, Begleitung im Alltag oder Führungsentwicklung, je mit Zielgruppe und Zeitpunkt.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="s-umfang">
+  <div class="in umf">
+    <div><div class="kicker">Passend zu Ihrer Fragestellung</div><h2 class="h2">So viel Analyse wie sinnvoll. So gezielt wie möglich.</h2><p class="lead">Sie bestimmen mit uns, welche Fragen geklärt werden und wo wir genauer hinschauen.</p>
+      <div class="u-static" style="margin-top:24px">
+        <div><b>Themen und Ziele</b><span>Beratungsqualität, Führungsqualität oder weitere Performance-Felder</span></div>
+        <div><b>Personen und Einheiten</b><span>Welche Mitarbeitenden, Führungskräfte oder Teams einbezogen werden</span></div>
+        <div><b>Erhebungstiefe</b><span>Wie viele Skill-Checks, Sichtweisen, Interviews und Begleitungen sinnvoll sind</span></div>
+      </div>
+    </div>
+    <div class="conf" id="conf">
+      <div class="ct"><div><small>Umfang skizzieren</small><b>Wie könnte Ihr Rahmen aussehen?</b></div><span class="ub">Unverbindlich</span></div>
+      <fieldset><legend>Themen und Ziele</legend><div class="opts" data-g="0"><button>Ein Fokusthema</button><button>Zwei Leistungsfelder</button><button>Breite Analyse</button></div></fieldset>
+      <fieldset><legend>Personen und Einheiten</legend><div class="opts" data-g="1"><button>Ein Team</button><button>Mehrere Teams</button><button>Ganze Einheit</button></div></fieldset>
+      <fieldset><legend>Erhebungstiefe</legend><div class="opts" data-g="2"><button>Kompakt</button><button>Ausgewogen</button><button>Vertieft</button></div></fieldset>
+      <div class="out"><div class="r"><small>Daraus entsteht</small><b id="outT"></b></div><div class="track"><div class="fill" id="outF"></div></div><div class="ends"><span>fokussiert</span><span>umfassend</span></div><p id="outP"></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band soft" id="s-ablauf">
+  <div class="in">
+    <div class="head"><div class="kicker">Der Ablauf</div><h2 class="h2">Sechs Phasen vom Auftrag bis zur Wirkung</h2><p class="lead">Die Reihenfolge ist verbindlich: ohne Profil kein Fragebogen, ohne Erhebung keine Auswertung.</p></div>
+    <div class="stairs" id="stairs"></div>
+    <div class="phases" id="phases"><div class="ph-line" id="phLine"></div></div>
+    <div class="ph-detail" id="phDetail"></div>
+    <div class="map"><div><b>01 Analysieren</b>Phasen 0 bis 2</div><div><b>02 Verstehen</b>Phasen 3 und 4</div><div class="h"></div><div><b>04 Messen</b>Phase 5</div></div>
+    <p class="map-note">So passt die Analyse in unser Vorgehen: Sie füllt «Analysieren» und «Verstehen». «Handeln» sind die Massnahmen, die daraus folgen, «Messen» ist die Folgemessung.</p>
+  </div>
+</section>
+
+<section class="band" id="s-aufwand">
+  <div class="in">
+    <div class="head"><div class="kicker">Ihr Aufwand</div><h2 class="h2">Ein halber Tag am Anfang, ein halber Tag am Ende</h2><p class="lead">Dazwischen organisieren wir die Erhebung und führen Interviews und Begleitungen durch.</p></div>
+    <div class="eff">
+      <div><div class="z">Halber Tag</div><b>Gemeinsamer Start</b><p>Fragestellung, Umfang und Vorgehen abstimmen.</p><div class="res-l"><small>Ihr Ergebnis</small><b>Klarer Analysefokus</b></div></div>
+      <div><div class="z">ca. <span data-count="25">25</span> Min.</div><b>Digitaler Skill-Check</b><p>Je teilnehmende Person, als Orientierungswert.</p><div class="res-l"><small>Ihr Ergebnis</small><b>Kompetenzen sichtbar</b></div></div>
+      <div><div class="z"><span data-count="4">4</span>–<span data-count="6">6</span> Wochen</div><b>Typische Dauer</b><p>Von der Vorbereitung bis zur Auswertung.</p><div class="res-l"><small>Ihr Ergebnis</small><b>Perspektiven zusammengeführt</b></div></div>
+      <div><div class="z">Halber Tag</div><b>Ergebnisgespräch</b><p>Erkenntnisse und Entwicklungsansätze besprechen.</p><div class="res-l"><small>Ihr Ergebnis</small><b>Entscheidungsgrundlage</b></div></div>
+    </div>
+    <p class="small" style="margin-top:16px">Orientierungswerte. Für Eigen- und Fremdsicht, Interviews und Begleitungen entsteht bei den Beteiligten zusätzlicher Aufwand, den wir gemeinsam abstimmen.</p>
+    <div class="follow"><div><small>Folgemessung</small><h3 style="font-size:22px;font-weight:600;margin-top:6px">Was hat sich verändert?</h3></div><p class="small">Mit derselben Erhebung wird sichtbar, was sich verändert hat. Den Zeitpunkt legen wir individuell fest, je nach Massnahme zum Beispiel nach sechs Monaten. Separat beauftragbar.</p></div>
+  </div>
+</section>
+
+<section class="band soft" id="s-bericht">
+  <div class="in rep">
+    <div class="cover"><small>Musterbericht · anonymisiertes Beispiel</small><h3>Was am Ende einer Performance-Analyse vorliegt</h3><small style="color:#fff;opacity:.75">Regionalbank · 24 Personen · zwei Rollen · vier Teams</small></div>
+    <div><div class="kicker">Der Musterbericht</div><h2 class="h2">Sehen Sie, was Sie am Ende in der Hand halten</h2><p class="lead">Soll-Profil, Abgleich, Teamvergleich, Eigen- und Fremdsicht, ein Profil je Person, Befunde und Massnahmen. Ein erfundener Fall, Ihrer sieht anders aus.</p>
+      <form class="form" id="form"><input type="email" id="mail" required placeholder="Ihre geschäftliche E-Mail-Adresse" aria-label="Geschäftliche E-Mail-Adresse"><button class="btn btn-plum" type="submit">Musterbericht erhalten</button><label class="ck"><input type="checkbox" id="nl"> Ich möchte zusätzlich die Impulse von ROWAPA erhalten (einmal im Monat).</label><div class="ok" id="ok" hidden></div></form>
+      <p class="small" style="margin-top:8px">Sie erhalten eine E-Mail zur Bestätigung, danach den Link zum PDF. Keine Weitergabe Ihrer Adresse.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="s-faq">
+  <div class="in faq">
+    <div><div class="kicker">Häufige Fragen</div><h2 class="h2">Gut zu wissen</h2><p class="lead">Ihre Frage ist nicht dabei? <a href="#kontakt">Schreiben Sie uns.</a></p></div>
+    <div id="faq"></div>
+  </div>
+</section>
+
+<section class="band sea" id="kontakt">
+  <div class="in contact">
+    <div><div class="kicker">Kontakt</div><h2 class="h2">Welche Fragestellung möchten Sie genauer untersuchen?</h2><p class="lead" style="color:#3b4d61">Vielleicht gibt es ein Team, eine Rolle oder ein Thema, bei dem Sie Potenzial vermuten. Im Gespräch wählen wir gemeinsam einen Bereich aus, danach erhalten Sie einen konkreten Vorschlag zu Umfang und Investition.</p>
+      <div class="acts" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:32px"><a class="btn btn-plum" href="#kontakt">Analyse besprechen</a><a class="btn btn-line" href="#kontakt">Nachricht schreiben</a></div>
+      <div class="lines"><div><span>Mobil</span><span>+41 78 405 80 11</span></div><div><span>Büro</span><span>+41 41 632 66 11</span></div><div><span>E-Mail</span><span>boek@rowapa.ch</span></div></div>
+    </div>
+    <div class="person"><img src="img/jennifer.jpg" alt="Jennifer Boek"><b>Jennifer Boek</b><span>Head of Operations, Mitglied der Geschäftsleitung</span></div>
+  </div>
+</section>
+</main>
+<footer class="band"><div class="in"><img src="img/logo-dunkel.svg" alt="ROWAPA"><span>ROWAPA AG · Suurstoffi 37 · 6343 Rotkreuz</span><span>Entwurf Runde 52 · nicht veröffentlicht · Musterdaten</span></div></footer>
+
+<a class="btn btn-plum sticky" id="sticky" href="#kontakt">Analyse besprechen</a>
+
+<button class="vbtn" id="vbtn" aria-expanded="false" aria-controls="vpanel">Varianten umschalten</button>
+<aside class="vpanel" id="vpanel" aria-label="Varianten umschalten">
+  <h2>Bewegung und Klick-Effekte</h2>
+  <p class="intro">Jede Section lässt sich einzeln umschalten. Ein Wechsel spielt die Animation neu ab. <span class="vtag n">nativ</span> = in Webflow ohne Code pflegbar, <span class="vtag s">Skript</span> = über das ROWAPA-Grafik-Skript.</p>
+  <div class="presets" id="presets"><button data-p="ruhig">Ruhig</button><button data-p="empf">Empfehlung</button><button data-p="alles">Alles an</button></div>
+  <div id="groups"></div>
+  <p class="key">Navigation vereinfacht dargestellt. Formular ohne Versand.</p>
+</aside>
+
+<script>
+(function(){
+"use strict";
+var RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+var H=document.documentElement;
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+/* ---------- Varianten ---------- */
+var G=[
+ {k:"hero",t:"Header-Grafik",sec:"s-hero",o:[["still","Lupe still","n"],["punkte","Lupe aus Punkten","s","reagiert auf Maus und Klick"],["radar","Ist-Bild einer Rolle","s","Netz zeichnet sich, anwählbar"]]},
+ {k:"logos",t:"Logo-Band",sec:"s-logos",o:[["lauf","Laufband","n"],["still","Stehend","n"]]},
+ {k:"felder",t:"Ausgangslage",sec:"s-frage",o:[["aus","Statisch","n"],["an","Klick zeigt Analysefelder","n"]]},
+ {k:"heat",t:"Teamvergleich",sec:"s-ergebnis",o:[["still","Statisch","n"],["welle","Welle + Befund","n","Felder erscheinen, Plum-Rahmen"],["klick","Zeile anwählen","n","Detailansicht (Webflow-Tabs)"]]},
+ {k:"ef",t:"Eigen- und Fremdsicht",sec:"s-ergebnis",o:[["balken","Balken","n"],["hantel","Abstand zeigen","n","Punkte gehen auseinander"]]},
+ {k:"bars",t:"Balken wachsen",sec:"s-ergebnis",o:[["aus","Aus","n"],["an","Beim Hineinscrollen","n"]]},
+ {k:"methode",t:"Fünf Methoden",sec:"s-methode",o:[["still","Statisch","n"],["fluss","Linien fliessen","s","Klick hebt eine Methode hervor"],["punkte","Aus fünf Quellen ein Bild","s","Punkte formen die Lupe"]]},
+ {k:"umfang",t:"Umfang skizzieren",sec:"s-umfang",o:[["aus","Nur Text","n"],["an","Konfigurator","s","kleines Skript"]]},
+ {k:"ablauf",t:"Ablauf",sec:"s-ablauf",o:[["still","Leiste","n"],["linie","Linie zeichnet sich","n","Phase anwählbar"],["treppe","Treppe","s","Modul aus «Unser Vorgehen»"]]},
+ {k:"zaehler",t:"Zähler im Aufwand",sec:"s-aufwand",o:[["aus","Aus","n"],["an","Zählen hoch","s"]]},
+ {k:"progress",t:"Lesefortschritt oben",sec:"s-hero",o:[["aus","Aus","n"],["an","An","n"]]},
+ {k:"sticky",t:"Schwebender Button",sec:"s-frage",o:[["aus","Aus","n"],["an","An","n"]]}
+];
+var P={
+ ruhig:{hero:"still",logos:"lauf",felder:"aus",heat:"still",ef:"balken",bars:"aus",methode:"still",umfang:"aus",ablauf:"still",zaehler:"aus",progress:"aus",sticky:"aus"},
+ empf:{hero:"punkte",logos:"lauf",felder:"an",heat:"klick",ef:"hantel",bars:"an",methode:"fluss",umfang:"an",ablauf:"linie",zaehler:"aus",progress:"aus",sticky:"aus"},
+ alles:{hero:"radar",logos:"lauf",felder:"an",heat:"welle",ef:"hantel",bars:"an",methode:"punkte",umfang:"an",ablauf:"treppe",zaehler:"an",progress:"an",sticky:"an"}
+};
+var S={};
+try{S=JSON.parse(localStorage.getItem("r52")||"null")||{}}catch(e){S={}}
+Object.keys(P.empf).forEach(function(k){if(!S[k])S[k]=P.empf[k]});
+function save(){try{localStorage.setItem("r52",JSON.stringify(S))}catch(e){}}
+function apply(){Object.keys(S).forEach(function(k){H.setAttribute("data-"+k,S[k])});
+ $$(".seg button").forEach(function(b){b.setAttribute("aria-pressed",S[b.dataset.k]===b.dataset.v?"true":"false")});
+ $$("#presets button").forEach(function(b){var p=P[b.dataset.p];b.classList.toggle("on",Object.keys(p).every(function(k){return p[k]===S[k]}))});
+}
+var groups=$("#groups");
+G.forEach(function(g){var d=document.createElement("div");d.className="grp";
+ d.innerHTML='<div class="gh"><b>'+g.t+'</b><a href="#'+g.sec+'">zur Section ↓</a></div><div class="seg"></div>';
+ var seg=$(".seg",d);
+ g.o.forEach(function(o){var b=document.createElement("button");b.dataset.k=g.k;b.dataset.v=o[0];
+  b.innerHTML=o[1]+'<span class="vtag '+o[2]+'">'+(o[2]==="n"?"nativ":"Skript")+'</span>'+(o[3]?'<small>'+o[3]+'</small>':'');
+  b.addEventListener("click",function(){S[g.k]=o[0];save();apply();replay(g.k)});seg.appendChild(b)});
+ groups.appendChild(d)});
+$$("#presets button").forEach(function(b){b.addEventListener("click",function(){var p=P[b.dataset.p];Object.keys(p).forEach(function(k){S[k]=p[k]});save();apply();Object.keys(p).forEach(replay)})});
+var vb=$("#vbtn"),vp=$("#vpanel");
+vp.hidden=true;vb.setAttribute("aria-expanded","false");
+vb.addEventListener("click",function(){vp.hidden=!vp.hidden;vb.setAttribute("aria-expanded",vp.hidden?"false":"true")});
+apply();
+
+/* ---------- Sichtbarkeit / Abspielen ---------- */
+var players={},seen={};
+function inView(el){var r=el.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0}
+function replay(k){var f=players[k];if(!f)return;var el=document.getElementById(f.sec);if(inView(el))f.fn();else seen[f.sec]=false}
+function reg(k,sec,fn){players[k]={sec:sec,fn:fn}}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen[e.target.id]){seen[e.target.id]=true;Object.keys(players).forEach(function(k){if(players[k].sec===e.target.id)players[k].fn()})}})},{threshold:.2});
+function later(fn,ms){return setTimeout(fn,RM?0:ms)}
+
+/* ---------- Punkt-Figur (Canvas) ---------- */
+var LUPE=new Image();LUPE.src="img/lupe.png";
+function samplePoints(img,w,h,step,fit){var c=document.createElement("canvas");c.width=w;c.height=h;var x=c.getContext("2d");
+ var sc=Math.min(w*fit/img.width,h*fit/img.height),iw=img.width*sc,ih=img.height*sc,ox=(w-iw)/2,oy=(h-ih)/2;
+ x.drawImage(img,ox,oy,iw,ih);var d=x.getImageData(0,0,w,h).data,pts=[];
+ for(var yy=0;yy<h;yy+=step)for(var xx=0;xx<w;xx+=step){if(d[(yy*w+xx)*4+3]>110)pts.push([xx+(Math.random()-.5)*step*.6,yy+(Math.random()-.5)*step*.6])}
+ return pts}
+function Field(cv,opt){var me=this;me.cv=cv;me.ctx=cv.getContext("2d");me.opt=opt;me.p=[];me.mx=-999;me.my=-999;me.run=false;me.t0=0;
+ me.size=function(){var r=cv.getBoundingClientRect(),dpr=Math.min(2,window.devicePixelRatio||1);me.w=Math.max(10,r.width);me.h=Math.max(10,r.height);cv.width=me.w*dpr;cv.height=me.h*dpr;me.ctx.setTransform(dpr,0,0,dpr,0,0)};
+ me.build=function(){me.size();if(!LUPE.complete||!LUPE.naturalWidth)return;var tg=samplePoints(LUPE,Math.round(me.w),Math.round(me.h),opt.step,opt.fit);
+  if(opt.offY)tg=tg.map(function(t){return[t[0],t[1]+opt.offY*me.h]});
+  me.p=tg.map(function(t,i){var src=opt.src?opt.src(i,me):[Math.random()*me.w,me.h*(.75+Math.random()*.25)];
+   return{x:src[0],y:src[1],sx:src[0],sy:src[1],tx:t[0],ty:t[1],vx:0,vy:0,g:i%5,del:opt.delay?Math.random()*opt.delay:0,hl:0,c:Math.random()<.08?1:0}})};
+ me.start=function(){me.t0=performance.now();if(RM){me.p.forEach(function(q){q.x=q.tx;q.y=q.ty});me.draw();return}if(!me.run){me.run=true;requestAnimationFrame(me.tick)}};
+ me.reset=function(){me.p.forEach(function(q){q.x=q.sx;q.y=q.sy;q.vx=q.vy=0});me.start()};
+ me.burst=function(cx,cy){me.p.forEach(function(q){var dx=q.x-cx,dy=q.y-cy,d=Math.sqrt(dx*dx+dy*dy)+1;q.vx+=dx/d*(6+Math.random()*6);q.vy+=dy/d*(6+Math.random()*6)});me.start()};
+ me.group=function(g){me.p.forEach(function(q){if(q.g===g){q.x=q.sx;q.y=q.sy;q.vx=q.vy=0;q.hl=1;q.del=Math.random()*.6}else q.hl=0});me.t0=performance.now();if(!me.run){me.run=true;requestAnimationFrame(me.tick)}};
+ me.tick=function(now){var el=(now-me.t0)/1000,moving=0;
+  me.p.forEach(function(q){if(el<q.del){moving++;return}var ax=(q.tx-q.x)*.06,ay=(q.ty-q.y)*.06;
+   var dx=q.x-me.mx,dy=q.y-me.my,d2=dx*dx+dy*dy;if(d2<2500){var f=(2500-d2)/2500*1.6;ax+=dx/Math.sqrt(d2+1)*f;ay+=dy/Math.sqrt(d2+1)*f}
+   q.vx=(q.vx+ax)*.82;q.vy=(q.vy+ay)*.82;q.x+=q.vx;q.y+=q.vy;if(Math.abs(q.vx)+Math.abs(q.vy)>.03||Math.abs(q.tx-q.x)>.5)moving++});
+  me.draw();if(moving>0||me.mx>-999)requestAnimationFrame(me.tick);else me.run=false};
+ me.draw=function(){var x=me.ctx;x.clearRect(0,0,me.w,me.h);me.p.forEach(function(q){x.fillStyle=q.hl?"#E25A8E":(q.c?"#AA1351":opt.col);x.globalAlpha=q.hl?1:.9;x.beginPath();x.arc(q.x,q.y,opt.r,0,6.283);x.fill()});x.globalAlpha=1};
+ if(opt.interactive){cv.addEventListener("pointermove",function(e){var r=cv.getBoundingClientRect();me.mx=e.clientX-r.left;me.my=e.clientY-r.top;if(!me.run&&!RM){me.run=true;requestAnimationFrame(me.tick)}});
+  cv.addEventListener("pointerleave",function(){me.mx=me.my=-999});
+  cv.addEventListener("click",function(e){var r=cv.getBoundingClientRect();me.burst(e.clientX-r.left,e.clientY-r.top)})}
+}
+
+/* ---------- Hero ---------- */
+var heroF=new Field($("#heroCanvas"),{step:6,fit:.92,r:1.7,col:"#A0C4DF",interactive:true});
+var radarSvg=$("#radar"),RD=[["Bedarfsergründung",7.4,8.0],["Gesprächsführung",7.6,7.5],["Kundenpotenziale",6.2,8.0],["Verbindlichkeit",6.1,8.0],["Abschluss",6.9,7.5]];
+function radar(){var cx=240,cy=168,R=120,ns="http://www.w3.org/2000/svg",h="";
+ function pt(i,v){var a=-Math.PI/2+i*2*Math.PI/5,r=R*(v-4)/6;return[cx+r*Math.cos(a),cy+r*Math.sin(a)]}
+ [6,8,10].forEach(function(v){h+='<polygon fill="none" stroke="#DDE3E9" points="'+RD.map(function(d,i){return pt(i,v).join(",")}).join(" ")+'"/>'});
+ RD.forEach(function(d,i){var e=pt(i,10);h+='<line x1="'+cx+'" y1="'+cy+'" x2="'+e[0]+'" y2="'+e[1]+'" stroke="#DDE3E9"/>'});
+ var soll=RD.map(function(d,i){return pt(i,d[2]).join(",")}).join(" "),ist=RD.map(function(d,i){return pt(i,d[1]).join(",")}).join(" ");
+ h+='<polygon id="rSoll" fill="none" stroke="#AA1351" stroke-width="2" stroke-dasharray="5 5" points="'+soll+'"/>';
+ h+='<polygon id="rIst" fill="rgba(72,110,163,.22)" stroke="#486EA3" stroke-width="2.5" points="'+ist+'" style="--len:900;stroke-dasharray:900"/>';
+ var w=3,wp=pt(w,RD[w][1]);h+='<circle class="pulse" cx="'+wp[0]+'" cy="'+wp[1]+'" r="6" fill="none" stroke="#AA1351" stroke-width="2"/><circle cx="'+wp[0]+'" cy="'+wp[1]+'" r="5" fill="#AA1351"/>';
+ RD.forEach(function(d,i){var e=pt(i,11.3),an=Math.abs(e[0]-cx)<10?"middle":(e[0]>cx?"start":"end");h+='<g class="ax" tabindex="0" data-i="'+i+'"><text x="'+e[0]+'" y="'+(e[1]+4)+'" text-anchor="'+an+'">'+d[0]+'</text></g>'});
+ radarSvg.innerHTML=h;
+ $$(".ax",radarSvg).forEach(function(g){function sel(){$$(".ax",radarSvg).forEach(function(x){x.classList.remove("on")});g.classList.add("on");var d=RD[+g.dataset.i],df=(d[1]-d[2]);$("#radarInfo").innerHTML="<b>"+d[0]+"</b> · Ist "+d[1].toFixed(1)+" · Soll "+d[2].toFixed(1)+" · <b style=\"color:"+(df<-.5?"#AA1351":"#1D3149")+"\">"+(df>0?"+":"")+df.toFixed(1)+"</b>"}
+  g.addEventListener("click",sel);g.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();sel()}})})}
+radar();
+function playHero(){if(S.hero==="punkte"){heroF.build();heroF.start()}
+ if(S.hero==="radar"){var p=$("#rIst");p.style.animation="none";void p.getBoundingClientRect();p.style.animation=RM?"none":"zeichnen 1.6s ease forwards"}}
+reg("hero","s-hero",playHero);
+LUPE.onload=function(){if(S.hero==="punkte")playHero();if(S.methode==="punkte"&&seen["s-methode"])playMeth()};
+
+/* ---------- Logos ---------- */
+var LG=["mobiliar","raiffeisen","swiss-life","zurich","axa","allianz","generali","ergo","css","visana","urner-kantonalbank","die-post"];
+$("#lgTrack").innerHTML=LG.map(function(n){return '<img src="img/kunde-'+n+'.png" alt="'+n.replace(/-/g," ")+'">'}).join("")+LG.map(function(n){return '<img class="dup" src="img/kunde-'+n+'.png" alt="">'}).join("");
+
+/* ---------- Ausgangslage ---------- */
+$$(".q").forEach(function(q){q.addEventListener("click",function(){if(S.felder!=="an")return;var on=!q.classList.contains("on");$$(".q").forEach(function(x){x.classList.remove("on")});
+ $("#qGrid").classList.toggle("sel",on);var f=q.dataset.f;if(on)q.classList.add("on");
+ $$(".chip").forEach(function(c){var hit=on&&c.dataset.f.split(" ").indexOf(f)>-1;c.classList.toggle("hit",hit);c.classList.toggle("dim",on&&!hit)})})});
+reg("felder","s-frage",function(){if(S.felder!=="an"){$$(".q").forEach(function(x){x.classList.remove("on")});$("#qGrid").classList.remove("sel");$$(".chip").forEach(function(c){c.classList.remove("hit","dim")})}});
+
+/* ---------- Teamvergleich ---------- */
+var COLS=["Bedarfs­ergründung","Kunden­potenziale","Abschluss­orientierung","Verbind­lichkeit"],CN=["Bedarfsergründung","Kundenpotenziale","Abschlussorientierung","Verbindlichkeit"];
+var T=[["Team A",7.8,6.9,7.3,6.8],["Team B",7.5,6.4,7.0,6.3],["Team C",7.4,6.1,6.8,6.0],["Team D",6.9,5.3,6.4,5.2]];
+function col(v){var t=Math.max(0,Math.min(1,(v-5)/3)),a=[170,19,81],b=[160,196,223];return "rgb("+a.map(function(x,i){return Math.round(x+(b[i]-x)*t)}).join(",")+")"}
+var all=[];T.forEach(function(r){all=all.concat(r.slice(1))});var avg=all.reduce(function(a,b){return a+b},0)/all.length;
+$("#heat").innerHTML='<tr><th></th>'+COLS.map(function(c){return "<th>"+c+"</th>"}).join("")+"</tr>"+T.map(function(r,ri){return '<tr class="row" data-r="'+ri+'" tabindex="0"><td class="l">'+r[0]+"</td>"+r.slice(1).map(function(v,ci){return '<td class="c'+ci+'" style="background:'+col(v)+';color:'+(v<6?"#fff":"#1D3149")+'">'+v.toFixed(1)+"</td>"}).join("")+"</tr>"}).join("");
+var selRow=3;
+function pct(v){return ((v-4)/6*100).toFixed(1)+"%"}
+function detail(ri,anim){var r=T[ri],m=r.slice(1).reduce(function(a,b){return a+b},0)/4;
+ $("#detail").innerHTML="<h4>"+r[0]+'</h4><div class="meta">Durchschnitt '+m.toFixed(1)+" · "+(m<avg?"unter":"über")+" dem Mittel aller Teams ("+avg.toFixed(1)+")</div>"+r.slice(1).map(function(v,i){return '<div class="drow"><span>'+CN[i]+'</span><div class="track"><div class="fill'+(v<6?" low":"")+'" style="width:'+(anim?"0":pct(v))+'" data-w="'+pct(v)+'"></div><div class="mark" style="left:'+pct(avg)+'"></div></div><span class="num">'+v.toFixed(1)+"</span></div>"}).join("")+'<div class="meta" style="margin:8px 0 0">Senkrechte Linie: Durchschnitt aller vier Teams.</div>';
+ $$("#heat tr.row").forEach(function(tr){tr.classList.toggle("on",S.heat==="klick"&&+tr.dataset.r===ri)});
+ if(anim)requestAnimationFrame(function(){requestAnimationFrame(function(){$$("#detail .fill").forEach(function(f){f.style.width=f.dataset.w})})})}
+$$("#heat tr.row").forEach(function(tr){function go(){if(S.heat!=="klick")return;selRow=+tr.dataset.r;detail(selRow,!RM)}tr.addEventListener("click",go);tr.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}})});
+detail(selRow,false);
+function playHeat(){var tb=$("#heat");tb.classList.remove("befund");$(".hk").hidden=S.heat!=="klick";$$("#heat td:not(.l)").forEach(function(td){td.style.opacity="";td.style.transform=""});
+ if(S.heat==="welle"){var cells=$$("#heat td:not(.l)");cells.forEach(function(td){td.style.transition="none";td.style.opacity="0";td.style.transform="scale(.85)"});void tb.offsetWidth;
+  cells.forEach(function(td){var r=+td.parentNode.dataset.r,c=+td.className.slice(1);td.style.transition="";later(function(){td.style.opacity="1";td.style.transform="none"},(r+c)*110)});
+  later(function(){tb.classList.add("befund")},RM?0:1300)}
+ detail(selRow,S.heat==="klick"&&!RM)}
+reg("heat","s-ergebnis",playHeat);
+
+/* ---------- Eigen/Fremd ---------- */
+var EF=[["Coaching im Alltag",8.4,6.2],["Verbindlichkeit einfordern",7.1,5.4],["Entwicklung begleiten",7.8,6.0],["Vorbild im Kundenkontakt",7.4,7.6]];
+$("#efBars").innerHTML=EF.map(function(d){return '<div class="efb"><span>'+d[0]+'</span><div><div class="track"><div class="fill grow" data-w="'+pct(d[1])+'" style="width:'+pct(d[1])+'"></div></div><div class="track"><div class="fill f2 grow" data-w="'+pct(d[2])+'" style="width:'+pct(d[2])+'"></div></div></div></div>'}).join("");
+$("#efHantel").innerHTML=EF.map(function(d){var g=d[1]-d[2],big=Math.abs(g)>=1.5,lo=Math.min(d[1],d[2]),hi=Math.max(d[1],d[2]);
+ return '<div class="efh"><div class="t"><span>'+d[0]+'</span><b class="'+(big?"big":"")+'">Δ '+(g>0?"+":"")+g.toFixed(1)+'</b></div><div class="ax"><div class="bar'+(big?" big":"")+'" data-l="'+pct(lo)+'" data-w="'+(((hi-lo)/6)*100).toFixed(1)+'%" style="left:'+pct(lo)+';width:'+(((hi-lo)/6)*100).toFixed(1)+'%"></div><div class="dot f" data-l="'+pct(d[2])+'" style="left:'+pct(d[2])+'" title="Fremdsicht '+d[2]+'"></div><div class="dot e" data-l="'+pct(d[1])+'" style="left:'+pct(d[1])+'" title="Eigensicht '+d[1]+'"></div></div></div>'}).join("");
+var IST=[7.4,7.6,6.2,7.8,6.9,6.1,6.8,7.5],SOLL=[["Bedarfsergründung",8.0],["Gesprächsführung",7.5],["Kundenpotenziale",8.0],["Produkt- und Fachwissen",7.0],["Abschlussorientierung",7.5],["Verbindlichkeit",8.0],["Digitale Beratung",6.5],["Zusammenarbeit im Team",7.0]];
+$("#sollBars").innerHTML=SOLL.map(function(d,i){var v=IST[i],df=v-d[1],low=df<-.5;return '<div class="sbar"><span>'+d[0]+'</span><div class="track"><div class="fill grow'+(low?" low":"")+'" data-w="'+pct(v)+'" style="width:'+pct(v)+'"></div><div class="mark soll" style="left:'+pct(d[1])+'"></div></div><span class="num" style="color:'+(low?"#AA1351":"#1D3149")+'">'+(df>0?"+":"")+df.toFixed(1)+"</span></div>"}).join("");
+function growAll(){if(S.bars!=="an"||RM)return;var f=$$("#s-ergebnis .grow");f.forEach(function(x){x.style.transition="none";x.style.width="0"});void document.body.offsetWidth;
+ f.forEach(function(x,i){x.style.transition="";later(function(){x.style.width=x.dataset.w},80+i*40)})}
+function playEF(){if(S.ef!=="hantel"||RM)return;$$("#efHantel .efh").forEach(function(row,i){var dots=$$(".dot",row),bar=$(".bar",row),mid=(parseFloat(dots[0].dataset.l)+parseFloat(dots[1].dataset.l))/2+"%";
+ dots.forEach(function(d){d.style.transition="none";d.style.left=mid});bar.style.transition="none";bar.style.left=mid;bar.style.width="0";void row.offsetWidth;
+ later(function(){dots.forEach(function(d){d.style.transition="";d.style.left=d.dataset.l});bar.style.transition="";bar.style.left=bar.dataset.l;bar.style.width=bar.dataset.w},300+i*160)})}
+reg("bars","s-ergebnis",growAll);reg("ef","s-ergebnis",function(){playEF();growAll()});
+
+/* ---------- Methoden ---------- */
+var M=[["01","Skill-Check","misst","Eigener digitaler Fragebogen, zugeschnitten auf die Anforderungen der Rolle.","Zeigt den Stand der Kompetenzen je Person, vergleichbar über Teams."],
+ ["02","Eigensicht","misst","Wie schätzen Mitarbeitende oder Führungskräfte die eigenen Kompetenzen ein?","Macht die eigene Wahrnehmung sichtbar, Grundlage für den Abgleich mit der Fremdsicht."],
+ ["03","Fremdsicht","misst","Wie beurteilen andere dieselben Kompetenzen, mit denselben Aussagen wie die Eigensicht?","Zeigt, wie Verhalten bei anderen ankommt. Abweichungen sind Anlass für den Dialog."],
+ ["04","Interviews","ordnet ein","Was hilft im Alltag, was bremst? Persönliche Gespräche mit ausgewählten Personen.","Erklärt die Zahlen. Die Interviews ordnen ein, sie fliessen nicht als Wert ein."],
+ ["05","On-the-Job-Begleitung","misst am stärksten","Wir begleiten Mitarbeitende und Führungskräfte in realen Situationen und beobachten nach definierten Kriterien.","Zeigt, was im echten Kundentermin geschieht. Wiegt stärker als jede Einschätzung."]];
+$("#mList").innerHTML=M.map(function(m,i){return '<button class="m'+(i===4?" otj":"")+'" data-i="'+i+'"><div class="mt"><h3><small>'+m[0]+"</small>"+m[1]+'</h3><span class="tag">'+m[2]+"</span></div><p>"+m[3]+"</p>"+(i===4?'<div class="ex"><span>Kundengespräche</span><span>Führungsgespräche</span><span>Teammeetings</span></div>':"")+"</button>"}).join("");
+var mSel=-1;
+function drawWires(){var svg=$("#wires"),wr=svg.getBoundingClientRect();if(!wr.width)return;var panel=$("#mPanel").getBoundingClientRect(),ty=panel.top+panel.height*.42-wr.top,h="";
+ $$(".m").forEach(function(b,i){var r=b.getBoundingClientRect(),y=r.top+r.height/2-wr.top;h+='<path class="'+(i===4?"otj ":"")+(mSel===-1?"":(mSel===i?"on":"off"))+'" d="M0,'+y+" C"+wr.width*.55+","+y+" "+wr.width*.45+","+ty+" "+wr.width+","+ty+'"/>'});
+ h+='<path d="M'+(wr.width-8)+","+(ty-6)+" L"+wr.width+","+ty+" L"+(wr.width-8)+","+(ty+6)+'" style="stroke-dasharray:none;opacity:.8;animation:none"/>';svg.innerHTML=h}
+var methF=null;
+function playMeth(){mSel=-1;$$(".m").forEach(function(b){b.classList.remove("on")});$("#mList").classList.remove("sel");resetWhy();drawWires();
+ if(S.methode==="punkte"){var cv=$("#methCanvas");if(!methF)methF=new Field(cv,{step:7,fit:.82,r:1.6,col:"#A0C4DF",delay:2.2,src:function(i,me){var narrow=innerWidth<=960;if(narrow)return[me.w*((i%5)+.5)/5,-10];var lr=$$(".m")[i%5].getBoundingClientRect(),cr=cv.getBoundingClientRect();return[-140,lr.top+lr.height/2-cr.top]}});
+  methF.build();methF.start()}}
+function resetWhy(){$("#mWhy").innerHTML="<b>Vier Methoden liefern Werte, die Interviews ordnen ein.</b>"+(S.methode==="still"?"Jede Methode zeigt einen anderen Ausschnitt.":"Methode anwählen, um ihren Beitrag zu sehen.")}
+$$(".m").forEach(function(b){b.addEventListener("click",function(){if(S.methode==="still")return;var i=+b.dataset.i;mSel=mSel===i?-1:i;
+ $$(".m").forEach(function(x){x.classList.toggle("on",+x.dataset.i===mSel)});$("#mList").classList.toggle("sel",mSel>-1);
+ if(mSel>-1)$("#mWhy").innerHTML="<b>"+M[i][1]+" · "+M[i][2]+"</b>"+M[i][4];else resetWhy();drawWires();
+ if(S.methode==="punkte"&&methF&&mSel>-1)methF.group(mSel)})});
+reg("methode","s-methode",playMeth);
+addEventListener("resize",function(){drawWires()});
+
+/* ---------- Vertraulichkeit (Tabs) ---------- */
+var TB=[["Anonym","Niemand weiss, wer geantwortet hat. Ergebnisse erscheinen nur für Gruppen ab fünf Personen."],["Pseudonym","Einzelergebnisse sind für ROWAPA zuordenbar, an die Führung gehen sie nur mit Zustimmung der Person."],["Mit Namen","Für kleine Teams, in denen Anonymität nur behauptet wäre. Jede Person kennt ihr Ergebnis, bevor es besprochen wird."]];
+function tab(i){$$("#tablist button").forEach(function(b){b.setAttribute("aria-selected",+b.dataset.t===i?"true":"false")});$("#tabpanel").innerHTML="<b>"+TB[i][0]+"</b>"+TB[i][1]}
+$$("#tablist button").forEach(function(b){b.addEventListener("click",function(){tab(+b.dataset.t)})});tab(0);
+
+/* ---------- Umfang ---------- */
+var U=[0,1,1];
+function conf(){$$(".opts").forEach(function(o){var g=+o.dataset.g;$$("button",o).forEach(function(b,i){b.setAttribute("aria-pressed",U[g]===i?"true":"false")})});
+ var s=U[0]+U[1]+U[2],t=s<=1?["Fokussierter Einstieg","Ein Thema, ein Team, kompakte Erhebung. Schnell ein klares Bild, gut als erster Schritt."]:s<=4?["Ausgewogener Rahmen","Mehrere Perspektiven, ohne das Unternehmen zu überlasten."]:["Umfassende Analyse","Breite Erhebung über mehrere Einheiten, mit vertiefter Beobachtung im Arbeitsalltag."];
+ $("#outT").textContent=t[0];$("#outP").textContent=t[1]+" Eine Orientierung, kein Angebot.";$("#outF").style.width=(18+s/6*82)+"%"}
+$$(".opts").forEach(function(o){$$("button",o).forEach(function(b,i){b.addEventListener("click",function(){U[+o.dataset.g]=i;conf()})})});conf();
+reg("umfang","s-umfang",function(){if(S.umfang==="an"&&!RM){var f=$("#outF"),w=f.style.width;f.style.transition="none";f.style.width="0";void f.offsetWidth;f.style.transition="";later(function(){f.style.width=w},200)}});
+
+/* ---------- Ablauf ---------- */
+var PH=[["0","Auftrag aufsetzen","Fragestellung, Teams und Erhebungskreis festlegen.","Stunden","Gehört zu «Analysieren». Sie entscheiden, was untersucht wird."],["1","Profil entwickeln","Kompetenzen und Soll-Werte je Rolle, Fragebogen.","1–2 Tage je Rolle","Gehört zu «Analysieren». Hier entsteht der Massstab, auf Wunsch mit dem Profil Ihrer Top-Performer als Vorschlag."],
+ ["2","Erheben","Alle fünf Methoden, teils parallel.","3–4 Wochen","Gehört zu «Analysieren». Skill-Check, Eigen- und Fremdsicht, Interviews, Begleitungen."],["3","Auswerten","Unternehmen, Bereich, Team und Person.","Tage","Gehört zu «Verstehen». Ist gegen Soll und Eigen- gegen Fremdsicht getrennt."],
+ ["4","Ergebnis","Befunde, Massnahmen, Pläne je Person.","Tage","Gehört zu «Verstehen». Im halbtägigen Ergebnisgespräch besprechen wir Befunde und nächste Schritte."],["5","Wirkung messen","Dieselbe Erhebung noch einmal, zeitlich individuell.","optional","Gehört zu «Messen». Zeigt, was sich verändert hat, und ist der Start der nächsten Analyse."]];
+$("#phases").insertAdjacentHTML("beforeend",PH.map(function(p,i){return '<button class="ph'+(i===5?" opt":"")+'" data-i="'+i+'"><span class="n">'+p[0]+"</span><b>"+p[1]+"</b><p>"+p[2]+'</p><span class="d">'+p[3]+"</span></button>"}).join(""));
+$("#stairs").innerHTML=PH.map(function(p,i){return '<div class="stair'+(i===5?" opt":"")+'" style="height:'+(28+i*14)+'%"><span>'+p[0]+"</span></div>"}).join("");
+function phSel(i){$$(".ph").forEach(function(b){b.classList.toggle("on",+b.dataset.i===i)});$("#phDetail").innerHTML="<b>Phase "+PH[i][0]+" · "+PH[i][1]+".</b> "+PH[i][4]}
+$$(".ph").forEach(function(b){b.addEventListener("click",function(){if(S.ablauf==="linie")phSel(+b.dataset.i)})});phSel(0);
+function playAblauf(){var phs=$$(".ph"),ln=$("#phLine");phs.forEach(function(p){p.style.transition="none";p.style.opacity="";p.style.transform=""});
+ if(S.ablauf==="linie"&&!RM){ln.style.transition="none";ln.style.width="0";phs.forEach(function(p){p.style.opacity="0";p.style.transform="translateY(8px)"});void ln.offsetWidth;
+  ln.style.transition="width 1.8s cubic-bezier(.4,0,.2,1)";ln.style.width="100%";phs.forEach(function(p,i){p.style.transition="opacity .5s,transform .5s";later(function(){p.style.opacity="1";p.style.transform="none"},200+i*280)});later(function(){phSel(0)},1900)}
+ else ln.style.width="100%";
+ if(S.ablauf==="treppe"&&!RM){$$(".stair").forEach(function(s,i){s.style.animation="none";void s.offsetWidth;s.style.animation="wachsenY .7s cubic-bezier(.2,.7,.2,1) "+(i*.22)+"s both"});phs.forEach(function(p,i){p.style.opacity="0";later(function(){p.style.transition="opacity .5s";p.style.opacity="1"},400+i*220)})}}
+reg("ablauf","s-ablauf",playAblauf);
+
+/* ---------- Zähler ---------- */
+reg("zaehler","s-aufwand",function(){if(S.zaehler!=="an"||RM)return;$$("[data-count]").forEach(function(el){var to=+el.dataset.count,t0=performance.now();(function st(n){var k=Math.min(1,(n-t0)/1200),e=1-Math.pow(1-k,3);el.textContent=Math.round(to*e);if(k<1)requestAnimationFrame(st)})(t0)})});
+
+/* ---------- FAQ ---------- */
+var Q=[["Wie lange dauert eine Performance-Analyse?","Typischerweise vier bis sechs Wochen von der Vorbereitung bis zur Auswertung. Die Erhebung selbst läuft drei bis vier Wochen."],["Wie viel Aufwand entsteht für uns?","Je ein halber Tag zum Start und für das Ergebnisgespräch. Der digitale Skill-Check dauert rund 25 Minuten je Person, dazu kommen Eigen- und Fremdsicht, Interviews und Begleitungen nach Absprache."],["Sieht die Führung die Einzelergebnisse?","Das entscheiden Sie vor der Erhebung, je Gruppe: anonym, pseudonym oder mit Namen. Gruppen unter fünf Personen werden nie ausgewiesen, und jede Person sieht ihr eigenes Ergebnis."],["Vergleichen Sie unsere Mitarbeitenden untereinander?","Nein. Gemessen wird am Soll-Profil der Rolle. Das Profil Ihrer Top-Performer kann ein Vorschlag für dieses Soll sein, es ist keine Rangliste."],["Was kostet die Performance-Analyse?","Das hängt von Fragestellung, Rollen und Teilnehmerzahl ab. Nach dem Erstgespräch erhalten Sie einen konkreten Vorschlag zu Umfang und Investition."],["Können wir die Wirkung später messen?","Ja, mit einer separat vereinbarten Folgemessung mit denselben Kompetenzen. Den Zeitpunkt legen wir individuell fest."]];
+$("#faq").innerHTML=Q.map(function(q,i){return "<details"+(i===0?" open":"")+"><summary>"+q[0]+"<i>+</i></summary><p>"+q[1]+"</p></details>"}).join("");
+
+/* ---------- Formular ---------- */
+$("#form").addEventListener("submit",function(e){e.preventDefault();var ok=$("#ok");ok.hidden=false;ok.textContent="Danke. Im Entwurf wird nichts versendet. Später: Bestätigungs-E-Mail von Mailchimp, danach der Link zum PDF"+($("#nl").checked?", plus Anmeldung für die Impulse.":".")});
+
+/* ---------- Scroll: Fortschritt, Sticky ---------- */
+var prog=$("#progress"),stk=$("#sticky"),heroEl=$("#s-hero"),kont=$("#kontakt");
+function onScroll(){var max=document.documentElement.scrollHeight-innerHeight;prog.style.width=(max>0?scrollY/max*100:0)+"%";
+ var hb=heroEl.getBoundingClientRect().bottom,kt=kont.getBoundingClientRect().top;stk.classList.toggle("show",hb<0&&kt>innerHeight*.6)}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+
+["s-hero","s-frage","s-ergebnis","s-methode","s-umfang","s-ablauf","s-aufwand"].forEach(function(id){io.observe(document.getElementById(id))});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawWires);
+setTimeout(drawWires,300);
+})();
+</script>
