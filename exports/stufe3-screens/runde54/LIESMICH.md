@@ -1,6 +1,6 @@
 # Runde 54 · Landingpage «Performance-Analyse» aus den Bausteinen der Startseite (30.10.2026)
 
-Ganze Seite als Bild, Desktop 1440 px und Handy 390 px. Gerendert auf der echten Testadresse: Navigation, Logo-Band, «Unser Vorgehen», «Gut zu wissen», Kontakt und Footer sind die Bausteine der Startseite, nur Texte sind ersetzt. Nichts in Webflow gebaut. Werkzeug: `tools/entwuerfe/runde54_performance-analyse.js`.
+Ganze Seite als Bild, Desktop 1440 px und Handy 390 px. Gerendert auf der echten Testadresse: Navigation, Logo-Band, «Unser Vorgehen», «Gut zu wissen», Kontakt und Footer sind die Bausteine der Startseite, nur Texte sind ersetzt. Ansicht (privat, Desktop/Handy umschaltbar): https://claude.ai/artifact/6HsZc1zhigNCnBFpgeMxCk. Nichts in Webflow gebaut. Werkzeug: `tools/entwuerfe/runde54_performance-analyse.js`.
 
 Ersetzt Runde 53 (`exports/landingpage-performance-analyse/`): Dort hatten Navigation, Kontakt und Footer ein eigenes Aussehen. Das widersprach Entscheid 354 (ein Kontaktweg, gleiche Bausteine auf allen Seiten).
 
