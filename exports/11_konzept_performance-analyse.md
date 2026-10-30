@@ -1,6 +1,6 @@
 # Konzept · Performance-Analyse auf der Website (Vorschlag, 30.10.2026)
 
-Grundlage: ROWAPA-Präsentationen «Standortbestimmung · Pitch» (12 Folien) und «Standortbestimmung · Musterbericht» (13 Folien, anonymisiert, erfundene Daten). Status: Vorschlag, wartet auf ROWAPA (Entscheide 357–358, offene Punkte 71–81). Ergänzt am 30.10.2026 um «Sales-Deck Performance-Analyse» (14 Folien, aktuellste Fassung) und «Analyse-Cockpit · Funktionsübersicht» (internes Werkzeug, Stand 21.09.2026).
+Grundlage: ROWAPA-Präsentationen «Standortbestimmung · Pitch» (12 Folien) und «Standortbestimmung · Musterbericht» (13 Folien, anonymisiert, erfundene Daten). Status: Entwurf als ganze Seite (Runde 51, Entscheide 357–359), wartet auf Abnahme (offene Punkte 74, 82–85). Ergänzt am 30.10.2026 um «Sales-Deck Performance-Analyse» (14 Folien, aktuellste Fassung) und «Analyse-Cockpit · Funktionsübersicht» (internes Werkzeug, Stand 21.09.2026).
 
 ## 1. Einordnung
 
@@ -72,7 +72,7 @@ Nicht verknüpfen: Selbstchecks und «Standortbestimmung & Wachstum» (Einzelper
 - eingebaute Prüffragen gegen geschöntes Antworten;
 - Datenschutz: anonym, pseudonym oder mit Namen, je Gruppe wählbar; Gruppen unter fünf Personen werden nie ausgewiesen; jede Person sieht ihr eigenes Ergebnis.
 
-**Widersprüche, die vor dem Bau zu klären sind** (offene Punkte 77–79):
+**Widersprüche Sales-Deck ↔ Cockpit** (geklärt mit Entscheid 359: 5 Methoden, ca. 25 Min., Folgemessung individuell z. B. nach 6 Monaten, Ablauf mit den 6 Cockpit-Phasen):
 | Thema | Sales-Deck | Cockpit |
 |---|---|---|
 | Methoden | fünf (Skill-Check, Eigensicht, Fremdsicht, Interviews, On-the-Job) | vier Instrumente (Skillcheck = Selbstbeurteilung, Fremdbeurteilung, Beobachtung, Interview) |
@@ -85,4 +85,25 @@ Nicht verknüpfen: Selbstchecks und «Standortbestimmung & Wachstum» (Einzelper
 - *Demo-Seite (nach dem Gespräch):* eigene Seite `/demo/performance-analyse`, mit Webflow-Passwort geschützt und nicht in Suchmaschinen; zeigt den Musterbericht Schritt für Schritt (Soll-Profil, Abgleich, Teamvergleich, Eigen-/Fremdsicht, Person, Befunde, Massnahmen), «So läuft Ihre Analyse» mit Wochenplan, die Datenschutz-Stufen und ein Feld «Ihre Fragestellung» für die Vorbereitung des Angebots. Passwort wird nach dem Gespräch mitgegeben und periodisch gewechselt.
 - *Musterbericht:* Auszüge frei auf der Landingpage, ganzes PDF gegen geschäftliche E-Mail-Adresse (Download-Formular), auf der Demo-Seite frei.
 
-**«So arbeiten wir» und die Analyse:** Die vier ROWAPA-Phasen bleiben der Oberbegriff für jedes Mandat. Die Performance-Analyse füllt Phase 01 Analysieren und 02 Verstehen, die Hebel sind Phase 03 Handeln, die Folgemessung ist Phase 04 Messen und zugleich der Start der nächsten Analyse. Der Ablauf der Analyse wird als Wochenplan gezeigt (Woche 1–6), nicht als zweite Reihe «Phasen», damit es keine zwei konkurrierenden Viererschemen gibt.
+**«So arbeiten wir» und die Analyse:** Die vier ROWAPA-Phasen bleiben der Oberbegriff für jedes Mandat. Die Performance-Analyse füllt Phase 01 Analysieren und 02 Verstehen, die Hebel sind Phase 03 Handeln, die Folgemessung ist Phase 04 Messen und zugleich der Start der nächsten Analyse. Der Ablauf der Analyse wird mit den sechs Cockpit-Phasen (0–5) gezeigt, mit einem Hinweissatz, wie sie in die vier ROWAPA-Phasen passen (Analysieren = 0–2, Verstehen = 3–4, Handeln = Massnahmen, Messen = 5). Die Gewichtung der Methoden bleibt intern.
+
+## 7. Entwurf Runde 51 (30.10.2026): Landingpage als ganze Seite
+
+Bilder: `stufe3-screens/runde51/` (Desktop 1440 px, Handy 390 px). Werkzeug: `tools/entwuerfe/runde51_performance-analyse.js`. Nichts in Webflow gebaut.
+
+| # | Section | Hintergrund | Inhalt |
+|---|---|---|---|
+| 1 | Header B | Manganese, stehendes Punktemeer | Kicker, H1 «Wo liegt Ihr grösstes Potenzial?», Lead, «Analyse besprechen» / «Musterbericht ansehen», Figur Lupe |
+| 2 | Logo-Band | Manganese | «Ausgewählte Referenzen aus der Finanzbranche» |
+| 3 | Die Ausgangsfrage | Weiss | Resultate oben, Kompetenzen darunter |
+| 4 | Zwei Leistungsfelder | Snowbank | Vertriebs- und Mitarbeiterperformance, je 3 Leitfragen, Link zur Themenlinie |
+| 5 | Der Massstab | Weiss | 3 Schritte zum Soll-Profil, Musterauswertung Ist gegen Soll |
+| 6 | So sieht ein Ergebnis aus | Snowbank | Teamvergleich (Wärmetabelle), Eigen- und Fremdsicht der Teamleitung, «Musterdaten» |
+| 7 | Fünf Methoden | Weiss | Skill-Check, Eigensicht, Fremdsicht, Interviews, On-the-Job; «misst / ordnet ein / misst am stärksten» |
+| 8 | Messen mit Sorgfalt | Manganese | 4 Vertrauensargumente, 3 Vertraulichkeitsstufen |
+| 9 | Der Ablauf | Snowbank | 6 Phasen 0–5 mit Dauer, Satz zur Einordnung in «So arbeiten wir» |
+| 10 | Ihr Aufwand | Weiss | Halber Tag Start · ca. 25 Min. · 4–6 Wo. · Halber Tag Ergebnisgespräch |
+| 11 | Der Nutzen | Snowbank | 3 Karten, Budget-Argument, Folgemessung, Hinweis zur Aussagekraft |
+| 12 | Musterbericht | Weiss | Cover, Inhalt, Formular «Musterbericht erhalten» |
+| 13 | Gut zu wissen | Weiss | 6 Fragen (Antworten aus Deck und Entscheid 359) |
+| 14 | Kontakt | Sea Cliff | Jennifer Boek, «Welche Fragestellung möchten Sie genauer untersuchen?» |

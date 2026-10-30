@@ -685,6 +685,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 | 356 | Ganze Unterseite statt Einzelteile (ROWAPA, 29.10.2026) | Bewegung nur auf der Startseite bestätigt; Schreibweise «Boek» bestätigt; ROWAPA will die ganze Seite im Zusammenspiel sehen | Entwurf ganze Seite «Vertriebsperformance» `stufe3-screens/runde50/` (Desktop, Handy); wartet auf Abnahme |
 | 357 | Neues Angebot Performance-Analyse / Standortbestimmung (ROWAPA, 30.10.2026, Pitch und Musterbericht) | Vorschlag: eigene Seite «Performance-Analyse» unter «Für Unternehmen» als Einstieg vor jedem Hebel, verlinkt von Startseite, Megamenü, Themenlinien, Hebel-Seiten, Tools & Methoden | Konzept `11_konzept_performance-analyse.md`; wartet auf ROWAPA (offene Punkte 71–76) |
 | 358 | Performance-Analyse (ROWAPA, 30.10.2026) | Name **Performance-Analyse**; Investition **auf Anfrage**; eigenes Angebot, abgegrenzt von den übrigen Tools; Logos dürfen verwendet werden (so verstanden, zu bestätigen); Sales-Deck als Textquelle, Analyse-Cockpit nur intern | Vorschlag Landingpage, Demo-Seite (passwortgeschützt), Musterbericht-Regel und Einbettung in «So arbeiten wir» in `11_konzept_performance-analyse.md` Abschnitt 6 |
+| 359 | Performance-Analyse, Klärungen (ROWAPA, 30.10.2026) | **5 Methoden** (Skill-Check als eigener Fragebogen, Eigensicht, Fremdsicht mit denselben Aussagen, Interviews, On-the-Job); **ca. 25 Min.** je Person; Folgemessung **individuell**, z. B. nach 6 Monaten; Ablauf mit den **6 Phasen aus dem Cockpit** (0 Auftrag aufsetzen · 1 Profil entwickeln · 2 Erheben · 3 Auswerten · 4 Ergebnis · 5 Wirkung messen, optional); Logos frei; Demo-Seite mit Passwort einverstanden, keine Cockpit-Bildschirmfotos; Musterbericht: Auszüge frei, PDF gegen E-Mail | Gewichtung bleibt intern (nicht veröffentlichen). Landingpage als ganze Seite: `stufe3-screens/runde51/`; «So arbeiten wir» bleibt Oberbegriff (Analysieren = Phasen 0–2, Verstehen = 3–4, Handeln = Massnahmen, Messen = 5) |
 
 ---
 
@@ -761,13 +762,17 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 69. ~~Ansprechperson~~: überall Jennifer Boek (Entscheid 355).
 70. Lösungs-Kästen im Blog: Ziel der Links festlegen (alte Pfade `rowapa.ch/cas-professional-leadership-for-finance/`, leere Links in 4 Beiträgen).
 71. ~~Name~~: Performance-Analyse (Entscheid 358).
-72. Musterbericht als Download auf der Website (frei oder gegen E-Mail-Adresse)? [ROWAPA entscheiden]
+72. ~~Musterbericht~~: Auszüge frei, PDF gegen E-Mail (Entscheid 359).
 73. ~~Preis~~: auf Anfrage (Entscheid 358).
 74. Abgrenzung zum Hebel «Diagnostik & Potenzialanalyse» (Mitarbeiterperformance) und zu SalesStep: Teil der Analyse, eigenes Angebot oder zusammenlegen? [ROWAPA bestätigen]
-75. Referenzlogos aus Pitch-Folie 2 auf der Seite zeigen (Freigabe der Kunden)? [ROWAPA bestätigen]
-76. Ganze Seite «Performance-Analyse» als Entwurf (Bild) bauen, sobald 71–74 geklärt sind.
-77. Methoden: vier oder fünf? Sales-Deck zählt Skill-Check und Eigensicht getrennt, das Cockpit nicht. [ROWAPA entscheiden]
-78. Folgemessung: nach 6 Wochen (Cockpit) oder 6–12 Monaten (Sales-Deck)? [ROWAPA entscheiden]
-79. Zeit je Person: «ca. 25 Min.» oder «15–18 Min. Selbsteinschätzung, 10–12 Min. Fremdbeurteilung»? [ROWAPA entscheiden]
-80. Demo-Seite: mit Webflow-Passwort geschützt, ein gemeinsames Passwort (periodisch wechseln) einverstanden? Gibt es Bildschirmfotos aus dem Cockpit, die gezeigt werden dürfen? [ROWAPA bestätigen]
-81. Musterbericht: Auszüge frei, ganzes PDF gegen E-Mail-Adresse (Empfehlung) einverstanden? [ROWAPA bestätigen]
+75. ~~Referenzlogos~~: dürfen gezeigt werden (Entscheid 359).
+76. ~~Ganze Seite als Entwurf~~: `stufe3-screens/runde51/` (Entscheid 359).
+77. ~~Methoden~~: fünf (Entscheid 359).
+78. ~~Folgemessung~~: individuell, z. B. nach 6 Monaten (Entscheid 359).
+79. ~~Zeit je Person~~: ca. 25 Min. (Entscheid 359).
+80. ~~Demo-Seite~~: Passwort einverstanden, keine Cockpit-Bildschirmfotos (Entscheid 359).
+81. ~~Musterbericht-Regel~~: einverstanden (Entscheid 359).
+82. Abnahme Landingpage «Performance-Analyse» (`stufe3-screens/runde51/`): Aufbau, Reihenfolge, Länge. [ROWAPA bestätigen]
+83. Aussagen auf der Landingpage bestätigen: «Aus zwanzig Jahren Mandaten in der Finanzbranche», «Gruppen unter fünf Personen werden nie ausgewiesen», «Jede Person sieht ihr eigenes Ergebnis», Stufe «Mit Namen» für kleine Teams. [ROWAPA bestätigen]
+84. Musterbericht gegen E-Mail: Webflow-Formulare verschicken keine Dateien. Variante a) Formular → Danke-Seite mit PDF-Link (einfach, ohne Prüfung der Adresse); b) Versand über ein Newsletter-Werkzeug (Adresse wird geprüft). Welches Werkzeug nutzt ROWAPA? [ROWAPA entscheiden]
+85. Nächste Entwürfe: Demo-Seite (Passwort) und Section «Wo anfangen?» in der Themenlinie Vertriebsperformance. [ROWAPA entscheiden]
