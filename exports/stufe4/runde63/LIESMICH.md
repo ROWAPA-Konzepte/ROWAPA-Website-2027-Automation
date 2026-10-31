@@ -2,7 +2,7 @@
 
 Freigabe ROWAPA: «die Performance-Analyse könnte man mal in Webflow bauen … im Mega-Menü auch erwähnt» (Entscheid 372). Grundlage: abgenommene Fassung Runde 61 (Entscheid 371).
 
-**Stand:** Seite `/performance-analyse` im Webflow-Projekt angelegt und aufgebaut, **nicht veröffentlicht**. Webflow-IDs in `00_webflow-ids.md` (STUFE4 …), Pflege im Benutzerhandbuch 2.47.
+**Stand:** Seite `/performance-analyse` gebaut und auf der Testadresse veröffentlicht (Freigabe ROWAPA, Entscheid 373): https://rowapa-website-2027-automation.webflow.io/performance-analyse. Bilder: `testadresse_desktop.jpg`, `testadresse_handy.jpg`, `testadresse_megamenue.png`. Webflow-IDs in `00_webflow-ids.md` (STUFE4 …), Pflege im Benutzerhandbuch 2.47.
 
 ## Was gebaut ist
 
@@ -23,9 +23,9 @@ Freigabe ROWAPA: «die Performance-Analyse könnte man mal in Webflow bauen … 
 - **Grafiken der Auswertungen als Bilder** (Desktop- und Handy-Fassung, hier im Ordner). Titel, «Musterdaten», Bildunterschrift und Texte sind normale Webflow-Texte. Grund: Balkenlängen und Punktpositionen lassen sich ohne eigenen Code nicht sauber pflegen. Das Aufbauen der Grafiken beim Reiterwechsel kommt in der Effekt-Runde (Vorschlag: Grafik-Skript lädt die Grafik und baut sie auf, Bild bleibt als Rückfall).
 - **Reiter 4 und 5** (Interne Referenz, Massnahmen): Die Schnittstelle legt Reiter nur mit drei Einträgen an; verschobene Reiter hätten doppelte interne Namen. Inhalt liegt fertig im ausgeblendeten Element «ZWISCHENABLAGE Reiter 4+5». Im Designer zweimal «Add Tab», Inhalt hineinziehen (Handbuch 2.47).
 - **Zustand «Current» der Reiter** (Plum-Linie unter dem aktiven Reiter) lässt sich nur im Designer setzen (Handbuch 2.47).
-- **Anker `methode`** für den zweiten Header-Button: Webflow hat das Setzen der ID mehrfach mit einem Serverkonflikt abgelehnt; im Designer von Hand oder im nächsten Durchgang.
+- **Anker `methode`:** Webflow lehnt IDs auf dieser Seite mit einem Serverkonflikt ab; gelöst mit einem leeren Element `id="methode"` am Anfang der Section «Die Methode» (geprüft auf der Testadresse).
 - **Effekte** (Lupe aus Punkten, Einblendungen, Scroll-Geschichte «Fünf Methoden», Grafiken bauen sich auf, Kundenstimme-Linie) folgen in Runde 64; Mauszeiger und Punktemeer laufen bereits über das ROWAPA-Grafik-Skript der Website.
-- **Sichtprüfung:** Der Designer war nicht geöffnet, darum keine Schnappschüsse. Prüfung nach Veröffentlichung auf der Testadresse (braucht Freigabe) oder bei geöffnetem Designer.
+- **Sichtprüfung auf der Testadresse:** Aufbau wie Entwurf, Reiterwechsel funktioniert, Megamenü mit Vorschaukarte, keine horizontale Verschiebung auf dem Handy. Korrigiert: Reiter-Beschriftungen zeigten zuerst den Webflow-Platzhalter.
 - **Adresse:** `/performance-analyse` (kurz, gut für Kampagnen). Konzept nannte `/fuer-unternehmen/performance-analyse`; ein Ordner lässt sich später ergänzen (Weiterleitung nicht nötig, solange nicht veröffentlicht).
 
 ## Texttabelle
