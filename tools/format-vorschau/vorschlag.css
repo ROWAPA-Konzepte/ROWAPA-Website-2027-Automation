@@ -1,0 +1,227 @@
+/* VORSCHLAG «Darstellung je Format» – nur Mittel, die Webflow nativ kann:
+   Breakpoints nach Breite (≥1920, ≥1440, ≥1280, 992–1279, ≤991, ≤767, ≤479) und Fensterhöhe (svh) in Stilwerten. */
+:root { --sicht: calc(100svh - 4.5rem); --abstand: clamp(3rem, 9svh, 7rem); }
+
+/* 1 Global: Section-Abstände an die Fensterhöhe gekoppelt statt an die Breite */
+.padding-section-large:not(.is-hero):not(.is-anschluss) { padding-top: var(--abstand) !important; padding-bottom: var(--abstand) !important; }
+.padding-section-large.is-anschluss { padding-top: clamp(2rem, 5svh, 4rem) !important; padding-bottom: var(--abstand) !important; }
+.section-head, .section-head_row { margin-bottom: clamp(1.5rem, 4svh, 3rem) !important; }
+
+/* 2 Lösungen */
+@media (min-width: 992px) {
+  .section_loesungen .section-head.is-flush { max-width: none !important; }
+  .section_loesungen .bento_grid { height: clamp(22rem, 91svh - 19rem, 44rem); grid-template-rows: repeat(4, minmax(0, 1fr)) !important; }
+  .section_loesungen .bento_featured { grid-row: 1 / span 4 !important; min-height: 0 !important; height: 100%; }
+  .section_loesungen .card_featured { min-height: 0 !important; height: 100% !important; }
+  .section_loesungen .bento_grid > .card { min-height: 0 !important; height: 100%; overflow: hidden; }
+  .section_loesungen .bento_grid > .card .card_content { padding-top: clamp(0.75rem, 2svh, 1.5rem) !important; padding-bottom: clamp(0.75rem, 2svh, 1.5rem) !important; height: 100%; align-content: center; }
+  .section_loesungen .bento_grid > .card .card_grafik { height: 100% !important; max-height: 100%; }
+  .section_loesungen .bento_grid > .card .card_grafik img { height: 100% !important; width: auto !important; max-height: 9rem; }
+}
+@media (min-width: 992px) {
+  .section_loesungen .bento_grid > .card p, .section_loesungen .bento_grid > .card .text-style-kicker { display: none !important; }
+  .section_loesungen .card_featured_image { top: auto !important; bottom: 0 !important; height: 62% !important; }
+}
+@media (min-width: 1920px) {
+  .section_loesungen .bento_grid > .card p { display: block !important; }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .section_loesungen .bento_grid { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+  .section_loesungen .bento_featured { grid-column: 1 / -1 !important; }
+  .section_loesungen .card_featured { min-height: 16rem !important; }
+  .section_loesungen .card_featured_grafik { opacity: .35; }
+  .section_loesungen .bento_grid > .card .card_grafik { display: none !important; }
+}
+@media (max-width: 767px) {
+  .section_loesungen .bento_grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem !important; margin-right: -1.25rem; padding-right: 1.25rem; }
+  .section_loesungen .bento_grid > * { flex: 0 0 82% !important; scroll-snap-align: start; }
+  .section_loesungen .card_featured { min-height: 0 !important; height: 100% !important; }
+  .section_loesungen .card_featured_grafik { opacity: .35; }
+  .section_loesungen .bento_grid > .card { border: 1px solid rgba(29,49,73,.15) !important; border-radius: 8px; }
+}
+
+/* 3 Vorgehen: Phasen nebeneinander, Treppe als Band darüber */
+@media (min-width: 768px) {
+  .section_vorgehen .vorgehen_layout { grid-template-columns: minmax(0, 1fr) !important; row-gap: clamp(1rem, 3svh, 2.5rem) !important; }
+  .section_vorgehen .vorgehen_media { order: -1; height: clamp(6.5rem, 24svh - 3rem, 14rem); display: flex; justify-content: center; }
+  .section_vorgehen .vorgehen_media img, .section_vorgehen .vorgehen_media canvas { height: 100% !important; width: auto !important; max-width: 100%; object-fit: contain; }
+  .section_vorgehen .steps_list { flex-direction: row !important; border-bottom: 0 !important; gap: 1rem; }
+  .section_vorgehen .step_item { flex: 1 1 0; grid-template-columns: minmax(0, 1fr) !important; row-gap: .75rem; padding: 1.25rem 0 0 !important; }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .section_vorgehen .steps_list { flex-wrap: wrap; }
+  .section_vorgehen .step_item { flex: 1 1 45%; }
+}
+@media (max-width: 767px) {
+  .section_vorgehen .vorgehen_media { display: none !important; }
+  .section_vorgehen .steps_list { flex-direction: row !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; border-bottom: 0 !important; margin-right: -1.25rem; }
+  .section_vorgehen .step_item { flex: 0 0 82%; scroll-snap-align: start; grid-template-columns: minmax(0,1fr) !important; row-gap: .75rem; border: 1px solid rgba(29,49,73,.15) !important; border-radius: 8px; padding: 1.25rem !important; }
+}
+
+/* 4 Erfolge: Foto etwas kleiner, damit Titel bis Name auch mit gekoppeltem Abstand in den Bildschirm passen */
+@media (min-width: 992px) {
+  .section_erfolge .quote_image-wrapper { max-height: calc(100svh - 22rem) !important; }
+  .section_erfolge .layout-grid.is-erfolge { margin-top: clamp(1.5rem, 3svh, 2.5rem) !important; }
+}
+
+/* 5 Digital */
+@media (min-width: 992px) {
+  .section_digital .digital_intro { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) !important; row-gap: clamp(1.5rem, 4svh, 3rem) !important; }
+  .section_digital .digital_content { gap: clamp(1rem, 2.5svh, 2rem) !important; }
+  .section_digital .digital_content .section-head { gap: clamp(.75rem, 2svh, 1rem) !important; margin-bottom: 0 !important; }
+  .section_digital .digital_visual { height: clamp(15rem, 38svh, 33rem) !important; }
+  .section_digital .tools_grid .card .card_content { padding-top: clamp(1rem, 2.5svh, 1.5rem) !important; padding-bottom: clamp(1rem, 2.5svh, 1.5rem) !important; }
+  .section_digital .tools_grid .card p { display: none !important; }
+  .section_digital .tools_grid .card .card_content { gap: .5rem !important; }
+}
+@media (min-width: 1920px) {
+  .section_digital .tools_grid .card p { display: block !important; }
+}
+@media (max-width: 991px) {
+  .section_digital .digital_visual { display: none !important; }
+  .section_digital .tools_grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem !important; margin-right: -1.25rem; padding-right: 1.25rem; }
+  .section_digital .tools_grid > * { flex: 0 0 min(80%, 20rem) !important; scroll-snap-align: start; }
+}
+
+/* 6 Team: Fotos an die Fensterhöhe gekoppelt; Partnerlogos als eigenes Band (per Skript verschoben) */
+@media (min-width: 992px) {
+  .section_team .section-head.is-flush { max-width: none !important; }
+  .section_team .team_grid { grid-template-rows: repeat(2, clamp(8rem, (100svh - 2 * var(--abstand) - 17rem) / 2, 16rem)) !important; }
+}
+@media (max-width: 991px) {
+  .section_team .team_grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem !important; }
+  .section_team .team_grid > * { flex: 0 0 min(62%, 16rem) !important; height: clamp(18rem, 50svh, 26rem) !important; scroll-snap-align: start; }
+  .section_team .team_info { display: none !important; }
+}
+.section_partnerband .padding-section-large { padding-top: clamp(2rem, 5svh, 3.5rem) !important; padding-bottom: clamp(2rem, 5svh, 3.5rem) !important; }
+@media (min-width: 1280px) {
+  .section_partnerband .logos_grid.is-partner { grid-template-columns: repeat(14, minmax(0, 1fr)) !important; }
+}
+.section_partnerband .logos_grid.is-partner > * { height: clamp(3.5rem, 8svh, 5rem) !important; }
+
+/* 7 Meine Entwicklung: drei Wege nebeneinander */
+@media (min-width: 992px) {
+  .section_wege .layout-grid.is-zeilen { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; column-gap: clamp(1rem, 2vw, 2rem) !important; }
+  .section_wege .layout-grid.is-zeilen > .card { display: flex !important; flex-direction: column !important; grid-template-columns: none !important; }
+  .section_wege .card_image-wrapper { order: -1 !important; height: clamp(8rem, 27svh - 2rem, 17rem) !important; flex: none !important; width: 100% !important; }
+  .section_wege .card_content { padding: clamp(1rem, 2.5svh, 2rem) !important; flex: 1 1 auto; }
+  .section_wege .card_content h3 { font-size: clamp(1.5rem, 0.9rem + 1vw, 2.25rem) !important; }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .section_wege .layout-grid.is-zeilen > .card { grid-template-columns: 40% minmax(0, 1fr) !important; }
+  .section_wege .card_image-wrapper { order: -1 !important; height: 14rem !important; }
+  .section_wege .card_content { padding: 1.5rem !important; }
+}
+@media (max-width: 767px) {
+  .section_wege .layout-grid.is-zeilen { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem !important; margin-right: -1.25rem; }
+  .section_wege .layout-grid.is-zeilen > .card { flex: 0 0 84% !important; display: flex !important; flex-direction: column !important; scroll-snap-align: start; }
+  .section_wege .card_image-wrapper { order: -1 !important; height: 12rem !important; }
+}
+
+/* 8 Insights: Bildhöhe an die Fensterhöhe gekoppelt */
+.section_insights .card_image-wrapper { height: clamp(7.5rem, 22svh, 12.5rem) !important; }
+
+/* ---- Verfeinerung 2 ---- */
+/* Startbildschirm: auf kleinen Laptops etwas weniger Luft über dem Titel, damit die Logo-Leiste ganz sichtbar bleibt */
+@media (max-width: 1439px) and (min-width: 992px) {
+  .padding-section-large.is-hero { padding-top: clamp(1.5rem, 4svh, 6rem) !important; }
+  .hero_content { row-gap: clamp(1rem, 2.5svh, 2rem) !important; }
+}
+/* Lösungen Tablet: Karten als Spalte (Titel, Text) */
+@media (max-width: 991px) and (min-width: 768px) {
+  .section_loesungen .bento_grid > .card .card_content { display: flex !important; flex-direction: column !important; gap: .5rem !important; padding: 1.25rem 0 !important; }
+  .section_loesungen .bento_grid > .card .card_content > * { width: auto !important; max-width: none !important; }
+  .section_loesungen .card_featured_content p { max-width: 34rem; }
+}
+/* Digital kleine Laptops: Symbole in den Karten weglassen (stehen im Orbit) */
+@media (min-width: 992px) and (max-width: 1439px) {
+  .section_digital .tools_grid .card .card_grafik { display: none !important; }
+  .section_digital .tools_grid .card h3 { font-size: 1.25rem !important; }
+}
+/* Meine Entwicklung: Bild an die Höhe gekoppelt, Titel kleiner auf kleinen Laptops */
+@media (min-width: 992px) {
+  .section_wege .card_image-wrapper { height: clamp(7rem, 30svh - 5rem, 17rem) !important; }
+}
+@media (min-width: 992px) and (max-width: 1439px) {
+  .section_wege .card_content { padding: 1.25rem !important; row-gap: .5rem !important; }
+  .section_wege .card_content h3 { font-size: 1.5rem !important; }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .section_wege .layout-grid.is-zeilen > .card { height: 13rem !important; }
+  .section_wege .card_image-wrapper { height: 100% !important; }
+  .section_wege .card_content { padding: 1.25rem 1.5rem !important; row-gap: .5rem !important; justify-content: center !important; }
+  .section_wege .card_content h3 { font-size: 1.75rem !important; }
+}
+/* Insights: Auszug auf kleinen Laptops weglassen */
+@media (min-width: 992px) and (max-width: 1439px) {
+  .section_insights .card_content p { display: none !important; }
+}
+/* Handy */
+@media (max-width: 767px) {
+  .section_digital .button-group { flex-direction: row !important; flex-wrap: wrap; gap: .5rem !important; }
+  .section_digital .button-group .button { padding: .75rem 1rem !important; font-size: .75rem !important; }
+  .section_digital .note-box { padding: .75rem !important; }
+  .section_wege .card_image-wrapper { height: 10rem !important; }
+  .section_wege .card_content { padding: 1.25rem !important; }
+  .section_faq .faq_question { padding-top: .875rem !important; padding-bottom: .875rem !important; }
+  .section_faq .faq_layout { row-gap: 1.5rem !important; }
+  .section_kontakt .contact_portrait { width: 8rem !important; height: 8rem !important; }
+  .section_kontakt .contact_layout { row-gap: 1.5rem !important; }
+  .section_antrieb .stats_grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; column-gap: .75rem !important; }
+  .section_antrieb .stat_number { font-size: 2rem !important; }
+  .section_antrieb .stat_label { font-size: .8125rem !important; }
+}
+
+/* ---- Verfeinerung 3 ---- */
+@media (min-width: 992px) {
+  .section_loesungen .section-head.is-flush { max-width: 56rem !important; }
+  .section_team .section-head.is-flush { max-width: 56rem !important; }
+  .section_wege .card_image-wrapper { min-height: 0 !important; }
+}
+@media (min-width: 992px) and (max-width: 1279px) {
+  .section_loesungen .bento_grid { height: clamp(18rem, 91svh - 23rem, 44rem) !important; }
+  .section_digital .digital_visual { display: none !important; }
+  .section_digital .digital_intro { grid-template-columns: minmax(0, 1fr) !important; }
+  .section_digital .digital_content { max-width: 48rem; }
+}
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .section_digital .digital_intro { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) !important; }
+  .section_digital .digital_visual { height: clamp(14rem, 36svh, 22rem) !important; }
+}
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .section_erfolge .quote_image-wrapper { max-height: calc(100svh - 24rem) !important; }
+}
+@media (max-width: 991px) {
+  .section_wege .card_image-wrapper { min-height: 0 !important; }
+}
+@media (min-width: 992px) {
+  .section_loesungen .section-head_row, .section_team .section-head_row { flex-wrap: nowrap !important; }
+  .section_loesungen .section-head.is-flush, .section_team .section-head.is-flush { max-width: none !important; flex: 1 1 auto; min-width: 0; }
+  .section_loesungen .section-head_row > .button, .section_team .section-head_row > .button-group { flex: none; }
+}
+@media (min-width: 1280px) {
+  .section_loesungen .bento_grid { height: clamp(20rem, 90svh - 21rem, 44rem) !important; }
+}
+/* ---- Verfeinerung 4 ---- */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .section_insights .card_content p { display: none !important; }
+  .section_digital .digital_content { gap: clamp(.75rem, 2svh, 2rem) !important; }
+}
+/* ---- Verfeinerung 5 ---- */
+.section_wege .layout-grid.is-zeilen > .card { min-height: 0 !important; }
+@media (max-width: 991px) and (min-width: 768px) {
+  .section_loesungen .bento_grid > .card p { display: none !important; }
+  .section_loesungen .card_featured { min-height: 14rem !important; }
+}
+@media (min-width: 992px) and (max-width: 1279px) {
+  .section_vorgehen .vorgehen_media { height: clamp(6rem, 20svh - 3rem, 12rem) !important; }
+  .section_digital .tools_grid .card h3 { font-size: 1.125rem !important; }
+  .section_cas .heading-style-h2 { font-size: 2.5rem !important; }
+}
+@media (max-width: 767px) {
+  .section_digital .note-box { display: none !important; }
+  .section_digital .tools_grid .card p { display: none !important; }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .section_wege .layout-grid.is-zeilen > .card { height: auto !important; }
+}

@@ -34,3 +34,19 @@ Baseline für das bisherige visuelle Design ist die URL: https://rowapa-2027.web
 - Vor jedem Phasenwechsel stoppen und Nutzerfreigabe einholen.
 - Alle unvollständigen CMS-Items als Status "Draft" anlegen.
 - Nutze das Finsweet Client-First System für Klassen-Benennungen.
+- Tool-Aufrufe (Webflow, Dateien, Shell, Web) ohne Rückfrage ausführen. Anhalten nur am Ende jeder Stufe/Phase sowie vor dem Veröffentlichen der Website und vor dem Löschen von Inhalten.
+- Pull Request: Für den Arbeits-Branch besteht ein offener Pull Request. Jede Stufe wird committet und gepusht, der PR damit automatisch aktualisiert. Ist er zusammengeführt, wird für neue Arbeit selbständig ein neuer PR erstellt. Zusammenführen (Merge) nur mit Freigabe von ROWAPA.
+- Dokumentation statt Backup: In diesem Projekt gibt es keine 4-Datei-Backup-Runden (Entscheid ROWAPA 25.10.2026), auch keine Rückfrage danach. Stattdessen mit jedem Stufen-Commit nachführen: `exports/00_start_hier.md` (Wiederherstellung, Stand), `exports/00_entscheide.md` (Entscheide, offene Punkte), `exports/07_benutzerhandbuch.md` (Pflege), `exports/00_webflow-ids.md`. Keine Zugangsdaten. PDFs nur auf Wunsch. Ab Stufe 3 am Stufenende zusätzlich jede CMS-Collection als CSV nach `exports/cms/`.
+
+## 6. Inhalte & Verständlichkeit (verbindlich)
+- Werte der Website: klar, souverän, inspirierend. Jede Section vor der Freigabe gegen den Redaktionsleitfaden `exports/04_redaktionsleitfaden.md` prüfen: Was ist es, für wen, welcher Nutzen, welcher nächste Schritt?
+- Begriff: «Unternehmen» statt «Organisationen» (auch «Finanzunternehmen»). Nicht abwechselnd mit «Unternehmung».
+- Anrede: Sie für Unternehmen und gemeinsame Seiten; Du nur im Bereich «Meine persönliche Entwicklung» und bei Angeboten für Einzelpersonen. Nie gemischt in einer Section.
+- Keine Fakten erfinden. Fehlende Angaben als «[ROWAPA bestätigen]» markieren.
+- Zu jeder gebauten Seite eine Texttabelle liefern: Original → Vorschlag → Begründung → offene Fragen.
+
+## 7. Prüfsessions (verbindlich, Entscheid 378)
+- Regelmässig prüfen, ob Vorschläge und Umsetzungen allen Abmachungen, Richtlinien und Regeln entsprechen. Grundlage: `exports/00_pruefliste.md` (CI, Texte, Bauweise, laufende Entscheide, Ablauf).
+- Pflicht vor jedem Vorschlag zur Freigabe, vor jedem Veröffentlichen, am Ende jeder Runde/Stufe und vor dem Löschen von Inhalten.
+- Ergebnis im LIESMICH der Runde unter «Prüfsession» festhalten (✓ / ✗ mit Korrektur / ? an ROWAPA) und in der Antwort kurz zusammenfassen. Eindeutige Verletzungen sofort korrigieren, unklare als Frage melden.
+- Neue dauerhafte Entscheide in die Prüfliste aufnehmen.

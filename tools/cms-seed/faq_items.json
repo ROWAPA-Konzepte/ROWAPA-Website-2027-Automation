@@ -1,0 +1,668 @@
+[
+ {
+  "fieldData": {
+   "name": "Für wen ist das CAS gedacht?",
+   "slug": "fuer-wen-ist-das-cas-gedacht",
+   "antwort": "<p>Für Fach- und Führungskräfte aus der Finanzbranche, die eine Führungsrolle übernehmen oder ihre Führungsarbeit professionalisieren wollen.</p>",
+   "gruppe": "3efbc809a81a88397b0cebfc46a525c9",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie läuft die Bewerbung ab?",
+   "slug": "wie-laeuft-die-bewerbung-ab",
+   "antwort": "<p>Über ein mehrstufiges Online-Formular mit Unterlagen-Upload. Danach folgt ein persönliches Zulassungsgespräch.</p>",
+   "gruppe": "3efbc809a81a88397b0cebfc46a525c9",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Kann ich das CAS neben dem Beruf absolvieren?",
+   "slug": "kann-ich-das-cas-neben-dem-beruf-absolvieren",
+   "antwort": "<p>Ja, der Lehrgang ist berufsbegleitend aufgebaut, mit planbaren Präsenz- und Online-Anteilen.</p>",
+   "gruppe": "3efbc809a81a88397b0cebfc46a525c9",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Worin unterscheidet sich Mentoring von Coaching?",
+   "slug": "worin-unterscheidet-sich-mentoring-von-coaching",
+   "antwort": "<p>Dein Mentor bringt eigene Führungserfahrung aus der Finanzbranche mit und teilt sie aktiv, es geht um Sparring auf Augenhöhe, nicht nur um Fragen.</p>",
+   "gruppe": "4c67ad3266af1dcef6aa6802e7cdd93c",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Ist das Mentoring vertraulich?",
+   "slug": "ist-das-mentoring-vertraulich",
+   "antwort": "<p>Absolut, auch gegenüber Deinem Arbeitgeber, falls dieser das Mentoring finanziert. Die Inhalte gehören Dir.</p>",
+   "gruppe": "4c67ad3266af1dcef6aa6802e7cdd93c",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie lange dauert ein Mentoring?",
+   "slug": "wie-lange-dauert-ein-mentoring",
+   "antwort": "<p>In der Regel mehrere Monate, Umfang und Rhythmus vereinbaren wir im Kennenlern-Gespräch.</p>",
+   "gruppe": "4c67ad3266af1dcef6aa6802e7cdd93c",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Kann ich ein Training einzeln besuchen?",
+   "slug": "kann-ich-ein-training-einzeln-besuchen",
+   "antwort": "<p>Ja, jedes Training funktioniert eigenständig. Wer mehr will, kombiniert mehrere Module zu einer Reihe.</p>",
+   "gruppe": "4c67ad3266af1dcef6aa6802e7cdd93c",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Gibt es die Trainings auch für ganze Teams?",
+   "slug": "gibt-es-die-trainings-auch-fuer-ganze-teams",
+   "antwort": "<p>Ja, als Inhouse-Variante, abgestimmt auf Eure Führungssituation. Für Unternehmens-Anfragen siehe auch Leadership &amp; Team im Unternehmens-Bereich.</p>",
+   "gruppe": "4c67ad3266af1dcef6aa6802e7cdd93c",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Brauche ich Führungserfahrung?",
+   "slug": "brauche-ich-fuehrungserfahrung",
+   "antwort": "<p>Nein, Top-Führungskraft werden richtet sich gezielt an angehende Führungskräfte. Die anderen Trainings setzen erste Praxis voraus.</p>",
+   "gruppe": "4c67ad3266af1dcef6aa6802e7cdd93c",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Welche Voraussetzungen brauche ich?",
+   "slug": "welche-voraussetzungen-brauche-ich",
+   "antwort": "<p>Keine formalen Vorkenntnisse, Motivation und Freude am Kundenkontakt zählen. Details klären wir im Zulassungsgespräch.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Ist die Zertifizierung anerkannt?",
+   "slug": "ist-die-zertifizierung-anerkannt",
+   "antwort": "<p>Ja, die Ausbildung ist auf die Anforderungen von Cicero, gutberaten.de und SAQ ausgerichtet.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Kann ich die Ausbildung berufsbegleitend machen?",
+   "slug": "kann-ich-die-ausbildung-berufsbegleitend-machen",
+   "antwort": "<p>Ja, das Programm ist berufsbegleitend konzipiert, mit einer Kombination aus Präsenz- und Online-Einheiten.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Worin unterscheidet sich Mentoring von Coaching?",
+   "slug": "worin-unterscheidet-sich-mentoring-von-coaching-mentoring",
+   "antwort": "<p>Dein Mentor bringt eigene Verkaufserfahrung aus der Finanzbranche mit und teilt sie aktiv, es geht um Sparring auf Augenhöhe, nicht nur um Fragen.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was, wenn die Chemie nicht stimmt?",
+   "slug": "was-wenn-die-chemie-nicht-stimmt",
+   "antwort": "<p>Dann sagen wir das offen, und schlagen Dir eine Alternative vor. Das Kennenlern-Gespräch ist genau dafür da.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Sind die Methoden auf die Finanzbranche zugeschnitten?",
+   "slug": "sind-die-methoden-auf-die-finanzbranche-zugeschnitten",
+   "antwort": "<p>Ja, alle Bausteine stammen aus der Beratungspraxis von Banken, Versicherungen und Krankenkassen.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Kann ich einzelne Bausteine buchen?",
+   "slug": "kann-ich-einzelne-bausteine-buchen",
+   "antwort": "<p>Ja, das Programm ist modular, vom einzelnen Baustein bis zum kompletten Methoden-Set.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie schnell sehe ich Wirkung?",
+   "slug": "wie-schnell-sehe-ich-wirkung",
+   "antwort": "<p>Die Bausteine sind auf direkte Anwendung ausgelegt, Du setzt sie ab dem ersten Training in echten Gesprächen ein.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Stört die Begleitung das Kundengespräch?",
+   "slug": "stoert-die-begleitung-das-kundengespraech",
+   "antwort": "<p>Nein, die Begleitperson hält sich im Hintergrund. Kund:innen erleben ein normales Gespräch.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Gibt es die Begleitung auch online?",
+   "slug": "gibt-es-die-begleitung-auch-online",
+   "antwort": "<p>Ja, als Begleitung im Video-Kundengespräch, inklusive Auswertung und Aufzeichnung.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie viele Begleitungen brauche ich?",
+   "slug": "wie-viele-begleitungen-brauche-ich",
+   "antwort": "<p>Das hängt vom Ziel ab: von der einzelnen Standortbestimmung bis zur Serie über mehrere Monate.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Welche Investition ist nötig?",
+   "slug": "welche-investition-ist-noetig",
+   "antwort": "<p>Die Konditionen besprechen wir transparent im Kennenlerngespräch, abhängig von Region und Fokusthema.</p>",
+   "gruppe": "961dde8dd900d505fcb613bb6befb6f6",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie viel Zeit braucht die Rolle?",
+   "slug": "wie-viel-zeit-braucht-die-rolle",
+   "antwort": "<p>Die Rolle ist als unternehmerische Haupttätigkeit angelegt; der Einstieg lässt sich gestaffelt gestalten.</p>",
+   "gruppe": "961dde8dd900d505fcb613bb6befb6f6",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Gibt es Gebietsexklusivität?",
+   "slug": "gibt-es-gebietsexklusivitaet",
+   "antwort": "<p>Regionen und Fokusthemen werden im Partnermodell klar geregelt, Details im Gespräch.</p>",
+   "gruppe": "961dde8dd900d505fcb613bb6befb6f6",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was, wenn ich noch nicht bereit für ein CAS bin?",
+   "slug": "was-wenn-ich-noch-nicht-bereit-fuer-ein-cas-bin",
+   "antwort": "<p>Dann sind Leadership-Trainings oder ein Leadership-Profiling der passende Einstieg, der Mini-Leadership-Check hilft Dir bei der Einordnung.</p>",
+   "gruppe": "4c67ad3266af1dcef6aa6802e7cdd93c",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Welches Programm ist das richtige für mich?",
+   "slug": "welches-programm-ist-das-richtige-fuer-mich",
+   "antwort": "<p>Starte mit dem kostenlosen Mini-Sales-Check oder sortiere Dich über die drei Karriere-Levels ein. Wenn Du unsicher bist: Das 15-minütige Auswahlgespräch ist kostenlos.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Brauche ich Vorkenntnisse?",
+   "slug": "brauche-ich-vorkenntnisse",
+   "antwort": "<p>Nein. Die Berater-Zertifizierung ist für den Einstieg gedacht; Methoden-Trainings und Mentoring holen Dich dort ab, wo Du stehst.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie lange dauern die Programme und was kosten sie?",
+   "slug": "wie-lange-dauern-die-programme-und-was-kosten-sie",
+   "antwort": "<p>Von einzelnen Trainingstagen bis zu mehrmonatigen Mentorings. Richtpreise stehen bei jedem Programm; verbindliche Angaben erhältst Du im Erstgespräch oder in der Programmbeschreibung.</p>",
+   "gruppe": "31b612fd3b42c8be96f42101a24b6edf",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was unterscheidet die Profile von einem einfachen Online-Test?",
+   "slug": "was-unterscheidet-die-profile-von-einem-einfachen-online-test",
+   "antwort": "<p>Die eingesetzten Verfahren sind wissenschaftlich fundiert und lizenziert. Auf Wunsch bespricht ein:e zertifizierte:r Coach:in das Ergebnis persönlich mit Dir.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Muss ich aus der Finanzbranche kommen?",
+   "slug": "muss-ich-aus-der-finanzbranche-kommen",
+   "antwort": "<p>Nein. Standortbestimmung &amp; Wachstum ist rollenunabhängig, die Branchenerfahrung von ROWAPA hilft, wenn Du in der Finanzwelt arbeitest.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie geht es nach dem Profil weiter?",
+   "slug": "wie-geht-es-nach-dem-profil-weiter",
+   "antwort": "<p>Du entscheidest: Ergebnis für Dich nutzen, im Feedbackgespräch vertiefen oder mit Coaching bzw. Entwicklungsprogramm dranbleiben.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Für wen ist Bluquist gedacht?",
+   "slug": "fuer-wen-ist-bluquist-gedacht",
+   "antwort": "<p>Für angehende und etablierte Führungskräfte, und für alle, die wissen wollen, ob Führung ihr Weg ist.</p>",
+   "gruppe": "66e32dfa0d85575a84020574a0fcf791",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Worin unterscheidet sich Bluquist vom Reiss-Profil?",
+   "slug": "worin-unterscheidet-sich-bluquist-vom-reiss-profil",
+   "antwort": "<p>Das Reiss-Profil fokussiert auf Deine Motive. Bluquist verbindet Persönlichkeit mit konkreten Leadership-Dimensionen.</p>",
+   "gruppe": "66e32dfa0d85575a84020574a0fcf791",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Kann ich Bluquist mit einem Programm kombinieren?",
+   "slug": "kann-ich-bluquist-mit-einem-programm-kombinieren",
+   "antwort": "<p>Ja, als Einstieg in Fit for Leadership oder als Standortbestimmung im Mentoring.</p>",
+   "gruppe": "66e32dfa0d85575a84020574a0fcf791",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was bringt mir das Reiss-Profil konkret?",
+   "slug": "was-bringt-mir-das-reiss-profil-konkret",
+   "antwort": "<p>Klarheit über Deine Antreiber, hilfreich bei Berufs- und Karriereentscheidungen, in der Führung und in der Zusammenarbeit.</p>",
+   "gruppe": "66e32dfa0d85575a84020574a0fcf791",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Ist das ein Persönlichkeitstest wie viele andere?",
+   "slug": "ist-das-ein-persoenlichkeitstest-wie-viele-andere",
+   "antwort": "<p>Das Reiss-Profil misst Motive statt Typen, es sagt nicht, wie Du bist, sondern was Dich antreibt.</p>",
+   "gruppe": "66e32dfa0d85575a84020574a0fcf791",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Brauche ich das Feedbackgespräch?",
+   "slug": "brauche-ich-das-feedbackgespraech",
+   "antwort": "<p>Der Report ist verständlich aufbereitet. Das Gespräch lohnt sich, wenn Du die Ergebnisse auf eine konkrete Situation anwenden willst.</p>",
+   "gruppe": "66e32dfa0d85575a84020574a0fcf791",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Für wen ist SalesStep geeignet?",
+   "slug": "fuer-wen-ist-salesstep-geeignet",
+   "antwort": "<p>Für alle, die im Verkauf arbeiten, vom Einstieg bis zur Führungsrolle. Der Benchmark passt sich Deiner Erfahrungsstufe an.</p>",
+   "gruppe": "66e32dfa0d85575a84020574a0fcf791",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie unterscheidet sich SalesStep vom Mini-Sales-Check?",
+   "slug": "wie-unterscheidet-sich-salesstep-vom-mini-sales-check",
+   "antwort": "<p>Der Mini-Check ist ein kostenloser Einstieg mit 5 Fragen. SalesStep ist die ausführliche, lizenzierte Diagnostik mit über 20 Kompetenzen.</p>",
+   "gruppe": "66e32dfa0d85575a84020574a0fcf791",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was passiert mit meinen Daten?",
+   "slug": "was-passiert-mit-meinen-daten",
+   "antwort": "<p>Deine Ergebnisse gehören Dir. Details regelt die Datenschutzerklärung, Weitergabe nur mit Deinem Einverständnis.</p>",
+   "gruppe": "66e32dfa0d85575a84020574a0fcf791",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Brauche ich ein konkretes Problem für ein Coaching?",
+   "slug": "brauche-ich-ein-konkretes-problem-fuer-ein-coaching",
+   "antwort": "<p>Nein, viele kommen mit einer diffusen Frage. Genau dafür ist die Standortbestimmung da: aus Unklarheit wird ein Bild.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie viele Sessions braucht es?",
+   "slug": "wie-viele-sessions-braucht-es",
+   "antwort": "<p>Das vereinbaren wir individuell, manche Anliegen klären sich in drei Sessions, andere begleiten wir über Monate.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was bringt die Diagnostik zusätzlich?",
+   "slug": "was-bringt-die-diagnostik-zusaetzlich",
+   "antwort": "<p>Reiss-Profil oder Bluquist machen Motive und Stärken sichtbar, als datenbasierte Grundlage, über die wir im Coaching sprechen.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Worin unterscheidet sich das Programm vom Coaching?",
+   "slug": "worin-unterscheidet-sich-das-programm-vom-coaching",
+   "antwort": "<p>Das Programm ist strukturierter: fester Rahmen über mehrere Monate, Diagnostik zum Start, definierte Praxis-Aufgaben. Coaching ist offener und flexibler.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Für wen ist das Programm gedacht?",
+   "slug": "fuer-wen-ist-das-programm-gedacht",
+   "antwort": "<p>Für Menschen, die eine grössere Veränderung angehen, Neuausrichtung, nächste Karrierestufe oder nachhaltige Verhaltensänderung.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Ist die Diagnostik im Programm enthalten?",
+   "slug": "ist-die-diagnostik-im-programm-enthalten",
+   "antwort": "<p>Ja, die Standortbestimmung mit Reiss-Profil oder Bluquist gehört zum Programmstart.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was ist der Unterschied zwischen Mentoring und Coaching?",
+   "slug": "was-ist-der-unterschied-zwischen-mentoring-und-coaching",
+   "antwort": "<p>Coaching ist meist fokussiert und zeitlich begrenzt, Mentoring begleitet Dich über einen längeren Zeitraum und ist stärker auf die Beziehung und den gemeinsamen Weg ausgerichtet.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie lange dauert eine Mentoring-Begleitung?",
+   "slug": "wie-lange-dauert-eine-mentoring-begleitung",
+   "antwort": "<p>In der Regel mehrere Monate, den genauen Rahmen vereinbaren wir individuell und passen ihn bei Bedarf an.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Kann ich Diagnostik einbauen?",
+   "slug": "kann-ich-diagnostik-einbauen",
+   "antwort": "<p>Ja, Reiss-Profil oder Bluquist lassen sich als datenbasierte Grundlage integrieren, über die wir im Mentoring sprechen.</p>",
+   "gruppe": "aab20bb95caaf12721b1c0c2b894f415",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Brauchen wir dafür neue Hardware in jeder Filiale?",
+   "slug": "brauchen-wir-dafuer-neue-hardware-in-jeder-filiale",
+   "antwort": "<p>Nein. Segel wird passend zu Ihren Beratungsformaten konzipiert, vom festen Beratungstisch bis zur mobilen Lösung für den Aussendienst.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Ersetzt Segel unsere Beraterinnen und Berater?",
+   "slug": "ersetzt-segel-unsere-beraterinnen-und-berater",
+   "antwort": "<p>Im Gegenteil: Segel stärkt das persönliche Gespräch. Die Technologie macht Themen erlebbar, die Beziehung und der Abschluss bleiben beim Menschen.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie lange dauert die Einführung?",
+   "slug": "wie-lange-dauert-die-einfuehrung",
+   "antwort": "<p>Das hängt vom Umfang Ihrer Beratungsstrecke ab. Nach der Demo im Showroom erhalten Sie eine konkrete Roadmap für Ihr Haus.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie individuell sind die Trainings wirklich?",
+   "slug": "wie-individuell-sind-die-trainings-wirklich",
+   "antwort": "<p>Wir trainieren an Ihren Produkten, Ihren Gesprächssituationen und mit Ihren Zahlen, Standardfolien gibt es bei uns nicht.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Für welche Stufen eignet sich das Training?",
+   "slug": "fuer-welche-stufen-eignet-sich-das-training",
+   "antwort": "<p>Vom Einstieg bis zu erfahrenen Beraterinnen und Beratern, die Inhalte werden pro Zielgruppe differenziert.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie wird der Erfolg gemessen?",
+   "slug": "wie-wird-der-erfolg-gemessen",
+   "antwort": "<p>Über vereinbarte Kennzahlen und Beobachtung im Feld, Wirkung wird sichtbar gemacht, nicht behauptet.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was unterscheidet eine Sales-Story von einem Verkaufsleitfaden?",
+   "slug": "was-unterscheidet-eine-sales-story-von-einem-verkaufsleitfaden",
+   "antwort": "<p>Ein Leitfaden sagt, was zu tun ist, eine Story gibt dem Gespräch Sinn und Richtung, aus Kundensicht erzählt.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Funktioniert das auch für erklärungsbedürftige Produkte?",
+   "slug": "funktioniert-das-auch-fuer-erklaerungsbeduerftige-produkte",
+   "antwort": "<p>Gerade dort: Je abstrakter das Thema, desto wichtiger wird eine Geschichte, die es greifbar macht.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie hängt das mit Segel zusammen?",
+   "slug": "wie-haengt-das-mit-segel-zusammen",
+   "antwort": "<p>Die Story ist der Inhalt, Segel das Erlebnis, beides greift ineinander, ist aber auch einzeln wirksam.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Ersticken Standards nicht die Individualität?",
+   "slug": "ersticken-standards-nicht-die-individualitaet",
+   "antwort": "<p>Nein, Standards sichern die Basisqualität, damit Persönlichkeit dort wirken kann, wo sie den Unterschied macht.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie lange dauert die Verankerung?",
+   "slug": "wie-lange-dauert-die-verankerung",
+   "antwort": "<p>Verankerung ist Führungsarbeit über Monate, wir begleiten, bis der Prozess trägt.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was passiert mit bestehenden Prozessen?",
+   "slug": "was-passiert-mit-bestehenden-prozessen",
+   "antwort": "<p>Wir bauen auf Stärken auf: Was funktioniert, bleibt, was bremst, wird ersetzt.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Verlieren wir online nicht die Beziehung?",
+   "slug": "verlieren-wir-online-nicht-die-beziehung",
+   "antwort": "<p>Nur ohne Handwerk: Wer Präsenz und Dialog auch am Bildschirm beherrscht, baut Beziehung auf jedem Kanal.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Welche Technik brauchen unsere Teams?",
+   "slug": "welche-technik-brauchen-unsere-teams",
+   "antwort": "<p>Weniger, als viele denken, entscheidend sind Setting, Ablauf und Sicherheit im Umgang.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie hängt das mit Kompass zusammen?",
+   "slug": "wie-haengt-das-mit-kompass-zusammen",
+   "antwort": "<p>Hebel 4 entwickelt die Fähigkeiten Ihrer Menschen, Kompass wird künftig den digitalen Prozess dazu liefern.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Entwickeln Sie eigene Profile oder nutzen Sie bestehende?",
+   "slug": "entwickeln-sie-eigene-profile-oder-nutzen-sie-bestehende",
+   "antwort": "<p>Beides. Unsere Stärke sind selbst entwickelte, wissenschaftlich fundierte Profile. Vorhandene Modelle übernehmen wir genauso.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wer sieht die Ergebnisse?",
+   "slug": "wer-sieht-die-ergebnisse",
+   "antwort": "<p>Einzelergebnisse sind vertraulich und liegen bei den Teilnehmenden und ROWAPA. Eine Besprechung mit der Führungskraft erfolgt nur mit ausdrücklicher Zustimmung.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie vertraulich ist das?",
+   "slug": "wie-vertraulich-ist-das",
+   "antwort": "<p>Inhalte bleiben zwischen Ihnen und Ihrem Coach. ROWAPA gibt nichts an Dritte weiter.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie oft und wie lange?",
+   "slug": "wie-oft-und-wie-lange",
+   "antwort": "<p>Rhythmus und Dauer richten sich nach Ihrem Bedarf, typischerweise über mehrere Monate. [ROWAPA bestätigen]</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Sind Sie eine Personalvermittlung?",
+   "slug": "sind-sie-eine-personalvermittlung",
+   "antwort": "<p>Nein. Wir vermitteln keine Kandidaten, sondern gestalten Ihren Recruiting-Prozess und befähigen Ihr Team, inklusive Diagnostik und Candidate Experience.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Was bringt die Diagnostik im Recruiting?",
+   "slug": "was-bringt-die-diagnostik-im-recruiting",
+   "antwort": "<p>Sie macht Auswahlentscheide objektiver und vergleichbarer, auf derselben Basis wie unsere Potenzialanalyse.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Warum zwei Jahre?",
+   "slug": "warum-zwei-jahre",
+   "antwort": "<p>Fachlich, kulturell und in der Rolle wirklich anzukommen, braucht Zeit. Wir begleiten diesen Weg mit klaren Etappen, statt ihn nach der ersten Woche dem Zufall zu überlassen.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Bedeutet das mehr Aufwand für Führungskräfte?",
+   "slug": "bedeutet-das-mehr-aufwand-fuer-fuehrungskraefte",
+   "antwort": "<p>Im Gegenteil. Anker erinnert und stösst an, der Plan strukturiert, was wann zu tun ist. Das entlastet die Führungskraft, statt sie zusätzlich zu fordern.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Wie hängt das mit Mitarbeiterbindung zusammen?",
+   "slug": "wie-haengt-das-mit-mitarbeiterbindung-zusammen",
+   "antwort": "<p>Ein gutes Onboarding ist der erste und stärkste Bindungsanker. Siehe Mitarbeiterbindung stärken.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 3
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Lässt sich Bindung messen?",
+   "slug": "laesst-sich-bindung-messen",
+   "antwort": "<p>Wir machen sichtbar, was Fluktuation treibt, und verfolgen die Wirkung der Massnahmen über die Zeit, mit gemeinsam definierten Kennzahlen statt Versprechen.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 1
+  }
+ },
+ {
+  "fieldData": {
+   "name": "Sind Stay-Interviews vertraulich?",
+   "slug": "sind-stay-interviews-vertraulich",
+   "antwort": "<p>Ja. Aussagen werden anonymisiert ausgewertet, einzelne Personen bleiben geschützt.</p>",
+   "gruppe": "754210723b93c5fa02afd3984d9706bd",
+   "reihenfolge": 2
+  }
+ }
+]

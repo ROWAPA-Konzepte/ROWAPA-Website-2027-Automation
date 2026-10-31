@@ -1,0 +1,529 @@
+{
+ "faq": [
+  {
+   "page": "fit-for-leadership-cas-professional-leadership",
+   "q": "Für wen ist das CAS gedacht?",
+   "a": "Für Fach- und Führungskräfte aus der Finanzbranche, die eine Führungsrolle übernehmen oder ihre Führungsarbeit professionalisieren wollen."
+  },
+  {
+   "page": "fit-for-leadership-cas-professional-leadership",
+   "q": "Wie läuft die Bewerbung ab?",
+   "a": "Über ein mehrstufiges Online-Formular mit Unterlagen-Upload. Danach folgt ein persönliches Zulassungsgespräch."
+  },
+  {
+   "page": "fit-for-leadership-cas-professional-leadership",
+   "q": "Kann ich das CAS neben dem Beruf absolvieren?",
+   "a": "Ja, der Lehrgang ist berufsbegleitend aufgebaut, mit planbaren Präsenz- und Online-Anteilen."
+  },
+  {
+   "page": "fit-for-leadership-leadership-mentoring",
+   "q": "Worin unterscheidet sich Mentoring von Coaching?",
+   "a": "Dein Mentor bringt eigene Führungserfahrung aus der Finanzbranche mit und teilt sie aktiv, es geht um Sparring auf Augenhöhe, nicht nur um Fragen."
+  },
+  {
+   "page": "fit-for-leadership-leadership-mentoring",
+   "q": "Ist das Mentoring vertraulich?",
+   "a": "Absolut, auch gegenüber Deinem Arbeitgeber, falls dieser das Mentoring finanziert. Die Inhalte gehören Dir."
+  },
+  {
+   "page": "fit-for-leadership-leadership-mentoring",
+   "q": "Wie lange dauert ein Mentoring?",
+   "a": "In der Regel mehrere Monate, Umfang und Rhythmus vereinbaren wir im Kennenlern-Gespräch."
+  },
+  {
+   "page": "fit-for-leadership-leadership-trainings",
+   "q": "Kann ich ein Training einzeln besuchen?",
+   "a": "Ja, jedes Training funktioniert eigenständig. Wer mehr will, kombiniert mehrere Module zu einer Reihe."
+  },
+  {
+   "page": "fit-for-leadership-leadership-trainings",
+   "q": "Gibt es die Trainings auch für ganze Teams?",
+   "a": "Ja, als Inhouse-Variante, abgestimmt auf Eure Führungssituation. Für Unternehmens-Anfragen siehe auch Leadership & Team im Unternehmens-Bereich."
+  },
+  {
+   "page": "fit-for-leadership-leadership-trainings",
+   "q": "Brauche ich Führungserfahrung?",
+   "a": "Nein, Top-Führungskraft werden richtet sich gezielt an angehende Führungskräfte. Die anderen Trainings setzen erste Praxis voraus."
+  },
+  {
+   "page": "fit-for-sales-berater-zertifizierung",
+   "q": "Welche Voraussetzungen brauche ich?",
+   "a": "Keine formalen Vorkenntnisse, Motivation und Freude am Kundenkontakt zählen. Details klären wir im Zulassungsgespräch."
+  },
+  {
+   "page": "fit-for-sales-berater-zertifizierung",
+   "q": "Ist die Zertifizierung anerkannt?",
+   "a": "Ja, die Ausbildung ist auf die Anforderungen von Cicero, gutberaten.de und SAQ ausgerichtet."
+  },
+  {
+   "page": "fit-for-sales-berater-zertifizierung",
+   "q": "Kann ich die Ausbildung berufsbegleitend machen?",
+   "a": "Ja, das Programm ist berufsbegleitend konzipiert, mit einer Kombination aus Präsenz- und Online-Einheiten."
+  },
+  {
+   "page": "fit-for-sales-sales-mentoring",
+   "q": "Worin unterscheidet sich Mentoring von Coaching?",
+   "a": "Dein Mentor bringt eigene Verkaufserfahrung aus der Finanzbranche mit und teilt sie aktiv, es geht um Sparring auf Augenhöhe, nicht nur um Fragen."
+  },
+  {
+   "page": "fit-for-sales-sales-mentoring",
+   "q": "Wie lange dauert ein Mentoring?",
+   "a": "In der Regel mehrere Monate, Umfang und Rhythmus vereinbaren wir im Kennenlern-Gespräch."
+  },
+  {
+   "page": "fit-for-sales-sales-mentoring",
+   "q": "Was, wenn die Chemie nicht stimmt?",
+   "a": "Dann sagen wir das offen, und schlagen Dir eine Alternative vor. Das Kennenlern-Gespräch ist genau dafür da."
+  },
+  {
+   "page": "fit-for-sales-sales-methoden",
+   "q": "Sind die Methoden auf die Finanzbranche zugeschnitten?",
+   "a": "Ja, alle Bausteine stammen aus der Beratungspraxis von Banken, Versicherungen und Krankenkassen."
+  },
+  {
+   "page": "fit-for-sales-sales-methoden",
+   "q": "Kann ich einzelne Bausteine buchen?",
+   "a": "Ja, das Programm ist modular, vom einzelnen Baustein bis zum kompletten Methoden-Set."
+  },
+  {
+   "page": "fit-for-sales-sales-methoden",
+   "q": "Wie schnell sehe ich Wirkung?",
+   "a": "Die Bausteine sind auf direkte Anwendung ausgelegt, Du setzt sie ab dem ersten Training in echten Gesprächen ein."
+  },
+  {
+   "page": "fit-for-sales-training-on-the-job",
+   "q": "Stört die Begleitung das Kundengespräch?",
+   "a": "Nein, die Begleitperson hält sich im Hintergrund. Kund:innen erleben ein normales Gespräch."
+  },
+  {
+   "page": "fit-for-sales-training-on-the-job",
+   "q": "Gibt es die Begleitung auch online?",
+   "a": "Ja, als Begleitung im Video-Kundengespräch, inklusive Auswertung und Aufzeichnung."
+  },
+  {
+   "page": "fit-for-sales-training-on-the-job",
+   "q": "Wie viele Begleitungen brauche ich?",
+   "a": "Das hängt vom Ziel ab: von der einzelnen Standortbestimmung bis zur Serie über mehrere Monate."
+  },
+  {
+   "page": "partner-werden-managing",
+   "q": "Welche Investition ist nötig?",
+   "a": "Die Konditionen besprechen wir transparent im Kennenlerngespräch, abhängig von Region und Fokusthema."
+  },
+  {
+   "page": "partner-werden-managing",
+   "q": "Wie viel Zeit braucht die Rolle?",
+   "a": "Die Rolle ist als unternehmerische Haupttätigkeit angelegt; der Einstieg lässt sich gestaffelt gestalten."
+  },
+  {
+   "page": "partner-werden-managing",
+   "q": "Gibt es Gebietsexklusivität?",
+   "a": "Regionen und Fokusthemen werden im Partnermodell klar geregelt, Details im Gespräch."
+  },
+  {
+   "page": "privatpersonen-fit-for-leadership",
+   "q": "Für wen ist das CAS gedacht?",
+   "a": "Für Fach- und Führungskräfte aus der Finanzbranche, die eine Führungsrolle übernehmen oder ihre Führungsarbeit professionalisieren wollen."
+  },
+  {
+   "page": "privatpersonen-fit-for-leadership",
+   "q": "Wie läuft die Bewerbung ab?",
+   "a": "Über ein mehrstufiges Online-Formular mit Unterlagen-Upload. Danach folgt ein persönliches Zulassungsgespräch."
+  },
+  {
+   "page": "privatpersonen-fit-for-leadership",
+   "q": "Was, wenn ich noch nicht bereit für ein CAS bin?",
+   "a": "Dann sind Leadership-Trainings oder ein Leadership-Profiling der passende Einstieg, der Mini-Leadership-Check hilft Dir bei der Einordnung."
+  },
+  {
+   "page": "privatpersonen-fit-for-sales",
+   "q": "Welches Programm ist das richtige für mich?",
+   "a": "Starte mit dem kostenlosen Mini-Sales-Check oder sortiere Dich über die drei Karriere-Levels ein. Wenn Du unsicher bist: Das 15-minütige Auswahlgespräch ist kostenlos, hier buchen ."
+  },
+  {
+   "page": "privatpersonen-fit-for-sales",
+   "q": "Brauche ich Vorkenntnisse?",
+   "a": "Nein. Die Berater-Zertifizierung ist für den Einstieg gedacht; Methoden-Trainings und Mentoring holen Dich dort ab, wo Du stehst."
+  },
+  {
+   "page": "privatpersonen-fit-for-sales",
+   "q": "Wie lange dauern die Programme und was kosten sie?",
+   "a": "Von einzelnen Trainingstagen bis zu mehrmonatigen Mentorings. Richtpreise stehen bei jedem Programm; verbindliche Angaben erhältst Du im Erstgespräch oder in der Programmbeschreibung."
+  },
+  {
+   "page": "privatpersonen-standortbestimmung-wachstum",
+   "q": "Was unterscheidet die Profile von einem einfachen Online-Test?",
+   "a": "Die eingesetzten Verfahren sind wissenschaftlich fundiert und lizenziert. Auf Wunsch bespricht ein:e zertifizierte:r Coach:in das Ergebnis persönlich mit Dir."
+  },
+  {
+   "page": "privatpersonen-standortbestimmung-wachstum",
+   "q": "Muss ich aus der Finanzbranche kommen?",
+   "a": "Nein. Standortbestimmung & Wachstum ist rollenunabhängig, die Branchenerfahrung von ROWAPA hilft, wenn Du in der Finanzwelt arbeitest."
+  },
+  {
+   "page": "privatpersonen-standortbestimmung-wachstum",
+   "q": "Wie geht es nach dem Profil weiter?",
+   "a": "Du entscheidest: Ergebnis für Dich nutzen, im Feedbackgespräch vertiefen oder mit Coaching bzw. Entwicklungsprogramm dranbleiben."
+  },
+  {
+   "page": "selbstchecks-bluquist",
+   "q": "Für wen ist Bluquist gedacht?",
+   "a": "Für angehende und etablierte Führungskräfte, und für alle, die wissen wollen, ob Führung ihr Weg ist."
+  },
+  {
+   "page": "selbstchecks-bluquist",
+   "q": "Worin unterscheidet sich Bluquist vom Reiss-Profil?",
+   "a": "Das Reiss-Profil fokussiert auf Deine Motive. Bluquist verbindet Persönlichkeit mit konkreten Leadership-Dimensionen."
+  },
+  {
+   "page": "selbstchecks-bluquist",
+   "q": "Kann ich Bluquist mit einem Programm kombinieren?",
+   "a": "Ja, als Einstieg in Fit for Leadership oder als Standortbestimmung im Mentoring."
+  },
+  {
+   "page": "selbstchecks-reiss-profil",
+   "q": "Was bringt mir das Reiss-Profil konkret?",
+   "a": "Klarheit über Deine Antreiber, hilfreich bei Berufs- und Karriereentscheidungen, in der Führung und in der Zusammenarbeit."
+  },
+  {
+   "page": "selbstchecks-reiss-profil",
+   "q": "Ist das ein Persönlichkeitstest wie viele andere?",
+   "a": "Das Reiss-Profil misst Motive statt Typen, es sagt nicht, wie Du bist, sondern was Dich antreibt."
+  },
+  {
+   "page": "selbstchecks-reiss-profil",
+   "q": "Brauche ich das Feedbackgespräch?",
+   "a": "Der Report ist verständlich aufbereitet. Das Gespräch lohnt sich, wenn Du die Ergebnisse auf eine konkrete Situation anwenden willst."
+  },
+  {
+   "page": "selbstchecks-salesstep",
+   "q": "Für wen ist SalesStep geeignet?",
+   "a": "Für alle, die im Verkauf arbeiten, vom Einstieg bis zur Führungsrolle. Der Benchmark passt sich Deiner Erfahrungsstufe an."
+  },
+  {
+   "page": "selbstchecks-salesstep",
+   "q": "Wie unterscheidet sich SalesStep vom Mini-Sales-Check?",
+   "a": "Der Mini-Check ist ein kostenloser Einstieg mit 5 Fragen. SalesStep ist die ausführliche, lizenzierte Diagnostik mit über 20 Kompetenzen."
+  },
+  {
+   "page": "selbstchecks-salesstep",
+   "q": "Was passiert mit meinen Daten?",
+   "a": "Deine Ergebnisse gehören Dir. Details regelt die Datenschutzerklärung, Weitergabe nur mit Deinem Einverständnis."
+  },
+  {
+   "page": "standortbestimmung-wachstum-coaching",
+   "q": "Brauche ich ein konkretes Problem für ein Coaching?",
+   "a": "Nein, viele kommen mit einer diffusen Frage. Genau dafür ist die Standortbestimmung da: aus Unklarheit wird ein Bild."
+  },
+  {
+   "page": "standortbestimmung-wachstum-coaching",
+   "q": "Wie viele Sessions braucht es?",
+   "a": "Das vereinbaren wir individuell, manche Anliegen klären sich in drei Sessions, andere begleiten wir über Monate."
+  },
+  {
+   "page": "standortbestimmung-wachstum-coaching",
+   "q": "Was bringt die Diagnostik zusätzlich?",
+   "a": "Reiss-Profil oder Bluquist machen Motive und Stärken sichtbar, als datenbasierte Grundlage, über die wir im Coaching sprechen."
+  },
+  {
+   "page": "standortbestimmung-wachstum-entwicklungsprogramm",
+   "q": "Worin unterscheidet sich das Programm vom Coaching?",
+   "a": "Das Programm ist strukturierter: fester Rahmen über mehrere Monate, Diagnostik zum Start, definierte Praxis-Aufgaben. Coaching ist offener und flexibler."
+  },
+  {
+   "page": "standortbestimmung-wachstum-entwicklungsprogramm",
+   "q": "Für wen ist das Programm gedacht?",
+   "a": "Für Menschen, die eine grössere Veränderung angehen, Neuausrichtung, nächste Karrierestufe oder nachhaltige Verhaltensänderung."
+  },
+  {
+   "page": "standortbestimmung-wachstum-entwicklungsprogramm",
+   "q": "Ist die Diagnostik im Programm enthalten?",
+   "a": "Ja, die Standortbestimmung mit Reiss-Profil oder Bluquist gehört zum Programmstart."
+  },
+  {
+   "page": "standortbestimmung-wachstum-mentoring",
+   "q": "Was ist der Unterschied zwischen Mentoring und Coaching?",
+   "a": "Coaching ist meist fokussiert und zeitlich begrenzt, Mentoring begleitet Dich über einen längeren Zeitraum und ist stärker auf die Beziehung und den gemeinsamen Weg ausgerichtet."
+  },
+  {
+   "page": "standortbestimmung-wachstum-mentoring",
+   "q": "Wie lange dauert eine Mentoring-Begleitung?",
+   "a": "In der Regel mehrere Monate, den genauen Rahmen vereinbaren wir individuell und passen ihn bei Bedarf an."
+  },
+  {
+   "page": "standortbestimmung-wachstum-mentoring",
+   "q": "Kann ich Diagnostik einbauen?",
+   "a": "Ja, Reiss-Profil oder Bluquist lassen sich als datenbasierte Grundlage integrieren, über die wir im Mentoring sprechen."
+  },
+  {
+   "page": "unternehmen-digitale-loesungen-segel",
+   "q": "Brauchen wir dafür neue Hardware in jeder Filiale?",
+   "a": "Nein. Segel wird passend zu Ihren Beratungsformaten konzipiert, vom festen Beratungstisch bis zur mobilen Lösung für den Aussendienst."
+  },
+  {
+   "page": "unternehmen-digitale-loesungen-segel",
+   "q": "Ersetzt Segel unsere Beraterinnen und Berater?",
+   "a": "Im Gegenteil: Segel stärkt das persönliche Gespräch. Die Technologie macht Themen erlebbar, die Beziehung und der Abschluss bleiben beim Menschen."
+  },
+  {
+   "page": "unternehmen-digitale-loesungen-segel",
+   "q": "Wie lange dauert die Einführung?",
+   "a": "Das hängt vom Umfang Ihrer Beratungsstrecke ab. Nach der Demo im Showroom erhalten Sie eine konkrete Roadmap für Ihr Haus."
+  },
+  {
+   "page": "unternehmen-vp-hebel-1-verkaufstrainings",
+   "q": "Wie individuell sind die Trainings wirklich?",
+   "a": "Wir trainieren an Ihren Produkten, Ihren Gesprächssituationen und mit Ihren Zahlen, Standardfolien gibt es bei uns nicht."
+  },
+  {
+   "page": "unternehmen-vp-hebel-1-verkaufstrainings",
+   "q": "Für welche Stufen eignet sich das Training?",
+   "a": "Vom Einstieg bis zu erfahrenen Beraterinnen und Beratern, die Inhalte werden pro Zielgruppe differenziert."
+  },
+  {
+   "page": "unternehmen-vp-hebel-1-verkaufstrainings",
+   "q": "Wie wird der Erfolg gemessen?",
+   "a": "Über vereinbarte Kennzahlen und Beobachtung im Feld, Wirkung wird sichtbar gemacht, nicht behauptet."
+  },
+  {
+   "page": "unternehmen-vp-hebel-2-sales-story",
+   "q": "Was unterscheidet eine Sales-Story von einem Verkaufsleitfaden?",
+   "a": "Ein Leitfaden sagt, was zu tun ist, eine Story gibt dem Gespräch Sinn und Richtung, aus Kundensicht erzählt."
+  },
+  {
+   "page": "unternehmen-vp-hebel-2-sales-story",
+   "q": "Funktioniert das auch für erklärungsbedürftige Produkte?",
+   "a": "Gerade dort: Je abstrakter das Thema, desto wichtiger wird eine Geschichte, die es greifbar macht."
+  },
+  {
+   "page": "unternehmen-vp-hebel-2-sales-story",
+   "q": "Wie hängt das mit Segel zusammen?",
+   "a": "Die Story ist der Inhalt, Segel das Erlebnis, beides greift ineinander, ist aber auch einzeln wirksam."
+  },
+  {
+   "page": "unternehmen-vp-hebel-3-verkaufsprozesse",
+   "q": "Ersticken Standards nicht die Individualität?",
+   "a": "Nein, Standards sichern die Basisqualität, damit Persönlichkeit dort wirken kann, wo sie den Unterschied macht."
+  },
+  {
+   "page": "unternehmen-vp-hebel-3-verkaufsprozesse",
+   "q": "Wie lange dauert die Verankerung?",
+   "a": "Verankerung ist Führungsarbeit über Monate, wir begleiten, bis der Prozess trägt."
+  },
+  {
+   "page": "unternehmen-vp-hebel-3-verkaufsprozesse",
+   "q": "Was passiert mit bestehenden Prozessen?",
+   "a": "Wir bauen auf Stärken auf: Was funktioniert, bleibt, was bremst, wird ersetzt."
+  },
+  {
+   "page": "unternehmen-vp-hebel-4-hybrides-verkaufen",
+   "q": "Verlieren wir online nicht die Beziehung?",
+   "a": "Nur ohne Handwerk: Wer Präsenz und Dialog auch am Bildschirm beherrscht, baut Beziehung auf jedem Kanal."
+  },
+  {
+   "page": "unternehmen-vp-hebel-4-hybrides-verkaufen",
+   "q": "Welche Technik brauchen unsere Teams?",
+   "a": "Weniger, als viele denken, entscheidend sind Setting, Ablauf und Sicherheit im Umgang."
+  },
+  {
+   "page": "unternehmen-vp-hebel-4-hybrides-verkaufen",
+   "q": "Wie hängt das mit Kompass zusammen?",
+   "a": "Hebel 4 entwickelt die Fähigkeiten Ihrer Menschen, Kompass wird künftig den digitalen Prozess dazu liefern."
+  },
+  {
+   "page": "unternehmen-mp-hebel-2-diagnostik-potenzialanalyse",
+   "q": "Entwickeln Sie eigene Profile oder nutzen Sie bestehende?",
+   "a": "Beides. Unsere Stärke sind selbst entwickelte, wissenschaftlich fundierte Profile. Vorhandene Modelle übernehmen wir genauso."
+  },
+  {
+   "page": "unternehmen-mp-hebel-2-diagnostik-potenzialanalyse",
+   "q": "Wer sieht die Ergebnisse?",
+   "a": "Einzelergebnisse sind vertraulich und liegen bei den Teilnehmenden und ROWAPA. Eine Besprechung mit der Führungskraft erfolgt nur mit ausdrücklicher Zustimmung."
+  },
+  {
+   "page": "unternehmen-lt-hebel-5-executive-coaching",
+   "q": "Wie vertraulich ist das?",
+   "a": "Inhalte bleiben zwischen Ihnen und Ihrem Coach. ROWAPA gibt nichts an Dritte weiter."
+  },
+  {
+   "page": "unternehmen-lt-hebel-5-executive-coaching",
+   "q": "Wie oft und wie lange?",
+   "a": "Rhythmus und Dauer richten sich nach Ihrem Bedarf, typischerweise über mehrere Monate.*"
+  },
+  {
+   "page": "unternehmen-rr-hebel-1-recruiting-candidate-experience",
+   "q": "Sind Sie eine Personalvermittlung?",
+   "a": "Nein. Wir vermitteln keine Kandidaten, sondern gestalten Ihren Recruiting-Prozess und befähigen Ihr Team, inklusive Diagnostik und Candidate Experience."
+  },
+  {
+   "page": "unternehmen-rr-hebel-1-recruiting-candidate-experience",
+   "q": "Was bringt die Diagnostik im Recruiting?",
+   "a": "Sie macht Auswahlentscheide objektiver und vergleichbarer, auf derselben Basis wie unsere Potenzialanalyse."
+  },
+  {
+   "page": "unternehmen-rr-hebel-2-onboarding-integration",
+   "q": "Warum zwei Jahre?",
+   "a": "Fachlich, kulturell und in der Rolle wirklich anzukommen, braucht Zeit. Wir begleiten diesen Weg mit klaren Etappen, statt ihn nach der ersten Woche dem Zufall zu überlassen."
+  },
+  {
+   "page": "unternehmen-rr-hebel-2-onboarding-integration",
+   "q": "Bedeutet das mehr Aufwand für Führungskräfte?",
+   "a": "Im Gegenteil. Anker erinnert und stösst an, der Plan strukturiert, was wann zu tun ist. Das entlastet die Führungskraft, statt sie zusätzlich zu fordern."
+  },
+  {
+   "page": "unternehmen-rr-hebel-2-onboarding-integration",
+   "q": "Wie hängt das mit Mitarbeiterbindung zusammen?",
+   "a": "Ein gutes Onboarding ist der erste und stärkste Bindungsanker. Siehe Mitarbeiterbindung stärken."
+  },
+  {
+   "page": "unternehmen-rr-hebel-3-mitarbeiterbindung",
+   "q": "Lässt sich Bindung messen?",
+   "a": "Wir machen sichtbar, was Fluktuation treibt, und verfolgen die Wirkung der Massnahmen über die Zeit, mit gemeinsam definierten Kennzahlen statt Versprechen."
+  },
+  {
+   "page": "unternehmen-rr-hebel-3-mitarbeiterbindung",
+   "q": "Sind Stay-Interviews vertraulich?",
+   "a": "Ja. Aussagen werden anonymisiert ausgewertet, einzelne Personen bleiben geschützt."
+  }
+ ],
+ "tst": [
+  {
+   "page": "female-empowerment",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Absolventin",
+   "rolle": "SOUVERÄN ICH"
+  },
+  {
+   "page": "fit-for-leadership-cas-professional-leadership",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Programm"
+  },
+  {
+   "page": "fit-for-leadership-leadership-mentoring",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Programm"
+  },
+  {
+   "page": "fit-for-leadership-leadership-trainings",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Programm"
+  },
+  {
+   "page": "fit-for-sales-berater-zertifizierung",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Berater-Zertifizierung"
+  },
+  {
+   "page": "fit-for-sales-sales-mentoring",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Sales-Mentoring 1:1"
+  },
+  {
+   "page": "fit-for-sales-sales-methoden",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Sales-Methoden"
+  },
+  {
+   "page": "fit-for-sales-training-on-the-job",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Training on the Job"
+  },
+  {
+   "page": "index",
+   "zitat": "«Plus 40 Prozent Abschlüsse im ersten Jahr.*»",
+   "name": "Markus B.",
+   "rolle": "Leiter Vertrieb, Versicherung"
+  },
+  {
+   "page": "privatpersonen-fit-for-leadership",
+   "zitat": "«Die Ausbildung hat meine Art zu führen verändert.»",
+   "name": "Sarah W.",
+   "rolle": "CAS-Absolventin"
+  },
+  {
+   "page": "privatpersonen-fit-for-sales",
+   "zitat": "«Plus 40 Prozent Abschlüsse.*»",
+   "name": "Markus B.",
+   "rolle": "Sales-Mentoring 1:1"
+  },
+  {
+   "page": "privatpersonen-standortbestimmung-wachstum",
+   "zitat": "«Zum ersten Mal ein klares Bild, wohin ich will.»",
+   "name": "Nadine K.",
+   "rolle": "Reiss-Profil mit Feedbackgespräch"
+  },
+  {
+   "page": "privatpersonen",
+   "zitat": "«Plus 40 Prozent Abschlüsse.*»",
+   "name": "Markus B.",
+   "rolle": "Sales-Mentoring"
+  },
+  {
+   "page": "standortbestimmung-wachstum-coaching",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Programm"
+  },
+  {
+   "page": "standortbestimmung-wachstum-entwicklungsprogramm",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Programm"
+  },
+  {
+   "page": "standortbestimmung-wachstum-mentoring",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "Teilnehmer:in",
+   "rolle": "Programm"
+  },
+  {
+   "page": "ueber-rowapa-referenzen",
+   "zitat": "«Die Ausbildung hat meine Art zu führen verändert.»",
+   "name": "Sarah W.",
+   "rolle": "CAS-Absolventin"
+  },
+  {
+   "page": "ueber-rowapa-referenzen",
+   "zitat": "«Vom Quereinsteiger zum zertifizierten Berater in einem Jahr.»",
+   "name": "[Name]",
+   "rolle": "Absolvent Broker Excellence"
+  },
+  {
+   "page": "ueber-rowapa-referenzen",
+   "zitat": "«Zum ersten Mal ein Verkaufsgespräch, das sich nicht nach Verkaufen anfühlt.»",
+   "name": "[Name]",
+   "rolle": "Teilnehmer Fit for Sales"
+  },
+  {
+   "page": "ueber-rowapa-referenzen",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "[Name]",
+   "rolle": "[Funktion, Branche]"
+  },
+  {
+   "page": "ueber-rowapa-referenzen",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "[Name]",
+   "rolle": "[Funktion, Branche]"
+  },
+  {
+   "page": "unsere-kunden-case-muster",
+   "zitat": "«Zitat-Platzhalter, wird mit freigegebenem Testimonial ersetzt.»",
+   "name": "[Name]",
+   "rolle": "[Funktion, Branche]"
+  },
+  {
+   "page": "unternehmen",
+   "zitat": "«Die Besuchsbegleitungen haben unsere Beratungsqualität sichtbar verändert.*»",
+   "name": "Vertriebsleiter",
+   "rolle": "Versicherung, Deutschschweiz"
+  }
+ ]
+}

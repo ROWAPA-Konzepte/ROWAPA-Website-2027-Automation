@@ -1,0 +1,165 @@
+<title>Startseite je Format</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400;600;700&family=TASA+Explorer:wght@800&display=swap">
+<style>
+/* Layout: Kopfleiste mit drei Umschaltern, Format-Leiste, darunter je Section ein Bildschirm im Format-Rahmen */
+:root {
+  --bg: #eef0f2; --flaeche: #ffffff; --tinte: #1d3149; --leise: #5a6a7e; --linie: #d5dae0;
+  --akzent: #486ea3; --akzent-weich: #a0c4df; --plum: #aa1351; --ok: #2c6e8f;
+  --schrift: "TASA Orbiter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --label: "TASA Explorer", "TASA Orbiter", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1a27; --flaeche: #17283c; --tinte: #e8e9e9; --leise: #9fb0c3; --linie: #2b4160;
+  --akzent: #a0c4df; --akzent-weich: #486ea3; --plum: #e2608f; --ok: #8fc3e0; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1a27; --flaeche: #17283c; --tinte: #e8e9e9; --leise: #9fb0c3; --linie: #2b4160;
+  --akzent: #a0c4df; --akzent-weich: #486ea3; --plum: #e2608f; --ok: #8fc3e0; color-scheme: dark }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--tinte); font-family: var(--schrift); font-size: 15px; line-height: 1.5; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--flaeche); }
+.huelle { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 1320px; margin: 0 auto; }
+.kopf { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--flaeche); border-bottom: 1px solid var(--linie); }
+.kopf .huelle { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding-block: 12px; }
+h1 { font-size: 1.25rem; margin: 0; font-weight: 700; letter-spacing: -0.01em; text-wrap: balance; }
+.label { font-family: var(--label); font-weight: 800; font-size: .6875rem; letter-spacing: .12em; text-transform: uppercase; color: var(--leise); }
+.schalter { display: flex; align-items: center; gap: 8px; }
+.seg { display: inline-flex; border: 1px solid var(--linie); border-radius: 6px; overflow: hidden; }
+.seg button { font: inherit; font-size: .875rem; border: 0; background: transparent; color: var(--tinte); padding: 6px 12px; cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--linie); }
+.seg button[aria-pressed="true"] { background: var(--tinte); color: var(--flaeche); }
+.seg button:focus-visible, .format:focus-visible, .check:focus-within { outline: 2px solid var(--akzent); outline-offset: 2px; }
+.formate { display: flex; gap: 8px; overflow-x: auto; padding-block: 16px 4px; scrollbar-width: thin; }
+.format { flex: none; text-align: left; font: inherit; border: 1px solid var(--linie); background: var(--flaeche); color: var(--tinte); border-radius: 8px; padding: 8px 12px; cursor: pointer; min-width: 150px; }
+.format b { display: block; font-size: .9375rem; font-variant-numeric: tabular-nums; }
+.format span { font-size: .75rem; color: var(--leise); }
+.format[aria-pressed="true"] { border-color: var(--akzent); box-shadow: inset 0 0 0 1px var(--akzent); }
+.format .mini { display: block; margin-top: 4px; font-size: .75rem; font-variant-numeric: tabular-nums; color: var(--tinte); }
+.zusammen { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; padding-block: 16px; }
+.kachel { background: var(--flaeche); border: 1px solid var(--linie); border-radius: 8px; padding: 12px 16px; min-width: 0; }
+.kachel .wert { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.kachel .neben { color: var(--leise); font-size: .8125rem; }
+.hinweis { color: var(--leise); font-size: .875rem; max-width: 70ch; }
+.liste { display: grid; gap: 20px; padding-block: 8px 48px; }
+.liste.is-schmal { grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); align-items: start; }
+.sek { background: var(--flaeche); border: 1px solid var(--linie); border-radius: 8px; padding: 16px; min-width: 0; display: grid; gap: 12px; }
+.sek_kopf { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.sek h2 { margin: 0; font-size: 1.0625rem; font-weight: 600; }
+.badge { font-size: .8125rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.badge.ok { color: var(--ok); border: 1px solid var(--ok); }
+.badge.nein { color: var(--plum); border: 1px solid var(--plum); }
+.notiz { margin: 0; font-size: .875rem; color: var(--leise); max-width: 80ch; }
+.notiz strong { color: var(--tinte); font-weight: 600; }
+.paar { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
+.paar.is-vergleich { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 700px) { .paar.is-vergleich { grid-template-columns: minmax(0, 1fr); } }
+figure { margin: 0; min-width: 0; display: grid; gap: 6px; }
+figcaption { font-size: .75rem; color: var(--leise); }
+.rahmen { position: relative; border: 1px solid var(--linie); border-radius: 6px; overflow: hidden; background: var(--bg); max-width: 100%; }
+.rahmen img { display: block; width: 100%; height: auto; }
+.rahmen .kante { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--plum); }
+.tabelle { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-top: 1px solid var(--linie); min-width: 12rem; }
+th { font-weight: 600; }
+.fuss { padding-block: 8px 48px; color: var(--leise); font-size: .8125rem; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<header class="kopf">
+  <div class="huelle">
+    <h1>Startseite je Format</h1>
+    <div class="schalter"><span class="label">Darstellung</span>
+      <div class="seg" role="group" aria-label="Darstellung"><button id="d-heute" data-g="d" data-v="heute">Heute</button><button id="d-vorschlag" data-g="d" data-v="vorschlag">Vorschlag je Format</button></div></div>
+    <div class="schalter"><span class="label">Inhalt</span>
+      <div class="seg" role="group" aria-label="Inhalt"><button id="i-heute" data-g="i" data-v="heute">Heute</button><button id="i-gestrafft" data-g="i" data-v="gestrafft">Gestrafft</button></div></div>
+    <div class="schalter"><span class="label">Header</span>
+      <div class="seg" role="group" aria-label="Header"><button id="k-heute" data-g="k" data-v="heute">Heute</button><button id="k-a" data-g="k" data-v="a">Variante A</button></div></div>
+    <label class="schalter check"><input type="checkbox" id="vergleich"> <span>Heute daneben zeigen</span></label>
+  </div>
+</header>
+
+<main class="huelle">
+  <nav class="formate" id="formate" aria-label="Formate"></nav>
+  <section class="zusammen" id="zusammen" aria-live="polite"></section>
+  <p class="hinweis">Jedes Bild zeigt genau einen Bildschirm: Die Section beginnt direkt unter der Navigation. Was unter der roten Kante liegt, sieht man erst beim Weiterscrollen. «Vorschlag» und «Gestrafft» sind im Testbrowser nachgestellt, die Website ist unverändert. Verwendet werden nur Mittel, die Webflow nativ kann: Breakpoints nach Bildschirmbreite und Grössen, die an die Fensterhöhe gekoppelt sind.</p>
+  <section class="liste" id="liste"></section>
+  <section>
+    <h2 style="font-size:1.0625rem">Gestraffte Texte: Original → Vorschlag</h2>
+    <div class="tabelle"><table id="texte"></table></div>
+  </section>
+  <p class="fuss" id="fuss"></p>
+</main>
+
+<script>
+const DATA = __DATA__;
+const NAMEN = { start: 'Startbildschirm (Header und Logos)', loesungen: 'Lösungen für Unternehmen', antrieb: 'Was uns antreibt', vorgehen: 'Unser Vorgehen', erfolge: 'Unsere Erfolge', digital: 'ROWAPA Digital', team: 'Die Menschen hinter ROWAPA', partnerband: 'Partner und Zertifizierungen (eigenes Band)', wege: 'Persönlich weiterkommen', cas: 'CAS im Blickpunkt', insights: 'Neueste Insights', faq: 'Gut zu wissen', kontakt: 'Kontakt' };
+const FORMATE = [
+  ['1920x1080', 'Desktop-Monitor', '≥ 1920'], ['1536x864', 'Laptop 15″, Windows 125 %', '≥ 1440'], ['1440x900', 'Laptop 13–14″', '≥ 1440'],
+  ['1366x768', 'Laptop klein', '≥ 1280'], ['1280x800', 'Laptop klein', '≥ 1280'], ['1024x768', 'Tablet quer', '992–1279'],
+  ['768x1024', 'Tablet hoch', '768–991'], ['390x844', 'Handy', '≤ 479']];
+const st = { f: '1440x900', d: 'heute', i: 'heute', k: 'heute', v: false };
+try { Object.assign(st, JSON.parse(localStorage.getItem('rowapa-format-vorschau') || '{}')); } catch (e) {}
+const speichern = () => { try { localStorage.setItem('rowapa-format-vorschau', JSON.stringify(st)); } catch (e) {} };
+const zustand = (d, i) => `${d}-${i}`;
+const eintrag = (f, z) => DATA.index[`${f}|${z}`];
+function bildFuer(f, d, i, k, key) {
+  if (key === 'start' && k === 'a') { const e = eintrag(f, d === 'vorschlag' ? 'kopfAv' : 'kopfA') || eintrag(f, 'kopfA'); if (e) return e.sektionen[0]; }
+  const e = eintrag(f, zustand(d, i)); return e && e.sektionen.find(s => s.key === key);
+}
+function notiz(key, f) {
+  const n = DATA.notizen[key] || {}; const teile = [];
+  const w = +f.split('x')[0];
+  const gruppe = w >= 1440 ? 'gross' : w >= 1280 ? 'laptop' : w >= 992 ? 'mittel' : w >= 768 ? 'tablet' : 'handy';
+  if (st.d === 'vorschlag' && n.v) teile.push('<strong>Vorschlag:</strong> ' + (n.v[gruppe] || n.v.alle || 'unverändert, Abstände an die Fensterhöhe gekoppelt.'));
+  if (st.i === 'gestrafft' && n.g) teile.push('<strong>Gestrafft:</strong> ' + n.g);
+  if (key === 'start' && st.k === 'a') teile.push('<strong>Header A:</strong> ' + DATA.notizen.kopfA);
+  return teile.join(' ');
+}
+function rahmen(s, f, titel) {
+  if (!s) return '<figure><figcaption>nicht vorhanden</figcaption></figure>';
+  const [w, h] = f.split('x').map(Number);
+  const max = w <= 400 ? 'max-width:390px' : w <= 800 ? 'max-width:620px' : '';
+  return `<figure style="${max}"><div class="rahmen" style="aspect-ratio:${w}/${h}"><img src="${s.bild}" alt="${NAMEN[s.key] || s.key} bei ${w} × ${h}" loading="lazy" width="${w}" height="${h}"><div class="kante" aria-hidden="true"></div></div>${titel ? `<figcaption>${titel}</figcaption>` : ''}</figure>`;
+}
+function badge(s) {
+  if (!s) return '';
+  return s.passt ? `<span class="badge ok">passt in einen Bildschirm</span>` : `<span class="badge nein">${s.benoetigt - s.sicht} px zu lang</span>`;
+}
+function zeichnen() {
+  document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', String(st[b.dataset.g] === b.dataset.v)));
+  document.getElementById('vergleich').checked = st.v;
+  const nav = document.getElementById('formate');
+  nav.innerHTML = FORMATE.map(([f, name, bp]) => {
+    const e = eintrag(f, zustand(st.d, st.i)); const n = e ? e.sektionen.filter(s => s.passt).length : 0; const t = e ? e.sektionen.length : 0;
+    return `<button class="format" data-f="${f}" aria-pressed="${st.f === f}"><b>${f.replace('x', ' × ')}</b><span>${name} · Breakpoint ${bp}</span><span class="mini">${n} von ${t} passen</span></button>`;
+  }).join('');
+  nav.querySelectorAll('.format').forEach(b => b.onclick = () => { st.f = b.dataset.f; speichern(); zeichnen(); });
+  const e = eintrag(st.f, zustand(st.d, st.i)); const h0 = eintrag(st.f, 'heute-heute');
+  const [w, h] = st.f.split('x').map(Number);
+  if (!e || !h0) { document.getElementById('zusammen').innerHTML = '<div class="kachel">Für dieses Format fehlen noch Bilder.</div>'; document.getElementById('liste').innerHTML = ''; return; }
+  const passt = e.sektionen.filter(s => s.passt).length;
+  document.getElementById('zusammen').innerHTML = `
+    <div class="kachel"><div class="label">Passen in einen Bildschirm</div><div class="wert">${passt} von ${e.sektionen.length}</div><div class="neben">heute ${h0.sektionen.filter(s => s.passt).length} von ${h0.sektionen.length}</div></div>
+    <div class="kachel"><div class="label">Seitenlänge</div><div class="wert">${(e.seite / h).toFixed(1)} Bildschirme</div><div class="neben">heute ${(h0.seite / h).toFixed(1)} · Benchmark rund 6</div></div>
+    <div class="kachel"><div class="label">Sichtbare Höhe</div><div class="wert">${h - e.navH} px</div><div class="neben">${h} px Fenster minus ${e.navH} px Navigation</div></div>`;
+  const liste = document.getElementById('liste');
+  liste.classList.toggle('is-schmal', w <= 800 && !st.v);
+  liste.innerHTML = e.sektionen.map(s0 => {
+    const s = bildFuer(st.f, st.d, st.i, st.k, s0.key) || s0;
+    const heute = bildFuer(st.f, 'heute', 'heute', 'heute', s0.key);
+    const n = notiz(s0.key, st.f);
+    const vergl = st.v && heute;
+    return `<article class="sek"><div class="sek_kopf"><h2>${NAMEN[s0.key] || s0.key}</h2>${badge(s)}</div>${n ? `<p class="notiz">${n}</p>` : ''}
+      <div class="paar ${vergl ? 'is-vergleich' : ''}">${vergl ? rahmen(heute, st.f, 'Heute · ' + (heute.passt ? 'passt' : (heute.benoetigt - heute.sicht) + ' px zu lang')) : ''}${rahmen(s, st.f, vergl ? 'Auswahl' : '')}</div></article>`;
+  }).join('');
+}
+document.querySelectorAll('.seg button').forEach(b => b.onclick = () => { st[b.dataset.g] = b.dataset.v; speichern(); zeichnen(); });
+document.getElementById('vergleich').onchange = ev => { st.v = ev.target.checked; speichern(); zeichnen(); };
+document.getElementById('texte').innerHTML = '<tr><th>Section</th><th>Original</th><th>Vorschlag gestrafft</th></tr>' + DATA.texte.map(t => `<tr><td>${t[0]}</td><td>${t[1]}</td><td>${t[2]}</td></tr>`).join('');
+document.getElementById('fuss').textContent = DATA.fuss;
+if (!DATA.index[`${st.f}|heute-heute`]) st.f = '1440x900';
+zeichnen();
+</script>

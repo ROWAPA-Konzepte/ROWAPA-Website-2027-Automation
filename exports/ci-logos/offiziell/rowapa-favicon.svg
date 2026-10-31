@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Livello_2" data-name="Livello 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 161.18 166.96">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #aa1351;
+      }
+
+      .cls-2 {
+        fill: #1d3149;
+      }
+
+      .cls-3 {
+        fill: #a0c4df;
+      }
+
+      .cls-4 {
+        fill: #486ea3;
+      }
+    </style>
+  </defs>
+  <g id="PAGES">
+    <g>
+      <g>
+        <polygon class="cls-2" points="161.18 85.42 161.18 117.57 80.59 166.96 80.59 134.9 133.84 102.26 133.84 102.18 161.18 85.42"/>
+        <polygon class="cls-2" points="161.18 0 161.18 .18 161.07 0 161.18 0"/>
+      </g>
+      <polygon class="cls-2" points="80.59 134.9 80.59 166.96 161.18 117.57 161.18 6.81 133.84 6.81 133.84 102.26 80.59 134.9"/>
+      <polygon class="cls-2" points="80.59 134.9 80.59 166.96 0 117.57 0 6.81 27.34 6.81 27.34 102.26 80.59 134.9"/>
+      <polygon class="cls-1" points="161.18 36.3 161.18 68.33 80.59 117.72 80.59 85.7 161.18 36.3"/>
+      <polygon class="cls-3" points="108.93 6.81 161.18 6.81 80.59 56.2 80.59 24.18 108.93 6.81"/>
+      <polygon class="cls-4" points="161.18 0 161.18 .18 161.07 0 161.18 0"/>
+      <polygon class="cls-3" points="161.18 0 161.18 .18 161.07 0 161.18 0"/>
+    </g>
+  </g>
+</svg>
