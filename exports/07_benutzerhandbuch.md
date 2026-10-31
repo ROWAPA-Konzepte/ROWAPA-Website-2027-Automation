@@ -443,3 +443,14 @@ Ausführlich in `exports/04_redaktionsleitfaden.md`.
 - **Etwas kaputt gemacht:** Site settings › **Backups** › einen früheren Stand wiederherstellen.
 - **Bewegung, Zeiger oder Videos fehlen auf einem Gerät:** die Seite mit `?diagnose` am Ende der Adresse öffnen (z. B. `…/home-v3?diagnose`). Unten links erscheint eine kleine Anzeige mit dem, was der Browser meldet; ein Bildschirmfoto davon an Claude schicken. Erscheint keine Anzeige, lädt das Skript auf diesem Gerät nicht.
 - **Custom Code:** Es gibt nur ein Skript: «ROWAPA Grafik» (Punkte-Grafiken, Zähler, Treppe, Kugel mit Kacheln, Insights-Pfeile, Hover-Videos), über die Webflow-Schnittstelle site-weit eingebunden. Site settings › Custom code bleibt leer. Bitte nicht ändern; neue Fassungen registriert Claude.
+
+### 2.47 Seite «Performance-Analyse» (`/performance-analyse`, seit Runde 63)
+- **Aufbau:** Navbar · Bühne › Header (Kopfzeile mit Plum-Linie, Titel, Satz, zwei Buttons, Lupe, Punktemeer) › Logo-Band › Die Ausgangslage › Was Sie erreichen (drei Kacheln, fünf Auswertungen als Reiter) › Die Methode (fünf Methoden, Auswertungs-Panel, Kundenstimme, Hinweis, Aufwand) › Gut zu wissen › Kontakt › Footer.
+- **Texte ändern:** im Designer doppelklicken. Header-Titel und -Satz stehen direkt auf der Seite (`section_header-unterseite`).
+- **Kontakt (Komponente «Section Kontakt», gilt auf allen Seiten):** Satz und Button je Seite über die Eigenschaften rechts (Instanz anklicken › Eigenschaften «Satz», «Button Text», «Button Link»). Titel, Ansprechperson und Telefonnummern nur in der Komponente ändern, dann gilt es überall.
+- **Logo-Band (Komponente «Logo-Band»):** neues Logo in der Komponente einfügen, gilt auf Startseite und Unterseiten.
+- **Auswertungen (Reiter):** Jeder Reiter hat Titel, Hinweis «Musterdaten», Grafik, Bildunterschrift und Text als normale Elemente. Die Grafiken sind Bilder (Desktop- und Handy-Fassung, Klassen `auswertung_bild is-desktop` / `is-handy`); neue Grafik: Bild anklicken › Einstellungen › Bild ersetzen, beide Fassungen. Werkzeug für neue Grafiken: `tools/entwuerfe/runde63_charts.js`.
+- **Noch von Hand im Designer (einmalig):** (1) Reiter-Element «Auswertungen (Reiter)» auswählen › Einstellungen › zweimal «Add Tab»; dann den Inhalt aus «ZWISCHENABLAGE Reiter 4+5» in die neuen Reiter ziehen (Interne Referenz, Massnahmen), Beschriftung setzen («Interne Referenz» mit Zusatz «optional», «Massnahmen»), Zwischenablage löschen. (2) Reiter-Link auswählen › Zustand «Current» › Hintergrund transparent, Rand unten 3 px Plum, Schrift Manganese. (3) Section «Die Methode» › Einstellungen › ID `methode` (für den Button «So funktioniert unsere Methode»).
+- **Gut zu wissen:** Fragen sind feste Elemente wie auf der Startseite (aufklappbar). Neue Frage: bestehende Frage duplizieren.
+- **Megamenü:** «Was wir tun › Für Unternehmen › Performance-Analyse» mit Vorschaukarte (`data-vorschau="analyse"`), im Handy-Menü unter «Für Unternehmen».
+
