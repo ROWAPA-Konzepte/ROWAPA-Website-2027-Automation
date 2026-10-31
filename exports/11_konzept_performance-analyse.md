@@ -198,3 +198,7 @@ Grundsatz: wenige, ruhige Bewegungen, die eine Aussage stützen; alles wiedererk
 | 9 | Ganze Seite | Mauszeiger Punkt mit Ring wie Startseite | ROWAPA-Grafik | nur wenn auf allen Seiten |
 
 Vorschau-Möglichkeiten: (a) kurze Videos der Effekte, auf dem Entwurf aufgenommen (schnell, nichts in Webflow); (b) Testseite in Webflow, ausgeblendet, anklickbar (realistisch, Beginn Stufe 4, braucht Freigabe).
+
+## 15. Runde 59 (31.10.2026): Effekte als Video
+
+Alle empfohlenen Effekte umgesetzt (Entscheid 368), dazu als besonderer Effekt dieser Seite die Scroll-Geschichte «Fünf Methoden». Videos und Bauhinweise: `stufe3-screens/runde59/LIESMICH.md`.
