@@ -26,13 +26,16 @@ export function figur(box) {
   liste.push(box); gruppen.set(sec, liste);
   const index = liste.length - 1;
 
-  /* nur PNG (transparenter Hintergrund); bereits im Bild beim Laden: Standbild lassen */
-  if (!/\.png(\?|\s|$)/i.test(img.getAttribute('src') || '')) return;
+  /* nur PNG (transparenter Hintergrund); bereits im Bild beim Laden: Standbild lassen,
+     ausser data-start="sofort" (z. B. Lupe im Header der Unterseiten, ab 1.19.0) */
+  const sofort = (box.getAttribute('data-start') || '').trim().toLowerCase() === 'sofort';
+  const zeige = () => { img.style.opacity = sofort ? '1' : ''; };
+  if (!/\.png(\?|\s|$)/i.test(img.getAttribute('src') || '')) { if (sofort) zeige(); return; }
   const r0 = box.getBoundingClientRect();
-  if (r0.top < innerHeight && r0.bottom > 0) return;
+  if (!sofort && r0.top < innerHeight && r0.bottom > 0) return;
 
   const tempo = clamp(zahl(box, 'data-tempo', 1), 0.2, 3);
-  const verz = zahl(box, 'data-verzoegerung', index * 0.12);
+  const verz = zahl(box, 'data-verzoegerung', sofort ? 0.25 : index * 0.12);
   const gross = box.clientWidth * box.clientHeight > 120000;
   const ziel = Math.round((gross ? 2400 : 900) * clamp(zahl(box, 'data-dichte', 1), 0.3, 2) * (istHandy() ? 0.6 : 1));
   let cv, ctx, teile, fertig = false;
@@ -51,7 +54,7 @@ export function figur(box) {
   }, '150% 0px');
 
   function zeigeOriginal() {
-    img.style.opacity = '';
+    zeige();
     if (cv) cv.remove();
     fertig = true;
   }
@@ -116,7 +119,7 @@ export function figur(box) {
       if (t < zeichne(t)) return true;
       /* Überblenden ins Original */
       img.style.transition = 'opacity .6s ease';
-      img.style.opacity = '';
+      zeige();
       cv.style.opacity = '0';
       setTimeout(() => { cv.remove(); fertig = true; hover(); }, 700);
       return false;

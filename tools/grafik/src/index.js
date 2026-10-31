@@ -14,12 +14,14 @@ import { hoverVideos } from './hovervideo.js';
 import { nachoben } from './nachoben.js';
 import { themen } from './themen.js';
 import { diagnose } from './diagnose.js';
+import { methoden } from './methoden.js';
+import { aufbau } from './aufbau.js';
 
 const VERSION = '__VERSION__';
 
 /* Bedienung (immer) und Bewegung (nur ohne «Bewegung reduzieren»); themen prüft «Bewegung reduzieren» selbst */
 const BEDIENUNG = { reihe, zeiger, vorschau, nachoben, themen };
-const BEWEGUNG = { punktemeer, punktfigur: figur, zaehler, treppe, orbit };
+const BEWEGUNG = { punktemeer, punktfigur: figur, zaehler, treppe, orbit, methoden, aufbau };
 
 const info = (window.ROWAPAGrafik = { version: VERSION });
 let gestartet = false;
