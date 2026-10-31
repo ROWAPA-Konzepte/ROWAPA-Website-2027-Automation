@@ -787,7 +787,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 82. ~~Abnahme Landingpage «Performance-Analyse»~~: abgenommen, Fassung Runde 58 mit Effekten Runde 60 (Entscheid 371).
 83. ~~Aussagen auf der Landingpage~~: freigegeben (Entscheid 360).
 84. Musterbericht über Mailchimp (Entscheid 361): Webflow-Formular mit eigener Ziel-Adresse an Mailchimp, Double-Opt-in von Mailchimp, Willkommens-E-Mail mit PDF-Link. Zu klären: Mailchimp-Konto und Plan vorhanden? Eigene Zielgruppe oder Tag «Musterbericht» (damit Newsletter-Abonnierende nicht den PDF-Link erhalten)? Abgleich mit Pipedrive gewünscht? [ROWAPA bestätigen]
-85. Section «Wo anfangen?» in der Themenlinie Vertriebsperformance; Demo-Seite wartet (Entscheid 360). [ROWAPA entscheiden]
+85. Section «Wo anfangen?» in der Themenlinie Vertriebsperformance: Vorschlag in Runde 62 als Karte «Performance-Analyse» unter «Ihr Vorteil» (`stufe3-screens/runde62/`). Demo-Seite wartet (Entscheid 360). [ROWAPA entscheiden]
 86. ~~Zusammenführung~~: ja (Entscheid 361).
 87. ~~Top-Performer~~: Vorschlag für das Soll-Profil (Entscheid 361).
 88. ~~Bewegung~~: zurückhaltend, ohne Schalter (Entscheid 362): Punkte-Lupe im Header, Logo-Laufband, Detailansicht Teamvergleich, Aufbau der Diagramme.
@@ -805,3 +805,4 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 100. ~~Besonderer Effekt je Seite~~: Ideen 1–3 übernommen, Idee 4 vorerst nicht (Entscheid 370).
 101. Team und «Über uns»: eigener besonderer Effekt folgt später (Idee 4 zurückgestellt, Entscheid 370). [ROWAPA entscheiden]
 102. Lernweg (Idee 3): Ort (Vorschlag Übersichtsseite «Meine persönliche Entwicklung») und die vier Schritte bestätigen. [ROWAPA bestätigen]
+103. Themenlinie Vertriebsperformance, Entwurf Runde 62 (`stufe3-screens/runde62/`): Aufbau abnehmen; eigene Grafik je Hebel oder überall die Themenfigur; «So arbeiten wir» auch hier weglassen; «20 Jahre Finanzvertrieb» bestätigen. [ROWAPA bestätigen]
