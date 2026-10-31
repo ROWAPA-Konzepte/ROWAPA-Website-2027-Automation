@@ -27,6 +27,7 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Editorialer Stil der Startseite: grosse Titel, viel Weissraum, feine Linien, wenige starke Aussagen, Plum-Akzente sparsam; «Structure over decoration».
 - [ ] Diagonal Ribbon (45°, Plum) nur dezent und wiederkehrend, nicht neu erfinden.
 - [ ] Bezeichnungen (Kicker) wie auf der Startseite; keine Nummern oder Labels ohne Bedeutung (Entscheid 377). Nummern nur, wo die Reihenfolge zählt (z. B. Phasen).
+- [ ] Zweiteilige Titel (Aussage und Wendung): zweite Zeile als Span `heading-wendung`; Farbe offen (115). Titel brechen ausgeglichen um, kein einzelnes Wort allein auf der letzten Zeile.
 - [ ] Handy: keine horizontale Verschiebung, Tippflächen genügend gross, Inhalte gekürzt wo vereinbart.
 
 ## B. Texte (CLAUDE.md 6, `04_redaktionsleitfaden.md`)
@@ -35,7 +36,7 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Section-Aufbau: Kicker (wiederholt nie den Titel) · Titel = Kernaussage · Einleitung nur wenn nötig · Inhalt · sprechender nächster Schritt.
 - [ ] «Unternehmen» statt «Organisationen»; nicht abwechselnd mit «Unternehmung».
 - [ ] Anrede: Sie für Unternehmen; Du nur in «Meine persönliche Entwicklung» und bei Angeboten für Einzelpersonen; nie gemischt.
-- [ ] Keine Fakten erfinden; fehlende Angaben «[ROWAPA bestätigen]»; Zahlen nur mit Beleg.
+- [ ] Keine Fakten erfinden; fehlende Angaben «[ROWAPA bestätigen]»; Zahlen nur mit Beleg. Musterdaten immer als «Musterdaten» kennzeichnen und mit den übrigen Musterauswertungen der Seite abstimmen.
 - [ ] Schweizer Rechtschreibung (ss), kurze aktive Sätze, keine Superlative, keine Ausrufezeichen, inklusive Sprache.
 - [ ] Barrierefrei: Alt-Texte, sprechende Linktexte, Überschriften in logischer Reihenfolge.
 - [ ] Texttabelle zu jeder gebauten oder geänderten Seite (Original → Vorschlag → Begründung → offene Fragen).
@@ -51,7 +52,7 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 
 ## D. Abmachungen zu Seiten und Navigation (laufende Entscheide)
 
-- [ ] Kontakt auf allen Seiten gleich (Komponente), Satz und Button je Seite (Entscheide 363, 367).
+- [ ] Kontakt auf allen Seiten gleich (Komponente): Text und Darstellung gleich, Button-Beschriftung je Seite (Entscheid 382; ob der Satz je Seite bleiben darf, offen 117).
 - [ ] Header Unterseite: Kopfzeile C, Logo-Band im ersten Bild, Titel nach Fensterhöhe (Entscheide 367, 375).
 - [ ] Mauszeiger Punkt mit Ring auf allen Seiten (Entscheid 369).
 - [ ] Megamenü: Spaltentitel als Link zur Übersicht; Performance-Analyse zuoberst unter «Für Unternehmen» (Entscheide 374, 375).
