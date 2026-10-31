@@ -176,3 +176,7 @@ Ergänzt Runde 54 um «Was Sie erreichen» mit Auswertungs-Slider (fünf Folien)
 ## 12. Runde 56 (30.10.2026)
 
 Führung als eigenes Messinstrument (Band unter den Leistungsfeldern, Folie 3 mit drei Blickwinkeln, FAQ), Leistungsfelder aus der Vorlage «Standortbestimmung» in der Ausgangslage, vier Phasen gestrichen, fünf Methoden als Visualisierung mit Linien zum Ergebnis. Details: `stufe3-screens/runde56/LIESMICH.md`. Vorlagen: `quellen/vorlagen/`.
+
+## 13. Runde 57 (31.10.2026)
+
+Rückmeldung von ChatGPT ausgewertet und umgesetzt, soweit sinnvoll: Reiter statt Slider, Quellenzeile je Grafik, präzisere Aussagen, Aufwand getrennt, fachliche Auswertung sichtbar. Positionierung: Finanzbranche + Begleitung in echten Situationen + fachliche Auswertung + Umsetzung aus einer Hand (mehrere Methoden allein unterscheiden nicht). Details: `stufe3-screens/runde57/LIESMICH.md`.
