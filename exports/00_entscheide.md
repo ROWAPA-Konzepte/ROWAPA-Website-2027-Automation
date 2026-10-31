@@ -697,6 +697,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 | 368 | Effekte Performance-Analyse (ROWAPA, 31.10.2026) | alle empfohlenen Effekte ausser «eher nicht»; Vorschau als Video; je Seite gern etwas Besonderes, darf experimentell sein; Mauszeiger: lieber behalten (evtl. nur Punkt) | Runde 59: Videos Desktop und Handy (`stufe3-screens/runde59/`, Ansicht Reiter «Effekte»). Besonderer Effekt dieser Seite: Scroll-Geschichte «Fünf Methoden». Mauszeiger: Empfehlung wie Startseite (Punkt mit Ring) auf allen Seiten, Rückfrage Punkt 99 |
 | 369 | Rückmeldung zu den Effekt-Videos Runde 59 (ROWAPA, 31.10.2026) | sieht gut aus; Aufbau «Fünf Methoden» etwas langsam; Mauszeiger so lassen wie auf der Startseite; Ideen für besondere Effekte als Video zeigen, bevor es weitergeht | Runde 60 (`stufe3-screens/runde60/`): Methoden schneller (Scroll-Strecke 340 → 190 px je Methode, Übergänge 0,45 → 0,28 s, im Video rund 4 statt 9 s); Mauszeiger Punkt mit Ring auf allen Seiten (Punkt 99 erledigt); vier Ideen als Video (Themenlinie: Karten stapeln, Hebel-Seite: Text steht/Belege ziehen vorbei, Meine Entwicklung: Plum-Linie zeichnet Lernweg, Team: Porträt aus Punkten), Ansicht Reiter «Ideen» |
 | 370 | Ideen «besonderer Effekt je Seitenfamilie» (ROWAPA, 31.10.2026) | Ideen 1 bis 3 übernehmen, Idee 4 (Team, Porträt aus Punkten) vorerst weglassen, dort kommt vielleicht etwas anderes | Zuordnung: Idee 1 «Karten stapeln» → Vorlage Themenlinie (z. B. Vertriebsperformance); Idee 2 «Text steht, Belege ziehen vorbei» → Vorlage Hebel-Seite; Idee 3 «Lernweg» → Bereich «Meine persönliche Entwicklung» (Vorschlag: Übersichtsseite). Nichts davon kommt auf die Seite Performance-Analyse; dort bleibt die Scroll-Geschichte «Fünf Methoden». Gebaut wird je Idee, wenn die betreffende Seite an der Reihe ist |
+| 371 | Abnahme Performance-Analyse (ROWAPA, 31.10.2026) | Fassung so in Ordnung (Runde 58, Effekte Runde 60); Fremdsicht gilt je beurteilte Person, 15 bis 30 Minuten; weiter wie vorgeschlagen (nächste Seite: Themenlinie Vertriebsperformance mit Idee 1) | Runde 61: Text in Aufwand-Leiste und FAQ angepasst, Bilder neu (`stufe3-screens/runde61/`); Punkte 82 und 98 erledigt; Bau in Webflow mit Stufe 4 |
 
 ---
 
@@ -783,7 +784,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 79. ~~Zeit je Person~~: ca. 25 Min. (Entscheid 359).
 80. ~~Demo-Seite~~: Passwort einverstanden, keine Cockpit-Bildschirmfotos (Entscheid 359).
 81. ~~Musterbericht-Regel~~: einverstanden (Entscheid 359).
-82. Abnahme Landingpage «Performance-Analyse» (`stufe3-screens/runde51/`): Aufbau, Reihenfolge, Länge. [ROWAPA bestätigen]
+82. ~~Abnahme Landingpage «Performance-Analyse»~~: abgenommen, Fassung Runde 58 mit Effekten Runde 60 (Entscheid 371).
 83. ~~Aussagen auf der Landingpage~~: freigegeben (Entscheid 360).
 84. Musterbericht über Mailchimp (Entscheid 361): Webflow-Formular mit eigener Ziel-Adresse an Mailchimp, Double-Opt-in von Mailchimp, Willkommens-E-Mail mit PDF-Link. Zu klären: Mailchimp-Konto und Plan vorhanden? Eigene Zielgruppe oder Tag «Musterbericht» (damit Newsletter-Abonnierende nicht den PDF-Link erhalten)? Abgleich mit Pipedrive gewünscht? [ROWAPA bestätigen]
 85. Section «Wo anfangen?» in der Themenlinie Vertriebsperformance; Demo-Seite wartet (Entscheid 360). [ROWAPA entscheiden]
@@ -799,7 +800,7 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 95. «Gut zu wissen» (FAQ) als Standard-Baustein: Vorschlag auf Startseite, Themenlinien, Hebel-, Angebots- und Lösungsseiten, Meine Entwicklung; nicht auf Artikeln, Team, Kontakt, Rechtlichem. Je Seite 4 bis 6 Fragen aus der CMS-Collection FAQ. [ROWAPA bestätigen]
 96. ~~Kundenstimme~~: Stimme Raiffeisenbank Berg-Erlen zu Besuchsbegleitungen eingesetzt (Entscheid 367). Ein Fall speziell zur Performance-Analyse folgt, sobald freigegeben.
 97. ~~Effekte~~: Auswahl getroffen, Videos Runde 59 (Entscheid 368), Methoden schneller in Runde 60 (Entscheid 369).
-98. Fremdsicht 20 bis 30 Minuten: je beurteilte Person oder insgesamt? [ROWAPA bestätigen]
+98. ~~Fremdsicht~~: 15 bis 30 Minuten je beurteilte Person (Entscheid 371).
 99. ~~Mauszeiger~~: wie Startseite, Punkt mit Ring, auf allen Seiten (Entscheid 369).
 100. ~~Besonderer Effekt je Seite~~: Ideen 1–3 übernommen, Idee 4 vorerst nicht (Entscheid 370).
 101. Team und «Über uns»: eigener besonderer Effekt folgt später (Idee 4 zurückgestellt, Entscheid 370). [ROWAPA entscheiden]

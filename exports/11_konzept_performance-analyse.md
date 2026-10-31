@@ -194,7 +194,7 @@ Grundsatz: wenige, ruhige Bewegungen, die eine Aussage stützen; alles wiedererk
 | 5 | Auswertungen (Reiter) | beim Öffnen eines Reiters baut sich die Grafik auf: Balken wachsen, Führungspunkte gleiten aus der Mitte auf ihre Werte (der Abstand wird sichtbar), Wärmetabelle füllt sich als Welle, Massnahmen erscheinen Zeile für Zeile | native Interaction (Reiterwechsel) | ja, Signatur |
 | 6 | Fünf Methoden | Linien zeichnen sich nacheinander von jeder Methode zum Ergebnis-Panel, kleine Punkte fliessen darauf; Darüberfahren über eine Methode färbt ihre Linie Plum; die Liste im Panel baut sich auf | ROWAPA-Grafik (Linienmodul) | ja, Signatur |
 | 7 | Kundenstimme | Plum-Linie der Karte zeichnet sich, Zitat blendet ein | native Interaction | optional |
-| 8 | Aufwand-Leiste | Zahlen zählen hoch (4–6 Wochen, 25 Min., 20–30 Min.) | ROWAPA-Grafik (Zähler) | eher nein |
+| 8 | Aufwand-Leiste | Zahlen zählen hoch (4–6 Wochen, 25 Min., 15–30 Min.) | ROWAPA-Grafik (Zähler) | eher nein |
 | 9 | Ganze Seite | Mauszeiger Punkt mit Ring wie Startseite | ROWAPA-Grafik | nur wenn auf allen Seiten |
 
 Vorschau-Möglichkeiten: (a) kurze Videos der Effekte, auf dem Entwurf aufgenommen (schnell, nichts in Webflow); (b) Testseite in Webflow, ausgeblendet, anklickbar (realistisch, Beginn Stufe 4, braucht Freigabe).
@@ -206,3 +206,7 @@ Alle empfohlenen Effekte umgesetzt (Entscheid 368), dazu als besonderer Effekt d
 ## 16. Runde 60 (31.10.2026): Methoden schneller, Ideen für andere Seitenfamilien
 
 Die Scroll-Geschichte «Fünf Methoden» braucht nur noch rund die Hälfte der Scroll-Strecke (190 statt 340 px je Methode), die Übergänge sind schneller (Entscheid 369). Mauszeiger wie auf der Startseite, auf allen Seiten. Dazu vier Ideen für den besonderen Effekt anderer Seitenfamilien als Video (Themenlinie, Hebel-Seite, Meine Entwicklung, Team); Übersicht und Bauhinweise: `stufe3-screens/runde60/LIESMICH.md`.
+
+## 17. Abnahme (31.10.2026)
+
+Seite abgenommen: Fassung Runde 58 mit den Effekten aus Runde 60 (Entscheid 371). Fremdsicht: 15 bis 30 Minuten je beurteilte Person. Bilder der abgenommenen Fassung: `stufe3-screens/runde61/`. Bau in Webflow mit Stufe 4.
