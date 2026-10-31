@@ -181,7 +181,7 @@ Führung als eigenes Messinstrument (Band unter den Leistungsfeldern, Folie 3 mi
 
 Rückmeldung von ChatGPT ausgewertet und umgesetzt, soweit sinnvoll: Reiter statt Slider, Quellenzeile je Grafik, präzisere Aussagen, Aufwand getrennt, fachliche Auswertung sichtbar. Positionierung: Finanzbranche + Begleitung in echten Situationen + fachliche Auswertung + Umsetzung aus einer Hand (mehrere Methoden allein unterscheiden nicht). Details: `stufe3-screens/runde57/LIESMICH.md`.
 
-## 14. Effekte (Vorschlag, 31.10.2026, wartet auf Auswahl)
+## 14. Effekte (Vorschlag, 31.10.2026; Auswahl Entscheid 368)
 
 Grundsatz: wenige, ruhige Bewegungen, die eine Aussage stützen; alles wiedererkennbar aus der Startseite; Inhalt ist ohne Bewegung vollständig lesbar; «reduzierte Bewegung» schaltet ab; auf dem Handy einfacher.
 
@@ -202,3 +202,7 @@ Vorschau-Möglichkeiten: (a) kurze Videos der Effekte, auf dem Entwurf aufgenomm
 ## 15. Runde 59 (31.10.2026): Effekte als Video
 
 Alle empfohlenen Effekte umgesetzt (Entscheid 368), dazu als besonderer Effekt dieser Seite die Scroll-Geschichte «Fünf Methoden». Videos und Bauhinweise: `stufe3-screens/runde59/LIESMICH.md`.
+
+## 16. Runde 60 (31.10.2026): Methoden schneller, Ideen für andere Seitenfamilien
+
+Die Scroll-Geschichte «Fünf Methoden» braucht nur noch rund die Hälfte der Scroll-Strecke (190 statt 340 px je Methode), die Übergänge sind schneller (Entscheid 369). Mauszeiger wie auf der Startseite, auf allen Seiten. Dazu vier Ideen für den besonderen Effekt anderer Seitenfamilien als Video (Themenlinie, Hebel-Seite, Meine Entwicklung, Team); Übersicht und Bauhinweise: `stufe3-screens/runde60/LIESMICH.md`.
