@@ -8,9 +8,9 @@ Freigabe ROWAPA: «die Performance-Analyse könnte man mal in Webflow bauen … 
 
 | # | Section | Umsetzung |
 |---|---|---|
-| – | Navigation | Komponente «Navbar · Bühne»; neu im Megamenü «Was wir tun › Für Unternehmen › Performance-Analyse» mit Vorschaukarte, im Handy-Menü unter «Für Unternehmen» |
+| – | Navigation | Komponente «Navbar · Bühne»; neu im Megamenü «Was wir tun › Für Unternehmen › Performance-Analyse» als erster Eintrag (Entscheid 374) mit Vorschaukarte, im Handy-Menü direkt nach «Für Unternehmen» |
 | 1 | Header | neue Klassen `section_header-unterseite …`: Kopfzeile C (Plum-Linie, «Für Unternehmen › Performance-Analyse»), Titel, Strich, Satz, Buttons «Strategiegespräch anfragen» (E-Mail) und «So funktioniert unsere Methode», Lupe (hochaufgelöst, `grafik-lupe-performance-analyse.png`), Punktemeer (`data-grafik="punktemeer"`, wie Startseite) |
-| 2 | Logo-Band | Startseiten-Band als neue Komponente «Logo-Band» (Startseite nutzt dieselbe Instanz) |
+| 2 | Logo-Band | Startseiten-Band als neue Komponente «Logo-Band» (Startseite nutzt dieselbe Instanz); Laufband-Interaction gilt seit Entscheid 374 für die ganze Website |
 | 3 | Die Ausgangslage | zwei Leistungsfeld-Karten (`card is-linie`) mit Pfeil-Listen, Band «Wie Führung funktioniert und wirkt» |
 | 4 | Was Sie erreichen | drei Kacheln, Kopf «So sieht ein Ergebnis aus», native Webflow-Reiter mit Grafik, Bildunterschrift und Text, Abschlusszeile mit Button |
 | 5 | Die Methode | fünf Methoden (On-the-Job in Plum), Panel «Ein differenzierter Ist-Zustand» mit Lupe, Kundenstimme Raiffeisenbank Berg-Erlen, Hinweis, Aufwand-Leiste (Fremdsicht 15 bis 30 Minuten je beurteilte Person) |
@@ -24,7 +24,8 @@ Freigabe ROWAPA: «die Performance-Analyse könnte man mal in Webflow bauen … 
 - **Reiter 4 und 5** (Interne Referenz, Massnahmen): Die Schnittstelle legt Reiter nur mit drei Einträgen an; verschobene Reiter hätten doppelte interne Namen. Inhalt liegt fertig im ausgeblendeten Element «ZWISCHENABLAGE Reiter 4+5». Im Designer zweimal «Add Tab», Inhalt hineinziehen (Handbuch 2.47).
 - **Zustand «Current» der Reiter** (Plum-Linie unter dem aktiven Reiter) lässt sich nur im Designer setzen (Handbuch 2.47).
 - **Anker `methode`:** Webflow lehnt IDs auf dieser Seite mit einem Serverkonflikt ab; gelöst mit einem leeren Element `id="methode"` am Anfang der Section «Die Methode» (geprüft auf der Testadresse).
-- **Effekte** (Lupe aus Punkten, Einblendungen, Scroll-Geschichte «Fünf Methoden», Grafiken bauen sich auf, Kundenstimme-Linie) folgen in Runde 64; Mauszeiger und Punktemeer laufen bereits über das ROWAPA-Grafik-Skript der Website.
+- **Effekte** (Lupe aus Punkten, Einblendungen, Scroll-Geschichte «Fünf Methoden», Grafiken bauen sich auf, Kundenstimme-Linie) folgen in Runde 64; Mauszeiger, Punktemeer mit Netz und Logo-Laufband laufen bereits.
+- **Nachtrag (Entscheid 374):** Das Logo-Band stand auf dieser Seite zuerst still, weil die Interaction «Logo-Laufband» nur für Startseite und Styleguide galt. Jetzt gilt sie für die ganze Website. Bild `testadresse_megamenue.png` zeigt die neue Reihenfolge im Megamenü.
 - **Sichtprüfung auf der Testadresse:** Aufbau wie Entwurf, Reiterwechsel funktioniert, Megamenü mit Vorschaukarte, keine horizontale Verschiebung auf dem Handy. Korrigiert: Reiter-Beschriftungen zeigten zuerst den Webflow-Platzhalter.
 - **Adresse:** `/performance-analyse` (kurz, gut für Kampagnen). Konzept nannte `/fuer-unternehmen/performance-analyse`; ein Ordner lässt sich später ergänzen (Weiterleitung nicht nötig, solange nicht veröffentlicht).
 
