@@ -22,8 +22,8 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Farben nur aus der Palette: Manganese Black #1D3149, Great Serpent #486EA3, Sea Cliff #A0C4DF, Plum Perfect #AA1351, White, Pastel Snowbank #E8E9E9 und die abgeleiteten Töne des Designsystems.
 - [ ] Farbrollen (Entscheide 251/258): Manganese Black tragend, Great Serpent für Grafiken und Icons, Sea Cliff für Kontakt und Hervorhebung, Plum für Aufmerksamkeit, Snowbank zur Gliederung, Weiss als Hauptfläche; Textlinks Manganese Black.
 - [ ] Dunkle Inhaltsflächen Manganese Black (Theme-Modus «Kontrast»); Manganese Deep #111D2C («Tiefsee») nur für den Header (Entscheid 377).
-- [ ] Abstände im 8px-Raster (8, 16, 24, 32, 48, 64 …; Variablen space-1 bis space-16). Fliessende Werte mit clamp() erlaubt.
-- [ ] Typografie: H1 TASA Bold (rund 6 % der Fensterhöhe); H2/H3 TASA Semibold; Fliesstext TASA Regular; Labels TASA Explorer Extrabold, Versalien, gesperrt.
+- [ ] Abstände im 8px-Raster (8, 16, 24, 32, 48, 64 …; Variablen space-1 bis space-16). Fliessende Werte mit clamp() erlaubt. Ausnahme (Entscheid 379): 4 px als halbe Rastereinheit nur innen in kleinen Etiketten (z. B. «Musterdaten», Methoden-Etiketten).
+- [ ] Typografie: H1 TASA Bold (rund 6 % der Fensterhöhe); H2 TASA Bold (bewusste Abweichung von der CI, Entscheid 379); H3 TASA Semibold; Fliesstext TASA Regular; Labels TASA Explorer Extrabold, Versalien, gesperrt.
 - [ ] Editorialer Stil der Startseite: grosse Titel, viel Weissraum, feine Linien, wenige starke Aussagen, Plum-Akzente sparsam; «Structure over decoration».
 - [ ] Diagonal Ribbon (45°, Plum) nur dezent und wiederkehrend, nicht neu erfinden.
 - [ ] Bezeichnungen (Kicker) wie auf der Startseite; keine Nummern oder Labels ohne Bedeutung (Entscheid 377). Nummern nur, wo die Reihenfolge zählt (z. B. Phasen).
