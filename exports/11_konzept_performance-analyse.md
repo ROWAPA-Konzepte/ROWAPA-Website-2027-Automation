@@ -180,3 +180,21 @@ Führung als eigenes Messinstrument (Band unter den Leistungsfeldern, Folie 3 mi
 ## 13. Runde 57 (31.10.2026)
 
 Rückmeldung von ChatGPT ausgewertet und umgesetzt, soweit sinnvoll: Reiter statt Slider, Quellenzeile je Grafik, präzisere Aussagen, Aufwand getrennt, fachliche Auswertung sichtbar. Positionierung: Finanzbranche + Begleitung in echten Situationen + fachliche Auswertung + Umsetzung aus einer Hand (mehrere Methoden allein unterscheiden nicht). Details: `stufe3-screens/runde57/LIESMICH.md`.
+
+## 14. Effekte (Vorschlag, 31.10.2026, wartet auf Auswahl)
+
+Grundsatz: wenige, ruhige Bewegungen, die eine Aussage stützen; alles wiedererkennbar aus der Startseite; Inhalt ist ohne Bewegung vollständig lesbar; «reduzierte Bewegung» schaltet ab; auf dem Handy einfacher.
+
+| # | Section | Effekt | Technik | Empfehlung |
+|---|---|---|---|---|
+| 1 | Header | Punktemeer lebt wie auf der Startseite (Kräuseln unter der Maus, Netz mit Plum-Knoten); die Lupe setzt sich beim Laden aus Punkten zusammen; Plum-Strich unter dem Titel zeichnet sich | ROWAPA-Grafik (vorhandene Module Punktemeer, Netz, Figuren-Aufbau) | ja, Signatur |
+| 2 | Alle Section-Köpfe | Kicker-Linie wächst, Titel gleitet sanft herein | native Interaction, einmal gebaut für alle Seiten | ja |
+| 3 | Leistungsfelder, Führungsband | Karten gestaffelt einblenden; Plum-Linie des Führungsbands wächst von oben nach unten | native Interaction | ja |
+| 4 | Was Sie erreichen | drei Kacheln nacheinander, Nummern 01–03 mit Plum-Linie | native Interaction | optional |
+| 5 | Auswertungen (Reiter) | beim Öffnen eines Reiters baut sich die Grafik auf: Balken wachsen, Führungspunkte gleiten aus der Mitte auf ihre Werte (der Abstand wird sichtbar), Wärmetabelle füllt sich als Welle, Massnahmen erscheinen Zeile für Zeile | native Interaction (Reiterwechsel) | ja, Signatur |
+| 6 | Fünf Methoden | Linien zeichnen sich nacheinander von jeder Methode zum Ergebnis-Panel, kleine Punkte fliessen darauf; Darüberfahren über eine Methode färbt ihre Linie Plum; die Liste im Panel baut sich auf | ROWAPA-Grafik (Linienmodul) | ja, Signatur |
+| 7 | Kundenstimme | Plum-Linie der Karte zeichnet sich, Zitat blendet ein | native Interaction | optional |
+| 8 | Aufwand-Leiste | Zahlen zählen hoch (4–6 Wochen, 25 Min., 20–30 Min.) | ROWAPA-Grafik (Zähler) | eher nein |
+| 9 | Ganze Seite | Mauszeiger Punkt mit Ring wie Startseite | ROWAPA-Grafik | nur wenn auf allen Seiten |
+
+Vorschau-Möglichkeiten: (a) kurze Videos der Effekte, auf dem Entwurf aufgenommen (schnell, nichts in Webflow); (b) Testseite in Webflow, ausgeblendet, anklickbar (realistisch, Beginn Stufe 4, braucht Freigabe).
