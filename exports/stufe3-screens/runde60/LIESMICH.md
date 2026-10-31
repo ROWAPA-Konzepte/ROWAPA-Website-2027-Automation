@@ -16,7 +16,9 @@ Rückmeldung: Der Aufbau der fünf Methoden (Skill-Check usw.) wirkte etwas lang
 
 Videos: `effekte_desktop.mp4`, `effekte_handy.mp4` (Handy unverändert, dort bleibt nichts stehen). Werkzeug `tools/entwuerfe/runde60_performance-analyse.js` mit `tools/entwuerfe/fx60.js` (`MODE=video`). Mauszeiger bleibt wie auf der Startseite (Punkt mit Ring), auf allen Seiten.
 
-## B. Vier Ideen «besonderer Effekt je Seitenfamilie» (Vorschau, Auswahl offen)
+## B. Vier Ideen «besonderer Effekt je Seitenfamilie» (Entscheid 370: 1–3 übernommen, 4 vorerst nicht)
+
+Zuordnung: Idee 1 → Vorlage Themenlinie, Idee 2 → Vorlage Hebel-Seite, Idee 3 → Bereich «Meine persönliche Entwicklung». Nichts davon kommt auf die Seite Performance-Analyse. Gebaut wird je Idee, wenn die Seite an der Reihe ist.
 
 Aufnahme in der echten Startseiten-Hülle (Navigation, Mauszeiger, Footer mit ROWAPA-Grafik-Skript); die Effekte selbst sind für die Vorschau nachgebaut. Werkzeug `tools/entwuerfe/runde60_ideen.js` (`node runde60_ideen.js <Ordner>`, einzeln mit `ONLY=idee4`).
 
