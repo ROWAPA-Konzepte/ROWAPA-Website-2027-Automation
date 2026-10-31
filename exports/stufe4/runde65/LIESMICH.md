@@ -50,3 +50,25 @@ Nicht gemacht (bewusst offen für das Gespräch): Handlungsfelder im Reiter «Ma
 Seite «Performance-Analyse · Vorschau» `6ae6243216db68534b505358` (Kopie der Seite, gleiche Element-IDs). Neue Klassen: `feld_raster`, `feld_karte` (+ `is-mitarbeiter`), `feld_kopf`, `feld_text`, `feld_figur`, `feld_figur-bild`, `feld_nutzen`, `feld_liste`, `feld_punkt`, `feld_marke` (+ `is-mitarbeiter`), `feld_fuehrung`, `feld_fuehrung-text`, `feld_chips`, `feld_chip`, `heading-style-h3.is-gross`, `erreichen_kachel.is-gross`, `quote_featured/quote_content/quote_text/quote_author.is-auswertung`, `methode_panel.is-kontrast` (Modus Kontrast), `section_stimme` (Modus Soft), `stimme_gross`, `stimme_rahmen`, `weg_klammern`, `weg_klammer` (+ `is-analyse`), `weg_aufwand`, `weg_aufwand-titel`, `stat_number.is-klein`. Angepasst für beide Seiten: `header-unterseite_bild` (Breite), `auswertung_visual/_grafik/_bild` (feste Bühne), `ergebnis_kopf` (Handy untereinander). Wiederverwendet von der Startseite: `section_vorgehen`, `vorgehen_layout`, `vorgehen_media` (Treppe, Grafik-Skript), `steps_list`, `step_item`, `stat_item`, `stat_label`.
 
 Wenn die Vorschau abgenommen ist: Inhalt auf `/performance-analyse` übernehmen (oder Seiten tauschen) und die Vorschauseite löschen (Freigabe nötig).
+
+## Prüfsession 1 (Entscheid 378, Prüfliste `00_pruefliste.md`), vor der Freigabe der Vorschau
+
+Gemessen auf der Testadresse (Desktop 1440 px und Handy 390 px), danach korrigiert und erneut gemessen.
+
+| Bereich | Prüfpunkt | Ergebnis |
+|---|---|---|
+| A CI | 8px-Raster | ✗ → ✓ 30 Abstände ausserhalb des Rasters korrigiert (neue Klassen und Klassen der Performance-Analyse aus Runde 63: Leistungsfelder, Marken, Kacheln, Reiter, Legenden, Methoden-Zeilen und -Etiketten, Panel, Kundenstimme, Klammern, Handy-Ränder). Verbleibend: 4 px innen in den kleinen Etiketten «Musterdaten» und Methoden-Etiketten (?), −1 px Überlappung der Reiterlinie (technisch). |
+| A CI | Typografie H2/H3 Semibold | ✗ → ✓ grosse H3 der Vorschau von Bold auf Semibold. **?** H2 sind auf der ganzen Website Bold (700), auch auf der abgenommenen Startseite; CI sagt Semibold. Nicht geändert, Frage an ROWAPA. |
+| A CI | nur Palette und Designsystem-Töne | ✗ → ✓ fest eingetragene Farben ersetzt durch Variablen: Reitertext, Legenden, Methoden-Text (Manganese Soft), Methoden-Etiketten (Sea Cliff Tint / Sea Cliff), On-the-Job-Zeile (Plum Tint), Trennlinien (Manganese Linie). Plum mit Transparenz für Rahmen der Marken bleibt (abgeleitet von Plum). |
+| A CI | dunkle Flächen | ✓ Inhalt Manganese Black, Header Manganese Deep wie Startseite. |
+| A CI | Bezeichnungen und Nummern | ✓ Kicker wie Startseite; Nummern nur bei den Phasen (Reihenfolge). |
+| A CI | Handy | ✓ keine horizontale Verschiebung. |
+| B Texte | Unternehmen, Sie, ss, keine Superlative, keine erfundenen Zahlen | ✓ («2 Halbtage» aus «je ein halber Tag»). |
+| B Texte | Grammatik | ✗ → ✓ Führungs-Marken wieder im abgenommenen Wortlaut: «einem eigenen Kompetenzprofil», «dem Urteil der Mitarbeitenden», «der Begleitung in Führungsgesprächen». |
+| B Texte | nächster Schritt je Section | ? «So arbeiten wir», Methode und Kundenstimme ohne eigenen Link; die Seite hat Buttons im Header, beim Ergebnis und im Kontakt. Vorschlag: «Mehr zu unserem Vorgehen» verlinken, sobald `/so-arbeiten-wir` gebaut ist. |
+| B Texte | Alt-Texte, Überschriften | ✓ inhaltliche Bilder mit Alt-Text, dekorative leer; Reihenfolge H1 → H2 → H3. |
+| B Texte | Texttabelle, neue Texte markiert | ✓ |
+| C Bauweise | nativ, Client-First, pflegbar, «Bewegung reduzieren» | ✓ |
+| D Abmachungen | Kontakt, Header, Mauszeiger, Megamenü, Effekt je Seitenfamilie | ✓ |
+| E Ablauf | nur Testadresse veröffentlicht, Live unberührt, Doku nachgeführt, keine Zugangsdaten | ✓ |
+| offen | Zustand «Current» der Reiter | ? Handgriff ROWAPA, aktiver Reiter noch grau. |

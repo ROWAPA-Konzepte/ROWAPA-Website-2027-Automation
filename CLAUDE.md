@@ -44,3 +44,9 @@ Baseline für das bisherige visuelle Design ist die URL: https://rowapa-2027.web
 - Anrede: Sie für Unternehmen und gemeinsame Seiten; Du nur im Bereich «Meine persönliche Entwicklung» und bei Angeboten für Einzelpersonen. Nie gemischt in einer Section.
 - Keine Fakten erfinden. Fehlende Angaben als «[ROWAPA bestätigen]» markieren.
 - Zu jeder gebauten Seite eine Texttabelle liefern: Original → Vorschlag → Begründung → offene Fragen.
+
+## 7. Prüfsessions (verbindlich, Entscheid 378)
+- Regelmässig prüfen, ob Vorschläge und Umsetzungen allen Abmachungen, Richtlinien und Regeln entsprechen. Grundlage: `exports/00_pruefliste.md` (CI, Texte, Bauweise, laufende Entscheide, Ablauf).
+- Pflicht vor jedem Vorschlag zur Freigabe, vor jedem Veröffentlichen, am Ende jeder Runde/Stufe und vor dem Löschen von Inhalten.
+- Ergebnis im LIESMICH der Runde unter «Prüfsession» festhalten (✓ / ✗ mit Korrektur / ? an ROWAPA) und in der Antwort kurz zusammenfassen. Eindeutige Verletzungen sofort korrigieren, unklare als Frage melden.
+- Neue dauerhafte Entscheide in die Prüfliste aufnehmen.

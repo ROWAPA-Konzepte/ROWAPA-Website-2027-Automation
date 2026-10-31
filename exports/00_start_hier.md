@@ -101,3 +101,5 @@ Es ersetzt zusammen mit `00_entscheide.md` und `07_benutzerhandbuch.md` die frü
 - Zugangsdaten zu Webflow, GitHub oder claude.ai.
 - Sitzungs-Kennungen der Webflow-Schnittstelle.
 - Das Webflow-Projekt selbst. Es liegt bei Webflow und wird dort automatisch gesichert.
+
+**Prüfsessions (Entscheid 378):** Vor jeder Freigabe, jedem Veröffentlichen, am Ende jeder Runde und vor dem Löschen wird gegen `exports/00_pruefliste.md` geprüft (Regel in `CLAUDE.md` Abschnitt 7); Ergebnis im LIESMICH der Runde.
