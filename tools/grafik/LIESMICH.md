@@ -10,6 +10,8 @@ Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL ka
 | `punktemeer` | Header (`hero_grafik`) | welliges Punktfeld (WebGL), Kräuseln unter der Maus, ruhig. Ab 1.14.0 mit **Netz** (seit 1.15.0 Standard im Header aller Seiten, seit 1.16.0 kräftiger: Licht addiert sich auf dem dunklen Grund, bis drei Impulse gleichzeitig, Ring beim Ankommen; Entscheid ROWAPA): wenige Plum-Knoten schwingen auf der Welle mit, feine Linien verbinden Nachbarn und blenden langsam ein und aus, alle paar Sekunden läuft ein Impuls von Knoten zu Knoten (Attribut `data-netz`, siehe unten). Mit Netz bleiben die Wellenkämme weiss, Plum gehört dann nur den Knoten |
 | `punktemeer-footer` | Footer (`footer_grafik`) | dasselbe Feld, flacher, hinter der Wortmarke |
 | `punktfigur…` (z. B. `punktfigur`, `punktfigur-vertrieb`) | Themenkarten, Karte Vertriebsperformance | die Figur baut sich einmal aus dem Standbild auf und ruht dann; beim Darüberfahren zieht sie sich leicht zusammen |
+| `methoden` | Performance-Analyse, «Fünf Methoden» (`methode_layout`, ab 1.19.0) | ab 992 px steht die Grafik beim Scrollen; Methode für Methode leuchtet auf, Linie mit Punkt zum Ergebnis, Ergebnis-Punkte füllen sich (`data-punkte` an `methode_zeile`, z. B. `2,3`), am Ende «Fünf Quellen, ein Bild». `data-schritt` (Scrollweg je Methode, Standard 190), `data-text-schritt`, `data-text-fertig`. Tablet, Handy, «Bewegung reduzieren»: steht wie im Designer |
+| `aufbau` | Grafiken in Reitern (`auswertung_grafik`, ab 1.19.0) | das Bild wird beim ersten Erscheinen und bei jedem Öffnen des Reiters schrittweise freigegeben; `data-richtung` = `links` (Standard), `mitte`, `oben`; `data-dauer` (Standard 0.9 s) |
 | `zaehler` | Kennzahlen (`stat_number`) | zählt einmal von 0 bis zum Wert, sobald die Zahl ins Bild kommt; Vorsatz und Zusatz («%», «CHF») bleiben |
 | `treppe` | Unser Vorgehen (`vorgehen_media`) | die vier Stufen bauen sich nacheinander auf, die Phase in der Liste (`.step_item`) leuchtet mit; danach Phase 01. Darüberfahren/Klick auf eine Phase oder Klick auf eine Stufe hebt sie hervor (Klasse `is-aktiv` auf `step_item` und `step_number`) |
 | `orbit` | ROWAPA Digital (`digital_visual`) | Kugel (`.orbit_kugel`) dreht sich (24 s), Kacheln (`.orbit_tile`) ziehen auf der Bahn (`.orbit_bahn`, 45 s) und halten nur, solange die Maus über den Karten ist; Karte im `.tools_grid` ↔ Kachel gleicher Position: Kachel `is-aktiv`, feine Linie zur Kugel. Klick auf eine Kachel: die passende Karte hebt sich kurz an (Klasse `is-angetippt`, 1,4 s) und wird ins Bild geholt, falls nötig; den Link zur Unterseite trägt die Karte. Handy: Kacheln stehen |
@@ -72,9 +74,15 @@ Prüfwerkzeuge: `pruefung/messen.js` (Ladezeit, Datenmenge), `pruefung/rechenlas
 ## Leitlinien
 
 - Jede Grafik baut sich einmal auf und ruht dann. Dauerhaft bewegt sind nur das Punktemeer (Header, Footer) und die Kugel mit den Kacheln, alle langsam und nie gleichzeitig im Bild.
-- Kein Scroll-Halt und kein Farbfluss. Ausnahme Themenlinien (Entscheid ROWAPA, Runde 20): Auf Seiten mit dieser Section scrollt die Seite ab 992 px weich (Lenis) und rastet in der Section auf die Themen ein, wie die Referenz. Bei «Bewegung reduzieren» und auf Tablet und Handy bleibt das Scrollen normal.
+- Kein Scroll-Halt und kein Farbfluss. Ausnahme Themenlinien (Entscheid ROWAPA, Runde 20): Auf Seiten mit dieser Section scrollt die Seite ab 992 px weich (Lenis) und rastet in der Section auf die Themen ein, wie die Referenz. Bei «Bewegung reduzieren» und auf Tablet und Handy bleibt das Scrollen normal. Zweite Ausnahme (Entscheid 368, ab 1.19.0): «Fünf Methoden» der Performance-Analyse steht ab 992 px für fünf kurze Schritte (je 190 px), ohne Lenis.
 - Die einzige Einblendung der Startseite ist die Farbfläche im Blickpunkt (CAS); sie ist eine native Webflow-Interaction, nicht Teil dieses Skripts. Ebenso nativ: Titel-Strich und Team-Kacheln nacheinander.
 - Start erst nach dem Laden der Seite; jede Grafik rechnet nur, solange sie sichtbar ist.
+
+## 1.19.0 (31.10.2026)
+
+- Neue Module `methoden` und `aufbau` (Seite Performance-Analyse, Runde 64).
+- `punktfigur` mit `data-start="sofort"`: baut sich auch im ersten Bildschirm auf (Lupe im Header der Unterseiten). Gegen ein kurzes Aufblitzen blendet das Inline-Skript «ROWAPAGrafikVorbereitung» im Seitenkopf das Bild vorher aus (und nach spätestens 4 s wieder ein).
+- Einblendungen beim Scrollen sind nicht Teil des Skripts, sondern native Interactions über das Attribut `data-einblenden` (0–3).
 
 ## 1.18.0 (28.10.2026)
 
