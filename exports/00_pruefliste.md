@@ -43,7 +43,7 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 
 ## C. Bauweise und Wartbarkeit (CLAUDE.md 2, 3)
 
-- [ ] Native Webflow-Elemente, Komponenten, CMS, Interactions zuerst; eigener Code nur für Grafiken und Animationen, die Webflow nicht kann (ROWAPA-Grafik-Skript).
+- [ ] Native Webflow-Elemente, Komponenten, CMS, Interactions zuerst; eigener Code nur für Grafiken und Animationen, die Webflow nicht kann (ROWAPA-Grafik-Skript). Zustände, die der Designer kann (z. B. «Current» der Reiter), nicht mit eigenem CSS ersetzen, auch wenn die Schnittstelle sie nicht setzen kann; dann Klickweg an ROWAPA.
 - [ ] Client-First-Klassen (komponente_element, Zusatzklassen is-…); keine Hardcodes in Embeds für Standard-Layouts.
 - [ ] Vom Kunden pflegbar: Texte im Designer änderbar, Einstellungen über Attribute oder Klassen, im Handbuch beschrieben.
 - [ ] Effekte: Inhalt ohne Bewegung vollständig lesbar; «Bewegung reduzieren» wird beachtet; Einblendungen über `data-einblenden`.
@@ -56,6 +56,7 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Mauszeiger Punkt mit Ring auf allen Seiten (Entscheid 369).
 - [ ] Megamenü: Spaltentitel als Link zur Übersicht; Performance-Analyse zuoberst unter «Für Unternehmen» (Entscheide 374, 375).
 - [ ] Besonderer Effekt je Seitenfamilie wie vereinbart (Entscheid 370).
+- [ ] Seite «So arbeiten wir» wird gebaut (Entscheid 380): ausführlicher Ablauf nur dort; andere Seiten zeigen die Kurzfassung und verlinken «Mehr zu unserem Vorgehen».
 
 ## E. Ablauf, Sicherheit, Dokumentation (CLAUDE.md 5)
 
