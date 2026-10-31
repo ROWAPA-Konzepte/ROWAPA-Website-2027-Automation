@@ -206,6 +206,7 @@ Knopf «Wer wir sind · Video» (Section Team) auswählen › Zahnrad › **Ligh
 
 ### 2.27 Mauszeiger
 - Eingeschaltet über das Attribut `data-grafik="zeiger"` an der Navigation (Komponente «Navbar», oberstes Element). Attribut löschen = normaler Mauszeiger auf der ganzen Website.
+- Seit Grafik 1.20.0 (Entscheid 383) läuft der Ring 1:1 mit der Maus, ohne Nachziehen. Wieder mit Nachlauf: am selben Element Attribut `data-zeiger-nachlauf` setzen, z. B. `0.8` (0 = direkt, bis 0.95 = stark verzögert).
 - Der Ring richtet sich nach dem Grund (dunkel auf hell, hell auf dunkel und auf Fotos). Auf Handy und Tablet und in Formularfeldern gibt es ihn nicht.
 - Geräte mit Touchscreen (seit Skript 1.10.1, verbessert in 1.11.1): Punkt und Ring erscheinen, sobald man Maus oder Trackpad bewegt, auch wenn der Browser das Gerät als reines Touch-Gerät meldet; tippt man mit dem Finger, verschwinden sie. Dasselbe gilt für die Hover-Videos der Karten.
 
@@ -463,4 +464,5 @@ Ausführlich in `exports/04_redaktionsleitfaden.md`.
 - **Leistungsfelder (Vorschau):** je Karte Titel, ein Nutzensatz (`feld_nutzen`) und vier Fragen (Liste `feld_liste`, Punkte `feld_punkt` mit Marke `feld_marke`, bei Mitarbeiterperformance `feld_marke is-mitarbeiter`). Frage ändern: doppelklicken; neue Frage: Listenpunkt duplizieren. Figuren stehen in gleich hohen Feldern (`feld_figur` 7 rem, Handy 4,5 rem).
 - **Reiter «Massnahmen» (Vorschau):** Musterbericht aus normalen Elementen statt Bild: `bericht` › `bericht_ziel` (Etikett «Hauptziel» + Text) › drei `bericht_schritt` (Kopf mit `bericht_nummer` und `bericht_etikett`, darunter `bericht_text` bzw. Liste `bericht_liste`). Texte im Designer ändern; die Fläche ist am Desktop 32 rem hoch, darum Texte kurz halten (höchstens zwei Zeilen je Schritt). Reiter «Führung»: Satz mit Klasse `auswertung_hinweis`.
 - **Reiter-Zustand «Current»:** gesetzt und veröffentlicht (Plum-Linie, Schrift Manganese Black, Hintergrund transparent).
-
+- **Logo-Leiste (Komponente «Logo-Leiste», seit Runde 69):** ruhige Leiste ohne Bewegung für Unterseiten, direkt nach der Kundenstimme. Logo austauschen oder ergänzen: Komponente öffnen › im Raster (`logos_grid is-leiste`) ein Logo duplizieren › Bild ersetzen, Alt-Text setzen. Die Logos sind grau (Klasse `logos_image`, gleiche Darstellung wie im Laufband). Raster: 6 Spalten Desktop, 4 Tablet, 3 Handy. Das bewegte **Logo-Band** gibt es nur noch auf der Startseite unter dem Header (Entscheid 383).
+- **Titel:** zweiteilige Titel bleiben einfarbig (Entscheid 383); die zweite Zeile beginnt nur auf einer neuen Zeile.
