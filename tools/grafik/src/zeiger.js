@@ -3,8 +3,11 @@
    Element mit data-grafik="zeiger" schaltet ihn ein.
    Der Ring steht immer im Kontrast zum Grund darunter: dunkel auf hellem, hell auf dunklem Grund und auf Bildern.
    data-zeiger="a" (Standard) Punkt und Ring · "b" zusätzlich wächst der Ring auf Links und Karten («Öffnen»).
-   In Formularfeldern bleibt der normale Cursor. Bei «Bewegung reduzieren» folgt der Ring ohne Verzögerung. */
-import { reduziert, ciFarbe, beiMaus } from './util.js';
+   In Formularfeldern bleibt der normale Cursor.
+   Ab 1.20.0 läuft der Ring 1:1 mit der Maus, ohne Nachziehen (Entscheid 383). Wer wieder einen Nachlauf möchte:
+   data-zeiger-nachlauf="0.8" am selben Element (0 = direkt, Standard; bis 0.95 = stark verzögert). Bei «Bewegung reduzieren»
+   immer direkt. */
+import { reduziert, ciFarbe, beiMaus, clamp } from './util.js';
 
 let laeuft = false;
 
@@ -28,6 +31,7 @@ function starten(el) {
 
   let mx = -100, my = -100, kx = -100, ky = -100, sichtbar = false, groesse = 36;
   const variante = () => (el.getAttribute('data-zeiger') || 'a').toLowerCase();
+  const nachlauf = () => { const n = parseFloat(el.getAttribute('data-zeiger-nachlauf')); return Number.isFinite(n) ? clamp(n, 0, 0.95) : 0; };
 
   /* Grund unter dem Zeiger: 'bild', 'dunkel' oder 'hell' (erste deckende Hintergrundfarbe, Bilder zählen als dunkel) */
   const merk = new WeakMap();
@@ -87,7 +91,7 @@ function starten(el) {
   addEventListener('mouseup', () => { kreis.style.transform = ''; });
 
   const folgen = () => {
-    const f = reduziert() ? 1 : 0.2;
+    const f = reduziert() ? 1 : 1 - nachlauf();
     kx += (mx - kx) * f; ky += (my - ky) * f;
     punkt.style.translate = `${mx}px ${my}px`;
     kreis.style.translate = `${kx}px ${ky}px`;
