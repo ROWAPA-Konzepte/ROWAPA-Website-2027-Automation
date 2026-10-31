@@ -50,3 +50,23 @@ Was: Themenlinie mit vier Hebeln. Für wen: Vertriebsverantwortliche in Banken, 
 ## Nebenbei korrigiert
 
 Die Handy-Videos aus Runde 59/60 zeigten die Seite nur im oberen linken Viertel. `runde60/effekte_handy.mp4` ist neu zugeschnitten; die Ansicht Performance-Analyse zeigt die korrigierte Fassung.
+
+## Vergleich mit v11 (Struktur und Ablauf, auf Wunsch ROWAPA)
+
+Bild v11: `v11_vertriebsperformance_desktop.jpg` (aus `ROWAPA-Website-v11.html`). In der Ansicht Reiter «Vergleich v11».
+
+- **v11:** Was wir tun → Warum ROWAPA → Wie wir arbeiten → Beweis → Gespräch. Sechs Abschnitte, kurz und textlastig, rund 3 100 px.
+- **Webflow-Vorlage heute (Entscheid 346):** Hero → Hebel → Diagnostik & Tools → Vorteil → Abschluss. Fünf Abschnitte aus dem CMS.
+- **Runde 62:** Was + Vertrauen → die vier Hebel als System → Warum ROWAPA und wo anfangen → Beweis → Fragen klären → Gespräch mit Ansprechperson. Sieben Abschnitte, rund 7 100 px (davon rund 2 400 px die grossen Hebel-Karten).
+
+| Schritt | v11 | Webflow-Vorlage heute | Runde 62 | Warum |
+|---|---|---|---|---|
+| Einstieg | heller Hero mit Kicker, Titel, Satz, Foto-Platzhalter, ohne Buttons | Hero aus dem CMS | Header B dunkel, Kopfzeile C, zwei Buttons, Themenfigur aus Punkten | gleicher Auftritt wie Startseite und Performance-Analyse |
+| Vertrauen | – | – | Logo-Band | Referenzen sofort sichtbar |
+| Angebot | vier Karten 2 × 2 | CMS-Liste | vier grosse Karten, stapeln sich | Idee 1: ein System statt Liste |
+| Diagnostik & Tools | Link im Vorteil | eigene Section | Karte «SalesStep» im Vorteil | ein Abschnitt weniger |
+| Warum ROWAPA | Vorteil, fünf Sätze | Vorteil | drei Sätze + «Wo anfangen?» (Performance-Analyse) | kürzer, neuer Einstieg |
+| Wie wir arbeiten | eine Zeile mit Link | – | weggelassen | wie Performance-Analyse (offen) |
+| Beweis | Case-Stories mit Platzhalter-Zahlen | – | drei freigegebene Kundenstimmen | keine erfundenen Zahlen |
+| Fragen klären | – | – | «Gut zu wissen», sechs Fragen | Einwände vor dem Gespräch klären |
+| Abschluss | Box «Wo steht Ihr Vertrieb heute?», «Erstgespräch vereinbaren» + «Weitere Themenlinien» | Abschluss-CTA | Kontakt der Startseite | Kontakt überall gleich; «Weitere Themenlinien» als Textlink behalten? (offen) |
