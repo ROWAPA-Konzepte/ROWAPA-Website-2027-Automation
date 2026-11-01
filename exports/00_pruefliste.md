@@ -85,3 +85,5 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Vorlade-Regeln (Speculation Rules) nach jeder Änderung testen: Zahl der getroffenen Links muss grösser als null sein; Chrome lädt mit angehängten Entwicklerwerkzeugen nicht vor (Runde 83).
 - [ ] Geräte-Erkennung nicht auf «Maus vorhanden» stützen: das Gerät von ROWAPA meldet keine Maus (Runde 31, 83); besser Fensterbreite oder erste echte Mausbewegung.
 - [ ] Seiten kommen beim Seitenwechsel vollständig herein: nichts, was während des Einfahrens ausgeblendet ist und sich erst danach aufbaut (Runde 84; Aufbau-Effekte nur beim direkten Aufruf).
+- [ ] «Wie auf der Startseite»: nicht nur das Element vergleichen, sondern auch die Abstände davor und danach messen (Runde 85).
+- [ ] Seitenwechsel nur zwischen Seiten testen, die es gibt; Links auf fehlende Seiten zeigen bis zur eigenen 404-Seite die Plattform-Fehlerseite ohne Wechsel (Runde 85).
