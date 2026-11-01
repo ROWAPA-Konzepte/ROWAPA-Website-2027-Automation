@@ -1,4 +1,5 @@
-/* ROWAPA · Umschaltleiste für Entwürfe 2.1.1 (Runde 89, Entscheide 393, 402 und 403; Abstände Muster 2 im 8-px-Raster)
+/* ROWAPA · Umschaltleiste für Entwürfe 2.1.2 (Runde 89, Entscheide 393, 402 und 403; Abstände Muster 2 im 8-px-Raster,
+   übrige Werte mit mindestens 4,5 : 1 Kontrast, Karten ohne Foto mit Kurztext)
    Nur auf den Entwurfsseiten /performance-analyse-entwurf und /startseite-entwurf (beide nicht verlinkt).
    Jeder Punkt lässt sich zwischen «heute» (= echte Seite) und den Mustern umschalten:
      auswertung  Beispielauswertungen der Performance-Analyse: heute Reiter; Muster 2 (Mischung aus heute und
@@ -128,10 +129,10 @@
     M + ' .dia_zeile,' + M + ' .dia_zelle,' + M + ' .bericht_schritt,' + M + ' .dia-hinweis{transition:opacity .4s,background-color .4s,box-shadow .4s}',
     M + ' [data-schritt="1"] .dia-hinweis{opacity:0}',
     M + ' [data-schritt="1"] .dia-hinweis-zelle{outline-color:transparent}',
-    M + ' ' + J + ' .dia_zeile:not(.dia-hinweis-zeile){opacity:.72}',
+    M + ' ' + J + ' .dia_zeile:not(.dia-hinweis-zeile){opacity:.84}', /* Zahlen 4,75 : 1, Bezeichnungen 8 : 1 */
     M + ' ' + J + ' .dia-hinweis-zeile{background-color:#FBEEF3;box-shadow:inset 3px 0 0 #AA1351}',
-    M + ' ' + J + ' .dia_zelle:not(.dia-hinweis-zelle){opacity:.8}',
-    M + ' ' + J + ' .bericht_schritt:not(:last-child){opacity:.72}',
+    M + ' ' + J + ' .dia_zelle:not(.dia-hinweis-zelle){opacity:.88}',
+    M + ' ' + J + ' .bericht_schritt:not(:last-child){opacity:.84}',
     M + ' ' + J + ' .bericht_schritt:last-child{background-color:#FBEEF3;box-shadow:inset 3px 0 0 #AA1351}',
     M + ' .quote_content.is-auswertung,' + M + ' .auswertung_massnahme{transition:opacity .45s,transform .45s}',
     M + ' :is([data-schritt="1"],[data-schritt="2"]) .quote_content.is-auswertung{opacity:0;transform:translateY(8px)}',
@@ -154,6 +155,7 @@
     I + ' .reihe_maske{overflow:visible}',
     I + ' .insights_reihe{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;overflow:visible;scroll-snap-type:none;margin-bottom:0;padding-bottom:0}',
     '.v-insights-foto-gross .section_insights .reihe_item:not(.rg-gross) .card_image-wrapper{display:none}',
+    '@media (min-width:768px){.v-insights-foto-gross .section_insights .reihe_item:not(.rg-gross) .text-size-regular{display:block}}', /* ohne Foto: Kurztext aus dem CMS, Handy wie heute ohne */
     I + ' .reihe_item.rg-gross .card_image-wrapper{position:relative;flex:1 1 auto;height:auto;min-height:clamp(14rem,34svh,22rem)}',
     I + ' .reihe_item.rg-gross .card_image-wrapper img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}',
     I + ' .reihe_item.rg-gross{grid-column:span 2;grid-row:span 2}',
