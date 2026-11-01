@@ -78,3 +78,6 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Neues immer erst als Entwurf bauen (Entscheid 389): eigene Entwurfsseite und, wo nötig, Kopie der Komponente; Interaktionen auf Entwurfsseite oder Entwurfs-Komponente begrenzen; echte Seiten erst nach Freigabe ändern und danach prüfen, dass sie unverändert sind.
 - [ ] Entwürfe immer umschaltbar bauen (Entscheid 393): «heute» (= echte Seite) und Entwurf je Punkt umschaltbar, Wahl gespeichert und als Link teilbar; mehrere Möglichkeiten nebeneinander statt nacheinander. Nach dem Entscheid die Wahl nativ bauen und das Entwurfs-Skript entfernen.
 - [ ] Titel-Anordnung je nach Situation (Entscheid 393, ersetzt 124): links als Standard, rechts für Abwechslung, wo der Inhalt es trägt; Text bleibt linksbündig.
+- [ ] Zustand «Current» (Reiter, Menüs) lässt sich über die Schnittstelle nicht setzen: im Designer von Hand, mit Anleitung an ROWAPA; keine Ersatz-CSS als Code (Runde 66, 80).
+- [ ] Grafik-Skript nur noch im Repository `rowapa-website-grafik` ändern; neue Fassung über jsDelivr mit Commit-Kennung und SRI registrieren (Entscheid 394).
+- [ ] Tablet (768–991) bei Diagrammen und Karten mit fester Höhe eigens prüfen: lesbar, nichts überlappt (Runde 80).

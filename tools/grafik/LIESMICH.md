@@ -1,3 +1,5 @@
+> **Verschoben (ab 1.24.0, 01.11.2026):** Das Grafik-Skript wird im eigenen Repository [`ROWAPA-Konzepte/rowapa-website-grafik`](https://github.com/ROWAPA-Konzepte/rowapa-website-grafik) gepflegt (Entscheid 391). Dieser Ordner bleibt nur als Stand bis 1.23.0 stehen, weil ältere Fassungen über jsDelivr mit Commit-Kennung auf ihn zeigen. Hier nichts mehr ändern. Ob der Ordner später gelöscht wird, entscheidet ROWAPA.
+
 # ROWAPA Grafik
 
 Ein einziges Skript für alle Punkte-Grafiken und kleinen Bewegungen der ROWAPA-Website. Es bündelt eine einzige Bibliothek, Lenis 1.3.26 (MIT-Lizenz, weiches Scrollen, nur auf Seiten mit den Themenlinien aktiv), insgesamt rund 67 KB, komprimiert rund 25 KB.
