@@ -52,6 +52,8 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Effekte: Inhalt ohne Bewegung vollständig lesbar; «Bewegung reduzieren» wird beachtet; Einblendungen über `data-einblenden`.
 - [ ] Wischreihen (seitlich scrollende Listen) in Rastern: Spalte `minmax(0, 1fr)` bzw. Mindestbreite 0, sonst wird die Seite auf dem Handy breiter (Runde 87). Auf dem Handy immer die Seitenbreite messen.
 - [ ] Diagramme und Auswertungen als Webflow-Elemente mit Werten in Attributen (`data-wert`), nicht als Bild; Aufbau über das Grafik-Modul `diagramm` (Entscheid 384). Farben nur über Variablen, keine fest codierten Verläufe.
+- [ ] Klappbare Listen (z. B. Methoden): das ganze Feld ist Klickfläche, nicht nur der Titel; Klicks in den offenen Inhalt schliessen nicht (Entscheid 403).
+- [ ] Hervorheben ohne Unlesbarkeit: Zurückgenommenes bleibt lesbar (Text mindestens 4,5 : 1, z. B. Deckkraft 84 % statt 35 %); den Befund mit Farbakzent (Plum-Ton, Plum-Linie) zeigen statt alles andere abzublenden (Entscheid 403).
 - [ ] Unvollständige CMS-Einträge als Entwurf.
 
 ## D. Abmachungen zu Seiten und Navigation (laufende Entscheide)
@@ -62,6 +64,8 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Megamenü: Spaltentitel als Link zur Übersicht; Performance-Analyse zuoberst unter «Für Unternehmen» (Entscheide 374, 375). Megamenü ohne Abdunkeln oder gestaffeltes Einblenden (Entscheid 390, bestätigt 401).
 - [ ] Navigation blendet beim Runterscrollen aus und beim Hochscrollen wieder ein (Grafik-Modul `kopfleiste`, Entscheid 390); nie dauerhaft sichtbar, auch nicht als kompakte Leiste (Entscheid 401); keine Kapitel-Leiste unter dem Header.
 - [ ] Titel wortweise nur bei Titeln, nicht bei Erklärungstexten (Entscheide 391, 401).
+- [ ] Performance-Analyse, Methoden: zu Beginn alle zugeklappt (`data-start="zu"`, Entscheid 403).
+- [ ] Insights immer mit Fotos (Entscheid 403); auf der Startseite kein Filter, Link «Alle Inhalte» bleibt. Karten ohne Foto zeigen ihren Kurztext. Videos von ROWAPA als Vimeo-Links.
 - [ ] Themen auf der Startseite: kompakte Auswahl oder festgehaltene Scroll-Szene; Claude darf je nach Seite wählen (Entscheid 401).
 - [ ] Seitenwechsel site-weit: **kurze Überblendung 0,35 s** (Entscheid 401, vorher 0,5 s Einfahren von unten), Kurve sanft; Handy 0,3 s; **Navigation bleibt stehen**; nur innerhalb der Website (Kopf-Skript «ROWAPASeitenwechsel» 1.3.0). In alle Richtungen gleich: Menü schliesst beim Klick, Zielseite wird beim Darüberfahren vorgeladen, neue Seite kommt vollständig herein. Bilder im ersten Bildschirm mit `loading` = `eager`, damit sie beim Wechsel schon da sind (Runde 87). Prüfen je Richtung (Menü, Logo, Zurück, Vorwärts), auf Entwürfen und echten Seiten, Bild für Bild (Runde 88).
 - [ ] Fotos: nur eigene Leute bzw. mit Einverständnis; nichts Firmenfremdes lesbar im Bild (z. B. Plakate); ohne Metadaten hochladen; Personenfotos nicht ins Repo; kein Bildtext, der mehr behauptet, als zu sehen ist.
