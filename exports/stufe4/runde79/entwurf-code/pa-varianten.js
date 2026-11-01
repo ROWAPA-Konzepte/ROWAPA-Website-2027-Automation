@@ -74,6 +74,7 @@
     '.rg-eckdaten{display:none;flex-wrap:wrap;column-gap:.5rem;row-gap:.25rem;margin-top:-.25rem;margin-bottom:.5rem}',
     '.rg-eckdaten span+span:before{content:"·";margin-right:.5rem}',
     '.v-eckdaten-mit .rg-eckdaten{display:flex}',
+    '@media (max-width:767px){.rg-eckdaten{flex-direction:column;row-gap:.125rem}.rg-eckdaten span+span:before{content:none}}',
     '.rg-hinweis{display:none;grid-column:1/-1;font-size:.8125rem;line-height:1.3;color:#AA1351;font-weight:600;margin-top:.25rem}',
     '.v-hinweise-mit .rg-hinweis{display:block}',
     '.v-hinweise-mit .rg-hinweis-zeile .dia_label{font-weight:600}',
