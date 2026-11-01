@@ -154,7 +154,7 @@
     if (!lead) return;
     var e = D.createElement('div');
     e.className = 'kicker rg-eckdaten';
-    ['Ergebnisse in 4–6 Wochen', 'Fünf Perspektiven', 'Rund 25 Minuten je Person'].forEach(function (t) {
+    ['Ergebnisse in 4–6 Wochen', 'Fünf Perspektiven', '25 Minuten Skill-Check je Person'].forEach(function (t) {
       var s = D.createElement('span'); s.textContent = t; e.appendChild(s);
     });
     lead.parentNode.insertBefore(e, lead.nextSibling);
