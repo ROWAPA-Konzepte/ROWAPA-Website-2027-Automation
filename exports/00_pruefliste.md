@@ -25,6 +25,7 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Abstände im 8px-Raster (8, 16, 24, 32, 48, 64 …; Variablen space-1 bis space-16). Fliessende Werte mit clamp() erlaubt. Ausnahme (Entscheid 379): 4 px als halbe Rastereinheit nur innen in kleinen Etiketten (z. B. «Musterdaten», Methoden-Etiketten).
 - [ ] Typografie: H1 TASA Bold (rund 6 % der Fensterhöhe); H2 TASA Bold (bewusste Abweichung von der CI, Entscheid 379); H3 TASA Semibold; Fliesstext TASA Regular; Labels TASA Explorer Extrabold, Versalien, gesperrt.
 - [ ] Editorialer Stil der Startseite: grosse Titel, viel Weissraum, feine Linien, wenige starke Aussagen, Plum-Akzente sparsam; «Structure over decoration».
+- [ ] Flächenfolge: hell und grau wechseln sich ab, keine drei gleichen Flächen hintereinander; zusammengehörige Teile (z. B. Kundenstimme und Logos) auf derselben Fläche mit gemeinsamem Titel (Entscheid 384).
 - [ ] Diagonal Ribbon (45°, Plum) nur dezent und wiederkehrend, nicht neu erfinden.
 - [ ] Bezeichnungen (Kicker) wie auf der Startseite; keine Nummern oder Labels ohne Bedeutung (Entscheid 377). Nummern nur, wo die Reihenfolge zählt (z. B. Phasen).
 - [ ] Zweiteilige Titel (Aussage und Wendung): zweite Zeile als Span `heading-wendung`, einfarbig (Entscheid 383). Titel brechen ausgeglichen um, kein einzelnes Wort allein auf der letzten Zeile.
@@ -48,12 +49,13 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Client-First-Klassen (komponente_element, Zusatzklassen is-…); keine Hardcodes in Embeds für Standard-Layouts.
 - [ ] Vom Kunden pflegbar: Texte im Designer änderbar, Einstellungen über Attribute oder Klassen, im Handbuch beschrieben.
 - [ ] Effekte: Inhalt ohne Bewegung vollständig lesbar; «Bewegung reduzieren» wird beachtet; Einblendungen über `data-einblenden`.
+- [ ] Diagramme und Auswertungen als Webflow-Elemente mit Werten in Attributen (`data-wert`), nicht als Bild; Aufbau über das Grafik-Modul `diagramm` (Entscheid 384). Farben nur über Variablen, keine fest codierten Verläufe.
 - [ ] Unvollständige CMS-Einträge als Entwurf.
 
 ## D. Abmachungen zu Seiten und Navigation (laufende Entscheide)
 
 - [ ] Kontakt auf allen Seiten gleich (Komponente): Titel und Darstellung gleich, Satz und Button-Beschriftung je Seite anpassbar (Entscheide 382, 383).
-- [ ] Header Unterseite: Kopfzeile C, Titel nach Fensterhöhe (Entscheide 367, 375). Logos: bewegtes Logo-Band nur auf der Startseite; Unterseiten zeigen die ruhige Komponente «Logo-Leiste» nach der Kundenstimme (Entscheid 383).
+- [ ] Header Unterseite: Kopfzeile C, Titel nach Fensterhöhe, füllt das erste Bild auf allen Breiten (Entscheide 367, 375, 384). Logos: bewegtes Logo-Band nur auf der Startseite; Unterseiten zeigen die ruhige Komponente «Logo-Leiste» nach der Kundenstimme (Entscheid 383).
 - [ ] Mauszeiger Punkt mit Ring auf allen Seiten, Ring läuft 1:1 mit (Entscheide 369, 383).
 - [ ] Megamenü: Spaltentitel als Link zur Übersicht; Performance-Analyse zuoberst unter «Für Unternehmen» (Entscheide 374, 375).
 - [ ] Besonderer Effekt je Seitenfamilie wie vereinbart (Entscheid 370).
