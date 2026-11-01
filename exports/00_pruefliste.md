@@ -54,6 +54,8 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Diagramme und Auswertungen als Webflow-Elemente mit Werten in Attributen (`data-wert`), nicht als Bild; Aufbau über das Grafik-Modul `diagramm` (Entscheid 384). Farben nur über Variablen, keine fest codierten Verläufe.
 - [ ] Klappbare Listen (z. B. Methoden): das ganze Feld ist Klickfläche, nicht nur der Titel; Klicks in den offenen Inhalt schliessen nicht (Entscheid 403).
 - [ ] Hervorheben ohne Unlesbarkeit: Zurückgenommenes bleibt lesbar (Text mindestens 4,5 : 1, z. B. Deckkraft 84 % statt 35 %); den Befund mit Farbakzent (Plum-Ton, Plum-Linie) zeigen statt alles andere abzublenden (Entscheid 403).
+- [ ] Gleichrangige Blöcke nebeneinander gleich darstellen (Bezeichnung, Text, Quelle in derselben Schrift, Farbe und denselben Abständen); unterscheiden nur über ein bewusstes Merkmal wie die Plum-Linie (Entscheid 404).
+- [ ] Zahlen mit Zähler: Attribut `data-grafik="zaehler"` am Zahlenelement, Text wie «98 %» oder «20 Jahre»; zählt einmal, sobald die Zahl ins Bild kommt (Entscheid 404).
 - [ ] Unvollständige CMS-Einträge als Entwurf.
 
 ## D. Abmachungen zu Seiten und Navigation (laufende Entscheide)
@@ -65,6 +67,8 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Navigation blendet beim Runterscrollen aus und beim Hochscrollen wieder ein (Grafik-Modul `kopfleiste`, Entscheid 390); nie dauerhaft sichtbar, auch nicht als kompakte Leiste (Entscheid 401); keine Kapitel-Leiste unter dem Header.
 - [ ] Titel wortweise nur bei Titeln, nicht bei Erklärungstexten (Entscheide 391, 401).
 - [ ] Performance-Analyse, Methoden: zu Beginn alle zugeklappt (`data-start="zu"`, Entscheid 403).
+- [ ] Header: Wellenmeer und Inhalt bauen sich gleichzeitig auf, nie das Wellenmeer erst danach (Entscheid 404; Dauer offen, Entwurf 0,8 s).
+- [ ] Flächenfolge gilt auch für Entwürfe nach Printscreen oder Skizze: weicht die Vorlage ab (z. B. weisse Fläche zwischen zwei weissen Abschnitten), Fläche anpassen und begründen (Runde 90).
 - [ ] Insights immer mit Fotos (Entscheid 403); auf der Startseite kein Filter, Link «Alle Inhalte» bleibt. Karten ohne Foto zeigen ihren Kurztext. Videos von ROWAPA als Vimeo-Links.
 - [ ] Themen auf der Startseite: kompakte Auswahl oder festgehaltene Scroll-Szene; Claude darf je nach Seite wählen (Entscheid 401).
 - [ ] Seitenwechsel site-weit: **kurze Überblendung 0,35 s** (Entscheid 401, vorher 0,5 s Einfahren von unten), Kurve sanft; Handy 0,3 s; **Navigation bleibt stehen**; nur innerhalb der Website (Kopf-Skript «ROWAPASeitenwechsel» 1.3.0). In alle Richtungen gleich: Menü schliesst beim Klick, Zielseite wird beim Darüberfahren vorgeladen, neue Seite kommt vollständig herein. Bilder im ersten Bildschirm mit `loading` = `eager`, damit sie beim Wechsel schon da sind (Runde 87). Prüfen je Richtung (Menü, Logo, Zurück, Vorwärts), auf Entwürfen und echten Seiten, Bild für Bild (Runde 88).
