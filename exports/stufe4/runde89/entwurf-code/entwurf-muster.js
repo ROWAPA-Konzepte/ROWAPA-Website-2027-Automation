@@ -1,4 +1,4 @@
-/* ROWAPA · Umschaltleiste für Entwürfe 2.1.0 (Runde 89, Entscheide 393, 402 und 403)
+/* ROWAPA · Umschaltleiste für Entwürfe 2.1.1 (Runde 89, Entscheide 393, 402 und 403; Abstände Muster 2 im 8-px-Raster)
    Nur auf den Entwurfsseiten /performance-analyse-entwurf und /startseite-entwurf (beide nicht verlinkt).
    Jeder Punkt lässt sich zwischen «heute» (= echte Seite) und den Mustern umschalten:
      auswertung  Beispielauswertungen der Performance-Analyse: heute Reiter; Muster 2 (Mischung aus heute und
@@ -103,28 +103,28 @@
     '.v-auswertung-mischung-hell{--rg-spalte:#D9E7F2;--rg-spalte-text:#4A5A70;--rg-spalte-hover:rgba(255,255,255,.5);--rg-spalte-aktiv:#fff;--rg-spalte-aktiv-text:#1D3149}',
     '.v-auswertung-mischung-dunkel{--rg-spalte:#1D3149;--rg-spalte-text:rgba(255,255,255,.76);--rg-spalte-hover:rgba(255,255,255,.06);--rg-spalte-aktiv:rgba(255,255,255,.1);--rg-spalte-aktiv-text:#fff}',
     M + '{display:grid;grid-template-columns:minmax(13rem,17rem) minmax(0,1fr);grid-template-rows:auto 1fr;margin:1.5rem 0 0 1.5rem;background:#fff;box-shadow:-1.5rem -1.5rem 0 -1px #E8E9E9,-1.5rem -1.5rem 0 0 #AA1351}',
-    M + ' .auswertung_menu{grid-column:1;grid-row:1 / span 2;flex-direction:column;flex-wrap:nowrap;gap:2px;margin:0;padding:1.5rem 0;border:0;background:var(--rg-spalte)}',
-    M + ' .auswertung_reiter{margin:0;padding:.875rem 1.5rem;border:0;border-left:3px solid transparent;line-height:1.3;text-align:left;white-space:normal;color:var(--rg-spalte-text);transition:background-color .2s,color .2s}',
+    M + ' .auswertung_menu{grid-column:1;grid-row:1 / span 2;flex-direction:column;flex-wrap:nowrap;gap:0;margin:0;padding:1.5rem 0;border:0;background:var(--rg-spalte)}',
+    M + ' .auswertung_reiter{margin:0;padding:1rem 1.5rem;border:0;border-left:3px solid transparent;line-height:1.3;text-align:left;white-space:normal;color:var(--rg-spalte-text);transition:background-color .2s,color .2s}',
     M + ' .auswertung_reiter:hover{background:var(--rg-spalte-hover)}',
     M + ' .auswertung_reiter.w--current{border-left-color:#AA1351;background:var(--rg-spalte-aktiv);color:var(--rg-spalte-aktiv-text)}',
-    '.v-aw-m2 .rg-fl{display:flex;grid-column:2;grid-row:1;align-items:center;gap:1.25rem;padding:1.25rem 2rem 0;border:0;font-size:12px;line-height:1.3;color:' + SOFT + '}',
+    '.v-aw-m2 .rg-fl{display:flex;grid-column:2;grid-row:1;align-items:center;gap:1.5rem;padding:1.5rem 2rem 0;border:0;font-size:12px;line-height:1.3;color:' + SOFT + '}',
     '.v-aw-m2 .rg-fl i,.v-aw-m2 .rg-fl-titel{display:none}',
-    '.v-aw-m2 .rg-schritte{margin-left:0;gap:1.25rem}',
-    '.v-aw-m2 .rg-schritt{display:inline-flex;align-items:center;gap:6px;padding:0;border:0}',
+    '.v-aw-m2 .rg-schritte{margin-left:0;gap:.5rem 1.5rem}',
+    '.v-aw-m2 .rg-schritt{display:inline-flex;align-items:center;gap:.5rem;padding:0;border:0}',
     '.v-aw-m2 .rg-schritt::before{content:"";width:6px;height:6px;border-radius:50%;background:rgba(29,49,73,.22);transition:background-color .2s}',
     '.v-aw-m2 .rg-schritt.an{color:#AA1351}',
     '.v-aw-m2 .rg-schritt.an::before{background:#AA1351}',
     M + ' .w-tab-content{grid-column:2;grid-row:2;padding:1rem 2rem 2rem;min-width:0}',
-    M + ' .quote_featured.is-auswertung{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.5rem 2.5rem;align-items:start;padding:0}',
+    M + ' .quote_featured.is-auswertung{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.5rem 3rem;align-items:start;padding:0}',
     M + ' .auswertung_visual{grid-column:1/-1;height:auto;padding:0;box-shadow:none;background:none}',
-    M + ' .quote_content.is-auswertung{justify-content:flex-start;row-gap:.5rem;padding:.75rem 0 0;border-top:1px solid ' + L + '}',
+    M + ' .quote_content.is-auswertung{justify-content:flex-start;row-gap:.5rem;padding:1rem 0 0;border-top:1px solid ' + L + '}',
     M + ' .quote_content.is-auswertung::before{content:"Einordnung";display:block;font-family:' + AKZ + ';font-size:.6875rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:' + SOFT + '}',
     M + ' .quote_headline{font-size:1.25rem}',
     M + ' .quote_text.is-auswertung{font-size:1.0625rem;line-height:1.5}',
-    M + ' .auswertung_hinweis{margin-top:.25rem;font-size:.875rem}',
+    M + ' .auswertung_hinweis{margin-top:.5rem;font-size:.875rem}',
     M + ' .quote_author.is-auswertung{display:none}',
     M + ' .auswertung_massnahme{display:block}',
-    M + ' .dia_zeile,' + M + ' .bericht_schritt:last-child{margin-left:-.75rem;margin-right:-.75rem;padding-left:.75rem;padding-right:.75rem}',
+    M + ' .dia_zeile,' + M + ' .bericht_schritt:last-child{margin-left:-1rem;margin-right:-1rem;padding-left:1rem;padding-right:1rem}',
     M + ' .dia_zeile,' + M + ' .dia_zelle,' + M + ' .bericht_schritt,' + M + ' .dia-hinweis{transition:opacity .4s,background-color .4s,box-shadow .4s}',
     M + ' [data-schritt="1"] .dia-hinweis{opacity:0}',
     M + ' [data-schritt="1"] .dia-hinweis-zelle{outline-color:transparent}',
@@ -139,13 +139,13 @@
     '@media (max-width:991px){' +
       M + '{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;margin:1rem 0 0 1rem;box-shadow:-1rem -1rem 0 -1px #E8E9E9,-1rem -1rem 0 0 #AA1351}' +
       M + ' .auswertung_menu{grid-column:1;grid-row:1;flex-direction:row;overflow-x:auto;scrollbar-width:none;padding:.5rem}' +
-      M + ' .auswertung_reiter{white-space:nowrap;padding:.75rem 1rem;border-left:0;border-bottom:3px solid transparent}' +
+      M + ' .auswertung_reiter{white-space:nowrap;padding:1rem;border-left:0;border-bottom:3px solid transparent}' +
       M + ' .auswertung_reiter.w--current{border-bottom-color:#AA1351}' +
-      '.v-aw-m2 .rg-fl{grid-column:1;grid-row:2;padding:1rem 1.25rem 0}' +
+      '.v-aw-m2 .rg-fl{grid-column:1;grid-row:2;padding:1rem 1.5rem 0}' +
       '.v-aw-m2 .rg-schritte{gap:.5rem 1rem}' +
-      M + ' .w-tab-content{grid-column:1;grid-row:3;padding:.75rem 1.25rem 1.5rem}}',
+      M + ' .w-tab-content{grid-column:1;grid-row:3;padding:1rem 1.5rem 1.5rem}}',
     '@media (max-width:767px){' + M + ' .quote_featured.is-auswertung{grid-template-columns:minmax(0,1fr)}}',
-    '@media (max-width:479px){.v-aw-m2 .rg-schritte{display:grid;grid-template-columns:repeat(2,max-content);gap:.375rem 1.25rem}}',
+    '@media (max-width:479px){.v-aw-m2 .rg-schritte{display:grid;grid-template-columns:repeat(2,max-content);gap:.5rem 1.5rem}}',
     /* Insights: Magazin */
     I + ' .padding-section-large.is-seitenspalte{display:block}',
     I + ' .section-head_row.is-seitenspalte{flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;position:static;margin-bottom:clamp(2rem,5svh,3rem)}',
