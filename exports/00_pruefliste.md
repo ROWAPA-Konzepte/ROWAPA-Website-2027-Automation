@@ -59,7 +59,7 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Mauszeiger Punkt mit Ring auf allen Seiten, Ring läuft 1:1 mit (Entscheide 369, 383).
 - [ ] Megamenü: Spaltentitel als Link zur Übersicht; Performance-Analyse zuoberst unter «Für Unternehmen» (Entscheide 374, 375). Megamenü ohne Abdunkeln oder gestaffeltes Einblenden (Entscheid 390).
 - [ ] Navigation blendet beim Runterscrollen aus und beim Hochscrollen wieder ein (Grafik-Modul `kopfleiste`, Entscheid 390); keine Kapitel-Leiste unter dem Header.
-- [ ] Seitenwechsel site-weit: neue Seite fährt samt Navigation von unten ein, 1,0 s, Kurve sanft; Handy überblenden; nur innerhalb der Website (Kopf-Skript «ROWAPASeitenwechsel», Entscheid 391).
+- [ ] Seitenwechsel site-weit: neue Seite fährt samt Navigation von unten ein, 1,0 s, Kurve sanft; Handy überblenden; nur innerhalb der Website (Kopf-Skript «ROWAPASeitenwechsel», Entscheid 391). Seit Runde 83 umschaltbar `?wechsel=heute|neu|kurz` (Entscheid 397, Standard bleibt heute bis zum Entscheid).
 - [ ] Fotos: nur eigene Leute bzw. mit Einverständnis; nichts Firmenfremdes lesbar im Bild (z. B. Plakate); ohne Metadaten hochladen; Personenfotos nicht ins Repo; kein Bildtext, der mehr behauptet, als zu sehen ist.
 - [ ] Bildausschnitt je Format prüfen (2560, 1920, 1440, 1024, 768, 390 px, dazu breite, niedrige Fenster wie 2000 × 750): Köpfe nie anschneiden, Augen immer sichtbar (Entscheid 122). Bildflächen über ein Seitenverhältnis je Breakpoint bemessen, nicht über die Fensterhöhe; keine Höhenbegrenzung zusammen mit festem Seitenverhältnis (verkleinert sonst die Breite); Ausschnitt oben verankern; Zoom-Bewegungen von der Oberkante aus (Entscheid 392). Auch Bildschirmfotos mit Personenfotos nicht ins Repo.
 - [ ] Rückmeldungen von aussen (z. B. ChatGPT) gegen die Entscheide prüfen: Widersprüche benennen und ROWAPA vorlegen, nicht stillschweigend übernehmen (Runde 78).
@@ -81,3 +81,6 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Zustand «Current» (Reiter, Menüs) lässt sich über die Schnittstelle nicht setzen: im Designer von Hand, mit Anleitung an ROWAPA; keine Ersatz-CSS als Code (Runde 66, 80).
 - [ ] Grafik-Skript nur noch im Repository `rowapa-website-grafik` ändern; neue Fassung über jsDelivr mit Commit-Kennung und SRI registrieren (Entscheid 394).
 - [ ] Tablet (768–991) bei Diagrammen und Karten mit fester Höhe eigens prüfen: lesbar, nichts überlappt (Runde 80).
+- [ ] Bewegung messen statt schätzen (Runde 83): Übergänge und Animationen mit Bildzeiten prüfen (keine Ruckler über 50 ms); während eines Seitenwechsels rechnet die neue Seite nichts Schweres (Grafik startet danach).
+- [ ] Vorlade-Regeln (Speculation Rules) nach jeder Änderung testen: Zahl der getroffenen Links muss grösser als null sein; Chrome lädt mit angehängten Entwicklerwerkzeugen nicht vor (Runde 83).
+- [ ] Geräte-Erkennung nicht auf «Maus vorhanden» stützen: das Gerät von ROWAPA meldet keine Maus (Runde 31, 83); besser Fensterbreite oder erste echte Mausbewegung.
