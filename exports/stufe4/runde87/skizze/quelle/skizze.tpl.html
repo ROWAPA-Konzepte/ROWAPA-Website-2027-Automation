@@ -1,0 +1,1087 @@
+<title>ROWAPA Seitenskizze</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@600..800&family=TASA+Orbiter:wght@400..800&display=swap">
+<style>
+/* Layout: wechselnder Seitenrhythmus – dunkel/hell, hoch/kurz, asymmetrisch, Raster, Schienen; 8-px-Raster wie im CI */
+:root{
+  --manganese:#1D3149; --tief:#111D2C; --serpent:#486EA3; --seacliff:#A0C4DF; --plum:#AA1351; --snow:#E8E9E9; --weiss:#FFFFFF;
+  --ink:#1D3149; --ink-2:#4A5A70; --ink-3:rgba(29,49,73,.52); --linie:rgba(29,49,73,.14);
+  --hell-1:#FFFFFF; --hell-2:rgba(255,255,255,.76); --hell-3:rgba(255,255,255,.5); --linie-hell:rgba(255,255,255,.16);
+  --sea-flaeche:#D9E7F2; --plum-hell:#FBEEF3;
+  --f-text:"TASA Orbiter", ui-sans-serif, system-ui, "Segoe UI", Arial, sans-serif;
+  --f-label:"TASA Explorer", "TASA Orbiter", ui-sans-serif, system-ui, sans-serif;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s6:48px; --s8:64px; --s12:96px; --s16:128px;
+  --breite:1280px; --kopf:64px;
+  --schnell:200ms; --inhalt:400ms; --marke:850ms; --kurve:cubic-bezier(.37,0,.63,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--weiss);color:var(--ink);font-family:var(--f-text);font-size:17px;line-height:1.55;margin:0;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--tief)}
+h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+h3{font-weight:600}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+.wrap{max-width:var(--breite);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:768px){.wrap{padding-left:max(48px,env(safe-area-inset-left,0px));padding-right:max(48px,env(safe-area-inset-right,0px))}}
+.kicker{font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--plum)}
+.dunkel .kicker{color:var(--seacliff)}
+.h2{font-size:clamp(32px,4.4vw,60px)}
+.lead{font-size:clamp(17px,1.4vw,20px);color:var(--ink-2);max-width:36em}
+.dunkel{background:var(--tief);color:var(--hell-1)}
+.dunkel .lead{color:var(--hell-2)}
+.knopf{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;font-family:var(--f-label);font-weight:800;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;transition:background var(--schnell),color var(--schnell),border-color var(--schnell)}
+.knopf .pfeil{transition:transform var(--schnell)}
+.knopf:hover .pfeil{transform:translateX(4px)}
+.knopf.primaer{background:var(--plum);color:var(--weiss)}
+.knopf.primaer:hover{background:#8E0F44}
+.knopf.sekundaer{border-color:currentColor}
+.knopf.sekundaer:hover{background:rgba(255,255,255,.08)}
+.textlink{font-weight:700;text-decoration:underline;text-underline-offset:.3em;text-decoration-thickness:1px;display:inline-flex;gap:8px;align-items:center}
+.textlink .pfeil{transition:transform var(--schnell)}
+.textlink:hover .pfeil{transform:translateX(4px)}
+.muster{display:inline-block;font-family:var(--f-label);font-weight:700;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border:1px solid currentColor;opacity:.7}
+
+/* ---------- Kopfleiste: blendet beim Runterscrollen aus, beim Hochscrollen ein (Entscheid 390) ---------- */
+.kopf{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;background:var(--tief);color:var(--hell-1);border-bottom:1px solid var(--linie-hell);transition:transform 260ms var(--kurve)}
+.kopf.weg{transform:translateY(calc(-100% - env(safe-area-inset-top,0px)))}
+.kopf-innen{height:var(--kopf);display:flex;align-items:center;gap:var(--s4)}
+.marke{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em;text-decoration:none}
+.marke i{width:22px;height:22px;display:block;background:linear-gradient(135deg,transparent 46%,var(--plum) 46%,var(--plum) 62%,transparent 62%),var(--serpent);clip-path:polygon(0 0,100% 0,100% 70%,50% 100%,0 70%)}
+.nav{display:flex;gap:var(--s3);margin-left:auto;align-items:center;font-size:14px}
+.nav > a,.nav > button{opacity:.86;text-decoration:none;padding:8px 0}
+.nav > a:hover,.nav > button:hover,.nav > button[aria-expanded="true"]{opacity:1}
+.nav > [aria-current="page"]{opacity:1;box-shadow:inset 0 -2px 0 var(--plum)}
+.nav .knopf{min-height:36px;padding:0 14px;opacity:1}
+.menue-knopf{display:none;margin-left:auto;font-family:var(--f-label);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+@media (max-width:991px){.nav{display:none}.menue-knopf{display:block}}
+.mega{position:fixed;top:calc(var(--kopf) + env(safe-area-inset-top,0px));left:0;right:0;z-index:49;background:var(--weiss);color:var(--ink);border-bottom:1px solid var(--linie);box-shadow:0 24px 40px -32px rgba(17,29,44,.5);opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity 240ms var(--kurve),transform 240ms var(--kurve)}
+.mega.offen{opacity:1;transform:none;pointer-events:auto}
+.mega-innen{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3.4fr);gap:var(--s6);padding-block:var(--s6)}
+.mega-intro p{color:var(--ink-2);margin-top:12px;font-size:15px}
+.mega-liste{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s3)}
+.mega-eintrag{text-align:left;display:grid;gap:8px;padding:var(--s2);border:1px solid transparent;transition:border-color var(--schnell),background var(--schnell)}
+.mega-eintrag:hover,.mega-eintrag:focus-visible{border-color:var(--linie);background:#FAFAFA}
+.mega-eintrag canvas{width:100%;aspect-ratio:4/3;display:block;transition:transform 300ms var(--kurve)}
+.mega-eintrag:hover canvas{transform:scale(1.04)}
+.mega-eintrag b{font-size:15px;line-height:1.25}
+.mega-eintrag span{font-size:13px;color:var(--ink-2);line-height:1.4}
+@media (max-width:991px){.mega{bottom:0;overflow:auto}.mega-innen{grid-template-columns:minmax(0,1fr)}.mega-liste{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.mega-liste{grid-template-columns:minmax(0,1fr)}.mega-eintrag{grid-template-columns:96px minmax(0,1fr);align-items:center}.mega-eintrag canvas{grid-row:span 2}}
+
+/* ---------- Mauszeiger: Punkt mit Ring, 1:1 (Entscheide 369, 383) ---------- */
+.zeiger-an, .zeiger-an a, .zeiger-an button{cursor:none}
+.zeiger{position:fixed;left:0;top:0;z-index:100;pointer-events:none;display:none}
+.zeiger-an .zeiger{display:block}
+.zeiger .punkt{position:absolute;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:var(--plum)}
+.zeiger .ring{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1px solid var(--serpent);transition:width var(--schnell),height var(--schnell),margin var(--schnell)}
+.zeiger.ueber .ring{width:48px;height:48px;margin:-24px 0 0 -24px}
+
+/* ---------- Ansichten ---------- */
+.ansicht[hidden]{display:none}
+main{padding-top:calc(var(--kopf) + env(safe-area-inset-top,0px))}
+section{position:relative}
+.sek{padding-block:clamp(64px,9vw,128px)}
+
+/* Rhythmus-Etiketten */
+.etikett{display:none;position:absolute;left:max(12px,env(safe-area-inset-left,0px));top:12px;z-index:5;max-width:min(520px,calc(100% - 24px));background:var(--plum);color:var(--weiss);font-size:12.5px;line-height:1.35;padding:8px 12px}
+.etikett b{display:block;font-family:var(--f-label);font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:11px;margin-bottom:2px}
+.zeige-rhythmus .etikett{display:block}
+.zeige-rhythmus section[data-typ]{outline:2px dashed rgba(170,19,81,.45);outline-offset:-2px}
+
+/* ---------- 1 Einstieg ---------- */
+.einstieg{padding-block:clamp(40px,5vw,72px) 0;overflow:hidden;min-height:calc(100svh - var(--kopf) - env(safe-area-inset-top,0px));display:flex;flex-direction:column}
+.einstieg > .wrap{flex:1;display:flex;align-items:center;width:100%}
+.einstieg-raster{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:var(--s6);align-items:center;width:100%}
+.einstieg h1{font-size:clamp(34px,min(6.2vh,4.6vw),76px);letter-spacing:-.035em;line-height:1;margin-top:var(--s3)}
+@media (min-width:768px){.einstieg h1 .zeile{white-space:nowrap}}
+.einstieg h1 .zeile{display:block}
+.einstieg h1 .unterstrichen{background:linear-gradient(var(--plum),var(--plum)) 0 92%/100% 4px no-repeat;padding-bottom:4px}
+.einstieg .lead{margin-top:var(--s4)}
+.einstieg .knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--s4)}
+.rollen{margin-top:var(--s4);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rollen > span{font-size:13px;color:var(--hell-3);margin-right:4px}
+.rolle{font-size:13.5px;padding:7px 14px;border:1px solid var(--linie-hell);border-radius:999px;transition:background var(--schnell),border-color var(--schnell)}
+.rolle:hover{border-color:var(--hell-3)}
+.rolle[aria-pressed="true"]{background:var(--weiss);color:var(--tief);border-color:var(--weiss)}
+.rollen-satz{min-height:3em;margin-top:12px;font-size:15px;color:var(--hell-2);max-width:34em}
+.buehne{position:relative;aspect-ratio:1/0.82;max-width:100%}
+.buehne canvas{position:absolute;inset:0;width:100%;height:100%}
+.einstieg .buehne{aspect-ratio:1/1.05}
+.logo-band{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--linie-hell);padding-block:18px;overflow:hidden;white-space:nowrap}
+.logo-band .spur{display:inline-flex;gap:56px;padding-left:56px;animation:lauf 60s linear infinite;font-weight:700;font-size:15px;color:var(--hell-3)}
+@keyframes lauf{to{transform:translateX(-50%)}}
+.ruhig .logo-band .spur{animation-play-state:paused}
+@media (max-width:860px){.einstieg-raster{grid-template-columns:minmax(0,1fr);gap:var(--s3)}.buehne,.einstieg .buehne{order:-1;aspect-ratio:1.6/1;max-height:200px}}
+
+/* ---------- 2 Themen ---------- */
+.themen{background:var(--snow)}
+.themen-links,.digital-rechts{min-width:0}
+.themen-links .h2{margin-top:12px}
+.themen-links .lead{margin-top:16px;margin-bottom:var(--s6)}
+.themen-raster{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--s6);align-items:start}
+.themen-liste{display:grid;border-top:1px solid var(--linie)}
+.thema{display:grid;grid-template-columns:48px minmax(0,1fr);gap:var(--s2);text-align:left;padding:20px 0;border-bottom:1px solid var(--linie);transition:color var(--schnell),padding var(--schnell)}
+.thema .nr{font-family:var(--f-label);font-weight:800;font-size:13px;letter-spacing:.1em;color:var(--ink-3);padding-top:6px}
+.thema b{display:block;font-size:clamp(20px,2vw,27px);line-height:1.15;letter-spacing:-.015em;color:var(--ink-3);transition:color var(--schnell)}
+.thema small{display:block;font-size:13px;color:var(--ink-3);margin-top:4px}
+.thema:hover b{color:var(--ink-2)}
+.thema[aria-selected="true"] b{color:var(--ink)}
+.thema[aria-selected="true"] .nr{color:var(--plum)}
+.thema[aria-selected="true"]{box-shadow:inset 3px 0 0 var(--plum);padding-left:16px}
+.themen-tafel{position:sticky;top:calc(var(--kopf) + 32px);background:var(--weiss);display:grid;grid-template-rows:auto auto}
+.themen-tafel .buehne{aspect-ratio:16/10;border-bottom:1px solid var(--linie)}
+.themen-text{padding:var(--s4);display:grid;gap:var(--s2);min-height:220px}
+.themen-text h3{font-size:clamp(22px,2.2vw,30px)}
+.themen-text p{color:var(--ink-2)}
+.wechsel{transition:opacity var(--inhalt) var(--kurve),transform var(--inhalt) var(--kurve)}
+.wechsel.aus{opacity:0;transform:translateY(8px)}
+/* Variante Scroll-Szene */
+.themen.ist-scroll .themen-scroll{height:calc(5 * 72vh)}
+.themen.ist-scroll .themen-pin{position:sticky;top:calc(var(--kopf) + 24px)}
+.themen.ist-scroll .themen-tafel{position:static}
+.themen.ist-scroll .themen-hinweis{display:block}
+.themen.ist-scroll .themen-links .lead{display:none}
+.themen.ist-scroll .themen-links .h2{margin-bottom:var(--s3)}
+.themen.ist-scroll .thema{padding-block:12px}
+.themen.ist-scroll .themen-tafel .buehne{aspect-ratio:16/9}
+.themen.ist-scroll .themen-text{min-height:0}
+.themen-hinweis{display:none;font-size:13px;color:var(--ink-3);margin-top:12px}
+@media (max-width:860px){.themen-raster{grid-template-columns:minmax(0,1fr);gap:var(--s3)}.themen-tafel{position:static}.themen-links .lead{margin-bottom:var(--s3)}.themen-liste{grid-auto-flow:column;grid-auto-columns:minmax(210px,72%);overflow-x:auto;border-top:0;gap:8px;scroll-snap-type:x mandatory;scrollbar-width:none}.thema,.themen.ist-scroll .thema{border:1px solid var(--linie);background:var(--weiss);padding:12px;scroll-snap-align:start;grid-template-columns:36px minmax(0,1fr)}.thema[aria-selected="true"]{padding-left:12px;border-color:var(--plum)}.thema b{font-size:17px}.themen-text{padding:var(--s3);min-height:0}}
+
+/* ---------- 3 Belege (Bento) ---------- */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--s2)}
+.kachel{padding:var(--s4);border:1px solid var(--linie);display:flex;flex-direction:column;gap:12px;min-width:0}
+.kachel.stimme{grid-column:span 7;grid-row:span 2;background:var(--manganese);color:var(--hell-1);border-color:var(--manganese);justify-content:space-between}
+.kachel.titel{grid-column:span 5;border:0;padding:0 var(--s4) var(--s4) 0;justify-content:flex-start}
+.kachel.titel .h2{margin-top:4px}
+.kachel.titel .lead{margin-top:4px}
+.kachel.zahl{grid-column:span 5}
+.kachel.zahl.drittel{grid-column:span 4}
+.kachel.wirkung{grid-column:span 4;background:var(--snow);border-color:var(--snow)}
+.kachel.wirkung b{font-size:20px}
+.kachel.wirkung p{color:var(--ink-2)}
+.kachel.logos{grid-column:span 8;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.kachel .gross{font-size:clamp(44px,5vw,72px);font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--plum)}
+.kachel.zahl p{color:var(--ink-2)}
+.stimme-kopf{font-weight:700;color:var(--seacliff);font-size:18px}
+.stimme blockquote{margin:0;font-size:clamp(22px,2.2vw,30px);line-height:1.25;letter-spacing:-.01em}
+.stimme .wer{font-size:14px;color:var(--hell-2)}
+.stimme .wer b{display:block;color:var(--hell-1);font-size:15px}
+.stimme-nav{display:flex;align-items:center;gap:12px;margin-top:var(--s2)}
+.stimme-nav button{width:40px;height:40px;border:1px solid var(--linie-hell);display:grid;place-items:center;transition:background var(--schnell)}
+.stimme-nav button:hover{background:rgba(255,255,255,.08)}
+.stimme-nav span{font-size:13px;color:var(--hell-3);font-variant-numeric:tabular-nums}
+.logos .kicker{flex-basis:100%;color:var(--ink-3)}
+.logos span{font-weight:700;color:var(--ink-3);font-size:15px}
+@media (max-width:860px){.kachel.titel,.kachel.stimme,.kachel.zahl,.kachel.wirkung,.kachel.logos{grid-column:span 12}.kachel.zahl.drittel{grid-column:span 6}.kachel.titel{padding:0 0 var(--s2)}}
+@media (max-width:520px){.kachel.zahl.drittel{grid-column:span 12}.kachel{padding:var(--s3)}}
+
+/* ---------- 4 Auswertung (Produktfenster) ---------- */
+.auswertung-teaser{background:var(--manganese);padding-top:clamp(64px,9vw,128px);--ueberstand:clamp(120px,16vw,240px)}
+.teaser-kopf{width:fit-content;max-width:820px;margin:0 auto var(--s6)}
+.teaser-kopf .h2{margin-top:12px}
+.teaser-kopf .lead{margin-top:16px}
+.auswertung-teaser .fenster{position:relative;z-index:1;margin-bottom:calc(-1 * var(--ueberstand))}
+.teaser-weiss{background:var(--weiss);color:var(--ink);padding-top:calc(var(--ueberstand) + var(--s4));padding-bottom:var(--s4)}
+.fenster{background:var(--weiss);color:var(--ink);box-shadow:0 30px 60px -30px rgba(0,0,0,.55)}
+.fenster-leiste{display:flex;align-items:center;gap:8px;padding:10px 16px;border-bottom:1px solid var(--linie);font-size:12.5px;color:var(--ink-3)}
+.fenster-leiste i{width:9px;height:9px;border-radius:50%;background:var(--snow)}
+.fenster-leiste .muster{margin-left:auto}
+.aw{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
+.aw-fragen{border-right:1px solid var(--linie);padding:var(--s2);display:grid;gap:4px;align-content:start}
+.aw-frage{text-align:left;padding:12px 14px;font-weight:600;font-size:15.5px;line-height:1.3;color:var(--ink-2);border-left:2px solid transparent;transition:background var(--schnell),color var(--schnell),border-color var(--schnell)}
+.aw-frage:hover{background:var(--snow)}
+.aw-frage[aria-selected="true"]{color:var(--ink);border-left-color:var(--plum);background:var(--plum-hell)}
+.aw-haupt{padding:var(--s4);display:grid;gap:var(--s3);min-width:0}
+.aw-titel{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:13px;color:var(--ink-3)}
+.aw-schritte{display:flex;gap:6px;flex-wrap:wrap}
+.aw-schritt{font-size:12px;padding:4px 10px;border:1px solid var(--linie);color:var(--ink-3);transition:all var(--schnell)}
+.aw-schritt.an{border-color:var(--plum);color:var(--plum)}
+.aw-grafik{min-height:250px;overflow-x:auto}
+.aw-grafik svg{display:block;width:100%;height:auto;min-width:420px}
+.aw-text{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s3)}
+.aw-block{border-top:2px solid var(--snow);padding-top:12px;transition:opacity var(--inhalt) var(--kurve),transform var(--inhalt) var(--kurve)}
+.aw-block.aus{opacity:0;transform:translateY(8px)}
+.aw-block .kicker{font-size:11px}
+.aw-block p{margin-top:6px;font-size:15.5px;color:var(--ink-2)}
+.aw-block.einordnung p{color:var(--ink)}
+.aw-block.massnahme{border-top-color:var(--plum)}
+.aw-block.massnahme p{color:var(--ink);font-weight:600}
+.aw-block .vorschlag{display:block;margin-top:6px;font-size:12px;color:var(--ink-3);font-weight:400}
+.aw-abweichung{font-weight:700;color:var(--plum)}
+.aw-fuss{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;align-items:center}
+.aw-fuss p{font-size:14px;color:var(--ink-2);max-width:40em}
+.kompakt .aw-text{grid-template-columns:minmax(0,1fr)}
+@media (max-width:860px){.aw{grid-template-columns:minmax(0,1fr)}.aw-fragen{border-right:0;border-bottom:1px solid var(--linie);grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto}.aw-text{grid-template-columns:minmax(0,1fr)}}
+/* Diagramm */
+.g-achse{stroke:var(--linie);stroke-width:1}
+.g-text{fill:var(--ink-2);font:500 13px var(--f-text)}
+.g-klein{fill:var(--ink-3);font:500 11px var(--f-text)}
+.g-zahl{font:700 13px var(--f-text);fill:var(--ink-2);font-variant-numeric:tabular-nums}
+.g-zeile{transition:opacity var(--inhalt) var(--kurve)}
+.dimmen .g-zeile:not(.heraus){opacity:.32}
+.g-zeile.heraus .g-zahl{fill:var(--plum)}
+.g-zeile.heraus .g-text{fill:var(--ink);font-weight:700}
+.g-balken{transform-box:fill-box;transform-origin:left center;transition:transform 600ms var(--kurve)}
+.g-punkt{transition:transform 600ms var(--kurve)}
+.g-zelle{transition:opacity var(--inhalt) var(--kurve)}
+
+/* ---------- 5 Statement-Band ---------- */
+.statement{overflow:hidden;padding-block:clamp(56px,7vw,104px);border-top:1px solid var(--linie)}
+.statement .ribbon{position:absolute;left:84%;top:50%;width:12px;height:400%;background:var(--plum);transform:translate(-50%,-50%) rotate(-45deg);opacity:.7}
+.statement .wrap{position:relative}
+.statement h2{font-size:clamp(40px,6vw,104px);letter-spacing:-.04em;line-height:.95}
+.statement p{color:var(--ink-2);font-size:clamp(17px,1.4vw,20px);margin-top:var(--s3);max-width:28em}
+@media (max-width:600px){.statement .ribbon{display:none}}
+
+/* ---------- 6 Vorgehen (Zeitleiste) ---------- */
+.vorgehen{background:var(--snow);padding-block:clamp(56px,7vw,96px)}
+.zeit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:var(--s6);border-top:1px solid var(--linie)}
+.phase{text-align:left;padding:var(--s3) var(--s3) var(--s3) 0;position:relative;border-right:1px solid var(--linie);min-width:0}
+.phase:last-child{border-right:0}
+.phase::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--snow);border:2px solid var(--ink-3);transition:all var(--schnell)}
+.phase .nr{font-family:var(--f-label);font-weight:800;font-size:13px;letter-spacing:.1em;color:var(--ink-3)}
+.phase b{display:block;font-size:clamp(22px,2.4vw,34px);letter-spacing:-.02em;margin-top:6px;color:var(--ink-3);transition:color var(--schnell)}
+.phase span{display:block;font-size:14.5px;color:var(--ink-3);margin-top:4px}
+.phase[aria-selected="true"]::before{background:var(--plum);border-color:var(--plum)}
+.phase[aria-selected="true"] b{color:var(--ink)}
+.phase[aria-selected="true"] .nr{color:var(--plum)}
+.kopf-rechts{width:fit-content;margin-left:auto;max-width:720px}
+@media (max-width:860px){.kopf-rechts{margin-left:0}}
+.ergebnis{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s6);margin-top:var(--s4);background:var(--weiss);padding:var(--s4)}
+.ergebnis p{color:var(--ink-2)}
+.ergebnis .erhalt{border-left:2px solid var(--plum);padding-left:var(--s3)}
+.ergebnis .erhalt b{display:block;font-size:20px;line-height:1.3;margin-top:6px}
+.ergebnis .vorschlag{display:block;margin-top:8px;font-size:12px;color:var(--ink-3)}
+@media (max-width:860px){.zeit{grid-template-columns:repeat(2,minmax(0,1fr))}.phase:nth-child(2){border-right:0}.ergebnis{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- 7 Digital ---------- */
+.digital{background:var(--manganese)}
+.digital-raster{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s8);align-items:center}
+.digital-rechts .h2{font-size:clamp(30px,3.4vw,48px);margin-top:12px}
+.digital-rechts .lead{margin-top:16px;font-size:16.5px}
+.werkzeuge{display:grid;gap:4px;margin-top:var(--s4)}
+.werkzeug{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;text-align:left;padding:14px 16px;border:1px solid transparent;transition:border-color var(--schnell),background var(--schnell)}
+.werkzeug svg{width:24px;height:24px;margin-top:2px;color:var(--seacliff)}
+.werkzeug b{display:block;font-size:17px}
+.werkzeug span{display:block;font-size:14px;color:var(--hell-3)}
+.werkzeug:hover{background:rgba(255,255,255,.04)}
+.werkzeug[aria-selected="true"]{border-color:var(--linie-hell);background:rgba(255,255,255,.06)}
+.werkzeug[aria-selected="true"] svg{color:var(--plum)}
+.vorschau{background:var(--tief);border:1px solid var(--linie-hell)}
+.vorschau-leiste{display:flex;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--linie-hell);font-size:12px;color:var(--hell-3)}
+.vorschau-leiste i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.18)}
+.vorschau-leiste .muster{margin-left:auto}
+.vorschau-flaeche{position:relative;aspect-ratio:16/10;padding:var(--s3);overflow:hidden}
+.vorschau-satz{padding:var(--s3);border-top:1px solid var(--linie-hell);display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;align-items:center}
+.vorschau-satz p{font-size:18px;max-width:30em}
+.wf{position:absolute;inset:var(--s3);display:grid;gap:12px}
+.wf .k{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:10px;font-size:12px;color:var(--hell-3);min-width:0}
+.wf .k b{display:block;color:var(--hell-2);font-size:13px;margin-bottom:6px}
+.wf .bar{height:8px;background:rgba(255,255,255,.12);margin-top:6px}
+.wf .bar i{display:block;height:100%;background:var(--seacliff)}
+.markierung{position:absolute;border:2px solid var(--plum);box-shadow:0 0 0 9999px rgba(12,22,34,.38);transition:all 500ms var(--kurve);pointer-events:none}
+@media (max-width:860px){.digital-raster{grid-template-columns:minmax(0,1fr);gap:var(--s4)}.digital-rechts{order:-1}.werkzeuge{grid-auto-flow:column;grid-auto-columns:minmax(220px,1fr);overflow-x:auto}}
+
+/* ---------- 8 Menschen ---------- */
+.kopf-mitte{width:fit-content;max-width:760px;margin:0 auto}
+.kopf-mitte .h2{margin-top:12px}
+.menschen-raster{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s3);margin-top:var(--s8);align-items:start}
+.person{text-align:left;display:grid;gap:4px;align-content:start}
+.person:nth-child(2),.person:nth-child(4){margin-top:var(--s8)}
+.person:nth-child(3){margin-top:var(--s4)}
+.portraet{margin-bottom:8px;aspect-ratio:3/4;background:var(--snow);position:relative;overflow:hidden;display:grid;place-items:center;transition:background var(--schnell)}
+.portraet canvas{position:absolute;inset:0;width:100%;height:100%}
+.portraet .initialen{position:relative;font-size:clamp(32px,3vw,48px);font-weight:800;color:var(--manganese);letter-spacing:-.04em}
+.portraet .hinweis{position:absolute;left:12px;bottom:10px;font-size:11px;color:var(--ink-3)}
+.person:hover .portraet{background:#DCDFE1}
+.person b{font-size:18px;line-height:1.25}
+.person .funktion{color:var(--ink-2);font-size:14px;line-height:1.35}
+.detail{position:fixed;top:0;right:0;bottom:0;width:min(480px,100%);background:var(--weiss);z-index:70;box-shadow:-30px 0 60px -40px rgba(17,29,44,.6);transform:translateX(102%);visibility:hidden;transition:transform 300ms var(--kurve),visibility 0s linear 300ms;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.detail.offen{transform:none;visibility:visible;transition:transform 300ms var(--kurve)}
+.detail-kopf{display:flex;justify-content:space-between;align-items:center;padding:var(--s3);border-bottom:1px solid var(--linie)}
+.detail-kopf button{width:40px;height:40px;border:1px solid var(--linie);font-size:20px}
+.detail-inhalt{padding:var(--s4) var(--s3);overflow:auto;display:grid;gap:var(--s3)}
+.detail-inhalt dl{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px 16px;margin:0;font-size:15px}
+.detail-inhalt dt{color:var(--ink-3)}
+.detail-inhalt dd{margin:0}
+.offen-markiert{color:var(--plum);font-weight:600}
+@media (max-width:860px){.menschen-raster{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4) var(--s2);margin-top:var(--s6)}.person:nth-child(n){margin-top:0}}
+
+/* ---------- 9 Wege (Schiene) ---------- */
+.wege{background:var(--snow);padding-block:clamp(48px,6vw,80px);overflow:hidden}
+.schiene{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(250px,26vw,360px);gap:var(--s2);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:-16px;padding-right:16px}
+.schiene::-webkit-scrollbar{display:none}
+@media (min-width:768px){.schiene{margin-right:calc(-48px - max(0px, (100vw - var(--breite)) / 2));padding-right:calc(48px + max(0px, (100vw - var(--breite)) / 2))}}
+.weg.titelkarte{background:none;border:0;padding:0 var(--s3) 0 0;display:flex;flex-direction:column}
+.weg.titelkarte h2{font-size:clamp(26px,2.4vw,34px);margin-top:12px}
+.weg.titelkarte p{margin-top:4px}
+.schiene-nav{display:flex;gap:8px;margin-top:auto;padding-top:var(--s3)}
+.schiene-nav button{width:40px;height:40px;border:1px solid var(--linie);background:var(--weiss);display:grid;place-items:center}
+.weg{scroll-snap-align:start;background:var(--weiss);border:1px solid var(--linie);padding:var(--s3);display:grid;gap:10px;align-content:start;text-decoration:none;transition:border-color var(--schnell)}
+.weg:hover{border-color:var(--ink-3)}
+.weg small{font-size:12px;color:var(--ink-3)}
+.weg b{font-size:21px;line-height:1.2}
+.weg p{font-size:15px;color:var(--ink-2)}
+.weg.cas{background:var(--manganese);color:var(--hell-1);border-color:var(--manganese)}
+.weg.cas p,.weg.cas small{color:var(--hell-2)}
+
+/* ---------- 10 Insights ---------- */
+.insights{background:var(--weiss)}
+.insights-kopf{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:var(--s3)}
+.filter{display:flex;gap:8px;flex-wrap:wrap}
+.filter button{padding:8px 16px;border:1px solid var(--linie);font-size:14px;background:var(--weiss);transition:all var(--schnell)}
+.filter button[aria-pressed="true"]{background:var(--manganese);color:var(--weiss);border-color:var(--manganese)}
+.karten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s2);margin-top:var(--s4)}
+.karte{background:var(--weiss);border:1px solid var(--linie);padding:var(--s3);display:grid;gap:10px;align-content:start;text-decoration:none;transition:border-color var(--schnell),opacity var(--inhalt)}
+.karte:hover{border-color:var(--ink-3)}
+.karte .meta{font-size:12.5px;color:var(--ink-3)}
+.karte .meta b{font-family:var(--f-label);font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--plum);font-size:11px;margin-right:8px}
+.karte h3{font-size:21px;line-height:1.2}
+.karte p{font-size:15px;color:var(--ink-2)}
+.karte[hidden]{display:none}
+.karte.gross{grid-column:span 2;grid-row:span 2;background:var(--manganese);border-color:var(--manganese);color:var(--hell-1);padding:var(--s4);align-content:end;min-height:320px}
+.karte.gross h3{font-size:clamp(26px,2.6vw,38px)}
+.karte.gross p{color:var(--hell-2);font-size:16.5px;max-width:32em}
+.karte.gross .meta{color:var(--hell-3)}
+.karte.gross .meta b{color:var(--seacliff)}
+@media (max-width:860px){.karten{grid-template-columns:minmax(0,1fr)}.karte.gross{grid-column:auto;grid-row:auto;min-height:0}}
+
+/* ---------- 11 Gespräch ---------- */
+.gespraech{background:var(--sea-flaeche)}
+.wrap.gespraech-mitte{max-width:1000px}
+.gespraech h2{font-size:clamp(36px,6vw,88px);letter-spacing:-.035em;line-height:1;margin-top:12px}
+.gespraech .lead{margin-top:24px}
+.gespraech-knopf{margin-top:var(--s4)}
+.kontakt{margin-top:var(--s6);padding-top:var(--s3);border-top:1px solid rgba(29,49,73,.24);display:flex;flex-wrap:wrap;gap:6px 24px;font-size:15px}
+.titel-zentriert .kopf-mitte,.titel-zentriert .teaser-kopf,.titel-zentriert .gespraech-mitte{text-align:center}
+.titel-zentriert .teaser-kopf .lead,.titel-zentriert .gespraech .lead{margin-left:auto;margin-right:auto}
+.titel-zentriert .kontakt{justify-content:center}
+.kontakt .klein{color:var(--ink-2)}
+.fuss{background:var(--tief);color:var(--hell-3);font-size:13px;padding-block:var(--s4)}
+.fuss .wrap{display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
+
+/* ---------- Performance-Analyse ---------- */
+.pa-kopf{padding-block:clamp(48px,7vw,96px) clamp(48px,6vw,80px);overflow:hidden}
+@media (min-width:861px){.pa-kopf .einstieg-raster{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+.pfad{font-size:13px;color:var(--hell-3)}
+.pfad b{color:var(--hell-1);font-weight:600}
+.pa-kopf h1{font-size:clamp(34px,min(6vh,4.4vw),68px);letter-spacing:-.03em;line-height:1.02;margin-top:var(--s3)}
+.pa-kopf .strich{width:64px;height:3px;background:var(--plum);margin-top:var(--s3)}
+.pa-aw{padding-block:clamp(64px,8vw,112px)}
+.wortweise .wort{display:inline-block;opacity:0;transform:translateY(.35em);transition:opacity 500ms var(--kurve),transform 500ms var(--kurve)}
+.wortweise.an .wort,.ruhig .wortweise .wort{opacity:1;transform:none}
+.ruhig .wortweise .wort{transition:none}
+.pa-aw .fenster{box-shadow:0 30px 60px -40px rgba(17,29,44,.45);border:1px solid var(--linie)}
+.pa-band{background:var(--snow);padding-block:var(--s8)}
+.pa-band .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s4);align-items:center}
+@media (max-width:860px){.pa-band .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- Skizzen-Leiste ---------- */
+.leiste{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:80;font-size:13px;color:var(--ink)}
+.leiste-knopf{background:var(--manganese);color:var(--weiss);padding:10px 16px;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25);font-weight:600}
+.leiste-knopf em{font-style:normal;color:var(--seacliff)}
+@media (max-width:600px){.leiste-knopf em{display:none}.leiste-knopf{padding:8px 14px}}
+.leiste-panel{display:none;width:min(360px,calc(100vw - 32px));max-height:min(80vh,680px);overflow:auto;background:var(--weiss);border:1px solid var(--linie);box-shadow:0 12px 36px rgba(0,0,0,.2);padding:16px}
+.leiste.offen .leiste-panel{display:block}
+.leiste.offen .leiste-knopf{display:none}
+.leiste-panel h4{font-size:15px;letter-spacing:0;display:flex;justify-content:space-between;align-items:center}
+.leiste-panel h4 button{font-size:20px;line-height:1;padding:0 4px}
+.leiste-zeile{border-top:1px solid var(--snow);padding-block:10px;display:grid;gap:6px}
+.leiste-zeile > span{font-weight:600}
+.wahl{display:flex;flex-wrap:wrap;gap:4px}
+.wahl button{border:1px solid var(--linie);padding:4px 10px;font-size:12.5px}
+.wahl button[aria-pressed="true"]{background:var(--manganese);color:var(--weiss);border-color:var(--manganese)}
+.leiste-notiz{font-size:12px;color:var(--ink-3);line-height:1.45}
+.karte-rhythmus{display:grid;gap:3px;margin-top:4px}
+.karte-rhythmus button{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;align-items:stretch;text-align:left;font-size:12px}
+.karte-rhythmus i{display:block;border:1px solid var(--linie);min-height:10px}
+.karte-rhythmus span{align-self:center;color:var(--ink-2)}
+.karte-rhythmus small{display:block;color:var(--ink-3);font-size:11px}
+.kopf{view-transition-name:kopf}.leiste{view-transition-name:leiste}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,12px);background:var(--manganese);color:var(--weiss);font-size:14px;padding:10px 16px;z-index:90;opacity:0;pointer-events:none;transition:opacity var(--schnell),transform var(--schnell);max-width:calc(100vw - 32px)}
+.toast.an{opacity:1;transform:translate(-50%,0)}
+.mega-mobil{display:none}
+@media (max-width:991px){.mega-mobil{display:grid;margin-top:16px;border-top:1px solid var(--linie)}.mega-mobil a{padding:12px 0;border-bottom:1px solid var(--linie);text-decoration:none;font-weight:600}}
+@media print{.leiste{display:none}}
+
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<div class="zeiger" aria-hidden="true"><div class="ring"></div><div class="punkt"></div></div>
+
+<header class="kopf" id="kopf">
+  <div class="wrap kopf-innen">
+    <a class="marke" href="#startseite"><i aria-hidden="true"></i>ROWAPA</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <button type="button" id="mega-knopf" aria-expanded="false" aria-controls="mega">Was wir tun ▾</button>
+      <a href="#vorgehen">So arbeiten wir</a>
+      <a href="#belege">Unsere Kunden</a>
+      <a href="#menschen">Über uns</a>
+      <a href="#gespraech">Partner werden</a>
+      <a class="knopf primaer" href="#gespraech">Kontakt</a>
+    </nav>
+    <button type="button" class="menue-knopf" id="menue-knopf" aria-expanded="false" aria-controls="mega">Menü</button>
+  </div>
+</header>
+<div class="mega" id="mega" role="region" aria-label="Was wir tun">
+  <div class="wrap mega-innen">
+    <div class="mega-intro"><div class="kicker">Was wir tun</div><p>Fünf Themen, ein abgestimmtes System. Jedes Thema hat sein eigenes Punktmotiv, auf der Startseite wie auf der Themenseite.</p><p><a class="textlink" href="#performance-analyse">Performance-Analyse <span class="pfeil">→</span></a></p><nav class="mega-mobil" aria-label="Weitere Seiten"><a href="#vorgehen">So arbeiten wir</a><a href="#belege">Unsere Kunden</a><a href="#menschen">Über uns</a><a href="#gespraech">Partner werden</a><a href="#gespraech">Kontakt</a></nav></div>
+    <div class="mega-liste" id="mega-liste"></div>
+  </div>
+</div>
+
+<main>
+<!-- =================== STARTSEITE =================== -->
+<div class="ansicht" id="ansicht-start">
+
+<section class="einstieg dunkel" data-typ="Einstieg" data-titel="links, sehr gross" data-notiz="dunkel · füllt den Bildschirm · asymmetrisch 8:4 · Punkte formen einmal die Treppe, danach nur ruhige Bewegung · zwei Handlungen sofort sichtbar · Idee: Einstieg nach Rolle">
+  <div class="wrap">
+    <div class="einstieg-raster">
+      <div>
+        <div class="kicker">Beratung · Training · Digitale Lösungen</div>
+        <h1><span class="zeile">Mehr Vertriebsleistung.</span><span class="zeile">Stärkere Führung.</span><span class="zeile"><span class="unterstrichen">Weniger Fluktuation.</span></span></h1>
+        <p class="lead">Wir verbinden menschliche Expertise mit künstlicher Intelligenz und eigenen digitalen Lösungen. Damit aus Potenzial messbare Leistung wird.</p>
+        <div class="knoepfe">
+          <a class="knopf primaer" href="#performance-analyse">Beispielauswertung ansehen <span class="pfeil">→</span></a>
+          <a class="knopf sekundaer" href="#gespraech">Gespräch vereinbaren</a>
+        </div>
+        <div class="rollen" role="group" aria-label="Einstieg nach Rolle">
+          <span>Ihr Einstieg:</span>
+          <button type="button" class="rolle" data-rolle="0" aria-pressed="false">Für Generalagenturen</button>
+          <button type="button" class="rolle" data-rolle="1" aria-pressed="false">Für Vertriebsleitungen</button>
+          <button type="button" class="rolle" data-rolle="2" aria-pressed="false">Für Banken</button>
+        </div>
+        <p class="rollen-satz" id="rollen-satz" aria-live="polite"></p>
+      </div>
+      <div class="buehne" aria-hidden="true"><canvas id="cv-einstieg"></canvas></div>
+    </div>
+  </div>
+  <div class="logo-band" aria-label="Unter anderem vertrauen uns diese Finanzunternehmen"><div class="spur" id="logo-spur"></div></div>
+</section>
+
+<section class="themen sek" id="themen" data-typ="Auswahl" data-titel="in der Auswahl" data-notiz="hell · kein Titelstreifen darüber: der Titel steht über den fünf Themen · Klick verwandelt die Punktform (0,85 s) · umschaltbar auf Scroll-Szene in der Leiste">
+  <div class="themen-scroll">
+    <div class="themen-pin">
+      <div class="wrap">
+        <div class="themen-raster">
+          <div class="themen-links">
+            <div class="kicker">Was wir tun</div>
+            <h2 class="h2">Lösungen für Unternehmen</h2>
+            <p class="lead">Fünf Themen, ein abgestimmtes System: Wir stärken Vertrieb, Führung und Personal so, dass sie zusammenwirken.</p>
+            <div class="themen-liste" role="tablist" aria-label="Themen" id="themen-liste"></div>
+            <p class="themen-hinweis">Scroll-Szene: Beim Scrollen wechselt das Thema von selbst.</p>
+          </div>
+          <div class="themen-tafel" role="tabpanel" aria-live="polite">
+            <div class="buehne"><canvas id="cv-themen"></canvas></div>
+            <div class="themen-text wechsel" id="themen-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sek belege" id="belege" data-typ="Belege · Bento" data-titel="als Kachel" data-notiz="weiss · der Titel ist selbst eine Kachel im Raster, kein Titelstreifen · unterschiedlich grosse Felder · Kundenstimmen von Hand, kein automatischer Wechsel">
+  <div class="wrap">
+    <div class="bento">
+      <div class="kachel titel"><div class="kicker">Referenzen</div><h2 class="h2">Unsere Erfolge</h2><p class="lead">Was Kunden über die Zusammenarbeit sagen und was wir messen.</p></div>
+      <article class="kachel stimme" aria-roledescription="Kundenstimmen">
+        <div class="wechsel" id="stimme-inhalt"></div>
+        <div class="stimme-nav"><button type="button" id="stimme-zurueck" aria-label="Vorherige Kundenstimme">←</button><button type="button" id="stimme-weiter" aria-label="Nächste Kundenstimme">→</button><span id="stimme-zaehler"></span></div>
+      </article>
+      <div class="kachel zahl"><div class="gross">20 Jahre</div><p>arbeiten wir ausschliesslich für die Finanzbranche: Banken, Versicherungen und Krankenkassen.</p></div>
+      <div class="kachel zahl drittel"><div class="gross">98 %</div><p>zufriedene Kunden aus der Befragung 2025</p></div>
+      <div class="kachel zahl drittel"><div class="gross">100 %</div><p>unserer Kunden beauftragen uns erneut</p></div>
+      <div class="kachel zahl drittel"><div class="gross">100 %</div><p>Branchenerfahrung in unserem Team</p></div>
+      <div class="kachel wirkung"><b>Wirkung gemessen</b><p>Zu Beginn und am Ende messen wir mit denselben Instrumenten, was sich verändert hat.</p></div>
+      <div class="kachel logos" id="logo-kachel"><div class="kicker">Unter anderem vertrauen uns diese Finanzunternehmen</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="auswertung-teaser dunkel" id="auswertung" data-typ="Produktfenster" data-titel="Mitte" data-notiz="zentrierter Titel · das Fenster ragt in den weissen Bereich darunter und verbindet zwei Abschnitte · zum Ausprobieren: Frage wählen → Diagramm → Abweichung → Einordnung → Massnahme · Musterdaten">
+  <div class="wrap">
+    <div class="teaser-kopf">
+      <div class="kicker">Performance-Analyse</div>
+      <h2 class="h2">Vom Ergebnis zur Entscheidung</h2>
+      <p class="lead">Wählen Sie eine Frage. Die Musterauswertung zeigt, was auffällt, was es bedeutet und was als Nächstes sinnvoll ist.</p>
+    </div>
+    <div class="fenster kompakt" id="aw-start"></div>
+  </div>
+  <div class="teaser-weiss"><div class="wrap aw-fuss"><p>Musterdaten. Ihre eigene Auswertung entsteht aus Skill-Check, Eigen- und Fremdsicht, Interviews und Begleitungen.</p><a class="knopf primaer" href="#performance-analyse">Ganze Beispielauswertung ansehen <span class="pfeil">→</span></a></div></div>
+</section>
+
+<section class="statement" data-typ="Statement-Band · kurz" data-titel="ohne Titelstreifen, sehr gross" data-notiz="kurzes Band · sehr grosse, asymmetrische Typografie · Diagonal-Ribbon 45° in Plum als CI-Element">
+  <span class="ribbon" aria-hidden="true"></span>
+  <div class="wrap">
+    <h2>Vom Bauch&shy;gefühl zur Gewissheit.</h2>
+    <p>Jedes Projekt beginnt mit einem Erstgespräch und durchläuft dann vier Phasen.</p>
+  </div>
+</section>
+
+<section class="vorgehen" id="vorgehen" data-typ="Zeitleiste · horizontal" data-titel="rechts" data-notiz="Titel rechtsbündig · Phasen nebeneinander statt untereinander · je Phase das konkrete Ergebnis für den Kunden">
+  <div class="wrap">
+    <div class="kopf-rechts"><div class="kicker">So arbeiten wir</div><h2 class="h2" style="margin-top:12px">Unser Vorgehen</h2></div>
+    <div class="zeit" role="tablist" aria-label="Phasen" id="zeit"></div>
+    <div class="ergebnis wechsel" id="ergebnis" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="dunkel sek digital" id="digital" data-typ="Werkzeug-Vorschau" data-titel="rechts (gespiegelt)" data-notiz="dunkel · gespiegelt: grosse Vorschau links, Titel und Auswahl rechts · Werkzeug wählen, Vorschau mit markiertem Bereich und einem Nutzensatz · Platzhalter, bis echte Bildschirmfotos da sind">
+  <div class="wrap digital-raster">
+    <div class="vorschau" role="tabpanel">
+      <div class="vorschau-leiste"><i></i><i></i><i></i><span id="vorschau-name">Anker</span><span class="muster">Beispieldarstellung · Bildschirmfoto folgt</span></div>
+      <div class="vorschau-flaeche" id="vorschau-flaeche"></div>
+      <div class="vorschau-satz"><p class="wechsel" id="vorschau-satz"></p><a class="knopf sekundaer" href="#gespraech">Demo vereinbaren</a></div>
+    </div>
+    <div class="digital-rechts">
+      <div class="kicker">ROWAPA Digital</div>
+      <h2 class="h2">Digitale Lösungen für Ihren Alltag</h2>
+      <p class="lead">Was wir beraten, bauen wir auch: fünf Lösungen mit künstlicher Intelligenz auf einer gemeinsamen Wissensplattform, entwickelt mit ETH juniors (ETH Zürich).</p>
+      <div class="werkzeuge" role="tablist" aria-label="Digitale Lösungen" id="werkzeuge"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sek menschen" id="menschen" data-typ="Menschen · versetzte Reihe" data-titel="Mitte" data-notiz="zentrierter Titel · fünf Karten in einer versetzten Reihe · Klick öffnet eine Detailansicht über der Übersicht, man bleibt an derselben Stelle · Porträts als Platzhalter">
+  <div class="wrap">
+    <div class="kopf-mitte"><div class="kicker">Über uns</div><h2 class="h2">Die Menschen hinter ROWAPA</h2></div>
+    <div class="menschen-raster" id="menschen-raster"></div>
+  </div>
+</section>
+<aside class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-name" aria-hidden="true">
+  <div class="detail-kopf"><span class="kicker">Team</span><button type="button" id="detail-zu" aria-label="Schliessen">×</button></div>
+  <div class="detail-inhalt" id="detail-inhalt"></div>
+</aside>
+
+<section class="wege" data-typ="Kartenschiene" data-titel="erste Karte" data-notiz="kurzer Abschnitt · die Schiene läuft bis zum Bildschirmrand · der Titel ist die erste Karte · für Einzelpersonen und den CAS">
+  <div class="wrap">
+    <div class="schiene" id="schiene">
+      <div class="weg titelkarte"><div class="kicker">Meine Entwicklung</div><h2>Persönlich weiterkommen</h2><p>Angebote für Einzelpersonen: Diagnostik, Weiterbildung, Coaching und der CAS mit der HWZ Zürich.</p><div class="schiene-nav"><button type="button" data-richtung="-1" aria-label="Zurück">←</button><button type="button" data-richtung="1" aria-label="Weiter">→</button></div></div>
+      <a class="weg" href="#"><small>Für Einzelpersonen</small><b>Persönliche Entwicklung</b><p>Diagnostik, Weiterbildung und Coaching für ambitionierte Profis, vom Einstieg bis zur Führungsrolle.</p></a>
+      <a class="weg" href="#"><small>Fokusprogramm · Für Broker und Brokerfirmen</small><b>Broker Excellence</b><p>Aus- und Weiterbildung für den Broker-Markt: für einzelne Broker und ganze Brokerfirmen.</p></a>
+      <a class="weg" href="#"><small>Fokusprogramm · Für Frauen in der Finanzbranche</small><b>Female Empowerment</b><p>Souverän auftreten, verhandeln und führen: mit dem Programm SOUVERÄN ICH und einer starken Community.</p></a>
+      <a class="weg cas" href="#"><small>Im Blickpunkt · mit der HWZ Zürich</small><b>CAS Professional Leadership for Finance</b><p>25. Februar bis 6. Dezember 2027 · 16 Präsenztage · 15 ECTS-Punkte</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="insights sek" data-typ="Magazin · Filter" data-titel="links, klein" data-notiz="ein grosser Beitrag, weitere klein · Themenfilter · Karten ohne Schatten mit feiner Kontur">
+  <div class="wrap">
+    <div class="insights-kopf">
+      <div><div class="kicker">Wissen &amp; Impulse</div><h2 class="h2" style="margin-top:12px">Neueste Insights</h2></div>
+      <div class="filter" role="group" aria-label="Themenfilter" id="filter"></div>
+    </div>
+    <div class="karten" id="karten"></div>
+  </div>
+</section>
+
+<section class="gespraech sek" id="gespraech" data-typ="Abschluss · farbig" data-titel="Mitte" data-notiz="zentriert · eine Person, ein Schritt · grosse Typografie">
+  <div class="wrap gespraech-mitte">
+    <div class="kicker">Kontakt</div>
+    <h2>Der nächste Schritt beginnt mit einem Gespräch.</h2>
+    <p class="lead">Im Erstgespräch klären wir Ihre Ausgangslage und Ziele und zeigen, wie ROWAPA Sie unterstützen kann.</p>
+    <div class="gespraech-knopf"><a class="knopf primaer" href="#">Erstgespräch vereinbaren <span class="pfeil">→</span></a></div>
+    <div class="kontakt"><b>Jennifer Boek</b><span class="klein">Head of Operations, Mitglied der Geschäftsleitung</span><span>Mobil +41 78 405 80 11</span><span>Büro +41 41 632 66 11</span><span>boek@rowapa.ch</span></div>
+  </div>
+</section>
+</div>
+
+<!-- =================== PERFORMANCE-ANALYSE =================== -->
+<div class="ansicht" id="ansicht-pa" hidden>
+<section class="pa-kopf dunkel" data-typ="Einstieg Unterseite" data-titel="links" data-notiz="dunkel · Lupe formt sich einmal aus Punkten · Titel und Handlungen sofort lesbar">
+  <div class="wrap">
+    <div class="einstieg-raster">
+      <div>
+        <div class="pfad">Für Unternehmen › <b>Performance-Analyse</b></div>
+        <h1>Potenziale erkennen. Entwicklung gezielt steuern.</h1>
+        <div class="strich"></div>
+        <p class="lead" style="margin-top:24px">Fundierte Empfehlungen für die Entwicklung Ihrer Teams und Führungskräfte. Für mehr Vertriebs- und Mitarbeiterperformance.</p>
+        <div class="knoepfe" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:48px">
+          <a class="knopf primaer" href="#gespraech-pa">Strategiegespräch anfragen</a>
+          <a class="knopf sekundaer" href="#pa-aw">Beispielauswertung ansehen <span class="pfeil">↓</span></a>
+        </div>
+      </div>
+      <div class="buehne" aria-hidden="true"><canvas id="cv-pa"></canvas></div>
+    </div>
+  </div>
+</section>
+<section class="pa-aw" id="pa-aw" data-typ="Interaktive Auswertung" data-titel="links" data-notiz="Frage wählen → Diagramm baut sich auf → grösste Abweichung hervorgehoben → Einordnung → mögliche nächste Massnahme · kein automatischer Wechsel">
+  <div class="wrap">
+    <div class="kicker">Ihre Entscheidungsgrundlage</div>
+    <h2 class="h2" style="margin-top:12px">Welche Antworten liefert die Auswertung?</h2>
+    <p class="lead" style="margin-top:16px;margin-bottom:48px">Erkennen Sie, wo Führung nicht ankommt, welche Kompetenzen fehlen und wo Ihre Teams Unterstützung brauchen. Fünf Beispielauswertungen zeigen, welche Entwicklungsmassnahmen Sie daraus ableiten können.</p>
+    <div class="fenster" id="aw-pa"></div>
+  </div>
+</section>
+<section class="pa-band" id="gespraech-pa" data-typ="Abschluss · kurz" data-titel="links, klein" data-notiz="kurzes Band mit dem nächsten Schritt">
+  <div class="wrap">
+    <div><div class="kicker">Zahlen brauchen Erfahrung.</div><p class="lead" style="margin-top:8px">Unsere Fachpersonen kennen Vertrieb und Führung in der Finanzbranche aus eigener Erfahrung. Im Ergebnisgespräch ordnen sie die Auswertung mit Ihnen ein.</p></div>
+    <a class="knopf primaer" href="#gespraech">Strategiegespräch anfragen <span class="pfeil">→</span></a>
+  </div>
+</section>
+</div>
+</main>
+<footer class="fuss"><div class="wrap"><span>ROWAPA · Klar · Souverän · Inspirierend</span><span>Skizze Runde 87 · zeigt die Idee, nicht pixelgenau · Musterdaten</span></div></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="leiste" id="leiste">
+  <button type="button" class="leiste-knopf" id="leiste-knopf">Skizze<em> · Ansicht und Varianten</em></button>
+  <div class="leiste-panel" role="dialog" aria-label="Skizze steuern">
+    <h4>Skizze steuern <button type="button" id="leiste-zu" aria-label="Schliessen">×</button></h4>
+    <div class="leiste-zeile"><span>Seite</span><div class="wahl" data-wahl="seite"><button type="button" data-wert="startseite" aria-pressed="true">Startseite</button><button type="button" data-wert="performance-analyse" aria-pressed="false">Performance-Analyse</button></div></div>
+    <div class="leiste-zeile"><span>Themen auf der Startseite</span><div class="wahl" data-wahl="themen"><button type="button" data-wert="auswahl" aria-pressed="true">kompakte Auswahl</button><button type="button" data-wert="scroll" aria-pressed="false">Scroll-Szene</button></div></div>
+    <div class="leiste-zeile"><span>Titel in der Mitte</span><div class="wahl" data-wahl="mitte"><button type="button" data-wert="links" aria-pressed="true">Text linksbündig</button><button type="button" data-wert="zentriert" aria-pressed="false">zentriert</button></div><div class="leiste-notiz">Entscheid 393: Text bleibt linksbündig, der Block steht links, mittig oder rechts. «Zentriert» nur zum Vergleich.</div></div>
+    <div class="leiste-zeile"><span>Bewegung</span><div class="wahl" data-wahl="bewegung"><button type="button" data-wert="an" aria-pressed="true">an</button><button type="button" data-wert="pause" aria-pressed="false">pausiert</button></div><div class="leiste-notiz">Entspricht dem Schalter «Bewegung pausieren» aus dem Feedback.</div></div>
+    <div class="leiste-zeile"><span>Seitenrhythmus</span><div class="wahl" data-wahl="rhythmus"><button type="button" data-wert="aus" aria-pressed="true">aus</button><button type="button" data-wert="an" aria-pressed="false">Abschnitte beschriften</button></div><div class="karte-rhythmus" id="karte-rhythmus"></div><div class="leiste-notiz">Höhe, Farbe und Titelposition jedes Abschnitts. Klick springt hin.</div></div>
+    <div class="leiste-zeile leiste-notiz">So ist es heute: <a href="https://rowapa-website-2027-automation.webflow.io/" target="_blank" rel="noopener">Startseite</a> · <a href="https://rowapa-website-2027-automation.webflow.io/performance-analyse" target="_blank" rel="noopener">Performance-Analyse</a></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const FORMEN = {{FORMEN}};
+const ICONS = {{ICONS}};
+
+/* ------------------------------------------------------------------ Inhalte (von der Website) */
+const THEMEN = [
+  {k:"vertrieb", nr:"01", name:"Vertriebsperformance", titel:"Verkaufsleistung messbar steigern", text:"Wir begleiten Ihren Vertrieb von der Diagnostik über das Training bis ins Kundengespräch. Dabei setzen wir an vier Hebeln an: Verkaufstrainings, eine überzeugende Sales-Story, klare Verkaufsprozesse sowie digitales und hybrides Verkaufen.", link:"Vertriebsperformance verbessern", kurz:"Verkaufsleistung messbar steigern"},
+  {k:"potenzial", nr:"02", name:"Mitarbeiterperformance & Potenzial", titel:"Potenziale erkennen und gezielt entwickeln", text:"Mit Diagnostik, Coaching und Resilienz-Training machen wir Potenziale sichtbar und entwickeln sie gezielt weiter. Potenzialanalysen und Assessments zeigen, wo Ihre Mitarbeitenden stehen und wohin sie wachsen können.", link:"Potenziale entwickeln", kurz:"Potenziale erkennen und entwickeln"},
+  {k:"fuehrung", nr:"03", name:"Führung & Teams", titel:"Führung stärken und Zusammenarbeit verbessern", text:"Vom Führungsprofil bis zur Teamentwicklung: Wir machen Führung wirksam. Mit Leadership-Trainings, Mentoring sowie Executive Coaching und Sparring stärken wir Ihre Führungskräfte im Alltag.", link:"Führung stärken", kurz:"Führung stärken, Teams verbinden"},
+  {k:"recruiting", nr:"04", name:"Recruiting & Mitarbeiterbindung", titel:"Die richtigen Menschen gewinnen und halten", text:"Vom Assessment bis zur attraktiven Arbeitgebermarke: Wir helfen, Talente zu gewinnen, gut zu integrieren und langfristig zu binden. Dazu gehören eine gute Candidate Experience, ein durchdachtes Onboarding und gezielte Massnahmen zur Mitarbeiterbindung.", link:"Recruiting und Bindung stärken", kurz:"Talente gewinnen und halten"},
+  {k:"digital", nr:"05", name:"Digitale Lösungen", titel:"Entwicklung im Arbeitsalltag verankern", text:"E-Learning, hybride Lernformate und KI-gestützte Lösungen verlängern Training und Beratung in den Alltag. Fünf digitale Lösungen, entwickelt mit ETH juniors (ETH Zürich): Anker, Kompass, Lotse, Segel und Logbuch, jede einzeln buchbar.", link:"Digitale Lösungen entdecken", kurz:"Entwicklung im Alltag verankern"}
+];
+const ROLLEN = [
+  {satz:"Wo liegen die Hebel für Vertrieb, Führung und Bindung in Ihrer Agentur? Passendes Thema und Beispielauswertung sind unten vorausgewählt.", thema:0, frage:1},
+  {satz:"Wie erkennen Sie Unterschiede zwischen Teams und leiten daraus Prioritäten ab? Passendes Thema und Beispielauswertung sind unten vorausgewählt.", thema:2, frage:2},
+  {satz:"Wie werden aus Daten nachvollziehbare Entwicklungsschritte, und wer begleitet Sie dabei? Passendes Thema und Beispielauswertung sind unten vorausgewählt.", thema:1, frage:4}
+];
+const LOGOS = ["die Mobiliar","Raiffeisen","Swiss Life","Zurich","AXA","Allianz","Generali","ERGO","CSS Versicherung","Visana","Urner Kantonalbank","Die Post"];
+const STIMMEN = [
+  ["Höhere Abschlussquote, mehr Cross-Selling.","«Durch die Schulungen konnten wir verschiedene qualitative Ziele erreichen: die Steigerung der Geschäftsvolumen, der Abschlussquote und der Cross- und Up-Selling-Quote.»","Philippe Lienhard","Vorsitzender der Bankleitung, Raiffeisenbank Mittelthurgau"],
+  ["Mehr Motivation, höhere Umsetzung.","«Durch die erzielten Erfolge steigt die Motivation bei unseren Versicherungsberatern und damit verbunden die Umsetzungsquote.»","Max Suter","Generalagent, die Mobiliar Bülach"],
+  ["Vier Kennzahlen massgeblich verbessert.","«Durch die Schulungen konnten wir verschiedene Zahlen massgeblich und qualitativ stark verbessern: Abschlussquote, Prämiendurchschnitt, Cross- und Up-Selling-Quote und Stornoquote.»","Adrian Künzli","Generalagent, die Mobiliar Ausserrhoden"],
+  ["Sehr hohe Umsetzungsquote.","«Die Seminare zeichnen sich durch einen sehr hohen Praxisbezug aus. Sie gewinnen unsere Mitarbeitenden für sich und garantieren eine sehr hohe Umsetzungsquote.»","Bernard Dietrich","Leiter Vertrieb & Marketing, Basler Versicherung"],
+  ["Nachhaltig durch Begleitung im Alltag.","«Durch die Besuchsbegleitungen und den Einbezug der Führungskräfte wird die Nachhaltigkeit nochmals erheblich erhöht.»","Eva-Maria Süess","Mitglied der Bankleitung, Raiffeisenbank Berg-Erlen"],
+  ["Im ersten Jahr auf Platz 1.","«Dank Eurem echt genialen Beratungsansatz habe ich es tatsächlich geschafft. Im ersten Jahr auf der Rangliste auf Platz 1 im Bereich Vorsorge!»","Simon J.","Teilnehmer, die Mobiliar"],
+  ["Drei Impulse erwartet, neun erhalten.","«Meine Erwartung an diesen Tag war, dass ich mindestens drei Aspekte mitnehmen wollte. Es wurden nun neun.»","Heinz-W. Kranz","Vertriebsdirektor Immobilien, Sparkasse Mainz"],
+  ["Acht Lebensversicherungen an einem Termin.","«Heute konnte ich bei einem Termin 8 Leben abschliessen, und die Kunden waren sehr zufrieden mit meiner Beratung.»","Antonio M.","Teilnehmer, die Mobiliar Kreuzlingen"]
+];
+const PHASEN = [
+  ["01","Analysieren","Ist-Zustand erheben, Ziele festlegen.","Mit Diagnostik, Daten und Gesprächen erfassen wir, wo Ihr Unternehmen steht, und legen messbare Ziele fest.","Ein klares Ist-Bild und messbare Ziele."],
+  ["02","Verstehen","Muster erkennen, Ursachen verstehen.","Wir machen sichtbar, was wirkt und wo Leistung verloren geht.","Die Ursachen und die Stellen, an denen Leistung verloren geht."],
+  ["03","Handeln","Gezielt umsetzen, laufend nachjustieren.","Programme, Begleitung und digitale Lösungen setzen genau dort an.","Priorisierte Massnahmen mit Zielgruppe und Zeitpunkt."],
+  ["04","Messen","Wirkung belegen, den Kreis schliessen.","Mit denselben Instrumenten wie zu Beginn messen wir, was sich verändert hat. Die Messung ist zugleich der Start der nächsten Analyse.","Ein Wirkungsbericht, der zeigt, was sich verändert hat."]
+];
+const WERKZEUGE = [
+  {k:"anker", name:"Anker", titel:"Talente suchen, finden und binden", satz:"Begleitet vom ersten Interesse bis zur Anstellung und senkt die Fluktuation."},
+  {k:"kompass", name:"Kompass", titel:"Digitale Beratung strukturiert führen", satz:"Führt Schritt für Schritt von der Ausgangslage zur passenden Lösung."},
+  {k:"lotse", name:"Lotse", titel:"Lernerfolg im Alltag sichern", satz:"Begleitet Entwicklung über den Trainingstag hinaus."},
+  {k:"segel", name:"Segel", titel:"Beratung gemeinsam erleben", satz:"Macht Themen im Kundengespräch sichtbar und greifbar."},
+  {k:"logbuch", name:"Logbuch", titel:"Ihr digitaler Begleiter im Verkauf", satz:"Gibt im Alltag konkrete Impulse für das nächste Kundengespräch."}
+];
+const MENSCHEN = [
+  ["Wolfgang Wachter","Gründer und Inhaber","WW"],
+  ["Thomas Rothkögel","Gründer und Inhaber","TR"],
+  ["Vanessa Bassi","Businesstrainerin","VB"],
+  ["Fabrice Hiltbrunner","Businesstrainer","FH"],
+  ["Galina Shokhova","Marketing und Digital Solutions","GS"]
+];
+const INSIGHTS = [
+  ["Sales","23.09.2025 · Blog","Zeitmanagement im Vertrieb","Warum zu viel Eifer die eigenen Ziele sabotieren kann, und drei Prinzipien für mehr Zeit im Kundengespräch."],
+  ["Leadership","26.08.2025 · Blog","Leadership-Weiterbildung","Woran sich erkennen lässt, ob jetzt der richtige Zeitpunkt für eine Führungsweiterbildung ist."],
+  ["Leadership","25.08.2025 · Blog","Empathische Führung","Was Mitarbeitende wirklich an ein Unternehmen bindet, und welche Rolle Führung dabei spielt."],
+  ["Leadership","25.08.2025 · Blog","Erfahrungsbericht CAS","Wie der CAS Professional Leadership for Finance in der Praxis erlebt wird."],
+  ["Leadership","22.08.2025 · Blog","Selbstführung als Lösung","Wie Selbstführung hilft, die Fluktuation im Team zu senken."],
+  ["Leadership","07.08.2025 · Blog","Generationsmanagement in der Finanzbranche","Worauf es ankommt, wenn mehrere Generationen im Team zusammenarbeiten."]
+];
+/* Musterdaten der Performance-Analyse (Testadresse, Reiter 1 bis 5) */
+const FRAGEN = [
+  {frage:"Kommt Führung an?", titel:"Teamleitung: Führung aus drei Blickwinkeln", typ:"blick",
+   zeilen:[["Coaching im Alltag",8.4,6.2,5.8],["Feedback geben",7.6,6.8,6.5],["Verbindlichkeit einfordern",7.1,5.4,5.0],["Mitarbeitergespräche führen",7.8,7.0,6.1]], heraus:[0],
+   abweichung:"Grösster Abstand: Coaching im Alltag, +2.2 zwischen Eigen- und Fremdsicht.",
+   aussage:"Wo Führungskräfte ihre Führung anders sehen als ihre Teams.",
+   einordnung:"Die Teamleitung schätzt ihr Coaching hoch ein. Ihr Team erlebt es seltener, und in begleiteten Mitarbeitergesprächen fehlen verbindliche Vereinbarungen.",
+   massnahme:"Monatlicher Coaching-Dialog für die Teamleitung und begleitete Mitarbeitergespräche mit verbindlichen Vereinbarungen."},
+  {frage:"Was fehlt für die Rolle?", titel:"Rolle Kundenberatung: Ist gegen Soll", typ:"soll",
+   zeilen:[["Bedarfsergründung",7.4,8.0],["Gesprächsführung",7.6,7.5],["Kundenpotenziale",6.2,8.0],["Produkt- und Fachwissen",7.8,7.0],["Abschlussorientierung",6.9,7.5],["Verbindlichkeit",6.1,8.0]], heraus:[2,5],
+   abweichung:"Grösste Lücke zum Soll: Verbindlichkeit (−1.9) und Kundenpotenziale (−1.8).",
+   aussage:"Wo Kompetenzen hinter den Anforderungen zurückbleiben.",
+   einordnung:"Kundenpotenziale und Verbindlichkeit liegen deutlich unter dem Soll. Beim Fachwissen liegt das Team darüber: Eine zusätzliche Fachschulung würde dort ansetzen, wo die Anforderung bereits erfüllt ist.",
+   massnahme:"Training zu Kundenpotenzialen und Verbindlichkeit statt einer zusätzlichen Fachschulung."},
+  {frage:"Wo brauchen Teams Unterstützung?", titel:"Dieselbe Rolle in vier Teams", typ:"teams",
+   spalten:["Bedarfs­ergründung","Kunden­potenziale","Abschluss­orientierung","Verbind­lichkeit"], teams:[["Team A",7.8,6.9,7.3,6.8],["Team B",7.5,6.4,7.0,6.3],["Team C",7.4,6.1,6.8,6.0],["Team D",6.9,5.3,6.4,5.2]], heraus:[1,3], teamHeraus:3,
+   abweichung:"In allen vier Teams am tiefsten: Kundenpotenziale und Verbindlichkeit. Team D liegt überall unter den anderen.",
+   aussage:"Welche Schwächen mehrere Teams bremsen – und wo gezielte Begleitung nötig ist.",
+   einordnung:"Gemeinsame Entwicklungsschwerpunkte zeichnen sich ab: Kundenpotenziale und Verbindlichkeit sind in allen Teams die tiefsten Werte.",
+   massnahme:"Gemeinsamer Schwerpunkt Kundenpotenziale und Verbindlichkeit für alle Teams, Team D zusätzlich begleiten."},
+  {frage:"Was machen die Besten anders?", titel:"Vergleichsgruppe und interne Referenz", typ:"referenz",
+   zeilen:[["Bedarfsergründung",5.8,8.1],["Gesprächsführung",6.2,8.0],["Verbindlichkeit",5.5,7.7]], heraus:[0],
+   abweichung:"Grösster Abstand zur Referenz: Bedarfsergründung (+2.3).",
+   aussage:"Welche Unterschiede zu Ihren leistungsstarken Mitarbeitenden Ansatzpunkte für Entwicklung liefern.",
+   einordnung:"Bei der Bedarfsergründung ist der Abstand zur internen Referenz am grössten.",
+   massnahme:"Training zur Bedarfsergründung mit Praxisbeispielen der Referenzgruppe."},
+  {frage:"Was hat jetzt Priorität?", titel:"Musterbericht: vom Befund zur Massnahme", typ:"bericht",
+   ziel:"Kundenpotenzial im Bestand nutzen · Team D, Kundenberatung",
+   folge:[["Befund","Tiefster Wert bei den Kundenpotenzialen; in 4 von 6 begleiteten Gesprächen keine Frage zur Vorsorge. Das Team erlebt weniger Coaching, als die Teamleitung annimmt."],["Bedeutung","Die Beratung ist solide, Bedarfe werden aber nicht vollständig erkannt. Kein Wissensproblem: Es fehlt an Gesprächsführung und an Begleitung im Alltag."],["Massnahmen, priorisiert","On-the-Job-Coaching Bedarfsanalyse, 3 Begleitungen je Person · Monatlicher Coaching-Dialog für die Teamleitung · Folgemessung nach 6 Monaten"]],
+   abweichung:"Hauptziel: Kundenpotenzial im Bestand nutzen, Team D.",
+   aussage:"Wo Sie mit Training und Coaching gezielt ansetzen sollten.",
+   einordnung:"Zu jedem Hauptziel zeigt der Bericht, was beobachtet wurde, was es bedeutet und welche Massnahmen jetzt am meisten bewirken, mit Zielgruppe und Zeitpunkt.",
+   massnahme:"On-the-Job-Coaching Bedarfsanalyse, monatlicher Coaching-Dialog, Folgemessung nach 6 Monaten."}
+];
+
+/* ------------------------------------------------------------------ Zustand */
+const D = document, H = D.documentElement;
+let ruhig = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const istRuhig = () => ruhig;
+const warte = ms => new Promise(r => setTimeout(r, istRuhig() ? 0 : ms));
+
+/* ------------------------------------------------------------------ Punkte */
+function dekodiere(f){
+  const s = atob(f.d), n = f.n, x = new Float32Array(n), y = new Float32Array(n), c = new Uint8Array(n);
+  for (let i = 0; i < n; i++){ const o = i * 5; x[i] = s.charCodeAt(o) | (s.charCodeAt(o + 1) << 8); y[i] = s.charCodeAt(o + 2) | (s.charCodeAt(o + 3) << 8); c[i] = s.charCodeAt(o + 4); }
+  return {x, y, c, n};
+}
+const FORM = {}; for (const k in FORMEN) FORM[k] = dekodiere(FORMEN[k]);
+const N = 1500;
+const FARBEN_HELL = ["#1D3149", "#486EA3", "#A0C4DF", "#AA1351"];
+const FARBEN_DUNKEL = ["#E8E9E9", "#486EA3", "#A0C4DF", "#AA1351"];
+const buehnen = new Set();
+class Punkte {
+  constructor(cv, opt = {}){
+    this.cv = cv; this.ctx = cv.getContext("2d"); this.o = Object.assign({gross: 1.7, dunkel: false, fuellung: .9}, opt);
+    this.x = new Float32Array(N); this.y = new Float32Array(N); this.c = new Uint8Array(N); this.ph = new Float32Array(N);
+    this.ax = new Float32Array(N); this.ay = new Float32Array(N); this.bx = new Float32Array(N); this.by = new Float32Array(N); this.bc = new Uint8Array(N); this.kx = new Float32Array(N); this.ky = new Float32Array(N);
+    for (let i = 0; i < N; i++){ this.ph[i] = Math.random() * 6.283; this.x[i] = Math.random() * 1000; this.y[i] = Math.random() * 1000; this.c[i] = 2; }
+    this.anim = null; this.sichtbar = false; this.idle = false;
+    new ResizeObserver(() => this.groesse()).observe(cv);
+    new IntersectionObserver(e => { this.sichtbar = e[0].isIntersecting; if (this.sichtbar) los(); }).observe(cv);
+    buehnen.add(this); this.groesse();
+  }
+  groesse(){ const r = this.cv.getBoundingClientRect(), d = Math.min(2, devicePixelRatio || 1); this.w = r.width; this.h = r.height; this.cv.width = Math.max(1, r.width * d); this.cv.height = Math.max(1, r.height * d); this.ctx.setTransform(d, 0, 0, d, 0, 0); this.zeichne(performance.now()); }
+  streuen(){ for (let i = 0; i < N; i++){ this.x[i] = -150 + Math.random() * 1300; this.y[i] = -150 + Math.random() * 1300; } }
+  form(name, dauer = 850, staffel = 220){
+    const f = FORM[name]; if (!f) return;
+    for (let i = 0; i < N; i++){
+      this.ax[i] = this.x[i]; this.ay[i] = this.y[i]; this.bx[i] = f.x[i % f.n]; this.by[i] = f.y[i % f.n]; this.bc[i] = f.c[i % f.n];
+      const mx = (this.ax[i] + this.bx[i]) / 2, my = (this.ay[i] + this.by[i]) / 2; const a = Math.random() * 6.283, r = 40 + Math.random() * 90;
+      this.kx[i] = mx + Math.cos(a) * r; this.ky[i] = my + Math.sin(a) * r;
+    }
+    if (istRuhig()){ for (let i = 0; i < N; i++){ this.x[i] = this.bx[i]; this.y[i] = this.by[i]; this.c[i] = this.bc[i]; } this.anim = null; this.idle = true; this.zeichne(performance.now()); return; }
+    this.anim = {t0: this.sichtbar ? performance.now() : null, dauer, staffel}; this.idle = true; los();
+  }
+  braucht(){ return this.sichtbar && (this.anim || (this.idle && !istRuhig())); }
+  schritt(t){
+    if (this.anim){
+      if (this.anim.t0 === null) this.anim.t0 = t; const {t0, dauer, staffel} = this.anim; let fertig = true;
+      for (let i = 0; i < N; i++){
+        let p = (t - t0 - (i / N) * staffel) / dauer; if (p < 1) fertig = false; p = p < 0 ? 0 : p > 1 ? 1 : p;
+        const e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2, m = 1 - e;
+        this.x[i] = m * m * this.ax[i] + 2 * m * e * this.kx[i] + e * e * this.bx[i];
+        this.y[i] = m * m * this.ay[i] + 2 * m * e * this.ky[i] + e * e * this.by[i];
+        this.c[i] = p > .5 ? this.bc[i] : this.c[i];
+      }
+      if (fertig) this.anim = null;
+    }
+    this.zeichne(t);
+  }
+  zeichne(t){
+    const g = this.ctx, w = this.w, h = this.h; if (!w) return; g.clearRect(0, 0, w, h);
+    const s = Math.min(w, h) / 1000 * this.o.fuellung, ox = (w - 1000 * s) / 2, oy = (h - 1000 * s) / 2, gr = this.o.gross, farben = this.o.dunkel ? FARBEN_DUNKEL : FARBEN_HELL;
+    const wackel = this.idle && !istRuhig() && !this.anim;
+    for (let f = 0; f < 4; f++){
+      g.fillStyle = farben[f]; g.beginPath();
+      for (let i = 0; i < N; i++){
+        if (this.c[i] !== f) continue;
+        let px = ox + this.x[i] * s, py = oy + this.y[i] * s;
+        if (wackel){ px += Math.sin(t * .0007 + this.ph[i]) * .9; py += Math.cos(t * .0006 + this.ph[i] * 1.3) * .9; }
+        g.rect(px - gr / 2, py - gr / 2, gr, gr);
+      }
+      g.fill();
+    }
+  }
+}
+let laeuft = false;
+function los(){ if (laeuft) return; laeuft = true; requestAnimationFrame(rahmen); }
+function rahmen(t){
+  let weiter = false;
+  for (const b of buehnen){ if (b.braucht()){ b.schritt(t); weiter = true; } }
+  if (weiter) requestAnimationFrame(rahmen); else laeuft = false;
+}
+function mini(cv, name){
+  const r = cv.getBoundingClientRect(), d = Math.min(2, devicePixelRatio || 1), w = r.width || 160, h = r.height || 120; cv.width = w * d; cv.height = h * d;
+  const g = cv.getContext("2d"); g.setTransform(d, 0, 0, d, 0, 0); const f = FORM[name], s = Math.min(w, h) / 1000 * .95, ox = (w - 1000 * s) / 2, oy = (h - 1000 * s) / 2;
+  for (let k = 0; k < 4; k++){ g.fillStyle = FARBEN_HELL[k]; g.beginPath(); for (let i = 0; i < f.n; i += 2){ if (f.c[i] !== k) continue; g.rect(ox + f.x[i] * s - .7, oy + f.y[i] * s - .7, 1.4, 1.4); } g.fill(); }
+}
+
+/* ------------------------------------------------------------------ Kopfleiste, Megamenü, Mauszeiger */
+(function(){
+  const kopf = D.getElementById("kopf"); let letzte = scrollY;
+  addEventListener("scroll", () => { const y = scrollY; if (y > letzte + 6 && y > 120){ kopf.classList.add("weg"); megaZu(); } else if (y < letzte - 6) kopf.classList.remove("weg"); letzte = y; }, {passive: true});
+  const mega = D.getElementById("mega"), knopf = D.getElementById("mega-knopf"), mk = D.getElementById("menue-knopf"), liste = D.getElementById("mega-liste");
+  THEMEN.forEach((t, i) => { const b = D.createElement("button"); b.type = "button"; b.className = "mega-eintrag"; b.innerHTML = `<canvas aria-hidden="true"></canvas><b>${t.name}</b><span>${t.kurz}</span>`; b.addEventListener("click", () => { megaZu(); springeZuThema(i); }); liste.appendChild(b); });
+  let gemalt = false;
+  function megaAuf(){ mega.classList.add("offen"); knopf.setAttribute("aria-expanded", "true"); mk.setAttribute("aria-expanded", "true"); if (!gemalt){ gemalt = true; requestAnimationFrame(() => liste.querySelectorAll("canvas").forEach((c, i) => mini(c, THEMEN[i].k))); } }
+  window.megaZu = function(){ mega.classList.remove("offen"); knopf.setAttribute("aria-expanded", "false"); mk.setAttribute("aria-expanded", "false"); };
+  knopf.addEventListener("click", () => mega.classList.contains("offen") ? megaZu() : megaAuf());
+  knopf.addEventListener("mouseenter", megaAuf);
+  mega.addEventListener("mouseleave", megaZu);
+  mk.addEventListener("click", () => mega.classList.contains("offen") ? megaZu() : megaAuf());
+  D.addEventListener("keydown", e => { if (e.key === "Escape") megaZu(); });
+  D.addEventListener("click", e => { if (!mega.contains(e.target) && e.target !== knopf && e.target !== mk) megaZu(); });
+  /* Mauszeiger: Punkt mit Ring, 1:1, sobald eine Maus bewegt wird */
+  const z = D.querySelector(".zeiger"), punkt = z.querySelector(".punkt"), ring = z.querySelector(".ring");
+  addEventListener("pointermove", e => { if (e.pointerType !== "mouse") return; H.classList.add("zeiger-an"); punkt.style.transform = ring.style.transform = `translate(${e.clientX}px,${e.clientY}px)`; z.classList.toggle("ueber", !!e.target.closest("a,button")); }, {passive: true});
+  addEventListener("pointerdown", e => { if (e.pointerType !== "mouse") H.classList.remove("zeiger-an"); });
+  D.addEventListener("mouseout", e => { if (!e.relatedTarget) H.classList.remove("zeiger-an"); });
+})();
+
+/* ------------------------------------------------------------------ Einstieg */
+const spur = D.getElementById("logo-spur"); spur.textContent = ""; [...LOGOS, ...LOGOS].forEach(n => { const s = D.createElement("span"); s.textContent = n; spur.appendChild(s); });
+const logoKachel = D.getElementById("logo-kachel"); LOGOS.forEach(n => { const s = D.createElement("span"); s.textContent = n; logoKachel.appendChild(s); });
+const pEinstieg = new Punkte(D.getElementById("cv-einstieg"), {dunkel: true, gross: 2, fuellung: .95});
+pEinstieg.streuen(); setTimeout(() => pEinstieg.form("treppe", 1600, 600), 250);
+D.querySelectorAll(".rolle").forEach(b => b.addEventListener("click", () => {
+  const r = ROLLEN[+b.dataset.rolle]; D.querySelectorAll(".rolle").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  D.getElementById("rollen-satz").textContent = r.satz; waehleThema(r.thema); awStart.vormerken(r.frage); awPa.vormerken(r.frage);
+}));
+
+/* ------------------------------------------------------------------ Themen */
+const pThemen = new Punkte(D.getElementById("cv-themen"), {gross: 1.9, fuellung: .86});
+const themenListe = D.getElementById("themen-liste"), themenText = D.getElementById("themen-text"); let themaJetzt = -1;
+THEMEN.forEach((t, i) => { const b = D.createElement("button"); b.type = "button"; b.className = "thema"; b.setAttribute("role", "tab"); b.innerHTML = `<span class="nr">${t.nr}</span><span><b>${t.titel}</b><small>${t.name}</small></span>`; b.addEventListener("click", () => waehleThema(i)); themenListe.appendChild(b); });
+async function waehleThema(i){
+  if (i === themaJetzt) return; themaJetzt = i; const t = THEMEN[i];
+  themenListe.querySelectorAll(".thema").forEach((b, j) => b.setAttribute("aria-selected", String(j === i)));
+  pThemen.form(t.k);
+  themenText.classList.add("aus"); await warte(180);
+  themenText.innerHTML = `<div class="kicker">${t.name}</div><h3>${t.titel}</h3><p>${t.text}</p><div><a class="textlink" href="#">${t.link} <span class="pfeil">→</span></a></div>`;
+  themenText.classList.remove("aus");
+}
+pThemen.streuen(); waehleThema(0);
+/* Variante Scroll-Szene */
+const themenSek = D.getElementById("themen");
+addEventListener("scroll", () => {
+  if (!themenSek.classList.contains("ist-scroll")) return;
+  const r = themenSek.getBoundingClientRect(), weg = r.height - innerHeight; if (weg <= 0) return;
+  const p = Math.min(.999, Math.max(0, -r.top / weg)); const i = Math.floor(p * 5); if (i !== themaJetzt) waehleThema(i);
+}, {passive: true});
+
+/* ------------------------------------------------------------------ Kundenstimmen (von Hand) */
+let stimmeJetzt = 0; const stimmeInhalt = D.getElementById("stimme-inhalt");
+async function zeigeStimme(i){
+  stimmeJetzt = (i + STIMMEN.length) % STIMMEN.length; const s = STIMMEN[stimmeJetzt];
+  stimmeInhalt.classList.add("aus"); await warte(160);
+  stimmeInhalt.innerHTML = `<div class="stimme-kopf">${s[0]}</div><blockquote style="margin-top:16px">${s[1]}</blockquote><div class="wer" style="margin-top:20px"><b>${s[2]}</b>${s[3]}</div>`;
+  stimmeInhalt.classList.remove("aus"); D.getElementById("stimme-zaehler").textContent = `${stimmeJetzt + 1} / ${STIMMEN.length}`;
+}
+D.getElementById("stimme-zurueck").addEventListener("click", () => zeigeStimme(stimmeJetzt - 1));
+D.getElementById("stimme-weiter").addEventListener("click", () => zeigeStimme(stimmeJetzt + 1));
+zeigeStimme(0);
+
+/* ------------------------------------------------------------------ Interaktive Auswertung */
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attr = {}, kinder = []){ const e = D.createElementNS(NS, tag); for (const k in attr) e.setAttribute(k, attr[k]); kinder.forEach(c => e.appendChild(c)); return e; }
+function txt(x, y, s, cls, anker = "start"){ const t = el("text", {x, y, class: cls, "text-anchor": anker}); t.textContent = s; return t; }
+function zahl(v){ return (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(v).toFixed(1); }
+function zeichneDiagramm(f){
+  const W = 720, links = 210, rechts = 60, breite = W - links - rechts;
+  if (f.typ === "blick" || f.typ === "soll" || f.typ === "referenz"){
+    const [lo, hi] = f.typ === "referenz" ? [0, 10] : [4, 10], X = v => links + (v - lo) / (hi - lo) * breite, zh = 46, H0 = 40, HH = H0 + f.zeilen.length * zh + 40;
+    const svg = el("svg", {viewBox: `0 0 ${W} ${HH}`, role: "img", "aria-label": f.titel});
+    [lo, (lo + hi) / 2, hi].forEach(v => { svg.appendChild(el("line", {x1: X(v), x2: X(v), y1: 24, y2: HH - 30, class: "g-achse"})); svg.appendChild(txt(X(v), HH - 12, String(v), "g-klein", "middle")); });
+    const zeilen = [];
+    f.zeilen.forEach((z, i) => {
+      const y = H0 + i * zh + 14, g = el("g", {class: "g-zeile"}); g.appendChild(txt(0, y + 5, z[0], "g-text"));
+      if (f.typ === "blick"){
+        const [eigen, fremd, beob] = z.slice(1); const linie = el("rect", {x: X(fremd), y: y - 2, width: X(eigen) - X(fremd), height: 4, fill: "#A0C4DF", class: "g-balken"}); linie.style.transform = "scaleX(0)"; g.appendChild(linie);
+        [[beob, "#486EA3", 5], [fremd, "#A0C4DF", 7], [eigen, "#1D3149", 7]].forEach(([v, farbe, r]) => { const c = el("circle", {cx: X(lo), cy: y, r, fill: farbe, class: "g-punkt"}); c.dataset.dx = X(v) - X(lo); g.appendChild(c); });
+        g.appendChild(txt(W - 4, y + 5, zahl(eigen - fremd), "g-zahl", "end"));
+      } else if (f.typ === "soll"){
+        const [ist, soll] = z.slice(1); const b = el("rect", {x: X(lo), y: y - 9, width: X(ist) - X(lo), height: 18, fill: ist < soll ? "#A0C4DF" : "#486EA3", class: "g-balken"}); b.style.transform = "scaleX(0)"; g.appendChild(b);
+        g.appendChild(el("line", {x1: X(soll), x2: X(soll), y1: y - 14, y2: y + 14, stroke: "#AA1351", "stroke-width": 2}));
+        g.appendChild(txt(W - 4, y + 5, zahl(ist - soll), "g-zahl", "end"));
+      } else {
+        const [vgl, ref] = z.slice(1); const b1 = el("rect", {x: X(lo), y: y - 11, width: X(vgl) - X(lo), height: 9, fill: "#A0C4DF", class: "g-balken"}), b2 = el("rect", {x: X(lo), y: y + 2, width: X(ref) - X(lo), height: 9, fill: "#1D3149", class: "g-balken"});
+        b1.style.transform = b2.style.transform = "scaleX(0)"; g.appendChild(b1); g.appendChild(b2); g.appendChild(txt(W - 4, y + 5, zahl(ref - vgl), "g-zahl", "end"));
+      }
+      zeilen.push(g); svg.appendChild(g);
+    });
+    const leg = f.typ === "blick" ? [["#1D3149", "Eigensicht"], ["#A0C4DF", "Fremdsicht der Mitarbeitenden"], ["#486EA3", "Beobachtung"]] : f.typ === "soll" ? [["#A0C4DF", "Ist unter dem Soll"], ["#486EA3", "Ist"], ["#AA1351", "Soll der Rolle"]] : [["#A0C4DF", "Vergleichsgruppe"], ["#1D3149", "Referenz: Ihre Erfolgreichsten"]];
+    let lx = links; leg.forEach(([farbe, name]) => { svg.appendChild(el("rect", {x: lx, y: 6, width: 10, height: 10, fill: farbe})); svg.appendChild(txt(lx + 16, 15, name, "g-klein")); lx += 22 + name.length * 6.4; });
+    return {svg, zeilen, start(){ svg.querySelectorAll(".g-balken").forEach(b => b.style.transform = "scaleX(1)"); svg.querySelectorAll(".g-punkt").forEach(c => c.style.transform = `translateX(${c.dataset.dx}px)`); }};
+  }
+  if (f.typ === "teams"){
+    const W2 = 720, lx = 90, cw = (W2 - lx) / 4, ch = 46, HH = 40 + f.teams.length * ch + 20, svg = el("svg", {viewBox: `0 0 ${W2} ${HH}`, role: "img", "aria-label": f.titel}), zeilen = [];
+    f.spalten.forEach((s, j) => svg.appendChild(txt(lx + j * cw + cw / 2, 22, s.replace(/­/g, ""), "g-klein", "middle")));
+    const farbe = v => { const p = Math.max(0, Math.min(1, (v - 5) / 3)); const a = [170, 19, 81], b = [232, 233, 233], c = [72, 110, 163]; const m = p < .5 ? a.map((x, k) => x + (b[k] - x) * p * 2) : b.map((x, k) => x + (c[k] - x) * (p - .5) * 2); return `rgb(${m.map(Math.round).join(",")})`; };
+    f.teams.forEach((t, i) => { const y = 34 + i * ch, g = el("g", {class: "g-zeile"}); g.appendChild(txt(0, y + ch / 2 + 4, t[0], "g-text")); t.slice(1).forEach((v, j) => { const r = el("rect", {x: lx + j * cw + 3, y: y + 3, width: cw - 6, height: ch - 6, fill: farbe(v), class: "g-zelle", opacity: 0}); r.dataset.spalte = j; g.appendChild(r); g.appendChild(txt(lx + j * cw + cw / 2, y + ch / 2 + 5, v.toFixed(1), "g-zahl", "middle")); }); zeilen.push(g); svg.appendChild(g); });
+    return {svg, zeilen, start(){ svg.querySelectorAll(".g-zelle").forEach((r, k) => setTimeout(() => r.setAttribute("opacity", 1), istRuhig() ? 0 : k * 25)); }, heraus(){ svg.querySelectorAll(".g-zelle").forEach(r => { if (!f.heraus.includes(+r.dataset.spalte)) r.setAttribute("opacity", .35); }); }};
+  }
+  /* Bericht */
+  const eng = innerWidth < 600, W3 = eng ? 330 : 720, SCHRITT = eng ? 118 : 72, FO = eng ? 96 : 52, HH = 78 + 3 * SCHRITT, svg = el("svg", {viewBox: `0 0 ${W3} ${HH}`, role: "img", "aria-label": f.titel}), zeilen = [];
+  if (eng) svg.style.minWidth = "0";
+  svg.appendChild(txt(0, 20, "Hauptziel", "g-klein")); svg.appendChild(txt(0, 44, eng ? f.ziel.split(" · ")[0] : f.ziel, "g-text"));
+  f.folge.forEach((s, i) => { const y = 78 + i * SCHRITT, g = el("g", {class: "g-zeile"}); g.appendChild(el("circle", {cx: 14, cy: y + 14, r: 14, fill: i === 2 ? "#AA1351" : "#1D3149"})); g.appendChild(txt(14, y + 19, String(i + 1), "g-zahl", "middle")); g.lastChild.setAttribute("fill", "#fff");
+    g.appendChild(txt(40, y + 12, s[0], "g-text")); const fo = el("foreignObject", {x: 40, y: y + 18, width: W3 - 40, height: FO}); const div = D.createElement("div"); div.style.cssText = "font:14px/1.35 var(--f-text);color:rgba(29,49,73,.74)"; div.textContent = s[1]; fo.appendChild(div); g.appendChild(fo); g.style.opacity = 0; zeilen.push(g); svg.appendChild(g); });
+  return {svg, zeilen, start(){ zeilen.forEach((g, k) => setTimeout(() => { g.style.transition = "opacity 400ms"; g.style.opacity = 1; }, istRuhig() ? 0 : k * 180)); }, heraus(){ zeilen.forEach((g, k) => { if (k !== 2) g.style.opacity = .55; }); }};
+}
+function baueAuswertung(wurzel, {kompakt = false} = {}){
+  wurzel.innerHTML = `<div class="fenster-leiste"><i></i><i></i><i></i><span>ROWAPA Performance-Analyse · Beispielauswertung</span><span class="muster">Musterdaten</span></div>
+  <div class="aw"><div class="aw-fragen" role="tablist" aria-label="Fragen"></div><div class="aw-haupt"><div class="aw-titel"><span class="aw-t"></span><div class="aw-schritte"><span class="aw-schritt">1 Diagramm</span><span class="aw-schritt">2 Abweichung</span><span class="aw-schritt">3 Einordnung</span><span class="aw-schritt">4 Massnahme</span></div></div><div class="aw-grafik"></div><p class="aw-abweichung aw-block aus"></p><div class="aw-text"><div class="aw-block einordnung aus"><div class="kicker">Einordnung</div><p></p></div><div class="aw-block massnahme aus"><div class="kicker">Mögliche nächste Massnahme</div><p></p><span class="vorschlag">Abgeleitet aus dem Musterbericht · Vorschlag [ROWAPA bestätigen]</span></div></div></div></div>`;
+  const fragen = wurzel.querySelector(".aw-fragen"), grafik = wurzel.querySelector(".aw-grafik"), schritte = wurzel.querySelectorAll(".aw-schritt");
+  const abw = wurzel.querySelector(".aw-abweichung"), ein = wurzel.querySelector(".einordnung"), mas = wurzel.querySelector(".massnahme"); let lauf = 0, jetzt = -1;
+  FRAGEN.forEach((f, i) => { const b = D.createElement("button"); b.type = "button"; b.className = "aw-frage"; b.setAttribute("role", "tab"); b.textContent = f.frage; b.addEventListener("click", () => waehle(i)); fragen.appendChild(b); });
+  async function waehle(i, still){
+    if (i === jetzt && !still) return; jetzt = i; const id = ++lauf, f = FRAGEN[i];
+    fragen.querySelectorAll(".aw-frage").forEach((b, j) => b.setAttribute("aria-selected", String(j === i)));
+    schritte.forEach(s => s.classList.remove("an")); [abw, ein, mas].forEach(b => b.classList.add("aus"));
+    wurzel.querySelector(".aw-t").textContent = f.titel;
+    const d = zeichneDiagramm(f); grafik.innerHTML = ""; grafik.appendChild(d.svg); grafik.classList.remove("dimmen");
+    await warte(30); if (id !== lauf) return; d.start(); schritte[0].classList.add("an");
+    await warte(750); if (id !== lauf) return;
+    grafik.classList.add("dimmen"); (f.heraus || []).forEach(k => d.zeilen[k] && d.zeilen[k].classList.add("heraus")); if (f.teamHeraus != null) d.zeilen[f.teamHeraus].classList.add("heraus"); if (d.heraus) d.heraus();
+    abw.textContent = f.abweichung; abw.classList.remove("aus"); schritte[1].classList.add("an");
+    await warte(600); if (id !== lauf) return; ein.querySelector("p").textContent = f.einordnung + " " ; ein.querySelector("p").insertAdjacentHTML("afterbegin", `<b>${f.aussage}</b> `); ein.classList.remove("aus"); schritte[2].classList.add("an");
+    await warte(600); if (id !== lauf) return; mas.querySelector("p").textContent = f.massnahme; mas.classList.remove("aus"); schritte[3].classList.add("an");
+  }
+  let wartend = null;
+  const obj = {waehle, gezeigt: false, vormerken(i){ if (obj.gezeigt) waehle(i, true); else wartend = i; }};
+  new IntersectionObserver(e => { if (e[0].isIntersecting && !obj.gezeigt){ obj.gezeigt = true; waehle(wartend ?? 0, true); } }, {threshold: .3}).observe(wurzel);
+  return obj;
+}
+const awStart = baueAuswertung(D.getElementById("aw-start"), {kompakt: true});
+const awPa = baueAuswertung(D.getElementById("aw-pa"));
+
+/* ------------------------------------------------------------------ Vorgehen */
+const zeit = D.getElementById("zeit"), ergebnis = D.getElementById("ergebnis");
+PHASEN.forEach((p, i) => { const b = D.createElement("button"); b.type = "button"; b.className = "phase"; b.setAttribute("role", "tab"); b.innerHTML = `<span class="nr">${p[0]}</span><b>${p[1]}</b><span>${p[2]}</span>`; b.addEventListener("click", () => waehlePhase(i)); zeit.appendChild(b); });
+async function waehlePhase(i){
+  zeit.querySelectorAll(".phase").forEach((b, j) => b.setAttribute("aria-selected", String(j === i))); const p = PHASEN[i];
+  ergebnis.classList.add("aus"); await warte(160);
+  ergebnis.innerHTML = `<p>${p[3]}</p><div class="erhalt"><span class="kicker">Was Sie danach in der Hand haben</span><b>${p[4]}</b><span class="vorschlag">Vorschlag [ROWAPA bestätigen]</span></div>`; ergebnis.classList.remove("aus");
+}
+waehlePhase(0);
+
+/* ------------------------------------------------------------------ Digital */
+const wz = D.getElementById("werkzeuge"), flaeche = D.getElementById("vorschau-flaeche"), vsatz = D.getElementById("vorschau-satz");
+const WF = {
+  anker: `<div class="wf" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="k"><b>Erstes Interesse</b>12 Personen<div class="bar"><i style="width:90%"></i></div></div><div class="k"><b>Gespräch</b>5 Personen<div class="bar"><i style="width:42%"></i></div></div><div class="k"><b>Anstellung</b>2 Personen<div class="bar"><i style="width:18%"></i></div></div><div class="k" style="grid-column:span 3"><b>Nächster Schritt</b>Einladung zum Gespräch vorbereiten</div></div>`,
+  kompass: `<div class="wf" style="grid-template-columns:repeat(4,minmax(0,1fr))"><div class="k"><b>1 Ausgangslage</b>erfasst</div><div class="k"><b>2 Bedarf</b>in Arbeit</div><div class="k"><b>3 Optionen</b>offen</div><div class="k"><b>4 Passende Lösung</b>offen</div><div class="k" style="grid-column:span 4;min-height:90px"><b>Gesprächsleitfaden</b>Fragen zur Ausgangslage, Schritt für Schritt</div></div>`,
+  lotse: `<div class="wf" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr)"><div class="k"><b>Trainingstag</b>abgeschlossen<div class="bar"><i style="width:100%"></i></div></div><div class="k"><b>Umsetzung im Alltag</b>Woche 3 von 8<div class="bar"><i style="width:38%"></i></div></div><div class="k" style="grid-column:span 2;min-height:90px"><b>Impuls dieser Woche</b>Eine Übung aus dem Training im nächsten Gespräch anwenden</div></div>`,
+  segel: `<div class="wf" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="k" style="grid-column:span 2;min-height:120px"><b>Gemeinsame Ansicht</b>Thema im Kundengespräch sichtbar machen</div><div class="k"><b>Themen</b>Vorsorge · Wohnen · Familie</div><div class="k" style="grid-column:span 3"><b>Notizen</b>Was der Kunde gesehen und gesagt hat</div></div>`,
+  logbuch: `<div class="wf" style="grid-template-columns:minmax(0,1fr)"><div class="k"><b>Impuls für das nächste Kundengespräch</b>Konkrete Anregung, abgestimmt auf den Termin</div><div class="k"><b>Vorbereitung</b>Drei Fragen zum Einstieg</div><div class="k"><b>Rückblick</b>Was hat gewirkt?</div></div>`
+};
+const MARK = {anker: [.66, .02, .33, .5], kompass: [.25, .02, .24, .33], lotse: [.5, .02, .5, .44], segel: [0, .02, .66, .62], logbuch: [0, .02, 1, .33]};
+WERKZEUGE.forEach((w, i) => { const b = D.createElement("button"); b.type = "button"; b.className = "werkzeug"; b.setAttribute("role", "tab"); b.innerHTML = `${ICONS[w.k]}<span><b>${w.name}</b><span>${w.titel}</span></span>`; b.addEventListener("click", () => waehleWerkzeug(i)); wz.appendChild(b); });
+async function waehleWerkzeug(i){
+  const w = WERKZEUGE[i]; wz.querySelectorAll(".werkzeug").forEach((b, j) => b.setAttribute("aria-selected", String(j === i)));
+  D.getElementById("vorschau-name").textContent = w.name; vsatz.classList.add("aus");
+  flaeche.innerHTML = WF[w.k] + `<div class="markierung"></div>`; const m = flaeche.querySelector(".markierung"), [x, y, ww, hh] = MARK[w.k];
+  m.style.cssText = "left:50%;top:50%;width:0;height:0"; requestAnimationFrame(() => requestAnimationFrame(() => { m.style.cssText = `left:calc(24px + ${x} * (100% - 48px));top:calc(24px + ${y} * (100% - 48px));width:calc(${ww} * (100% - 48px));height:calc(${hh} * (100% - 48px))`; }));
+  await warte(200); vsatz.textContent = w.satz; vsatz.classList.remove("aus");
+}
+waehleWerkzeug(0);
+
+/* ------------------------------------------------------------------ Menschen */
+const mr = D.getElementById("menschen-raster"), detail = D.getElementById("detail"); let vorher = null;
+MENSCHEN.forEach((m, i) => { const b = D.createElement("button"); b.type = "button"; b.className = "person"; b.innerHTML = `<div class="portraet"><span class="initialen">${m[2]}</span><span class="hinweis">Porträt folgt</span></div><b>${m[0]}</b><span class="funktion">${m[1]}</span>`; b.addEventListener("click", () => oeffne(i, b)); mr.appendChild(b); });
+function oeffne(i, knopf){ const m = MENSCHEN[i]; vorher = knopf; D.getElementById("detail-inhalt").innerHTML = `<div class="portraet" style="aspect-ratio:16/10"><span class="initialen">${m[2]}</span><span class="hinweis">Porträt folgt</span></div><h3 id="detail-name" style="font-size:30px">${m[0]}</h3><p style="color:var(--ink-2)">${m[1]}</p><dl><dt>Fachgebiet</dt><dd class="offen-markiert">[ROWAPA bestätigen]</dd><dt>Branchenbezug</dt><dd class="offen-markiert">[ROWAPA bestätigen]</dd><dt>Sprachen</dt><dd class="offen-markiert">[ROWAPA bestätigen]</dd></dl><a class="knopf primaer" href="#gespraech" style="justify-self:start">Gespräch vereinbaren</a>`; detail.classList.add("offen"); detail.setAttribute("aria-hidden", "false"); D.getElementById("detail-zu").focus(); }
+function schliesse(){ detail.classList.remove("offen"); detail.setAttribute("aria-hidden", "true"); if (vorher) vorher.focus(); }
+D.getElementById("detail-zu").addEventListener("click", schliesse);
+detail.addEventListener("click", e => { if (e.target.closest("a")) schliesse(); });
+D.addEventListener("keydown", e => { if (e.key === "Escape" && detail.classList.contains("offen")) schliesse(); });
+
+/* ------------------------------------------------------------------ Insights */
+const filter = D.getElementById("filter"), karten = D.getElementById("karten");
+INSIGHTS.forEach(a => { const k = D.createElement("a"); k.className = "karte"; k.href = "#"; k.dataset.thema = a[0]; k.innerHTML = `<div class="meta"><b>${a[0]}</b>${a[1]}</div><h3>${a[2]}</h3><p>${a[3]}</p>`; karten.appendChild(k); });
+["Alle", "Sales", "Leadership"].forEach((n, i) => { const b = D.createElement("button"); b.type = "button"; b.textContent = n; b.setAttribute("aria-pressed", String(i === 0)); b.addEventListener("click", () => { filter.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); karten.querySelectorAll(".karte").forEach(k => k.hidden = !(n === "Alle" || k.dataset.thema === n)); markiereGross(); }); filter.appendChild(b); });
+function markiereGross(){ let erst = true; karten.querySelectorAll(".karte").forEach(k => { k.classList.toggle("gross", !k.hidden && erst); if (!k.hidden) erst = false; }); }
+markiereGross();
+
+/* ------------------------------------------------------------------ Schiene */
+const schiene = D.getElementById("schiene");
+D.querySelectorAll(".schiene-nav button").forEach(b => b.addEventListener("click", () => {
+  const karten = [...schiene.children], x = schiene.scrollLeft, r = +b.dataset.richtung;
+  const ziel = r > 0 ? karten.find(k => k.offsetLeft - schiene.offsetLeft > x + 4) : [...karten].reverse().find(k => k.offsetLeft - schiene.offsetLeft < x - 4);
+  schiene.scrollTo({left: ziel ? ziel.offsetLeft - schiene.offsetLeft : (r > 0 ? schiene.scrollWidth : 0), behavior: istRuhig() ? "auto" : "smooth"});
+}));
+
+/* ------------------------------------------------------------------ Performance-Analyse: Titel wortweise (Entscheide 391, 401) */
+D.querySelectorAll(".pa-aw .h2").forEach(h => { const w = h.textContent.trim().split(/\s+/); h.innerHTML = w.map((x, i) => `<span class="wort" style="transition-delay:${i * 70}ms">${x}</span>`).join(" "); h.classList.add("wortweise"); new IntersectionObserver((e, o) => { if (e[0].isIntersecting){ h.classList.add("an"); o.disconnect(); } }, {threshold: .6}).observe(h); });
+
+/* ------------------------------------------------------------------ Performance-Analyse: Lupe */
+let pPa = null;
+function lupe(){ if (!pPa){ pPa = new Punkte(D.getElementById("cv-pa"), {dunkel: true, gross: 2, fuellung: .82}); } pPa.streuen(); setTimeout(() => pPa.form("lupe", 1400, 500), 120); }
+
+/* ------------------------------------------------------------------ Ansichten (Hash), Überblendung wie auf der Website */
+let ansichtJetzt = null;
+function zeige(name, ziel = null, sanft = true, danach = null){
+  const pa = name === "performance-analyse", art = istRuhig() ? "auto" : "smooth";
+  if (name === ansichtJetzt){ if (ziel) ziel.scrollIntoView({behavior: art}); else if (!danach) scrollTo({top: 0, behavior: art}); if (danach) danach(); return; }
+  const tun = () => {
+    ansichtJetzt = name;
+    D.getElementById("ansicht-start").hidden = pa; D.getElementById("ansicht-pa").hidden = !pa;
+    D.querySelectorAll('[data-wahl="seite"] button').forEach(b => b.setAttribute("aria-pressed", String(b.dataset.wert === name)));
+    if (ziel) ziel.scrollIntoView({behavior: "instant"}); else scrollTo({top: 0, behavior: "instant"});
+    if (pa) lupe(); rhythmusKarte();
+  };
+  if (sanft && D.startViewTransition && !istRuhig()) D.startViewTransition(tun).updateCallbackDone.then(() => { if (danach) danach(); });
+  else { tun(); if (danach) danach(); }
+}
+function route(id, sanft = true){
+  megaZu();
+  if (id === "performance-analyse") return zeige(id, null, sanft);
+  if (!id || id === "startseite") return zeige("startseite", null, sanft);
+  const ziel = D.getElementById(id); if (!ziel) return;
+  zeige(ziel.closest("#ansicht-pa") ? "performance-analyse" : "startseite", ziel, sanft);
+}
+function springeZuThema(i){
+  const hin = () => {
+    if (themenSek.classList.contains("ist-scroll")){ const r = themenSek.getBoundingClientRect(), weg = r.height - innerHeight; scrollTo({top: scrollY + r.top + (i + .5) / 5 * weg, behavior: istRuhig() ? "auto" : "smooth"}); }
+    else { waehleThema(i); themenSek.scrollIntoView({behavior: istRuhig() ? "auto" : "smooth"}); }
+  };
+  if (location.hash !== "#themen") history.pushState(null, "", "#themen");
+  if (ansichtJetzt !== "startseite") zeige("startseite", null, true, hin); else hin();
+}
+const toastEl = D.getElementById("toast"); let toastZeit = 0;
+function toast(t){ toastEl.textContent = t; toastEl.classList.add("an"); clearTimeout(toastZeit); toastZeit = setTimeout(() => toastEl.classList.remove("an"), 2400); }
+D.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  e.preventDefault(); const id = a.getAttribute("href").slice(1);
+  if (!id){ toast("Diese Seite ist in der Skizze nicht ausgearbeitet."); return; }
+  if (location.hash !== "#" + id) history.pushState(null, "", "#" + id);
+  route(id);
+});
+addEventListener("hashchange", () => route(decodeURIComponent(location.hash.slice(1))));
+const vtStil = D.createElement("style"); vtStil.textContent = "::view-transition-group(*){animation-duration:.35s;animation-timing-function:cubic-bezier(.37,0,.63,1)}@media (max-width:767px){::view-transition-group(*){animation-duration:.3s}}"; D.head.appendChild(vtStil);
+
+/* ------------------------------------------------------------------ Skizzen-Leiste */
+const leiste = D.getElementById("leiste");
+D.getElementById("leiste-knopf").addEventListener("click", () => { leiste.classList.add("offen"); rhythmusKarte(); });
+D.getElementById("leiste-zu").addEventListener("click", () => leiste.classList.remove("offen"));
+D.querySelectorAll("[data-wahl]").forEach(g => g.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+  g.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b))); const w = b.dataset.wert;
+  switch (g.dataset.wahl){
+    case "seite": if (location.hash !== "#" + w) history.pushState(null, "", "#" + w); route(w); break;
+    case "themen": themenSek.classList.toggle("ist-scroll", w === "scroll"); themaJetzt = -1; waehleThema(0); setTimeout(rhythmusKarte, 50); break;
+    case "bewegung": ruhig = w === "pause"; H.classList.toggle("ruhig", ruhig); los(); break;
+    case "rhythmus": H.classList.toggle("zeige-rhythmus", w === "an"); break;
+    case "mitte": H.classList.toggle("titel-zentriert", w === "zentriert"); break;
+  }
+})));
+D.querySelectorAll("section[data-typ]").forEach(s => { const e = D.createElement("div"); e.className = "etikett"; e.innerHTML = `<b>${s.dataset.typ}${s.dataset.titel ? " · Titel " + s.dataset.titel : ""}</b>${s.dataset.notiz}`; s.prepend(e); });
+function rhythmusKarte(){
+  const k = D.getElementById("karte-rhythmus"); k.innerHTML = ""; const sek = [...D.querySelectorAll(".ansicht:not([hidden]) section[data-typ]")]; const max = Math.max(...sek.map(s => s.offsetHeight), 1);
+  sek.forEach(s => { const b = D.createElement("button"); b.type = "button"; const bg = getComputedStyle(s).backgroundColor; const h = Math.max(10, Math.round(s.offsetHeight / max * 46)); b.innerHTML = `<i style="height:${h}px;background:${bg === "rgba(0, 0, 0, 0)" ? "#fff" : bg}"></i><span>${s.dataset.typ}${s.dataset.titel ? `<small>Titel: ${s.dataset.titel}</small>` : ""}</span>`; b.addEventListener("click", () => s.scrollIntoView({behavior: istRuhig() ? "auto" : "smooth"})); k.appendChild(b); });
+}
+if (ruhig) D.querySelector('[data-wahl="bewegung"] [data-wert="pause"]').click();
+route(decodeURIComponent(location.hash.slice(1)), false);
+</script>
