@@ -67,7 +67,8 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Navigation blendet beim Runterscrollen aus und beim Hochscrollen wieder ein (Grafik-Modul `kopfleiste`, Entscheid 390); nie dauerhaft sichtbar, auch nicht als kompakte Leiste (Entscheid 401); keine Kapitel-Leiste unter dem Header.
 - [ ] Titel wortweise nur bei Titeln, nicht bei Erklärungstexten (Entscheide 391, 401).
 - [ ] Performance-Analyse, Methoden: zu Beginn alle zugeklappt (`data-start="zu"`, Entscheid 403).
-- [ ] Header: Wellenmeer und Inhalt bauen sich gleichzeitig auf, nie das Wellenmeer erst danach (Entscheid 404; Dauer offen, Entwurf 0,8 s).
+- [ ] Header: Wellenmeer und Inhalt bauen sich gleichzeitig auf, in 1,2 s (Entscheide 404, 405). Beim Einblenden nur Inhalte unsichtbar machen, nie Abschnitte mit eigener Fläche (sonst blitzt der weisse Seitengrund auf, Runde 91); Startseite und Unterseiten sehen beim Seitenwechsel gleich aus.
+- [ ] Themenlinien-Bühne: Navigation bleibt ausgeblendet, der Knopf «Nach oben» läuft unten rechts mit (`data-nachoben="mitlaufen"`, Entscheid 405).
 - [ ] Flächenfolge gilt auch für Entwürfe nach Printscreen oder Skizze: weicht die Vorlage ab (z. B. weisse Fläche zwischen zwei weissen Abschnitten), Fläche anpassen und begründen (Runde 90).
 - [ ] Insights immer mit Fotos (Entscheid 403); auf der Startseite kein Filter, Link «Alle Inhalte» bleibt. Karten ohne Foto zeigen ihren Kurztext. Videos von ROWAPA als Vimeo-Links.
 - [ ] Themen auf der Startseite: kompakte Auswahl oder festgehaltene Scroll-Szene; Claude darf je nach Seite wählen (Entscheid 401).
