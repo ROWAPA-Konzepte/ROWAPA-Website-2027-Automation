@@ -5,7 +5,13 @@
    z. B. "2,3" = zweiter und dritter Punkt). Am Ende «Fünf Quellen, ein Bild». Darüberfahren färbt die Linie Plum.
    Unter 992 px und bei «Bewegung reduzieren» bleibt alles stehen, wie im Designer.
    Einstellungen: data-schritt (Scrollweg je Methode in px, Standard 190), data-text-schritt («Methode {n} von {N}»),
-   data-text-fertig («Fünf Quellen, ein Bild»). Texte und Inhalte bleiben normale Webflow-Elemente. */
+   data-text-fertig («Fünf Quellen, ein Bild»). Texte und Inhalte bleiben normale Webflow-Elemente.
+
+   Ab 1.23.0 (Entwurf Runde 76): data-grafik="methoden-klapp" macht daraus aufklappbare Methoden (nach dem Muster der
+   Lösungen bei Tresmares): Immer eine Methode ist offen (zu Beginn die erste), ein Klick auf eine andere wechselt, ein
+   Klick auf die offene schliesst sie. Im Ergebnis leuchten die Punkte der offenen Methode (data-punkte), ihre Linie ist
+   Plum. Kein Stehenbleiben beim Scrollen, auf allen Breiten. Im Designer bleibt alles offen und direkt bearbeitbar.
+   Kopf = methode_kopf (der Titel wird zur Schaltfläche), Inhalt = alles in der Zeile nach dem Kopf. */
 import { clamp, zahl, takt } from './util.js';
 
 const CSS = `
@@ -36,7 +42,8 @@ function css() {
   document.head.appendChild(s);
 }
 
-export function methoden(el) {
+export function methoden(el, art) {
+  if ((art || '').toLowerCase() === 'methoden-klapp') { klapp(el); return; }
   if (innerWidth < 992) return;
   const zeilen = [...el.querySelectorAll('.methode_zeile')];
   const punkte = [...el.querySelectorAll('.methode_panel-punkt')];
@@ -145,4 +152,142 @@ export function methoden(el) {
   addEventListener('resize', layout);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   layout();
+}
+
+
+/* ---------- Aufklappbare Methoden (methoden-klapp) ---------- */
+const CSS_KLAPP = `
+.rg-mk .methode_kopf{cursor:pointer;position:relative;padding-right:2.5rem}
+.rg-mk-knopf{all:unset;cursor:pointer;display:inline;font:inherit;color:inherit;letter-spacing:inherit}
+.rg-mk-knopf:focus-visible{outline:2px solid #AA1351;outline-offset:4px;border-radius:2px}
+.rg-mk-plus{position:absolute;right:0;top:50%;width:1rem;height:1rem;margin-top:-.5rem;pointer-events:none}
+.rg-mk-plus::before,.rg-mk-plus::after{content:"";position:absolute;left:0;top:50%;width:100%;height:2px;margin-top:-1px;background:currentColor;transition:transform .45s cubic-bezier(.37,0,.63,1)}
+.rg-mk-plus::after{transform:rotate(90deg)}
+.rg-mk .rg-offen .rg-mk-plus::after{transform:rotate(0deg)}
+.rg-mk-inhalt{overflow:hidden;transition:height .55s cubic-bezier(.37,0,.63,1),opacity .45s ease}
+.rg-mk .methode_zeile:not(.rg-offen) .rg-mk-inhalt{opacity:0}
+.rg-mk .methode_zeile{transition:border-color .3s,background-color .3s}
+.rg-mk .methode_zeile.rg-offen{border-left-color:#AA1351}
+.rg-mk .methode_panel-punkt{transition:opacity .35s}
+.rg-mk .methode_panel-punkt:not(.rg-an){opacity:.3}
+@media (prefers-reduced-motion:reduce){.rg-mk-inhalt,.rg-mk-plus::before,.rg-mk-plus::after{transition:none}}
+`;
+
+function klapp(el) {
+  const zeilen = [...el.querySelectorAll('.methode_zeile')];
+  const punkte = [...el.querySelectorAll('.methode_panel-punkt')];
+  const linien = el.querySelector('.methode_linien');
+  const panel = el.querySelector('.methode_panel');
+  if (!zeilen.length || el.classList.contains('rg-mk')) return;
+  const s = document.createElement('style');
+  s.textContent = CSS + CSS_KLAPP;
+  document.head.appendChild(s);
+  el.classList.add('rg-mk');
+  const karte = zeilen.map(z => (z.getAttribute('data-punkte') || '').split(',').map(t => parseInt(t, 10) - 1).filter(i => i >= 0 && i < punkte.length));
+  const ruhig = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Aufbau zur Laufzeit: Inhalt in eine Hülle, Titel in eine Schaltfläche, Plus-Zeichen */
+  const teile = zeilen.map((z, k) => {
+    const kopf = z.querySelector('.methode_kopf');
+    const huelle = document.createElement('div');
+    huelle.className = 'rg-mk-inhalt';
+    huelle.id = 'rg-mk-' + k;
+    [...z.children].filter(c => c !== kopf).forEach(c => huelle.appendChild(c));
+    z.appendChild(huelle);
+    const titel = kopf && kopf.querySelector('h1,h2,h3,h4,h5,h6');
+    const knopf = document.createElement('button');
+    knopf.type = 'button';
+    knopf.className = 'rg-mk-knopf';
+    knopf.setAttribute('aria-controls', huelle.id);
+    if (titel) { while (titel.firstChild) knopf.appendChild(titel.firstChild); titel.appendChild(knopf); }
+    const plus = document.createElement('span');
+    plus.className = 'rg-mk-plus';
+    plus.setAttribute('aria-hidden', 'true');
+    if (kopf) kopf.appendChild(plus);
+    return { z, kopf, huelle, knopf };
+  });
+
+  /* Linien von jeder Methode zum Ergebnis (nur wo die Spalte sichtbar ist) */
+  const svgNS = 'http://www.w3.org/2000/svg';
+  let svg = null, pfade = [];
+  if (linien && panel) {
+    svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('class', 'rg-m-linien');
+    svg.setAttribute('aria-hidden', 'true');
+    linien.appendChild(svg);
+  }
+  let offenK = -1;
+  function zeichnen() {
+    if (!svg) return;
+    const wr = linien.getBoundingClientRect();
+    if (!wr.width) { svg.innerHTML = ''; return; }
+    const pr = panel.getBoundingClientRect();
+    const ty = pr.top + pr.height / 2 - wr.top, w = wr.width;
+    svg.setAttribute('viewBox', `0 0 ${w} ${wr.height}`);
+    let h = '';
+    teile.forEach(({ z, kopf }) => {
+      const b = (kopf || z).getBoundingClientRect(), y = b.top + b.height / 2 - wr.top;
+      const otj = z.classList.contains('is-otj') ? ' rg-otj' : '';
+      h += `<path class="rg-w${otj}" d="M0,${y} C${w * 0.55},${y} ${w * 0.45},${ty} ${w - 2},${ty}"/>`;
+    });
+    h += `<path class="rg-pfeil" d="M${w - 10},${ty - 6} L${w - 2},${ty} L${w - 10},${ty + 6}"/>`;
+    svg.innerHTML = h;
+    pfade = [...svg.querySelectorAll('path.rg-w')];
+    pfade.forEach((p, k) => p.classList.toggle('rg-hl', k === offenK));
+  }
+  /* während des Auf- und Zuklappens die Linien mitführen */
+  let bis = 0;
+  function mitfuehren() {
+    zeichnen();
+    if (performance.now() < bis) requestAnimationFrame(mitfuehren);
+  }
+
+  function setzen(k) {
+    offenK = k;
+    teile.forEach((t, i) => {
+      const auf = i === k;
+      const war = t.z.classList.contains('rg-offen');
+      t.z.classList.toggle('rg-offen', auf);
+      t.knopf.setAttribute('aria-expanded', auf ? 'true' : 'false');
+      if (auf === war && t.huelle.style.height !== '') return;
+      if (ruhig) { t.huelle.style.height = auf ? 'auto' : '0px'; return; }
+      const h = t.huelle.scrollHeight;
+      if (auf) {
+        t.huelle.style.height = t.huelle.offsetHeight + 'px';
+        requestAnimationFrame(() => { t.huelle.style.height = h + 'px'; });
+        const fertig = e => { if (e.propertyName === 'height' && t.z.classList.contains('rg-offen')) t.huelle.style.height = 'auto'; t.huelle.removeEventListener('transitionend', fertig); };
+        t.huelle.addEventListener('transitionend', fertig);
+      } else {
+        t.huelle.style.height = t.huelle.offsetHeight + 'px';
+        void t.huelle.offsetHeight;
+        requestAnimationFrame(() => { t.huelle.style.height = '0px'; });
+      }
+    });
+    const an = new Set(k >= 0 ? karte[k] : []);
+    punkte.forEach((p, i) => p.classList.toggle('rg-an', k < 0 || an.has(i)));
+    bis = performance.now() + 700;
+    requestAnimationFrame(mitfuehren);
+  }
+
+  teile.forEach((t, k) => {
+    t.knopf.addEventListener('click', e => { e.stopPropagation(); setzen(offenK === k ? -1 : k); });
+    if (t.kopf) t.kopf.addEventListener('click', () => t.knopf.click());
+    t.z.addEventListener('mouseenter', () => pfade[k] && pfade[k].classList.add('rg-hl'));
+    t.z.addEventListener('mouseleave', () => pfade[k] && k !== offenK && pfade[k].classList.remove('rg-hl'));
+  });
+
+  /* Start: alle zu ohne Bewegung, dann die erste offen */
+  teile.forEach(t => { t.huelle.style.height = '0px'; });
+  ruhigStart();
+  function ruhigStart() {
+    const t = teile[0];
+    offenK = 0;
+    teile.forEach((x, i) => { x.z.classList.toggle('rg-offen', i === 0); x.knopf.setAttribute('aria-expanded', i === 0 ? 'true' : 'false'); });
+    t.huelle.style.height = 'auto';
+    const an = new Set(karte[0]);
+    punkte.forEach((p, i) => p.classList.toggle('rg-an', an.has(i)));
+    zeichnen();
+  }
+  addEventListener('resize', zeichnen);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(zeichnen);
 }
