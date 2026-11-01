@@ -1,7 +1,7 @@
-/* ROWAPA · Umschaltleiste für Entwürfe (ab Runde 79, Entscheid 393; Fassung 1.3.0 Runde 82, Entscheid 396)
+/* ROWAPA · Umschaltleiste für Entwürfe (ab Runde 79, Entscheid 393; Fassung 1.4.0 Runde 83, Entscheid 397)
    Nur auf der Entwurfsseite «Performance-Analyse · Entwurf Bewegung» (/performance-analyse-entwurf).
    Jeder Punkt lässt sich zwischen «heute» (= echte Seite) und dem Entwurf umschalten. Die Wahl bleibt im Browser
-   gespeichert und lässt sich als Link teilen (?v=linien:laufen,foto:grau,fototext:a …).
+   gespeichert und lässt sich als Link teilen (?v=hintergrund:linie,cta:48,titel:a,wechsel:neu …).
    Was ROWAPA gewählt hat, wird jeweils auf beiden Seiten nativ gebaut und ist hier nicht mehr umschaltbar.
    Nach dem Entscheid wird die gewählte Fassung nativ gebaut; dieses Skript wird danach gelöscht. */
 (function () {
@@ -9,20 +9,21 @@
   var D = document, H = D.documentElement, SPEICHER = 'rgVariantenPA2';
 
   var GRUPPEN = [
-    { t: 'Neu (Runde 82)', z: [
-      { k: 'linien', n: '«Fünf Perspektiven»: Linien zum Kasten', o: [['heute', 'ruhend'], ['laufen', 'laufen dauernd']] },
-      { k: 'foto', n: 'Foto mit Text', o: [['heute', 'gross'], ['grau', 'schmaler, im Grau der Kundenstimmen'], ['karte', 'schmaler, Text als Karte']] },
-      { k: 'fototext', n: 'Text neben dem Foto', o: [['heute', 'wie heute'], ['a', 'Vorschlag A'], ['b', 'Vorschlag B'], ['c', 'Vorschlag C']] }
+    { t: 'Neu (Runde 83)', z: [
+      { k: 'hintergrund', n: 'Foto mit Text: Hintergrund', o: [['heute', 'grau'], ['linie', 'grau, feine Linie unten'], ['weiss', 'weiss']] },
+      { k: 'cta', n: 'Header: Abstand Untertitel zu den Buttons', o: [['heute', '32 px'], ['48', '48 px'], ['64', '64 px']] },
+      { k: 'titel', n: 'Titel über den Beispielauswertungen', o: [['heute', '«Wo bleibt …»'], ['a', 'Vorschlag A'], ['b', 'Vorschlag B'], ['c', 'Vorschlag C']] },
+      { k: 'wechsel', n: 'Seitenwechsel (alle Seiten, wirkt ab dem nächsten Klick)', o: [['heute', '1,0 s'], ['neu', '0,7 s, vorgeladen'], ['kurz', '0,5 s, vorgeladen']] }
     ] }
   ];
   var ZEILEN = [];
   GRUPPEN.forEach(function (g) { g.z.forEach(function (z) { ZEILEN.push(z); }); });
 
-  /* Textvorschläge neben dem Foto (Texttabelle Runde 82) */
-  var FOTOTEXT = {
-    a: ['Zahlen brauchen Erfahrung.', 'Unsere Fachpersonen kennen Vertrieb und Führung in der Finanzbranche aus eigener Erfahrung. Im Ergebnisgespräch ordnen sie die Auswertung mit Ihnen ein.'],
-    b: ['Persönlich eingeordnet.', 'Hinter jeder Auswertung stehen Menschen, die Ihre Branche kennen. Sie leiten aus den Ergebnissen konkrete Empfehlungen für Ihre Teams und Führungskräfte ab.'],
-    c: ['Vom Befund zum Gespräch.', 'Die Daten zeigen, wo Sie stehen. Im Ergebnisgespräch übersetzen unsere Fachpersonen sie in Prioritäten, die zu Ihrem Unternehmen passen.']
+  /* Titel über den Beispielauswertungen (Texttabelle Runde 83): ersetzt das zweite «Wo bleibt …» */
+  var TITEL = {
+    a: 'Warum bleibt Leistung hinter den Möglichkeiten zurück?',
+    b: 'Was steckt hinter Ihren Ergebnissen?',
+    c: 'Welche Antworten liefert die Auswertung?'
   };
 
   /* ---------- Zustand ---------- */
@@ -36,6 +37,7 @@
       decodeURIComponent(m[1]).split(',').forEach(function (p) { var a = p.split(':'); if (a[0] && a[1]) s[a[0]] = a[1]; });
       speichern(s);
     }
+    try { if (m && s.wechsel) localStorage.setItem('rgWechsel', s.wechsel); s.wechsel = localStorage.getItem('rgWechsel') || 'heute'; } catch (e) {}
     ZEILEN.forEach(function (z) {
       if (!z.o.some(function (o) { return o[0] === s[z.k]; })) s[z.k] = 'heute';
     });
@@ -44,20 +46,11 @@
   var S = lesen();
 
   var CSS = [
-    '.v-foto-grau .section_bildtext .theme-kontrast,.v-foto-karte .section_bildtext .theme-kontrast{background-color:#E8E9E9}',
-    '.v-foto-grau .section_bildtext .heading-style-h2,.v-foto-grau .bildtext_inhalt p,.v-foto-karte .section_bildtext .heading-style-h2,.v-foto-karte .bildtext_inhalt p{color:#1D3149}',
-    '.v-foto-grau .padding-section-large.is-stimme,.v-foto-karte .padding-section-large.is-stimme{padding-top:3rem}',
-    '@media (min-width:992px){',
-    '.v-foto-grau .bildtext_bild-wrap,.v-foto-karte .bildtext_bild-wrap{aspect-ratio:2.2/1}',
-    '.v-foto-grau .bildtext_bild,.v-foto-karte .bildtext_bild{object-position:50% 25%}',
-    '.v-foto-grau .bildtext_inhalt{padding-top:2.5rem;padding-bottom:2.5rem}',
-    '.v-foto-karte .bildtext_layout{grid-template-columns:minmax(0,8fr) minmax(0,4fr);align-items:center}',
-    '.v-foto-karte .bildtext_bild-wrap{align-self:start}',
-    '.v-foto-karte .bildtext_inhalt{position:relative;z-index:1;background:#fff;margin:2.5rem clamp(1rem,.25rem + 3vw,3rem) 2.5rem -8rem;padding:2.5rem;max-width:32rem;box-shadow:-1.5rem -1.5rem 0 -1px #E8E9E9,-1.5rem -1.5rem 0 0 #AA1351}',
-    '.v-foto-karte .bildtext_inhalt .heading-style-h2{font-size:clamp(1.75rem,2.4vw,2.5rem)}',
-    '}',
-    '@media (max-width:991px){.v-foto-karte .bildtext_inhalt{position:relative;z-index:1;background:#fff;margin:-2rem 1rem 2rem;padding:1.75rem;box-shadow:-1rem -1rem 0 -1px #E8E9E9,-1rem -1rem 0 0 #AA1351}}',
-    '@media (min-width:768px) and (max-width:991px){.v-foto-karte .bildtext_layout{grid-template-columns:minmax(0,1fr)}.v-foto-karte .bildtext_bild-wrap{aspect-ratio:16/9}}',
+    '.v-hintergrund-linie .section_bildtext{border-bottom:1px solid rgba(29,49,73,.14)}',
+    '.v-hintergrund-weiss .section_bildtext .theme-soft{background-color:#fff}',
+    '.v-cta-48 .header-unterseite_lead{margin-bottom:3rem}',
+    '.v-cta-64 .header-unterseite_lead{margin-bottom:4rem}',
+    '@media (max-width:767px){.v-cta-48 .header-unterseite_lead{margin-bottom:2.5rem}.v-cta-64 .header-unterseite_lead{margin-bottom:3rem}}',
     '.rg-vl{position:fixed;left:16px;bottom:16px;z-index:2147483000;font:13px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1D3149}',
     '.rg-vl button{font:inherit;cursor:pointer}',
     '.rg-vl-knopf{background:#1D3149;color:#fff;border:0;border-radius:999px;padding:8px 14px;box-shadow:0 4px 14px rgba(0,0,0,.18)}',
@@ -84,20 +77,17 @@
   (D.head || H).appendChild(st);
 
   /* ---------- Varianten ---------- */
-  var textAlt = null;
-  function fototext() {
-    var sec = D.querySelector('.section_bildtext');
-    if (!sec) return;
-    var h = sec.querySelector('h2'), p = sec.querySelector('.bildtext_inhalt p');
-    if (!textAlt) textAlt = [h ? h.textContent : '', p ? p.textContent : ''];
-    var t = FOTOTEXT[S.fototext] || textAlt;
-    if (h) h.textContent = t[0];
-    if (p) p.textContent = t[1];
+  var titelEl = null, titelAlt = '';
+  function titel() {
+    if (!titelEl) {
+      titelEl = [].filter.call(D.querySelectorAll('h2, h3'), function (h) { return /^Wo bleibt Leistung/.test(h.textContent.trim()); })[0] || null;
+      if (titelEl) titelAlt = titelEl.textContent;
+    }
+    if (titelEl) titelEl.textContent = TITEL[S.titel] || titelAlt;
   }
   function anwenden() {
-    var m = D.querySelector('.methode_layout');
-    if (m) { if (S.linien === 'laufen') m.setAttribute('data-linien', 'laufen'); else m.removeAttribute('data-linien'); }
-    fototext();
+    titel();
+    try { localStorage.setItem('rgWechsel', S.wechsel); } catch (e) {}
     ZEILEN.forEach(function (z) {
       z.o.forEach(function (o) { H.classList.remove('v-' + z.k + '-' + o[0]); });
       if (S[z.k] !== 'heute') H.classList.add('v-' + z.k + '-' + S[z.k]);
