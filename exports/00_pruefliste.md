@@ -59,6 +59,8 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Mauszeiger Punkt mit Ring auf allen Seiten, Ring läuft 1:1 mit (Entscheide 369, 383).
 - [ ] Megamenü: Spaltentitel als Link zur Übersicht; Performance-Analyse zuoberst unter «Für Unternehmen» (Entscheide 374, 375). Megamenü ohne Abdunkeln oder gestaffeltes Einblenden (Entscheid 390).
 - [ ] Navigation blendet beim Runterscrollen aus und beim Hochscrollen wieder ein (Grafik-Modul `kopfleiste`, Entscheid 390); keine Kapitel-Leiste unter dem Header.
+- [ ] Seitenwechsel site-weit: neue Seite fährt samt Navigation von unten ein, 1,0 s, Kurve sanft; Handy überblenden; nur innerhalb der Website (Kopf-Skript «ROWAPASeitenwechsel», Entscheid 391).
+- [ ] Fotos: nur eigene Leute bzw. mit Einverständnis; nichts Firmenfremdes lesbar im Bild (z. B. Plakate); ohne Metadaten hochladen; Personenfotos nicht ins Repo; kein Bildtext, der mehr behauptet, als zu sehen ist.
 - [ ] Besonderer Effekt je Seitenfamilie wie vereinbart (Entscheid 370).
 - [ ] Seite «So arbeiten wir» wird gebaut (Entscheid 380): ausführlicher Ablauf nur dort; andere Seiten zeigen die Kurzfassung und verlinken «Mehr zu unserem Vorgehen».
 
