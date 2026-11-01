@@ -1,37 +1,21 @@
-/* ROWAPA · Umschaltleiste für Entwürfe (ab Runde 79, Entscheid 393; Fassung 1.1.0 Runde 80, Entscheid 394)
+/* ROWAPA · Umschaltleiste für Entwürfe (ab Runde 79, Entscheid 393; Fassung 1.2.0 Runde 81, Entscheid 395)
    Nur auf der Entwurfsseite «Performance-Analyse · Entwurf Bewegung» (/performance-analyse-entwurf).
    Jeder Punkt lässt sich zwischen «heute» (= echte Seite) und dem Entwurf umschalten. Die Wahl bleibt im Browser
-   gespeichert und lässt sich als Link teilen (?v=untertitel:zwei,entscheidung:fragen …).
-   Was ROWAPA in Runde 79 gewählt hat, ist seit Runde 80 auf beiden Seiten nativ gebaut und hier nicht mehr umschaltbar.
+   gespeichert und lässt sich als Link teilen (?v=ergebnis:marke,foto:kompakt …).
+   Was ROWAPA gewählt hat, wird jeweils auf beiden Seiten nativ gebaut und ist hier nicht mehr umschaltbar.
    Nach dem Entscheid wird die gewählte Fassung nativ gebaut; dieses Skript wird danach gelöscht. */
 (function () {
   'use strict';
   var D = document, H = D.documentElement, SPEICHER = 'rgVariantenPA2';
 
   var GRUPPEN = [
-    { t: 'Neu (Runde 80)', z: [
-      { k: 'untertitel', n: 'Untertitel im Header', o: [['heute', 'ein Absatz'], ['zwei', 'zwei Absätze mit Abstand']] },
-      { k: 'entscheidung', n: 'Beispielauswertungen', o: [['heute', 'heutige Titel'], ['fragen', 'Fragen als Reiter, Aussage beim Chart']] },
-      { k: 'methoden', n: '«Fünf Perspektiven»', o: [['heute', 'Aufklappen per Klick'], ['hover', 'auch beim Darüberfahren']] }
+    { t: 'Neu (Runde 81)', z: [
+      { k: 'ergebnis', n: '«Fünf Perspektiven»: Kasten rechts', o: [['heute', 'Punkte der übrigen Methoden blass'], ['marke', 'alle Punkte sichtbar, Marke Plum']] },
+      { k: 'foto', n: 'Foto mit Text', o: [['heute', 'gross'], ['kompakt', 'kompakt'], ['ohne', 'ohne Foto']] }
     ] }
   ];
   var ZEILEN = [];
   GRUPPEN.forEach(function (g) { g.z.forEach(function (z) { ZEILEN.push(z); }); });
-
-  /* Texte der Fassung «Fragen» (Texttabelle Runde 80) */
-  var FRAGEN = {
-    titel: 'Wo bleibt Leistung hinter den Möglichkeiten zurück?',
-    text: 'Erkennen Sie, wo Führung nicht ankommt, welche Kompetenzen fehlen und wo Ihre Teams Unterstützung brauchen. Fünf Beispielauswertungen zeigen, welche Entwicklungsmassnahmen Sie daraus ableiten können.',
-    etikett: 'Beispielauswertungen mit illustrativen Daten',
-    reiter: ['Kommt Führung an?', 'Was fehlt für die Rolle?', 'Wo brauchen Teams Unterstützung?', 'Was machen die Besten anders?', 'Was hat jetzt Priorität?'],
-    aussage: [
-      'Wo Führungskräfte ihre Führung anders sehen als ihre Teams.',
-      'Wo Kompetenzen hinter den Anforderungen zurückbleiben.',
-      'Welche Schwächen mehrere Teams bremsen – und wo gezielte Begleitung nötig ist.',
-      'Welche Unterschiede zu Ihren leistungsstarken Mitarbeitenden Ansatzpunkte für Entwicklung liefern.',
-      'Wo Sie mit Training und Coaching gezielt ansetzen sollten.'
-    ]
-  };
 
   /* ---------- Zustand ---------- */
   function speichern(s) { try { localStorage.setItem(SPEICHER, JSON.stringify(s)); } catch (e) {} }
@@ -52,7 +36,9 @@
   var S = lesen();
 
   var CSS = [
-    '.rg-satz{display:block}.rg-satz+.rg-satz{margin-top:.5rem}',
+    '@media (min-width:768px){.v-foto-kompakt .bildtext_layout{grid-template-columns:minmax(0,5fr) minmax(0,7fr);max-width:90rem;margin-left:auto;margin-right:auto;padding:2.5rem clamp(1rem,.25rem + 3vw,3rem);column-gap:clamp(2rem,4vw,5rem);align-items:center}.v-foto-kompakt .bildtext_bild-wrap{aspect-ratio:3/2;height:auto;align-self:center}.v-foto-kompakt .bildtext_inhalt{padding:0;max-width:34rem}}',
+    '@media (max-width:767px){.v-foto-kompakt .bildtext_inhalt{padding-top:2rem;padding-bottom:3rem}}',
+    '.v-foto-ohne .section_bildtext{display:none!important}',
     '.rg-vl{position:fixed;left:16px;bottom:16px;z-index:2147483000;font:13px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1D3149}',
     '.rg-vl button{font:inherit;cursor:pointer}',
     '.rg-vl-knopf{background:#1D3149;color:#fff;border:0;border-radius:999px;padding:8px 14px;box-shadow:0 4px 14px rgba(0,0,0,.18)}',
@@ -79,51 +65,9 @@
   (D.head || H).appendChild(st);
 
   /* ---------- Varianten ---------- */
-  var alt = null;
-  function merken() {
-    if (alt) return;
-    var kopf = D.querySelector('.ergebnis_kopf');
-    var lead = D.querySelector('.header-unterseite_lead');
-    alt = {
-      lead: lead ? lead.textContent : '',
-      titel: kopf && kopf.querySelector('h3') ? kopf.querySelector('h3').textContent : '',
-      text: kopf && kopf.querySelector('p') ? kopf.querySelector('p').textContent : '',
-      etikett: kopf && kopf.querySelector('.auswertung_muster') ? kopf.querySelector('.auswertung_muster').textContent : '',
-      reiter: [].map.call(D.querySelectorAll('.w-tab-link'), function (r) { return reiterText(r).textContent; }),
-      aussage: [].map.call(D.querySelectorAll('.w-tab-pane'), function (p) { var q = p.querySelector('.quote_headline'); return q ? q.textContent : ''; })
-    };
-  }
-  function reiterText(r) { return r.querySelector('div') || r; }
-  function setze(e, t) { if (e && typeof t === 'string') e.textContent = t; }
-
-  function untertitel() {
-    var lead = D.querySelector('.header-unterseite_lead');
-    if (!lead) return;
-    if (S.untertitel === 'zwei') {
-      var m = alt.lead.match(/^(.+?[.!?])\s+(.+)$/);
-      if (!m) return;
-      lead.innerHTML = '';
-      [m[1], m[2]].forEach(function (t) { var s = D.createElement('span'); s.className = 'rg-satz'; s.textContent = t; lead.appendChild(s); });
-    } else lead.textContent = alt.lead;
-  }
-  function entscheidung() {
-    var f = S.entscheidung === 'fragen';
-    var kopf = D.querySelector('.ergebnis_kopf');
-    if (kopf) {
-      setze(kopf.querySelector('h3'), f ? FRAGEN.titel : alt.titel);
-      setze(kopf.querySelector('p'), f ? FRAGEN.text : alt.text);
-      setze(kopf.querySelector('.auswertung_muster'), f ? FRAGEN.etikett : alt.etikett);
-    }
-    [].forEach.call(D.querySelectorAll('.w-tab-link'), function (r, i) { setze(reiterText(r), f ? FRAGEN.reiter[i] : alt.reiter[i]); });
-    [].forEach.call(D.querySelectorAll('.w-tab-pane'), function (p, i) { setze(p.querySelector('.quote_headline'), f ? FRAGEN.aussage[i] : alt.aussage[i]); });
-  }
-  function methoden() {
-    var m = D.querySelector('.methode_layout');
-    if (!m) return;
-    if (S.methoden === 'hover') m.setAttribute('data-oeffnen', 'hover'); else m.removeAttribute('data-oeffnen');
-  }
   function anwenden() {
-    merken(); untertitel(); entscheidung(); methoden();
+    var m = D.querySelector('.methode_layout');
+    if (m) { if (S.ergebnis === 'marke') m.setAttribute('data-ergebnis', 'marke'); else m.removeAttribute('data-ergebnis'); }
     ZEILEN.forEach(function (z) {
       z.o.forEach(function (o) { H.classList.remove('v-' + z.k + '-' + o[0]); });
       if (S[z.k] !== 'heute') H.classList.add('v-' + z.k + '-' + S[z.k]);
