@@ -57,7 +57,8 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Kontakt auf allen Seiten gleich (Komponente): Titel und Darstellung gleich, Satz und Button-Beschriftung je Seite anpassbar (Entscheide 382, 383).
 - [ ] Header Unterseite: Kopfzeile C, Titel nach Fensterhöhe, füllt das erste Bild auf allen Breiten (Entscheide 367, 375, 384). Logos: bewegtes Logo-Band nur auf der Startseite; Unterseiten zeigen die ruhige Komponente «Logo-Leiste» nach der Kundenstimme (Entscheid 383).
 - [ ] Mauszeiger Punkt mit Ring auf allen Seiten, Ring läuft 1:1 mit (Entscheide 369, 383).
-- [ ] Megamenü: Spaltentitel als Link zur Übersicht; Performance-Analyse zuoberst unter «Für Unternehmen» (Entscheide 374, 375).
+- [ ] Megamenü: Spaltentitel als Link zur Übersicht; Performance-Analyse zuoberst unter «Für Unternehmen» (Entscheide 374, 375). Megamenü ohne Abdunkeln oder gestaffeltes Einblenden (Entscheid 390).
+- [ ] Navigation blendet beim Runterscrollen aus und beim Hochscrollen wieder ein (Grafik-Modul `kopfleiste`, Entscheid 390); keine Kapitel-Leiste unter dem Header.
 - [ ] Besonderer Effekt je Seitenfamilie wie vereinbart (Entscheid 370).
 - [ ] Seite «So arbeiten wir» wird gebaut (Entscheid 380): ausführlicher Ablauf nur dort; andere Seiten zeigen die Kurzfassung und verlinken «Mehr zu unserem Vorgehen».
 
