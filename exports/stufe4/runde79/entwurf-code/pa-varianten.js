@@ -1,39 +1,40 @@
-/* ROWAPA · Umschaltleiste für Entwürfe (Runde 79, Entscheid 393)
+/* ROWAPA · Umschaltleiste für Entwürfe (ab Runde 79, Entscheid 393; Fassung 1.1.0 Runde 80, Entscheid 394)
    Nur auf der Entwurfsseite «Performance-Analyse · Entwurf Bewegung» (/performance-analyse-entwurf).
-   Jeder Punkt lässt sich zwischen «Heute» (= echte Seite) und dem Entwurf umschalten. Die Wahl bleibt im Browser
-   gespeichert und lässt sich als Link teilen (?v=foto:text,titel:wechsel …).
-   Das Skript steht im Kopf der Seite und läuft vor Webflow: Einstellungen, die Webflow-Interaktionen oder das
-   Grafik-Skript betreffen (Einblendungen, Lupe), werden gesetzt, während die Seite aufgebaut wird.
-   Nach dem Entscheid wird die gewählte Fassung nativ auf der echten Seite gebaut; dieses Skript wird dann gelöscht. */
+   Jeder Punkt lässt sich zwischen «heute» (= echte Seite) und dem Entwurf umschalten. Die Wahl bleibt im Browser
+   gespeichert und lässt sich als Link teilen (?v=untertitel:zwei,entscheidung:fragen …).
+   Was ROWAPA in Runde 79 gewählt hat, ist seit Runde 80 auf beiden Seiten nativ gebaut und hier nicht mehr umschaltbar.
+   Nach dem Entscheid wird die gewählte Fassung nativ gebaut; dieses Skript wird danach gelöscht. */
 (function () {
   'use strict';
-  var D = document, H = D.documentElement, SPEICHER = 'rgVariantenPA';
-  var LUPE_FEIN = 'https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ae74057ca5be03971a74e5e_grafik-lupe-performance-analyse-fein.png';
+  var D = document, H = D.documentElement, SPEICHER = 'rgVariantenPA2';
 
-  /* k = Schlüssel, n = Bezeichnung, o = Wahlmöglichkeiten [Wert, Text]; die erste ist immer «heute».
-     neu = Wechsel lädt die Seite neu (betrifft Interaktionen oder Grafik beim Aufbau) */
   var GRUPPEN = [
-    { t: 'Neu', z: [
-      { k: 'foto', n: 'Foto nach «Fünf Perspektiven»', o: [['heute', 'ohne'], ['band', 'Bildband'], ['text', 'Foto mit Text']] },
-      { k: 'titel', n: 'Titel', o: [['heute', 'alle links'], ['wechsel', 'links und rechts im Wechsel']] }
-    ] },
-    { t: 'Paket 1', z: [
-      { k: 'einbl', n: 'Einblendungen', o: [['heute', 'heute'], ['schnell', 'schneller, Text sofort']], neu: true },
-      { k: 'sprache', n: 'Sprachen EN · FR · IT', o: [['heute', 'sichtbar'], ['aus', 'ausgeblendet']] },
-      { k: 'menue', n: 'Megamenü: aktuelle Seite', o: [['heute', 'heute'], ['markiert', 'markiert']] }
-    ] },
-    { t: 'Paket 3', z: [
-      { k: 'button', n: 'Zweiter Button im Header', o: [['heute', '«So funktioniert …»'], ['beispiel', '«Beispielauswertung ansehen»']] },
-      { k: 'eckdaten', n: 'Eckdaten im Header', o: [['heute', 'ohne'], ['mit', 'mit Eckdatenzeile']] },
-      { k: 'hinweise', n: 'Hinweise in den Diagrammen', o: [['heute', 'ohne'], ['mit', 'mit Hinweisen']] },
-      { k: 'rahmen', n: 'Rahmen um Auswertung und Zitat', o: [['heute', 'versetzt'], ['ruhig', 'ruhiger']] },
-      { k: 'lupe', n: 'Lupe im Header', o: [['heute', 'heute'], ['fein', 'feinere Punkte']], neu: true }
+    { t: 'Neu (Runde 80)', z: [
+      { k: 'untertitel', n: 'Untertitel im Header', o: [['heute', 'ein Absatz'], ['zwei', 'zwei Absätze mit Abstand']] },
+      { k: 'entscheidung', n: 'Beispielauswertungen', o: [['heute', 'heutige Titel'], ['fragen', 'Fragen als Reiter, Aussage beim Chart']] },
+      { k: 'methoden', n: '«Fünf Perspektiven»', o: [['heute', 'Aufklappen per Klick'], ['hover', 'auch beim Darüberfahren']] }
     ] }
   ];
   var ZEILEN = [];
   GRUPPEN.forEach(function (g) { g.z.forEach(function (z) { ZEILEN.push(z); }); });
 
+  /* Texte der Fassung «Fragen» (Texttabelle Runde 80) */
+  var FRAGEN = {
+    titel: 'Wo bleibt Leistung hinter den Möglichkeiten zurück?',
+    text: 'Erkennen Sie, wo Führung nicht ankommt, welche Kompetenzen fehlen und wo Ihre Teams Unterstützung brauchen. Fünf Beispielauswertungen zeigen, welche Entwicklungsmassnahmen Sie daraus ableiten können.',
+    etikett: 'Beispielauswertungen mit illustrativen Daten',
+    reiter: ['Kommt Führung an?', 'Was fehlt für die Rolle?', 'Wo brauchen Teams Unterstützung?', 'Was machen die Besten anders?', 'Was hat jetzt Priorität?'],
+    aussage: [
+      'Wo Führungskräfte ihre Führung anders sehen als ihre Teams.',
+      'Wo Kompetenzen hinter den Anforderungen zurückbleiben.',
+      'Welche Schwächen mehrere Teams bremsen – und wo gezielte Begleitung nötig ist.',
+      'Welche Unterschiede zu Ihren leistungsstarken Mitarbeitenden Ansatzpunkte für Entwicklung liefern.',
+      'Wo Sie mit Training und Coaching gezielt ansetzen sollten.'
+    ]
+  };
+
   /* ---------- Zustand ---------- */
+  function speichern(s) { try { localStorage.setItem(SPEICHER, JSON.stringify(s)); } catch (e) {} }
   function lesen() {
     var s = {};
     try { s = JSON.parse(localStorage.getItem(SPEICHER) || '{}') || {}; } catch (e) { s = {}; }
@@ -44,46 +45,14 @@
       speichern(s);
     }
     ZEILEN.forEach(function (z) {
-      var ok = z.o.some(function (o) { return o[0] === s[z.k]; });
-      if (!ok) s[z.k] = 'heute';
+      if (!z.o.some(function (o) { return o[0] === s[z.k]; })) s[z.k] = 'heute';
     });
     return s;
   }
-  function speichern(s) { try { localStorage.setItem(SPEICHER, JSON.stringify(s)); } catch (e) {} }
   var S = lesen();
 
-  function klassen() {
-    ZEILEN.forEach(function (z) {
-      z.o.forEach(function (o) { H.classList.remove('v-' + z.k + '-' + o[0]); });
-      if (S[z.k] !== 'heute') H.classList.add('v-' + z.k + '-' + S[z.k]);
-    });
-  }
-  klassen();
-
-  /* ---------- Darstellung der Varianten ---------- */
   var CSS = [
-    'html:not(.v-foto-band) [data-variante="foto:band"],html:not(.v-foto-text) [data-variante="foto:text"]{display:none!important}',
-    '@media (min-width:992px){',
-    '.v-titel-wechsel .section_erreichen .section-head{margin-left:auto}',
-    '.v-titel-wechsel .vorgehen_layout>.section-head{grid-column:2;grid-row:1}',
-    '.v-titel-wechsel .vorgehen_layout>.vorgehen_media{grid-column:1;grid-row:1}',
-    '}',
-    '.v-sprache-aus .navbar_lang,.v-sprache-aus .navbar_lang-mobile{display:none!important}',
-    '.v-menue-markiert .navbar_dropdown-link.w--current{border-left:2px solid #AA1351!important;font-weight:600}',
-    '.v-rahmen-ruhig .auswertung_visual,.v-rahmen-ruhig .stimme_rahmen{box-shadow:none!important;border-top:1px solid rgba(29,49,73,.14)}',
-    '.rg-eckdaten{display:none;flex-wrap:wrap;column-gap:.5rem;row-gap:.25rem;margin-top:-.25rem;margin-bottom:.5rem}',
-    '.rg-eckdaten span+span:before{content:"·";margin-right:.5rem}',
-    '.v-eckdaten-mit .rg-eckdaten{display:flex}',
-    '@media (max-width:767px){.rg-eckdaten{flex-direction:column;align-items:flex-start;text-align:left;row-gap:.125rem}.rg-eckdaten span+span:before{content:none}}',
-    '.rg-hinweis{display:none;grid-column:1/-1;font-size:.8125rem;line-height:1.3;color:#AA1351;font-weight:600;margin-top:.25rem}',
-    '.v-hinweise-mit .rg-hinweis{display:block}',
-    '.v-hinweise-mit .rg-hinweis-zeile .dia_label{font-weight:600}',
-    '.v-hinweise-mit .rg-hinweis-zelle{outline:2px solid #AA1351;outline-offset:-2px}',
-    '.v-hinweise-mit .dia .dia_zeile{transition:opacity .15s}',
-    '.v-hinweise-mit .dia:hover .dia_zeile{opacity:.45}',
-    '.v-hinweise-mit .dia .dia_zeile:hover{opacity:1}',
-    '#beispielauswertung{scroll-margin-top:6rem}',
-    /* Umschaltleiste */
+    '.rg-satz{display:block}.rg-satz+.rg-satz{margin-top:.5rem}',
     '.rg-vl{position:fixed;left:16px;bottom:16px;z-index:2147483000;font:13px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1D3149}',
     '.rg-vl button{font:inherit;cursor:pointer}',
     '.rg-vl-knopf{background:#1D3149;color:#fff;border:0;border-radius:999px;padding:8px 14px;box-shadow:0 4px 14px rgba(0,0,0,.18)}',
@@ -109,94 +78,57 @@
   st.textContent = CSS;
   (D.head || H).appendChild(st);
 
-  /* ---------- Während des Seitenaufbaus (vor Webflow und Grafik-Skript) ---------- */
-  function vorbereiten(wurzel) {
-    if (!wurzel || wurzel.nodeType !== 1) return;
-    var liste = [wurzel].concat([].slice.call(wurzel.querySelectorAll ? wurzel.querySelectorAll('*') : []));
-    for (var i = 0; i < liste.length; i++) {
-      var e = liste[i];
-      if (e.tagName === 'H2' && e.classList.contains('heading-style-h2') && !e.hasAttribute('data-titel')) {
-        e.setAttribute('data-titel', S.einbl === 'schnell' ? 'schnell' : 'heute');
-      }
-      if (S.einbl === 'schnell' && e.hasAttribute('data-einblenden') &&
-          (e.classList.contains('section-head') || e.classList.contains('stimme_rahmen') || e.classList.contains('stat_item'))) {
-        e.removeAttribute('data-einblenden');
-      }
-      if (S.lupe === 'fein' && e.tagName === 'IMG' && e.parentElement && e.parentElement.classList.contains('header-unterseite_figur') && !e.getAttribute('data-lupe')) {
-        e.setAttribute('data-lupe', 'fein');
-        e.removeAttribute('srcset'); e.removeAttribute('sizes');
-        e.setAttribute('src', LUPE_FEIN);
-      }
-    }
-  }
-  var beobachter = null;
-  if (window.MutationObserver) {
-    beobachter = new MutationObserver(function (m) {
-      for (var i = 0; i < m.length; i++) for (var j = 0; j < m[i].addedNodes.length; j++) vorbereiten(m[i].addedNodes[j]);
-    });
-    beobachter.observe(H, { childList: true, subtree: true });
-  }
-
-  /* ---------- Nach dem Aufbau ---------- */
-  var knopfAlt = null;
-  function button() {
-    var b = D.querySelector('.section_header-unterseite a.button.is-secondary');
-    if (!b) return;
-    if (!knopfAlt) knopfAlt = { t: b.textContent, h: b.getAttribute('href') };
+  /* ---------- Varianten ---------- */
+  var alt = null;
+  function merken() {
+    if (alt) return;
     var kopf = D.querySelector('.ergebnis_kopf');
-    if (kopf && !kopf.id) kopf.id = 'beispielauswertung';
-    if (S.button === 'beispiel') { b.textContent = 'Beispielauswertung ansehen'; b.setAttribute('href', kopf ? '#beispielauswertung' : '#ergebnis'); }
-    else { b.textContent = knopfAlt.t; b.setAttribute('href', knopfAlt.h); }
+    var lead = D.querySelector('.header-unterseite_lead');
+    alt = {
+      lead: lead ? lead.textContent : '',
+      titel: kopf && kopf.querySelector('h3') ? kopf.querySelector('h3').textContent : '',
+      text: kopf && kopf.querySelector('p') ? kopf.querySelector('p').textContent : '',
+      etikett: kopf && kopf.querySelector('.auswertung_muster') ? kopf.querySelector('.auswertung_muster').textContent : '',
+      reiter: [].map.call(D.querySelectorAll('.w-tab-link'), function (r) { return reiterText(r).textContent; }),
+      aussage: [].map.call(D.querySelectorAll('.w-tab-pane'), function (p) { var q = p.querySelector('.quote_headline'); return q ? q.textContent : ''; })
+    };
   }
-  function eckdaten() {
-    if (D.querySelector('.rg-eckdaten')) return;
+  function reiterText(r) { return r.querySelector('div') || r; }
+  function setze(e, t) { if (e && typeof t === 'string') e.textContent = t; }
+
+  function untertitel() {
     var lead = D.querySelector('.header-unterseite_lead');
     if (!lead) return;
-    var e = D.createElement('div');
-    e.className = 'kicker rg-eckdaten';
-    ['Ergebnisse in 4–6 Wochen', 'Fünf Perspektiven', '25 Minuten Skill-Check je Person'].forEach(function (t) {
-      var s = D.createElement('span'); s.textContent = t; e.appendChild(s);
-    });
-    lead.parentNode.insertBefore(e, lead.nextSibling);
+    if (S.untertitel === 'zwei') {
+      var m = alt.lead.match(/^(.+?[.!?])\s+(.+)$/);
+      if (!m) return;
+      lead.innerHTML = '';
+      [m[1], m[2]].forEach(function (t) { var s = D.createElement('span'); s.className = 'rg-satz'; s.textContent = t; lead.appendChild(s); });
+    } else lead.textContent = alt.lead;
   }
-  function zahl(e, a) { var v = parseFloat(e && e.getAttribute(a)); return isNaN(v) ? null : v; }
-  function rein(t) { return (t || '').replace(/­/g, '').replace(/\s+/g, ' ').trim(); }
-  function hinweise() {
-    [].forEach.call(D.querySelectorAll('.auswertung_grafik'), function (g) {
-      if (g.querySelector('.rg-hinweis')) return;
-      var zeilen = [].slice.call(g.querySelectorAll('.dia_zeile'));
-      if (zeilen.length) {
-        var art = g.querySelector('.dia_punkt.is-fremd') ? 'fremd' : g.querySelector('.dia_soll') ? 'soll' : g.querySelector('.dia_balken.is-referenz') ? 'referenz' : '';
-        if (!art) return;
-        var beste = null, wert = -Infinity;
-        zeilen.forEach(function (z) {
-          var v = zahl(z.querySelector('.dia_wert'), 'data-wert');
-          if (v === null) return;
-          var s = art === 'soll' ? -v : Math.abs(v);
-          if (s > wert) { wert = s; beste = z; }
-        });
-        if (!beste) return;
-        var text = { fremd: 'Grösster Unterschied zwischen Eigen- und Fremdsicht', soll: 'Grösster Abstand zum Soll', referenz: 'Grösster Abstand zur internen Referenz' }[art];
-        beste.classList.add('rg-hinweis-zeile');
-        var h = D.createElement('div'); h.className = 'rg-hinweis'; h.textContent = '↑ ' + text;
-        beste.appendChild(h);
-        return;
-      }
-      var zellen = [].slice.call(g.querySelectorAll('.dia_zelle'));
-      if (!zellen.length) return;
-      var tief = null, tv = Infinity;
-      zellen.forEach(function (c) { var v = zahl(c, 'data-wert'); if (v !== null && v < tv) { tv = v; tief = c; } });
-      if (!tief) return;
-      var raster = tief.parentElement, kinder = [].slice.call(raster.children), i = kinder.indexOf(tief);
-      var spalten = (zahl(g, 'data-spalten') || 4) + 1;
-      var team = rein(kinder[Math.floor(i / spalten) * spalten].textContent), kopf = rein(kinder[i % spalten].textContent);
-      tief.classList.add('rg-hinweis-zelle');
-      var h2 = D.createElement('div'); h2.className = 'rg-hinweis';
-      h2.textContent = 'Tiefster Wert: ' + team + ' · ' + kopf + ' (' + rein(tief.textContent) + ')';
-      raster.parentNode.insertBefore(h2, raster.nextSibling);
+  function entscheidung() {
+    var f = S.entscheidung === 'fragen';
+    var kopf = D.querySelector('.ergebnis_kopf');
+    if (kopf) {
+      setze(kopf.querySelector('h3'), f ? FRAGEN.titel : alt.titel);
+      setze(kopf.querySelector('p'), f ? FRAGEN.text : alt.text);
+      setze(kopf.querySelector('.auswertung_muster'), f ? FRAGEN.etikett : alt.etikett);
+    }
+    [].forEach.call(D.querySelectorAll('.w-tab-link'), function (r, i) { setze(reiterText(r), f ? FRAGEN.reiter[i] : alt.reiter[i]); });
+    [].forEach.call(D.querySelectorAll('.w-tab-pane'), function (p, i) { setze(p.querySelector('.quote_headline'), f ? FRAGEN.aussage[i] : alt.aussage[i]); });
+  }
+  function methoden() {
+    var m = D.querySelector('.methode_layout');
+    if (!m) return;
+    if (S.methoden === 'hover') m.setAttribute('data-oeffnen', 'hover'); else m.removeAttribute('data-oeffnen');
+  }
+  function anwenden() {
+    merken(); untertitel(); entscheidung(); methoden();
+    ZEILEN.forEach(function (z) {
+      z.o.forEach(function (o) { H.classList.remove('v-' + z.k + '-' + o[0]); });
+      if (S[z.k] !== 'heute') H.classList.add('v-' + z.k + '-' + S[z.k]);
     });
   }
-  function anwenden() { klassen(); button(); }
 
   /* ---------- Umschaltleiste ---------- */
   function linkFuer() {
@@ -222,7 +154,6 @@
     function setzen(z, wert, gruppe) {
       if (S[z.k] === wert) return;
       S[z.k] = wert; speichern(S);
-      if (z.neu) { location.href = linkFuer(); return; }
       [].forEach.call(gruppe.querySelectorAll('button'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-wert') === wert)); });
       anwenden(); zaehlen();
       if (history.replaceState) history.replaceState(null, '', linkFuer());
@@ -231,10 +162,10 @@
       var t = D.createElement('div'); t.className = 'rg-vl-gruppe'; t.textContent = g.t; panel.appendChild(t);
       g.z.forEach(function (z) {
         var zeile = D.createElement('div'); zeile.className = 'rg-vl-zeile';
-        var name = D.createElement('span'); name.className = 'rg-vl-name'; name.textContent = z.n + (z.neu ? ' *' : ''); zeile.appendChild(name);
+        var name = D.createElement('span'); name.className = 'rg-vl-name'; name.textContent = z.n; zeile.appendChild(name);
         var wahl = D.createElement('div'); wahl.className = 'rg-vl-wahl'; wahl.setAttribute('role', 'group'); wahl.setAttribute('aria-label', z.n);
         z.o.forEach(function (o) {
-          var b = D.createElement('button'); b.type = 'button'; b.textContent = o[1] + (o[0] === 'heute' && o[1] !== 'heute' ? ' · heute' : ''); b.setAttribute('data-wert', o[0]);
+          var b = D.createElement('button'); b.type = 'button'; b.textContent = o[1] + (o[0] === 'heute' ? ' · heute' : ''); b.setAttribute('data-wert', o[0]);
           b.setAttribute('aria-pressed', String(S[z.k] === o[0]));
           b.addEventListener('click', function () { setzen(z, o[0], wahl); });
           wahl.appendChild(b);
@@ -259,7 +190,7 @@
     });
     fuss.appendChild(teilen); panel.appendChild(fuss);
     var notiz = D.createElement('div'); notiz.className = 'rg-vl-notiz';
-    notiz.textContent = '* Wechsel lädt die Seite neu. «heute» entspricht der echten Seite /performance-analyse. Die Wahl bleibt in diesem Browser gespeichert.';
+    notiz.textContent = '«heute» entspricht der echten Seite /performance-analyse. Die Wahl bleibt in diesem Browser gespeichert.';
     panel.appendChild(notiz);
     function oeffnen(an) { box.setAttribute('data-offen', an ? '1' : '0'); try { sessionStorage.setItem('rgVlOffen', an ? '1' : '0'); } catch (e) {} if (an) zu.focus(); else knopf.focus(); }
     knopf.addEventListener('click', function () { oeffnen(true); });
@@ -270,10 +201,7 @@
     D.body.appendChild(box);
   }
 
-  function fertig() {
-    if (beobachter) { vorbereiten(D.body); beobachter.disconnect(); }
-    eckdaten(); hinweise(); anwenden(); leiste();
-  }
+  function fertig() { anwenden(); leiste(); }
   if (D.readyState === 'loading') D.addEventListener('DOMContentLoaded', fertig);
   else fertig();
 })();
