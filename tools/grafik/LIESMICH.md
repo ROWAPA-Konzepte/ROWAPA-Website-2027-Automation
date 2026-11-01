@@ -12,6 +12,7 @@ Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL ka
 | `punktfigur…` (z. B. `punktfigur`, `punktfigur-vertrieb`) | Themenkarten, Karte Vertriebsperformance | die Figur baut sich einmal aus dem Standbild auf und ruht dann; beim Darüberfahren zieht sie sich leicht zusammen |
 | `methoden` | Performance-Analyse, «Fünf Methoden» (`methode_layout`, ab 1.19.0) | ab 992 px steht die Grafik beim Scrollen; Methode für Methode leuchtet auf, Linie mit Punkt zum Ergebnis, Ergebnis-Punkte füllen sich (`data-punkte` an `methode_zeile`, z. B. `2,3`), am Ende «Fünf Quellen, ein Bild». `data-schritt` (Scrollweg je Methode, Standard 190), `data-text-schritt`, `data-text-fertig`. Tablet, Handy, «Bewegung reduzieren»: steht wie im Designer |
 | `aufbau` | Grafiken in Reitern (`auswertung_grafik`, ab 1.19.0) | das Bild wird beim ersten Erscheinen und bei jedem Öffnen des Reiters schrittweise freigegeben; `data-richtung` = `links` (Standard), `mitte`, `oben`; `data-dauer` (Standard 0.9 s) |
+| `diagramm` | Musterauswertungen der Performance-Analyse als Diagramme aus Webflow-Elementen (`auswertung_grafik`, ab 1.21.0) | baut sich beim ersten Erscheinen und bei jedem Öffnen des Reiters auf: Balken wachsen (`data-art="breite"`), Marken gleiten an ihre Stelle (`"lage"`), Abstände zeichnen sich Plum (`"spanne"` mit `data-von`/`data-bis`), Zellen färben sich von Plum (tief) bis Sea Cliff (hoch) (`"farbe"`), Zahlen zählen hoch (`"zahl"`, `data-stellen`, `data-vorzeichen="ja"`), Schritte blenden nacheinander ein (`"folge"`), Kreise füllen sich Plum (`"fuellen"`). Werte mit `data-wert`; Reihenfolge `data-takt`. Am Behälter `data-min`/`data-max` (Skala), `data-dauer`, `data-farbe-von`/`-bis`, `data-spalten`. Läuft auch bei «Bewegung reduzieren» (setzt dann alle Werte sofort) |
 | `zaehler` | Kennzahlen (`stat_number`) | zählt einmal von 0 bis zum Wert, sobald die Zahl ins Bild kommt; Vorsatz und Zusatz («%», «CHF») bleiben |
 | `treppe` | Unser Vorgehen (`vorgehen_media`) | die vier Stufen bauen sich nacheinander auf, die Phase in der Liste (`.step_item`) leuchtet mit; danach Phase 01. Darüberfahren/Klick auf eine Phase oder Klick auf eine Stufe hebt sie hervor (Klasse `is-aktiv` auf `step_item` und `step_number`) |
 | `orbit` | ROWAPA Digital (`digital_visual`) | Kugel (`.orbit_kugel`) dreht sich (24 s), Kacheln (`.orbit_tile`) ziehen auf der Bahn (`.orbit_bahn`, 45 s) und halten nur, solange die Maus über den Karten ist; Karte im `.tools_grid` ↔ Kachel gleicher Position: Kachel `is-aktiv`, feine Linie zur Kugel. Klick auf eine Kachel: die passende Karte hebt sich kurz an (Klasse `is-angetippt`, 1,4 s) und wird ins Bild geholt, falls nötig; den Link zur Unterseite trägt die Karte. Handy: Kacheln stehen |
@@ -23,7 +24,7 @@ Ohne das Skript, bei «Bewegung reduzieren» oder wenn der Browser kein WebGL ka
 
 Die Kacheln im Orbit stehen in gleichen Abständen entlang der Bahn (gleiche Weglänge); die letzte Kachel startet oben. Die Treppe baut sich auf, sobald sie in der Bildmitte steht. Sie kennt `data-modus`: `folge` (Standard: Stufen bauen nacheinander auf, Phasen leuchten mit), `ruhig` (baut einmal auf, wechselt nur bei Darüberfahren oder Klick) und `tabs` (Reiter `[data-phase-tab]` schalten Tafeln `[data-phase]`).
 
-`zeiger`, `vorschau`, `reihe` und `nachoben` sind Bedienung und laufen auch bei «Bewegung reduzieren». `themen` zeigt bei «Bewegung reduzieren» die Karten untereinander und markiert nur das Thema im Bild.
+`zeiger`, `vorschau`, `reihe`, `nachoben` und `diagramm` laufen auch bei «Bewegung reduzieren» (`diagramm` setzt dann die Werte ohne Bewegung). `themen` zeigt bei «Bewegung reduzieren» die Karten untereinander und markiert nur das Thema im Bild.
 
 **Themenlinien einstellen** (Attribute auf der Section `section_themen`): `data-uebergang` = `unten` (Standard) oder `diagonal`; zum Vergleichen ohne Änderung in Webflow die Adresse mit `?uebergang=diagonal` bzw. `?uebergang=unten` öffnen. `data-schritt` = Scrollweg je Thema als Anteil der Bildschirmhöhe (Standard `1`). Je Panel `data-form` = `band`, `doppel`, `winkel`, `trichter` oder `raster` (Plum-Form aus 45°-Bändern bzw. Quadraten). Ein Thema mehr oder weniger: Panel `themen_panel` (mit eigener ID, z. B. `thema-neu`) duplizieren bzw. löschen und in der Liste einen `themen_link` mit Link «Section» auf dieses Panel; das Skript zählt selbst.
 
@@ -77,6 +78,10 @@ Prüfwerkzeuge: `pruefung/messen.js` (Ladezeit, Datenmenge), `pruefung/rechenlas
 - Kein Scroll-Halt und kein Farbfluss. Ausnahme Themenlinien (Entscheid ROWAPA, Runde 20): Auf Seiten mit dieser Section scrollt die Seite ab 992 px weich (Lenis) und rastet in der Section auf die Themen ein, wie die Referenz. Bei «Bewegung reduzieren» und auf Tablet und Handy bleibt das Scrollen normal. Zweite Ausnahme (Entscheid 368, ab 1.19.0): «Fünf Methoden» der Performance-Analyse steht ab 992 px für fünf kurze Schritte (je 190 px), ohne Lenis.
 - Die einzige Einblendung der Startseite ist die Farbfläche im Blickpunkt (CAS); sie ist eine native Webflow-Interaction, nicht Teil dieses Skripts. Ebenso nativ: Titel-Strich und Team-Kacheln nacheinander.
 - Start erst nach dem Laden der Seite; jede Grafik rechnet nur, solange sie sichtbar ist.
+
+## 1.21.0 (01.11.2026)
+
+- Neues Modul `diagramm` (Entscheid 384): Die Reiter-Grafiken der Performance-Analyse sind keine Bilder mehr, sondern Webflow-Elemente mit Werten in Attributen; sie bauen sich farbig auf (Balken, Marken, Abstände in Plum, Wärmetabelle, Zähler, Musterbericht Schritt für Schritt).
 
 ## 1.20.0 (31.10.2026)
 
