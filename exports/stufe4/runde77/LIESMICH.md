@@ -16,7 +16,7 @@
 | Entwurfsteile Seitenwechsel | Entwurfs-Skript und Umschalt-Leiste von der Entwurfsseite entfernt (Klassen gelöscht) | – |
 | Methoden aufklappbar, `/performance-analyse` | `methode_layout` mit `data-grafik="methoden-klapp"`; Eigensicht `data-punkte="2"` | Start: Skill-Check offen, Punkt 1 leuchtet; Eigensicht offen: Punkt 2 leuchtet (Bild `pa_methoden_aufklappbar.jpg`) |
 | Wortweise Titel, `/performance-analyse` | Interaktion «Titel wortweise (H2) · Performance-Analyse» gilt jetzt für die Performance-Analyse und die Entwurfsseite | Titel werden aufgeteilt und erscheinen wortweise |
-| Bildband (Entwurf) | Foto 5 (zwei Mitarbeitende im Arbeitsgespräch, Plum-Vorhang) als ganzes Bildband nach «Fünf Perspektiven», direkt nach dem Satz «Unsere Fachpersonen … ordnen die Ergebnisse ein». Setzt sich beim Scrollen von 108 auf 100 % (native Interaktion). Ohne Bildtext, damit nichts behauptet wird, was das Foto nicht zeigt. Bild ohne Metadaten hochgeladen (298 KB), Alt-Text gesetzt | Bild `entwurf_bildband.jpg` |
+| Bildband (Entwurf) | Foto 5 (zwei Mitarbeitende im Arbeitsgespräch, Plum-Vorhang) als ganzes Bildband nach «Fünf Perspektiven», direkt nach dem Satz «Unsere Fachpersonen … ordnen die Ergebnisse ein». Setzt sich beim Scrollen von 108 auf 100 % (native Interaktion). Ohne Bildtext, damit nichts behauptet wird, was das Foto nicht zeigt. Bild ohne Metadaten hochgeladen (298 KB), Alt-Text gesetzt | Bildschirmfoto in Runde 78 aus dem Repo entfernt (Personenfoto); Stand live auf der Entwurfsseite |
 
 ## Eigenes Repository: nicht angelegt
 
