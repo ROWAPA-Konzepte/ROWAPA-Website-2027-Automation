@@ -527,3 +527,17 @@ Ausführlich in `exports/04_redaktionsleitfaden.md`.
 - **Testadresse:** Alles, was Claude veröffentlicht, erscheint zuerst nur unter `rowapa-website-2027-automation.webflow.io`. Die Seiten dort sind die echten Seiten der neuen Website (keine Entwürfe), aber nicht öffentlich beworben.
 - **Mit der Domain:** Wird die Domain in Webflow verbunden (Site settings › Publishing › Custom domains) und veröffentlicht, geht die **ganze** Site genau so online, wie sie auf der Testadresse steht. Einzelne Seiten lassen sich nicht separat online stellen.
 - **Vorher nötig:** fehlende Seiten (Kontakt, Impressum, Datenschutz u. a.), eigene 404-Seite, Weiterleitungen der alten Adressen, CMS-Einträge freigeben, Hilfsseiten offline. Stand und Checkliste: `exports/stufe4/runde93/LIESMICH.md`. Veröffentlichen auf der Domain nur mit Freigabe von ROWAPA.
+
+### 2.50 Aufräumen: unbenutzte Klassen entfernen («Clean up», seit Runde 94)
+
+1. Designer öffnen (beliebige Seite).
+2. Links in der Werkzeugleiste «Style selectors» öffnen (drei Tropfen; Tastenkürzel **G**; in älteren Fassungen «Style Manager»).
+3. Oben rechts im Panel auf das **Besen-Symbol** («Clean up») klicken und bestätigen. Webflow entfernt alle Klassen, die an keinem Element hängen, auf einmal.
+4. Erscheinen danach noch unbenutzte Klassen, den Besen ein zweites Mal klicken.
+5. Danach Claude Bescheid geben bzw. selbst prüfen: Knopf «Nach oben», aktive Phase im Vorgehen und Themenlinien sehen aus wie vorher; dann veröffentlichen.
+
+**Wichtig:** Einige Klassen setzt das Grafik-Skript erst auf der veröffentlichten Seite (z. B. `nach-oben is-sichtbar`). Damit «Clean up» sie nicht löscht, liegen sie in der unsichtbaren «Ablage Skript-Zustände (nicht löschen)» auf der Seite «Styleguide (intern)». Diese Seite und die Ablage nie löschen. Wer eine neue Skript-Klasse anlegt, ergänzt dort ein Element mit Grund- und Kombi-Klasse. Sicherung der Werte: `exports/stufe4/runde94/skript-klassen-sicherung.json`.
+
+### 2.51 Abschnitts-Linien (seit Runde 94)
+
+Die Linie zwischen zwei grauen Abschnitten (Performance-Analyse unter «Zahlen brauchen Erfahrung.», Startseite unter «Im Blickpunkt») ist 1 px mit der Farbvariable «Manganese Linie Abschnitt» (Manganese 28 %). Kräftiger oder feiner: nur die Variable ändern (Variables › Farben), dann ändern sich beide Linien gleich. Feine Linien in Karten und Listen nutzen weiterhin «Manganese Linie».
