@@ -62,6 +62,9 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] CMS-Listen in Vorlagen zeigen nur die Einträge des aktuellen Eintrags: Quelle ist das Referenzfeld (z. B. «Hebel», «FAQ», «Kundenstimmen» der Themenlinie), nicht die ganze Collection (Runde 96). Über die Schnittstelle: Liste leer lassen, Quelle an das Referenzfeld binden, danach die Ziel-Collection als Quelle setzen, dann erst den Inhalt bauen und binden; mit einem Eintrag weniger im Feld nachprüfen. Filter «gleich aktueller Eintrag» kann die Schnittstelle nicht setzen.
 - [ ] Leer-Hinweis «No items found.» in CMS-Listen über die Klasse `hide` ausblenden (Runde 96).
 - [ ] Gestapelte Karten nativ: Element `position: sticky` mit festem Abstand oben; kein Vorfahre mit `overflow: hidden` (`clip` ist erlaubt); hell/dunkel abwechselnd über den Theme-Modus bei `nth-child(even)` (Runde 96).
+- [ ] Scroll-Interaktionen an «sticky»-Elementen: Auslöser ist der nicht-sticky Behälter (z. B. die Liste), nicht das sticky Element selbst; je Element eine gestaffelte Aktion (`wf:selector`, Staffelung) statt eines Auslösers pro Element. Sonst verrutschen Start und Ende, sobald die Seite nachlädt (Runde 97).
+- [ ] Wiederkehrende Sections als Komponente mit Schaltern (Boolean-Props) statt als Kopie; Abweichungen je Seite nur über die Schalter (z. B. «Section Vorgehen», Runde 97).
+- [ ] Etiketten und Texte aus Referenzen (z. B. Kategorie im Blog) erscheinen nur, wenn der referenzierte Eintrag veröffentlicht ist (Runde 97).
 - [ ] Unvollständige CMS-Einträge als Entwurf.
 
 ## D. Abmachungen zu Seiten und Navigation (laufende Entscheide)
