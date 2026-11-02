@@ -532,7 +532,7 @@ Ausführlich in `exports/04_redaktionsleitfaden.md`.
 
 1. Designer öffnen (beliebige Seite).
 2. Links in der Werkzeugleiste «Style selectors» öffnen (drei Tropfen; Tastenkürzel **G**; in älteren Fassungen «Style Manager»).
-3. Oben rechts im Panel auf das **Besen-Symbol** («Clean up») klicken und bestätigen. Webflow entfernt alle Klassen, die an keinem Element hängen, auf einmal.
+3. Oben rechts im Panel auf das **Besen-Symbol** («Clean up») klicken. Webflow listet alle Klassen, die an keinem Element hängen, und entfernt sie nach «Delete» auf einmal. **Vorher die Liste prüfen:** Stehen dort `nach-oben is-sichtbar`, `card is-verbunden`, `card is-angetippt`, `orbit_tile is-aktiv`, `step_item is-aktiv` oder Utility-Klassen wie `hide-tablet`, «Cancel» klicken und Claude melden (dann fehlt etwas in der Ablage).
 4. Erscheinen danach noch unbenutzte Klassen, den Besen ein zweites Mal klicken.
 5. Danach Claude Bescheid geben bzw. selbst prüfen: Knopf «Nach oben», aktive Phase im Vorgehen und Themenlinien sehen aus wie vorher; dann veröffentlichen.
 
