@@ -877,4 +877,4 @@ Noch nicht gemacht (wartet auf das Plan-Upgrade): Texte aus v11 in die Seitentyp
 134. ~~Google-Beschreibung Performance-Analyse~~: an den neuen Titel angeglichen (Entscheid 407).
 135. Go-live: Online geht immer die ganze Webflow-Site. Empfehlung geordneter Gesamtstart nach den nötigen Seiten (mindestens Kontakt, Impressum, Datenschutz, eigene 404-Seite, Weiterleitungen der 166 alten Adressen, CMS-Freigaben, `/fotos-entwurf` offline). Soll die Performance-Analyse früher öffentlich sein, Zwischenweg gemeinsam festlegen. [ROWAPA entscheiden]
 136. ~~Fragen Vertriebsperformance~~: beantwortet (Entscheid 409): Grundlage Runde 62 mit heutigem Standard, «So arbeiten wir» als Kurzfassung, Hebel-Karten stapeln, vorerst Figur Vertrieb.
-137. «Clean up» im Style-Panel nach Anleitung (Runde 94) durch ROWAPA, danach prüft Claude die 13 Skript-Klassen und veröffentlicht die Testadresse. [ROWAPA]
+137. ~~«Clean up» im Style-Panel~~: von ROWAPA ausgeführt (37 unbenutzte Klassen entfernt, 02.11.2026); geprüft: Skript- und Utility-Klassen vorhanden, Knopf «Nach oben», Insights, Linien und Auswertung auf der Testadresse unverändert; veröffentlicht.
