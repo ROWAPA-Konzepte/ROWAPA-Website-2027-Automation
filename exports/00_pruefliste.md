@@ -71,6 +71,12 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Abschnitte aus dem whtml-Baukasten: Klassen auf `<section>` gehen verloren; Klasse danach setzen und alle Farben aus dem CSS durch Variablen ersetzen (Runde 98).
 - [ ] Bild je nach heller oder dunkler Fläche: zwei Bilder übereinander, Deckkraft über Theme-Zahlen-Variablen («Motiv für hellen Grund» / «… dunklen Grund»), kein Skript (Runde 98).
 - [ ] Gestapelte Karten auf dem Handy: Karte muss niedriger als das Fenster minus Abstand oben sein, sonst verdeckt die nächste Karte den unteren Teil (Runde 98).
+- [ ] Webflow-Reiter im Raster: Menü und Inhalt mit festen Rasterplätzen (grid-column/row), sonst belegt das Clearfix von `w-tabs` die erste Zelle (Runde 99).
+- [ ] Reiter über die Schnittstelle: nur drei Reiter je Element; weitere im Designer mit «Add Tab». Verschobene Reiter behalten ihren Namen (doppelte Namen blockieren die Reiter). Reiter nie nachträglich per Skript neu einlesen (`redraw`), das blockiert andere Reiter der Seite (Runde 99).
+- [ ] Elemente aus dem Baukasten: Typ «TextBlock» lässt sich nicht beschriften; Texte über HTML-Einfügen (ein Wurzelelement) anlegen und danach kontrollieren, dass kein Platzhaltertext von Webflow stehen bleibt (Runde 99).
+- [ ] Klasse `w--current` lässt sich nicht als Zusatzklasse anlegen (wird zu `_w--current`); Markierung des aktiven Reiters über den Zustand «Current» im Designer (Runde 99, wie Runde 66).
+- [ ] Punktgrafiken (`punktbild`): Verwandlung kurz (unter 1 s) und danach Stillstand, keine Dauerbewegung; als schematisch kennzeichnen, keine Messwerte vortäuschen (Runde 99).
+- [ ] CMS-Liste an ein Mehrfach-Referenzfeld binden: Quelle als JSON mit `collectionId` der referenzierten Sammlung und `fieldId` des Referenzfelds setzen (Runde 99).
 - [ ] Unvollständige CMS-Einträge als Entwurf.
 
 ## D. Abmachungen zu Seiten und Navigation (laufende Entscheide)
