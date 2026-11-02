@@ -65,6 +65,12 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Scroll-Interaktionen an «sticky»-Elementen: Auslöser ist der nicht-sticky Behälter (z. B. die Liste), nicht das sticky Element selbst; je Element eine gestaffelte Aktion (`wf:selector`, Staffelung) statt eines Auslösers pro Element. Sonst verrutschen Start und Ende, sobald die Seite nachlädt (Runde 97).
 - [ ] Wiederkehrende Sections als Komponente mit Schaltern (Boolean-Props) statt als Kopie; Abweichungen je Seite nur über die Schalter (z. B. «Section Vorgehen», Runde 97).
 - [ ] Etiketten und Texte aus Referenzen (z. B. Kategorie im Blog) erscheinen nur, wenn der referenzierte Eintrag veröffentlicht ist (Runde 97).
+- [ ] Titel-Leiter (Entscheid 411): H1 Unterseite 6 % der Fensterhöhe; H2 `clamp(2rem, min(1rem + 2.6vw, 5.2vh), 3.5rem)` bleibt immer darunter; H3 gross unter der H2 (Handy 22–24 px). Nach jeder Änderung an Titeln in mindestens fünf Fenstergrössen messen (1920 × 1080, 1440 × 900, 1280 × 720, 1024 × 768, 390 × 844).
+- [ ] Entwurfsteile in Vorlagen über eine Hülle mit Klasse `hide` und `data-entwurf` verbergen, nicht über das Attribut `hidden`: das gesetzte `hidden` wird beim Veröffentlichen nicht ausgegeben (Runde 98). Immer prüfen, dass die Seite ohne `?entwurf` unverändert ist.
+- [ ] Entwurf einer CMS-Vorlage nicht als statische Kopie bauen (verliert alle CMS-Inhalte), sondern in der Vorlage hinter der Umschaltleiste (Runde 98).
+- [ ] Abschnitte aus dem whtml-Baukasten: Klassen auf `<section>` gehen verloren; Klasse danach setzen und alle Farben aus dem CSS durch Variablen ersetzen (Runde 98).
+- [ ] Bild je nach heller oder dunkler Fläche: zwei Bilder übereinander, Deckkraft über Theme-Zahlen-Variablen («Motiv für hellen Grund» / «… dunklen Grund»), kein Skript (Runde 98).
+- [ ] Gestapelte Karten auf dem Handy: Karte muss niedriger als das Fenster minus Abstand oben sein, sonst verdeckt die nächste Karte den unteren Teil (Runde 98).
 - [ ] Unvollständige CMS-Einträge als Entwurf.
 
 ## D. Abmachungen zu Seiten und Navigation (laufende Entscheide)

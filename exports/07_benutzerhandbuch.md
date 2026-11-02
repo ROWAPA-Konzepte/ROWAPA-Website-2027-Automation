@@ -1,7 +1,7 @@
 # ROWAPA Website 2027 · Benutzerhandbuch
 
 **Für:** das ROWAPA-Team, das die Website in Webflow selbst pflegt
-**Laufend gepflegt** · zuletzt 27.10.2026 · Stufe 2 (Startseite) · Webflow-Projekt «ROWAPA Website 2027 Automation»
+**Laufend gepflegt** · zuletzt 02.11.2026 · Stufe 2 (Startseite) · Webflow-Projekt «ROWAPA Website 2027 Automation»
 **Wächst mit jeder Stufe:** Mit Stufe 3 kommt die CMS-Pflege dazu.
 
 ---
@@ -401,13 +401,20 @@ Die Schnittstelle kann Modi nicht löschen. So geht es im Designer:
 | So arbeiten wir | Komponente «Section Vorgehen» (Punkte-Treppe wie Performance-Analyse). In der Vorlage die Instanz wählen: Schalter «Zeitstrahl anzeigen» und «Zeitlicher Ablauf anzeigen» aus, «Link anzeigen» an, Feld «Satz». Schritte und Texte ändern Sie in der Komponente; das wirkt auf Performance-Analyse und alle Themenlinien. |
 | Gut zu wissen | Feld FAQ (gewählte Fragen) |
 | Passend zum Thema | Feld **Insights** (Blog-Beiträge; neueste zuerst, höchstens 6). Bild = Titelbild, Etikett = Kategorie des Beitrags, Text = Teaser |
-| Kontakt | CTA-Text (Satz), CTA-Button 1 Text |
+| Kontakt | CTA-Text (Satz), CTA-Button 1 Text (Standard «Erstgespräch anfragen», öffnet eine E-Mail) |
+| Browser-Titel und Google | **SEO-Titel** (z. B. «Vertriebsperformance für Banken und Versicherungen · ROWAPA», bis 60 Zeichen), **SEO-Beschreibung** (bis 155 Zeichen); die Vorlage übernimmt beide automatisch (seit Runde 98) |
 
 **Hebel-Karten (Collection «Hebel»):** Karten-Nummer («01»), Karten-Kennung («Hebel 1»), Kartentitel, Teaser-Text, Figur (PNG; vorerst die Figur der Themenlinie). Reihenfolge = Feld «Reihenfolge» (kleinere Zahl zuerst). Eine Karte erscheint, wenn der Hebel im Feld «Hebel» der Themenlinie gewählt **und** veröffentlicht ist. Die Karten stapeln sich beim Scrollen; jede zweite ist dunkel; die überdeckte Karte wird leicht kleiner und dunkler (Interaktion «Hebel-Karte tritt zurück», Runde 97). Das macht die Vorlage selbst, auch bei mehr oder weniger als vier Hebeln.
 
 **Neue Themenlinie oder Inhalte prüfen:** CMS › Themenlinien › Eintrag öffnen, Felder in den Gruppen ausfüllen, Hebel, FAQ, Kundenstimmen und Werkzeuge auswählen, dann veröffentlichen. Bezogene Einträge (Hebel, Fragen, Stimme, Werkzeug, Blog-Beiträge und deren Kategorie) müssen ebenfalls veröffentlicht sein, sonst fehlen sie auf der Seite. Ohne Insights oder Foto bleiben diese Abschnitte leer: vor dem Veröffentlichen befüllen.
 
-**Bauweise (für Claude und Webflow-Profis):** Karten `hebel_item` mit `position: sticky` (Theme-Modus «Kontrast» bei `nth-child(even)`), Listen an die Referenzfelder der Themenlinie gebunden, Leer-Hinweise mit Klasse `hide` ausgeblendet. Früherer Klickweg «Filter von Hand» entfällt (Runde 96). Interaktion «Hebel-Karte tritt zurück»: Auslöser Liste `thema_hebel-liste` (Scroll, top 104px bis bottom 70 %, scrub), Aktionen auf `.hebel_item:not(:last-child)` (Skalierung 1 → 0,94) und `… .hebel_schatten` (Deckkraft 0 → 35 %), gestaffelt je 1. Kugel: `thema_kugel` mit `data-grafik="orbit"` ohne Kacheln, `data-tempo="0.6"`. Datum der Insights-Karten nur im Designer einstellbar (offener Punkt 144).
+**Bauweise (für Claude und Webflow-Profis):** Karten `hebel_item` mit `position: sticky` (Theme-Modus «Kontrast» bei `nth-child(even)`), Listen an die Referenzfelder der Themenlinie gebunden, Leer-Hinweise mit Klasse `hide` ausgeblendet. Früherer Klickweg «Filter von Hand» entfällt (Runde 96). Interaktion «Hebel-Karte tritt zurück»: Auslöser Liste `thema_hebel-liste` (Scroll, top 104px bis bottom 70 %, scrub), Aktionen auf `.hebel_item:not(:last-child)` (Skalierung 1 → 0,96) und `… .hebel_schatten` (Deckkraft 0 → 25 %, seit Runde 98), gestaffelt je 1. Kugel: `thema_kugel` mit `data-grafik="orbit"` ohne Kacheln, `data-tempo="0.6"`. Datum der Insights-Karten nur im Designer einstellbar (offener Punkt 144).
+
+**Entwurf Runde 98 (nur mit `?entwurf` sichtbar):** Die Vorlage enthält verborgene Entwurfsteile (Hüllen mit Klasse `hide` und Attribut `data-entwurf`, z. B. Ausgangslage, Praxisbeispiel, neue Kartentexte, Wissensbereiche). Bitte nicht löschen, solange der Entwurf läuft (offener Punkt 148). Ansehen: `/themen/vertriebsperformance?entwurf`, unten links die Leiste. Neue Hebel-Felder für die Karten im Entwurf: **Karte Nutzentitel**, **Karte Ausgangslage**, **Karte Leistung** («Was ROWAPA liefert»), **Karte Wirkung**, **Motiv für helle Karten**, **Motiv für dunkle Karten** (Punktfigur in zwei Farbsätzen; welche erscheint, wählt die Karte selbst).
+
+**Titelgrössen (site-weit, seit Runde 98):** Die Grössen stehen in den Klassen `heading-style-h1` … `h3` und passen sich Fensterbreite und -höhe an. Bitte keine Schriftgrösse direkt an einem Titel setzen, sonst stimmt die Reihenfolge H1 > H2 > H3 nicht mehr.
+
+**FAQ-Symbol:** Das Plus dreht sich beim Öffnen zum × (Interaktion «FAQ-Symbol dreht beim Öffnen», gilt für alle Fragen-Listen mit `faq_question`).
 
 ### 2.47 Seite «Performance-Analyse» (`/performance-analyse`, seit Runde 63)
 - **Stand seit Runde 72 (01.11.2026):** Die Seite «Performance-Analyse» ist die übernommene Vorschau (neuer Header, Fragen, Entscheidungsgrundlage, Diagramme, Kundenstimmen mit Logo-Leiste). Die Hinweise unten zur Vorschau gelten jetzt für diese Seite. Daneben gibt es vorübergehend «Performance-Analyse · Vorschau» (`/performance-analyse-vorschau`, nicht verlinkt) und die alte Fassung «Performance-Analyse (alt, Stand Runde 64)» als Entwurf (`/performance-analyse-alt`, nicht veröffentlicht). Beide werden nach Freigabe gelöscht. Änderungen nur noch auf der Seite «Performance-Analyse» machen.
