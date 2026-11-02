@@ -59,6 +59,9 @@ Auftrag ROWAPA (Entscheid 378): Regelmässig prüfen, ob Vorschläge und Umsetzu
 - [ ] Abläufe mit Zuständen (z. B. Schritt für Schritt) im Grafik-Skript als Modul; Raster, Texte, Farben und Bezeichnungen bleiben Webflow-Klassen und -Elemente, damit der Designer alles zeigt und ohne Skript alles sichtbar ist (Entscheid 406).
 - [ ] Gleichrangige Blöcke nebeneinander gleich darstellen (Bezeichnung, Text, Quelle in derselben Schrift, Farbe und denselben Abständen); unterscheiden nur über ein bewusstes Merkmal wie die Plum-Linie (Entscheid 404).
 - [ ] Zahlen mit Zähler: Attribut `data-grafik="zaehler"` am Zahlenelement, Text wie «98 %» oder «20 Jahre»; zählt einmal, sobald die Zahl ins Bild kommt (Entscheid 404).
+- [ ] CMS-Listen in Vorlagen zeigen nur die Einträge des aktuellen Eintrags: Quelle ist das Referenzfeld (z. B. «Hebel», «FAQ», «Kundenstimmen» der Themenlinie), nicht die ganze Collection (Runde 96). Über die Schnittstelle: Liste leer lassen, Quelle an das Referenzfeld binden, danach die Ziel-Collection als Quelle setzen, dann erst den Inhalt bauen und binden; mit einem Eintrag weniger im Feld nachprüfen. Filter «gleich aktueller Eintrag» kann die Schnittstelle nicht setzen.
+- [ ] Leer-Hinweis «No items found.» in CMS-Listen über die Klasse `hide` ausblenden (Runde 96).
+- [ ] Gestapelte Karten nativ: Element `position: sticky` mit festem Abstand oben; kein Vorfahre mit `overflow: hidden` (`clip` ist erlaubt); hell/dunkel abwechselnd über den Theme-Modus bei `nth-child(even)` (Runde 96).
 - [ ] Unvollständige CMS-Einträge als Entwurf.
 
 ## D. Abmachungen zu Seiten und Navigation (laufende Entscheide)

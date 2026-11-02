@@ -385,67 +385,27 @@ Die Schnittstelle kann Modi nicht löschen. So geht es im Designer:
 
 **Grenze des Plans:** Meldet Webflow beim Anlegen «You've created all the items … allowed on your current plan», ist das Kontingent des Site-Plans voll. Dann hilft nur ein grösserer Plan (Site settings › Plans).
 
-### 2.46 Vorlage «Themenlinie» (CMS-Seite)
+### 2.46 Vorlage «Themenlinie» (CMS-Seite, neu gebaut in Runde 96)
 
-**Wo:** Pages › CMS Collection Pages › «Themenlinien Template». Oben in der Leiste den Eintrag wählen (z. B. «Vertriebsperformance»), dann zeigt die Vorlage dessen Inhalte. Texte ändern Sie im CMS, nicht in der Vorlage: Die Felder sind verknüpft (lila Rahmen im Designer).
+**Wo:** Pages › CMS Collection Pages › «Themenlinien Template». Oben in der Leiste den Eintrag wählen (z. B. «Vertriebsperformance»), dann zeigt die Vorlage dessen Inhalte. Texte ändern Sie im **CMS** (Editor oder Designer › CMS), nicht in der Vorlage: Die Felder sind verknüpft (lila Rahmen im Designer). Seite ansehen: `/themen/<slug>`, z. B. `/themen/vertriebsperformance`.
 
-**Aufbau:** Hero (Kicker, Hero-Titel, Hero-Lead, Hero-Bild) · Hebel (Abschnittstitel, Intro, Karten aus der Collection «Hebel») · Diagnostik & Tools (Titel, Text, Werkzeuge) · Vorteil (Titel, Text) · Abschluss (CTA-Titel, CTA-Text, zwei Buttons mit Text und Link).
+**Aufbau und Felder (Themenlinie):**
 
-**Einmalig von Hand einstellen** (die Schnittstelle kann das nicht, rund 2 Minuten):
-1. Hebel-Liste anklicken (Navigator: Section Hebel › Collection List Wrapper) › Zahnrad › **Filter** › «Add filter» › Feld «Themenlinie» › «Current Themenlinie». **Sort Order** › «Reihenfolge» › «Ascending».
-2. Werkzeug-Liste anklicken (Section Diagnostik & Tools › Collection List Wrapper) › Zahnrad › **Source** von «Werkzeuge» auf «Werkzeuge (Themenlinien)» umstellen, das ist der Bezug des aktuellen Eintrags. Danach Sortierung «Reihenfolge» › «Ascending».
-3. Optional: Sections ohne Inhalt ausblenden. Section anklicken › Zahnrad › **Conditional Visibility** › z. B. «Diagnostik und Tools Titel is set».
-
-**Neue Themenlinie:** CMS › Themenlinien › «New Themenlinie», Felder in den Gruppen ausfüllen, Hebel in der Collection «Hebel» mit der Themenlinie verknüpfen und «Reihenfolge» in Zehnerschritten setzen.
-
-## 3. Regeln für Inhalte (Kurzfassung)
-
-Ausführlich in `exports/04_redaktionsleitfaden.md`.
-
-- **Werte:** klar · souverän · inspirierend.
-- **Jede Section beantwortet vier Fragen:** Was ist es? Für wen? Welcher Nutzen? Welcher nächste Schritt?
-- **Anrede:**
-  - **Sie** für Unternehmen und gemeinsame Seiten.
-  - **Du** nur im Bereich «Meine Entwicklung» und bei Angeboten für Einzelpersonen.
-  - Nie gemischt in einer Section.
-- **Begriffe:** «Unternehmen» statt «Organisationen». Produktnamen (Anker, Kompass, Lotse, Segel, Logbuch) immer mit Klartext.
-- **Schreibweise:** Schweizer Rechtschreibung («ss»), kurze Sätze, keine Superlative, Zahlen nur mit Beleg.
-- **Barrierefreiheit:**
-  - Alt-Text für jedes inhaltliche Bild.
-  - Sprechende Linktexte, nie «Mehr» allein.
-  - Überschriften in Reihenfolge (eine H1 pro Seite).
-
-## 4. Assets: Ordner
-
-| Ordner | Inhalt |
+| Abschnitt | Felder |
 |---|---|
-| 01 Marke (CI) | offizielle Logos, Signete, Favicon, Webclip |
-| 02 Grafiken | Standbilder der Punkte-Grafiken, Platzhalter |
-| 03 Fotos | Seminar- und Themenfotos |
-| 04 Videos | Hover-Schleifen der Wege-Karten |
-| 05 Team | Porträts |
-| 06 Kundenlogos | Kundenlogos (Laufband) |
-| 07 Partnerlogos | Partner und Zertifizierungen |
-| 08 Blog und Insights | Beitragsbilder, Webinar, ROWAPA TV |
-| 09 Erfolge | Referenzbilder |
-| 10 CAS | CAS-Bilder |
+| Header | Name (Kopfzeile «Für Unternehmen › Name»), Hero-Titel, Hero-Lead, CTA-Button 1 Text (erster Button, öffnet E-Mail), Hero-Button 2 Text (springt zu den Hebeln), Themenfigur (PNG, helle Fassung, baut sich aus Punkten auf) |
+| Die Hebel | Hebel Abschnittstitel, Hebel Intro, Feld **Hebel** (welche Hebel als Karten erscheinen) |
+| Ihr Vorteil | Vorteil Titel (ohne «Ihr Vorteil:», das steht schon darüber), Vorteil Text, Werkzeuge (das erste erscheint als Karte); die Karte «Wo anfangen? Performance-Analyse» ist fest |
+| Aus der Praxis | Feld **Kundenstimmen** (die erste gewählte Stimme erscheint gross) |
+| So arbeiten wir | fest, Kurzfassung mit Link auf `/so-arbeiten-wir` (Texte direkt in der Vorlage ändern; gilt für alle Themenlinien) |
+| Gut zu wissen | Feld FAQ (gewählte Fragen) |
+| Kontakt | CTA-Text (Satz), CTA-Button 1 Text |
 
-## 5. Gestaltung: Do und Don't
+**Hebel-Karten (Collection «Hebel»):** Karten-Nummer («01»), Karten-Kennung («Hebel 1»), Kartentitel, Teaser-Text, Figur (PNG; vorerst die Figur der Themenlinie). Reihenfolge = Feld «Reihenfolge» (kleinere Zahl zuerst). Eine Karte erscheint, wenn der Hebel im Feld «Hebel» der Themenlinie gewählt **und** veröffentlicht ist. Die Karten stapeln sich beim Scrollen; jede zweite ist dunkel. Das macht die Vorlage selbst.
 
-| Do | Don't |
-|---|---|
-| Abstände über die Spacing-Variablen (8er-Raster) | Pixelwerte frei eintippen |
-| Farben über Variablen bzw. Theme-Klassen | Hex-Farben direkt setzen |
-| Bestehende Klassen wiederverwenden | Neue Klassen für Einzelfälle anlegen |
-| Logo mit Schutzraum, auf dunklem Grund die Variante «dunkler Hintergrund» | Logo verzerren, drehen, einfärben |
-| Bilder vor dem Upload verkleinern (max. ca. 2000 px Breite) | grosse Originalfotos hochladen |
+**Neue Themenlinie oder Inhalte prüfen:** CMS › Themenlinien › Eintrag öffnen, Felder in den Gruppen ausfüllen, Hebel, FAQ, Kundenstimmen und Werkzeuge auswählen, dann veröffentlichen. Bezogene Einträge (Hebel, Fragen, Stimme, Werkzeug) müssen ebenfalls veröffentlicht sein, sonst fehlen sie auf der Seite.
 
-## 6. Hilfe
-
-- **Etwas sieht falsch aus:** zuerst prüfen, ob die richtige Theme-Klasse auf der Section liegt.
-- **Etwas kaputt gemacht:** Site settings › **Backups** › einen früheren Stand wiederherstellen.
-- **Bewegung, Zeiger oder Videos fehlen auf einem Gerät:** die Seite mit `?diagnose` am Ende der Adresse öffnen (z. B. `…/home-v3?diagnose`). Unten links erscheint eine kleine Anzeige mit dem, was der Browser meldet; ein Bildschirmfoto davon an Claude schicken. Erscheint keine Anzeige, lädt das Skript auf diesem Gerät nicht.
-- **Custom Code:** Es gibt nur ein Skript: «ROWAPA Grafik» (Punkte-Grafiken, Zähler, Treppe, Kugel mit Kacheln, Insights-Pfeile, Hover-Videos), über die Webflow-Schnittstelle site-weit eingebunden. Site settings › Custom code bleibt leer. Bitte nicht ändern; neue Fassungen registriert Claude.
+**Bauweise (für Claude und Webflow-Profis):** Karten `hebel_item` mit `position: sticky` (Theme-Modus «Kontrast» bei `nth-child(even)`), Listen an die Referenzfelder der Themenlinie gebunden, Leer-Hinweise mit Klasse `hide` ausgeblendet. Früherer Klickweg «Filter von Hand» entfällt (Runde 96).
 
 ### 2.47 Seite «Performance-Analyse» (`/performance-analyse`, seit Runde 63)
 - **Stand seit Runde 72 (01.11.2026):** Die Seite «Performance-Analyse» ist die übernommene Vorschau (neuer Header, Fragen, Entscheidungsgrundlage, Diagramme, Kundenstimmen mit Logo-Leiste). Die Hinweise unten zur Vorschau gelten jetzt für diese Seite. Daneben gibt es vorübergehend «Performance-Analyse · Vorschau» (`/performance-analyse-vorschau`, nicht verlinkt) und die alte Fassung «Performance-Analyse (alt, Stand Runde 64)» als Entwurf (`/performance-analyse-alt`, nicht veröffentlicht). Beide werden nach Freigabe gelöscht. Änderungen nur noch auf der Seite «Performance-Analyse» machen.
