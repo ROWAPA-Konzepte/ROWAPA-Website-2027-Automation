@@ -1,0 +1,228 @@
+<style>
+/* Layout E «Editorial versetzt» (Entwurf, angelehnt an Oliver Wyman, Pictet und Simon-Kucher) */
+.pe{--navy:#1D3149;--deep:#111D2C;--plum:#AA1351;--serpent:#486EA3;--sea:#A0C4DF;--snow:#E8E9E9;--grau:#5b6878;--t:var(--_typografie---schrift-titel-und-text,sans-serif);--a:var(--_typografie---schrift-akzent,sans-serif);font-family:var(--t);color:var(--navy);background:#FBFBFA}
+.pe *{box-sizing:border-box}.pe h1,.pe h2,.pe h3,.pe p,.pe figure,.pe blockquote{margin:0;color:inherit}.pe a{color:inherit;text-decoration:none}
+.pe-in{max-width:84rem;margin:0 auto;padding:0 clamp(1rem,.25rem + 3vw,3rem)}
+.pe-sek{padding:clamp(4.5rem,2rem + 6vw,8.5rem) 0;position:relative}
+/* Swiss-Raster: schmale Etikettenspalte links, Inhalt rechts */
+.pe-raster{display:grid;grid-template-columns:3fr 9fr;gap:2rem;border-top:1px solid var(--navy);padding-top:1.25rem}
+.pe-etikett{font-family:var(--a);font-weight:800;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase}
+.pe-etikett i{font-style:normal;color:var(--plum);margin-right:.75rem}
+.pe-h2{font-size:clamp(2.5rem,1rem + 4.2vw,5.5rem);line-height:.98;letter-spacing:-.035em;font-weight:600}
+.pe-lead{font-size:clamp(1.125rem,1rem + .5vw,1.5rem);line-height:1.45;color:var(--grau);max-width:40rem}
+.pe-link{display:inline-flex;gap:.6rem;align-items:center;font-family:var(--a);font-weight:800;font-size:.8125rem;letter-spacing:.12em;text-transform:uppercase;border-bottom:2px solid var(--plum);padding-bottom:.35rem}
+.pe-link::after{content:"\2192"}
+.pe-btn{display:inline-flex;gap:.75rem;align-items:center;background:var(--plum);color:#fff!important;padding:1rem 1.5rem;font-family:var(--a);font-weight:800;font-size:.8125rem;letter-spacing:.1em;text-transform:uppercase}
+/* 1 Hero: Typografie zuerst, Bild als Band */
+.pe-hero{padding:clamp(3rem,2rem + 4vw,6rem) 0 0;position:relative;overflow:hidden}
+.pe-hero h1{font-size:clamp(3rem,.8rem + 7.5vw,9.5rem);line-height:.92;letter-spacing:-.045em;font-weight:700}
+.pe-hero h1 span{display:block}
+.pe-hero h1 span:nth-child(2){padding-left:8vw}
+.pe-hero h1 span:nth-child(3){padding-left:16vw;color:var(--plum)}
+.pe-hero-unten{display:grid;grid-template-columns:3fr 5fr 4fr;gap:2rem;margin:3rem 0;align-items:end}
+.pe-band{height:clamp(14rem,30vw,30rem);overflow:hidden}
+.pe-band img{width:100%;height:120%;object-fit:cover;object-position:center 35%}
+.pe-ribbon{position:absolute;right:-9rem;top:7rem;width:36rem;height:3.5rem;background:var(--plum);transform:rotate(45deg)}
+/* 2 Logos in Rasterzellen */
+.pe-logos{display:grid;grid-template-columns:repeat(6,1fr);border-left:1px solid #d9dde2}
+.pe-logos div{border-right:1px solid #d9dde2;border-bottom:1px solid #d9dde2;height:6rem;display:flex;align-items:center;justify-content:center}
+.pe-logos img{max-height:1.75rem;max-width:70%;filter:grayscale(1);opacity:.75}
+/* 3 Lösungen als nummerierte Zeilen */
+.pe-zeilen{margin-top:3rem}
+.pe-zeile{display:grid;grid-template-columns:5rem 1fr 1.2fr 9rem 2rem;gap:2rem;align-items:center;padding:1.75rem 0;border-top:1px solid #cfd5dc;transition:background .3s}
+.pe-zeile:last-child{border-bottom:1px solid #cfd5dc}
+.pe-zeile b{font-size:1rem;font-family:var(--a);color:var(--plum);letter-spacing:.1em}
+.pe-zeile h3{font-size:clamp(1.375rem,1rem + 1vw,2rem);font-weight:600;line-height:1.15}
+.pe-zeile p{color:var(--grau);line-height:1.5}
+.pe-zeile img{width:9rem;height:6rem;object-fit:cover;filter:grayscale(.3)}
+.pe-zeile span{font-size:1.5rem;transition:transform .3s}
+.pe-zeile:hover{background:#fff}.pe-zeile:hover span{transform:translateX(.5rem);color:var(--plum)}
+/* 4 Antrieb: Satz über die volle Breite */
+.pe-satz{font-size:clamp(2rem,1rem + 3vw,4.25rem);line-height:1.12;letter-spacing:-.03em;font-weight:500}
+.pe-satz em{font-style:normal;color:var(--plum)}
+.pe-satz u{text-decoration:none;box-shadow:inset 0 -.18em 0 var(--sea)}
+.pe-zahlenzeile{display:grid;grid-template-columns:repeat(3,1fr);margin-top:4rem;border-top:1px solid var(--navy)}
+.pe-zahlenzeile div{padding:1.5rem 2rem 0 0}
+.pe-zahlenzeile b{display:block;font-size:clamp(3rem,2rem + 3vw,5.5rem);font-weight:300;letter-spacing:-.04em;line-height:1}
+.pe-zahlenzeile span{color:var(--grau)}
+/* 5 Vorgehen als Treppe */
+.pe-treppe{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;align-items:start}
+.pe-stufe{background:#fff;border-top:3px solid var(--navy);padding:1.75rem 1.5rem 2rem}
+.pe-stufe:nth-child(2){margin-top:4rem}.pe-stufe:nth-child(3){margin-top:8rem}.pe-stufe:nth-child(4){margin-top:12rem;border-top-color:var(--plum)}
+.pe-stufe b{font-size:4rem;font-weight:200;letter-spacing:-.05em;line-height:1;color:var(--serpent)}
+.pe-stufe h3{font-size:1.5rem;margin:1rem 0 .5rem;font-weight:600}
+.pe-stufe em{display:block;font-style:normal;font-weight:600;margin-bottom:.5rem}
+.pe-stufe p{color:var(--grau);line-height:1.55}
+/* 6 Digital: dunkles Band, Kugel angeschnitten */
+.pe-digital{background:var(--deep);color:#fff;overflow:hidden}
+.pe-digital .pe-raster{border-top-color:rgba(255,255,255,.4)}
+.pe-digital .pe-lead{color:rgba(255,255,255,.75)}
+.pe-kugel{position:absolute;right:-14rem;top:50%;width:42rem;transform:translateY(-50%);opacity:.55;pointer-events:none}
+.pe-loesungen{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem;margin-top:3rem;max-width:46rem;position:relative}
+.pe-loesungen div{display:grid;grid-template-columns:2.75rem 1fr;gap:1rem;padding:1.25rem 0;border-top:1px solid rgba(255,255,255,.2)}
+.pe-loesungen img{width:2.75rem;height:2.75rem;padding:.55rem;background:var(--serpent)}
+.pe-loesungen h3{font-size:1.125rem;font-weight:600}.pe-loesungen p{font-size:.9375rem;color:rgba(255,255,255,.7);line-height:1.45;margin-top:.25rem}
+/* 7 Erfolge: grosses Zitat, Foto mit versetztem Rahmen */
+.pe-erfolg{display:grid;grid-template-columns:5fr 7fr;gap:5rem;align-items:center;margin-top:3rem}
+.pe-rahmen{position:relative}
+.pe-rahmen::before{content:"";position:absolute;left:-1.5rem;top:-1.5rem;width:70%;height:70%;background:var(--navy)}
+.pe-rahmen img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover}
+.pe-zitatgross{font-size:clamp(1.75rem,1rem + 2vw,3rem);line-height:1.2;letter-spacing:-.02em;font-weight:500}
+.pe-zitatgross::before{content:"«";display:block;font-size:6rem;line-height:.6;color:var(--plum);margin-bottom:1rem}
+.pe-wer{margin-top:2rem;font-size:1rem;color:var(--grau)}.pe-wer b{color:var(--navy);display:block}
+.pe-zitate{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem}
+.pe-zitate p{font-size:1.0625rem;line-height:1.5;border-top:1px solid #cfd5dc;padding-top:1.25rem}
+.pe-zitate small{display:block;margin-top:.75rem;color:var(--grau)}
+/* 8 Team als Collage */
+.pe-collage{position:relative;height:40rem;margin-top:2rem}
+.pe-collage img{position:absolute;object-fit:cover;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.pe-c1{left:0;top:4rem;width:17%;aspect-ratio:4/5}.pe-c2{left:20%;top:0;width:22%;aspect-ratio:4/5}.pe-c3{left:45%;top:10rem;width:16%;aspect-ratio:4/5}
+.pe-c4{left:64%;top:2rem;width:19%;aspect-ratio:4/5}.pe-c5{left:86%;top:14rem;width:14%;aspect-ratio:4/5}
+.pe-collage-text{position:absolute;left:0;bottom:0;max-width:34rem}
+/* 9 Wege: drei Spalten mit grosser Zahl */
+.pe-wege{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:3rem}
+.pe-weg img{width:100%;aspect-ratio:16/10;object-fit:cover;margin-bottom:1.5rem}
+.pe-weg:nth-child(2){margin-top:5rem}
+.pe-weg small{font-family:var(--a);font-size:.6875rem;letter-spacing:.14em;color:var(--plum)}
+.pe-weg h3{font-size:1.75rem;font-weight:600;margin:.5rem 0}.pe-weg p{color:var(--grau);line-height:1.55;margin-bottom:1rem}
+/* 10 CAS: Bild mit überlappender Karte */
+.pe-cas{position:relative;display:grid;grid-template-columns:7fr 5fr;align-items:center}
+.pe-cas img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.pe-cas-karte{background:#fff;padding:3rem;margin-left:-6rem;position:relative;border-top:4px solid var(--plum);box-shadow:0 30px 60px rgba(17,29,44,.12)}
+.pe-cas-karte h2{font-size:clamp(1.75rem,1rem + 1.8vw,2.75rem);line-height:1.05;letter-spacing:-.02em;font-weight:600;margin:.75rem 0 1rem}
+.pe-cas-karte p{color:var(--grau);line-height:1.55;margin-bottom:1.5rem}
+/* 11 Insights: ein Aufmacher, Liste daneben */
+.pe-ins{display:grid;grid-template-columns:7fr 5fr;gap:4rem;margin-top:3rem}
+.pe-auf img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.pe-auf h3{font-size:clamp(1.75rem,1rem + 1.6vw,2.5rem);line-height:1.1;font-weight:600;margin:1.25rem 0 .75rem}
+.pe-liste a{display:block;padding:1.25rem 0;border-top:1px solid #cfd5dc}.pe-liste a:last-child{border-bottom:1px solid #cfd5dc}
+.pe-liste small{color:var(--grau);font-size:.8125rem}.pe-liste h3{font-size:1.25rem;font-weight:600;margin-top:.35rem}
+/* 12 FAQ */
+.pe-faq details{border-top:1px solid #cfd5dc;padding:1.5rem 0}.pe-faq details:last-child{border-bottom:1px solid #cfd5dc}
+.pe-faq summary{list-style:none;cursor:pointer;font-size:clamp(1.25rem,1rem + .6vw,1.625rem);font-weight:500;display:flex;justify-content:space-between}
+.pe-faq summary::after{content:"+";color:var(--plum)}.pe-faq details[open] summary::after{content:"\2013"}
+.pe-faq p{margin-top:1rem;color:var(--grau);line-height:1.6;max-width:44rem}
+/* 13 Kontakt: grosser Satz auf Dunkelblau */
+.pe-schluss{background:var(--navy);color:#fff}
+.pe-schluss h2{font-size:clamp(2.75rem,1rem + 5.5vw,7rem);line-height:.95;letter-spacing:-.04em;font-weight:600;max-width:14ch}
+.pe-schluss h2 em{font-style:normal;color:var(--sea)}
+.pe-schluss-unten{display:grid;grid-template-columns:3fr 5fr 4fr;gap:2rem;margin-top:3.5rem;align-items:center}
+.pe-schluss img{width:7rem;height:7rem;border-radius:50%;object-fit:cover}
+[data-ein]{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}[data-ein].ist-da{opacity:1;transform:none}
+@media (max-width:991px){
+ .pe-raster,.pe-hero-unten,.pe-erfolg,.pe-cas,.pe-ins,.pe-schluss-unten{grid-template-columns:1fr}
+ .pe-cas-karte{margin:-3rem 1rem 0}.pe-treppe{grid-template-columns:1fr 1fr}.pe-stufe:nth-child(n){margin-top:0}
+ .pe-zeile{grid-template-columns:3rem 1fr 2rem}.pe-zeile p,.pe-zeile img{display:none}
+ .pe-logos{grid-template-columns:repeat(3,1fr)}.pe-collage{height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+ .pe-collage img{position:static;width:100%!important}.pe-collage-text{position:static;grid-column:1/-1;margin-top:1rem}
+ .pe-kugel{opacity:.25}.pe-loesungen{grid-template-columns:1fr}.pe-zitate,.pe-wege{grid-template-columns:1fr}.pe-weg:nth-child(2){margin-top:0}
+}
+@media (max-width:767px){.pe-treppe,.pe-zahlenzeile{grid-template-columns:1fr}.pe-hero h1 span:nth-child(n){padding-left:0}.pe-ribbon{display:none}}
+</style>
+<div class="pe">
+
+<section class="pe-hero"><div class="pe-ribbon"></div><div class="pe-in">
+  <div class="pe-etikett" style="margin-bottom:2rem"><i>●</i>Beratung · Training · Digitale Lösungen</div>
+  <h1><span>Mehr Vertriebsleistung.</span><span>Stärkere Führung.</span><span>Weniger Fluktuation.</span></h1>
+  <div class="pe-hero-unten"><div></div><p class="pe-lead">Wir entwickeln Finanzunternehmen: datenbasiert, praxiserprobt, nachhaltig.</p><div style="text-align:right"><a class="pe-btn" href="#">Lösungen entdecken &rarr;</a></div></div>
+</div><div class="pe-band"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade290fff14354501526916_hero-trainer-seminar.jpg" alt="ROWAPA-Trainer im Seminar mit Teilnehmenden"></div></section>
+
+<section class="pe-sek" style="padding-bottom:3rem"><div class="pe-in"><div class="pe-raster"><div class="pe-etikett"><i>00</i>Vertrauen uns</div><div class="pe-logos">
+  <div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2873bbcf70c54b5b0b02_kunde-raiffeisen.png" alt="Raiffeisen"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2875d955d72924b7bff7_kunde-mobiliar.png" alt="die Mobiliar"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade286ffc1021a5c2816424_kunde-swiss-life.png" alt="Swiss Life"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28699d6c402cfe6681d2_kunde-zurich.png" alt="Zurich"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2880b26de708a91db69d_kunde-axa.png" alt="AXA"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade288328b989f6d80a76d2_kunde-allianz.png" alt="Allianz"></div>
+  <div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade288528b989f6d80a771d_kunde-generali.png" alt="Generali"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade287b942cc529ab9694ea_kunde-ergo.png" alt="ERGO"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade287d691581a3975ad012_kunde-css.png" alt="CSS"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2879082f0121214afeb1_kunde-visana.png" alt="Visana"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade286cf950f2509606b812_kunde-urner-kantonalbank.png" alt="Urner Kantonalbank"></div><div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2865d4e2b38f94bd7af4_kunde-die-post.png" alt="Die Post"></div>
+</div></div></div></section>
+
+<section class="pe-sek"><div class="pe-in"><div class="pe-raster"><div class="pe-etikett"><i>01</i>Was wir tun</div><div>
+  <h2 class="pe-h2">Lösungen für Unternehmen</h2><p class="pe-lead" style="margin-top:1.5rem">Fünf Themen, ein abgestimmtes System: Wir stärken Vertrieb, Führung und Personal so, dass sie zusammenwirken.</p>
+</div></div>
+<div class="pe-zeilen">
+  <a class="pe-zeile" href="#" data-ein><b>01</b><h3>Vertriebsperformance</h3><p>Verkaufsleistung messbar steigern: von der Diagnostik über das Training bis zur Begleitung im Kundengespräch.</p><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade41ac27cf9de2fe4c1178_foto-vertrieb.jpg" alt=""><span>&rarr;</span></a>
+  <a class="pe-zeile" href="#" data-ein><b>02</b><h3>Mitarbeiterperformance & Potenzial</h3><p>Potenziale sichtbar machen und gezielt entwickeln: mit Diagnostik, Coaching und Resilienz-Training.</p><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade41ac27cf9de2fe4c1149_foto-potenzial.jpg" alt=""><span>&rarr;</span></a>
+  <a class="pe-zeile" href="#" data-ein><b>03</b><h3>Führung & Teams</h3><p>Führung wirksam gestalten: vom Führungsprofil bis zur Teamentwicklung.</p><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade41ab2e556a5d1f73ca21_foto-leadership.jpg" alt=""><span>&rarr;</span></a>
+  <a class="pe-zeile" href="#" data-ein><b>04</b><h3>Recruiting & Mitarbeiterbindung</h3><p>Talente gewinnen, gut integrieren und langfristig binden: vom Assessment bis zur attraktiven Arbeitgebermarke.</p><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade41acd618ef3b9679b49e_foto-recruiting.jpg" alt=""><span>&rarr;</span></a>
+  <a class="pe-zeile" href="#" data-ein><b>05</b><h3>Digitale Lösungen</h3><p>E-Learning, hybride Lernformate und KI-gestützte Lösungen, die Training und Beratung in den Alltag verlängern.</p><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade40c33cf0a887027b5c99_foto-digital.jpg" alt=""><span>&rarr;</span></a>
+</div></div></section>
+
+<section class="pe-sek" style="background:#fff"><div class="pe-in"><div class="pe-raster"><div class="pe-etikett"><i>02</i>Was uns antreibt</div><div>
+  <p class="pe-satz" data-ein>Messbare Entwicklung statt Versprechen. Seit <em>20 Jahren</em> arbeiten wir ausschliesslich für die Finanzbranche und verbinden <u>Menschen, Methoden und Daten</u>, damit Entwicklung messbar wird.</p>
+  <div class="pe-zahlenzeile"><div><b>20</b><span>Jahre ausschliesslich in der Finanzbranche</span></div><div><b>100 %</b><span>Praxisbezug ab dem ersten Tag</span></div><div><b>150</b><span>Jahre Wissen und Erfahrung im Trainerteam</span></div></div>
+</div></div></div></section>
+
+<section class="pe-sek"><div class="pe-in"><div class="pe-raster"><div class="pe-etikett"><i>03</i>So arbeiten wir</div><div><h2 class="pe-h2">Unser Vorgehen</h2><p class="pe-lead" style="margin-top:1.5rem">Vom Bauchgefühl zur Gewissheit: Jedes Projekt beginnt mit einem Erstgespräch und durchläuft dann vier Phasen.</p></div></div>
+<div class="pe-treppe">
+  <div class="pe-stufe" data-ein><b>01</b><h3>Analysieren</h3><p><em>Ist-Zustand erheben, Ziele festlegen.</em>Mit Diagnostik, Daten und Gesprächen erfassen wir, wo Ihr Unternehmen heute steht.</p></div>
+  <div class="pe-stufe" data-ein><b>02</b><h3>Verstehen</h3><p><em>Muster erkennen, Ursachen verstehen.</em>Wir machen sichtbar, was wirkt, wo Leistung verloren geht und was die Menschen antreibt.</p></div>
+  <div class="pe-stufe" data-ein><b>03</b><h3>Handeln</h3><p><em>Gezielt umsetzen, laufend nachjustieren.</em>Programme, Begleitung und digitale Lösungen setzen genau dort an.</p></div>
+  <div class="pe-stufe" data-ein><b>04</b><h3>Messen</h3><p><em>Wirkung belegen, den Kreis schliessen.</em>Mit denselben Instrumenten wie zu Beginn messen wir, was sich verändert hat.</p></div>
+</div></div></section>
+
+<section class="pe-sek pe-digital"><img class="pe-kugel" src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade6ff086d35a5971d0a51d_grafik-wissensplattform-kugel.png" alt=""><div class="pe-in"><div class="pe-raster"><div class="pe-etikett" style="color:var(--sea)"><i>04</i>ROWAPA Digital</div><div style="position:relative">
+  <h2 class="pe-h2" style="max-width:14ch">Digitale Lösungen für den Vertriebsalltag</h2><p class="pe-lead" style="margin-top:1.5rem">Was wir beraten, bauen wir auch: fünf digitale Lösungen mit künstlicher Intelligenz, entwickelt mit ETH juniors, auf einer gemeinsamen Wissensplattform.</p>
+  <div class="pe-loesungen">
+    <div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bbf9ab820cbb996ce9a_icon-anker-weiss.svg" alt=""><div><h3>Anker</h3><p>Talente suchen, finden und binden</p></div></div>
+    <div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bbf4f6effac234fc67a_icon-kompass-weiss.svg" alt=""><div><h3>Kompass</h3><p>Digitale Beratung strukturiert führen</p></div></div>
+    <div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bbfb64eeadb923e104d_icon-lotse-weiss.svg" alt=""><div><h3>Lotse</h3><p>Lernerfolg im Alltag sichern</p></div></div>
+    <div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bc09ab820cbb996cedd_icon-segel-weiss.svg" alt=""><div><h3>Segel</h3><p>Beratung gemeinsam erleben</p></div></div>
+    <div><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bc148f2f4531abcbbf0_icon-logbuch-weiss.svg" alt=""><div><h3>Logbuch</h3><p>Ihr digitaler Begleiter im Verkauf</p></div></div>
+    <div style="border-top:1px solid rgba(255,255,255,.2);display:flex;align-items:center"><a class="pe-link" href="#" style="color:#fff">Demo vereinbaren</a></div>
+  </div>
+</div></div></div></section>
+
+<section class="pe-sek"><div class="pe-in"><div class="pe-raster"><div class="pe-etikett"><i>05</i>Referenzen</div><div><h2 class="pe-h2">Unsere Erfolge</h2></div></div>
+<div class="pe-erfolg">
+  <div class="pe-rahmen" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28fdbbcf70c54b5b24f5_erfolg-raiffeisen-mittelthurgau.jpeg" alt="Philippe Lienhard"></div>
+  <div><p class="pe-zitatgross">Durch die Schulungen konnten wir verschiedene qualitative Ziele erreichen: die Steigerung der Geschäftsvolumen, der Abschlussquote und der Cross- und Up-Selling-Quote.»</p><p class="pe-wer"><b>Philippe Lienhard</b>Vorsitzender der Bankleitung, Raiffeisenbank Mittelthurgau</p><p style="margin-top:2rem"><a class="pe-link" href="#">Alle Referenzen</a></p></div>
+</div>
+<div class="pe-zitate">
+  <p>«Dank Eurem echt genialen Beratungsansatz habe ich es tatsächlich geschafft. Im ersten Jahr auf der Rangliste auf Platz 1 im Bereich Vorsorge!»<small>Simon J., Teilnehmer, die Mobiliar</small></p>
+  <p>«Meine Erwartung an diesen Tag war, dass ich mindestens drei Aspekte mitnehmen wollte. Es wurden nun neun.»<small>Heinz-W. Kranz, Sparkasse Mainz</small></p>
+  <p>«Heute konnte ich bei einem Termin 8 Leben abschliessen, und die Kunden waren sehr zufrieden mit meiner Beratung.»<small>Antonio M., die Mobiliar Kreuzlingen</small></p>
+</div></div></section>
+
+<section class="pe-sek" style="background:#fff"><div class="pe-in"><div class="pe-raster"><div class="pe-etikett"><i>06</i>Über uns</div><div></div></div>
+<div class="pe-collage">
+  <img class="pe-c1" data-ein src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28ee691581a3975ada45_team-vanessa-bassi.jpeg" alt="Vanessa Bassi">
+  <img class="pe-c2" data-ein src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28ea043cf26c13a371c9_team-wolfgang-wachter.jpeg" alt="Wolfgang Wachter">
+  <img class="pe-c3" data-ein src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28f43cf0a887027752c4_team-galina-shokhova.jpeg" alt="Galina Shokhova">
+  <img class="pe-c4" data-ein src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28f249eb70e98befd933_team-thomas-rothkoegel.jpeg" alt="Thomas Rothkögel">
+  <img class="pe-c5" data-ein src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28f8ac3ef69bfd23d7cb_team-fabrice-hiltbrunner.jpeg" alt="Fabrice Hiltbrunner">
+  <div class="pe-collage-text"><h2 class="pe-h2">Die Menschen hinter ROWAPA</h2><p class="pe-lead" style="margin:1.25rem 0 1.5rem">Lernen Sie die Menschen kennen, die Sie begleiten.</p><a class="pe-link" href="#">Ganzes Team kennenlernen</a></div>
+</div></div></section>
+
+<section class="pe-sek"><div class="pe-in"><div class="pe-raster"><div class="pe-etikett"><i>07</i>Meine Entwicklung</div><div><h2 class="pe-h2">Persönlich weiterkommen</h2><p class="pe-lead" style="margin-top:1.5rem">Drei Wege für Menschen in der Finanzbranche, die sich selbst weiterentwickeln wollen.</p></div></div>
+<div class="pe-wege">
+  <a class="pe-weg" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2900b26de708a91dc5cf_weg-privatpersonen.jpg" alt=""><small>FÜR EINZELPERSONEN</small><h3>Persönliche Entwicklung</h3><p>Diagnostik, Weiterbildung und Coaching für ambitionierte Profis, vom Einstieg bis zur Führungsrolle.</p><span class="pe-link">Passenden Weg finden</span></a>
+  <a class="pe-weg" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2903e7abdfa0c1782fa7_weg-broker-excellence.jpg" alt=""><small>FOKUSPROGRAMM</small><h3>Broker Excellence</h3><p>Aus- und Weiterbildung für den Broker-Markt: für einzelne Broker und ganze Brokerfirmen.</p><span class="pe-link">Zu Broker Excellence</span></a>
+  <a class="pe-weg" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade29083afeca34a032edf2_weg-female-empowerment.jpg" alt=""><small>FOKUSPROGRAMM</small><h3>Female Empowerment</h3><p>Souverän auftreten, verhandeln und führen: mit dem Programm SOUVERÄN ICH und einer starken Community.</p><span class="pe-link">Zu Female Empowerment</span></a>
+</div></div></section>
+
+<section class="pe-sek" style="background:#fff"><div class="pe-in"><div class="pe-raster" style="margin-bottom:3rem"><div class="pe-etikett"><i>08</i>Im Blickpunkt</div><div></div></div>
+<div class="pe-cas"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade290b9d6c402cfe66af48_cas-abschlussfeier-hwz.jpeg" alt="Abschlussfeier des CAS"><div class="pe-cas-karte" data-ein><div class="pe-etikett" style="color:var(--plum)">CAS · mit der HWZ Zürich</div><h2>CAS Professional Leadership for Finance</h2><p>Der erste CAS-Lehrgang, exklusiv für die Finanzbranche entwickelt. 25. Februar bis 6. Dezember 2027 · 16 Präsenztage · 15 ECTS-Punkte.</p><a class="pe-btn" href="#">Mehr zum CAS &rarr;</a></div></div>
+</div></section>
+
+<section class="pe-sek"><div class="pe-in"><div class="pe-raster"><div class="pe-etikett"><i>09</i>Wissen & Impulse</div><div><h2 class="pe-h2">Neueste Insights</h2></div></div>
+<div class="pe-ins">
+  <a class="pe-auf" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade29218744271fad9ac386_blog-zeitmanagement-im-vertrieb.jpeg" alt=""><h3>Zeitmanagement im Vertrieb</h3><p class="pe-lead" style="font-size:1.0625rem">Warum zu viel Eifer die eigenen Ziele sabotieren kann, und drei Prinzipien für mehr Zeit im Kundengespräch.</p></a>
+  <div class="pe-liste">
+    <a href="#"><small>26.08.2025 · Leadership</small><h3>Leadership-Weiterbildung</h3></a>
+    <a href="#"><small>25.08.2025 · Leadership</small><h3>Empathische Führung</h3></a>
+    <a href="#"><small>25.08.2025 · Leadership</small><h3>Erfahrungsbericht CAS</h3></a>
+    <a href="#"><small>22.08.2025 · Leadership</small><h3>Selbstführung als Lösung</h3></a>
+    <p style="margin-top:1.5rem"><a class="pe-link" href="#" style="border-top:0;padding:0 0 .35rem;display:inline-flex">Alle Inhalte</a></p>
+  </div>
+</div></div></section>
+
+<section class="pe-sek" style="background:#fff"><div class="pe-in"><div class="pe-raster"><div class="pe-etikett"><i>10</i>Häufige Fragen</div><div class="pe-faq">
+  <details open><summary>Für wen ist ROWAPA da?</summary><p>Für Banken, Versicherungen, Krankenversicherer und Broker, die Vertrieb, Führung und Mitarbeitende gezielt entwickeln wollen. Und für Menschen in der Finanzbranche, die selbst weiterkommen möchten.</p></details>
+  <details><summary>Wie läuft ein Projekt mit ROWAPA ab?</summary><p>Am Anfang steht ein Erstgespräch. Danach durchläuft jedes Projekt die vier Phasen Analysieren, Verstehen, Handeln und Messen, abgestimmt auf Ihre Ziele.</p></details>
+  <details><summary>Wie messen Sie die Wirkung Ihrer Programme?</summary><p>Wir werten Gespräche, Abschlüsse und Lernfortschritte aus, holen laufend Rückmeldungen ein und fassen alles in einem Wirkungsbericht zusammen.</p></details>
+  <details><summary>Arbeiten Sie auch ausserhalb der Schweiz?</summary><p>Ja. Wir begleiten Finanzunternehmen im ganzen DACH-Raum und darüber hinaus in Europa.</p></details>
+</div></div></div></section>
+
+<section class="pe-sek pe-schluss"><div class="pe-in">
+  <div class="pe-etikett" style="color:var(--sea);margin-bottom:2rem"><i>11</i>Kontakt</div>
+  <h2>Der nächste Schritt beginnt mit einem <em>Gespräch.</em></h2>
+  <div class="pe-schluss-unten"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28fa3afeca34a032ec96_kontakt-jennifer-boek.jpg" alt="Jennifer Boek"><p class="pe-lead" style="color:rgba(255,255,255,.8)">Jennifer Boek, Head of Operations, klärt im Erstgespräch Ihre Ausgangslage und Ziele.</p><div style="text-align:right"><a class="pe-btn" href="#">Erstgespräch vereinbaren &rarr;</a></div></div>
+</div></section>
+
+</div>

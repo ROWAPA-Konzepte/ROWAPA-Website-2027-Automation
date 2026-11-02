@@ -1,0 +1,241 @@
+<style>
+/* Layout F «Mosaik & Flächen» (Entwurf, angelehnt an Korn Ferry und Vontobel) */
+.pf{--navy:#1D3149;--deep:#111D2C;--plum:#AA1351;--serpent:#486EA3;--sea:#A0C4DF;--seahell:#E3EEF6;--snow:#E8E9E9;--grau:#5b6878;--t:var(--_typografie---schrift-titel-und-text,sans-serif);--a:var(--_typografie---schrift-akzent,sans-serif);font-family:var(--t);color:var(--navy)}
+.pf *{box-sizing:border-box}.pf h1,.pf h2,.pf h3,.pf p,.pf figure{margin:0;color:inherit}.pf a{color:inherit;text-decoration:none}
+.pf-in{max-width:80rem;margin:0 auto;padding:0 clamp(1rem,.25rem + 3vw,3rem)}
+.pf-sek{padding:clamp(4rem,2rem + 5vw,7rem) 0;position:relative}
+.pf-kick{font-family:var(--a);font-weight:800;font-size:.8125rem;letter-spacing:.16em;text-transform:uppercase;color:var(--plum)}
+.pf-h2{font-size:clamp(2.25rem,1.2rem + 3vw,4rem);line-height:1.03;letter-spacing:-.03em;font-weight:700}
+.pf-mitte{text-align:center;max-width:46rem;margin:0 auto 3.5rem}
+.pf-mitte p{font-size:1.125rem;line-height:1.55;color:var(--grau);margin-top:1.25rem}
+.pf-btn{display:inline-flex;align-items:center;gap:.75rem;padding:1rem 1.5rem;background:var(--plum);color:#fff!important;font-family:var(--a);font-weight:800;font-size:.8125rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--plum)}
+.pf-btn.hohl{background:transparent;border-color:currentColor;color:inherit!important}
+.pf-btn::after{content:"\2192"}
+/* 1 Hero geteilt mit schräger Kante */
+.pf-hero{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 4.5rem);background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.pf-hero-text{display:flex;flex-direction:column;justify-content:center;padding:4rem clamp(1rem,.25rem + 3vw,3rem) 8rem max(clamp(1rem,.25rem + 3vw,3rem),calc((100vw - 80rem)/2 + 3rem));position:relative;z-index:2}
+.pf-hero h1{font-size:clamp(2.75rem,1rem + 4.6vw,5.75rem);line-height:.98;letter-spacing:-.035em;font-weight:700}
+.pf-hero h1 em{font-style:normal;color:var(--sea)}
+.pf-hero p{font-size:1.25rem;line-height:1.45;color:rgba(255,255,255,.85);max-width:30rem;margin:1.75rem 0 2.25rem}
+.pf-hero-bild{position:relative;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%)}
+.pf-hero-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pf-hero-band{position:absolute;left:46%;top:0;bottom:0;width:4.5rem;background:var(--plum);transform:skewX(-10deg);transform-origin:bottom;z-index:1}
+/* 2 Wegweiser */
+.pf-wahl{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:-4.5rem;position:relative;z-index:3}
+.pf-wahl a{background:#fff;padding:2rem;box-shadow:0 20px 50px rgba(17,29,44,.12);display:flex;flex-direction:column;gap:.75rem;border-top:4px solid var(--serpent);transition:transform .3s,border-color .3s}
+.pf-wahl a:hover{transform:translateY(-4px);border-top-color:var(--plum)}
+.pf-wahl small{font-family:var(--a);font-size:.6875rem;letter-spacing:.14em;color:var(--grau)}
+.pf-wahl h3{font-size:1.375rem;font-weight:600;line-height:1.2}
+.pf-wahl span{color:var(--plum);font-weight:600}
+.pf-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem 3.5rem;margin-top:4rem}
+.pf-logos img{height:1.6rem;filter:grayscale(1);opacity:.65}
+/* 3 Lösungen als Mosaik */
+.pf-mosaik{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:15rem;gap:1rem}
+.pf-m{position:relative;overflow:hidden;padding:1.75rem;display:flex;flex-direction:column;justify-content:flex-end}
+.pf-m img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pf-m:hover img{transform:scale(1.05)}
+.pf-m.foto{color:#fff}.pf-m.foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,29,44,0) 30%,rgba(17,29,44,.88))}
+.pf-m > div{position:relative;z-index:2}
+.pf-m small{font-family:var(--a);font-size:.6875rem;letter-spacing:.14em;opacity:.8}
+.pf-m h3{font-size:1.375rem;font-weight:600;line-height:1.2;margin-top:.35rem}
+.pf-m p{font-size:.9375rem;line-height:1.45;margin-top:.5rem;opacity:.85}
+.pf-gross{grid-column:span 2;grid-row:span 2}.pf-gross h3{font-size:2.25rem}
+.pf-breit{grid-column:span 2}
+.pf-m.zahl{background:var(--seahell)}.pf-m.zahl b{font-size:4.5rem;font-weight:700;letter-spacing:-.04em;line-height:1;color:var(--serpent)}
+.pf-m.plum{background:var(--plum);color:#fff}.pf-m.navy{background:var(--navy);color:#fff}
+/* 4 Kennzahlen-Band */
+.pf-band{background:var(--sea)}
+.pf-band .pf-in{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2rem;align-items:center;padding-top:3.5rem;padding-bottom:3.5rem}
+.pf-band h2{font-size:clamp(1.75rem,1rem + 1.6vw,2.5rem);line-height:1.1;font-weight:700}
+.pf-band b{display:block;font-size:clamp(3rem,2rem + 3vw,5rem);font-weight:700;letter-spacing:-.04em;line-height:1}
+.pf-band span{font-size:.9375rem}
+/* 5 Vorgehen als Zeitstrahl */
+.pf-strahl{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.pf-strahl::before{content:"";position:absolute;left:12.5%;right:12.5%;top:1.75rem;height:2px;background:linear-gradient(90deg,var(--serpent),var(--plum))}
+.pf-punkt{text-align:center;position:relative}
+.pf-punkt b{width:3.5rem;height:3.5rem;border-radius:50%;background:#fff;border:2px solid var(--serpent);display:inline-flex;align-items:center;justify-content:center;font-family:var(--a);font-weight:800;margin-bottom:1.5rem}
+.pf-punkt:last-child b{border-color:var(--plum);background:var(--plum);color:#fff}
+.pf-punkt h3{font-size:1.375rem;font-weight:600}.pf-punkt em{display:block;font-style:normal;font-weight:600;margin:.5rem 0}
+.pf-punkt p{color:var(--grau);line-height:1.55;font-size:1rem}
+/* 6 Digital: zentriert, Kacheln im Raster */
+.pf-digital{background:var(--deep);color:#fff}
+.pf-digital .pf-mitte p{color:rgba(255,255,255,.75)}
+.pf-dgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.pf-d{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:1.75rem 1.25rem;text-align:center;transition:background .3s,border-color .3s}
+.pf-d:hover{background:rgba(170,19,81,.18);border-color:var(--plum)}
+.pf-d img{width:3rem;height:3rem;padding:.6rem;background:var(--serpent);margin-bottom:1rem}
+.pf-d h3{font-size:1.25rem;font-weight:600}.pf-d p{font-size:.9375rem;line-height:1.45;color:rgba(255,255,255,.72);margin-top:.5rem}
+/* 7 Erfolge geteilt */
+.pf-geteilt{display:grid;grid-template-columns:1fr 1fr;min-height:34rem}
+.pf-geteilt-a{background:var(--plum);color:#fff;padding:clamp(2.5rem,1rem + 4vw,5rem);display:flex;flex-direction:column;justify-content:center}
+.pf-geteilt-a blockquote{margin:1.5rem 0;font-size:clamp(1.5rem,1rem + 1.5vw,2.5rem);line-height:1.2;font-weight:500;letter-spacing:-.02em}
+.pf-geteilt-b{position:relative}.pf-geteilt-b img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* 8 Team im Mosaik */
+.pf-tmosaik{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:17rem;gap:1rem}
+.pf-t{position:relative;overflow:hidden;background:var(--snow)}
+.pf-t img{width:100%;height:100%;object-fit:cover}
+.pf-t div{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.25rem;background:linear-gradient(180deg,rgba(17,29,44,0),rgba(17,29,44,.85));color:#fff}
+.pf-t h3{font-size:1.0625rem;font-weight:600}.pf-t p{font-size:.875rem;opacity:.85}
+.pf-t.hoch{grid-row:span 2}
+.pf-t.info{background:var(--navy);color:#fff;padding:2rem;display:flex;flex-direction:column;justify-content:space-between}
+/* 9 Wege im Wechsel */
+.pf-wechsel{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.pf-wechsel + .pf-wechsel .pf-wbild{order:2}
+.pf-wbild{min-height:24rem;position:relative}.pf-wbild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pf-wtext{padding:clamp(2rem,1rem + 4vw,5rem);display:flex;flex-direction:column;justify-content:center;gap:1rem;background:var(--seahell)}
+.pf-wechsel:nth-of-type(2) .pf-wtext{background:#fff}
+.pf-wtext h3{font-size:clamp(1.75rem,1.2rem + 1.4vw,2.5rem);font-weight:700;line-height:1.1}
+.pf-wtext p{color:var(--grau);line-height:1.55;max-width:30rem}
+/* 10 CAS als Auszeichnungsblock */
+.pf-auszeichnung{display:grid;grid-template-columns:1fr 1.2fr;gap:0}
+.pf-ausz-a{background:var(--sea);padding:3rem;display:flex;flex-direction:column;justify-content:center;gap:1rem}
+.pf-ausz-a h2{font-size:clamp(2rem,1rem + 2.4vw,3.25rem);line-height:1.03;font-weight:700;letter-spacing:-.03em}
+.pf-siegel{width:7rem;height:7rem;border-radius:50%;background:var(--plum);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--a);font-weight:800;font-size:.6875rem;letter-spacing:.1em;line-height:1.3;transform:rotate(-8deg)}
+.pf-ausz-b{position:relative;min-height:24rem}.pf-ausz-b img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* 11 Insights */
+.pf-igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pf-ik{background:#fff;transition:transform .3s}.pf-ik:hover{transform:translateY(-4px)}
+.pf-ik img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.pf-ik div{padding:1.25rem 1.25rem 1.5rem}.pf-ik small{color:var(--grau);font-size:.8125rem}
+.pf-ik h3{font-size:1.25rem;font-weight:600;margin-top:.35rem;line-height:1.25}
+/* 12 FAQ zentriert */
+.pf-faq{max-width:52rem;margin:0 auto}
+.pf-faq details{background:#fff;margin-bottom:.75rem;padding:1.25rem 1.5rem;border-left:4px solid transparent;transition:border-color .3s}
+.pf-faq details[open]{border-left-color:var(--plum)}
+.pf-faq summary{list-style:none;cursor:pointer;font-size:1.1875rem;font-weight:600;display:flex;justify-content:space-between}
+.pf-faq summary::after{content:"+";color:var(--plum)}.pf-faq details[open] summary::after{content:"\2013"}
+.pf-faq p{margin-top:.75rem;color:var(--grau);line-height:1.6}
+/* 13 Kontakt-Fläche mit Schnitt */
+.pf-kontakt{background:var(--plum);color:#fff;clip-path:polygon(0 4rem,100% 0,100% 100%,0 100%);padding-top:calc(clamp(4rem,2rem + 5vw,7rem) + 2rem)}
+.pf-kontakt .pf-in{display:grid;grid-template-columns:auto 1fr auto;gap:3rem;align-items:center}
+.pf-kontakt img{width:8rem;height:8rem;border-radius:50%;object-fit:cover;border:3px solid #fff}
+.pf-kontakt h2{font-size:clamp(2rem,1rem + 2.6vw,3.5rem);line-height:1.03;font-weight:700;letter-spacing:-.03em}
+.pf-kontakt p{margin-top:.75rem;font-size:1.125rem;opacity:.9}
+.pf-kontakt .pf-btn{background:#fff;color:var(--plum)!important;border-color:#fff}
+[data-ein]{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}[data-ein].ist-da{opacity:1;transform:none}
+@media (max-width:991px){
+ .pf-hero,.pf-geteilt,.pf-wechsel,.pf-auszeichnung{grid-template-columns:1fr}.pf-hero-bild{min-height:22rem;clip-path:polygon(0 12%,100% 0,100% 100%,0 100%)}.pf-hero-band{display:none}
+ .pf-hero-text{padding:3rem clamp(1rem,.25rem + 3vw,3rem)}
+ .pf-wahl{grid-template-columns:1fr;margin-top:1.5rem}.pf-mosaik,.pf-tmosaik{grid-template-columns:1fr 1fr}.pf-gross{grid-column:span 2}
+ .pf-band .pf-in{grid-template-columns:1fr 1fr}.pf-strahl{grid-template-columns:1fr 1fr}.pf-strahl::before{display:none}
+ .pf-dgrid{grid-template-columns:1fr 1fr}.pf-igrid{grid-template-columns:1fr}.pf-wechsel + .pf-wechsel .pf-wbild{order:0}
+ .pf-kontakt .pf-in{grid-template-columns:1fr}
+}
+@media (max-width:767px){.pf-mosaik,.pf-tmosaik,.pf-band .pf-in,.pf-strahl,.pf-dgrid{grid-template-columns:1fr}.pf-gross,.pf-breit{grid-column:span 1}.pf-t.hoch{grid-row:span 1}}
+</style>
+<div class="pf">
+
+<section class="pf-hero">
+  <div class="pf-hero-text"><div class="pf-kick" style="color:var(--sea)">Beratung · Training · Digitale Lösungen</div><h1 style="margin-top:1.25rem">Mehr Vertriebsleistung. Stärkere Führung. <em>Weniger Fluktuation.</em></h1><p>Wir entwickeln Finanzunternehmen: datenbasiert, praxiserprobt, nachhaltig.</p><div style="display:flex;gap:1rem;flex-wrap:wrap"><a class="pf-btn" href="#">Lösungen entdecken</a><a class="pf-btn hohl" href="#">Erstgespräch</a></div></div>
+  <div class="pf-hero-bild"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade290fff14354501526916_hero-trainer-seminar.jpg" alt="ROWAPA-Trainer im Seminar mit Teilnehmenden"></div>
+  <div class="pf-hero-band"></div>
+</section>
+
+<section style="padding-bottom:4rem"><div class="pf-in">
+  <div class="pf-wahl">
+    <a href="#"><small>FÜR UNTERNEHMEN</small><h3>Ich will mein Unternehmen weiterentwickeln</h3><span>Lösungen ansehen &rarr;</span></a>
+    <a href="#"><small>FÜR EINZELPERSONEN</small><h3>Ich will mich persönlich weiterentwickeln</h3><span>Passenden Weg finden &rarr;</span></a>
+    <a href="#"><small>FÜR BROKER</small><h3>Ich bin Broker oder führe eine Brokerfirma</h3><span>Zu Broker Excellence &rarr;</span></a>
+  </div>
+  <div class="pf-logos"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2873bbcf70c54b5b0b02_kunde-raiffeisen.png" alt="Raiffeisen"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2875d955d72924b7bff7_kunde-mobiliar.png" alt="die Mobiliar"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade286ffc1021a5c2816424_kunde-swiss-life.png" alt="Swiss Life"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28699d6c402cfe6681d2_kunde-zurich.png" alt="Zurich"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2880b26de708a91db69d_kunde-axa.png" alt="AXA"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade288328b989f6d80a76d2_kunde-allianz.png" alt="Allianz"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade287b942cc529ab9694ea_kunde-ergo.png" alt="ERGO"></div>
+</div></section>
+
+<section class="pf-sek" style="background:#F4F5F5"><div class="pf-in">
+  <div class="pf-mitte"><div class="pf-kick">Was wir tun</div><h2 class="pf-h2" style="margin-top:1rem">Lösungen für Unternehmen</h2><p>Fünf Themen, ein abgestimmtes System: Wir stärken Vertrieb, Führung und Personal so, dass sie zusammenwirken.</p></div>
+  <div class="pf-mosaik">
+    <a class="pf-m foto pf-gross" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade41ac27cf9de2fe4c1178_foto-vertrieb.jpg" alt=""><div><small>THEMA 01</small><h3>Vertriebsperformance</h3><p>Verkaufsleistung messbar steigern: von der Diagnostik über das Training bis zur Begleitung im Kundengespräch.</p></div></a>
+    <div class="pf-m zahl" data-ein><div><b>20</b><p style="opacity:1;color:var(--navy)">Jahre ausschliesslich in der Finanzbranche</p></div></div>
+    <a class="pf-m foto" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade41ac27cf9de2fe4c1149_foto-potenzial.jpg" alt=""><div><small>THEMA 02</small><h3>Mitarbeiterperformance & Potenzial</h3></div></a>
+    <a class="pf-m foto" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade41ab2e556a5d1f73ca21_foto-leadership.jpg" alt=""><div><small>THEMA 03</small><h3>Führung & Teams</h3></div></a>
+    <a class="pf-m plum" href="#" data-ein><div><small>THEMA 04</small><h3>Recruiting & Mitarbeiterbindung</h3><p>Talente gewinnen, gut integrieren und langfristig binden.</p></div></a>
+    <a class="pf-m foto pf-breit" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade40c33cf0a887027b5c99_foto-digital.jpg" alt=""><div><small>THEMA 05</small><h3>Digitale Lösungen</h3><p>E-Learning, hybride Lernformate und KI-gestützte Lösungen.</p></div></a>
+    <a class="pf-m navy" href="#" data-ein><div><h3>Zum Unternehmensbereich &rarr;</h3></div></a>
+  </div>
+</div></section>
+
+<section class="pf-band"><div class="pf-in">
+  <h2>Messbare Entwicklung statt Versprechen.</h2>
+  <div data-ein><b>20</b><span>Jahre ausschliesslich in der Finanzbranche</span></div>
+  <div data-ein><b>100 %</b><span>Praxisbezug ab dem ersten Tag</span></div>
+  <div data-ein><b>150</b><span>Jahre Wissen und Erfahrung im Trainerteam</span></div>
+</div></section>
+
+<section class="pf-sek"><div class="pf-in">
+  <div class="pf-mitte"><div class="pf-kick">So arbeiten wir</div><h2 class="pf-h2" style="margin-top:1rem">Unser Vorgehen</h2><p>Vom Bauchgefühl zur Gewissheit: Jedes Projekt beginnt mit einem Erstgespräch und durchläuft dann vier Phasen.</p></div>
+  <div class="pf-strahl">
+    <div class="pf-punkt" data-ein><b>01</b><h3>Analysieren</h3><em>Ist-Zustand erheben, Ziele festlegen.</em><p>Mit Diagnostik, Daten und Gesprächen erfassen wir, wo Ihr Unternehmen heute steht.</p></div>
+    <div class="pf-punkt" data-ein><b>02</b><h3>Verstehen</h3><em>Muster erkennen, Ursachen verstehen.</em><p>Wir machen sichtbar, was wirkt, wo Leistung verloren geht und was die Menschen antreibt.</p></div>
+    <div class="pf-punkt" data-ein><b>03</b><h3>Handeln</h3><em>Gezielt umsetzen, laufend nachjustieren.</em><p>Programme, Begleitung und digitale Lösungen setzen genau dort an.</p></div>
+    <div class="pf-punkt" data-ein><b>04</b><h3>Messen</h3><em>Wirkung belegen, den Kreis schliessen.</em><p>Mit denselben Instrumenten wie zu Beginn messen wir, was sich verändert hat.</p></div>
+  </div>
+</div></section>
+
+<section class="pf-sek pf-digital"><div class="pf-in">
+  <div class="pf-mitte"><div class="pf-kick" style="color:var(--sea)">ROWAPA Digital</div><h2 class="pf-h2" style="margin-top:1rem">Digitale Lösungen, die Ihren Vertrieb im Alltag begleiten</h2><p>Fünf Lösungen mit künstlicher Intelligenz, entwickelt mit ETH juniors, auf der gemeinsamen ROWAPA Wissensplattform. Jede Lösung ist einzeln buchbar.</p></div>
+  <div class="pf-dgrid">
+    <a class="pf-d" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bbf9ab820cbb996ce9a_icon-anker-weiss.svg" alt=""><h3>Anker</h3><p>Talente suchen, finden und binden</p></a>
+    <a class="pf-d" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bbf4f6effac234fc67a_icon-kompass-weiss.svg" alt=""><h3>Kompass</h3><p>Digitale Beratung strukturiert führen</p></a>
+    <a class="pf-d" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bbfb64eeadb923e104d_icon-lotse-weiss.svg" alt=""><h3>Lotse</h3><p>Lernerfolg im Alltag sichern</p></a>
+    <a class="pf-d" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bc09ab820cbb996cedd_icon-segel-weiss.svg" alt=""><h3>Segel</h3><p>Beratung gemeinsam erleben</p></a>
+    <a class="pf-d" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade7bc148f2f4531abcbbf0_icon-logbuch-weiss.svg" alt=""><h3>Logbuch</h3><p>Ihr digitaler Begleiter im Verkauf</p></a>
+  </div>
+  <p style="text-align:center;margin-top:3rem"><a class="pf-btn" href="#">Demo vereinbaren</a></p>
+</div></section>
+
+<section class="pf-geteilt">
+  <div class="pf-geteilt-a"><div class="pf-kick" style="color:#fff">Unsere Erfolge</div><blockquote>«Durch die Schulungen konnten wir verschiedene qualitative Ziele erreichen: die Steigerung der Geschäftsvolumen, der Abschlussquote und der Cross- und Up-Selling-Quote.»</blockquote><p><b>Philippe Lienhard</b><br>Vorsitzender der Bankleitung, Raiffeisenbank Mittelthurgau</p><p style="margin-top:2rem"><a class="pf-btn hohl" href="#" style="color:#fff">Alle Referenzen</a></p></div>
+  <div class="pf-geteilt-b"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28fdbbcf70c54b5b24f5_erfolg-raiffeisen-mittelthurgau.jpeg" alt="Philippe Lienhard"></div>
+</section>
+
+<section class="pf-sek"><div class="pf-in">
+  <div class="pf-mitte"><div class="pf-kick">Über uns</div><h2 class="pf-h2" style="margin-top:1rem">Die Menschen hinter ROWAPA</h2></div>
+  <div class="pf-tmosaik">
+    <div class="pf-t hoch" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28ea043cf26c13a371c9_team-wolfgang-wachter.jpeg" alt="Wolfgang Wachter"><div><h3>Wolfgang Wachter</h3><p>Gründer und Inhaber</p></div></div>
+    <div class="pf-t" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28ee691581a3975ada45_team-vanessa-bassi.jpeg" alt="Vanessa Bassi"><div><h3>Vanessa Bassi</h3><p>Businesstrainerin</p></div></div>
+    <div class="pf-t hoch" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28f249eb70e98befd933_team-thomas-rothkoegel.jpeg" alt="Thomas Rothkögel"><div><h3>Thomas Rothkögel</h3><p>Gründer und Inhaber</p></div></div>
+    <div class="pf-t" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28f43cf0a887027752c4_team-galina-shokhova.jpeg" alt="Galina Shokhova"><div><h3>Galina Shokhova</h3><p>Marketing und Digital Solutions</p></div></div>
+    <div class="pf-t info" data-ein><b style="font-size:3.5rem;letter-spacing:-.04em;line-height:1">150</b><p>Jahre Wissen und Erfahrung im Trainerteam</p></div>
+    <div class="pf-t" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28f8ac3ef69bfd23d7cb_team-fabrice-hiltbrunner.jpeg" alt="Fabrice Hiltbrunner"><div><h3>Fabrice Hiltbrunner</h3><p>Businesstrainer</p></div></div>
+  </div>
+  <p style="text-align:center;margin-top:2.5rem"><a class="pf-btn hohl" href="#">Ganzes Team kennenlernen</a></p>
+</div></section>
+
+<section>
+  <div class="pf-in" style="padding-top:2rem;padding-bottom:3rem"><div class="pf-mitte" style="margin-bottom:0"><div class="pf-kick">Meine Entwicklung</div><h2 class="pf-h2" style="margin-top:1rem">Persönlich weiterkommen</h2><p>Drei Wege für Menschen in der Finanzbranche, die sich selbst weiterentwickeln wollen.</p></div></div>
+  <div class="pf-wechsel"><div class="pf-wbild"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2900b26de708a91dc5cf_weg-privatpersonen.jpg" alt=""></div><div class="pf-wtext"><div class="pf-kick">Für Einzelpersonen</div><h3>Persönliche Entwicklung</h3><p>Diagnostik, Weiterbildung und Coaching für ambitionierte Profis, vom Einstieg bis zur Führungsrolle.</p><p><a class="pf-btn" href="#">Passenden Weg finden</a></p></div></div>
+  <div class="pf-wechsel"><div class="pf-wbild"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade2903e7abdfa0c1782fa7_weg-broker-excellence.jpg" alt=""></div><div class="pf-wtext"><div class="pf-kick">Fokusprogramm</div><h3>Broker Excellence</h3><p>Aus- und Weiterbildung für den Broker-Markt: für einzelne Broker und ganze Brokerfirmen.</p><p><a class="pf-btn" href="#">Zu Broker Excellence</a></p></div></div>
+  <div class="pf-wechsel"><div class="pf-wbild"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade29083afeca34a032edf2_weg-female-empowerment.jpg" alt=""></div><div class="pf-wtext"><div class="pf-kick">Fokusprogramm</div><h3>Female Empowerment</h3><p>Souverän auftreten, verhandeln und führen: mit dem Programm SOUVERÄN ICH und einer starken Community.</p><p><a class="pf-btn" href="#">Zu Female Empowerment</a></p></div></div>
+</section>
+
+<section class="pf-sek"><div class="pf-in"><div class="pf-auszeichnung">
+  <div class="pf-ausz-a"><div class="pf-siegel">IM<br>BLICK-<br>PUNKT</div><h2>CAS Professional Leadership for Finance</h2><p style="line-height:1.55">Mit der HWZ Zürich, exklusiv für die Finanzbranche. 25. Februar bis 6. Dezember 2027 · 16 Präsenztage · 15 ECTS-Punkte.</p><p style="display:flex;gap:1rem;flex-wrap:wrap"><a class="pf-btn" href="#">Mehr zum CAS</a><a class="pf-btn hohl" href="#">Zoom-Infosession am 17.11.2026</a></p></div>
+  <div class="pf-ausz-b"><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade290b9d6c402cfe66af48_cas-abschlussfeier-hwz.jpeg" alt="Abschlussfeier des CAS"></div>
+</div></div></section>
+
+<section class="pf-sek" style="background:#F4F5F5"><div class="pf-in">
+  <div class="pf-mitte"><div class="pf-kick">Wissen & Impulse</div><h2 class="pf-h2" style="margin-top:1rem">Neueste Insights</h2></div>
+  <div class="pf-igrid">
+    <a class="pf-ik" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade29218744271fad9ac386_blog-zeitmanagement-im-vertrieb.jpeg" alt=""><div><small>23.09.2025 · Sales</small><h3>Zeitmanagement im Vertrieb</h3></div></a>
+    <a class="pf-ik" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade29243afeca34a032f10f_blog-leadership-weiterbildung.jpeg" alt=""><div><small>26.08.2025 · Leadership</small><h3>Leadership-Weiterbildung</h3></div></a>
+    <a class="pf-ik" href="#" data-ein><img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade29279a21a1e2cc4cd1ed_blog-empathische-fuehrung.jpeg" alt=""><div><small>25.08.2025 · Leadership</small><h3>Empathische Führung</h3></div></a>
+  </div>
+  <p style="text-align:center;margin-top:2.5rem"><a class="pf-btn hohl" href="#">Alle Inhalte</a></p>
+</div></section>
+
+<section class="pf-sek" style="background:#F4F5F5;padding-top:0"><div class="pf-in">
+  <div class="pf-mitte"><div class="pf-kick">Häufige Fragen</div><h2 class="pf-h2" style="margin-top:1rem">Gut zu wissen</h2></div>
+  <div class="pf-faq">
+    <details open><summary>Für wen ist ROWAPA da?</summary><p>Für Banken, Versicherungen, Krankenversicherer und Broker, die Vertrieb, Führung und Mitarbeitende gezielt entwickeln wollen. Und für Menschen in der Finanzbranche, die selbst weiterkommen möchten.</p></details>
+    <details><summary>Wie läuft ein Projekt mit ROWAPA ab?</summary><p>Am Anfang steht ein Erstgespräch. Danach durchläuft jedes Projekt die vier Phasen Analysieren, Verstehen, Handeln und Messen, abgestimmt auf Ihre Ziele.</p></details>
+    <details><summary>Wie messen Sie die Wirkung Ihrer Programme?</summary><p>Wir werten Gespräche, Abschlüsse und Lernfortschritte aus, holen laufend Rückmeldungen ein und fassen alles in einem Wirkungsbericht zusammen.</p></details>
+    <details><summary>Arbeiten Sie auch ausserhalb der Schweiz?</summary><p>Ja. Wir begleiten Finanzunternehmen im ganzen DACH-Raum und darüber hinaus in Europa.</p></details>
+  </div>
+</div></section>
+
+<section class="pf-sek pf-kontakt"><div class="pf-in">
+  <img src="https://cdn.prod.website-files.com/6addf1532819c0aacc74a496/6ade28fa3afeca34a032ec96_kontakt-jennifer-boek.jpg" alt="Jennifer Boek">
+  <div><h2>Der nächste Schritt beginnt mit einem Gespräch.</h2><p>Jennifer Boek, Head of Operations, klärt im Erstgespräch Ihre Ausgangslage und Ziele.</p></div>
+  <a class="pf-btn" href="#">Erstgespräch vereinbaren</a>
+</div></section>
+
+</div>

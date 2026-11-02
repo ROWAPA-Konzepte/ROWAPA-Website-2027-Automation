@@ -1,0 +1,27 @@
+{
+  "zweck": "Sicherung der Kombi-Klassen, die nur das Grafik-Skript zur Laufzeit setzt (Stand 02.11.2026, Runde 94). Falls «Clean up» sie doch entfernt: mit diesen Werten neu anlegen (Webflow-Schnittstelle create_style mit parent_style_names). Variablen-IDs siehe 00_webflow-ids.md.",
+  "variablen": {
+    "plum": "variable-1a78331c-66ce-fda1-e524-e6390f73f1b4",
+    "theme_akzent": "variable-2ff9e1f7-a1cc-b561-337a-62098f4338a2",
+    "theme_ueberschrift": "variable-a89cd6bf-43db-2040-0305-ffc64bf0af71",
+    "white": "variable-f1c9d591-38ee-54e0-1404-03e27f38ebb4",
+    "plum_tint": "variable-76b27da2-711f-784f-24f1-206cc211562e",
+    "plum_gedaempft": "variable-ba0ffbd9-c19e-fcf8-adba-1c83f898413b",
+    "theme_modus_plum": "collection-16fcff89-d6c4-994d-884f-14dff0592147 / mode-48b28a04-e5bc-9acb-b219-f24e229b7747"
+  },
+  "klassen": [
+    {"selektor": ".hero_bar.is-aktiv", "id": "a83c5097-bb05-7ac6-d1a5-8fc7f1add0b6", "main": {"transform": "scaleX(1)"}},
+    {"selektor": ".navbar_vorschau-karte.is-aktiv", "id": "6341f3d2-86b6-f989-8729-e02bc57b7020", "main": {"display": "flex"}},
+    {"selektor": ".orbit_tile.is-aktiv", "id": "b62c6ffe-1d7c-563a-12b7-bca374c5bede", "main": {"border-*-color": "plum", "background-color": "plum"}},
+    {"selektor": ".step_item.is-aktiv", "id": "8c5ab92c-1f8c-f4bd-3564-3a30d452290b", "main": {"border-top-color": "theme_akzent"}},
+    {"selektor": ".step_number.is-aktiv", "id": "11df61bd-7e7f-1b64-55f9-1c9693499adb", "main": {"border-*-color": "theme_akzent", "background-color": "theme_akzent", "color": "white"}},
+    {"selektor": ".themen_link.is-aktiv", "id": "356febb6-1406-6392-6126-11fc3a195401", "main": {"color": "theme_ueberschrift"}, "medium": {"border-bottom-color": "theme_akzent", "color": "theme_akzent"}},
+    {"selektor": ".orbit_tile-name.is-oben", "id": "fc70f7ba-f996-3664-26f2-a004e47c17f5", "main": {"top": "auto", "bottom": "calc(100% + 0.5rem)"}, "small": {"top": "auto", "bottom": "calc(100% + 0.375rem)"}},
+    {"selektor": ".methode_chip.is-otj", "id": "f2c68d6a-a3d4-c66a-1deb-f015504516a7", "main": {"border-*-color": "#e4bfcd", "background-color": "#ffffff", "color": "#1d3149"}},
+    {"selektor": ".methode_tag.is-otj", "id": "33ebb8fe-52a6-4044-8ee3-0c8b0b8de671", "main": {"color": "#aa1351"}},
+    {"selektor": ".methode_zeile.is-otj", "id": "393548a0-6d68-7000-a6b3-9ae2b1d941bf", "main": {"border-left-color": "#aa1351", "background-color": "plum_tint"}},
+    {"selektor": ".nach-oben.is-sichtbar", "id": "07c095f7-12c7-043c-74ae-7ad2dd97f6ab", "main": {"opacity": "1", "pointer-events": "auto", "transform": "none"}},
+    {"selektor": ".card.is-verbunden", "id": "194c2665-1422-ccda-edd8-4fe5905d7251", "main": {"border-*-color": "plum", "background-color": "plum_gedaempft", "box-shadow": "0 22px 44px rgba(17, 29, 44, 0.28)", "transform": "translateY(-4px)", "color": "white", "theme-modus": "theme_modus_plum"}},
+    {"selektor": ".card.is-angetippt", "id": "611ae043-b51b-afc0-6ad5-67dbcb65fc0e", "main": {"box-shadow": "0 0 0 1px #aa1351, 0 26px 50px rgba(17, 29, 44, 0.32)", "transform": "translateY(-12px)"}}
+  ]
+}

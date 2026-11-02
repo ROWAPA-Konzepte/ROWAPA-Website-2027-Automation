@@ -1,0 +1,205 @@
+/* Kombi-Entwürfe G und H (Runde 9). Gilt nur mit Klasse .kombi auf <html> (gesetzt von kombi.js). */
+.kombi{--k-navy:#1D3149;--k-deep:#111D2C;--k-plum:#AA1351;--k-serpent:#486EA3;--k-sea:#A0C4DF;--k-snow:#E8E9E9;--k-weich:cubic-bezier(.7,0,.2,1)}
+
+/* ---------- Hero: Punktemeer + Fotos ---------- */
+.kombi .hero_wrap{position:relative;z-index:3}
+.kombi .hero_scroll{z-index:4}
+.kombi-fotos{position:absolute;inset:0;z-index:1;pointer-events:none}
+.kombi-fotos-innen{position:absolute;inset:0}
+.kombi-fotos img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.2s ease,transform 8s ease}
+.kombi-fotos img.ist-an{opacity:1;transform:scale(1)}
+.kombi-kante{position:absolute;inset:0;z-index:2;pointer-events:none}
+
+/* G: Fotofenster mit 45°-Kante, Plum-Ribbon auf der Kante, Foto löst sich unten ins Punktemeer auf */
+.kombi-g .kombi-fotos{--a:76%;clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%);transition:clip-path 1.4s var(--k-weich) .35s;
+  -webkit-mask-image:linear-gradient(to top,transparent 0,rgba(0,0,0,.35) 22%,#000 48%);mask-image:linear-gradient(to top,transparent 0,rgba(0,0,0,.35) 22%,#000 48%)}
+.kombi-g .kombi-los .kombi-fotos{clip-path:polygon(var(--a) 0,100% 0,100% 100%,calc(var(--a) - var(--kombi-h,700px)) 100%)}
+.kombi-g .kombi-fotos-innen{left:30%}
+.kombi-g .kombi-fotos img{object-position:50% 18%}
+.kombi-g .kombi-fotos::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(17,29,44,.55),rgba(17,29,44,0) 45%)}
+.kombi-g .kombi-kante{--a:76%;background:var(--k-plum);clip-path:polygon(calc(var(--a) - 1.6rem) 0,var(--a) 0,calc(var(--a) - var(--kombi-h,700px)) 100%,calc(var(--a) - var(--kombi-h,700px) - 1.6rem) 100%);
+  -webkit-mask-image:linear-gradient(to top,transparent 5%,#000 55%);mask-image:linear-gradient(to top,transparent 5%,#000 55%);transform:translate(40%,-40%);opacity:0;transition:transform 1.3s var(--k-weich),opacity .6s}
+.kombi-g .kombi-los .kombi-kante{transform:none;opacity:1}
+
+/* H: Fotobühne über die ganze Breite, Text und Wellen bleiben frei, Ribbon oben rechts */
+.kombi-h .section_hero{min-height:calc(100vh - 4.5rem)}
+.kombi-h .kombi-fotos-innen{left:22%}
+.kombi-h .kombi-fotos img{object-position:60% 20%}
+.kombi-h .kombi-fotos{opacity:0;transition:opacity 1.6s ease .2s;
+  -webkit-mask-image:linear-gradient(90deg,transparent 24%,rgba(0,0,0,.55) 50%,#000 74%),linear-gradient(to top,transparent 12%,#000 52%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 24%,rgba(0,0,0,.55) 50%,#000 74%),linear-gradient(to top,transparent 12%,#000 52%);mask-composite:intersect}
+.kombi-h .kombi-los .kombi-fotos{opacity:1}
+.kombi-h .kombi-fotos::after{content:"";position:absolute;inset:0;background:rgba(17,29,44,.25)}
+.kombi-h .kombi-kante{overflow:hidden}
+.kombi-h .kombi-kante::before{content:"";position:absolute;width:34rem;height:2.25rem;right:-9rem;top:4.5rem;background:var(--k-plum);transform:rotate(45deg) translateX(-140%);transition:transform 1.4s var(--k-weich) .6s}
+.kombi-h .kombi-los .kombi-kante::before{transform:rotate(45deg) translateX(0)}
+
+/* ---------- Titel wie D: gross, mit Plum-Strich, der sich zeichnet ---------- */
+.kombi .main-wrapper section:not(.section_hero) .section-head .heading-style-h2{font-size:clamp(2.25rem,1.2rem + 3vw,4.25rem);line-height:1.02;letter-spacing:-.03em;font-weight:700}
+.kombi .main-wrapper section:not(.section_hero) .section-head .heading-style-h2::after{content:"";display:block;width:4rem;height:3px;margin-top:1.25rem;background:var(--k-plum);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--k-weich) .5s}
+.kombi .main-wrapper section.kombi-da:not(.section_hero) .section-head .heading-style-h2::after{transform:scaleX(1)}
+.kombi .section-head .kicker_line{display:none}
+.kombi .section-head .text-style-kicker{color:var(--k-plum)}
+.kombi .theme-kontrast .section-head .text-style-kicker,.kombi .theme-tiefsee .section-head .text-style-kicker{color:var(--k-sea)}
+
+/* ---------- Farbfluss ---------- */
+.kombi-fluss{background-color:transparent!important;position:relative;isolation:isolate;overflow:clip}
+.kombi-fluss::before{content:"";position:absolute;z-index:-1;pointer-events:none;background:var(--_theme---hintergrund)}
+.kombi-g .kombi-fluss::before{inset:0;transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--k-weich)}
+.kombi-g .kombi-fluss.kombi-da::before{transform:scaleX(1)}
+.kombi-h .kombi-fluss::before{top:0;bottom:0;left:-100vh;right:-100vh;transform:translateX(calc(-100% - 100vh)) skewX(-30deg);transition:transform 1.4s var(--k-weich)}
+.kombi-h .kombi-fluss.kombi-da::before{transform:translateX(0) skewX(-30deg)}
+.kombi-dunkel>*{opacity:0;transition:opacity .7s ease .45s}
+.kombi-dunkel.kombi-da>*{opacity:1}
+
+/* ---------- Ribbons ---------- */
+.kombi-mit-ribbon{position:relative;overflow:clip}
+.kombi-ribbon{position:absolute;z-index:0;pointer-events:none;width:26rem;height:1.5rem;background:var(--k-plum)}
+.kombi-mit-ribbon>.padding-global{position:relative;z-index:1}
+.kombi-g .kombi-ribbon{transition:transform 1.2s var(--k-weich) .3s}
+.kombi-g .kombi-ribbon.is-oben-rechts{top:12rem;right:-6rem;transform:rotate(45deg) scaleX(0);transform-origin:right}
+.kombi-g .kombi-ribbon.is-unten-rechts{bottom:12rem;right:-6rem;transform:rotate(-45deg) scaleX(0);transform-origin:right}
+.kombi-g .kombi-ribbon.is-unten-links{bottom:12rem;left:-6rem;transform:rotate(45deg) scaleX(0);transform-origin:left}
+.kombi-g .kombi-ribbon.is-oben-links{top:12rem;left:-6rem;transform:rotate(-45deg) scaleX(0);transform-origin:left}
+.kombi-g .kombi-da .kombi-ribbon.is-oben-rechts,.kombi-g .kombi-da .kombi-ribbon.is-unten-links{transform:rotate(45deg) scaleX(1)}
+.kombi-g .kombi-da .kombi-ribbon.is-unten-rechts,.kombi-g .kombi-da .kombi-ribbon.is-oben-links{transform:rotate(-45deg) scaleX(1)}
+.kombi-h .kombi-ribbon{width:24rem;height:1.5rem;--p:var(--kombi-p,.5)}
+.kombi-h .kombi-ribbon.is-quer-a{top:13.25rem;right:-12rem;transform:rotate(45deg) translateX(calc((var(--p) - .5) * -60rem))}
+.kombi-h .kombi-ribbon.is-quer-b{bottom:13.25rem;left:-12rem;transform:rotate(45deg) translateX(calc((var(--p) - .5) * 60rem))}
+
+/* ---------- Logos wie E: Raster mit Haarlinien, Label-Spalte ---------- */
+.kombi .padding-section-small.is-logos{display:grid;grid-template-columns:12rem 1fr;gap:2rem;align-items:start}
+.kombi .logos_label{position:static;width:auto;height:auto;margin:0;clip-path:none;white-space:normal;overflow:visible;font-family:var(--_typografie---schrift-akzent);font-weight:800;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--k-plum);line-height:1.5;padding-top:1rem}
+.kombi .logos_fade,.kombi .logos_list[aria-hidden="true"]{display:none}
+.kombi .logos_marquee{overflow:visible}
+.kombi .logos_track{width:auto;animation:none!important;transform:none!important}
+.kombi .logos_list{display:grid;grid-template-columns:repeat(6,1fr);gap:0;padding:0;width:100%;border-left:1px solid #d9dde2;border-top:1px solid #d9dde2}
+.kombi .logos_list .logos_image{box-sizing:border-box;width:100%;height:6rem;max-width:none;padding:2rem 1.75rem;object-fit:contain;border-right:1px solid #d9dde2;border-bottom:1px solid #d9dde2;filter:grayscale(1);opacity:.75;transition:filter .3s,opacity .3s,background-color .3s}
+.kombi .logos_list .logos_image:hover{filter:none;opacity:1;background:#F4F5F5}
+.kombi .section_logos .logos_list .logos_image{opacity:0;transform:translateY(.75rem);transition:opacity .5s,transform .5s,filter .3s}
+.kombi .section_logos.kombi-da .logos_list .logos_image{opacity:.75;transform:none}
+.kombi .section_logos.kombi-da .logos_list .logos_image:hover{opacity:1}
+.kombi .section_logos .logos_image:nth-child(2){transition-delay:.05s}.kombi .section_logos .logos_image:nth-child(3){transition-delay:.1s}.kombi .section_logos .logos_image:nth-child(4){transition-delay:.15s}.kombi .section_logos .logos_image:nth-child(5){transition-delay:.2s}.kombi .section_logos .logos_image:nth-child(6){transition-delay:.25s}.kombi .section_logos .logos_image:nth-child(7){transition-delay:.3s}.kombi .section_logos .logos_image:nth-child(8){transition-delay:.35s}.kombi .section_logos .logos_image:nth-child(9){transition-delay:.4s}.kombi .section_logos .logos_image:nth-child(10){transition-delay:.45s}.kombi .section_logos .logos_image:nth-child(11){transition-delay:.5s}.kombi .section_logos .logos_image:nth-child(12){transition-delay:.55s}
+
+/* ---------- Was uns antreibt wie D: Riesentitel, Zahlen senkrecht mit Sea-Linie ---------- */
+.kombi .statement_layout{display:block}
+.kombi .section_antrieb .section-head{max-width:none}
+.kombi .section_antrieb .section-head .heading-style-h2{font-size:clamp(2.75rem,1rem + 5vw,6rem);line-height:1;max-width:16ch}
+.kombi .statement_content{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:4rem;margin-top:3rem;align-items:start}
+.kombi .stats_grid{order:-1;grid-template-columns:1fr;margin:0;gap:1.75rem;padding-right:2rem;position:relative}
+.kombi .stats_grid::after{content:"";position:absolute;right:0;top:0;bottom:0;width:2px;background:var(--k-serpent);transform:scaleY(0);transform-origin:top;transition:transform 1.2s var(--k-weich) .4s}
+.kombi .kombi-da .stats_grid::after{transform:scaleY(1)}
+.kombi .stat_item{border-top:0;padding-top:0;opacity:0;transform:translateX(-1.5rem);transition:opacity .6s,transform .6s var(--k-weich)}
+.kombi .kombi-da .stat_item{opacity:1;transform:none}
+.kombi .kombi-da .stat_item:nth-child(2){transition-delay:.15s}.kombi .kombi-da .stat_item:nth-child(3){transition-delay:.3s}
+.kombi .stat_number{color:var(--k-serpent);font-size:2.75rem}
+.kombi .stat_label{font-size:.9375rem}
+.kombi .statement_text{font-size:clamp(1.5rem,1.1rem + 1.2vw,2.25rem);max-width:30ch;line-height:1.25}
+.kombi-h .stat_number{color:var(--k-plum)}
+
+/* ---------- Team wie F: Mosaik mit Kennzahl-Kachel ---------- */
+.kombi .section_team .reihe_pfeil,.kombi .reihe_fortschritt,.kombi .team_mehr{display:none!important}
+.kombi .reihe_maske{overflow:visible}
+.kombi .team_grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:17rem;grid-auto-flow:row;gap:1rem;overflow:visible;margin:0;padding:0;scroll-snap-type:none}
+.kombi .team_card{position:relative;overflow:hidden;border-radius:var(--_spacing---radius-medium-8,8px);background:var(--k-navy);justify-content:flex-end;padding:1rem 1.25rem;gap:.15rem;isolation:isolate}
+.kombi .team_card:nth-child(1){grid-column:1;grid-row:1 / span 2}
+.kombi .team_card:nth-child(2){grid-column:3;grid-row:1 / span 2}
+.kombi .team_card:nth-child(3){grid-column:2;grid-row:1}
+.kombi .kombi-team-info{grid-column:2;grid-row:2}
+.kombi .team_card:nth-child(5){grid-column:4;grid-row:1}
+.kombi .team_card:nth-child(6){grid-column:4;grid-row:2}
+.kombi .team_image-wrapper{position:absolute;inset:0;padding:0;margin:0;border-radius:0;z-index:-1}
+.kombi .team_image-wrapper img{transition:transform .7s ease}
+.kombi .team_card:hover .team_image-wrapper img{transform:scale(1.05)}
+.kombi .team_image-wrapper::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,29,44,0) 55%,rgba(17,29,44,.88) 100%)}
+.kombi .team_card::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--k-plum);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--k-weich)}
+.kombi .team_card:hover::after{transform:scaleX(1)}
+.kombi .team_card .person_name{color:#fff}
+.kombi .team_card .person_role{color:rgba(255,255,255,.8)}
+.kombi-team-info{background:var(--k-navy);color:#fff;border-radius:var(--_spacing---radius-medium-8,8px);padding:1.75rem;display:flex;flex-direction:column;justify-content:space-between}
+.kombi-team-info b{font-size:4rem;line-height:1;letter-spacing:-.04em;font-weight:700;color:var(--k-sea)}
+.kombi-team-info span{font-size:1rem;line-height:1.4;color:rgba(255,255,255,.85)}
+.kombi-h .kombi-team-info{background:var(--k-plum)}.kombi-h .kombi-team-info b{color:#fff}
+.kombi .section_team .team_card,.kombi .section_team .kombi-team-info{opacity:0;transform:translateY(1.5rem);transition:opacity .6s,transform .7s var(--k-weich)}
+.kombi .section_team.kombi-da .team_card,.kombi .section_team.kombi-da .kombi-team-info{opacity:1;transform:none}
+.kombi .section_team.kombi-da .team_grid>*:nth-child(2){transition-delay:.1s}.kombi .section_team.kombi-da .team_grid>*:nth-child(3){transition-delay:.2s}.kombi .section_team.kombi-da .team_grid>*:nth-child(4){transition-delay:.3s}.kombi .section_team.kombi-da .team_grid>*:nth-child(5){transition-delay:.4s}.kombi .section_team.kombi-da .team_grid>*:nth-child(6){transition-delay:.5s}
+
+/* ---------- Lösungen G: Schwerpunkt links, Themen als Zeilen rechts ---------- */
+.kombi-g .bento_grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);grid-auto-rows:auto;gap:0 clamp(1.5rem,1rem + 2vw,3rem)}
+.kombi-g .bento_featured{grid-area:1 / 1 / 5 / 2}
+.kombi-g .bento_grid>.card{grid-column:2;border:0;border-top:1px solid rgba(29,49,73,.18);border-radius:0;background:transparent;box-shadow:none;position:relative;transition:background-color .35s}
+.kombi-g .bento_grid>.card:last-child{border-bottom:1px solid rgba(29,49,73,.18)}
+.kombi-g .bento_grid>.card::before{content:"";position:absolute;left:0;top:-1px;bottom:0;width:4px;background:var(--k-plum);transform:scaleY(0);transform-origin:top;transition:transform .4s var(--k-weich)}
+.kombi-g .bento_grid>.card:hover{background:#fff}
+.kombi-g .bento_grid>.card:hover::before{transform:scaleY(1)}
+.kombi-g .bento_grid>.card .card_content{display:grid;grid-template-columns:6rem minmax(0,1fr) 7rem;grid-template-areas:"kick titel bild" "kick text bild" "kick fuss bild";gap:.35rem 1.5rem;padding:1.75rem 1.25rem 1.75rem 1.5rem;align-items:start}
+.kombi-g .bento_grid>.card .text-style-kicker{grid-area:kick;padding-top:.35rem}
+.kombi-g .bento_grid>.card h3{grid-area:titel}
+.kombi-g .bento_grid>.card p{grid-area:text;max-width:36rem}
+.kombi-g .bento_grid>.card .card_grafik{grid-area:bild;height:6rem;margin:0;align-self:center}
+.kombi-g .bento_grid>.card .card_footer{grid-area:fuss;padding-top:.25rem;justify-content:flex-start}
+.kombi-g .bento_grid>.card .icon-box{transition:transform .35s}
+.kombi-g .bento_grid>.card:hover .icon-box{transform:translateX(.35rem)}
+.kombi-g .bento_grid>.card{opacity:0;transform:translateX(2rem);transition:opacity .6s,transform .7s var(--k-weich),background-color .35s}
+.kombi-g .kombi-da .bento_grid>.card{opacity:1;transform:none}
+.kombi-g .kombi-da .bento_grid>.card:nth-child(3){transition-delay:.1s}.kombi-g .kombi-da .bento_grid>.card:nth-child(4){transition-delay:.2s}.kombi-g .kombi-da .bento_grid>.card:nth-child(5){transition-delay:.3s}
+.kombi-g .card_featured{min-height:36rem}
+
+/* ---------- Lösungen H: Akkordeon (fünf Spalten, eine öffnet sich) ---------- */
+@media (min-width:992px){
+.kombi-h .bento_grid{display:flex;gap:.75rem;height:34rem}
+.kombi-h .bento_grid>*{flex:1 1 0;min-width:0;transition:flex-grow .7s var(--k-weich);position:relative}
+.kombi-h .bento_grid>.kombi-offen{flex-grow:4.2}
+.kombi-h .bento_featured{grid-area:auto}
+.kombi-h .bento_grid>.card,.kombi-h .card_featured{height:100%;min-height:0;overflow:hidden}
+.kombi-h .bento_grid>.card{background:#fff}
+.kombi-h .bento_grid>.card .card_content{height:100%;position:relative}
+.kombi-h .bento_grid>*:not(.kombi-offen) p,.kombi-h .bento_grid>*:not(.kombi-offen) .card_footer,.kombi-h .bento_grid>*:not(.kombi-offen) .card_featured_footer{opacity:0;pointer-events:none}
+.kombi-h .bento_grid p,.kombi-h .card_footer,.kombi-h .card_featured_footer{transition:opacity .4s .25s;min-width:22rem}
+.kombi-h .bento_grid>*:not(.kombi-offen) p{transition-delay:0s}
+.kombi-h .bento_grid>*:not(.kombi-offen) h3{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;position:absolute;left:1.25rem;bottom:1.5rem;margin:0}
+.kombi-h .bento_grid>* h3{min-width:0}
+.kombi-h .bento_grid>.kombi-offen h3{max-width:26rem}
+.kombi-h .bento_grid>.card .card_grafik{position:absolute;right:1.5rem;bottom:4.5rem;width:13rem;height:10rem;margin:0;transition:opacity .5s}
+.kombi-h .bento_grid>.card:not(.kombi-offen) .card_grafik{opacity:.18}
+.kombi-h .card_featured_grafik{left:auto;width:44rem;top:auto;height:64%}
+.kombi-h .bento_featured:not(.kombi-offen) .card_featured_grafik{opacity:.35}
+.kombi-h .bento_featured:not(.kombi-offen) .card_featured_content h3{color:#fff}
+.kombi-h .bento_grid>.kombi-offen{box-shadow:inset 0 4px 0 var(--k-plum)}
+.kombi-h .bento_grid>.kombi-offen .card_featured{box-shadow:inset 0 4px 0 var(--k-plum)}
+.kombi-h .bento_featured.kombi-offen{box-shadow:none}
+}
+
+/* ---------- Handy und Tablet ---------- */
+@media (max-width:991px){
+.kombi .padding-section-small.is-logos{grid-template-columns:1fr;gap:1rem}
+.kombi .logos_list{grid-template-columns:repeat(4,1fr)}
+.kombi-g .bento_grid{grid-template-columns:1fr}
+.kombi-g .bento_featured{grid-area:auto}
+.kombi-g .bento_grid>.card{grid-column:auto}
+.kombi .team_grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:15rem}
+.kombi .team_card:nth-child(n),.kombi .kombi-team-info{grid-column:auto;grid-row:auto}
+.kombi .team_card:nth-child(1){grid-row:span 2}
+}
+@media (max-width:767px){
+.kombi .logos_list{grid-template-columns:repeat(3,1fr)}
+.kombi .logos_list .logos_image{height:4.5rem;padding:1.25rem 1rem}
+.kombi .statement_content{grid-template-columns:1fr;gap:2rem}
+.kombi .stats_grid{grid-template-columns:repeat(3,1fr);padding:0 0 1.5rem;gap:1rem}
+.kombi .stats_grid::after{top:auto;left:0;right:0;width:auto;height:2px;transform:scaleX(0);transform-origin:left}
+.kombi .kombi-da .stats_grid::after{transform:scaleX(1)}
+.kombi .stat_number{font-size:2rem}
+.kombi-g .bento_grid>.card .card_content{grid-template-columns:1fr 5rem;grid-template-areas:"kick bild" "titel bild" "text text" "fuss fuss"}
+.kombi .team_grid{grid-auto-rows:13rem;gap:.75rem}
+.kombi-team-info b{font-size:3rem}
+.kombi-g .kombi-fotos,.kombi-g .kombi-los .kombi-fotos{clip-path:none;opacity:.45}
+.kombi-g .kombi-kante{display:none}
+.kombi-h .kombi-fotos{-webkit-mask-image:linear-gradient(to top,transparent 20%,#000 70%);mask-image:linear-gradient(to top,transparent 20%,#000 70%);-webkit-mask-composite:source-over;mask-composite:add}
+.kombi-h .kombi-los .kombi-fotos{opacity:.55}
+.kombi-ribbon{width:14rem;height:1rem}
+.kombi-h .kombi-ribbon{width:14rem;height:1rem}
+.kombi-h .kombi-ribbon.is-quer-a{right:-7rem;top:7rem}.kombi-h .kombi-ribbon.is-quer-b{left:-7rem;bottom:7rem}
+}
+@media (prefers-reduced-motion:reduce){
+.kombi *,.kombi *::before,.kombi *::after{transition:none!important}
+}
